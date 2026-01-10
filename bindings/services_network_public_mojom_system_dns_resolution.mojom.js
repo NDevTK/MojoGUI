@@ -7,8 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
 
 network.mojom.SystemDnsResolver = {};
 network.mojom.SystemDnsResolver.$interfaceName = 'network.mojom.SystemDnsResolver';
@@ -86,6 +84,35 @@ network.mojom.SystemDnsResolver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.SystemDnsResolverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.SystemDnsResolver_Resolve_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolve(params.hostname, params.addr_family, params.flags, params.network);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.SystemDnsResolverReceiver = network.mojom.SystemDnsResolverReceiver;
 
 network.mojom.SystemDnsResolverPtr = network.mojom.SystemDnsResolverRemote;
 network.mojom.SystemDnsResolverRequest = network.mojom.SystemDnsResolverPendingReceiver;

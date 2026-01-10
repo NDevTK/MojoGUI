@@ -7,10 +7,6 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
 
 arc.mojom.VideoFrameSpec = { $: {} };
 arc.mojom.VideoFramePool = {};
@@ -38,7 +34,7 @@ mojo.internal.Struct(
 // Interface: VideoFramePool
 mojo.internal.Struct(
     arc.mojom.VideoFramePool_Initialize_ParamsSpec, 'arc.mojom.VideoFramePool_Initialize_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(arc.mojom.VideoFramePoolClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -118,6 +114,40 @@ arc.mojom.VideoFramePool.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.VideoFramePoolReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.VideoFramePool_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.client);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addVideoFrame(params.video_frame);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.VideoFramePoolReceiver = arc.mojom.VideoFramePoolReceiver;
+
 arc.mojom.VideoFramePoolPtr = arc.mojom.VideoFramePoolRemote;
 arc.mojom.VideoFramePoolRequest = arc.mojom.VideoFramePoolPendingReceiver;
 
@@ -190,6 +220,35 @@ arc.mojom.VideoFramePoolClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.VideoFramePoolClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestVideoFrames(params.format, params.coded_size, params.visible_rect, params.num_frames);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.VideoFramePoolClientReceiver = arc.mojom.VideoFramePoolClientReceiver;
 
 arc.mojom.VideoFramePoolClientPtr = arc.mojom.VideoFramePoolClientRemote;
 arc.mojom.VideoFramePoolClientRequest = arc.mojom.VideoFramePoolClientPendingReceiver;

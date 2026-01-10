@@ -7,25 +7,8 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var proxy_resolver = proxy_resolver || {};
 var url = url || {};
 
 network.mojom.NavigationDeliveryTypeSpec = { $: mojo.internal.Enum() };

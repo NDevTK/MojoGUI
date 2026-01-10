@@ -7,9 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
+var network = network || {};
 var url = url || {};
-var blink = blink || {};
 
 blink.mojom.URLLoaderFactoryBundleSpec = { $: {} };
 

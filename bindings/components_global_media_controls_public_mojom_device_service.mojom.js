@@ -7,8 +7,8 @@
 // Module namespace
 var global_media_controls = global_media_controls || {};
 global_media_controls.mojom = global_media_controls.mojom || {};
-var services = services || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var media_session = media_session || {};
 var gfx = gfx || {};
 
 global_media_controls.mojom.IconTypeSpec = { $: mojo.internal.Enum() };
@@ -125,6 +125,28 @@ global_media_controls.mojom.DeviceListHost.getRemote = function() {
   return remote.$;
 };
 
+global_media_controls.mojom.DeviceListHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectDevice(params.device_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+global_media_controls.mojom.DeviceListHostReceiver = global_media_controls.mojom.DeviceListHostReceiver;
+
 global_media_controls.mojom.DeviceListHostPtr = global_media_controls.mojom.DeviceListHostRemote;
 global_media_controls.mojom.DeviceListHostRequest = global_media_controls.mojom.DeviceListHostPendingReceiver;
 
@@ -204,6 +226,33 @@ global_media_controls.mojom.DeviceListClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+global_media_controls.mojom.DeviceListClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDevicesUpdated(params.devices);
+          break;
+        }
+        case 1: {
+          const params = global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPermissionRejected();
+          break;
+        }
+      }
+    });
+  }
+};
+
+global_media_controls.mojom.DeviceListClientReceiver = global_media_controls.mojom.DeviceListClientReceiver;
 
 global_media_controls.mojom.DeviceListClientPtr = global_media_controls.mojom.DeviceListClientRemote;
 global_media_controls.mojom.DeviceListClientRequest = global_media_controls.mojom.DeviceListClientPendingReceiver;
@@ -304,6 +353,38 @@ global_media_controls.mojom.DeviceService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+global_media_controls.mojom.DeviceServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceListHostForSession(params.session_id, params.host_receiver, params.client_remote);
+          break;
+        }
+        case 1: {
+          const params = global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceListHostForPresentation(params.host_receiver, params.client_remote);
+          break;
+        }
+        case 2: {
+          const params = global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDevicePickerProvider(params.provider_remote);
+          break;
+        }
+      }
+    });
+  }
+};
+
+global_media_controls.mojom.DeviceServiceReceiver = global_media_controls.mojom.DeviceServiceReceiver;
 
 global_media_controls.mojom.DeviceServicePtr = global_media_controls.mojom.DeviceServiceRemote;
 global_media_controls.mojom.DeviceServiceRequest = global_media_controls.mojom.DeviceServicePendingReceiver;
@@ -494,6 +575,68 @@ global_media_controls.mojom.DevicePickerProvider.getRemote = function() {
   return remote.$;
 };
 
+global_media_controls.mojom.DevicePickerProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createItem(params.source_id);
+          break;
+        }
+        case 1: {
+          const params = global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteItem();
+          break;
+        }
+        case 2: {
+          const params = global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showItem();
+          break;
+        }
+        case 3: {
+          const params = global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hideItem();
+          break;
+        }
+        case 4: {
+          const params = global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMetadataChanged(params.metadata);
+          break;
+        }
+        case 5: {
+          const params = global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onArtworkImageChanged(params.artwork_image);
+          break;
+        }
+        case 6: {
+          const params = global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFaviconImageChanged(params.favicon_image);
+          break;
+        }
+        case 7: {
+          const params = global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 8: {
+          const params = global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hideMediaUI();
+          break;
+        }
+      }
+    });
+  }
+};
+
+global_media_controls.mojom.DevicePickerProviderReceiver = global_media_controls.mojom.DevicePickerProviderReceiver;
+
 global_media_controls.mojom.DevicePickerProviderPtr = global_media_controls.mojom.DevicePickerProviderRemote;
 global_media_controls.mojom.DevicePickerProviderRequest = global_media_controls.mojom.DevicePickerProviderPendingReceiver;
 
@@ -602,6 +745,43 @@ global_media_controls.mojom.DevicePickerObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+global_media_controls.mojom.DevicePickerObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMediaUIOpened();
+          break;
+        }
+        case 1: {
+          const params = global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMediaUIClosed();
+          break;
+        }
+        case 2: {
+          const params = global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMediaUIUpdated();
+          break;
+        }
+        case 3: {
+          const params = global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPickerDismissed();
+          break;
+        }
+      }
+    });
+  }
+};
+
+global_media_controls.mojom.DevicePickerObserverReceiver = global_media_controls.mojom.DevicePickerObserverReceiver;
 
 global_media_controls.mojom.DevicePickerObserverPtr = global_media_controls.mojom.DevicePickerObserverRemote;
 global_media_controls.mojom.DevicePickerObserverRequest = global_media_controls.mojom.DevicePickerObserverPendingReceiver;

@@ -7,8 +7,7 @@
 // Module namespace
 var commerce = commerce || {};
 commerce.mojom = commerce.mojom || {};
-var components = components || {};
-var components = components || {};
+var shopping_service = shopping_service || {};
 var url = url || {};
 
 commerce.mojom.EligibilityDetailSpec = { $: {} };
@@ -134,6 +133,28 @@ commerce.mojom.CommerceInternalsHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+commerce.mojom.CommerceInternalsHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCommerceInternalsHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+commerce.mojom.CommerceInternalsHandlerFactoryReceiver = commerce.mojom.CommerceInternalsHandlerFactoryReceiver;
 
 commerce.mojom.CommerceInternalsHandlerFactoryPtr = commerce.mojom.CommerceInternalsHandlerFactoryRemote;
 commerce.mojom.CommerceInternalsHandlerFactoryRequest = commerce.mojom.CommerceInternalsHandlerFactoryPendingReceiver;
@@ -320,6 +341,93 @@ commerce.mojom.CommerceInternalsHandler.getRemote = function() {
   return remote.$;
 };
 
+commerce.mojom.CommerceInternalsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getIsShoppingListEligible();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetPriceTrackingEmailPref();
+          break;
+        }
+        case 2: {
+          const params = commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getProductInfoForUrl(params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSubscriptionDetails();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getProductSpecificationsDetails();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetProductSpecifications();
+          break;
+        }
+        case 6: {
+          const params = commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getShoppingEligibilityDetails();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+commerce.mojom.CommerceInternalsHandlerReceiver = commerce.mojom.CommerceInternalsHandlerReceiver;
+
 commerce.mojom.CommerceInternalsHandlerPtr = commerce.mojom.CommerceInternalsHandlerRemote;
 commerce.mojom.CommerceInternalsHandlerRequest = commerce.mojom.CommerceInternalsHandlerPendingReceiver;
 
@@ -384,6 +492,28 @@ commerce.mojom.CommerceInternalsPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+commerce.mojom.CommerceInternalsPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onShoppingListEligibilityChanged(params.eligible);
+          break;
+        }
+      }
+    });
+  }
+};
+
+commerce.mojom.CommerceInternalsPageReceiver = commerce.mojom.CommerceInternalsPageReceiver;
 
 commerce.mojom.CommerceInternalsPagePtr = commerce.mojom.CommerceInternalsPageRemote;
 commerce.mojom.CommerceInternalsPageRequest = commerce.mojom.CommerceInternalsPagePendingReceiver;

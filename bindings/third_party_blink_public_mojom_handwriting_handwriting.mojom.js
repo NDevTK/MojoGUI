@@ -7,7 +7,7 @@
 // Module namespace
 var handwriting = handwriting || {};
 handwriting.mojom = handwriting.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 handwriting.mojom.HandwritingRecognitionTypeSpec = { $: mojo.internal.Enum() };
@@ -198,6 +198,35 @@ handwriting.mojom.HandwritingRecognizer.getRemote = function() {
   return remote.$;
 };
 
+handwriting.mojom.HandwritingRecognizerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPrediction(params.strokes, params.hints);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+handwriting.mojom.HandwritingRecognizerReceiver = handwriting.mojom.HandwritingRecognizerReceiver;
+
 handwriting.mojom.HandwritingRecognizerPtr = handwriting.mojom.HandwritingRecognizerRemote;
 handwriting.mojom.HandwritingRecognizerRequest = handwriting.mojom.HandwritingRecognizerPendingReceiver;
 
@@ -291,6 +320,47 @@ handwriting.mojom.HandwritingRecognitionService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+handwriting.mojom.HandwritingRecognitionServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createHandwritingRecognizer(params.constraint);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queryHandwritingRecognizer(params.constraint);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+handwriting.mojom.HandwritingRecognitionServiceReceiver = handwriting.mojom.HandwritingRecognitionServiceReceiver;
 
 handwriting.mojom.HandwritingRecognitionServicePtr = handwriting.mojom.HandwritingRecognitionServiceRemote;
 handwriting.mojom.HandwritingRecognitionServiceRequest = handwriting.mojom.HandwritingRecognitionServicePendingReceiver;

@@ -7,16 +7,8 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var sandbox = sandbox || {};
 var blink = blink || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
 
 ax.mojom.AssistiveTechnologyController = {};
 ax.mojom.AssistiveTechnologyController.$interfaceName = 'ax.mojom.AssistiveTechnologyController';
@@ -98,6 +90,28 @@ ax.mojom.AssistiveTechnologyController.getRemote = function() {
   return remote.$;
 };
 
+ax.mojom.AssistiveTechnologyControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableAssistiveTechnology(params.enabled_features);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.mojom.AssistiveTechnologyControllerReceiver = ax.mojom.AssistiveTechnologyControllerReceiver;
+
 ax.mojom.AssistiveTechnologyControllerPtr = ax.mojom.AssistiveTechnologyControllerRemote;
 ax.mojom.AssistiveTechnologyControllerRequest = ax.mojom.AssistiveTechnologyControllerPendingReceiver;
 
@@ -118,7 +132,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec, 'ax.mojom.AccessibilityService_ConnectDevToolsAgent_Params', [
-      mojo.internal.StructField('agent', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('agent', 0, 0, pending_associated_receiver<blink.mojom.DevToolsAgent>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('type', 8, 0, ax.mojom.AssistiveTechnologyTypeSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -197,6 +211,38 @@ ax.mojom.AccessibilityService.getRemote = function() {
   return remote.$;
 };
 
+ax.mojom.AccessibilityServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindAccessibilityServiceClient(params.accessibility_service_client);
+          break;
+        }
+        case 1: {
+          const params = ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindAssistiveTechnologyController(params.at_controller, params.enabled_features);
+          break;
+        }
+        case 2: {
+          const params = ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectDevToolsAgent(params.agent, params.type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.mojom.AccessibilityServiceReceiver = ax.mojom.AccessibilityServiceReceiver;
+
 ax.mojom.AccessibilityServicePtr = ax.mojom.AccessibilityServiceRemote;
 ax.mojom.AccessibilityServiceRequest = ax.mojom.AccessibilityServicePendingReceiver;
 
@@ -204,7 +250,7 @@ ax.mojom.AccessibilityServiceRequest = ax.mojom.AccessibilityServicePendingRecei
 // Interface: AccessibilityServiceClient
 mojo.internal.Struct(
     ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec, 'ax.mojom.AccessibilityServiceClient_BindAutomation_Params', [
-      mojo.internal.StructField('automation', 0, 0, mojo.internal.AssociatedInterfaceProxy(ax.mojom.AutomationRemote), null, false, 0, undefined),
+      mojo.internal.StructField('automation', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -373,6 +419,63 @@ ax.mojom.AccessibilityServiceClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ax.mojom.AccessibilityServiceClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindAutomation(params.automation);
+          break;
+        }
+        case 1: {
+          const params = ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindAutomationClient(params.automation_client);
+          break;
+        }
+        case 2: {
+          const params = ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindAutoclickClient(params.autoclick_client);
+          break;
+        }
+        case 3: {
+          const params = ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSpeechRecognition(params.sr_receiver);
+          break;
+        }
+        case 4: {
+          const params = ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindTts(params.tts_receiver);
+          break;
+        }
+        case 5: {
+          const params = ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindUserInput(params.user_input_receiver);
+          break;
+        }
+        case 6: {
+          const params = ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindUserInterface(params.user_interface_receiver);
+          break;
+        }
+        case 7: {
+          const params = ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindAccessibilityFileLoader(params.file_loader_receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.mojom.AccessibilityServiceClientReceiver = ax.mojom.AccessibilityServiceClientReceiver;
 
 ax.mojom.AccessibilityServiceClientPtr = ax.mojom.AccessibilityServiceClientRemote;
 ax.mojom.AccessibilityServiceClientRequest = ax.mojom.AccessibilityServiceClientPendingReceiver;

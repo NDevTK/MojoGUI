@@ -7,6 +7,7 @@
 // Module namespace
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
+var mojo_base = mojo_base || {};
 
 auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec = { $: mojo.internal.Enum() };
 auction_worklet.mojom.TrustedSignalsCacheKeySpec = { $: {} };
@@ -111,6 +112,33 @@ auction_worklet.mojom.TrustedSignalsCacheClient.getRemote = function() {
   return remote.$;
 };
 
+auction_worklet.mojom.TrustedSignalsCacheClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSuccess(params.compression_scheme, params.compression_group_data);
+          break;
+        }
+        case 1: {
+          const params = auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error_message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+auction_worklet.mojom.TrustedSignalsCacheClientReceiver = auction_worklet.mojom.TrustedSignalsCacheClientReceiver;
+
 auction_worklet.mojom.TrustedSignalsCacheClientPtr = auction_worklet.mojom.TrustedSignalsCacheClientRemote;
 auction_worklet.mojom.TrustedSignalsCacheClientRequest = auction_worklet.mojom.TrustedSignalsCacheClientPendingReceiver;
 
@@ -176,6 +204,28 @@ auction_worklet.mojom.TrustedSignalsCache.getRemote = function() {
     'context');
   return remote.$;
 };
+
+auction_worklet.mojom.TrustedSignalsCacheReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTrustedSignals(params.compression_group_token, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+auction_worklet.mojom.TrustedSignalsCacheReceiver = auction_worklet.mojom.TrustedSignalsCacheReceiver;
 
 auction_worklet.mojom.TrustedSignalsCachePtr = auction_worklet.mojom.TrustedSignalsCacheRemote;
 auction_worklet.mojom.TrustedSignalsCacheRequest = auction_worklet.mojom.TrustedSignalsCachePendingReceiver;

@@ -7,7 +7,7 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var services = services || {};
+var memory_instrumentation = memory_instrumentation || {};
 
 arc.mojom.ProcessStateSpec = { $: mojo.internal.Enum() };
 arc.mojom.PressureLevelSpec = { $: mojo.internal.Enum() };
@@ -312,6 +312,100 @@ arc.mojom.ProcessInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.ProcessInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.ProcessInstance_KillProcess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.killProcess(params.pid, params.reason);
+          break;
+        }
+        case 5: {
+          const params = arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestProcessList();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestApplicationProcessMemoryInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestSystemProcessMemoryInfo(params.nspids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applyHostMemoryPressureDeprecated(params.level, params.reclaim_target);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applyHostMemoryPressure(params.level, params.reclaim_target);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestLowMemoryKillCounts();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ProcessInstanceReceiver = arc.mojom.ProcessInstanceReceiver;
 
 arc.mojom.ProcessInstancePtr = arc.mojom.ProcessInstanceRemote;
 arc.mojom.ProcessInstanceRequest = arc.mojom.ProcessInstancePendingReceiver;

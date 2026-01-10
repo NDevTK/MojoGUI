@@ -147,6 +147,47 @@ chromeos.cfm.mojom.CfmBrowser.getRemote = function() {
   return remote.$;
 };
 
+chromeos.cfm.mojom.CfmBrowserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVariationsData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMemoryDetails();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.cfm.mojom.CfmBrowserReceiver = chromeos.cfm.mojom.CfmBrowserReceiver;
+
 chromeos.cfm.mojom.CfmBrowserPtr = chromeos.cfm.mojom.CfmBrowserRemote;
 chromeos.cfm.mojom.CfmBrowserRequest = chromeos.cfm.mojom.CfmBrowserPendingReceiver;
 

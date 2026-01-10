@@ -7,9 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
-var blink = blink || {};
-var blink = blink || {};
 var url = url || {};
 
 blink.mojom.ClipboardFormatSpec = { $: mojo.internal.Enum() };
@@ -153,6 +152,28 @@ blink.mojom.ClipboardListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ClipboardListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClipboardDataChanged(params.types, params.change_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ClipboardListenerReceiver = blink.mojom.ClipboardListenerReceiver;
 
 blink.mojom.ClipboardListenerPtr = blink.mojom.ClipboardListenerRemote;
 blink.mojom.ClipboardListenerRequest = blink.mojom.ClipboardListenerPendingReceiver;
@@ -668,6 +689,234 @@ blink.mojom.ClipboardHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ClipboardHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSequenceNumber(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isFormatAvailable(params.format, params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readAvailableTypes(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.ClipboardHost_ReadText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readText(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.ClipboardHost_ReadHtml_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readHtml(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.ClipboardHost_ReadSvg_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readSvg(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.ClipboardHost_ReadRtf_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readRtf(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.ClipboardHost_ReadPng_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readPng(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.ClipboardHost_ReadFiles_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readFiles(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readDataTransferCustomData(params.buffer, params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readAvailableCustomAndStandardFormats();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readUnsanitizedCustomFormat(params.format);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = blink.mojom.ClipboardHost_WriteText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeText(params.text);
+          break;
+        }
+        case 13: {
+          const params = blink.mojom.ClipboardHost_WriteHtml_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeHtml(params.markup, params.url);
+          break;
+        }
+        case 14: {
+          const params = blink.mojom.ClipboardHost_WriteSvg_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeSvg(params.markup);
+          break;
+        }
+        case 15: {
+          const params = blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeSmartPasteMarker();
+          break;
+        }
+        case 16: {
+          const params = blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeDataTransferCustomData(params.data);
+          break;
+        }
+        case 17: {
+          const params = blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeBookmark(params.url, params.title);
+          break;
+        }
+        case 18: {
+          const params = blink.mojom.ClipboardHost_WriteImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeImage(params.image);
+          break;
+        }
+        case 19: {
+          const params = blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeUnsanitizedCustomFormat(params.format, params.data);
+          break;
+        }
+        case 20: {
+          const params = blink.mojom.ClipboardHost_CommitWrite_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.commitWrite();
+          break;
+        }
+        case 21: {
+          const params = blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeStringToFindPboard(params.text);
+          break;
+        }
+        case 22: {
+          const params = blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPlatformPermissionState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 23: {
+          const params = blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerClipboardListener(params.listener);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ClipboardHostReceiver = blink.mojom.ClipboardHostReceiver;
 
 blink.mojom.ClipboardHostPtr = blink.mojom.ClipboardHostRemote;
 blink.mojom.ClipboardHostRequest = blink.mojom.ClipboardHostPendingReceiver;

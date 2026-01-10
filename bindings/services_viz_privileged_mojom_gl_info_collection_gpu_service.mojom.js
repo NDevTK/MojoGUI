@@ -7,6 +7,7 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var gpu = gpu || {};
 
 viz.mojom.InfoCollectionGpuService = {};
 viz.mojom.InfoCollectionGpuService.$interfaceName = 'viz.mojom.InfoCollectionGpuService';
@@ -104,6 +105,47 @@ viz.mojom.InfoCollectionGpuService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.InfoCollectionGpuServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getGpuSupportedDirectXVersionAndDevicePerfInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getGpuSupportedVulkanVersionInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.InfoCollectionGpuServiceReceiver = viz.mojom.InfoCollectionGpuServiceReceiver;
 
 viz.mojom.InfoCollectionGpuServicePtr = viz.mojom.InfoCollectionGpuServiceRemote;
 viz.mojom.InfoCollectionGpuServiceRequest = viz.mojom.InfoCollectionGpuServicePendingReceiver;

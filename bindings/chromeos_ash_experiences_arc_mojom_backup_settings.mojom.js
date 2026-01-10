@@ -74,6 +74,28 @@ arc.mojom.BackupSettingsInstance.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.BackupSettingsInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBackupEnabled(params.enabled, params.managed);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.BackupSettingsInstanceReceiver = arc.mojom.BackupSettingsInstanceReceiver;
+
 arc.mojom.BackupSettingsInstancePtr = arc.mojom.BackupSettingsInstanceRemote;
 arc.mojom.BackupSettingsInstanceRequest = arc.mojom.BackupSettingsInstancePendingReceiver;
 

@@ -7,6 +7,8 @@
 // Module namespace
 var audio = audio || {};
 audio.mojom = audio.mojom || {};
+var media = media || {};
+var sandbox = sandbox || {};
 
 audio.mojom.LogFactoryManager = {};
 audio.mojom.LogFactoryManager.$interfaceName = 'audio.mojom.LogFactoryManager';
@@ -72,6 +74,28 @@ audio.mojom.LogFactoryManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+audio.mojom.LogFactoryManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLogFactory(params.factory);
+          break;
+        }
+      }
+    });
+  }
+};
+
+audio.mojom.LogFactoryManagerReceiver = audio.mojom.LogFactoryManagerReceiver;
 
 audio.mojom.LogFactoryManagerPtr = audio.mojom.LogFactoryManagerRemote;
 audio.mojom.LogFactoryManagerRequest = audio.mojom.LogFactoryManagerPendingReceiver;

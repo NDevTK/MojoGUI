@@ -89,6 +89,28 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory.getRemo
   return remote.$;
 };
 
+customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCustomizeColorSchemeModeHandler(params.pending_client, params.pending_handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryReceiver = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryReceiver;
+
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryPtr = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemote;
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRequest = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryPendingReceiver;
 
@@ -169,6 +191,33 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler.getRemote = fu
   return remote.$;
 };
 
+customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setColorSchemeMode(params.colorSchemeMode);
+          break;
+        }
+        case 1: {
+          const params = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initializeColorSchemeMode();
+          break;
+        }
+      }
+    });
+  }
+};
+
+customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerReceiver = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerReceiver;
+
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerPtr = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote;
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRequest = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerPendingReceiver;
 
@@ -233,6 +282,28 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient.getRemote = fun
     'context');
   return remote.$;
 };
+
+customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setColorSchemeMode(params.colorSchemeMode);
+          break;
+        }
+      }
+    });
+  }
+};
+
+customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientReceiver = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientReceiver;
 
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientPtr = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote;
 customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRequest = customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientPendingReceiver;

@@ -144,6 +144,35 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTts.getRemote = function() {
   return remote.$;
 };
 
+ash.enhanced_network_tts.mojom.EnhancedNetworkTtsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAudioData(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.enhanced_network_tts.mojom.EnhancedNetworkTtsReceiver = ash.enhanced_network_tts.mojom.EnhancedNetworkTtsReceiver;
+
 ash.enhanced_network_tts.mojom.EnhancedNetworkTtsPtr = ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemote;
 ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRequest = ash.enhanced_network_tts.mojom.EnhancedNetworkTtsPendingReceiver;
 
@@ -208,6 +237,28 @@ ash.enhanced_network_tts.mojom.AudioDataObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.enhanced_network_tts.mojom.AudioDataObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAudioDataReceived(params.response);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.enhanced_network_tts.mojom.AudioDataObserverReceiver = ash.enhanced_network_tts.mojom.AudioDataObserverReceiver;
 
 ash.enhanced_network_tts.mojom.AudioDataObserverPtr = ash.enhanced_network_tts.mojom.AudioDataObserverRemote;
 ash.enhanced_network_tts.mojom.AudioDataObserverRequest = ash.enhanced_network_tts.mojom.AudioDataObserverPendingReceiver;

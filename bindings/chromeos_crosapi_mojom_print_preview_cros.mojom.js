@@ -7,9 +7,8 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
-var chromeos = chromeos || {};
-var components = components || {};
-var ui = ui || {};
+var printing = printing || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -212,6 +211,47 @@ crosapi.mojom.PrintPreviewCrosDelegate.getRemote = function() {
   return remote.$;
 };
 
+crosapi.mojom.PrintPreviewCrosDelegateReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPrintPreview(params.token, params.params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.printPreviewDone(params.token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.PrintPreviewCrosDelegateReceiver = crosapi.mojom.PrintPreviewCrosDelegateReceiver;
+
 crosapi.mojom.PrintPreviewCrosDelegatePtr = crosapi.mojom.PrintPreviewCrosDelegateRemote;
 crosapi.mojom.PrintPreviewCrosDelegateRequest = crosapi.mojom.PrintPreviewCrosDelegatePendingReceiver;
 
@@ -305,6 +345,47 @@ crosapi.mojom.PrintPreviewCrosClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.PrintPreviewCrosClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generatePrintPreview(params.token, params.settings);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleDialogClosed(params.token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.PrintPreviewCrosClientReceiver = crosapi.mojom.PrintPreviewCrosClientReceiver;
 
 crosapi.mojom.PrintPreviewCrosClientPtr = crosapi.mojom.PrintPreviewCrosClientRemote;
 crosapi.mojom.PrintPreviewCrosClientRequest = crosapi.mojom.PrintPreviewCrosClientPendingReceiver;

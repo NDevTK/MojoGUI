@@ -94,6 +94,33 @@ ash.settings.graduation.mojom.GraduationHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.graduation.mojom.GraduationHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launchGraduationApp();
+          break;
+        }
+        case 1: {
+          const params = ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.graduation.mojom.GraduationHandlerReceiver = ash.settings.graduation.mojom.GraduationHandlerReceiver;
+
 ash.settings.graduation.mojom.GraduationHandlerPtr = ash.settings.graduation.mojom.GraduationHandlerRemote;
 ash.settings.graduation.mojom.GraduationHandlerRequest = ash.settings.graduation.mojom.GraduationHandlerPendingReceiver;
 
@@ -158,6 +185,28 @@ ash.settings.graduation.mojom.GraduationObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.graduation.mojom.GraduationObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onGraduationAppUpdated(params.is_app_enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.graduation.mojom.GraduationObserverReceiver = ash.settings.graduation.mojom.GraduationObserverReceiver;
 
 ash.settings.graduation.mojom.GraduationObserverPtr = ash.settings.graduation.mojom.GraduationObserverRemote;
 ash.settings.graduation.mojom.GraduationObserverRequest = ash.settings.graduation.mojom.GraduationObserverPendingReceiver;

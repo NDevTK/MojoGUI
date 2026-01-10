@@ -7,9 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 blink.mojom.CacheStorageErrorSpec = { $: mojo.internal.Enum() };
@@ -297,6 +295,67 @@ blink.mojom.CacheStorageCache.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.CacheStorageCacheReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.CacheStorageCache_Match_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.match(params.request, params.query_options, params.in_related_fetch_event, params.in_range_fetch_event, params.trace_id);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.CacheStorageCache_MatchAll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.matchAll(params.request, params.query_options, params.trace_id);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllMatchedEntries(params.request, params.query_options, params.trace_id);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.CacheStorageCache_Keys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.keys(params.request, params.query_options, params.trace_id);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.CacheStorageCache_Batch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.batch(params.batch_operations, params.trace_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeSideData(params.url, params.expected_response_time, params.data, params.trace_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.CacheStorageCacheReceiver = blink.mojom.CacheStorageCacheReceiver;
+
 blink.mojom.CacheStorageCachePtr = blink.mojom.CacheStorageCacheRemote;
 blink.mojom.CacheStorageCacheRequest = blink.mojom.CacheStorageCachePendingReceiver;
 
@@ -450,6 +509,69 @@ blink.mojom.CacheStorage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.CacheStorageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.CacheStorage_Has_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.has(params.cache_name, params.trace_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.CacheStorage_Has_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.CacheStorage_Delete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.delete(params.cache_name, params.trace_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.CacheStorage_Delete_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.CacheStorage_Keys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.keys(params.trace_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.CacheStorage_Keys_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.CacheStorage_Match_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.match(params.request, params.match_options, params.in_related_fetch_event, params.in_range_fetch_event, params.trace_id);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.CacheStorage_Open_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.open(params.cache_name, params.trace_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.CacheStorageReceiver = blink.mojom.CacheStorageReceiver;
 
 blink.mojom.CacheStoragePtr = blink.mojom.CacheStorageRemote;
 blink.mojom.CacheStorageRequest = blink.mojom.CacheStoragePendingReceiver;

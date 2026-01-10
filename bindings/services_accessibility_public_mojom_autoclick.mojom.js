@@ -7,7 +7,6 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 ax.mojom.Autoclick = {};
@@ -79,6 +78,28 @@ ax.mojom.Autoclick.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ax.mojom.AutoclickReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestScrollableBoundsForPoint(params.point);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.mojom.AutoclickReceiver = ax.mojom.AutoclickReceiver;
 
 ax.mojom.AutoclickPtr = ax.mojom.AutoclickRemote;
 ax.mojom.AutoclickRequest = ax.mojom.AutoclickPendingReceiver;
@@ -165,6 +186,40 @@ ax.mojom.AutoclickClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ax.mojom.AutoclickClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleScrollableBoundsForPointFound(params.bounds);
+          break;
+        }
+        case 1: {
+          const params = ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindAutoclick();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.mojom.AutoclickClientReceiver = ax.mojom.AutoclickClientReceiver;
 
 ax.mojom.AutoclickClientPtr = ax.mojom.AutoclickClientRemote;
 ax.mojom.AutoclickClientRequest = ax.mojom.AutoclickClientPendingReceiver;

@@ -8,7 +8,6 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var skia = skia || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 blink.mojom.EditorBoundsInfoSpec = { $: {} };
@@ -105,6 +104,28 @@ blink.mojom.ImeRenderWidgetHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ImeRenderWidgetHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateCursorAnchorInfo(params.cursor_anchor_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ImeRenderWidgetHostReceiver = blink.mojom.ImeRenderWidgetHostReceiver;
 
 blink.mojom.ImeRenderWidgetHostPtr = blink.mojom.ImeRenderWidgetHostRemote;
 blink.mojom.ImeRenderWidgetHostRequest = blink.mojom.ImeRenderWidgetHostPendingReceiver;

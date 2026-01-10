@@ -66,6 +66,23 @@ blink.mojom.ObservedFeature.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.ObservedFeatureReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+blink.mojom.ObservedFeatureReceiver = blink.mojom.ObservedFeatureReceiver;
+
 blink.mojom.ObservedFeaturePtr = blink.mojom.ObservedFeatureRemote;
 blink.mojom.ObservedFeatureRequest = blink.mojom.ObservedFeaturePendingReceiver;
 
@@ -131,6 +148,28 @@ blink.mojom.FeatureObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.FeatureObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FeatureObserver_Register_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.register(params.feature, params.type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FeatureObserverReceiver = blink.mojom.FeatureObserverReceiver;
 
 blink.mojom.FeatureObserverPtr = blink.mojom.FeatureObserverRemote;
 blink.mojom.FeatureObserverRequest = blink.mojom.FeatureObserverPendingReceiver;

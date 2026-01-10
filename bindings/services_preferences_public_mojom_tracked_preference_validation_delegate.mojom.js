@@ -7,6 +7,7 @@
 // Module namespace
 var prefs = prefs || {};
 prefs.mojom = prefs.mojom || {};
+var mojo_base = mojo_base || {};
 
 prefs.mojom.ValueStateSpec = { $: mojo.internal.Enum() };
 prefs.mojom.TrackedPreferenceValidationDelegate = {};
@@ -116,6 +117,33 @@ prefs.mojom.TrackedPreferenceValidationDelegate.getRemote = function() {
     'context');
   return remote.$;
 };
+
+prefs.mojom.TrackedPreferenceValidationDelegateReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAtomicPreferenceValidation(params.pref_path, params.value, params.value_state, params.external_validation_value_state, params.is_personal);
+          break;
+        }
+        case 1: {
+          const params = prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSplitPreferenceValidation(params.pref_path, params.invalid_keys, params.external_validation_invalid_keys, params.value_state, params.external_validation_value_state, params.is_personal);
+          break;
+        }
+      }
+    });
+  }
+};
+
+prefs.mojom.TrackedPreferenceValidationDelegateReceiver = prefs.mojom.TrackedPreferenceValidationDelegateReceiver;
 
 prefs.mojom.TrackedPreferenceValidationDelegatePtr = prefs.mojom.TrackedPreferenceValidationDelegateRemote;
 prefs.mojom.TrackedPreferenceValidationDelegateRequest = prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver;

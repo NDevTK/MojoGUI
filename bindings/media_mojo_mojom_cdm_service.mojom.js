@@ -7,7 +7,9 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
+var service_manager = service_manager || {};
 
 media.mojom.CdmService = {};
 media.mojom.CdmService.$interfaceName = 'media.mojom.CdmService';
@@ -82,6 +84,28 @@ media.mojom.CdmService.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.CdmServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.CdmService_CreateCdmFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCdmFactory(params.factory, params.frame_interfaces);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.CdmServiceReceiver = media.mojom.CdmServiceReceiver;
+
 media.mojom.CdmServicePtr = media.mojom.CdmServiceRemote;
 media.mojom.CdmServiceRequest = media.mojom.CdmServicePendingReceiver;
 
@@ -152,6 +176,35 @@ media.mojom.SeatbeltExtensionTokenProvider.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.SeatbeltExtensionTokenProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTokens();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.SeatbeltExtensionTokenProviderReceiver = media.mojom.SeatbeltExtensionTokenProviderReceiver;
+
 media.mojom.SeatbeltExtensionTokenProviderPtr = media.mojom.SeatbeltExtensionTokenProviderRemote;
 media.mojom.SeatbeltExtensionTokenProviderRequest = media.mojom.SeatbeltExtensionTokenProviderPendingReceiver;
 
@@ -218,6 +271,28 @@ media.mojom.CdmServiceBroker.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.CdmServiceBrokerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.CdmServiceBroker_GetService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getService(params.cdm_path, params.token_provider, params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.CdmServiceBrokerReceiver = media.mojom.CdmServiceBrokerReceiver;
 
 media.mojom.CdmServiceBrokerPtr = media.mojom.CdmServiceBrokerRemote;
 media.mojom.CdmServiceBrokerRequest = media.mojom.CdmServiceBrokerPendingReceiver;

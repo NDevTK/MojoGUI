@@ -7,6 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 media.mojom.MuteStateObserver = {};
@@ -82,6 +83,28 @@ media.mojom.MuteStateObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.MuteStateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMuteStateChange(params.muted);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.MuteStateObserverReceiver = media.mojom.MuteStateObserverReceiver;
 
 media.mojom.MuteStateObserverPtr = media.mojom.MuteStateObserverRemote;
 media.mojom.MuteStateObserverRequest = media.mojom.MuteStateObserverPendingReceiver;
@@ -232,6 +255,60 @@ media.mojom.FrameInterfaceFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.FrameInterfaceFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createProvisionFetcher(params.provision_fetcher);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCdmStorage(params.cdm_storage);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerMuteStateObserver(params.site_mute_observer);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createDCOMPSurfaceRegistry(params.registry);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCdmOrigin();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindEmbedderReceiver(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.FrameInterfaceFactoryReceiver = media.mojom.FrameInterfaceFactoryReceiver;
 
 media.mojom.FrameInterfaceFactoryPtr = media.mojom.FrameInterfaceFactoryRemote;
 media.mojom.FrameInterfaceFactoryRequest = media.mojom.FrameInterfaceFactoryPendingReceiver;

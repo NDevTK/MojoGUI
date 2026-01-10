@@ -7,7 +7,7 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 chrome.mojom.SingleFileExtractor = {};
 chrome.mojom.SingleFileExtractor.$interfaceName = 'chrome.mojom.SingleFileExtractor';
@@ -86,6 +86,35 @@ chrome.mojom.SingleFileExtractor.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.SingleFileExtractorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.SingleFileExtractor_Extract_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.extract(params.src_file, params.dst_file, params.listener);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.SingleFileExtractorReceiver = chrome.mojom.SingleFileExtractorReceiver;
+
 chrome.mojom.SingleFileExtractorPtr = chrome.mojom.SingleFileExtractorRemote;
 chrome.mojom.SingleFileExtractorRequest = chrome.mojom.SingleFileExtractorPendingReceiver;
 
@@ -151,6 +180,28 @@ chrome.mojom.SingleFileExtractorListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.SingleFileExtractorListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProgress(params.total_bytes, params.progress_bytes);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.SingleFileExtractorListenerReceiver = chrome.mojom.SingleFileExtractorListenerReceiver;
 
 chrome.mojom.SingleFileExtractorListenerPtr = chrome.mojom.SingleFileExtractorListenerRemote;
 chrome.mojom.SingleFileExtractorListenerRequest = chrome.mojom.SingleFileExtractorListenerPendingReceiver;

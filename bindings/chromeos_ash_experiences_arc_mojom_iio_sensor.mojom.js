@@ -8,7 +8,6 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 var chromeos = chromeos || {};
-var components = components || {};
 
 arc.mojom.IioSensorHost = {};
 arc.mojom.IioSensorHost.$interfaceName = 'arc.mojom.IioSensorHost';
@@ -79,6 +78,28 @@ arc.mojom.IioSensorHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.IioSensorHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerSensorHalClient(params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.IioSensorHostReceiver = arc.mojom.IioSensorHostReceiver;
 
 arc.mojom.IioSensorHostPtr = arc.mojom.IioSensorHostRemote;
 arc.mojom.IioSensorHostRequest = arc.mojom.IioSensorHostPendingReceiver;
@@ -165,6 +186,40 @@ arc.mojom.IioSensorInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.IioSensorInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.IioSensorInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.IioSensorInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTabletModeChanged(params.is_tablet_mode_on);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.IioSensorInstanceReceiver = arc.mojom.IioSensorInstanceReceiver;
 
 arc.mojom.IioSensorInstancePtr = arc.mojom.IioSensorInstanceRemote;
 arc.mojom.IioSensorInstanceRequest = arc.mojom.IioSensorInstancePendingReceiver;

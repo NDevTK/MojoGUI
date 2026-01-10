@@ -7,28 +7,15 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var components = components || {};
-var services = services || {};
-var services = services || {};
-var ui = ui || {};
+var persistent_cache = persistent_cache || {};
+var gpu = gpu || {};
+var media = media || {};
+var mojo_base = mojo_base || {};
+var webnn = webnn || {};
 var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var components = components || {};
-var components = components || {};
-var ui = ui || {};
-var gfx = gfx || {};
+var gl = gl || {};
+var arc = arc || {};
+var chromeos_camera = chromeos_camera || {};
 
 viz.mojom.GpuService = {};
 viz.mojom.GpuService.$interfaceName = 'viz.mojom.GpuService';
@@ -689,6 +676,244 @@ viz.mojom.GpuService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.GpuServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishGpuChannel(params.client_id, params.client_tracing_id, params.is_gpu_host, params.enable_extra_handles_validation);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.GpuService_SetChannelClientPid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setChannelClientPid(params.client_id, params.client_pid);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setChannelDiskCacheHandle(params.client_id, params.cache_handle);
+          break;
+        }
+        case 3: {
+          const params = viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setChannelPersistentCachePendingBackend(params.client_id, params.cache_handle, params.pending_backend);
+          break;
+        }
+        case 4: {
+          const params = viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDiskCacheHandleDestoyed(params.cache_handle);
+          break;
+        }
+        case 5: {
+          const params = viz.mojom.GpuService_CloseChannel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeChannel(params.client_id);
+          break;
+        }
+        case 6: {
+          const params = viz.mojom.GpuService_CreateJpegDecodeAccelerator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createJpegDecodeAccelerator(params.jda);
+          break;
+        }
+        case 7: {
+          const params = viz.mojom.GpuService_CreateJpegEncodeAccelerator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createJpegEncodeAccelerator(params.jea);
+          break;
+        }
+        case 8: {
+          const params = viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerDCOMPSurfaceHandle(params.surface_handle);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unregisterDCOMPSurfaceHandle(params.token);
+          break;
+        }
+        case 10: {
+          const params = viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createVideoEncodeAcceleratorProvider(params.vea_provider);
+          break;
+        }
+        case 11: {
+          const params = viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindWebNNContextProvider(params.receiver, params.client_id);
+          break;
+        }
+        case 12: {
+          const params = viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVideoMemoryUsageStats();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = viz.mojom.GpuService_StartPeakMemoryMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startPeakMemoryMonitor(params.sequence_num);
+          break;
+        }
+        case 14: {
+          const params = viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPeakMemoryUsage(params.sequence_num);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestDXGIInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = viz.mojom.GpuService_LoadedBlob_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadedBlob(params.cache_handle, params.key, params.data);
+          break;
+        }
+        case 17: {
+          const params = viz.mojom.GpuService_WakeUpGpu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.wakeUpGpu();
+          break;
+        }
+        case 18: {
+          const params = viz.mojom.GpuService_GpuSwitched_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.gpuSwitched();
+          break;
+        }
+        case 19: {
+          const params = viz.mojom.GpuService_DisplayAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.displayAdded();
+          break;
+        }
+        case 20: {
+          const params = viz.mojom.GpuService_DisplayRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.displayRemoved();
+          break;
+        }
+        case 21: {
+          const params = viz.mojom.GpuService_DisplayMetricsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.displayMetricsChanged();
+          break;
+        }
+        case 22: {
+          const params = viz.mojom.GpuService_DestroyAllChannels_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.destroyAllChannels();
+          break;
+        }
+        case 23: {
+          const params = viz.mojom.GpuService_OnBackgroundCleanup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBackgroundCleanup();
+          break;
+        }
+        case 24: {
+          const params = viz.mojom.GpuService_OnBackgrounded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBackgrounded();
+          break;
+        }
+        case 25: {
+          const params = viz.mojom.GpuService_OnForegrounded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onForegrounded();
+          break;
+        }
+        case 26: {
+          const params = viz.mojom.GpuService_BeginCATransaction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.beginCATransaction();
+          break;
+        }
+        case 27: {
+          const params = viz.mojom.GpuService_CommitCATransaction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.commitCATransaction();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.GpuService_CommitCATransaction_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 28: {
+          const params = viz.mojom.GpuService_WriteClangProfilingProfile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeClangProfilingProfile();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.GpuService_WriteClangProfilingProfile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 29: {
+          const params = viz.mojom.GpuService_GetDawnInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDawnInfo(params.collect_metrics);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 30: {
+          const params = viz.mojom.GpuService_Crash_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.crash();
+          break;
+        }
+        case 31: {
+          const params = viz.mojom.GpuService_Hang_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hang();
+          break;
+        }
+        case 32: {
+          const params = viz.mojom.GpuService_ThrowJavaException_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.throwJavaException();
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.GpuServiceReceiver = viz.mojom.GpuServiceReceiver;
 
 viz.mojom.GpuServicePtr = viz.mojom.GpuServiceRemote;
 viz.mojom.GpuServiceRequest = viz.mojom.GpuServicePendingReceiver;

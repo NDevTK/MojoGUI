@@ -7,6 +7,7 @@
 // Module namespace
 var memory_instrumentation = memory_instrumentation || {};
 memory_instrumentation.mojom = memory_instrumentation.mojom || {};
+var mojo_base = mojo_base || {};
 
 memory_instrumentation.mojom.DumpTypeSpec = { $: mojo.internal.Enum() };
 memory_instrumentation.mojom.LevelOfDetailSpec = { $: mojo.internal.Enum() };
@@ -394,6 +395,47 @@ memory_instrumentation.mojom.ClientProcess.getRemote = function() {
   return remote.$;
 };
 
+memory_instrumentation.mojom.ClientProcessReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestChromeMemoryDump(params.args);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestOSMemoryDump(params.option, params.flags, params.pids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+memory_instrumentation.mojom.ClientProcessReceiver = memory_instrumentation.mojom.ClientProcessReceiver;
+
 memory_instrumentation.mojom.ClientProcessPtr = memory_instrumentation.mojom.ClientProcessRemote;
 memory_instrumentation.mojom.ClientProcessRequest = memory_instrumentation.mojom.ClientProcessPendingReceiver;
 
@@ -466,6 +508,35 @@ memory_instrumentation.mojom.HeapProfiler.getRemote = function() {
   return remote.$;
 };
 
+memory_instrumentation.mojom.HeapProfilerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dumpProcessesForTracing(params.strip_path_from_mapped_files, params.write_proto);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+memory_instrumentation.mojom.HeapProfilerReceiver = memory_instrumentation.mojom.HeapProfilerReceiver;
+
 memory_instrumentation.mojom.HeapProfilerPtr = memory_instrumentation.mojom.HeapProfilerRemote;
 memory_instrumentation.mojom.HeapProfilerRequest = memory_instrumentation.mojom.HeapProfilerPendingReceiver;
 
@@ -536,6 +607,35 @@ memory_instrumentation.mojom.HeapProfilerHelper.getRemote = function() {
     'context');
   return remote.$;
 };
+
+memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVmRegionsForHeapProfiler(params.pids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+memory_instrumentation.mojom.HeapProfilerHelperReceiver = memory_instrumentation.mojom.HeapProfilerHelperReceiver;
 
 memory_instrumentation.mojom.HeapProfilerHelperPtr = memory_instrumentation.mojom.HeapProfilerHelperRemote;
 memory_instrumentation.mojom.HeapProfilerHelperRequest = memory_instrumentation.mojom.HeapProfilerHelperPendingReceiver;
@@ -684,6 +784,71 @@ memory_instrumentation.mojom.Coordinator.getRemote = function() {
   return remote.$;
 };
 
+memory_instrumentation.mojom.CoordinatorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestGlobalMemoryDump(params.dump_type, params.level_of_detail, params.determinism, params.allocator_dump_names);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestGlobalMemoryDumpForPid(params.pid, params.allocator_dump_names);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPrivateMemoryFootprint(params.pid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestGlobalMemoryDumpAndAppendToTrace(params.dump_type, params.level_of_detail, params.determinism);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+memory_instrumentation.mojom.CoordinatorReceiver = memory_instrumentation.mojom.CoordinatorReceiver;
+
 memory_instrumentation.mojom.CoordinatorPtr = memory_instrumentation.mojom.CoordinatorRemote;
 memory_instrumentation.mojom.CoordinatorRequest = memory_instrumentation.mojom.CoordinatorPendingReceiver;
 
@@ -749,6 +914,28 @@ memory_instrumentation.mojom.CoordinatorConnector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerCoordinatorClient(params.receiver, params.client_process);
+          break;
+        }
+      }
+    });
+  }
+};
+
+memory_instrumentation.mojom.CoordinatorConnectorReceiver = memory_instrumentation.mojom.CoordinatorConnectorReceiver;
 
 memory_instrumentation.mojom.CoordinatorConnectorPtr = memory_instrumentation.mojom.CoordinatorConnectorRemote;
 memory_instrumentation.mojom.CoordinatorConnectorRequest = memory_instrumentation.mojom.CoordinatorConnectorPendingReceiver;

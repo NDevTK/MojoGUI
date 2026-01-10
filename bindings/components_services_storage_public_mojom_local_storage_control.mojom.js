@@ -7,11 +7,6 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
-var blink = blink || {};
 var blink = blink || {};
 
 storage.mojom.LocalStorageControl = {};
@@ -212,6 +207,84 @@ storage.mojom.LocalStorageControl.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.LocalStorageControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindStorageArea(params.storage_key, params.receiver);
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.LocalStorageControl_GetUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUsage();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteStorage(params.storage_key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cleanUpStorage();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = storage.mojom.LocalStorageControl_Flush_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flush();
+          break;
+        }
+        case 5: {
+          const params = storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.purgeMemory();
+          break;
+        }
+        case 6: {
+          const params = storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applyPolicyUpdates(params.policy_updates);
+          break;
+        }
+        case 7: {
+          const params = storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forceKeepSessionState();
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.LocalStorageControlReceiver = storage.mojom.LocalStorageControlReceiver;
 
 storage.mojom.LocalStorageControlPtr = storage.mojom.LocalStorageControlRemote;
 storage.mojom.LocalStorageControlRequest = storage.mojom.LocalStorageControlPendingReceiver;

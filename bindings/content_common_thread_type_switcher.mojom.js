@@ -7,6 +7,7 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var mojo_base = mojo_base || {};
 
 content.mojom.ThreadTypeSwitcher = {};
 content.mojom.ThreadTypeSwitcher.$interfaceName = 'content.mojom.ThreadTypeSwitcher';
@@ -73,6 +74,28 @@ content.mojom.ThreadTypeSwitcher.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.ThreadTypeSwitcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setThreadType(params.platform_thread_id, params.thread_type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.ThreadTypeSwitcherReceiver = content.mojom.ThreadTypeSwitcherReceiver;
 
 content.mojom.ThreadTypeSwitcherPtr = content.mojom.ThreadTypeSwitcherRemote;
 content.mojom.ThreadTypeSwitcherRequest = content.mojom.ThreadTypeSwitcherPendingReceiver;

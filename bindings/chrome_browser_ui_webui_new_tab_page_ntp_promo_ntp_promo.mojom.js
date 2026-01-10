@@ -205,6 +205,58 @@ ntp_promo.mojom.NtpPromoHandler.getRemote = function() {
   return remote.$;
 };
 
+ntp_promo.mojom.NtpPromoHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPromos();
+          break;
+        }
+        case 1: {
+          const params = ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPromosShown(params.eligible_shown, params.completed_shown);
+          break;
+        }
+        case 2: {
+          const params = ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPromoClicked(params.promo_id);
+          break;
+        }
+        case 3: {
+          const params = ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.snoozeSetupList();
+          break;
+        }
+        case 4: {
+          const params = ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unsnoozeSetupList();
+          break;
+        }
+        case 5: {
+          const params = ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableSetupList();
+          break;
+        }
+        case 6: {
+          const params = ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.undisableSetupList();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ntp_promo.mojom.NtpPromoHandlerReceiver = ntp_promo.mojom.NtpPromoHandlerReceiver;
+
 ntp_promo.mojom.NtpPromoHandlerPtr = ntp_promo.mojom.NtpPromoHandlerRemote;
 ntp_promo.mojom.NtpPromoHandlerRequest = ntp_promo.mojom.NtpPromoHandlerPendingReceiver;
 
@@ -271,6 +323,28 @@ ntp_promo.mojom.NtpPromoClient.getRemote = function() {
   return remote.$;
 };
 
+ntp_promo.mojom.NtpPromoClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPromos(params.eligible, params.completed);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ntp_promo.mojom.NtpPromoClientReceiver = ntp_promo.mojom.NtpPromoClientReceiver;
+
 ntp_promo.mojom.NtpPromoClientPtr = ntp_promo.mojom.NtpPromoClientRemote;
 ntp_promo.mojom.NtpPromoClientRequest = ntp_promo.mojom.NtpPromoClientPendingReceiver;
 
@@ -336,6 +410,28 @@ ntp_promo.mojom.NtpPromoHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ntp_promo.mojom.NtpPromoHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createNtpPromoHandler(params.client, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ntp_promo.mojom.NtpPromoHandlerFactoryReceiver = ntp_promo.mojom.NtpPromoHandlerFactoryReceiver;
 
 ntp_promo.mojom.NtpPromoHandlerFactoryPtr = ntp_promo.mojom.NtpPromoHandlerFactoryRemote;
 ntp_promo.mojom.NtpPromoHandlerFactoryRequest = ntp_promo.mojom.NtpPromoHandlerFactoryPendingReceiver;

@@ -7,8 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var blink = blink || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var url = url || {};
 
 blink.mojom.BlobURLStore = {};
@@ -142,6 +142,50 @@ blink.mojom.BlobURLStore.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.BlobURLStoreReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.BlobURLStore_Register_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.register(params.blob, params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BlobURLStore_Register_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.BlobURLStore_Revoke_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.revoke(params.url);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolveAsURLLoaderFactory(params.url, params.factory);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolveAsBlobURLToken(params.url, params.token, params.is_top_level_navigation);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.BlobURLStoreReceiver = blink.mojom.BlobURLStoreReceiver;
+
 blink.mojom.BlobURLStorePtr = blink.mojom.BlobURLStoreRemote;
 blink.mojom.BlobURLStoreRequest = blink.mojom.BlobURLStorePendingReceiver;
 
@@ -227,6 +271,40 @@ blink.mojom.BlobURLToken.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.BlobURLTokenReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.BlobURLToken_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.token);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.BlobURLToken_GetToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getToken();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.BlobURLTokenReceiver = blink.mojom.BlobURLTokenReceiver;
 
 blink.mojom.BlobURLTokenPtr = blink.mojom.BlobURLTokenRemote;
 blink.mojom.BlobURLTokenRequest = blink.mojom.BlobURLTokenPendingReceiver;

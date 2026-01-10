@@ -7,6 +7,7 @@
 // Module namespace
 var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
+var media = media || {};
 
 video_capture.mojom.Producer = {};
 video_capture.mojom.Producer.$interfaceName = 'video_capture.mojom.Producer';
@@ -96,6 +97,40 @@ video_capture.mojom.Producer.getRemote = function() {
     'context');
   return remote.$;
 };
+
+video_capture.mojom.ProducerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = video_capture.mojom.Producer_OnNewBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewBuffer(params.buffer_id, params.buffer_handle);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = video_capture.mojom.Producer_OnBufferRetired_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBufferRetired(params.buffer_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+video_capture.mojom.ProducerReceiver = video_capture.mojom.ProducerReceiver;
 
 video_capture.mojom.ProducerPtr = video_capture.mojom.ProducerRemote;
 video_capture.mojom.ProducerRequest = video_capture.mojom.ProducerPendingReceiver;

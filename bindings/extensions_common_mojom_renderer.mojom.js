@@ -7,6 +7,7 @@
 // Module namespace
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
+var mojo_base = mojo_base || {};
 
 extensions.mojom.ExtensionLoadedParamsSpec = { $: {} };
 extensions.mojom.UserScriptWorldInfoSpec = { $: {} };
@@ -511,6 +512,159 @@ extensions.mojom.Renderer.getRemote = function() {
     'context');
   return remote.$;
 };
+
+extensions.mojom.RendererReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions.mojom.Renderer_ActivateExtension_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.activateExtension(params.extension_id);
+          break;
+        }
+        case 1: {
+          const params = extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setActivityLoggingEnabled(params.enabled);
+          break;
+        }
+        case 2: {
+          const params = extensions.mojom.Renderer_LoadExtensions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadExtensions(params.params);
+          break;
+        }
+        case 3: {
+          const params = extensions.mojom.Renderer_UnloadExtension_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unloadExtension(params.extension_id);
+          break;
+        }
+        case 4: {
+          const params = extensions.mojom.Renderer_SuspendExtension_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suspendExtension(params.extension_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mojom.Renderer_SuspendExtension_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelSuspendExtension(params.extension_id);
+          break;
+        }
+        case 6: {
+          const params = extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDeveloperMode(params.developer_mode_only);
+          break;
+        }
+        case 7: {
+          const params = extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUserScriptsAllowed(params.extension_id, params.allowed);
+          break;
+        }
+        case 8: {
+          const params = extensions.mojom.Renderer_SetSessionInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSessionInfo(params.channel, params.session);
+          break;
+        }
+        case 9: {
+          const params = extensions.mojom.Renderer_SetSystemFont_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSystemFont(params.font_family, params.font_size);
+          break;
+        }
+        case 10: {
+          const params = extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWebViewPartitionID(params.partition_id);
+          break;
+        }
+        case 11: {
+          const params = extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setScriptingAllowlist(params.extension_ids);
+          break;
+        }
+        case 12: {
+          const params = extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateUserScriptWorlds(params.infos);
+          break;
+        }
+        case 13: {
+          const params = extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearUserScriptWorldConfig(params.extension_id, params.world_id);
+          break;
+        }
+        case 14: {
+          const params = extensions.mojom.Renderer_ShouldSuspend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldSuspend();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mojom.Renderer_ShouldSuspend_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = extensions.mojom.Renderer_TransferBlobs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.transferBlobs();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mojom.Renderer_TransferBlobs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = extensions.mojom.Renderer_UpdatePermissions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updatePermissions(params.extension_id, params.active_permissions, params.withheld_permissions, params.policy_blocked_hosts, params.policy_allowed_hosts, params.uses_default_policy_host_restrictions);
+          break;
+        }
+        case 17: {
+          const params = extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateDefaultPolicyHostRestrictions(params.default_policy_blocked_hosts, params.default_policy_allowed_hosts);
+          break;
+        }
+        case 18: {
+          const params = extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateUserHostRestrictions(params.user_blocked_hosts, params.user_allowed_hosts);
+          break;
+        }
+        case 19: {
+          const params = extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateTabSpecificPermissions(params.extension_id, params.new_hosts, params.tab_id, params.update_origin_allowlist);
+          break;
+        }
+        case 20: {
+          const params = extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateUserScripts(params.region, params.owner);
+          break;
+        }
+        case 21: {
+          const params = extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearTabSpecificPermissions(params.extension_ids, params.tab_id, params.update_origin_allowlist);
+          break;
+        }
+        case 22: {
+          const params = extensions.mojom.Renderer_WatchPages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.watchPages(params.css_selectors);
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions.mojom.RendererReceiver = extensions.mojom.RendererReceiver;
 
 extensions.mojom.RendererPtr = extensions.mojom.RendererRemote;
 extensions.mojom.RendererRequest = extensions.mojom.RendererPendingReceiver;

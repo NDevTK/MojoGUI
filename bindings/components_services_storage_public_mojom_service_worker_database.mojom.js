@@ -7,16 +7,8 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
-var services = services || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var blink = blink || {};
 var url = url || {};
 

@@ -7,9 +7,8 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 var gfx = gfx || {};
 
 media.mojom.VideoEncodeAcceleratorSupportedRateControlModeSpec = { $: mojo.internal.Enum() };
@@ -376,6 +375,40 @@ media.mojom.VideoEncodeAcceleratorProvider.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.VideoEncodeAcceleratorProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.VideoEncodeAcceleratorProvider_CreateVideoEncodeAccelerator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createVideoEncodeAccelerator(params.command_buffer_id, params.receiver);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVideoEncodeAcceleratorSupportedProfiles();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.VideoEncodeAcceleratorProviderReceiver = media.mojom.VideoEncodeAcceleratorProviderReceiver;
+
 media.mojom.VideoEncodeAcceleratorProviderPtr = media.mojom.VideoEncodeAcceleratorProviderRemote;
 media.mojom.VideoEncodeAcceleratorProviderRequest = media.mojom.VideoEncodeAcceleratorProviderPendingReceiver;
 
@@ -441,6 +474,28 @@ media.mojom.VideoEncodeAcceleratorProviderFactory.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.VideoEncodeAcceleratorProviderFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.VideoEncodeAcceleratorProviderFactory_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createVideoEncodeAcceleratorProvider(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.VideoEncodeAcceleratorProviderFactoryReceiver = media.mojom.VideoEncodeAcceleratorProviderFactoryReceiver;
+
 media.mojom.VideoEncodeAcceleratorProviderFactoryPtr = media.mojom.VideoEncodeAcceleratorProviderFactoryRemote;
 media.mojom.VideoEncodeAcceleratorProviderFactoryRequest = media.mojom.VideoEncodeAcceleratorProviderFactoryPendingReceiver;
 
@@ -449,7 +504,7 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryRequest = media.mojom.VideoEnco
 mojo.internal.Struct(
     media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec, 'media.mojom.VideoEncodeAccelerator_Initialize_Params', [
       mojo.internal.StructField('config', 0, 0, media.mojom.VideoEncodeAcceleratorConfigSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.VideoEncodeAcceleratorClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('media_log', 16, 0, mojo.internal.InterfaceProxy(media.mojom.MediaLogRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -631,6 +686,86 @@ media.mojom.VideoEncodeAccelerator.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.VideoEncodeAcceleratorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.config, params.client, params.media_log);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.VideoEncodeAccelerator_Encode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.encode(params.frame, params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = media.mojom.VideoEncodeAccelerator_UseOutputBitstreamBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.useOutputBitstreamBuffer(params.bitstream_buffer_id, params.region);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithLayers_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestEncodingParametersChangeWithLayers(params.bitrate_allocation, params.framerate, params.size);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithBitrate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestEncodingParametersChangeWithBitrate(params.bitrate, params.framerate, params.size);
+          break;
+        }
+        case 5: {
+          const params = media.mojom.VideoEncodeAccelerator_IsFlushSupported_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isFlushSupported();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.VideoEncodeAccelerator_IsFlushSupported_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = media.mojom.VideoEncodeAccelerator_Flush_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flush();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.VideoEncodeAcceleratorReceiver = media.mojom.VideoEncodeAcceleratorReceiver;
+
 media.mojom.VideoEncodeAcceleratorPtr = media.mojom.VideoEncodeAcceleratorRemote;
 media.mojom.VideoEncodeAcceleratorRequest = media.mojom.VideoEncodeAcceleratorPendingReceiver;
 
@@ -746,6 +881,43 @@ media.mojom.VideoEncodeAcceleratorClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.VideoEncodeAcceleratorClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.VideoEncodeAcceleratorClient_RequireBitstreamBuffers_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requireBitstreamBuffers(params.input_count, params.input_coded_size, params.output_buffer_size);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.VideoEncodeAcceleratorClient_BitstreamBufferReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bitstreamBufferReady(params.bitstream_buffer_id, params.metadata);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.VideoEncodeAcceleratorClient_NotifyErrorStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyErrorStatus(params.status);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.VideoEncodeAcceleratorClient_NotifyEncoderInfoChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyEncoderInfoChange(params.info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.VideoEncodeAcceleratorClientReceiver = media.mojom.VideoEncodeAcceleratorClientReceiver;
 
 media.mojom.VideoEncodeAcceleratorClientPtr = media.mojom.VideoEncodeAcceleratorClientRemote;
 media.mojom.VideoEncodeAcceleratorClientRequest = media.mojom.VideoEncodeAcceleratorClientPendingReceiver;

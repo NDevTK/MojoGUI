@@ -235,6 +235,95 @@ arc.mojom.DiskSpaceHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.DiskSpaceHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isQuotaSupported();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getQuotaCurrentSpaceForUid(params.uid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getQuotaCurrentSpaceForGid(params.gid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getQuotaCurrentSpaceForProjectId(params.project_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getQuotaCurrentSpacesForIds(params.uids, params.gids, params.project_ids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFreeDiskSpace();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.DiskSpaceHostReceiver = arc.mojom.DiskSpaceHostReceiver;
+
 arc.mojom.DiskSpaceHostPtr = arc.mojom.DiskSpaceHostRemote;
 arc.mojom.DiskSpaceHostRequest = arc.mojom.DiskSpaceHostPendingReceiver;
 
@@ -342,6 +431,52 @@ arc.mojom.DiskSpaceInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.DiskSpaceInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.DiskSpaceInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getApplicationsSize();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resizeStorageBalloon(params.free_space_bytes);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.DiskSpaceInstanceReceiver = arc.mojom.DiskSpaceInstanceReceiver;
 
 arc.mojom.DiskSpaceInstancePtr = arc.mojom.DiskSpaceInstanceRemote;
 arc.mojom.DiskSpaceInstanceRequest = arc.mojom.DiskSpaceInstancePendingReceiver;

@@ -89,6 +89,35 @@ foo.mojom.FooHandler.getRemote = function() {
   return remote.$;
 };
 
+foo.mojom.FooHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = foo.mojom.FooHandler_GetData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, foo.mojom.FooHandler_GetData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+foo.mojom.FooHandlerReceiver = foo.mojom.FooHandlerReceiver;
+
 foo.mojom.FooHandlerPtr = foo.mojom.FooHandlerRemote;
 foo.mojom.FooHandlerRequest = foo.mojom.FooHandlerPendingReceiver;
 

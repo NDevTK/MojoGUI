@@ -7,10 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
+var on_device_model = on_device_model || {};
 var skia = skia || {};
-var blink = blink || {};
-var blink = blink || {};
 
 blink.mojom.AILanguageModelPromptRoleSpec = { $: mojo.internal.Enum() };
 blink.mojom.AILanguageModelPromptTypeSpec = { $: mojo.internal.Enum() };
@@ -204,6 +202,33 @@ blink.mojom.AIManagerCreateLanguageModelClient.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.AIManagerCreateLanguageModelClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResult(params.language_model_remote, params.info);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error, params.quota_error_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AIManagerCreateLanguageModelClientReceiver = blink.mojom.AIManagerCreateLanguageModelClientReceiver;
+
 blink.mojom.AIManagerCreateLanguageModelClientPtr = blink.mojom.AIManagerCreateLanguageModelClientRemote;
 blink.mojom.AIManagerCreateLanguageModelClientRequest = blink.mojom.AIManagerCreateLanguageModelClientPendingReceiver;
 
@@ -341,6 +366,55 @@ blink.mojom.AILanguageModel.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.AILanguageModelReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AILanguageModel_Prompt_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.prompt(params.prompts, params.constraint, params.pending_responder);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AILanguageModel_Append_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.append(params.prompts, params.client);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.AILanguageModel_Fork_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fork(params.client);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.AILanguageModel_Destroy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.destroy();
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.measureInputUsage(params.input);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AILanguageModelReceiver = blink.mojom.AILanguageModelReceiver;
 
 blink.mojom.AILanguageModelPtr = blink.mojom.AILanguageModelRemote;
 blink.mojom.AILanguageModelRequest = blink.mojom.AILanguageModelPendingReceiver;

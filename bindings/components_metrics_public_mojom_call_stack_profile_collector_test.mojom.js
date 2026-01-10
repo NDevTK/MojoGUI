@@ -7,7 +7,6 @@
 // Module namespace
 var metrics = metrics || {};
 metrics.mojom = metrics.mojom || {};
-var components = components || {};
 
 metrics.mojom.CallStackProfileCollectorTest = {};
 metrics.mojom.CallStackProfileCollectorTest.$interfaceName = 'metrics.mojom.CallStackProfileCollectorTest';
@@ -80,6 +79,35 @@ metrics.mojom.CallStackProfileCollectorTest.getRemote = function() {
     'context');
   return remote.$;
 };
+
+metrics.mojom.CallStackProfileCollectorTestReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bounceSampledProfile(params.in);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+metrics.mojom.CallStackProfileCollectorTestReceiver = metrics.mojom.CallStackProfileCollectorTestReceiver;
 
 metrics.mojom.CallStackProfileCollectorTestPtr = metrics.mojom.CallStackProfileCollectorTestRemote;
 metrics.mojom.CallStackProfileCollectorTestRequest = metrics.mojom.CallStackProfileCollectorTestPendingReceiver;

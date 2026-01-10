@@ -7,14 +7,7 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 viz.mojom.BundledFrameSubmissionDataSpec = { $: {} };
 viz.mojom.BundledFrameSubmissionSpec = { $: {} };
@@ -178,6 +171,38 @@ viz.mojom.FrameSinkBundle.getRemote = function() {
   return remote.$;
 };
 
+viz.mojom.FrameSinkBundleReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNeedsBeginFrame(params.sink_id, params.needs_begin_frame);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.FrameSinkBundle_Submit_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.submit(params.submissions);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setThreads(params.sink_id, params.threads);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.FrameSinkBundleReceiver = viz.mojom.FrameSinkBundleReceiver;
+
 viz.mojom.FrameSinkBundlePtr = viz.mojom.FrameSinkBundleRemote;
 viz.mojom.FrameSinkBundleRequest = viz.mojom.FrameSinkBundlePendingReceiver;
 
@@ -278,6 +303,38 @@ viz.mojom.FrameSinkBundleClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.FrameSinkBundleClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flushNotifications(params.acks, params.begin_frames, params.reclaimed_resources);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBeginFramePausedChanged(params.sink_id, params.paused);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCompositorFrameTransitionDirectiveProcessed(params.sink_id, params.sequence_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.FrameSinkBundleClientReceiver = viz.mojom.FrameSinkBundleClientReceiver;
 
 viz.mojom.FrameSinkBundleClientPtr = viz.mojom.FrameSinkBundleClientRemote;
 viz.mojom.FrameSinkBundleClientRequest = viz.mojom.FrameSinkBundleClientPendingReceiver;

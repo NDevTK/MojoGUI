@@ -82,6 +82,28 @@ history_clusters_internals.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+history_clusters_internals.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.page_handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+history_clusters_internals.mojom.PageHandlerFactoryReceiver = history_clusters_internals.mojom.PageHandlerFactoryReceiver;
+
 history_clusters_internals.mojom.PageHandlerFactoryPtr = history_clusters_internals.mojom.PageHandlerFactoryRemote;
 history_clusters_internals.mojom.PageHandlerFactoryRequest = history_clusters_internals.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -167,6 +189,40 @@ history_clusters_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+history_clusters_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getContextClustersJson();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.printKeywordBagStateToLogMessages();
+          break;
+        }
+      }
+    });
+  }
+};
+
+history_clusters_internals.mojom.PageHandlerReceiver = history_clusters_internals.mojom.PageHandlerReceiver;
+
 history_clusters_internals.mojom.PageHandlerPtr = history_clusters_internals.mojom.PageHandlerRemote;
 history_clusters_internals.mojom.PageHandlerRequest = history_clusters_internals.mojom.PageHandlerPendingReceiver;
 
@@ -231,6 +287,28 @@ history_clusters_internals.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+history_clusters_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLogMessageAdded(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+history_clusters_internals.mojom.PageReceiver = history_clusters_internals.mojom.PageReceiver;
 
 history_clusters_internals.mojom.PagePtr = history_clusters_internals.mojom.PageRemote;
 history_clusters_internals.mojom.PageRequest = history_clusters_internals.mojom.PagePendingReceiver;

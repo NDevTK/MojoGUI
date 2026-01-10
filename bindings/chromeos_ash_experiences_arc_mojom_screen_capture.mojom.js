@@ -7,11 +7,6 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 arc.mojom.ScreenCaptureHost = {};
@@ -143,6 +138,52 @@ arc.mojom.ScreenCaptureHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.ScreenCaptureHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPermission(params.display_name, params.package_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.testModeAcceptPermission(params.package_name);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openSession(params.notifier, params.package_name, params.size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ScreenCaptureHostReceiver = arc.mojom.ScreenCaptureHostReceiver;
+
 arc.mojom.ScreenCaptureHostPtr = arc.mojom.ScreenCaptureHostRemote;
 arc.mojom.ScreenCaptureHostRequest = arc.mojom.ScreenCaptureHostPendingReceiver;
 
@@ -238,6 +279,47 @@ arc.mojom.ScreenCaptureSession.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.ScreenCaptureSessionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOutputBufferDeprecated(params.graphics_buffer, params.stride);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOutputBuffer(params.graphics_buffer, params.buffer_format, params.buffer_format_modifier, params.stride);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ScreenCaptureSessionReceiver = arc.mojom.ScreenCaptureSessionReceiver;
+
 arc.mojom.ScreenCaptureSessionPtr = arc.mojom.ScreenCaptureSessionRemote;
 arc.mojom.ScreenCaptureSessionRequest = arc.mojom.ScreenCaptureSessionPendingReceiver;
 
@@ -308,6 +390,35 @@ arc.mojom.ScreenCaptureInstance.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.ScreenCaptureInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.ScreenCaptureInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ScreenCaptureInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ScreenCaptureInstanceReceiver = arc.mojom.ScreenCaptureInstanceReceiver;
+
 arc.mojom.ScreenCaptureInstancePtr = arc.mojom.ScreenCaptureInstanceRemote;
 arc.mojom.ScreenCaptureInstanceRequest = arc.mojom.ScreenCaptureInstancePendingReceiver;
 
@@ -371,6 +482,28 @@ arc.mojom.ScreenCaptureSessionNotifier.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.ScreenCaptureSessionNotifierReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forceUpdate();
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ScreenCaptureSessionNotifierReceiver = arc.mojom.ScreenCaptureSessionNotifierReceiver;
 
 arc.mojom.ScreenCaptureSessionNotifierPtr = arc.mojom.ScreenCaptureSessionNotifierRemote;
 arc.mojom.ScreenCaptureSessionNotifierRequest = arc.mojom.ScreenCaptureSessionNotifierPendingReceiver;

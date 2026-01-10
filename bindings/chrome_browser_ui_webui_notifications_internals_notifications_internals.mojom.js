@@ -73,6 +73,28 @@ notifications_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+notifications_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.scheduleNotification(params.feature);
+          break;
+        }
+      }
+    });
+  }
+};
+
+notifications_internals.mojom.PageHandlerReceiver = notifications_internals.mojom.PageHandlerReceiver;
+
 notifications_internals.mojom.PageHandlerPtr = notifications_internals.mojom.PageHandlerRemote;
 notifications_internals.mojom.PageHandlerRequest = notifications_internals.mojom.PageHandlerPendingReceiver;
 

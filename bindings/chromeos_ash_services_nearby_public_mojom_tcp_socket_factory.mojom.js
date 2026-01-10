@@ -7,14 +7,8 @@
 // Module namespace
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 
 sharing.mojom.TcpSocketFactory = {};
 sharing.mojom.TcpSocketFactory.$interfaceName = 'sharing.mojom.TcpSocketFactory';
@@ -126,6 +120,47 @@ sharing.mojom.TcpSocketFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+sharing.mojom.TcpSocketFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createTCPServerSocket(params.local_addr, params.port, params.backlog, params.traffic_annotation, params.socket);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createTCPConnectedSocket(params.timeout, params.local_addr, params.remote_addr_list, params.tcp_connected_socket_options, params.traffic_annotation, params.socket, params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+sharing.mojom.TcpSocketFactoryReceiver = sharing.mojom.TcpSocketFactoryReceiver;
 
 sharing.mojom.TcpSocketFactoryPtr = sharing.mojom.TcpSocketFactoryRemote;
 sharing.mojom.TcpSocketFactoryRequest = sharing.mojom.TcpSocketFactoryPendingReceiver;

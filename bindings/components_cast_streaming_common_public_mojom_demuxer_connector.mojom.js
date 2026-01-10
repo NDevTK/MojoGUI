@@ -7,6 +7,7 @@
 // Module namespace
 var cast_streaming = cast_streaming || {};
 cast_streaming.mojom = cast_streaming.mojom || {};
+var media = media || {};
 
 cast_streaming.mojom.GetAudioBufferResponseSpec = { $: {} };
 cast_streaming.mojom.GetVideoBufferResponseSpec = { $: {} };
@@ -181,6 +182,47 @@ cast_streaming.mojom.AudioBufferRequester.getRemote = function() {
   return remote.$;
 };
 
+cast_streaming.mojom.AudioBufferRequesterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBuffer();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableBitstreamConverter();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+cast_streaming.mojom.AudioBufferRequesterReceiver = cast_streaming.mojom.AudioBufferRequesterReceiver;
+
 cast_streaming.mojom.AudioBufferRequesterPtr = cast_streaming.mojom.AudioBufferRequesterRemote;
 cast_streaming.mojom.AudioBufferRequesterRequest = cast_streaming.mojom.AudioBufferRequesterPendingReceiver;
 
@@ -272,6 +314,47 @@ cast_streaming.mojom.VideoBufferRequester.getRemote = function() {
   return remote.$;
 };
 
+cast_streaming.mojom.VideoBufferRequesterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBuffer();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableBitstreamConverter();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+cast_streaming.mojom.VideoBufferRequesterReceiver = cast_streaming.mojom.VideoBufferRequesterReceiver;
+
 cast_streaming.mojom.VideoBufferRequesterPtr = cast_streaming.mojom.VideoBufferRequesterRemote;
 cast_streaming.mojom.VideoBufferRequesterRequest = cast_streaming.mojom.VideoBufferRequesterPendingReceiver;
 
@@ -357,6 +440,40 @@ cast_streaming.mojom.DemuxerConnector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cast_streaming.mojom.DemuxerConnectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableReceiver();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStreamsInitialized(params.audio_buffer_requester, params.video_buffer_requester);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cast_streaming.mojom.DemuxerConnectorReceiver = cast_streaming.mojom.DemuxerConnectorReceiver;
 
 cast_streaming.mojom.DemuxerConnectorPtr = cast_streaming.mojom.DemuxerConnectorRemote;
 cast_streaming.mojom.DemuxerConnectorRequest = cast_streaming.mojom.DemuxerConnectorPendingReceiver;

@@ -7,13 +7,9 @@
 // Module namespace
 var data_decoder = data_decoder || {};
 data_decoder.mojom = data_decoder.mojom || {};
-var components = components || {};
-var components = components || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var payments = payments || {};
+var web_package = web_package || {};
+var sandbox = sandbox || {};
 
 data_decoder.mojom.DataDecoderService = {};
 data_decoder.mojom.DataDecoderService.$interfaceName = 'data_decoder.mojom.DataDecoderService';
@@ -181,6 +177,58 @@ data_decoder.mojom.DataDecoderService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+data_decoder.mojom.DataDecoderServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindImageDecoder(params.receiver);
+          break;
+        }
+        case 1: {
+          const params = data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindXmlParser(params.reciever);
+          break;
+        }
+        case 2: {
+          const params = data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindWebBundleParserFactory(params.receiver);
+          break;
+        }
+        case 3: {
+          const params = data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindGzipper(params.receiver);
+          break;
+        }
+        case 4: {
+          const params = data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindStructuredHeadersParser(params.receiver);
+          break;
+        }
+        case 5: {
+          const params = data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindCborParser(params.receiver);
+          break;
+        }
+        case 6: {
+          const params = data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindPixCodeValidator(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+data_decoder.mojom.DataDecoderServiceReceiver = data_decoder.mojom.DataDecoderServiceReceiver;
 
 data_decoder.mojom.DataDecoderServicePtr = data_decoder.mojom.DataDecoderServiceRemote;
 data_decoder.mojom.DataDecoderServiceRequest = data_decoder.mojom.DataDecoderServicePendingReceiver;

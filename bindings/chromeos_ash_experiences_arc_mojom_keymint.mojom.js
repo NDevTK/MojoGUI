@@ -762,6 +762,35 @@ arc.mojom.keymint.KeyMintHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.keymint.KeyMintHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getServer();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.keymint.KeyMintHostReceiver = arc.mojom.keymint.KeyMintHostReceiver;
+
 arc.mojom.keymint.KeyMintHostPtr = arc.mojom.keymint.KeyMintHostRemote;
 arc.mojom.keymint.KeyMintHostRequest = arc.mojom.keymint.KeyMintHostPendingReceiver;
 
@@ -831,6 +860,35 @@ arc.mojom.keymint.KeyMintInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.keymint.KeyMintInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.keymint.KeyMintInstanceReceiver = arc.mojom.keymint.KeyMintInstanceReceiver;
 
 arc.mojom.keymint.KeyMintInstancePtr = arc.mojom.keymint.KeyMintInstanceRemote;
 arc.mojom.keymint.KeyMintInstanceRequest = arc.mojom.keymint.KeyMintInstancePendingReceiver;
@@ -1459,6 +1517,333 @@ arc.mojom.keymint.KeyMintServer.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.keymint.KeyMintServerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSystemVersion(params.android_version, params.android_patchlevel);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addRngEntropy(params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_AddRngEntropy_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generateKey(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.importKey(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.importWrappedKey(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.upgradeKey(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteKey(params.key_blob);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_DeleteKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteAllKeys();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.destroyAttestationIds();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.begin(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_Begin_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deviceLocked(params.password_only, params.timestamp_token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_DeviceLocked_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.earlyBootEnded();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.convertStorageKeyToEphemeral(params.storage_key_blob);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getKeyCharacteristics(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRootOfTrustChallenge();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRootOfTrust(params.challenge);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendRootOfTrust(params.root_of_trust);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 17: {
+          const params = arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateAad(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_UpdateAad_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 18: {
+          const params = arc.mojom.keymint.KeyMintServer_Update_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.update(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_Update_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 19: {
+          const params = arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.finish(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_Finish_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 20: {
+          const params = arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.abort(params.op_handle);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_Abort_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 21: {
+          const params = arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSharedSecretParameters();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 22: {
+          const params = arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.computeSharedSecret(params.secret_params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 23: {
+          const params = arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generateTimeStamp(params.challenge);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 24: {
+          const params = arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generateEcdsaP256KeyPair(params.test_mode);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 25: {
+          const params = arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generateCertificateRequest(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 26: {
+          const params = arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVendorPatchLevel(params.android_vendor_patchlevel);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.keymint.KeyMintServerReceiver = arc.mojom.keymint.KeyMintServerReceiver;
 
 arc.mojom.keymint.KeyMintServerPtr = arc.mojom.keymint.KeyMintServerRemote;
 arc.mojom.keymint.KeyMintServerRequest = arc.mojom.keymint.KeyMintServerPendingReceiver;

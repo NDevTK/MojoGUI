@@ -7,6 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var sandbox = sandbox || {};
 
 media.mojom.MediaService = {};
 media.mojom.MediaService.$interfaceName = 'media.mojom.MediaService';
@@ -79,6 +80,28 @@ media.mojom.MediaService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.MediaServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createInterfaceFactory(params.factory, params.frame_interfaces);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.MediaServiceReceiver = media.mojom.MediaServiceReceiver;
 
 media.mojom.MediaServicePtr = media.mojom.MediaServiceRemote;
 media.mojom.MediaServiceRequest = media.mojom.MediaServicePendingReceiver;

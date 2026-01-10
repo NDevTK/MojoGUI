@@ -7,6 +7,7 @@
 // Module namespace
 var webapps = webapps || {};
 webapps.mojom = webapps.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 webapps.mojom.WebPageMobileCapableSpec = { $: mojo.internal.Enum() };

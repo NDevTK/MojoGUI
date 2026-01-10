@@ -8,6 +8,7 @@
 var chromeos = chromeos || {};
 chromeos.mojo_service_manager = chromeos.mojo_service_manager || {};
 chromeos.mojo_service_manager.mojom = chromeos.mojo_service_manager.mojom || {};
+var mojo_base = mojo_base || {};
 
 chromeos.mojo_service_manager.mojom.TypeSpec = { $: mojo.internal.Enum() };
 chromeos.mojo_service_manager.mojom.ErrorCodeSpec = { $: mojo.internal.Enum() };
@@ -245,6 +246,50 @@ chromeos.mojo_service_manager.mojom.ServiceManager.getRemote = function() {
   return remote.$;
 };
 
+chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.register(params.service_name, params.service_provider);
+          break;
+        }
+        case 1: {
+          const params = chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.request(params.service_name, params.timeout, params.receiver);
+          break;
+        }
+        case 2: {
+          const params = chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.query(params.service_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addServiceObserver(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = chromeos.mojo_service_manager.mojom.ServiceManagerReceiver;
+
 chromeos.mojo_service_manager.mojom.ServiceManagerPtr = chromeos.mojo_service_manager.mojom.ServiceManagerRemote;
 chromeos.mojo_service_manager.mojom.ServiceManagerRequest = chromeos.mojo_service_manager.mojom.ServiceManagerPendingReceiver;
 
@@ -311,6 +356,28 @@ chromeos.mojo_service_manager.mojom.ServiceProvider.getRemote = function() {
   return remote.$;
 };
 
+chromeos.mojo_service_manager.mojom.ServiceProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.request(params.client_identity, params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.mojo_service_manager.mojom.ServiceProviderReceiver = chromeos.mojo_service_manager.mojom.ServiceProviderReceiver;
+
 chromeos.mojo_service_manager.mojom.ServiceProviderPtr = chromeos.mojo_service_manager.mojom.ServiceProviderRemote;
 chromeos.mojo_service_manager.mojom.ServiceProviderRequest = chromeos.mojo_service_manager.mojom.ServiceProviderPendingReceiver;
 
@@ -375,6 +442,28 @@ chromeos.mojo_service_manager.mojom.ServiceObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.mojo_service_manager.mojom.ServiceObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onServiceEvent(params.event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.mojo_service_manager.mojom.ServiceObserverReceiver = chromeos.mojo_service_manager.mojom.ServiceObserverReceiver;
 
 chromeos.mojo_service_manager.mojom.ServiceObserverPtr = chromeos.mojo_service_manager.mojom.ServiceObserverRemote;
 chromeos.mojo_service_manager.mojom.ServiceObserverRequest = chromeos.mojo_service_manager.mojom.ServiceObserverPendingReceiver;

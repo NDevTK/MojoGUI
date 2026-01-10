@@ -7,6 +7,7 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var mojo_base = mojo_base || {};
 
 content.mojom.WebUIHost = {};
 content.mojom.WebUIHost.$interfaceName = 'content.mojom.WebUIHost';
@@ -77,6 +78,28 @@ content.mojom.WebUIHost.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.WebUIHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.WebUIHost_Send_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.send(params.message, params.args);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.WebUIHostReceiver = content.mojom.WebUIHostReceiver;
+
 content.mojom.WebUIHostPtr = content.mojom.WebUIHostRemote;
 content.mojom.WebUIHostRequest = content.mojom.WebUIHostPendingReceiver;
 
@@ -142,6 +165,28 @@ content.mojom.WebUI.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.WebUIReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.WebUI_SetProperty_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setProperty(params.property_name, params.property_value_json);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.WebUIReceiver = content.mojom.WebUIReceiver;
 
 content.mojom.WebUIPtr = content.mojom.WebUIRemote;
 content.mojom.WebUIRequest = content.mojom.WebUIPendingReceiver;

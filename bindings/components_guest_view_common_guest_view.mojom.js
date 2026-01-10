@@ -7,6 +7,7 @@
 // Module namespace
 var guest_view = guest_view || {};
 guest_view.mojom = guest_view.mojom || {};
+var mojo_base = mojo_base || {};
 
 guest_view.mojom.ViewHandle = {};
 guest_view.mojom.ViewHandle.$interfaceName = 'guest_view.mojom.ViewHandle';
@@ -60,6 +61,23 @@ guest_view.mojom.ViewHandle.getRemote = function() {
     'context');
   return remote.$;
 };
+
+guest_view.mojom.ViewHandleReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+guest_view.mojom.ViewHandleReceiver = guest_view.mojom.ViewHandleReceiver;
 
 guest_view.mojom.ViewHandlePtr = guest_view.mojom.ViewHandleRemote;
 guest_view.mojom.ViewHandleRequest = guest_view.mojom.ViewHandlePendingReceiver;
@@ -150,6 +168,40 @@ guest_view.mojom.GuestViewHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+guest_view.mojom.GuestViewHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.attachToEmbedderFrame(params.element_instance_id, params.guest_instance_id, params.params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.viewCreated(params.view_instance_id, params.view_type, params.keep_alive_handle_receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+guest_view.mojom.GuestViewHostReceiver = guest_view.mojom.GuestViewHostReceiver;
 
 guest_view.mojom.GuestViewHostPtr = guest_view.mojom.GuestViewHostRemote;
 guest_view.mojom.GuestViewHostRequest = guest_view.mojom.GuestViewHostPendingReceiver;

@@ -113,6 +113,28 @@ ash.cellular_setup.mojom.CarrierPortalHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.cellular_setup.mojom.CarrierPortalHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCarrierPortalStatusChange(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cellular_setup.mojom.CarrierPortalHandlerReceiver = ash.cellular_setup.mojom.CarrierPortalHandlerReceiver;
+
 ash.cellular_setup.mojom.CarrierPortalHandlerPtr = ash.cellular_setup.mojom.CarrierPortalHandlerRemote;
 ash.cellular_setup.mojom.CarrierPortalHandlerRequest = ash.cellular_setup.mojom.CarrierPortalHandlerPendingReceiver;
 
@@ -194,6 +216,33 @@ ash.cellular_setup.mojom.ActivationDelegate.getRemote = function() {
   return remote.$;
 };
 
+ash.cellular_setup.mojom.ActivationDelegateReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onActivationStarted(params.metadata);
+          break;
+        }
+        case 1: {
+          const params = ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onActivationFinished(params.result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cellular_setup.mojom.ActivationDelegateReceiver = ash.cellular_setup.mojom.ActivationDelegateReceiver;
+
 ash.cellular_setup.mojom.ActivationDelegatePtr = ash.cellular_setup.mojom.ActivationDelegateRemote;
 ash.cellular_setup.mojom.ActivationDelegateRequest = ash.cellular_setup.mojom.ActivationDelegatePendingReceiver;
 
@@ -264,6 +313,35 @@ ash.cellular_setup.mojom.CellularSetup.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.cellular_setup.mojom.CellularSetupReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startActivation(params.delegate);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cellular_setup.mojom.CellularSetupReceiver = ash.cellular_setup.mojom.CellularSetupReceiver;
 
 ash.cellular_setup.mojom.CellularSetupPtr = ash.cellular_setup.mojom.CellularSetupRemote;
 ash.cellular_setup.mojom.CellularSetupRequest = ash.cellular_setup.mojom.CellularSetupPendingReceiver;

@@ -7,7 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -58,8 +58,8 @@ mojo.internal.Struct(
 // Interface: DevToolsAgent
 mojo.internal.Struct(
     blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec, 'blink.mojom.DevToolsAgent_AttachDevToolsSession_Params', [
-      mojo.internal.StructField('host', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.DevToolsSessionHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('session', 8, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.DevToolsSessionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('session', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('io_session', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.DevToolsSessionRemote), null, false, 0, undefined),
       mojo.internal.StructField('reattach_session_state', 24, 0, blink.mojom.DevToolsSessionStateSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('script_to_evaluate_on_load', 32, 0, mojo.internal.String, null, false, 0, undefined),
@@ -161,6 +161,45 @@ blink.mojom.DevToolsAgent.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.DevToolsAgentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.attachDevToolsSession(params.host, params.session, params.io_session, params.reattach_session_state, params.script_to_evaluate_on_load, params.client_expects_binary_responses, params.client_is_trusted, params.session_id, params.session_waits_for_debugger);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.DevToolsAgent_InspectElement_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.inspectElement(params.point);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportChildTargets(params.report, params.wait_for_debugger);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DevToolsAgent_ReportChildTargets_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DevToolsAgentReceiver = blink.mojom.DevToolsAgentReceiver;
 
 blink.mojom.DevToolsAgentPtr = blink.mojom.DevToolsAgentRemote;
 blink.mojom.DevToolsAgentRequest = blink.mojom.DevToolsAgentPendingReceiver;
@@ -278,6 +317,43 @@ blink.mojom.DevToolsAgentHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.DevToolsAgentHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.childTargetCreated(params.worker_devtools_agent, params.worker_devtools_agent_host, params.url, params.name, params.devtools_worker_token, params.waiting_for_debugger, params.context_type);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mainThreadDebuggerPaused();
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mainThreadDebuggerResumed();
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bringToForeground();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DevToolsAgentHostReceiver = blink.mojom.DevToolsAgentHostReceiver;
+
 blink.mojom.DevToolsAgentHostPtr = blink.mojom.DevToolsAgentHostRemote;
 blink.mojom.DevToolsAgentHostRequest = blink.mojom.DevToolsAgentHostPendingReceiver;
 
@@ -359,6 +435,33 @@ blink.mojom.DevToolsSession.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.DevToolsSessionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchProtocolCommand(params.call_id, params.method, params.message);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unpauseAndTerminate();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DevToolsSessionReceiver = blink.mojom.DevToolsSessionReceiver;
 
 blink.mojom.DevToolsSessionPtr = blink.mojom.DevToolsSessionRemote;
 blink.mojom.DevToolsSessionRequest = blink.mojom.DevToolsSessionPendingReceiver;
@@ -443,6 +546,33 @@ blink.mojom.DevToolsSessionHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.DevToolsSessionHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchProtocolResponse(params.message, params.call_id, params.updates);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchProtocolNotification(params.message, params.updates);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DevToolsSessionHostReceiver = blink.mojom.DevToolsSessionHostReceiver;
 
 blink.mojom.DevToolsSessionHostPtr = blink.mojom.DevToolsSessionHostRemote;
 blink.mojom.DevToolsSessionHostRequest = blink.mojom.DevToolsSessionHostPendingReceiver;

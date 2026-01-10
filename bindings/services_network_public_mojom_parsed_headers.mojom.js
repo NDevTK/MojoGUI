@@ -7,18 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
 
 network.mojom.OriginAgentClusterValueSpec = { $: mojo.internal.Enum() };
 network.mojom.ParsedHeadersSpec = { $: {} };

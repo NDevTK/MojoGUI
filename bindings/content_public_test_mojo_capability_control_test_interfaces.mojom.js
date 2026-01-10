@@ -87,6 +87,35 @@ content.mojom.TestInterfaceForDefer.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.TestInterfaceForDeferReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.TestInterfaceForDefer_Ping_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.ping();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.TestInterfaceForDeferReceiver = content.mojom.TestInterfaceForDeferReceiver;
+
 content.mojom.TestInterfaceForDeferPtr = content.mojom.TestInterfaceForDeferRemote;
 content.mojom.TestInterfaceForDeferRequest = content.mojom.TestInterfaceForDeferPendingReceiver;
 
@@ -135,6 +164,23 @@ content.mojom.TestInterfaceForGrant.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.TestInterfaceForGrantReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+content.mojom.TestInterfaceForGrantReceiver = content.mojom.TestInterfaceForGrantReceiver;
 
 content.mojom.TestInterfaceForGrantPtr = content.mojom.TestInterfaceForGrantRemote;
 content.mojom.TestInterfaceForGrantRequest = content.mojom.TestInterfaceForGrantPendingReceiver;
@@ -185,6 +231,23 @@ content.mojom.TestInterfaceForCancel.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.TestInterfaceForCancelReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+content.mojom.TestInterfaceForCancelReceiver = content.mojom.TestInterfaceForCancelReceiver;
+
 content.mojom.TestInterfaceForCancelPtr = content.mojom.TestInterfaceForCancelRemote;
 content.mojom.TestInterfaceForCancelRequest = content.mojom.TestInterfaceForCancelPendingReceiver;
 
@@ -233,6 +296,23 @@ content.mojom.TestInterfaceForUnexpected.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.TestInterfaceForUnexpectedReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+content.mojom.TestInterfaceForUnexpectedReceiver = content.mojom.TestInterfaceForUnexpectedReceiver;
 
 content.mojom.TestInterfaceForUnexpectedPtr = content.mojom.TestInterfaceForUnexpectedRemote;
 content.mojom.TestInterfaceForUnexpectedRequest = content.mojom.TestInterfaceForUnexpectedPendingReceiver;
@@ -297,6 +377,28 @@ content.mojom.MojoContextProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.MojoContextProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.MojoContextProvider_GrantAll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.grantAll();
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.MojoContextProviderReceiver = content.mojom.MojoContextProviderReceiver;
 
 content.mojom.MojoContextProviderPtr = content.mojom.MojoContextProviderRemote;
 content.mojom.MojoContextProviderRequest = content.mojom.MojoContextProviderPendingReceiver;

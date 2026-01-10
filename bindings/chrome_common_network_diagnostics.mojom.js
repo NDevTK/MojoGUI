@@ -78,6 +78,28 @@ chrome.mojom.NetworkDiagnostics.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.NetworkDiagnosticsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runNetworkDiagnostics(params.failed_url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.NetworkDiagnosticsReceiver = chrome.mojom.NetworkDiagnosticsReceiver;
+
 chrome.mojom.NetworkDiagnosticsPtr = chrome.mojom.NetworkDiagnosticsRemote;
 chrome.mojom.NetworkDiagnosticsRequest = chrome.mojom.NetworkDiagnosticsPendingReceiver;
 
@@ -158,6 +180,33 @@ chrome.mojom.NetworkDiagnosticsClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.NetworkDiagnosticsClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCanShowNetworkDiagnosticsDialog(params.can_show);
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dNSProbeStatus(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.NetworkDiagnosticsClientReceiver = chrome.mojom.NetworkDiagnosticsClientReceiver;
 
 chrome.mojom.NetworkDiagnosticsClientPtr = chrome.mojom.NetworkDiagnosticsClientRemote;
 chrome.mojom.NetworkDiagnosticsClientRequest = chrome.mojom.NetworkDiagnosticsClientPendingReceiver;

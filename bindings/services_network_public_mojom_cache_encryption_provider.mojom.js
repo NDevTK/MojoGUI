@@ -7,7 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var components = components || {};
+var os_crypt_async = os_crypt_async || {};
 
 network.mojom.CacheEncryptionProvider = {};
 network.mojom.CacheEncryptionProvider.$interfaceName = 'network.mojom.CacheEncryptionProvider';
@@ -79,6 +79,35 @@ network.mojom.CacheEncryptionProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.CacheEncryptionProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEncryptor();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.CacheEncryptionProviderReceiver = network.mojom.CacheEncryptionProviderReceiver;
 
 network.mojom.CacheEncryptionProviderPtr = network.mojom.CacheEncryptionProviderRemote;
 network.mojom.CacheEncryptionProviderRequest = network.mojom.CacheEncryptionProviderPendingReceiver;

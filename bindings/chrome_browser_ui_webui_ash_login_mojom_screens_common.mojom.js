@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.screens_common = ash.screens_common || {};
 ash.screens_common.mojom = ash.screens_common.mojom || {};
+var mojo_base = mojo_base || {};
 
 ash.screens_common.mojom.UserCreationFlowTypeSpec = { $: mojo.internal.Enum() };
 ash.screens_common.mojom.GesturePagesSpec = { $: mojo.internal.Enum() };
@@ -121,6 +122,28 @@ ash.screens_common.mojom.AiIntroPageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.screens_common.mojom.AiIntroPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNextClicked();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_common.mojom.AiIntroPageHandlerReceiver = ash.screens_common.mojom.AiIntroPageHandlerReceiver;
+
 ash.screens_common.mojom.AiIntroPageHandlerPtr = ash.screens_common.mojom.AiIntroPageHandlerRemote;
 ash.screens_common.mojom.AiIntroPageHandlerRequest = ash.screens_common.mojom.AiIntroPageHandlerPendingReceiver;
 
@@ -186,6 +209,28 @@ ash.screens_common.mojom.AiIntroPage.getRemote = function() {
   return remote.$;
 };
 
+ash.screens_common.mojom.AiIntroPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAutoTransition(params.value);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_common.mojom.AiIntroPageReceiver = ash.screens_common.mojom.AiIntroPageReceiver;
+
 ash.screens_common.mojom.AiIntroPagePtr = ash.screens_common.mojom.AiIntroPageRemote;
 ash.screens_common.mojom.AiIntroPageRequest = ash.screens_common.mojom.AiIntroPagePendingReceiver;
 
@@ -249,6 +294,28 @@ ash.screens_common.mojom.AppDownloadingPageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.screens_common.mojom.AppDownloadingPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onContinueClicked();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_common.mojom.AppDownloadingPageHandlerReceiver = ash.screens_common.mojom.AppDownloadingPageHandlerReceiver;
 
 ash.screens_common.mojom.AppDownloadingPageHandlerPtr = ash.screens_common.mojom.AppDownloadingPageHandlerRemote;
 ash.screens_common.mojom.AppDownloadingPageHandlerRequest = ash.screens_common.mojom.AppDownloadingPageHandlerPendingReceiver;
@@ -331,6 +398,33 @@ ash.screens_common.mojom.DrivePinningPageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.screens_common.mojom.DrivePinningPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReturnClicked(params.enable_drive_pinning);
+          break;
+        }
+        case 1: {
+          const params = ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNextClicked(params.enable_drive_pinning);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_common.mojom.DrivePinningPageHandlerReceiver = ash.screens_common.mojom.DrivePinningPageHandlerReceiver;
+
 ash.screens_common.mojom.DrivePinningPageHandlerPtr = ash.screens_common.mojom.DrivePinningPageHandlerRemote;
 ash.screens_common.mojom.DrivePinningPageHandlerRequest = ash.screens_common.mojom.DrivePinningPageHandlerPendingReceiver;
 
@@ -397,6 +491,28 @@ ash.screens_common.mojom.DrivePinningPage.getRemote = function() {
   return remote.$;
 };
 
+ash.screens_common.mojom.DrivePinningPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRequiredSpaceInfo(params.required_space, params.free_space);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_common.mojom.DrivePinningPageReceiver = ash.screens_common.mojom.DrivePinningPageReceiver;
+
 ash.screens_common.mojom.DrivePinningPagePtr = ash.screens_common.mojom.DrivePinningPageRemote;
 ash.screens_common.mojom.DrivePinningPageRequest = ash.screens_common.mojom.DrivePinningPagePendingReceiver;
 
@@ -460,6 +576,28 @@ ash.screens_common.mojom.FjordStationSetupPageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.screens_common.mojom.FjordStationSetupPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSetupComplete();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_common.mojom.FjordStationSetupPageHandlerReceiver = ash.screens_common.mojom.FjordStationSetupPageHandlerReceiver;
 
 ash.screens_common.mojom.FjordStationSetupPageHandlerPtr = ash.screens_common.mojom.FjordStationSetupPageHandlerRemote;
 ash.screens_common.mojom.FjordStationSetupPageHandlerRequest = ash.screens_common.mojom.FjordStationSetupPageHandlerPendingReceiver;
@@ -541,6 +679,33 @@ ash.screens_common.mojom.GaiaInfoPageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBackClicked();
+          break;
+        }
+        case 1: {
+          const params = ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNextClicked(params.user_flow);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = ash.screens_common.mojom.GaiaInfoPageHandlerReceiver;
+
 ash.screens_common.mojom.GaiaInfoPageHandlerPtr = ash.screens_common.mojom.GaiaInfoPageHandlerRemote;
 ash.screens_common.mojom.GaiaInfoPageHandlerRequest = ash.screens_common.mojom.GaiaInfoPageHandlerPendingReceiver;
 
@@ -604,6 +769,28 @@ ash.screens_common.mojom.GaiaInfoPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.screens_common.mojom.GaiaInfoPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setQuickStartVisible();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_common.mojom.GaiaInfoPageReceiver = ash.screens_common.mojom.GaiaInfoPageReceiver;
 
 ash.screens_common.mojom.GaiaInfoPagePtr = ash.screens_common.mojom.GaiaInfoPageRemote;
 ash.screens_common.mojom.GaiaInfoPageRequest = ash.screens_common.mojom.GaiaInfoPagePendingReceiver;
@@ -700,6 +887,38 @@ ash.screens_common.mojom.GestureNavigationPageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.screens_common.mojom.GestureNavigationPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPageChange(params.page);
+          break;
+        }
+        case 1: {
+          const params = ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSkipClicked();
+          break;
+        }
+        case 2: {
+          const params = ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onExitClicked();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_common.mojom.GestureNavigationPageHandlerReceiver = ash.screens_common.mojom.GestureNavigationPageHandlerReceiver;
+
 ash.screens_common.mojom.GestureNavigationPageHandlerPtr = ash.screens_common.mojom.GestureNavigationPageHandlerRemote;
 ash.screens_common.mojom.GestureNavigationPageHandlerRequest = ash.screens_common.mojom.GestureNavigationPageHandlerPendingReceiver;
 
@@ -778,6 +997,33 @@ ash.screens_common.mojom.GeminiIntroPageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.screens_common.mojom.GeminiIntroPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBackClicked();
+          break;
+        }
+        case 1: {
+          const params = ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNextClicked();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_common.mojom.GeminiIntroPageHandlerReceiver = ash.screens_common.mojom.GeminiIntroPageHandlerReceiver;
 
 ash.screens_common.mojom.GeminiIntroPageHandlerPtr = ash.screens_common.mojom.GeminiIntroPageHandlerRemote;
 ash.screens_common.mojom.GeminiIntroPageHandlerRequest = ash.screens_common.mojom.GeminiIntroPageHandlerPendingReceiver;

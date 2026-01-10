@@ -122,6 +122,33 @@ arc.mojom.AppPermissionsInstance.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.AppPermissionsInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.grantPermission(params.package_name, params.permission);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.revokePermission(params.package_name, params.permission);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.AppPermissionsInstanceReceiver = arc.mojom.AppPermissionsInstanceReceiver;
+
 arc.mojom.AppPermissionsInstancePtr = arc.mojom.AppPermissionsInstanceRemote;
 arc.mojom.AppPermissionsInstanceRequest = arc.mojom.AppPermissionsInstancePendingReceiver;
 

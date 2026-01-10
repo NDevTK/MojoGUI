@@ -8,8 +8,8 @@
 var commerce = commerce || {};
 commerce.product_specifications = commerce.product_specifications || {};
 commerce.product_specifications.mojom = commerce.product_specifications.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
-var components = components || {};
 
 commerce.product_specifications.mojom.DisclosureVersionSpec = { $: mojo.internal.Enum() };
 commerce.product_specifications.mojom.ShowSetDispositionSpec = { $: mojo.internal.Enum() };
@@ -258,6 +258,89 @@ commerce.product_specifications.mojom.ProductSpecificationsHandler.getRemote = f
   return remote.$;
 };
 
+commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAcceptedDisclosureVersion(params.version);
+          break;
+        }
+        case 1: {
+          const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.maybeShowDisclosure(params.urls, params.name, params.set_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.declineDisclosure();
+          break;
+        }
+        case 3: {
+          const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showSyncSetupFlow();
+          break;
+        }
+        case 4: {
+          const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPageTitleFromHistory(params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showProductSpecificationsSetForUuid(params.uuid, params.in_new_tab);
+          break;
+        }
+        case 6: {
+          const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showProductSpecificationsSetsForUuids(params.uuids, params.disposition);
+          break;
+        }
+        case 7: {
+          const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showComparePage(params.in_new_tab);
+          break;
+        }
+        case 8: {
+          const params = commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getComparisonTableUrlForUuid(params.uuid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver = commerce.product_specifications.mojom.ProductSpecificationsHandlerReceiver;
+
 commerce.product_specifications.mojom.ProductSpecificationsHandlerPtr = commerce.product_specifications.mojom.ProductSpecificationsHandlerRemote;
 commerce.product_specifications.mojom.ProductSpecificationsHandlerRequest = commerce.product_specifications.mojom.ProductSpecificationsHandlerPendingReceiver;
 
@@ -370,6 +453,43 @@ commerce.product_specifications.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
+commerce.product_specifications.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProductSpecificationsSetAdded(params.set);
+          break;
+        }
+        case 1: {
+          const params = commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProductSpecificationsSetUpdated(params.set);
+          break;
+        }
+        case 2: {
+          const params = commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProductSpecificationsSetRemoved(params.uuid);
+          break;
+        }
+        case 3: {
+          const params = commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSyncStateChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+commerce.product_specifications.mojom.PageReceiver = commerce.product_specifications.mojom.PageReceiver;
+
 commerce.product_specifications.mojom.PagePtr = commerce.product_specifications.mojom.PageRemote;
 commerce.product_specifications.mojom.PageRequest = commerce.product_specifications.mojom.PagePendingReceiver;
 
@@ -435,6 +555,28 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory.getRem
     'context');
   return remote.$;
 };
+
+commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createProductSpecificationsHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryReceiver = commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryReceiver;
 
 commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryPtr = commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemote;
 commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRequest = commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryPendingReceiver;

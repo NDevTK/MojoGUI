@@ -7,7 +7,8 @@
 // Module namespace
 var most_visited = most_visited || {};
 most_visited.mojom = most_visited.mojom || {};
-var components = components || {};
+var ntp_tiles = ntp_tiles || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
 var url = url || {};
 
@@ -137,6 +138,28 @@ most_visited.mojom.MostVisitedPageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+most_visited.mojom.MostVisitedPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+most_visited.mojom.MostVisitedPageHandlerFactoryReceiver = most_visited.mojom.MostVisitedPageHandlerFactoryReceiver;
 
 most_visited.mojom.MostVisitedPageHandlerFactoryPtr = most_visited.mojom.MostVisitedPageHandlerFactoryRemote;
 most_visited.mojom.MostVisitedPageHandlerFactoryRequest = most_visited.mojom.MostVisitedPageHandlerFactoryPendingReceiver;
@@ -468,6 +491,124 @@ most_visited.mojom.MostVisitedPageHandler.getRemote = function() {
   return remote.$;
 };
 
+most_visited.mojom.MostVisitedPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addMostVisitedTile(params.url, params.title);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteMostVisitedTile(params.tile);
+          break;
+        }
+        case 2: {
+          const params = most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reorderMostVisitedTile(params.tile, params.new_pos);
+          break;
+        }
+        case 3: {
+          const params = most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restoreMostVisitedDefaults(params.source);
+          break;
+        }
+        case 4: {
+          const params = most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.undoMostVisitedAutoRemoval();
+          break;
+        }
+        case 5: {
+          const params = most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.undoMostVisitedTileAction(params.source);
+          break;
+        }
+        case 6: {
+          const params = most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateMostVisitedInfo();
+          break;
+        }
+        case 7: {
+          const params = most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateMostVisitedTile(params.tile, params.new_url, params.new_title);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.prerenderMostVisitedTile(params.tile);
+          break;
+        }
+        case 9: {
+          const params = most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.prefetchMostVisitedTile(params.tile);
+          break;
+        }
+        case 10: {
+          const params = most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.preconnectMostVisitedTile(params.tile);
+          break;
+        }
+        case 11: {
+          const params = most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelPrerender();
+          break;
+        }
+        case 12: {
+          const params = most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMostVisitedExpandedState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMostVisitedExpandedState(params.is_expanded);
+          break;
+        }
+        case 14: {
+          const params = most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMostVisitedTilesRendered(params.tiles, params.time);
+          break;
+        }
+        case 15: {
+          const params = most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMostVisitedTileNavigation(params.tile, params.index, params.mouse_button, params.alt_key, params.ctrl_key, params.meta_key, params.shift_key);
+          break;
+        }
+      }
+    });
+  }
+};
+
+most_visited.mojom.MostVisitedPageHandlerReceiver = most_visited.mojom.MostVisitedPageHandlerReceiver;
+
 most_visited.mojom.MostVisitedPageHandlerPtr = most_visited.mojom.MostVisitedPageHandlerRemote;
 most_visited.mojom.MostVisitedPageHandlerRequest = most_visited.mojom.MostVisitedPageHandlerPendingReceiver;
 
@@ -547,6 +688,33 @@ most_visited.mojom.MostVisitedPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+most_visited.mojom.MostVisitedPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMostVisitedInfo(params.info);
+          break;
+        }
+        case 1: {
+          const params = most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMostVisitedTilesAutoRemoval();
+          break;
+        }
+      }
+    });
+  }
+};
+
+most_visited.mojom.MostVisitedPageReceiver = most_visited.mojom.MostVisitedPageReceiver;
 
 most_visited.mojom.MostVisitedPagePtr = most_visited.mojom.MostVisitedPageRemote;
 most_visited.mojom.MostVisitedPageRequest = most_visited.mojom.MostVisitedPagePendingReceiver;

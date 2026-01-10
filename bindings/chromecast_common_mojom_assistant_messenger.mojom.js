@@ -7,6 +7,7 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
+var mojo_base = mojo_base || {};
 
 chromecast.mojom.AssistantMessagePipe = {};
 chromecast.mojom.AssistantMessagePipe.$interfaceName = 'chromecast.mojom.AssistantMessagePipe';
@@ -79,6 +80,28 @@ chromecast.mojom.AssistantMessagePipe.getRemote = function() {
   return remote.$;
 };
 
+chromecast.mojom.AssistantMessagePipeReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendMessage(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.AssistantMessagePipeReceiver = chromecast.mojom.AssistantMessagePipeReceiver;
+
 chromecast.mojom.AssistantMessagePipePtr = chromecast.mojom.AssistantMessagePipeRemote;
 chromecast.mojom.AssistantMessagePipeRequest = chromecast.mojom.AssistantMessagePipePendingReceiver;
 
@@ -143,6 +166,28 @@ chromecast.mojom.AssistantMessageClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.AssistantMessageClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMessage(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.AssistantMessageClientReceiver = chromecast.mojom.AssistantMessageClientReceiver;
 
 chromecast.mojom.AssistantMessageClientPtr = chromecast.mojom.AssistantMessageClientRemote;
 chromecast.mojom.AssistantMessageClientRequest = chromecast.mojom.AssistantMessageClientPendingReceiver;
@@ -210,6 +255,28 @@ chromecast.mojom.AssistantMessageService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.AssistantMessageServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createMessagePipe(params.client_id, params.client, params.pipe);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.AssistantMessageServiceReceiver = chromecast.mojom.AssistantMessageServiceReceiver;
 
 chromecast.mojom.AssistantMessageServicePtr = chromecast.mojom.AssistantMessageServiceRemote;
 chromecast.mojom.AssistantMessageServiceRequest = chromecast.mojom.AssistantMessageServicePendingReceiver;

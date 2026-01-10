@@ -7,10 +7,9 @@
 // Module namespace
 var emoji_picker = emoji_picker || {};
 emoji_picker.mojom = emoji_picker.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var components = components || {};
+var tenor = tenor || {};
 
 emoji_picker.mojom.FeatureSpec = { $: mojo.internal.Enum() };
 emoji_picker.mojom.CategorySpec = { $: mojo.internal.Enum() };
@@ -139,6 +138,28 @@ emoji_picker.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+emoji_picker.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+emoji_picker.mojom.PageHandlerFactoryReceiver = emoji_picker.mojom.PageHandlerFactoryReceiver;
 
 emoji_picker.mojom.PageHandlerFactoryPtr = emoji_picker.mojom.PageHandlerFactoryRemote;
 emoji_picker.mojom.PageHandlerFactoryRequest = emoji_picker.mojom.PageHandlerFactoryPendingReceiver;
@@ -483,6 +504,161 @@ emoji_picker.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+emoji_picker.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showUI();
+          break;
+        }
+        case 1: {
+          const params = emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.insertEmoji(params.emoji, params.is_variant, params.search_length);
+          break;
+        }
+        case 2: {
+          const params = emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.insertGif(params.gif);
+          break;
+        }
+        case 3: {
+          const params = emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isIncognitoTextField();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFeatureList();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCategories();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFeaturedGifs(params.pos);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.searchGifs(params.query, params.pos);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getGifsByIds(params.ids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onUiFullyLoaded();
+          break;
+        }
+        case 10: {
+          const params = emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getInitialCategory();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getInitialQuery();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateHistoryInPrefs(params.category, params.history);
+          break;
+        }
+        case 13: {
+          const params = emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updatePreferredVariantsInPrefs(params.preferred_variants);
+          break;
+        }
+        case 14: {
+          const params = emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getHistoryFromPrefs(params.category);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+emoji_picker.mojom.PageHandlerReceiver = emoji_picker.mojom.PageHandlerReceiver;
 
 emoji_picker.mojom.PageHandlerPtr = emoji_picker.mojom.PageHandlerRemote;
 emoji_picker.mojom.PageHandlerRequest = emoji_picker.mojom.PageHandlerPendingReceiver;

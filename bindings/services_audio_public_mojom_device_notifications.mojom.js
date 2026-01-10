@@ -75,6 +75,28 @@ audio.mojom.DeviceListener.getRemote = function() {
   return remote.$;
 };
 
+audio.mojom.DeviceListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = audio.mojom.DeviceListener_DevicesChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.devicesChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+audio.mojom.DeviceListenerReceiver = audio.mojom.DeviceListenerReceiver;
+
 audio.mojom.DeviceListenerPtr = audio.mojom.DeviceListenerRemote;
 audio.mojom.DeviceListenerRequest = audio.mojom.DeviceListenerPendingReceiver;
 
@@ -139,6 +161,28 @@ audio.mojom.DeviceNotifier.getRemote = function() {
     'context');
   return remote.$;
 };
+
+audio.mojom.DeviceNotifierReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerListener(params.listener);
+          break;
+        }
+      }
+    });
+  }
+};
+
+audio.mojom.DeviceNotifierReceiver = audio.mojom.DeviceNotifierReceiver;
 
 audio.mojom.DeviceNotifierPtr = audio.mojom.DeviceNotifierRemote;
 audio.mojom.DeviceNotifierRequest = audio.mojom.DeviceNotifierPendingReceiver;

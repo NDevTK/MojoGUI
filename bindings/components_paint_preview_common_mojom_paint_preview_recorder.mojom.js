@@ -7,8 +7,7 @@
 // Module namespace
 var paint_preview = paint_preview || {};
 paint_preview.mojom = paint_preview.mojom || {};
-var components = components || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -171,6 +170,40 @@ paint_preview.mojom.PaintPreviewRecorder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+paint_preview.mojom.PaintPreviewRecorderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.capturePaintPreview(params.params);
+          break;
+        }
+        case 1: {
+          const params = paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getGeometryMetadata(params.params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+paint_preview.mojom.PaintPreviewRecorderReceiver = paint_preview.mojom.PaintPreviewRecorderReceiver;
 
 paint_preview.mojom.PaintPreviewRecorderPtr = paint_preview.mojom.PaintPreviewRecorderRemote;
 paint_preview.mojom.PaintPreviewRecorderRequest = paint_preview.mojom.PaintPreviewRecorderPendingReceiver;

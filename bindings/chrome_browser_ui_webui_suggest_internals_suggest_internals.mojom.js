@@ -7,6 +7,7 @@
 // Module namespace
 var suggest_internals = suggest_internals || {};
 suggest_internals.mojom = suggest_internals.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 suggest_internals.mojom.RequestStatusSpec = { $: mojo.internal.Enum() };
@@ -128,6 +129,40 @@ suggest_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+suggest_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = suggest_internals.mojom.PageHandler_SetPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPage(params.page);
+          break;
+        }
+        case 1: {
+          const params = suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hardcodeResponse(params.response, params.delay);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+suggest_internals.mojom.PageHandlerReceiver = suggest_internals.mojom.PageHandlerReceiver;
+
 suggest_internals.mojom.PageHandlerPtr = suggest_internals.mojom.PageHandlerRemote;
 suggest_internals.mojom.PageHandlerRequest = suggest_internals.mojom.PageHandlerPendingReceiver;
 
@@ -224,6 +259,38 @@ suggest_internals.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+suggest_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRequestCreated(params.request);
+          break;
+        }
+        case 1: {
+          const params = suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRequestStarted(params.request);
+          break;
+        }
+        case 2: {
+          const params = suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRequestCompleted(params.request);
+          break;
+        }
+      }
+    });
+  }
+};
+
+suggest_internals.mojom.PageReceiver = suggest_internals.mojom.PageReceiver;
 
 suggest_internals.mojom.PagePtr = suggest_internals.mojom.PageRemote;
 suggest_internals.mojom.PageRequest = suggest_internals.mojom.PagePendingReceiver;

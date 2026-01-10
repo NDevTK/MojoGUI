@@ -87,6 +87,35 @@ test.mojom.Foo.getRemote = function() {
   return remote.$;
 };
 
+test.mojom.FooReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = test.mojom.Foo_GetFoo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFoo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, test.mojom.Foo_GetFoo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+test.mojom.FooReceiver = test.mojom.FooReceiver;
+
 test.mojom.FooPtr = test.mojom.FooRemote;
 test.mojom.FooRequest = test.mojom.FooPendingReceiver;
 
@@ -157,6 +186,35 @@ test.mojom.Bar.getRemote = function() {
   return remote.$;
 };
 
+test.mojom.BarReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = test.mojom.Bar_GetBar_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBar();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, test.mojom.Bar_GetBar_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+test.mojom.BarReceiver = test.mojom.BarReceiver;
+
 test.mojom.BarPtr = test.mojom.BarRemote;
 test.mojom.BarRequest = test.mojom.BarPendingReceiver;
 
@@ -226,6 +284,35 @@ test.mojom.Baz.getRemote = function() {
     'context');
   return remote.$;
 };
+
+test.mojom.BazReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = test.mojom.Baz_GetBaz_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBaz();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, test.mojom.Baz_GetBaz_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+test.mojom.BazReceiver = test.mojom.BazReceiver;
 
 test.mojom.BazPtr = test.mojom.BazRemote;
 test.mojom.BazRequest = test.mojom.BazPendingReceiver;

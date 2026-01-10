@@ -8,6 +8,8 @@
 var nearby = nearby || {};
 nearby.connections = nearby.connections || {};
 nearby.connections.mojom = nearby.connections.mojom || {};
+var bluetooth = bluetooth || {};
+var mojo_base = mojo_base || {};
 
 nearby.connections.mojom.StatusSpec = { $: mojo.internal.Enum() };
 nearby.connections.mojom.StrategySpec = { $: mojo.internal.Enum() };

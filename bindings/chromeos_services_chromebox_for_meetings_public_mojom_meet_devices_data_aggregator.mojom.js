@@ -104,6 +104,28 @@ ash.cfm.mojom.DataWatchDog.getRemote = function() {
   return remote.$;
 };
 
+ash.cfm.mojom.DataWatchDogReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNotify(params.data);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cfm.mojom.DataWatchDogReceiver = ash.cfm.mojom.DataWatchDogReceiver;
+
 ash.cfm.mojom.DataWatchDogPtr = ash.cfm.mojom.DataWatchDogRemote;
 ash.cfm.mojom.DataWatchDogRequest = ash.cfm.mojom.DataWatchDogPendingReceiver;
 
@@ -211,6 +233,52 @@ ash.cfm.mojom.DataSource.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.cfm.mojom.DataSourceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cfm.mojom.DataSource_Fetch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fetch();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addWatchDog(params.filter, params.watch_dog);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.cfm.mojom.DataSource_Flush_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flush();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cfm.mojom.DataSourceReceiver = ash.cfm.mojom.DataSourceReceiver;
 
 ash.cfm.mojom.DataSourcePtr = ash.cfm.mojom.DataSourceRemote;
 ash.cfm.mojom.DataSourceRequest = ash.cfm.mojom.DataSourcePendingReceiver;
@@ -328,6 +396,59 @@ ash.cfm.mojom.DataAggregator.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.cfm.mojom.DataAggregatorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDataSourceNames();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addDataSource(params.source_name, params.data_source);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addWatchDog(params.source_name, params.filter, params.watch_dog);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cfm.mojom.DataAggregatorReceiver = ash.cfm.mojom.DataAggregatorReceiver;
 
 ash.cfm.mojom.DataAggregatorPtr = ash.cfm.mojom.DataAggregatorRemote;
 ash.cfm.mojom.DataAggregatorRequest = ash.cfm.mojom.DataAggregatorPendingReceiver;

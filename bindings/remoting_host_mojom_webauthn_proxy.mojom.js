@@ -128,6 +128,35 @@ remoting.mojom.WebAuthnRequestCanceller.getRemote = function() {
   return remote.$;
 };
 
+remoting.mojom.WebAuthnRequestCancellerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancel();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.WebAuthnRequestCancellerReceiver = remoting.mojom.WebAuthnRequestCancellerReceiver;
+
 remoting.mojom.WebAuthnRequestCancellerPtr = remoting.mojom.WebAuthnRequestCancellerRemote;
 remoting.mojom.WebAuthnRequestCancellerRequest = remoting.mojom.WebAuthnRequestCancellerPendingReceiver;
 
@@ -243,6 +272,59 @@ remoting.mojom.WebAuthnProxy.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remoting.mojom.WebAuthnProxyReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isUserVerifyingPlatformAuthenticatorAvailable();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = remoting.mojom.WebAuthnProxy_Create_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.create(params.request_data, params.request_canceller);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = remoting.mojom.WebAuthnProxy_Get_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.get(params.request_data, params.request_canceller);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.WebAuthnProxyReceiver = remoting.mojom.WebAuthnProxyReceiver;
 
 remoting.mojom.WebAuthnProxyPtr = remoting.mojom.WebAuthnProxyRemote;
 remoting.mojom.WebAuthnProxyRequest = remoting.mojom.WebAuthnProxyPendingReceiver;

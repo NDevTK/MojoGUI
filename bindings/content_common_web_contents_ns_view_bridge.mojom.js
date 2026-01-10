@@ -8,12 +8,9 @@
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
 var content = content || {};
-var ui = ui || {};
-var ui = ui || {};
-var gfx = gfx || {};
+var mojo_base = mojo_base || {};
 var ui = ui || {};
 var gfx = gfx || {};
-var url = url || {};
 var url = url || {};
 
 remote_cocoa.mojom.SelectionDirectionSpec = { $: mojo.internal.Enum() };
@@ -244,6 +241,63 @@ remote_cocoa.mojom.WebContentsNSView.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remote_cocoa.mojom.WebContentsNSViewReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remote_cocoa.mojom.WebContentsNSView_SetParentNSView_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setParentNSView(params.parent_ns_view_id);
+          break;
+        }
+        case 1: {
+          const params = remote_cocoa.mojom.WebContentsNSView_ResetParentNSView_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetParentNSView();
+          break;
+        }
+        case 2: {
+          const params = remote_cocoa.mojom.WebContentsNSView_SetBounds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBounds(params.bounds_in_superview);
+          break;
+        }
+        case 3: {
+          const params = remote_cocoa.mojom.WebContentsNSView_SetVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVisible(params.visible);
+          break;
+        }
+        case 4: {
+          const params = remote_cocoa.mojom.WebContentsNSView_MakeFirstResponder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.makeFirstResponder();
+          break;
+        }
+        case 5: {
+          const params = remote_cocoa.mojom.WebContentsNSView_TakeFocus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.takeFocus(params.reverse);
+          break;
+        }
+        case 6: {
+          const params = remote_cocoa.mojom.WebContentsNSView_StartDrag_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startDrag(params.drop_data, params.source_origin, params.operation_mask, params.image, params.image_offset, params.is_privileged);
+          break;
+        }
+        case 7: {
+          const params = remote_cocoa.mojom.WebContentsNSView_Destroy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.destroy();
+          break;
+        }
+      }
+    });
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSViewReceiver = remote_cocoa.mojom.WebContentsNSViewReceiver;
 
 remote_cocoa.mojom.WebContentsNSViewPtr = remote_cocoa.mojom.WebContentsNSViewRemote;
 remote_cocoa.mojom.WebContentsNSViewRequest = remote_cocoa.mojom.WebContentsNSViewPendingReceiver;
@@ -481,6 +535,101 @@ remote_cocoa.mojom.WebContentsNSViewHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remote_cocoa.mojom.WebContentsNSViewHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remote_cocoa.mojom.WebContentsNSViewHost_OnMouseEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMouseEvent(params.event);
+          break;
+        }
+        case 1: {
+          const params = remote_cocoa.mojom.WebContentsNSViewHost_OnBecameFirstResponder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBecameFirstResponder(params.direction);
+          break;
+        }
+        case 2: {
+          const params = remote_cocoa.mojom.WebContentsNSViewHost_OnWindowVisibilityChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWindowVisibilityChanged(params.visibility);
+          break;
+        }
+        case 3: {
+          const params = remote_cocoa.mojom.WebContentsNSViewHost_SetDropData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDropData(params.drop_data);
+          break;
+        }
+        case 4: {
+          const params = remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.draggingEntered(params.dragging_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.WebContentsNSViewHost_DraggingEntered_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = remote_cocoa.mojom.WebContentsNSViewHost_DraggingExited_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.draggingExited();
+          break;
+        }
+        case 6: {
+          const params = remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.draggingUpdated(params.dragging_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.WebContentsNSViewHost_DraggingUpdated_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.performDragOperation(params.dragging_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.WebContentsNSViewHost_PerformDragOperation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dragPromisedFileTo(params.file_path, params.drop_data, params.download_url, params.source_origin);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.WebContentsNSViewHost_DragPromisedFileTo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = remote_cocoa.mojom.WebContentsNSViewHost_EndDrag_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.endDrag(params.drag_operation, params.local_point, params.screen_point);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remote_cocoa.mojom.WebContentsNSViewHostReceiver = remote_cocoa.mojom.WebContentsNSViewHostReceiver;
 
 remote_cocoa.mojom.WebContentsNSViewHostPtr = remote_cocoa.mojom.WebContentsNSViewHostRemote;
 remote_cocoa.mojom.WebContentsNSViewHostRequest = remote_cocoa.mojom.WebContentsNSViewHostPendingReceiver;

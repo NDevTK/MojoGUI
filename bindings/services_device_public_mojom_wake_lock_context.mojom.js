@@ -7,7 +7,6 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var services = services || {};
 
 device.mojom.WakeLockContext = {};
 device.mojom.WakeLockContext.$interfaceName = 'device.mojom.WakeLockContext';
@@ -76,6 +75,28 @@ device.mojom.WakeLockContext.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.WakeLockContextReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.WakeLockContext_GetWakeLock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWakeLock(params.type, params.reason, params.description, params.wake_lock);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.WakeLockContextReceiver = device.mojom.WakeLockContextReceiver;
 
 device.mojom.WakeLockContextPtr = device.mojom.WakeLockContextRemote;
 device.mojom.WakeLockContextRequest = device.mojom.WakeLockContextPendingReceiver;

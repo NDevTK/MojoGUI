@@ -7,10 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 blink.mojom.AuctionAdConfigFieldSpec = { $: mojo.internal.Enum() };
@@ -312,6 +309,78 @@ blink.mojom.AbortableAdAuction.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.AbortableAdAuctionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolvedPromiseParam(params.auction, params.field, params.json_value);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolvedPerBuyerSignalsPromise(params.auction, params.per_buyer_signals);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolvedBuyerTkvSignalsPromise(params.auction, params.buyer, params.json_value);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolvedBuyerTimeoutsPromise(params.auction, params.field, params.buyer_timeouts);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolvedBuyerCurrenciesPromise(params.auction, params.per_buyer_currencies);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolvedDirectFromSellerSignalsPromise(params.auction, params.direct_from_seller_signals);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolvedDirectFromSellerSignalsHeaderAdSlotPromise(params.auction, params.direct_from_seller_signals_header_ad_slot);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolvedDeprecatedRenderURLReplacementsPromise(params.auction, params.deprecated_render_url_replacements);
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolvedAuctionAdResponsePromise(params.auction, params.result);
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolvedAdditionalBids(params.auction);
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.AbortableAdAuction_Abort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.abort();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AbortableAdAuctionReceiver = blink.mojom.AbortableAdAuctionReceiver;
+
 blink.mojom.AbortableAdAuctionPtr = blink.mojom.AbortableAdAuctionRemote;
 blink.mojom.AbortableAdAuctionRequest = blink.mojom.AbortableAdAuctionPendingReceiver;
 
@@ -596,6 +665,141 @@ blink.mojom.AdAuctionService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.AdAuctionServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createAdRequest(params.config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.finalizeAd(params.ads_guid, params.config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runAdAuction(params.config, params.abort_receiver);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.joinInterestGroup(params.group);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.leaveInterestGroup(params.owner, params.name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.leaveInterestGroupForDocument();
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearOriginJoinedInterestGroups(params.owner, params.interest_groups_to_keep);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateAdInterestGroups();
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deprecatedGetURLFromURN(params.uuid_url, params.send_reports);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deprecatedReplaceInURN(params.uuid_url, params.replacements);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getInterestGroupAdAuctionData(params.sellers, params.config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AdAuctionServiceReceiver = blink.mojom.AdAuctionServiceReceiver;
 
 blink.mojom.AdAuctionServicePtr = blink.mojom.AdAuctionServiceRemote;
 blink.mojom.AdAuctionServiceRequest = blink.mojom.AdAuctionServicePendingReceiver;

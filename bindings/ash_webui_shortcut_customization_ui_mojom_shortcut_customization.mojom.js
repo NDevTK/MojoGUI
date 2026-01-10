@@ -8,12 +8,8 @@
 var ash = ash || {};
 ash.shortcut_customization = ash.shortcut_customization || {};
 ash.shortcut_customization.mojom = ash.shortcut_customization.mojom || {};
-var ash = ash || {};
-var ash = ash || {};
-var ash = ash || {};
+var mojo_base = mojo_base || {};
 var ui = ui || {};
-var ui = ui || {};
-var ash = ash || {};
 
 ash.shortcut_customization.mojom.UserActionSpec = { $: mojo.internal.Enum() };
 ash.shortcut_customization.mojom.EditDialogCompletedActionsSpec = { $: mojo.internal.Enum() };
@@ -180,6 +176,28 @@ ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver.getRemote = functio
   return remote.$;
 };
 
+ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAcceleratorsUpdated(params.config);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverReceiver = ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverReceiver;
+
 ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverPtr = ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemote;
 ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRequest = ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverPendingReceiver;
 
@@ -243,6 +261,28 @@ ash.shortcut_customization.mojom.PolicyUpdatedObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.shortcut_customization.mojom.PolicyUpdatedObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCustomizationPolicyUpdated();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.shortcut_customization.mojom.PolicyUpdatedObserverReceiver = ash.shortcut_customization.mojom.PolicyUpdatedObserverReceiver;
 
 ash.shortcut_customization.mojom.PolicyUpdatedObserverPtr = ash.shortcut_customization.mojom.PolicyUpdatedObserverRemote;
 ash.shortcut_customization.mojom.PolicyUpdatedObserverRequest = ash.shortcut_customization.mojom.PolicyUpdatedObserverPendingReceiver;
@@ -700,6 +740,221 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProvider.getRemote = fu
     'context');
   return remote.$;
 };
+
+ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isMutable(params.source);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isCustomizationAllowedByPolicy();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMetaKeyToDisplay();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getConflictAccelerator(params.source, params.action_id, params.accelerator);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDefaultAcceleratorsForId(params.action_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAccelerators();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 7: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addPolicyObserver(params.observer);
+          break;
+        }
+        case 8: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAcceleratorLayoutInfos();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.preventProcessingAccelerators(params.prevent_processing_accelerators);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addAccelerator(params.source, params.action_id, params.accelerator);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeAccelerator(params.source, params.action_id, params.accelerator);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.replaceAccelerator(params.source, params.action_id, params.old_accelerator, params.new_accelerator);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restoreDefault(params.source, params.action_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restoreAllDefaults();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordUserAction(params.user_action);
+          break;
+        }
+        case 16: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordMainCategoryNavigation(params.category);
+          break;
+        }
+        case 17: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordEditDialogCompletedActions(params.completed_actions);
+          break;
+        }
+        case 18: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordAddOrEditSubactions(params.is_add, params.subactions);
+          break;
+        }
+        case 19: {
+          const params = ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasCustomAccelerators();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver;
 
 ash.shortcut_customization.mojom.AcceleratorConfigurationProviderPtr = ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemote;
 ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRequest = ash.shortcut_customization.mojom.AcceleratorConfigurationProviderPendingReceiver;

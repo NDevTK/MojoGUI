@@ -7,8 +7,8 @@
 // Module namespace
 var js_injection = js_injection || {};
 js_injection.mojom = js_injection.mojom || {};
-var components = components || {};
-var components = components || {};
+var origin_matcher = origin_matcher || {};
+var mojo_base = mojo_base || {};
 var blink = blink || {};
 
 js_injection.mojom.JsWebMessageSpec = { $: {} };
@@ -53,8 +53,8 @@ mojo.internal.Union(
 mojo.internal.Struct(
     js_injection.mojom.JsObjectSpec, 'js_injection.mojom.JsObject', [
       mojo.internal.StructField('js_object_name', 0, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
-      mojo.internal.StructField('js_to_browser_messaging', 8, 0, mojo.internal.AssociatedInterfaceProxy(js_injection.mojom.JsToBrowserMessagingRemote), null, false, 0, undefined),
-      mojo.internal.StructField('browser_to_js_factory', 16, 0, mojo.internal.AssociatedInterfaceRequest(js_injection.mojom.BrowserToJsMessagingFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('js_to_browser_messaging', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('browser_to_js_factory', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('origin_matcher', 24, 0, origin_matcher.mojom.OriginMatcherSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('js_world', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -90,7 +90,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec, 'js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_Params', [
-      mojo.internal.StructField('browser_to_js_messaging', 0, 0, mojo.internal.AssociatedInterfaceProxy(js_injection.mojom.BrowserToJsMessagingRemote), null, false, 0, undefined),
+      mojo.internal.StructField('browser_to_js_messaging', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -158,6 +158,33 @@ js_injection.mojom.JsToBrowserMessaging.getRemote = function() {
   return remote.$;
 };
 
+js_injection.mojom.JsToBrowserMessagingReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.postMessage(params.message, params.ports);
+          break;
+        }
+        case 1: {
+          const params = js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBrowserToJsMessaging(params.browser_to_js_messaging);
+          break;
+        }
+      }
+    });
+  }
+};
+
+js_injection.mojom.JsToBrowserMessagingReceiver = js_injection.mojom.JsToBrowserMessagingReceiver;
+
 js_injection.mojom.JsToBrowserMessagingPtr = js_injection.mojom.JsToBrowserMessagingRemote;
 js_injection.mojom.JsToBrowserMessagingRequest = js_injection.mojom.JsToBrowserMessagingPendingReceiver;
 
@@ -222,6 +249,28 @@ js_injection.mojom.JsObjectsClient.getRemote = function() {
   return remote.$;
 };
 
+js_injection.mojom.JsObjectsClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWindowObjectCleared();
+          break;
+        }
+      }
+    });
+  }
+};
+
+js_injection.mojom.JsObjectsClientReceiver = js_injection.mojom.JsObjectsClientReceiver;
+
 js_injection.mojom.JsObjectsClientPtr = js_injection.mojom.JsObjectsClientRemote;
 js_injection.mojom.JsObjectsClientRequest = js_injection.mojom.JsObjectsClientPendingReceiver;
 
@@ -229,7 +278,7 @@ js_injection.mojom.JsObjectsClientRequest = js_injection.mojom.JsObjectsClientPe
 // Interface: BrowserToJsMessagingFactory
 mojo.internal.Struct(
     js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec, 'js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_Params', [
-      mojo.internal.StructField('browser_to_js_messaging', 0, 0, mojo.internal.AssociatedInterfaceRequest(js_injection.mojom.BrowserToJsMessagingRemote), null, false, 0, undefined),
+      mojo.internal.StructField('browser_to_js_messaging', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -286,6 +335,28 @@ js_injection.mojom.BrowserToJsMessagingFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+js_injection.mojom.BrowserToJsMessagingFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendBrowserToJsMessaging(params.browser_to_js_messaging);
+          break;
+        }
+      }
+    });
+  }
+};
+
+js_injection.mojom.BrowserToJsMessagingFactoryReceiver = js_injection.mojom.BrowserToJsMessagingFactoryReceiver;
 
 js_injection.mojom.BrowserToJsMessagingFactoryPtr = js_injection.mojom.BrowserToJsMessagingFactoryRemote;
 js_injection.mojom.BrowserToJsMessagingFactoryRequest = js_injection.mojom.BrowserToJsMessagingFactoryPendingReceiver;
@@ -352,6 +423,28 @@ js_injection.mojom.BrowserToJsMessaging.getRemote = function() {
   return remote.$;
 };
 
+js_injection.mojom.BrowserToJsMessagingReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPostMessage(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+js_injection.mojom.BrowserToJsMessagingReceiver = js_injection.mojom.BrowserToJsMessagingReceiver;
+
 js_injection.mojom.BrowserToJsMessagingPtr = js_injection.mojom.BrowserToJsMessagingRemote;
 js_injection.mojom.BrowserToJsMessagingRequest = js_injection.mojom.BrowserToJsMessagingPendingReceiver;
 
@@ -360,7 +453,7 @@ js_injection.mojom.BrowserToJsMessagingRequest = js_injection.mojom.BrowserToJsM
 mojo.internal.Struct(
     js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec, 'js_injection.mojom.JsCommunication_SetJsObjects_Params', [
       mojo.internal.StructField('js_objects', 0, 0, mojo.internal.Array(js_injection.mojom.JsObjectSpec.$, false), null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.AssociatedInterfaceProxy(js_injection.mojom.JsObjectsClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -449,6 +542,38 @@ js_injection.mojom.JsCommunication.getRemote = function() {
     'context');
   return remote.$;
 };
+
+js_injection.mojom.JsCommunicationReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setJsObjects(params.js_objects, params.client);
+          break;
+        }
+        case 1: {
+          const params = js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addPersistentJavaScript(params.script);
+          break;
+        }
+        case 2: {
+          const params = js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removePersistentJavaScript(params.script_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+js_injection.mojom.JsCommunicationReceiver = js_injection.mojom.JsCommunicationReceiver;
 
 js_injection.mojom.JsCommunicationPtr = js_injection.mojom.JsCommunicationRemote;
 js_injection.mojom.JsCommunicationRequest = js_injection.mojom.JsCommunicationPendingReceiver;

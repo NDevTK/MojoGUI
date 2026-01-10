@@ -8,7 +8,7 @@
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
 var content = content || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 chrome.mojom.PluginStatusSpec = { $: mojo.internal.Enum() };
@@ -115,6 +115,28 @@ chrome.mojom.PluginHost.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.PluginHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.PluginHost_OpenPDF_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openPDF(params.url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.PluginHostReceiver = chrome.mojom.PluginHostReceiver;
+
 chrome.mojom.PluginHostPtr = chrome.mojom.PluginHostRemote;
 chrome.mojom.PluginHostRequest = chrome.mojom.PluginHostPendingReceiver;
 
@@ -180,6 +202,28 @@ chrome.mojom.PluginAuthHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.PluginAuthHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.blockedUnauthorizedPlugin(params.name, params.group_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.PluginAuthHostReceiver = chrome.mojom.PluginAuthHostReceiver;
 
 chrome.mojom.PluginAuthHostPtr = chrome.mojom.PluginAuthHostRemote;
 chrome.mojom.PluginAuthHostRequest = chrome.mojom.PluginAuthHostPendingReceiver;
@@ -253,6 +297,35 @@ chrome.mojom.PluginInfoHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.PluginInfoHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPluginInfo(params.url, params.origin, params.mime_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.PluginInfoHostReceiver = chrome.mojom.PluginInfoHostReceiver;
 
 chrome.mojom.PluginInfoHostPtr = chrome.mojom.PluginInfoHostRemote;
 chrome.mojom.PluginInfoHostRequest = chrome.mojom.PluginInfoHostPendingReceiver;

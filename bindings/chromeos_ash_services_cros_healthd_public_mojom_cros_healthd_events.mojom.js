@@ -8,13 +8,7 @@
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
 ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
-var ash = ash || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
 ash.cros_healthd.mojom.StateSpec = { $: mojo.internal.Enum() };
@@ -671,6 +665,53 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAdapterAdded();
+          break;
+        }
+        case 1: {
+          const params = ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAdapterRemoved();
+          break;
+        }
+        case 2: {
+          const params = ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAdapterPropertyChanged();
+          break;
+        }
+        case 3: {
+          const params = ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceAdded();
+          break;
+        }
+        case 4: {
+          const params = ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceRemoved();
+          break;
+        }
+        case 5: {
+          const params = ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDevicePropertyChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver = ash.cros_healthd.mojom.CrosHealthdBluetoothObserverReceiver;
+
 ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPtr = ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemote;
 ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRequest = ash.cros_healthd.mojom.CrosHealthdBluetoothObserverPendingReceiver;
 
@@ -749,6 +790,33 @@ ash.cros_healthd.mojom.CrosHealthdLidObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLidClosed();
+          break;
+        }
+        case 1: {
+          const params = ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLidOpened();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver = ash.cros_healthd.mojom.CrosHealthdLidObserverReceiver;
 
 ash.cros_healthd.mojom.CrosHealthdLidObserverPtr = ash.cros_healthd.mojom.CrosHealthdLidObserverRemote;
 ash.cros_healthd.mojom.CrosHealthdLidObserverRequest = ash.cros_healthd.mojom.CrosHealthdLidObserverPendingReceiver;
@@ -859,6 +927,43 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAcInserted();
+          break;
+        }
+        case 1: {
+          const params = ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAcRemoved();
+          break;
+        }
+        case 2: {
+          const params = ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOsSuspend();
+          break;
+        }
+        case 3: {
+          const params = ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOsResume();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver = ash.cros_healthd.mojom.CrosHealthdPowerObserverReceiver;
+
 ash.cros_healthd.mojom.CrosHealthdPowerObserverPtr = ash.cros_healthd.mojom.CrosHealthdPowerObserverRemote;
 ash.cros_healthd.mojom.CrosHealthdPowerObserverRequest = ash.cros_healthd.mojom.CrosHealthdPowerObserverPendingReceiver;
 
@@ -937,6 +1042,33 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onUnderrun();
+          break;
+        }
+        case 1: {
+          const params = ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSevereUnderrun();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver = ash.cros_healthd.mojom.CrosHealthdAudioObserverReceiver;
 
 ash.cros_healthd.mojom.CrosHealthdAudioObserverPtr = ash.cros_healthd.mojom.CrosHealthdAudioObserverRemote;
 ash.cros_healthd.mojom.CrosHealthdAudioObserverRequest = ash.cros_healthd.mojom.CrosHealthdAudioObserverPendingReceiver;
@@ -1047,6 +1179,43 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAdd();
+          break;
+        }
+        case 1: {
+          const params = ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRemove();
+          break;
+        }
+        case 2: {
+          const params = ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAuthorized();
+          break;
+        }
+        case 3: {
+          const params = ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onUnAuthorized();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver = ash.cros_healthd.mojom.CrosHealthdThunderboltObserverReceiver;
+
 ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPtr = ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemote;
 ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRequest = ash.cros_healthd.mojom.CrosHealthdThunderboltObserverPendingReceiver;
 
@@ -1128,6 +1297,33 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAdd(params.info);
+          break;
+        }
+        case 1: {
+          const params = ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRemove(params.info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver = ash.cros_healthd.mojom.CrosHealthdUsbObserverReceiver;
+
 ash.cros_healthd.mojom.CrosHealthdUsbObserverPtr = ash.cros_healthd.mojom.CrosHealthdUsbObserverRemote;
 ash.cros_healthd.mojom.CrosHealthdUsbObserverRequest = ash.cros_healthd.mojom.CrosHealthdUsbObserverPendingReceiver;
 
@@ -1207,6 +1403,33 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAdd();
+          break;
+        }
+        case 1: {
+          const params = ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRemove();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver = ash.cros_healthd.mojom.CrosHealthdSdCardObserverReceiver;
+
 ash.cros_healthd.mojom.CrosHealthdSdCardObserverPtr = ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemote;
 ash.cros_healthd.mojom.CrosHealthdSdCardObserverRequest = ash.cros_healthd.mojom.CrosHealthdSdCardObserverPendingReceiver;
 
@@ -1271,6 +1494,28 @@ ash.cros_healthd.mojom.EventObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.cros_healthd.mojom.EventObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEvent(params.info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.mojom.EventObserverReceiver = ash.cros_healthd.mojom.EventObserverReceiver;
 
 ash.cros_healthd.mojom.EventObserverPtr = ash.cros_healthd.mojom.EventObserverRemote;
 ash.cros_healthd.mojom.EventObserverRequest = ash.cros_healthd.mojom.EventObserverPendingReceiver;

@@ -148,6 +148,43 @@ media_router.mojom.Logger.getRemote = function() {
   return remote.$;
 };
 
+media_router.mojom.LoggerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media_router.mojom.Logger_LogInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logInfo(params.category, params.component, params.message, params.sink_id, params.media_source, params.session_id);
+          break;
+        }
+        case 1: {
+          const params = media_router.mojom.Logger_LogWarning_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logWarning(params.category, params.component, params.message, params.sink_id, params.media_source, params.session_id);
+          break;
+        }
+        case 2: {
+          const params = media_router.mojom.Logger_LogError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logError(params.category, params.component, params.message, params.sink_id, params.media_source, params.session_id);
+          break;
+        }
+        case 3: {
+          const params = media_router.mojom.Logger_BindReceiver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindReceiver(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media_router.mojom.LoggerReceiver = media_router.mojom.LoggerReceiver;
+
 media_router.mojom.LoggerPtr = media_router.mojom.LoggerRemote;
 media_router.mojom.LoggerRequest = media_router.mojom.LoggerPendingReceiver;
 

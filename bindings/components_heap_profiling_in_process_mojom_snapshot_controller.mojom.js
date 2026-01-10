@@ -90,6 +90,33 @@ heap_profiling.mojom.SnapshotController.getRemote = function() {
   return remote.$;
 };
 
+heap_profiling.mojom.SnapshotControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.takeSnapshot(params.process_probability_pct, params.process_index);
+          break;
+        }
+        case 1: {
+          const params = heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logMetricsWithoutSnapshot();
+          break;
+        }
+      }
+    });
+  }
+};
+
+heap_profiling.mojom.SnapshotControllerReceiver = heap_profiling.mojom.SnapshotControllerReceiver;
+
 heap_profiling.mojom.SnapshotControllerPtr = heap_profiling.mojom.SnapshotControllerRemote;
 heap_profiling.mojom.SnapshotControllerRequest = heap_profiling.mojom.SnapshotControllerPendingReceiver;
 

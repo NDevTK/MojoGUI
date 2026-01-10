@@ -106,6 +106,40 @@ chromecast.mojom.ApiBindings.getRemote = function() {
   return remote.$;
 };
 
+chromecast.mojom.ApiBindingsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.ApiBindings_GetAll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAll();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.ApiBindings_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.port_name, params.port);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.ApiBindingsReceiver = chromecast.mojom.ApiBindingsReceiver;
+
 chromecast.mojom.ApiBindingsPtr = chromecast.mojom.ApiBindingsRemote;
 chromecast.mojom.ApiBindingsRequest = chromecast.mojom.ApiBindingsPendingReceiver;
 

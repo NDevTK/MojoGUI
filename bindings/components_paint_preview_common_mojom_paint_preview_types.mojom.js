@@ -7,6 +7,7 @@
 // Module namespace
 var paint_preview = paint_preview || {};
 paint_preview.mojom = paint_preview.mojom || {};
+var mojo_base = mojo_base || {};
 
 paint_preview.mojom.RecordingPersistenceSpec = { $: mojo.internal.Enum() };
 paint_preview.mojom.ClipCoordOverrideSpec = { $: mojo.internal.Enum() };

@@ -7,7 +7,6 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 media.mojom.RemoterFactory = {};
@@ -113,6 +112,28 @@ media.mojom.RemoterFactory.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.RemoterFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.RemoterFactory_Create_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.create(params.source, params.remoter);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.RemoterFactoryReceiver = media.mojom.RemoterFactoryReceiver;
+
 media.mojom.RemoterFactoryPtr = media.mojom.RemoterFactoryRemote;
 media.mojom.RemoterFactoryRequest = media.mojom.RemoterFactoryPendingReceiver;
 
@@ -197,6 +218,40 @@ media.mojom.RemotingDataStreamSender.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.RemotingDataStreamSenderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendFrame(params.frame);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelInFlightData();
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.RemotingDataStreamSenderReceiver = media.mojom.RemotingDataStreamSenderReceiver;
 
 media.mojom.RemotingDataStreamSenderPtr = media.mojom.RemotingDataStreamSenderRemote;
 media.mojom.RemotingDataStreamSenderRequest = media.mojom.RemotingDataStreamSenderPendingReceiver;
@@ -349,6 +404,60 @@ media.mojom.Remoter.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.RemoterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.Remoter_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start();
+          break;
+        }
+        case 1: {
+          const params = media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startWithPermissionAlreadyGranted();
+          break;
+        }
+        case 2: {
+          const params = media.mojom.Remoter_StartDataStreams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startDataStreams(params.audio_pipe, params.video_pipe, params.audio_sender, params.video_sender);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.Remoter_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop(params.reason);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.Remoter_SendMessageToSink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendMessageToSink(params.message);
+          break;
+        }
+        case 5: {
+          const params = media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.estimateTransmissionCapacity();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.RemoterReceiver = media.mojom.RemoterReceiver;
+
 media.mojom.RemoterPtr = media.mojom.RemoterRemote;
 media.mojom.RemoterRequest = media.mojom.RemoterPendingReceiver;
 
@@ -492,6 +601,53 @@ media.mojom.RemotingSource.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.RemotingSourceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSinkAvailable(params.metadata);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.RemotingSource_OnSinkGone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSinkGone();
+          break;
+        }
+        case 2: {
+          const params = media.mojom.RemotingSource_OnStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStarted();
+          break;
+        }
+        case 3: {
+          const params = media.mojom.RemotingSource_OnStartFailed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStartFailed(params.reason);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMessageFromSink(params.message);
+          break;
+        }
+        case 5: {
+          const params = media.mojom.RemotingSource_OnStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStopped(params.reason);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.RemotingSourceReceiver = media.mojom.RemotingSourceReceiver;
+
 media.mojom.RemotingSourcePtr = media.mojom.RemotingSourceRemote;
 media.mojom.RemotingSourceRequest = media.mojom.RemotingSourcePendingReceiver;
 
@@ -623,6 +779,48 @@ media.mojom.Remotee.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.RemoteeReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRemotingSinkReady(params.sink);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.Remotee_SendMessageToSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendMessageToSource(params.message);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.Remotee_StartDataStreams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startDataStreams(params.audio_stream, params.video_stream);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.Remotee_OnFlushUntil_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFlushUntil(params.audio_frame_count, params.video_frame_count);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVideoNaturalSizeChange(params.size);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.RemoteeReceiver = media.mojom.RemoteeReceiver;
+
 media.mojom.RemoteePtr = media.mojom.RemoteeRemote;
 media.mojom.RemoteeRequest = media.mojom.RemoteePendingReceiver;
 
@@ -687,6 +885,28 @@ media.mojom.RemotingSink.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.RemotingSinkReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMessageFromSource(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.RemotingSinkReceiver = media.mojom.RemotingSinkReceiver;
 
 media.mojom.RemotingSinkPtr = media.mojom.RemotingSinkRemote;
 media.mojom.RemotingSinkRequest = media.mojom.RemotingSinkPendingReceiver;
@@ -785,6 +1005,38 @@ media.mojom.RemotingDataStreamReceiver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.RemotingDataStreamReceiverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initializeDataPipe(params.data_pipe);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.receiveFrame(params.frame_count, params.buffer);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flushUntil(params.frame_count);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.RemotingDataStreamReceiverReceiver = media.mojom.RemotingDataStreamReceiverReceiver;
 
 media.mojom.RemotingDataStreamReceiverPtr = media.mojom.RemotingDataStreamReceiverRemote;
 media.mojom.RemotingDataStreamReceiverRequest = media.mojom.RemotingDataStreamReceiverPendingReceiver;

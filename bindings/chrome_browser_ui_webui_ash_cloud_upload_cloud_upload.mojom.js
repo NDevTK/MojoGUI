@@ -224,6 +224,28 @@ ash.cloud_upload.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+ash.cloud_upload.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cloud_upload.mojom.PageHandlerFactoryReceiver = ash.cloud_upload.mojom.PageHandlerFactoryReceiver;
+
 ash.cloud_upload.mojom.PageHandlerFactoryPtr = ash.cloud_upload.mojom.PageHandlerFactoryRemote;
 ash.cloud_upload.mojom.PageHandlerFactoryRequest = ash.cloud_upload.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -556,6 +578,161 @@ ash.cloud_upload.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.cloud_upload.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDialogArgs();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isOfficeWebAppInstalled();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installOfficeWebApp();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isODFSMounted();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.signInToOneDrive();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.respondWithUserActionAndClose(params.response);
+          break;
+        }
+        case 6: {
+          const params = ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.respondWithLocalTaskAndClose(params.task_position);
+          break;
+        }
+        case 7: {
+          const params = ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOfficeAsDefaultHandler();
+          break;
+        }
+        case 8: {
+          const params = ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAlwaysMoveOfficeFilesToDrive();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAlwaysMoveOfficeFilesToDrive(params.always_move);
+          break;
+        }
+        case 10: {
+          const params = ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAlwaysMoveOfficeFilesToOneDrive();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAlwaysMoveOfficeFilesToOneDrive(params.always_move);
+          break;
+        }
+        case 12: {
+          const params = ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOfficeMoveConfirmationShownForDrive();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOfficeMoveConfirmationShownForOneDrive();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordCancel(params.page);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cloud_upload.mojom.PageHandlerReceiver = ash.cloud_upload.mojom.PageHandlerReceiver;
 
 ash.cloud_upload.mojom.PageHandlerPtr = ash.cloud_upload.mojom.PageHandlerRemote;
 ash.cloud_upload.mojom.PageHandlerRequest = ash.cloud_upload.mojom.PageHandlerPendingReceiver;

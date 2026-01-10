@@ -296,6 +296,59 @@ bluetooth.mojom.FakeBluetooth.getRemote = function() {
   return remote.$;
 };
 
+bluetooth.mojom.FakeBluetoothReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = bluetooth.mojom.FakeBluetooth_SetLESupported_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLESupported(params.available);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeBluetooth_SetLESupported_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = bluetooth.mojom.FakeBluetooth_SimulateCentral_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulateCentral(params.state);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.allResponsesConsumed();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+bluetooth.mojom.FakeBluetoothReceiver = bluetooth.mojom.FakeBluetoothReceiver;
+
 bluetooth.mojom.FakeBluetoothPtr = bluetooth.mojom.FakeBluetoothRemote;
 bluetooth.mojom.FakeBluetoothRequest = bluetooth.mojom.FakeBluetoothPendingReceiver;
 
@@ -664,7 +717,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     bluetooth.mojom.FakeCentral_SetClient_ParamsSpec, 'bluetooth.mojom.FakeCentral_SetClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(bluetooth.mojom.FakeCentralClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -972,6 +1025,328 @@ bluetooth.mojom.FakeCentral.getRemote = function() {
   return remote.$;
 };
 
+bluetooth.mojom.FakeCentralReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulatePreconnectedPeripheral(params.address, params.name, params.manufacturer_data, params.known_service_uuids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulateAdvertisementReceived(params.result);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = bluetooth.mojom.FakeCentral_SetState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setState(params.state);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNextGATTConnectionResponse(params.address, params.code);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNextGATTDiscoveryResponse(params.address, params.code);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulateGATTOperationResponse(params.type, params.address, params.code);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulateGATTDisconnection(params.address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulateGATTServicesChanged(params.address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulateCharacteristicOperationResponse(params.type, params.characteristic_id, params.service_id, params.peripheral_address, params.code, params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulateDescriptorOperationResponse(params.type, params.descriptor_id, params.characteristic_id, params.service_id, params.peripheral_address, params.code, params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addFakeService(params.peripheral_address, params.service_uuid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_AddFakeService_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = bluetooth.mojom.FakeCentral_RemoveFakeService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeFakeService(params.service_id, params.peripheral_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addFakeCharacteristic(params.characteristic_uuid, params.properties, params.service_id, params.peripheral_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeFakeCharacteristic(params.identifier, params.service_id, params.peripheral_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addFakeDescriptor(params.descriptor_uuid, params.characteristic_id, params.service_id, params.peripheral_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeFakeDescriptor(params.descriptor_id, params.characteristic_id, params.service_id, params.peripheral_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNextReadCharacteristicResponse(params.gatt_code, params.value, params.characteristic_id, params.service_id, params.peripheral_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 17: {
+          const params = bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNextWriteCharacteristicResponse(params.gatt_code, params.characteristic_id, params.service_id, params.peripheral_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 18: {
+          const params = bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNextSubscribeToNotificationsResponse(params.gatt_code, params.characteristic_id, params.service_id, params.peripheral_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 19: {
+          const params = bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNextUnsubscribeFromNotificationsResponse(params.gatt_code, params.characteristic_id, params.service_id, params.peripheral_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 20: {
+          const params = bluetooth.mojom.FakeCentral_IsNotifying_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isNotifying(params.characteristic_id, params.service_id, params.peripheral_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_IsNotifying_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 21: {
+          const params = bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLastWrittenCharacteristicValue(params.characteristic_id, params.service_id, params.peripheral_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 22: {
+          const params = bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNextReadDescriptorResponse(params.gatt_code, params.value, params.descriptor_id, params.characteristic_id, params.service_id, params.peripheral_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 23: {
+          const params = bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNextWriteDescriptorResponse(params.gatt_code, params.descriptor_id, params.characteristic_id, params.service_id, params.peripheral_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 24: {
+          const params = bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLastWrittenDescriptorValue(params.descriptor_id, params.characteristic_id, params.service_id, params.peripheral_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 25: {
+          const params = bluetooth.mojom.FakeCentral_SetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setClient(params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+bluetooth.mojom.FakeCentralReceiver = bluetooth.mojom.FakeCentralReceiver;
+
 bluetooth.mojom.FakeCentralPtr = bluetooth.mojom.FakeCentralRemote;
 bluetooth.mojom.FakeCentralRequest = bluetooth.mojom.FakeCentralPendingReceiver;
 
@@ -1074,6 +1449,38 @@ bluetooth.mojom.FakeCentralClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+bluetooth.mojom.FakeCentralClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchGATTOperationEvent(params.type, params.peripheral_address);
+          break;
+        }
+        case 1: {
+          const params = bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchCharacteristicOperationEvent(params.type, params.data, params.write_type, params.characteristic_id);
+          break;
+        }
+        case 2: {
+          const params = bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchDescriptorOperationEvent(params.type, params.data, params.descriptor_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+bluetooth.mojom.FakeCentralClientReceiver = bluetooth.mojom.FakeCentralClientReceiver;
 
 bluetooth.mojom.FakeCentralClientPtr = bluetooth.mojom.FakeCentralClientRemote;
 bluetooth.mojom.FakeCentralClientRequest = bluetooth.mojom.FakeCentralClientPendingReceiver;

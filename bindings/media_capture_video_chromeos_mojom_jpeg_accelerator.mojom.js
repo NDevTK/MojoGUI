@@ -7,8 +7,7 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
-var components = components || {};
-var components = components || {};
+var chromeos_camera = chromeos_camera || {};
 
 cros.mojom.JpegAcceleratorProvider = {};
 cros.mojom.JpegAcceleratorProvider.$interfaceName = 'cros.mojom.JpegAcceleratorProvider';
@@ -91,6 +90,33 @@ cros.mojom.JpegAcceleratorProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cros.mojom.JpegAcceleratorProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getJpegEncodeAccelerator(params.jea);
+          break;
+        }
+        case 1: {
+          const params = cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMjpegDecodeAccelerator(params.jda);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.JpegAcceleratorProviderReceiver = cros.mojom.JpegAcceleratorProviderReceiver;
 
 cros.mojom.JpegAcceleratorProviderPtr = cros.mojom.JpegAcceleratorProviderRemote;
 cros.mojom.JpegAcceleratorProviderRequest = cros.mojom.JpegAcceleratorProviderPendingReceiver;

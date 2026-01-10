@@ -7,9 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
 
 blink.mojom.SharedWorkerHost = {};
 blink.mojom.SharedWorkerHost.$interfaceName = 'blink.mojom.SharedWorkerHost';
@@ -160,6 +157,53 @@ blink.mojom.SharedWorkerHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.SharedWorkerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SharedWorkerHost_OnConnected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnected(params.connection_id);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.SharedWorkerHost_OnContextClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onContextClosed();
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.SharedWorkerHost_OnReadyForInspection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReadyForInspection(params.agent, params.agent_host);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.SharedWorkerHost_OnScriptLoadFailed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScriptLoadFailed(params.error_message);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReportException(params.details);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFeatureUsed(params.feature);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SharedWorkerHostReceiver = blink.mojom.SharedWorkerHostReceiver;
 
 blink.mojom.SharedWorkerHostPtr = blink.mojom.SharedWorkerHostRemote;
 blink.mojom.SharedWorkerHostRequest = blink.mojom.SharedWorkerHostPendingReceiver;

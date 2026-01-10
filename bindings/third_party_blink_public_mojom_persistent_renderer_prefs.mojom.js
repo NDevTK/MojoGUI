@@ -73,6 +73,28 @@ blink.mojom.PersistentRendererPrefsService.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.PersistentRendererPrefsServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setViewSourceLineWrapping(params.value);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PersistentRendererPrefsServiceReceiver = blink.mojom.PersistentRendererPrefsServiceReceiver;
+
 blink.mojom.PersistentRendererPrefsServicePtr = blink.mojom.PersistentRendererPrefsServiceRemote;
 blink.mojom.PersistentRendererPrefsServiceRequest = blink.mojom.PersistentRendererPrefsServicePendingReceiver;
 

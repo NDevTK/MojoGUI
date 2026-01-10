@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 blink.mojom.ReportingServiceProxy = {};
@@ -248,6 +249,63 @@ blink.mojom.ReportingServiceProxy.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ReportingServiceProxyReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queueInterventionReport(params.url, params.id, params.message, params.source_file, params.line_number, params.column_number);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queueDeprecationReport(params.url, params.id, params.anticipatedRemoval, params.message, params.source_file, params.line_number, params.column_number);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queueCspViolationReport(params.url, params.group, params.document_url, params.referrer, params.blocked_url, params.effective_directive, params.original_policy, params.source_file, params.script_sample, params.disposition, params.status_code, params.line_number, params.column_number);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queueIntegrityViolationReport(params.url, params.endpoint, params.document_url, params.blocked_url, params.destination, params.report_only);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queuePermissionsPolicyViolationReport(params.url, params.endpoint, params.policy_id, params.disposition, params.message, params.source_file, params.line_number, params.column_number);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queuePotentialPermissionsPolicyViolationReport(params.url, params.endpoint, params.policy_id, params.disposition, params.message, params.allow_attribute, params.src_attribute, params.source_file, params.line_number, params.column_number);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queueDocumentPolicyViolationReport(params.url, params.group, params.policy_id, params.disposition, params.message, params.source_file, params.line_number, params.column_number);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queueCSPHashReport(params.url, params.endpoint, params.subresource_url, params.integrity_hash, params.type, params.destination);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ReportingServiceProxyReceiver = blink.mojom.ReportingServiceProxyReceiver;
 
 blink.mojom.ReportingServiceProxyPtr = blink.mojom.ReportingServiceProxyRemote;
 blink.mojom.ReportingServiceProxyRequest = blink.mojom.ReportingServiceProxyPendingReceiver;

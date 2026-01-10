@@ -7,6 +7,7 @@
 // Module namespace
 var updater = updater || {};
 updater.mojom = updater.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 updater.mojom.HttpHeaderSpec = { $: {} };
@@ -136,6 +137,38 @@ updater.mojom.PostRequestObserver.getRemote = function() {
   return remote.$;
 };
 
+updater.mojom.PostRequestObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResponseStarted(params.http_status_code, params.content_length);
+          break;
+        }
+        case 1: {
+          const params = updater.mojom.PostRequestObserver_OnProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProgress(params.current);
+          break;
+        }
+        case 2: {
+          const params = updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRequestComplete(params.response_body, params.net_error, params.header_etag, params.header_x_cup_server_proof, params.header_set_cookie, params.xheader_retry_after_sec);
+          break;
+        }
+      }
+    });
+  }
+};
+
+updater.mojom.PostRequestObserverReceiver = updater.mojom.PostRequestObserverReceiver;
+
 updater.mojom.PostRequestObserverPtr = updater.mojom.PostRequestObserverRemote;
 updater.mojom.PostRequestObserverRequest = updater.mojom.PostRequestObserverPendingReceiver;
 
@@ -237,6 +270,38 @@ updater.mojom.FileDownloadObserver.getRemote = function() {
   return remote.$;
 };
 
+updater.mojom.FileDownloadObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResponseStarted(params.http_status_code, params.content_length);
+          break;
+        }
+        case 1: {
+          const params = updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProgress(params.current);
+          break;
+        }
+        case 2: {
+          const params = updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDownloadComplete(params.net_error, params.content_size);
+          break;
+        }
+      }
+    });
+  }
+};
+
+updater.mojom.FileDownloadObserverReceiver = updater.mojom.FileDownloadObserverReceiver;
+
 updater.mojom.FileDownloadObserverPtr = updater.mojom.FileDownloadObserverRemote;
 updater.mojom.FileDownloadObserverRequest = updater.mojom.FileDownloadObserverPendingReceiver;
 
@@ -333,6 +398,47 @@ updater.mojom.FetchService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+updater.mojom.FetchServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = updater.mojom.FetchService_PostRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.postRequest(params.url, params.post_data, params.content_type, params.additional_headers);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.FetchService_PostRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = updater.mojom.FetchService_DownloadToFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.downloadToFile(params.url, params.output_file);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+updater.mojom.FetchServiceReceiver = updater.mojom.FetchServiceReceiver;
 
 updater.mojom.FetchServicePtr = updater.mojom.FetchServiceRemote;
 updater.mojom.FetchServiceRequest = updater.mojom.FetchServicePendingReceiver;

@@ -7,8 +7,8 @@
 // Module namespace
 var cert_verifier = cert_verifier || {};
 cert_verifier.mojom = cert_verifier.mojom || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 
 cert_verifier.mojom.RequestParamsSpec = { $: {} };
 cert_verifier.mojom.CertVerifierConfigSpec = { $: {} };
@@ -109,6 +109,28 @@ cert_verifier.mojom.URLLoaderFactoryConnector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cert_verifier.mojom.URLLoaderFactoryConnectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createURLLoaderFactory(params.url_loader_factory);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cert_verifier.mojom.URLLoaderFactoryConnectorReceiver = cert_verifier.mojom.URLLoaderFactoryConnectorReceiver;
 
 cert_verifier.mojom.URLLoaderFactoryConnectorPtr = cert_verifier.mojom.URLLoaderFactoryConnectorRemote;
 cert_verifier.mojom.URLLoaderFactoryConnectorRequest = cert_verifier.mojom.URLLoaderFactoryConnectorPendingReceiver;
@@ -235,6 +257,50 @@ cert_verifier.mojom.CertVerifierService.getRemote = function() {
   return remote.$;
 };
 
+cert_verifier.mojom.CertVerifierServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableNetworkAccess(params.url_loader_factory, params.reconnector);
+          break;
+        }
+        case 1: {
+          const params = cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.verify(params.params, params.net_log_source, params.cert_verifier_request);
+          break;
+        }
+        case 2: {
+          const params = cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.verify2QwacBinding(params.binding, params.hostname, params.tls_certificate, params.net_log_source);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setConfig(params.config);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceReceiver = cert_verifier.mojom.CertVerifierServiceReceiver;
+
 cert_verifier.mojom.CertVerifierServicePtr = cert_verifier.mojom.CertVerifierServiceRemote;
 cert_verifier.mojom.CertVerifierServiceRequest = cert_verifier.mojom.CertVerifierServicePendingReceiver;
 
@@ -298,6 +364,28 @@ cert_verifier.mojom.CertVerifierServiceClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cert_verifier.mojom.CertVerifierServiceClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCertVerifierChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceClientReceiver = cert_verifier.mojom.CertVerifierServiceClientReceiver;
 
 cert_verifier.mojom.CertVerifierServiceClientPtr = cert_verifier.mojom.CertVerifierServiceClientRemote;
 cert_verifier.mojom.CertVerifierServiceClientRequest = cert_verifier.mojom.CertVerifierServiceClientPendingReceiver;
@@ -364,6 +452,28 @@ cert_verifier.mojom.CertVerifierRequest.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cert_verifier.mojom.CertVerifierRequestReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.complete(params.result, params.net_error);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cert_verifier.mojom.CertVerifierRequestReceiver = cert_verifier.mojom.CertVerifierRequestReceiver;
 
 cert_verifier.mojom.CertVerifierRequestPtr = cert_verifier.mojom.CertVerifierRequestRemote;
 cert_verifier.mojom.CertVerifierRequestRequest = cert_verifier.mojom.CertVerifierRequestPendingReceiver;

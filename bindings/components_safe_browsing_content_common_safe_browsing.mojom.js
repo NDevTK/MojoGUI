@@ -7,8 +7,8 @@
 // Module namespace
 var safe_browsing = safe_browsing || {};
 safe_browsing.mojom = safe_browsing.mojom || {};
-var components = components || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var blink = blink || {};
 var url = url || {};
 
@@ -218,6 +218,40 @@ safe_browsing.mojom.SafeBrowsing.getRemote = function() {
   return remote.$;
 };
 
+safe_browsing.mojom.SafeBrowsingReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCheckerAndCheck(params.frame_token, params.receiver, params.url, params.method, params.headers, params.load_flags, params.has_user_gesture, params.originated_from_service_worker);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+safe_browsing.mojom.SafeBrowsingReceiver = safe_browsing.mojom.SafeBrowsingReceiver;
+
 safe_browsing.mojom.SafeBrowsingPtr = safe_browsing.mojom.SafeBrowsingRemote;
 safe_browsing.mojom.SafeBrowsingRequest = safe_browsing.mojom.SafeBrowsingPendingReceiver;
 
@@ -287,6 +321,35 @@ safe_browsing.mojom.ThreatReporter.getRemote = function() {
     'context');
   return remote.$;
 };
+
+safe_browsing.mojom.ThreatReporterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getThreatDOMDetails();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+safe_browsing.mojom.ThreatReporterReceiver = safe_browsing.mojom.ThreatReporterReceiver;
 
 safe_browsing.mojom.ThreatReporterPtr = safe_browsing.mojom.ThreatReporterRemote;
 safe_browsing.mojom.ThreatReporterRequest = safe_browsing.mojom.ThreatReporterPendingReceiver;
@@ -360,6 +423,35 @@ safe_browsing.mojom.PhishingDetector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+safe_browsing.mojom.PhishingDetectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startPhishingDetection(params.url, params.request_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+safe_browsing.mojom.PhishingDetectorReceiver = safe_browsing.mojom.PhishingDetectorReceiver;
 
 safe_browsing.mojom.PhishingDetectorPtr = safe_browsing.mojom.PhishingDetectorRemote;
 safe_browsing.mojom.PhishingDetectorRequest = safe_browsing.mojom.PhishingDetectorPendingReceiver;
@@ -497,6 +589,55 @@ safe_browsing.mojom.PhishingModelSetter.getRemote = function() {
   return remote.$;
 };
 
+safe_browsing.mojom.PhishingModelSetterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setImageEmbeddingAndPhishingFlatBufferModel(params.region, params.tflite_model, params.image_embedding_model);
+          break;
+        }
+        case 1: {
+          const params = safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.attachImageEmbeddingModel(params.image_embedding_model);
+          break;
+        }
+        case 2: {
+          const params = safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPhishingFlatBufferModel(params.region, params.tflite_model);
+          break;
+        }
+        case 3: {
+          const params = safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearScorer();
+          break;
+        }
+        case 4: {
+          const params = safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTestObserver(params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+safe_browsing.mojom.PhishingModelSetterReceiver = safe_browsing.mojom.PhishingModelSetterReceiver;
+
 safe_browsing.mojom.PhishingModelSetterPtr = safe_browsing.mojom.PhishingModelSetterRemote;
 safe_browsing.mojom.PhishingModelSetterRequest = safe_browsing.mojom.PhishingModelSetterPendingReceiver;
 
@@ -560,6 +701,28 @@ safe_browsing.mojom.PhishingModelSetterTestObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.phishingModelUpdated();
+          break;
+        }
+      }
+    });
+  }
+};
+
+safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = safe_browsing.mojom.PhishingModelSetterTestObserverReceiver;
 
 safe_browsing.mojom.PhishingModelSetterTestObserverPtr = safe_browsing.mojom.PhishingModelSetterTestObserverRemote;
 safe_browsing.mojom.PhishingModelSetterTestObserverRequest = safe_browsing.mojom.PhishingModelSetterTestObserverPendingReceiver;
@@ -632,6 +795,35 @@ safe_browsing.mojom.PhishingImageEmbedderDetector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startImageEmbedding(params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver;
 
 safe_browsing.mojom.PhishingImageEmbedderDetectorPtr = safe_browsing.mojom.PhishingImageEmbedderDetectorRemote;
 safe_browsing.mojom.PhishingImageEmbedderDetectorRequest = safe_browsing.mojom.PhishingImageEmbedderDetectorPendingReceiver;
@@ -716,6 +908,33 @@ safe_browsing.mojom.ExtensionWebRequestReporter.getRemote = function() {
     'context');
   return remote.$;
 };
+
+safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendWebRequestData(params.origin_extension_id, params.telemetry_url, params.protocol_type, params.contact_initiator_type);
+          break;
+        }
+        case 1: {
+          const params = safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+safe_browsing.mojom.ExtensionWebRequestReporterReceiver = safe_browsing.mojom.ExtensionWebRequestReporterReceiver;
 
 safe_browsing.mojom.ExtensionWebRequestReporterPtr = safe_browsing.mojom.ExtensionWebRequestReporterRemote;
 safe_browsing.mojom.ExtensionWebRequestReporterRequest = safe_browsing.mojom.ExtensionWebRequestReporterPendingReceiver;

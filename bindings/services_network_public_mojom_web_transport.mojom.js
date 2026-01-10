@@ -7,8 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 network.mojom.WebTransportErrorSpec = { $: {} };
 network.mojom.WebTransportCertificateFingerprintSpec = { $: {} };
@@ -323,6 +322,108 @@ network.mojom.WebTransport.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.WebTransportReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.WebTransport_SendDatagram_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendDatagram(params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.WebTransport_SendDatagram_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.WebTransport_CreateStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createStream(params.readable, params.writable);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.WebTransport_CreateStream_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acceptBidirectionalStream();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acceptUnidirectionalStream();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = network.mojom.WebTransport_SendFin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendFin(params.stream_id);
+          break;
+        }
+        case 5: {
+          const params = network.mojom.WebTransport_AbortStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.abortStream(params.stream_id, params.code);
+          break;
+        }
+        case 6: {
+          const params = network.mojom.WebTransport_StopSending_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopSending(params.stream_id, params.code);
+          break;
+        }
+        case 7: {
+          const params = network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOutgoingDatagramExpirationDuration(params.duration);
+          break;
+        }
+        case 8: {
+          const params = network.mojom.WebTransport_GetStats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getStats();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.WebTransport_GetStats_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = network.mojom.WebTransport_Close_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.close(params.close_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.WebTransportReceiver = network.mojom.WebTransportReceiver;
+
 network.mojom.WebTransportPtr = network.mojom.WebTransportRemote;
 network.mojom.WebTransportRequest = network.mojom.WebTransportPendingReceiver;
 
@@ -472,6 +573,53 @@ network.mojom.WebTransportClient.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.WebTransportClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDatagramReceived(params.data);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onIncomingStreamClosed(params.stream_id, params.fin_received);
+          break;
+        }
+        case 2: {
+          const params = network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOutgoingStreamClosed(params.stream_id);
+          break;
+        }
+        case 3: {
+          const params = network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReceivedStopSending(params.stream_id, params.stream_error_code);
+          break;
+        }
+        case 4: {
+          const params = network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReceivedResetStream(params.stream_id, params.stream_error_code);
+          break;
+        }
+        case 5: {
+          const params = network.mojom.WebTransportClient_OnClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClosed(params.close_info, params.final_stats);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.WebTransportClientReceiver = network.mojom.WebTransportClientReceiver;
+
 network.mojom.WebTransportClientPtr = network.mojom.WebTransportClientRemote;
 network.mojom.WebTransportClientRequest = network.mojom.WebTransportClientPendingReceiver;
 
@@ -572,6 +720,38 @@ network.mojom.WebTransportHandshakeClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.WebTransportHandshakeClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBeforeConnect(params.server_address);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnectionEstablished(params.transport, params.client, params.response_headers, params.selected_application_protocol, params.initial_stats);
+          break;
+        }
+        case 2: {
+          const params = network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHandshakeFailed(params.error);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.WebTransportHandshakeClientReceiver = network.mojom.WebTransportHandshakeClientReceiver;
 
 network.mojom.WebTransportHandshakeClientPtr = network.mojom.WebTransportHandshakeClientRemote;
 network.mojom.WebTransportHandshakeClientRequest = network.mojom.WebTransportHandshakeClientPendingReceiver;

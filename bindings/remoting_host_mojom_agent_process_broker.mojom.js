@@ -108,6 +108,38 @@ remoting.mojom.AgentProcess.getRemote = function() {
   return remote.$;
 };
 
+remoting.mojom.AgentProcessReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resumeProcess();
+          break;
+        }
+        case 1: {
+          const params = remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suspendProcess();
+          break;
+        }
+        case 2: {
+          const params = remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindRemotingHostControl(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.AgentProcessReceiver = remoting.mojom.AgentProcessReceiver;
+
 remoting.mojom.AgentProcessPtr = remoting.mojom.AgentProcessRemote;
 remoting.mojom.AgentProcessRequest = remoting.mojom.AgentProcessPendingReceiver;
 
@@ -172,6 +204,28 @@ remoting.mojom.AgentProcessBroker.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remoting.mojom.AgentProcessBrokerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAgentProcessLaunched(params.agent_process);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.AgentProcessBrokerReceiver = remoting.mojom.AgentProcessBrokerReceiver;
 
 remoting.mojom.AgentProcessBrokerPtr = remoting.mojom.AgentProcessBrokerRemote;
 remoting.mojom.AgentProcessBrokerRequest = remoting.mojom.AgentProcessBrokerPendingReceiver;

@@ -182,6 +182,74 @@ add_supervision.mojom.AddSupervisionHandler.getRemote = function() {
   return remote.$;
 };
 
+add_supervision.mojom.AddSupervisionHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestClose();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getInstalledArcApps();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOAuthToken();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logOut();
+          break;
+        }
+        case 4: {
+          const params = add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifySupervisionEnabled();
+          break;
+        }
+        case 5: {
+          const params = add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCloseOnEscape(params.enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+add_supervision.mojom.AddSupervisionHandlerReceiver = add_supervision.mojom.AddSupervisionHandlerReceiver;
+
 add_supervision.mojom.AddSupervisionHandlerPtr = add_supervision.mojom.AddSupervisionHandlerRemote;
 add_supervision.mojom.AddSupervisionHandlerRequest = add_supervision.mojom.AddSupervisionHandlerPendingReceiver;
 

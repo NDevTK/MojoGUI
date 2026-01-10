@@ -8,13 +8,7 @@
 var chromeos = chromeos || {};
 chromeos.cdm = chromeos.cdm || {};
 chromeos.cdm.mojom = chromeos.cdm.mojom || {};
-var chromeos = chromeos || {};
-var components = components || {};
-var chromeos = chromeos || {};
-var components = components || {};
-var chromeos = chromeos || {};
-var components = components || {};
-var ui = ui || {};
+var sandbox = sandbox || {};
 var gfx = gfx || {};
 
 chromeos.cdm.mojom.BrowserCdmFactory = {};
@@ -229,6 +223,100 @@ chromeos.cdm.mojom.BrowserCdmFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createFactory(params.key_system);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOutputProtection(params.output_protection);
+          break;
+        }
+        case 2: {
+          const params = chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getHwConfigData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getScreenResolutions();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAndroidHwKeyData(params.key_id, params.hw_identifier);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.allocateSecureBuffer(params.size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseEncryptedSliceHeader(params.secure_handle, params.offset, params.stream_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.cdm.mojom.BrowserCdmFactoryReceiver = chromeos.cdm.mojom.BrowserCdmFactoryReceiver;
 
 chromeos.cdm.mojom.BrowserCdmFactoryPtr = chromeos.cdm.mojom.BrowserCdmFactoryRemote;
 chromeos.cdm.mojom.BrowserCdmFactoryRequest = chromeos.cdm.mojom.BrowserCdmFactoryPendingReceiver;

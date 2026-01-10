@@ -7,13 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
 
 network.mojom.TCPKeepAliveOptionsSpec = { $: {} };
 network.mojom.TCPConnectedSocketOptionsSpec = { $: {} };
@@ -169,6 +162,47 @@ network.mojom.TCPBoundSocket.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.TCPBoundSocketReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.TCPBoundSocket_Listen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listen(params.backlog, params.socket);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.TCPBoundSocket_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.remote_addr_list, params.tcp_connected_socket_options, params.socket, params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.TCPBoundSocketReceiver = network.mojom.TCPBoundSocketReceiver;
 
 network.mojom.TCPBoundSocketPtr = network.mojom.TCPBoundSocketRemote;
 network.mojom.TCPBoundSocketRequest = network.mojom.TCPBoundSocketPendingReceiver;
@@ -337,6 +371,83 @@ network.mojom.TCPConnectedSocket.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.TCPConnectedSocketReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.upgradeToTLS(params.host_port_pair, params.options, params.traffic_annotation, params.receiver, params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSendBufferSize(params.send_buffer_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setReceiveBufferSize(params.receive_buffer_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNoDelay(params.no_delay);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setKeepAlive(params.enable, params.delay_secs);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.TCPConnectedSocketReceiver = network.mojom.TCPConnectedSocketReceiver;
+
 network.mojom.TCPConnectedSocketPtr = network.mojom.TCPConnectedSocketRemote;
 network.mojom.TCPConnectedSocketRequest = network.mojom.TCPConnectedSocketPendingReceiver;
 
@@ -418,6 +529,33 @@ network.mojom.SocketObserver.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.SocketObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.SocketObserver_OnReadError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReadError(params.net_error);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.SocketObserver_OnWriteError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWriteError(params.net_error);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.SocketObserverReceiver = network.mojom.SocketObserverReceiver;
+
 network.mojom.SocketObserverPtr = network.mojom.SocketObserverRemote;
 network.mojom.SocketObserverRequest = network.mojom.SocketObserverPendingReceiver;
 
@@ -492,6 +630,35 @@ network.mojom.TCPServerSocket.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.TCPServerSocketReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.TCPServerSocket_Accept_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.accept(params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.TCPServerSocket_Accept_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.TCPServerSocketReceiver = network.mojom.TCPServerSocketReceiver;
 
 network.mojom.TCPServerSocketPtr = network.mojom.TCPServerSocketRemote;
 network.mojom.TCPServerSocketRequest = network.mojom.TCPServerSocketPendingReceiver;

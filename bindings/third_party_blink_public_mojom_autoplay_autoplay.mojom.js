@@ -83,6 +83,28 @@ blink.mojom.AutoplayConfigurationClient.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.AutoplayConfigurationClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addAutoplayFlags(params.origin, params.flags);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AutoplayConfigurationClientReceiver = blink.mojom.AutoplayConfigurationClientReceiver;
+
 blink.mojom.AutoplayConfigurationClientPtr = blink.mojom.AutoplayConfigurationClientRemote;
 blink.mojom.AutoplayConfigurationClientRequest = blink.mojom.AutoplayConfigurationClientPendingReceiver;
 

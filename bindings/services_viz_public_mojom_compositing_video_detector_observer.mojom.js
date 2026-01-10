@@ -88,6 +88,33 @@ viz.mojom.VideoDetectorObserver.getRemote = function() {
   return remote.$;
 };
 
+viz.mojom.VideoDetectorObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVideoActivityStarted();
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVideoActivityEnded();
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.VideoDetectorObserverReceiver = viz.mojom.VideoDetectorObserverReceiver;
+
 viz.mojom.VideoDetectorObserverPtr = viz.mojom.VideoDetectorObserverRemote;
 viz.mojom.VideoDetectorObserverRequest = viz.mojom.VideoDetectorObserverPendingReceiver;
 

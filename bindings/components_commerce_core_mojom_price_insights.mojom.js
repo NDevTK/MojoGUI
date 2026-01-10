@@ -92,6 +92,33 @@ commerce.price_insights.mojom.PriceInsightsHandler.getRemote = function() {
   return remote.$;
 };
 
+commerce.price_insights.mojom.PriceInsightsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showSidePanelUI();
+          break;
+        }
+        case 1: {
+          const params = commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showFeedback();
+          break;
+        }
+      }
+    });
+  }
+};
+
+commerce.price_insights.mojom.PriceInsightsHandlerReceiver = commerce.price_insights.mojom.PriceInsightsHandlerReceiver;
+
 commerce.price_insights.mojom.PriceInsightsHandlerPtr = commerce.price_insights.mojom.PriceInsightsHandlerRemote;
 commerce.price_insights.mojom.PriceInsightsHandlerRequest = commerce.price_insights.mojom.PriceInsightsHandlerPendingReceiver;
 
@@ -156,6 +183,28 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactory.getRemote = function()
     'context');
   return remote.$;
 };
+
+commerce.price_insights.mojom.PriceInsightsHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPriceInsightsHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+commerce.price_insights.mojom.PriceInsightsHandlerFactoryReceiver = commerce.price_insights.mojom.PriceInsightsHandlerFactoryReceiver;
 
 commerce.price_insights.mojom.PriceInsightsHandlerFactoryPtr = commerce.price_insights.mojom.PriceInsightsHandlerFactoryRemote;
 commerce.price_insights.mojom.PriceInsightsHandlerFactoryRequest = commerce.price_insights.mojom.PriceInsightsHandlerFactoryPendingReceiver;

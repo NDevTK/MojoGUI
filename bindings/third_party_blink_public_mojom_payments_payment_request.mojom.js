@@ -7,9 +7,7 @@
 // Module namespace
 var payments = payments || {};
 payments.mojom = payments.mojom || {};
-var components = components || {};
-var blink = blink || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 var blink = blink || {};
 
@@ -483,6 +481,90 @@ payments.mojom.PaymentRequestClient.getRemote = function() {
   return remote.$;
 };
 
+payments.mojom.PaymentRequestClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPaymentMethodChange(params.method_name, params.stringified_details);
+          break;
+        }
+        case 1: {
+          const params = payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onShippingAddressChange(params.address);
+          break;
+        }
+        case 2: {
+          const params = payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onShippingOptionChange(params.shipping_option_id);
+          break;
+        }
+        case 3: {
+          const params = payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPayerDetailChange(params.detail);
+          break;
+        }
+        case 4: {
+          const params = payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPaymentResponse(params.response);
+          break;
+        }
+        case 5: {
+          const params = payments.mojom.PaymentRequestClient_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error, params.error_message);
+          break;
+        }
+        case 6: {
+          const params = payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onComplete();
+          break;
+        }
+        case 7: {
+          const params = payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAbort(params.aborted_successfully);
+          break;
+        }
+        case 8: {
+          const params = payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCanMakePayment(params.result);
+          break;
+        }
+        case 9: {
+          const params = payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHasEnrolledInstrument(params.result);
+          break;
+        }
+        case 10: {
+          const params = payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.warnNoFavicon();
+          break;
+        }
+        case 11: {
+          const params = payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.allowConnectToSource(params.url, params.url_before_redirects, params.did_follow_redirect);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+payments.mojom.PaymentRequestClientReceiver = payments.mojom.PaymentRequestClientReceiver;
+
 payments.mojom.PaymentRequestClientPtr = payments.mojom.PaymentRequestClientRemote;
 payments.mojom.PaymentRequestClientRequest = payments.mojom.PaymentRequestClientPendingReceiver;
 
@@ -675,6 +757,68 @@ payments.mojom.PaymentRequest.getRemote = function() {
     'context');
   return remote.$;
 };
+
+payments.mojom.PaymentRequestReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = payments.mojom.PaymentRequest_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.client, params.method_data, params.details, params.options);
+          break;
+        }
+        case 1: {
+          const params = payments.mojom.PaymentRequest_Show_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.show(params.wait_for_updated_details, params.had_user_activation);
+          break;
+        }
+        case 2: {
+          const params = payments.mojom.PaymentRequest_UpdateWith_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateWith(params.details);
+          break;
+        }
+        case 3: {
+          const params = payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPaymentDetailsNotUpdated();
+          break;
+        }
+        case 4: {
+          const params = payments.mojom.PaymentRequest_Abort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.abort();
+          break;
+        }
+        case 5: {
+          const params = payments.mojom.PaymentRequest_Complete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.complete(params.result);
+          break;
+        }
+        case 6: {
+          const params = payments.mojom.PaymentRequest_Retry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.retry(params.errors);
+          break;
+        }
+        case 7: {
+          const params = payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.canMakePayment();
+          break;
+        }
+        case 8: {
+          const params = payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasEnrolledInstrument();
+          break;
+        }
+      }
+    });
+  }
+};
+
+payments.mojom.PaymentRequestReceiver = payments.mojom.PaymentRequestReceiver;
 
 payments.mojom.PaymentRequestPtr = payments.mojom.PaymentRequestRemote;
 payments.mojom.PaymentRequestRequest = payments.mojom.PaymentRequestPendingReceiver;

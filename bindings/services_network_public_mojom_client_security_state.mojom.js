@@ -7,9 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
 
 network.mojom.PrivateNetworkRequestPolicySpec = { $: mojo.internal.Enum() };
 network.mojom.ClientSecurityStateSpec = { $: {} };

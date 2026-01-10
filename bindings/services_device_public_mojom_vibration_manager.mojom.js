@@ -104,6 +104,47 @@ device.mojom.VibrationManager.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.VibrationManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.VibrationManager_Vibrate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.vibrate(params.milliseconds);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.VibrationManager_Vibrate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.VibrationManager_Cancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancel();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.VibrationManager_Cancel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.VibrationManagerReceiver = device.mojom.VibrationManagerReceiver;
+
 device.mojom.VibrationManagerPtr = device.mojom.VibrationManagerRemote;
 device.mojom.VibrationManagerRequest = device.mojom.VibrationManagerPendingReceiver;
 
@@ -167,6 +208,28 @@ device.mojom.VibrationManagerListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.VibrationManagerListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVibrate();
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.VibrationManagerListenerReceiver = device.mojom.VibrationManagerListenerReceiver;
 
 device.mojom.VibrationManagerListenerPtr = device.mojom.VibrationManagerListenerRemote;
 device.mojom.VibrationManagerListenerRequest = device.mojom.VibrationManagerListenerPendingReceiver;

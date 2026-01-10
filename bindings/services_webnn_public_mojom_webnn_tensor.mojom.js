@@ -7,8 +7,8 @@
 // Module namespace
 var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
-var services = services || {};
-var services = services || {};
+var gpu = gpu || {};
+var mojo_base = mojo_base || {};
 
 webnn.mojom.ReadTensorResultSpec = { $: {} };
 webnn.mojom.TensorUsageSpec = { $: {} };
@@ -31,7 +31,7 @@ mojo.internal.Union(
       },
       'error': {
         'ordinal': 1,
-        'type': webnn.mojom.ErrorSpec.$,
+        'type': mojo_base.mojom.ErrorSpec.$,
         'nullable': false,
       },
     });
@@ -166,6 +166,50 @@ webnn.mojom.WebNNTensor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+webnn.mojom.WebNNTensorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readTensor();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeTensor(params.src_buffer);
+          break;
+        }
+        case 2: {
+          const params = webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.exportTensor();
+          break;
+        }
+        case 3: {
+          const params = webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.importTensor(params.fence);
+          break;
+        }
+      }
+    });
+  }
+};
+
+webnn.mojom.WebNNTensorReceiver = webnn.mojom.WebNNTensorReceiver;
 
 webnn.mojom.WebNNTensorPtr = webnn.mojom.WebNNTensorRemote;
 webnn.mojom.WebNNTensorRequest = webnn.mojom.WebNNTensorPendingReceiver;

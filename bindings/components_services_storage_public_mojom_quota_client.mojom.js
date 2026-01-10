@@ -8,9 +8,6 @@
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
 var blink = blink || {};
-var blink = blink || {};
-var components = components || {};
-var services = services || {};
 
 storage.mojom.QuotaClient = {};
 storage.mojom.QuotaClient.$interfaceName = 'storage.mojom.QuotaClient';
@@ -152,6 +149,71 @@ storage.mojom.QuotaClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.QuotaClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBucketUsage(params.bucket);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDefaultStorageKeys();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteBucketData(params.bucket);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.performStorageCleanup();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.QuotaClientReceiver = storage.mojom.QuotaClientReceiver;
 
 storage.mojom.QuotaClientPtr = storage.mojom.QuotaClientRemote;
 storage.mojom.QuotaClientRequest = storage.mojom.QuotaClientPendingReceiver;

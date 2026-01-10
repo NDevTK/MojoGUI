@@ -7,6 +7,7 @@
 // Module namespace
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
+var mojo_base = mojo_base || {};
 
 gpu.mojom.SharedImagePoolIdSpec = { $: {} };
 

@@ -7,19 +7,9 @@
 // Module namespace
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
-var content = content || {};
-var services = services || {};
-var content = content || {};
-var services = services || {};
-var content = content || {};
-var services = services || {};
-var content = content || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var url = url || {};
 var url = url || {};
 
 auction_worklet.mojom.ComponentAuctionOtherSellerSpec = { $: {} };
@@ -176,6 +166,28 @@ auction_worklet.mojom.ScoreAdClient.getRemote = function() {
   return remote.$;
 };
 
+auction_worklet.mojom.ScoreAdClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = auction_worklet.mojom.ScoreAdClient_OnScoreAdComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScoreAdComplete(params.score, params.reject_reason, params.component_auction_modified_bid_params, params.bid_in_seller_currency, params.scoring_signals_data_version, params.debug_loss_report_url, params.debug_win_report_url, params.pa_requests, params.real_time_contributions, params.score_ad_timing_metrics, params.score_ad_dependency_latencies, params.errors);
+          break;
+        }
+      }
+    });
+  }
+};
+
+auction_worklet.mojom.ScoreAdClientReceiver = auction_worklet.mojom.ScoreAdClientReceiver;
+
 auction_worklet.mojom.ScoreAdClientPtr = auction_worklet.mojom.ScoreAdClientRemote;
 auction_worklet.mojom.ScoreAdClientRequest = auction_worklet.mojom.ScoreAdClientPendingReceiver;
 
@@ -253,7 +265,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_ParamsSpec, 'auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_Params', [
-      mojo.internal.StructField('agent', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('agent', 0, 0, pending_associated_receiver<blink.mojom.DevToolsAgent>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('thread_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -341,6 +353,50 @@ auction_worklet.mojom.SellerWorklet.getRemote = function() {
     'context');
   return remote.$;
 };
+
+auction_worklet.mojom.SellerWorkletReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = auction_worklet.mojom.SellerWorklet_ScoreAd_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.scoreAd(params.ad_metadata_json, params.bid, params.bid_currency, params.auction_ad_config_non_shared_params, params.key_value_signals_cache_key, params.ad, params.ad_components, params.direct_from_seller_seller_signals, params.direct_from_seller_seller_signals_header_ad_slot, params.direct_from_seller_auction_signals, params.direct_from_seller_auction_signals_header_ad_slot, params.browser_signals_other_seller, params.component_expect_bid_currency, params.browser_signal_interest_group_owner, params.browser_signal_selected_buyer_and_seller_reporting_id, params.browser_signal_buyer_and_seller_reporting_id, params.browser_signal_bidding_duration_msecs, params.browser_signal_for_debugging_only_in_cooldown_or_lockout, params.browser_signal_for_debugging_only_sampling, params.seller_timeout, params.group_by_origin_id, params.allow_group_by_origin_mode, params.trace_id, params.bidder_joining_origin, params.score_ad_client);
+          break;
+        }
+        case 1: {
+          const params = auction_worklet.mojom.SellerWorklet_SendPendingSignalsRequests_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendPendingSignalsRequests();
+          break;
+        }
+        case 2: {
+          const params = auction_worklet.mojom.SellerWorklet_ReportResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportResult(params.auction_ad_config_non_shared_params, params.direct_from_seller_seller_signals, params.direct_from_seller_seller_signals_header_ad_slot, params.direct_from_seller_auction_signals, params.direct_from_seller_auction_signals_header_ad_slot, params.browser_signals_other_seller, params.browser_signal_interest_group_owner, params.browser_signal_buyer_and_seller_reporting_id, params.browser_signal_selected_buyer_and_seller_reporting_id, params.browser_signal_render_url, params.browser_signal_bid, params.browser_signal_bid_currency, params.browser_signal_desirability, params.browser_signal_highest_scoring_other_bid, params.browser_signal_highest_scoring_other_bid_currency, params.browser_signals_component_auction_report_result_params, params.scoring_signals_data_version, params.trace_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, auction_worklet.mojom.SellerWorklet_ReportResult_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = auction_worklet.mojom.SellerWorklet_ConnectDevToolsAgent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectDevToolsAgent(params.agent, params.thread_index);
+          break;
+        }
+      }
+    });
+  }
+};
+
+auction_worklet.mojom.SellerWorkletReceiver = auction_worklet.mojom.SellerWorkletReceiver;
 
 auction_worklet.mojom.SellerWorkletPtr = auction_worklet.mojom.SellerWorkletRemote;
 auction_worklet.mojom.SellerWorkletRequest = auction_worklet.mojom.SellerWorkletPendingReceiver;

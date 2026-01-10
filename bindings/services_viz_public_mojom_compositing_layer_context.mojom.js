@@ -7,23 +7,8 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var cc = cc || {};
 var skia = skia || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 viz.mojom.TypeSpec = { $: mojo.internal.Enum() };
@@ -119,8 +104,8 @@ mojo.internal.Struct(
 // Struct: PendingLayerContext
 mojo.internal.Struct(
     viz.mojom.PendingLayerContextSpec, 'viz.mojom.PendingLayerContext', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(viz.mojom.LayerContextRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.AssociatedInterfaceProxy(viz.mojom.LayerContextClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -217,6 +202,38 @@ viz.mojom.LayerContext.getRemote = function() {
   return remote.$;
 };
 
+viz.mojom.LayerContextReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.LayerContext_SetVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVisible(params.visible);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateDisplayTree(params.update);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateDisplayTiling(params.tiling);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.LayerContextReceiver = viz.mojom.LayerContextReceiver;
+
 viz.mojom.LayerContextPtr = viz.mojom.LayerContextRemote;
 viz.mojom.LayerContextRequest = viz.mojom.LayerContextPendingReceiver;
 
@@ -298,6 +315,33 @@ viz.mojom.LayerContextClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.LayerContextClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRequestCommitForFrame(params.args);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTilingsReadyForCleanup(params.layer_id, params.tiling_scales_to_clean_up);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.LayerContextClientReceiver = viz.mojom.LayerContextClientReceiver;
 
 viz.mojom.LayerContextClientPtr = viz.mojom.LayerContextClientRemote;
 viz.mojom.LayerContextClientRequest = viz.mojom.LayerContextClientPendingReceiver;

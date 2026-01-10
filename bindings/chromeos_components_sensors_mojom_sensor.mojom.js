@@ -226,6 +226,52 @@ chromeos.sensors.mojom.SensorService.getRemote = function() {
   return remote.$;
 };
 
+chromeos.sensors.mojom.SensorServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceIds(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllDeviceIds();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDevice(params.iio_device_id, params.device_request);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.sensors.mojom.SensorServiceReceiver = chromeos.sensors.mojom.SensorServiceReceiver;
+
 chromeos.sensors.mojom.SensorServicePtr = chromeos.sensors.mojom.SensorServiceRemote;
 chromeos.sensors.mojom.SensorServiceRequest = chromeos.sensors.mojom.SensorServicePendingReceiver;
 
@@ -432,6 +478,98 @@ chromeos.sensors.mojom.SensorDevice.getRemote = function() {
   return remote.$;
 };
 
+chromeos.sensors.mojom.SensorDeviceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTimeout(params.timeout);
+          break;
+        }
+        case 1: {
+          const params = chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAttributes(params.attr_names);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFrequency(params.frequency);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startReadingSamples(params.observer);
+          break;
+        }
+        case 4: {
+          const params = chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopReadingSamples();
+          break;
+        }
+        case 5: {
+          const params = chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllChannelIds();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getChannelsEnabled(params.iio_chn_indices);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getChannelsAttributes(params.iio_chn_indices, params.attr_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.sensors.mojom.SensorDeviceReceiver = chromeos.sensors.mojom.SensorDeviceReceiver;
+
 chromeos.sensors.mojom.SensorDevicePtr = chromeos.sensors.mojom.SensorDeviceRemote;
 chromeos.sensors.mojom.SensorDeviceRequest = chromeos.sensors.mojom.SensorDevicePendingReceiver;
 
@@ -513,6 +651,33 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserver.getRemote = function() {
   return remote.$;
 };
 
+chromeos.sensors.mojom.SensorDeviceSamplesObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSampleUpdated(params.sample);
+          break;
+        }
+        case 1: {
+          const params = chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onErrorOccurred(params.type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.sensors.mojom.SensorDeviceSamplesObserverReceiver = chromeos.sensors.mojom.SensorDeviceSamplesObserverReceiver;
+
 chromeos.sensors.mojom.SensorDeviceSamplesObserverPtr = chromeos.sensors.mojom.SensorDeviceSamplesObserverRemote;
 chromeos.sensors.mojom.SensorDeviceSamplesObserverRequest = chromeos.sensors.mojom.SensorDeviceSamplesObserverPendingReceiver;
 
@@ -578,6 +743,28 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.sensors.mojom.SensorServiceNewDevicesObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewDeviceAdded(params.iio_device_id, params.types);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.sensors.mojom.SensorServiceNewDevicesObserverReceiver = chromeos.sensors.mojom.SensorServiceNewDevicesObserverReceiver;
 
 chromeos.sensors.mojom.SensorServiceNewDevicesObserverPtr = chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemote;
 chromeos.sensors.mojom.SensorServiceNewDevicesObserverRequest = chromeos.sensors.mojom.SensorServiceNewDevicesObserverPendingReceiver;

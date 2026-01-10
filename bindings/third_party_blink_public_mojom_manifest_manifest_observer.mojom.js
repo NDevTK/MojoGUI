@@ -74,6 +74,28 @@ blink.mojom.ManifestUrlChangeObserver.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.ManifestUrlChangeObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.manifestUrlChanged(params.manifest_url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ManifestUrlChangeObserverReceiver = blink.mojom.ManifestUrlChangeObserverReceiver;
+
 blink.mojom.ManifestUrlChangeObserverPtr = blink.mojom.ManifestUrlChangeObserverRemote;
 blink.mojom.ManifestUrlChangeObserverRequest = blink.mojom.ManifestUrlChangeObserverPendingReceiver;
 

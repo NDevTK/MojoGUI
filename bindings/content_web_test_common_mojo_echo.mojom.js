@@ -785,6 +785,371 @@ content.mojom.MojoEcho.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.MojoEchoReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoBoolFromUnion(params.test_union);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoInt32FromUnion(params.test_union);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoStringFromUnion(params.test_union);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoBoolAsUnion(params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoInt32AsUnion(params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoStringAsUnion(params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoNullFromOptionalUnion(params.test_union);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoBoolFromOptionalUnion(params.test_union);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoInt32FromOptionalUnion(params.test_union);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoStringFromOptionalUnion(params.test_union);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoNullAsOptionalUnion();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoBoolAsOptionalUnion(params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoInt32AsOptionalUnion(params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoStringAsOptionalUnion(params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoInt8FromNestedUnion(params.test_union);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoBoolFromNestedUnion(params.test_union);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoStringFromNestedUnion(params.test_union);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 17: {
+          const params = content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoInt8AsNestedUnion(params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 18: {
+          const params = content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoBoolAsNestedUnion(params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 19: {
+          const params = content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoStringAsNestedUnion(params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 20: {
+          const params = content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoNullFromOptionalNestedUnion(params.test_union);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 21: {
+          const params = content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoInt8FromOptionalNestedUnion(params.test_union);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 22: {
+          const params = content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoBoolFromOptionalNestedUnion(params.test_union);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 23: {
+          const params = content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoStringFromOptionalNestedUnion(params.test_union);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 24: {
+          const params = content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoNullAsOptionalNestedUnion();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 25: {
+          const params = content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoInt8AsOptionalNestedUnion(params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 26: {
+          const params = content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoBoolAsOptionalNestedUnion(params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 27: {
+          const params = content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoStringAsOptionalNestedUnion(params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 28: {
+          const params = content.mojom.MojoEcho_EchoBoolArray_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoBoolArray(params.values);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.MojoEchoReceiver = content.mojom.MojoEchoReceiver;
+
 content.mojom.MojoEchoPtr = content.mojom.MojoEchoRemote;
 content.mojom.MojoEchoRequest = content.mojom.MojoEchoPendingReceiver;
 

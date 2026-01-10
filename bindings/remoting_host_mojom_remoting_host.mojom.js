@@ -7,7 +7,8 @@
 // Module namespace
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 
 remoting.mojom.TransportRouteTypeSpec = { $: mojo.internal.Enum() };
 remoting.mojom.TransportRouteSpec = { $: {} };
@@ -142,6 +143,38 @@ remoting.mojom.RemotingHostControl.getRemote = function() {
   return remote.$;
 };
 
+remoting.mojom.RemotingHostControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applyHostConfig(params.config);
+          break;
+        }
+        case 1: {
+          const params = remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initializePairingRegistry(params.privileged_handle, params.unprivileged_handle);
+          break;
+        }
+        case 2: {
+          const params = remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindChromotingHostServices(params.receiver, params.peer_pid);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.RemotingHostControlReceiver = remoting.mojom.RemotingHostControlReceiver;
+
 remoting.mojom.RemotingHostControlPtr = remoting.mojom.RemotingHostControlRemote;
 remoting.mojom.RemotingHostControlRequest = remoting.mojom.RemotingHostControlPendingReceiver;
 
@@ -224,6 +257,33 @@ remoting.mojom.DesktopSessionConnectionEvents.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remoting.mojom.DesktopSessionConnectionEventsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTerminalDisconnected(params.terminal_id);
+          break;
+        }
+        case 1: {
+          const params = remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDesktopSessionAgentAttached(params.terminal_id, params.session_id, params.desktop_pipe);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.DesktopSessionConnectionEventsReceiver = remoting.mojom.DesktopSessionConnectionEventsReceiver;
 
 remoting.mojom.DesktopSessionConnectionEventsPtr = remoting.mojom.DesktopSessionConnectionEventsRemote;
 remoting.mojom.DesktopSessionConnectionEventsRequest = remoting.mojom.DesktopSessionConnectionEventsPendingReceiver;
@@ -386,6 +446,58 @@ remoting.mojom.HostStatusObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remoting.mojom.HostStatusObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClientAccessDenied(params.signaling_id);
+          break;
+        }
+        case 1: {
+          const params = remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClientAuthenticated(params.signaling_id);
+          break;
+        }
+        case 2: {
+          const params = remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClientConnected(params.signaling_id);
+          break;
+        }
+        case 3: {
+          const params = remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClientDisconnected(params.signaling_id);
+          break;
+        }
+        case 4: {
+          const params = remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClientRouteChange(params.signaling_id, params.channel_name, params.route);
+          break;
+        }
+        case 5: {
+          const params = remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHostStarted(params.owner_email);
+          break;
+        }
+        case 6: {
+          const params = remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHostShutdown();
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.HostStatusObserverReceiver = remoting.mojom.HostStatusObserverReceiver;
 
 remoting.mojom.HostStatusObserverPtr = remoting.mojom.HostStatusObserverRemote;
 remoting.mojom.HostStatusObserverRequest = remoting.mojom.HostStatusObserverPendingReceiver;

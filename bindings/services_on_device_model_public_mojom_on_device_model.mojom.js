@@ -7,6 +7,7 @@
 // Module namespace
 var on_device_model = on_device_model || {};
 on_device_model.mojom = on_device_model.mojom || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
 
 on_device_model.mojom.TokenSpec = { $: mojo.internal.Enum() };
@@ -372,6 +373,33 @@ on_device_model.mojom.StreamingResponder.getRemote = function() {
   return remote.$;
 };
 
+on_device_model.mojom.StreamingResponderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_model.mojom.StreamingResponder_OnResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResponse(params.chunk);
+          break;
+        }
+        case 1: {
+          const params = on_device_model.mojom.StreamingResponder_OnComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onComplete(params.summary);
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_model.mojom.StreamingResponderReceiver = on_device_model.mojom.StreamingResponderReceiver;
+
 on_device_model.mojom.StreamingResponderPtr = on_device_model.mojom.StreamingResponderRemote;
 on_device_model.mojom.StreamingResponderRequest = on_device_model.mojom.StreamingResponderPendingReceiver;
 
@@ -436,6 +464,28 @@ on_device_model.mojom.ContextClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+on_device_model.mojom.ContextClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_model.mojom.ContextClient_OnComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onComplete(params.tokens_processed);
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_model.mojom.ContextClientReceiver = on_device_model.mojom.ContextClientReceiver;
 
 on_device_model.mojom.ContextClientPtr = on_device_model.mojom.ContextClientRemote;
 on_device_model.mojom.ContextClientRequest = on_device_model.mojom.ContextClientPendingReceiver;
@@ -636,6 +686,84 @@ on_device_model.mojom.Session.getRemote = function() {
   return remote.$;
 };
 
+on_device_model.mojom.SessionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 6: {
+          const params = on_device_model.mojom.Session_Append_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.append(params.options, params.client);
+          break;
+        }
+        case 7: {
+          const params = on_device_model.mojom.Session_Generate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generate(params.options, params.responder);
+          break;
+        }
+        case 5: {
+          const params = on_device_model.mojom.Session_GetSizeInTokens_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSizeInTokens(params.input);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.Session_GetSizeInTokens_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = on_device_model.mojom.Session_Score_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.score(params.text);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.Session_Score_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = on_device_model.mojom.Session_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.session);
+          break;
+        }
+        case 8: {
+          const params = on_device_model.mojom.Session_GetProbabilitiesBlocking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getProbabilitiesBlocking(params.text);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.Session_GetProbabilitiesBlocking_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = on_device_model.mojom.Session_SetPriority_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPriority(params.priority);
+          break;
+        }
+        case 10: {
+          const params = on_device_model.mojom.Session_AsrStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.asrStream(params.options, params.stream, params.responder);
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_model.mojom.SessionReceiver = on_device_model.mojom.SessionReceiver;
+
 on_device_model.mojom.SessionPtr = on_device_model.mojom.SessionRemote;
 on_device_model.mojom.SessionRequest = on_device_model.mojom.SessionPendingReceiver;
 
@@ -769,6 +897,64 @@ on_device_model.mojom.OnDeviceModel.getRemote = function() {
   return remote.$;
 };
 
+on_device_model.mojom.OnDeviceModelReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startSession(params.session, params.params);
+          break;
+        }
+        case 1: {
+          const params = on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.classifyTextSafety(params.text);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = on_device_model.mojom.OnDeviceModel_DetectLanguage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.detectLanguage(params.text);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModel_DetectLanguage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadAdaptation(params.params, params.model);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModel_LoadAdaptation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_model.mojom.OnDeviceModelReceiver = on_device_model.mojom.OnDeviceModelReceiver;
+
 on_device_model.mojom.OnDeviceModelPtr = on_device_model.mojom.OnDeviceModelRemote;
 on_device_model.mojom.OnDeviceModelRequest = on_device_model.mojom.OnDeviceModelPendingReceiver;
 
@@ -878,6 +1064,52 @@ on_device_model.mojom.TextSafetySession.getRemote = function() {
   return remote.$;
 };
 
+on_device_model.mojom.TextSafetySessionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.classifyTextSafety(params.text);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = on_device_model.mojom.TextSafetySession_DetectLanguage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.detectLanguage(params.text);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.TextSafetySession_DetectLanguage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = on_device_model.mojom.TextSafetySession_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.session);
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_model.mojom.TextSafetySessionReceiver = on_device_model.mojom.TextSafetySessionReceiver;
+
 on_device_model.mojom.TextSafetySessionPtr = on_device_model.mojom.TextSafetySessionRemote;
 on_device_model.mojom.TextSafetySessionRequest = on_device_model.mojom.TextSafetySessionPendingReceiver;
 
@@ -942,6 +1174,28 @@ on_device_model.mojom.TextSafetyModel.getRemote = function() {
     'context');
   return remote.$;
 };
+
+on_device_model.mojom.TextSafetyModelReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_model.mojom.TextSafetyModel_StartSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startSession(params.session);
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_model.mojom.TextSafetyModelReceiver = on_device_model.mojom.TextSafetyModelReceiver;
 
 on_device_model.mojom.TextSafetyModelPtr = on_device_model.mojom.TextSafetyModelRemote;
 on_device_model.mojom.TextSafetyModelRequest = on_device_model.mojom.TextSafetyModelPendingReceiver;
@@ -1008,6 +1262,28 @@ on_device_model.mojom.AsrStreamResponder.getRemote = function() {
   return remote.$;
 };
 
+on_device_model.mojom.AsrStreamResponderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_model.mojom.AsrStreamResponder_OnResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResponse(params.result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_model.mojom.AsrStreamResponderReceiver = on_device_model.mojom.AsrStreamResponderReceiver;
+
 on_device_model.mojom.AsrStreamResponderPtr = on_device_model.mojom.AsrStreamResponderRemote;
 on_device_model.mojom.AsrStreamResponderRequest = on_device_model.mojom.AsrStreamResponderPendingReceiver;
 
@@ -1072,6 +1348,28 @@ on_device_model.mojom.AsrStreamInput.getRemote = function() {
     'context');
   return remote.$;
 };
+
+on_device_model.mojom.AsrStreamInputReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_model.mojom.AsrStreamInput_AddAudioChunk_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addAudioChunk(params.data);
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_model.mojom.AsrStreamInputReceiver = on_device_model.mojom.AsrStreamInputReceiver;
 
 on_device_model.mojom.AsrStreamInputPtr = on_device_model.mojom.AsrStreamInputRemote;
 on_device_model.mojom.AsrStreamInputRequest = on_device_model.mojom.AsrStreamInputPendingReceiver;

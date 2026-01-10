@@ -7,10 +7,7 @@
 // Module namespace
 var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 var blink = blink || {};
 
 webnn.mojom.CreateGraphSuccessSpec = { $: {} };
@@ -24,7 +21,7 @@ webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec = { $: {
 // Struct: CreateGraphSuccess
 mojo.internal.Struct(
     webnn.mojom.CreateGraphSuccessSpec, 'webnn.mojom.CreateGraphSuccess', [
-      mojo.internal.StructField('graph_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(webnn.mojom.WebNNGraphRemote), null, false, 0, undefined),
+      mojo.internal.StructField('graph_remote', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('devices', 8, 0, mojo.internal.Array(webnn.mojom.DeviceSpec.$, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -130,6 +127,45 @@ webnn.mojom.WebNNGraphBuilder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+webnn.mojom.WebNNGraphBuilderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPendingConstant(params.constant_handle, params.data_type, params.data);
+          break;
+        }
+        case 1: {
+          const params = webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createGraph(params.graph_info);
+          break;
+        }
+        case 2: {
+          const params = webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isValidGraphForTesting(params.context_properties, params.graph_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+webnn.mojom.WebNNGraphBuilderReceiver = webnn.mojom.WebNNGraphBuilderReceiver;
 
 webnn.mojom.WebNNGraphBuilderPtr = webnn.mojom.WebNNGraphBuilderRemote;
 webnn.mojom.WebNNGraphBuilderRequest = webnn.mojom.WebNNGraphBuilderPendingReceiver;

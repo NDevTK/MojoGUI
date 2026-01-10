@@ -8,7 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
-var services = services || {};
+var network = network || {};
 
 blink.mojom.InsecureRequestsPolicySpec = { $: mojo.internal.Enum() };
 blink.mojom.FetchClientSettingsObjectSpec = { $: {} };

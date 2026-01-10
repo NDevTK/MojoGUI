@@ -8,7 +8,6 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 var url = url || {};
-var services = services || {};
 
 network.mojom.DocumentIsolationPolicyValueSpec = { $: mojo.internal.Enum() };
 network.mojom.DocumentIsolationPolicySpec = { $: {} };
@@ -111,6 +110,33 @@ network.mojom.DocumentIsolationPolicyReporter.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.DocumentIsolationPolicyReporterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queueCorpViolationReport(params.blocked_url, params.destination, params.report_only);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.DocumentIsolationPolicyReporter_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.DocumentIsolationPolicyReporterReceiver = network.mojom.DocumentIsolationPolicyReporterReceiver;
 
 network.mojom.DocumentIsolationPolicyReporterPtr = network.mojom.DocumentIsolationPolicyReporterRemote;
 network.mojom.DocumentIsolationPolicyReporterRequest = network.mojom.DocumentIsolationPolicyReporterPendingReceiver;

@@ -113,6 +113,33 @@ chromeos.connectivity.mojom.PasspointEventsListener.getRemote = function() {
   return remote.$;
 };
 
+chromeos.connectivity.mojom.PasspointEventsListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPasspointSubscriptionAdded(params.subscription);
+          break;
+        }
+        case 1: {
+          const params = chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPasspointSubscriptionRemoved(params.subscription);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.connectivity.mojom.PasspointEventsListenerReceiver = chromeos.connectivity.mojom.PasspointEventsListenerReceiver;
+
 chromeos.connectivity.mojom.PasspointEventsListenerPtr = chromeos.connectivity.mojom.PasspointEventsListenerRemote;
 chromeos.connectivity.mojom.PasspointEventsListenerRequest = chromeos.connectivity.mojom.PasspointEventsListenerPendingReceiver;
 
@@ -242,6 +269,64 @@ chromeos.connectivity.mojom.PasspointService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.connectivity.mojom.PasspointServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPasspointSubscription(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listPasspointSubscriptions();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deletePasspointSubscription(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerPasspointListener(params.listener);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.connectivity.mojom.PasspointServiceReceiver = chromeos.connectivity.mojom.PasspointServiceReceiver;
 
 chromeos.connectivity.mojom.PasspointServicePtr = chromeos.connectivity.mojom.PasspointServiceRemote;
 chromeos.connectivity.mojom.PasspointServiceRequest = chromeos.connectivity.mojom.PasspointServicePendingReceiver;

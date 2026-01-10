@@ -7,8 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var services = services || {};
+var network = network || {};
 
 blink.mojom.FetchLaterLoaderFactory = {};
 blink.mojom.FetchLaterLoaderFactory.$interfaceName = 'blink.mojom.FetchLaterLoaderFactory';
@@ -22,7 +21,7 @@ blink.mojom.FetchLaterLoader_Cancel_ParamsSpec = { $: {} };
 // Interface: FetchLaterLoaderFactory
 mojo.internal.Struct(
     blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec, 'blink.mojom.FetchLaterLoaderFactory_CreateLoader_Params', [
-      mojo.internal.StructField('loader', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.FetchLaterLoaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('loader', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('request', 8, 0, network.mojom.URLRequestSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('traffic_annotation', 16, 0, network.mojom.MutableNetworkTrafficAnnotationTagSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('request_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -32,7 +31,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec, 'blink.mojom.FetchLaterLoaderFactory_Clone_Params', [
-      mojo.internal.StructField('factory', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.FetchLaterLoaderFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('factory', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -99,6 +98,33 @@ blink.mojom.FetchLaterLoaderFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.FetchLaterLoaderFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createLoader(params.loader, params.request_id, params.options, params.request, params.traffic_annotation);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.factory);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FetchLaterLoaderFactoryReceiver = blink.mojom.FetchLaterLoaderFactoryReceiver;
 
 blink.mojom.FetchLaterLoaderFactoryPtr = blink.mojom.FetchLaterLoaderFactoryRemote;
 blink.mojom.FetchLaterLoaderFactoryRequest = blink.mojom.FetchLaterLoaderFactoryPendingReceiver;
@@ -178,6 +204,33 @@ blink.mojom.FetchLaterLoader.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.FetchLaterLoaderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FetchLaterLoader_SendNow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendNow();
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.FetchLaterLoader_Cancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancel();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FetchLaterLoaderReceiver = blink.mojom.FetchLaterLoaderReceiver;
 
 blink.mojom.FetchLaterLoaderPtr = blink.mojom.FetchLaterLoaderRemote;
 blink.mojom.FetchLaterLoaderRequest = blink.mojom.FetchLaterLoaderPendingReceiver;

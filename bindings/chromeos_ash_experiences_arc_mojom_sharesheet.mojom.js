@@ -60,6 +60,23 @@ arc.mojom.SharesheetHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.SharesheetHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+arc.mojom.SharesheetHostReceiver = arc.mojom.SharesheetHostReceiver;
+
 arc.mojom.SharesheetHostPtr = arc.mojom.SharesheetHostRemote;
 arc.mojom.SharesheetHostRequest = arc.mojom.SharesheetHostPendingReceiver;
 
@@ -129,6 +146,35 @@ arc.mojom.SharesheetInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.SharesheetInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.SharesheetInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.SharesheetInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.SharesheetInstanceReceiver = arc.mojom.SharesheetInstanceReceiver;
 
 arc.mojom.SharesheetInstancePtr = arc.mojom.SharesheetInstanceRemote;
 arc.mojom.SharesheetInstanceRequest = arc.mojom.SharesheetInstancePendingReceiver;

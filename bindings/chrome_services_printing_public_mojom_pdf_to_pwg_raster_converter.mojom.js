@@ -7,7 +7,7 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 printing.mojom.TransformTypeSpec = { $: mojo.internal.Enum() };
 printing.mojom.DuplexModeSpec = { $: mojo.internal.Enum() };
@@ -125,6 +125,40 @@ printing.mojom.PdfToPwgRasterConverter.getRemote = function() {
     'context');
   return remote.$;
 };
+
+printing.mojom.PdfToPwgRasterConverterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.convert(params.pdf_region, params.pdf_settings, params.pwg_raster_settings);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUseSkiaRendererPolicy(params.use_skia);
+          break;
+        }
+      }
+    });
+  }
+};
+
+printing.mojom.PdfToPwgRasterConverterReceiver = printing.mojom.PdfToPwgRasterConverterReceiver;
 
 printing.mojom.PdfToPwgRasterConverterPtr = printing.mojom.PdfToPwgRasterConverterRemote;
 printing.mojom.PdfToPwgRasterConverterRequest = printing.mojom.PdfToPwgRasterConverterPendingReceiver;

@@ -7,11 +7,8 @@
 // Module namespace
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var viz = viz || {};
 var skia = skia || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 cc.mojom.RootScrollOffsetUpdateFrequencySpec = { $: mojo.internal.Enum() };
@@ -149,6 +146,33 @@ cc.mojom.RenderFrameMetadataObserver.getRemote = function() {
   return remote.$;
 };
 
+cc.mojom.RenderFrameMetadataObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateRootScrollOffsetUpdateFrequency(params.frequency);
+          break;
+        }
+        case 1: {
+          const params = cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportAllFrameSubmissionsForTesting(params.enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cc.mojom.RenderFrameMetadataObserverReceiver = cc.mojom.RenderFrameMetadataObserverReceiver;
+
 cc.mojom.RenderFrameMetadataObserverPtr = cc.mojom.RenderFrameMetadataObserverRemote;
 cc.mojom.RenderFrameMetadataObserverRequest = cc.mojom.RenderFrameMetadataObserverPendingReceiver;
 
@@ -246,6 +270,38 @@ cc.mojom.RenderFrameMetadataObserverClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cc.mojom.RenderFrameMetadataObserverClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRenderFrameMetadataChanged(params.frame_token, params.metadata);
+          break;
+        }
+        case 1: {
+          const params = cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameSubmissionForTesting(params.frame_token);
+          break;
+        }
+        case 2: {
+          const params = cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRootScrollOffsetChanged(params.root_scroll_offset);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cc.mojom.RenderFrameMetadataObserverClientReceiver = cc.mojom.RenderFrameMetadataObserverClientReceiver;
 
 cc.mojom.RenderFrameMetadataObserverClientPtr = cc.mojom.RenderFrameMetadataObserverClientRemote;
 cc.mojom.RenderFrameMetadataObserverClientRequest = cc.mojom.RenderFrameMetadataObserverClientPendingReceiver;

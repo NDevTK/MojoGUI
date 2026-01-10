@@ -144,6 +144,71 @@ chrome.mojom.NetBenchmarking.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.NetBenchmarkingReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeCurrentConnections();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearCache();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.NetBenchmarking_ClearCache_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearHostResolverCache();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearPredictorCache();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.NetBenchmarkingReceiver = chrome.mojom.NetBenchmarkingReceiver;
+
 chrome.mojom.NetBenchmarkingPtr = chrome.mojom.NetBenchmarkingRemote;
 chrome.mojom.NetBenchmarkingRequest = chrome.mojom.NetBenchmarkingPendingReceiver;
 

@@ -7,6 +7,7 @@
 // Module namespace
 var data_decoder = data_decoder || {};
 data_decoder.mojom = data_decoder.mojom || {};
+var mojo_base = mojo_base || {};
 
 data_decoder.mojom.Gzipper = {};
 data_decoder.mojom.Gzipper.$interfaceName = 'data_decoder.mojom.Gzipper';
@@ -152,6 +153,71 @@ data_decoder.mojom.Gzipper.getRemote = function() {
     'context');
   return remote.$;
 };
+
+data_decoder.mojom.GzipperReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = data_decoder.mojom.Gzipper_Deflate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deflate(params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = data_decoder.mojom.Gzipper_Inflate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.inflate(params.data, params.max_uncompressed_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = data_decoder.mojom.Gzipper_Compress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.compress(params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = data_decoder.mojom.Gzipper_Uncompress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.uncompress(params.compressed_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+data_decoder.mojom.GzipperReceiver = data_decoder.mojom.GzipperReceiver;
 
 data_decoder.mojom.GzipperPtr = data_decoder.mojom.GzipperRemote;
 data_decoder.mojom.GzipperRequest = data_decoder.mojom.GzipperPendingReceiver;

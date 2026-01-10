@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.TypeSpec = { $: mojo.internal.Enum() };
 blink.mojom.MenuItemSpec = { $: {} };
@@ -106,6 +107,33 @@ blink.mojom.PopupMenuClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.PopupMenuClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didAcceptIndices(params.indices);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.PopupMenuClient_DidCancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didCancel();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PopupMenuClientReceiver = blink.mojom.PopupMenuClientReceiver;
 
 blink.mojom.PopupMenuClientPtr = blink.mojom.PopupMenuClientRemote;
 blink.mojom.PopupMenuClientRequest = blink.mojom.PopupMenuClientPendingReceiver;

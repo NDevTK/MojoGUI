@@ -7,8 +7,6 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var services = services || {};
-var services = services || {};
 
 device.mojom.MtpManagerClient = {};
 device.mojom.MtpManagerClient.$interfaceName = 'device.mojom.MtpManagerClient';
@@ -118,6 +116,33 @@ device.mojom.MtpManagerClient.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.MtpManagerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.MtpManagerClient_StorageAttached_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.storageAttached(params.storage_info);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.MtpManagerClient_StorageDetached_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.storageDetached(params.storage_name);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.MtpManagerClientReceiver = device.mojom.MtpManagerClientReceiver;
+
 device.mojom.MtpManagerClientPtr = device.mojom.MtpManagerClientRemote;
 device.mojom.MtpManagerClientRequest = device.mojom.MtpManagerClientPendingReceiver;
 
@@ -125,7 +150,7 @@ device.mojom.MtpManagerClientRequest = device.mojom.MtpManagerClientPendingRecei
 // Interface: MtpManager
 mojo.internal.Struct(
     device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec, 'device.mojom.MtpManager_EnumerateStoragesAndSetClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(device.mojom.MtpManagerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -449,6 +474,167 @@ device.mojom.MtpManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.MtpManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enumerateStoragesAndSetClient(params.client);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.MtpManager_GetStorageInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getStorageInfo(params.storage_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getStorageInfoFromDevice(params.storage_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = device.mojom.MtpManager_OpenStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openStorage(params.storage_name, params.mode);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.MtpManager_OpenStorage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = device.mojom.MtpManager_CloseStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeStorage(params.storage_handle);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.MtpManager_CloseStorage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = device.mojom.MtpManager_CreateDirectory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createDirectory(params.storage_handle, params.parent_id, params.directory_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readDirectoryEntryIds(params.storage_handle, params.file_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = device.mojom.MtpManager_ReadFileChunk_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readFileChunk(params.storage_handle, params.file_id, params.offset, params.count);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = device.mojom.MtpManager_GetFileInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFileInfo(params.storage_handle, params.file_ids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = device.mojom.MtpManager_RenameObject_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.renameObject(params.storage_handle, params.object_id, params.new_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.MtpManager_RenameObject_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.copyFileFromLocal(params.storage_handle, params.source_file_descriptor, params.parent_id, params.file_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = device.mojom.MtpManager_DeleteObject_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteObject(params.storage_handle, params.object_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.MtpManager_DeleteObject_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.MtpManagerReceiver = device.mojom.MtpManagerReceiver;
 
 device.mojom.MtpManagerPtr = device.mojom.MtpManagerRemote;
 device.mojom.MtpManagerRequest = device.mojom.MtpManagerPendingReceiver;

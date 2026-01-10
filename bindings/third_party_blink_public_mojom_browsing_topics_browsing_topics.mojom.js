@@ -85,6 +85,28 @@ blink.mojom.BrowsingTopicsDocumentService.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.BrowsingTopicsDocumentServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBrowsingTopics(params.observe);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.BrowsingTopicsDocumentServiceReceiver = blink.mojom.BrowsingTopicsDocumentServiceReceiver;
+
 blink.mojom.BrowsingTopicsDocumentServicePtr = blink.mojom.BrowsingTopicsDocumentServiceRemote;
 blink.mojom.BrowsingTopicsDocumentServiceRequest = blink.mojom.BrowsingTopicsDocumentServicePendingReceiver;
 

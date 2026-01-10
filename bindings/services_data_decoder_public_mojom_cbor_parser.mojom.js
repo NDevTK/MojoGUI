@@ -7,6 +7,7 @@
 // Module namespace
 var data_decoder = data_decoder || {};
 data_decoder.mojom = data_decoder.mojom || {};
+var mojo_base = mojo_base || {};
 
 data_decoder.mojom.CborParser = {};
 data_decoder.mojom.CborParser.$interfaceName = 'data_decoder.mojom.CborParser';
@@ -80,6 +81,35 @@ data_decoder.mojom.CborParser.getRemote = function() {
     'context');
   return remote.$;
 };
+
+data_decoder.mojom.CborParserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = data_decoder.mojom.CborParser_Parse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parse(params.cbor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_decoder.mojom.CborParser_Parse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+data_decoder.mojom.CborParserReceiver = data_decoder.mojom.CborParserReceiver;
 
 data_decoder.mojom.CborParserPtr = data_decoder.mojom.CborParserRemote;
 data_decoder.mojom.CborParserRequest = data_decoder.mojom.CborParserPendingReceiver;

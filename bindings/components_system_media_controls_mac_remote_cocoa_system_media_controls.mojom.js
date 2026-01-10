@@ -7,7 +7,8 @@
 // Module namespace
 var system_media_controls = system_media_controls || {};
 system_media_controls.mojom = system_media_controls.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var media_session = media_session || {};
 
 system_media_controls.mojom.PlaybackStatusSpec = { $: mojo.internal.Enum() };
 system_media_controls.mojom.SystemMediaControls = {};
@@ -279,6 +280,83 @@ system_media_controls.mojom.SystemMediaControls.getRemote = function() {
   return remote.$;
 };
 
+system_media_controls.mojom.SystemMediaControlsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsNextEnabled(params.enabled);
+          break;
+        }
+        case 1: {
+          const params = system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsPreviousEnabled(params.enabled);
+          break;
+        }
+        case 2: {
+          const params = system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsPlayPauseEnabled(params.enabled);
+          break;
+        }
+        case 3: {
+          const params = system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsStopEnabled(params.enabled);
+          break;
+        }
+        case 4: {
+          const params = system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsSeekToEnabled(params.enabled);
+          break;
+        }
+        case 5: {
+          const params = system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPlaybackStatus(params.status);
+          break;
+        }
+        case 6: {
+          const params = system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTitle(params.title);
+          break;
+        }
+        case 7: {
+          const params = system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setArtist(params.artist);
+          break;
+        }
+        case 8: {
+          const params = system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAlbum(params.album);
+          break;
+        }
+        case 9: {
+          const params = system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setThumbnail(params.thumbnail);
+          break;
+        }
+        case 10: {
+          const params = system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPosition(params.position);
+          break;
+        }
+        case 11: {
+          const params = system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearMetadata();
+          break;
+        }
+      }
+    });
+  }
+};
+
+system_media_controls.mojom.SystemMediaControlsReceiver = system_media_controls.mojom.SystemMediaControlsReceiver;
+
 system_media_controls.mojom.SystemMediaControlsPtr = system_media_controls.mojom.SystemMediaControlsRemote;
 system_media_controls.mojom.SystemMediaControlsRequest = system_media_controls.mojom.SystemMediaControlsPendingReceiver;
 
@@ -463,6 +541,68 @@ system_media_controls.mojom.SystemMediaControlsObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+system_media_controls.mojom.SystemMediaControlsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNext();
+          break;
+        }
+        case 1: {
+          const params = system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPrevious();
+          break;
+        }
+        case 2: {
+          const params = system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPause();
+          break;
+        }
+        case 3: {
+          const params = system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPlayPause();
+          break;
+        }
+        case 4: {
+          const params = system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStop();
+          break;
+        }
+        case 5: {
+          const params = system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPlay();
+          break;
+        }
+        case 6: {
+          const params = system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSeekTo(params.seek_time);
+          break;
+        }
+        case 7: {
+          const params = system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBridgeCreatedForTesting();
+          break;
+        }
+        case 8: {
+          const params = system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMetadataClearedForTesting();
+          break;
+        }
+      }
+    });
+  }
+};
+
+system_media_controls.mojom.SystemMediaControlsObserverReceiver = system_media_controls.mojom.SystemMediaControlsObserverReceiver;
 
 system_media_controls.mojom.SystemMediaControlsObserverPtr = system_media_controls.mojom.SystemMediaControlsObserverRemote;
 system_media_controls.mojom.SystemMediaControlsObserverRequest = system_media_controls.mojom.SystemMediaControlsObserverPendingReceiver;

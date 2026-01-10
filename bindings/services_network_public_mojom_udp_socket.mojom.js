@@ -7,9 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 network.mojom.UDPSocketOptionsSpec = { $: {} };
 network.mojom.UDPSocket = {};
@@ -353,6 +351,146 @@ network.mojom.UDPSocket.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.UDPSocketReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.UDPSocket_Bind_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bind(params.local_addr, params.socket_options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.UDPSocket_Bind_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.UDPSocket_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.remote_addr, params.socket_options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.UDPSocket_Connect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = network.mojom.UDPSocket_SetBroadcast_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBroadcast(params.broadcast);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSendBufferSize(params.send_buffer_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setReceiveBufferSize(params.receive_buffer_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = network.mojom.UDPSocket_JoinGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.joinGroup(params.group_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.UDPSocket_JoinGroup_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = network.mojom.UDPSocket_LeaveGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.leaveGroup(params.group_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = network.mojom.UDPSocket_ReceiveMore_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.receiveMore(params.num_additional_datagrams);
+          break;
+        }
+        case 8: {
+          const params = network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.receiveMoreWithBufferSize(params.num_additional_datagrams, params.buffer_size);
+          break;
+        }
+        case 9: {
+          const params = network.mojom.UDPSocket_SendTo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendTo(params.dest_addr, params.data, params.traffic_annotation);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.UDPSocket_SendTo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = network.mojom.UDPSocket_Send_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.send(params.data, params.traffic_annotation);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.UDPSocket_Send_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = network.mojom.UDPSocket_Close_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.close();
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.UDPSocketReceiver = network.mojom.UDPSocketReceiver;
+
 network.mojom.UDPSocketPtr = network.mojom.UDPSocketRemote;
 network.mojom.UDPSocketRequest = network.mojom.UDPSocketPendingReceiver;
 
@@ -419,6 +557,28 @@ network.mojom.UDPSocketListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.UDPSocketListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.UDPSocketListener_OnReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReceived(params.result, params.src_addr, params.data);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.UDPSocketListenerReceiver = network.mojom.UDPSocketListenerReceiver;
 
 network.mojom.UDPSocketListenerPtr = network.mojom.UDPSocketListenerRemote;
 network.mojom.UDPSocketListenerRequest = network.mojom.UDPSocketListenerPendingReceiver;

@@ -227,6 +227,28 @@ dlp_internals.mojom.ReportingObserver.getRemote = function() {
   return remote.$;
 };
 
+dlp_internals.mojom.ReportingObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReportEvent(params.event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+dlp_internals.mojom.ReportingObserverReceiver = dlp_internals.mojom.ReportingObserverReceiver;
+
 dlp_internals.mojom.ReportingObserverPtr = dlp_internals.mojom.ReportingObserverRemote;
 dlp_internals.mojom.ReportingObserverRequest = dlp_internals.mojom.ReportingObserverPendingReceiver;
 
@@ -376,6 +398,76 @@ dlp_internals.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+dlp_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getClipboardDataSource();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getContentRestrictionsInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeReporting(params.observer);
+          break;
+        }
+        case 3: {
+          const params = dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFilesDatabaseEntries();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFileInode(params.file_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+dlp_internals.mojom.PageHandlerReceiver = dlp_internals.mojom.PageHandlerReceiver;
 
 dlp_internals.mojom.PageHandlerPtr = dlp_internals.mojom.PageHandlerRemote;
 dlp_internals.mojom.PageHandlerRequest = dlp_internals.mojom.PageHandlerPendingReceiver;

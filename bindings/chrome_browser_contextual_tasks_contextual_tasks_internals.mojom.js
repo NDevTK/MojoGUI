@@ -7,6 +7,8 @@
 // Module namespace
 var contextual_tasks_internals = contextual_tasks_internals || {};
 contextual_tasks_internals.mojom = contextual_tasks_internals.mojom || {};
+var contextual_tasks = contextual_tasks || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 contextual_tasks_internals.mojom.GetRelevantContextRequestSpec = { $: {} };
@@ -109,6 +111,28 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory.getR
   return remote.$;
 };
 
+contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryReceiver = contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryReceiver;
+
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryPtr = contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRemote;
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRequest = contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryPendingReceiver;
 
@@ -180,6 +204,35 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler.getRemote =
   return remote.$;
 };
 
+contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRelevantContext(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerReceiver = contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerReceiver;
+
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerPtr = contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemote;
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRequest = contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerPendingReceiver;
 
@@ -247,6 +300,28 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPage.getRemote = functi
     'context');
   return remote.$;
 };
+
+contextual_tasks_internals.mojom.ContextualTasksInternalsPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLogMessageAdded(params.event_time, params.source_file, params.source_line, params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+contextual_tasks_internals.mojom.ContextualTasksInternalsPageReceiver = contextual_tasks_internals.mojom.ContextualTasksInternalsPageReceiver;
 
 contextual_tasks_internals.mojom.ContextualTasksInternalsPagePtr = contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemote;
 contextual_tasks_internals.mojom.ContextualTasksInternalsPageRequest = contextual_tasks_internals.mojom.ContextualTasksInternalsPagePendingReceiver;

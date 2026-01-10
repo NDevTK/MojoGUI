@@ -7,7 +7,8 @@
 // Module namespace
 var help_bubble = help_bubble || {};
 help_bubble.mojom = help_bubble.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var tracked_element = tracked_element || {};
 
 help_bubble.mojom.HelpBubbleArrowPositionSpec = { $: mojo.internal.Enum() };
 help_bubble.mojom.HelpBubbleClosedReasonSpec = { $: mojo.internal.Enum() };
@@ -151,6 +152,28 @@ help_bubble.mojom.HelpBubbleHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createHelpBubbleHandler(params.client, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = help_bubble.mojom.HelpBubbleHandlerFactoryReceiver;
+
 help_bubble.mojom.HelpBubbleHandlerFactoryPtr = help_bubble.mojom.HelpBubbleHandlerFactoryRemote;
 help_bubble.mojom.HelpBubbleHandlerFactoryRequest = help_bubble.mojom.HelpBubbleHandlerFactoryPendingReceiver;
 
@@ -216,6 +239,28 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createHelpBubbleHandler(params.client, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver;
 
 help_bubble.mojom.PdfHelpBubbleHandlerFactoryPtr = help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemote;
 help_bubble.mojom.PdfHelpBubbleHandlerFactoryRequest = help_bubble.mojom.PdfHelpBubbleHandlerFactoryPendingReceiver;
@@ -315,6 +360,38 @@ help_bubble.mojom.HelpBubbleHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+help_bubble.mojom.HelpBubbleHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindTrackedElementHandler(params.handler);
+          break;
+        }
+        case 1: {
+          const params = help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.helpBubbleButtonPressed(params.native_identifier, params.button_index);
+          break;
+        }
+        case 2: {
+          const params = help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.helpBubbleClosed(params.native_identifier, params.reason);
+          break;
+        }
+      }
+    });
+  }
+};
+
+help_bubble.mojom.HelpBubbleHandlerReceiver = help_bubble.mojom.HelpBubbleHandlerReceiver;
 
 help_bubble.mojom.HelpBubbleHandlerPtr = help_bubble.mojom.HelpBubbleHandlerRemote;
 help_bubble.mojom.HelpBubbleHandlerRequest = help_bubble.mojom.HelpBubbleHandlerPendingReceiver;
@@ -429,6 +506,43 @@ help_bubble.mojom.HelpBubbleClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+help_bubble.mojom.HelpBubbleClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showHelpBubble(params.params);
+          break;
+        }
+        case 1: {
+          const params = help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleFocusForAccessibility(params.native_identifier);
+          break;
+        }
+        case 2: {
+          const params = help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hideHelpBubble(params.native_identifier);
+          break;
+        }
+        case 3: {
+          const params = help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.externalHelpBubbleUpdated(params.native_identifier, params.shown);
+          break;
+        }
+      }
+    });
+  }
+};
+
+help_bubble.mojom.HelpBubbleClientReceiver = help_bubble.mojom.HelpBubbleClientReceiver;
 
 help_bubble.mojom.HelpBubbleClientPtr = help_bubble.mojom.HelpBubbleClientRemote;
 help_bubble.mojom.HelpBubbleClientRequest = help_bubble.mojom.HelpBubbleClientPendingReceiver;

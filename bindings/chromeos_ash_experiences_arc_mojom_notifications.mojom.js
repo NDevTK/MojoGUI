@@ -7,10 +7,6 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
 
 arc.mojom.ArcNotificationEventSpec = { $: mojo.internal.Enum() };
 arc.mojom.ArcNotificationTypeSpec = { $: mojo.internal.Enum() };
@@ -419,6 +415,68 @@ arc.mojom.NotificationsHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.NotificationsHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 7: {
+          const params = arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDoNotDisturbStatusUpdated(params.status);
+          break;
+        }
+        case 0: {
+          const params = arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNotificationPosted(params.notification_data);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNotificationRemoved(params.key);
+          break;
+        }
+        case 5: {
+          const params = arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNotificationUpdated(params.notification_data);
+          break;
+        }
+        case 6: {
+          const params = arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openMessageCenter();
+          break;
+        }
+        case 8: {
+          const params = arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeMessageCenter();
+          break;
+        }
+        case 9: {
+          const params = arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.processUserAction(params.data);
+          break;
+        }
+        case 10: {
+          const params = arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLockScreenSettingUpdated(params.setting);
+          break;
+        }
+        case 11: {
+          const params = arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logInlineReplySent(params.key);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.NotificationsHostReceiver = arc.mojom.NotificationsHostReceiver;
+
 arc.mojom.NotificationsHostPtr = arc.mojom.NotificationsHostRemote;
 arc.mojom.NotificationsHostRequest = arc.mojom.NotificationsHostPendingReceiver;
 
@@ -715,6 +773,105 @@ arc.mojom.NotificationsInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.NotificationsInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 5: {
+          const params = arc.mojom.NotificationsInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.NotificationsInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendNotificationEventToAndroid(params.key, params.event);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createNotificationWindow(params.key);
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeNotificationWindow(params.key);
+          break;
+        }
+        case 4: {
+          const params = arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openNotificationSettings(params.key);
+          break;
+        }
+        case 6: {
+          const params = arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openNotificationSnoozeSettings(params.key);
+          break;
+        }
+        case 7: {
+          const params = arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDoNotDisturbStatusOnAndroid(params.status);
+          break;
+        }
+        case 8: {
+          const params = arc.mojom.NotificationsInstance_CancelPress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelPress(params.key);
+          break;
+        }
+        case 9: {
+          const params = arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.performDeferredUserAction(params.action_id);
+          break;
+        }
+        case 10: {
+          const params = arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelDeferredUserAction(params.action_id);
+          break;
+        }
+        case 11: {
+          const params = arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLockScreenSettingOnAndroid(params.setting);
+          break;
+        }
+        case 12: {
+          const params = arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNotificationConfiguration(params.configuration);
+          break;
+        }
+        case 13: {
+          const params = arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMessageCenterVisibilityChanged(params.visibility);
+          break;
+        }
+        case 14: {
+          const params = arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendNotificationButtonClickToAndroid(params.key, params.action_button_index, params.input);
+          break;
+        }
+        case 15: {
+          const params = arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.popUpAppNotificationSettings(params.key);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.NotificationsInstanceReceiver = arc.mojom.NotificationsInstanceReceiver;
 
 arc.mojom.NotificationsInstancePtr = arc.mojom.NotificationsInstanceRemote;
 arc.mojom.NotificationsInstanceRequest = arc.mojom.NotificationsInstancePendingReceiver;

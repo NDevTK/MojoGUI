@@ -7,6 +7,7 @@
 // Module namespace
 var url = url || {};
 url.mojom = url.mojom || {};
+var mojo_base = mojo_base || {};
 
 url.mojom.OriginSpec = { $: {} };
 

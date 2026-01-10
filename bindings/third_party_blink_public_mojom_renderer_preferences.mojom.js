@@ -7,11 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
-var blink = blink || {};
 
 blink.mojom.RendererPreferencesSpec = { $: {} };
 

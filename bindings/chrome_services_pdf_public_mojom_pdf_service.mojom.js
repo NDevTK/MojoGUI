@@ -7,10 +7,8 @@
 // Module namespace
 var pdf = pdf || {};
 pdf.mojom = pdf.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var sandbox = sandbox || {};
+var screen_ai = screen_ai || {};
 var skia = skia || {};
 
 pdf.mojom.Ocr = {};
@@ -89,6 +87,35 @@ pdf.mojom.Ocr.getRemote = function() {
     'context');
   return remote.$;
 };
+
+pdf.mojom.OcrReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = pdf.mojom.Ocr_PerformOcr_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.performOcr(params.image);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+pdf.mojom.OcrReceiver = pdf.mojom.OcrReceiver;
 
 pdf.mojom.OcrPtr = pdf.mojom.OcrRemote;
 pdf.mojom.OcrRequest = pdf.mojom.OcrPendingReceiver;
@@ -188,6 +215,38 @@ pdf.mojom.PdfService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+pdf.mojom.PdfServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindPdfProgressiveSearchifier(params.receiver, params.ocr);
+          break;
+        }
+        case 1: {
+          const params = pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindPdfSearchifier(params.receiver, params.ocr);
+          break;
+        }
+        case 2: {
+          const params = pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindPdfThumbnailer(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+pdf.mojom.PdfServiceReceiver = pdf.mojom.PdfServiceReceiver;
 
 pdf.mojom.PdfServicePtr = pdf.mojom.PdfServiceRemote;
 pdf.mojom.PdfServiceRequest = pdf.mojom.PdfServicePendingReceiver;

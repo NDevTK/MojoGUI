@@ -7,6 +7,8 @@
 // Module namespace
 var webxr = webxr || {};
 webxr.mojom = webxr.mojom || {};
+var device = device || {};
+var mojo_base = mojo_base || {};
 
 webxr.mojom.DeviceInfoSpec = { $: {} };
 webxr.mojom.SessionRequestedRecordSpec = { $: {} };
@@ -190,6 +192,52 @@ webxr.mojom.WebXrInternalsHandler.getRemote = function() {
   return remote.$;
 };
 
+webxr.mojom.WebXrInternalsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getActiveRuntimes();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.subscribeToEvents(params.listener);
+          break;
+        }
+      }
+    });
+  }
+};
+
+webxr.mojom.WebXrInternalsHandlerReceiver = webxr.mojom.WebXrInternalsHandlerReceiver;
+
 webxr.mojom.WebXrInternalsHandlerPtr = webxr.mojom.WebXrInternalsHandlerRemote;
 webxr.mojom.WebXrInternalsHandlerRequest = webxr.mojom.WebXrInternalsHandlerPendingReceiver;
 
@@ -366,6 +414,63 @@ webxr.mojom.XRInternalsSessionListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+webxr.mojom.XRInternalsSessionListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logXrSessionRequested(params.session_requested_record);
+          break;
+        }
+        case 1: {
+          const params = webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logXrSessionRejected(params.session_rejected_record);
+          break;
+        }
+        case 2: {
+          const params = webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logXrSessionStarted(params.session_started_record);
+          break;
+        }
+        case 3: {
+          const params = webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logXrSessionStopped(params.session_stopped_record);
+          break;
+        }
+        case 4: {
+          const params = webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logXrRuntimeAdded(params.runtime_added_record);
+          break;
+        }
+        case 5: {
+          const params = webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logXrRuntimeRemoved(params.device_id);
+          break;
+        }
+        case 6: {
+          const params = webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logFrameData(params.xrframe_statistics);
+          break;
+        }
+        case 7: {
+          const params = webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logConsoleMessages(params.xrlogging_statistics);
+          break;
+        }
+      }
+    });
+  }
+};
+
+webxr.mojom.XRInternalsSessionListenerReceiver = webxr.mojom.XRInternalsSessionListenerReceiver;
 
 webxr.mojom.XRInternalsSessionListenerPtr = webxr.mojom.XRInternalsSessionListenerRemote;
 webxr.mojom.XRInternalsSessionListenerRequest = webxr.mojom.XRInternalsSessionListenerPendingReceiver;

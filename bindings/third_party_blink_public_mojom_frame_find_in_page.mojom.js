@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 blink.mojom.StopFindActionSpec = { $: mojo.internal.Enum() };
@@ -227,6 +226,72 @@ blink.mojom.FindInPage.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.FindInPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FindInPage_Find_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.find(params.request_id, params.search_text, params.options);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.FindInPage_StopFinding_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopFinding(params.action);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearActiveFindMatch();
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.FindInPage_SetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setClient(params.client);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNearestFindResult(params.point);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.activateNearestFindResult(params.request_id, params.point);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.FindInPage_FindMatchRects_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.findMatchRects(params.current_version);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FindInPageReceiver = blink.mojom.FindInPageReceiver;
+
 blink.mojom.FindInPagePtr = blink.mojom.FindInPageRemote;
 blink.mojom.FindInPageRequest = blink.mojom.FindInPagePendingReceiver;
 
@@ -312,6 +377,33 @@ blink.mojom.FindInPageClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.FindInPageClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNumberOfMatches(params.request_id, params.number_of_matches, params.update_type);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setActiveMatch(params.request_id, params.active_match_rect, params.active_match_ordinal, params.update_type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FindInPageClientReceiver = blink.mojom.FindInPageClientReceiver;
 
 blink.mojom.FindInPageClientPtr = blink.mojom.FindInPageClientRemote;
 blink.mojom.FindInPageClientRequest = blink.mojom.FindInPageClientPendingReceiver;

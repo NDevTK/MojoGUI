@@ -7,7 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
 
 network.mojom.CoopAccessReportTypeSpec = { $: mojo.internal.Enum() };
 network.mojom.CrossOriginOpenerPolicyValueSpec = { $: mojo.internal.Enum() };
@@ -117,6 +116,28 @@ network.mojom.CrossOriginOpenerPolicyReporter.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.CrossOriginOpenerPolicyReporterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queueAccessReport(params.report_type, params.property, params.source_location, params.reported_window_url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.CrossOriginOpenerPolicyReporterReceiver = network.mojom.CrossOriginOpenerPolicyReporterReceiver;
 
 network.mojom.CrossOriginOpenerPolicyReporterPtr = network.mojom.CrossOriginOpenerPolicyReporterRemote;
 network.mojom.CrossOriginOpenerPolicyReporterRequest = network.mojom.CrossOriginOpenerPolicyReporterPendingReceiver;

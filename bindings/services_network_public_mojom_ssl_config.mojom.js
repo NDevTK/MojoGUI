@@ -107,6 +107,28 @@ network.mojom.SSLConfigClient.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.SSLConfigClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSSLConfigUpdated(params.ssl_config);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.SSLConfigClientReceiver = network.mojom.SSLConfigClientReceiver;
+
 network.mojom.SSLConfigClientPtr = network.mojom.SSLConfigClientRemote;
 network.mojom.SSLConfigClientRequest = network.mojom.SSLConfigClientPendingReceiver;
 

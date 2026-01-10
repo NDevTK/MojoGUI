@@ -7,8 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
 
 network.mojom.ProxyConfigWithAnnotationSpec = { $: {} };
 network.mojom.ProxyConfigClient = {};
@@ -113,6 +111,40 @@ network.mojom.ProxyConfigClient.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.ProxyConfigClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProxyConfigUpdated(params.proxy_config);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flushProxyConfig();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.ProxyConfigClientReceiver = network.mojom.ProxyConfigClientReceiver;
+
 network.mojom.ProxyConfigClientPtr = network.mojom.ProxyConfigClientRemote;
 network.mojom.ProxyConfigClientRequest = network.mojom.ProxyConfigClientPendingReceiver;
 
@@ -176,6 +208,28 @@ network.mojom.ProxyConfigPollerClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.ProxyConfigPollerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLazyProxyConfigPoll();
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.ProxyConfigPollerClientReceiver = network.mojom.ProxyConfigPollerClientReceiver;
 
 network.mojom.ProxyConfigPollerClientPtr = network.mojom.ProxyConfigPollerClientRemote;
 network.mojom.ProxyConfigPollerClientRequest = network.mojom.ProxyConfigPollerClientPendingReceiver;
@@ -258,6 +312,33 @@ network.mojom.ProxyErrorClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.ProxyErrorClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPACScriptError(params.line_number, params.details);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRequestMaybeFailedDueToProxySettings(params.net_error);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.ProxyErrorClientReceiver = network.mojom.ProxyErrorClientReceiver;
 
 network.mojom.ProxyErrorClientPtr = network.mojom.ProxyErrorClientRemote;
 network.mojom.ProxyErrorClientRequest = network.mojom.ProxyErrorClientPendingReceiver;

@@ -7,9 +7,7 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 var url = url || {};
 

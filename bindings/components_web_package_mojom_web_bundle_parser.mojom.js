@@ -7,6 +7,7 @@
 // Module namespace
 var web_package = web_package || {};
 web_package.mojom = web_package.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 web_package.mojom.BundleParseErrorTypeSpec = { $: mojo.internal.Enum() };
@@ -292,6 +293,33 @@ web_package.mojom.WebBundleParserFactory.getRemote = function() {
   return remote.$;
 };
 
+web_package.mojom.WebBundleParserFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = web_package.mojom.WebBundleParserFactory_GetParserForDataSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getParserForDataSource(params.receiver, params.base_url, params.data_source);
+          break;
+        }
+        case 1: {
+          const params = web_package.mojom.WebBundleParserFactory_BindFileDataSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindFileDataSource(params.data_source, params.file);
+          break;
+        }
+      }
+    });
+  }
+};
+
+web_package.mojom.WebBundleParserFactoryReceiver = web_package.mojom.WebBundleParserFactoryReceiver;
+
 web_package.mojom.WebBundleParserFactoryPtr = web_package.mojom.WebBundleParserFactoryRemote;
 web_package.mojom.WebBundleParserFactoryRequest = web_package.mojom.WebBundleParserFactoryPendingReceiver;
 
@@ -431,6 +459,71 @@ web_package.mojom.WebBundleParser.getRemote = function() {
   return remote.$;
 };
 
+web_package.mojom.WebBundleParserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = web_package.mojom.WebBundleParser_ParseIntegrityBlock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseIntegrityBlock();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, web_package.mojom.WebBundleParser_ParseIntegrityBlock_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = web_package.mojom.WebBundleParser_ParseMetadata_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseMetadata(params.offset);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, web_package.mojom.WebBundleParser_ParseMetadata_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = web_package.mojom.WebBundleParser_ParseResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseResponse(params.response_offset, params.response_length);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, web_package.mojom.WebBundleParser_ParseResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = web_package.mojom.WebBundleParser_Close_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.close();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, web_package.mojom.WebBundleParser_Close_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+web_package.mojom.WebBundleParserReceiver = web_package.mojom.WebBundleParserReceiver;
+
 web_package.mojom.WebBundleParserPtr = web_package.mojom.WebBundleParserRemote;
 web_package.mojom.WebBundleParserRequest = web_package.mojom.WebBundleParserPendingReceiver;
 
@@ -564,6 +657,71 @@ web_package.mojom.BundleDataSource.getRemote = function() {
     'context');
   return remote.$;
 };
+
+web_package.mojom.BundleDataSourceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = web_package.mojom.BundleDataSource_Read_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.read(params.offset, params.length);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, web_package.mojom.BundleDataSource_Read_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = web_package.mojom.BundleDataSource_Length_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.length();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, web_package.mojom.BundleDataSource_Length_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = web_package.mojom.BundleDataSource_IsRandomAccessContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isRandomAccessContext();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, web_package.mojom.BundleDataSource_IsRandomAccessContext_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = web_package.mojom.BundleDataSource_Close_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.close();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, web_package.mojom.BundleDataSource_Close_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+web_package.mojom.BundleDataSourceReceiver = web_package.mojom.BundleDataSourceReceiver;
 
 web_package.mojom.BundleDataSourcePtr = web_package.mojom.BundleDataSourceRemote;
 web_package.mojom.BundleDataSourceRequest = web_package.mojom.BundleDataSourcePendingReceiver;

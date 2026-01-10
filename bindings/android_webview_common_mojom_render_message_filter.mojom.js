@@ -75,6 +75,28 @@ android_webview.mojom.RenderMessageFilter.getRemote = function() {
   return remote.$;
 };
 
+android_webview.mojom.RenderMessageFilterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.subFrameCreated(params.parent_frame_token, params.child_frame_token);
+          break;
+        }
+      }
+    });
+  }
+};
+
+android_webview.mojom.RenderMessageFilterReceiver = android_webview.mojom.RenderMessageFilterReceiver;
+
 android_webview.mojom.RenderMessageFilterPtr = android_webview.mojom.RenderMessageFilterRemote;
 android_webview.mojom.RenderMessageFilterRequest = android_webview.mojom.RenderMessageFilterPendingReceiver;
 

@@ -7,7 +7,6 @@
 // Module namespace
 var shape_detection = shape_detection || {};
 shape_detection.mojom = shape_detection.mojom || {};
-var services = services || {};
 
 shape_detection.mojom.BarcodeDetectorOptionsSpec = { $: {} };
 shape_detection.mojom.BarcodeDetectionProvider = {};
@@ -105,6 +104,40 @@ shape_detection.mojom.BarcodeDetectionProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+shape_detection.mojom.BarcodeDetectionProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createBarcodeDetection(params.receiver, params.options);
+          break;
+        }
+        case 1: {
+          const params = shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enumerateSupportedFormats();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+shape_detection.mojom.BarcodeDetectionProviderReceiver = shape_detection.mojom.BarcodeDetectionProviderReceiver;
 
 shape_detection.mojom.BarcodeDetectionProviderPtr = shape_detection.mojom.BarcodeDetectionProviderRemote;
 shape_detection.mojom.BarcodeDetectionProviderRequest = shape_detection.mojom.BarcodeDetectionProviderPendingReceiver;

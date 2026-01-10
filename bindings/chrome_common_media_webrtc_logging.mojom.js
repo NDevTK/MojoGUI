@@ -7,6 +7,7 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
+var mojo_base = mojo_base || {};
 
 chrome.mojom.WebRtcLoggingMessageSpec = { $: {} };
 chrome.mojom.WebRtcLoggingClient = {};
@@ -102,6 +103,33 @@ chrome.mojom.WebRtcLoggingClient.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.WebRtcLoggingClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAddMessages(params.messages);
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStopped();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.WebRtcLoggingClientReceiver = chrome.mojom.WebRtcLoggingClientReceiver;
+
 chrome.mojom.WebRtcLoggingClientPtr = chrome.mojom.WebRtcLoggingClientRemote;
 chrome.mojom.WebRtcLoggingClientRequest = chrome.mojom.WebRtcLoggingClientPendingReceiver;
 
@@ -181,6 +209,33 @@ chrome.mojom.WebRtcLoggingAgent.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.WebRtcLoggingAgentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start(params.client);
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.WebRtcLoggingAgentReceiver = chrome.mojom.WebRtcLoggingAgentReceiver;
 
 chrome.mojom.WebRtcLoggingAgentPtr = chrome.mojom.WebRtcLoggingAgentRemote;
 chrome.mojom.WebRtcLoggingAgentRequest = chrome.mojom.WebRtcLoggingAgentPendingReceiver;

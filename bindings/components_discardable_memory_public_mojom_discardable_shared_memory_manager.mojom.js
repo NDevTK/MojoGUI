@@ -7,6 +7,7 @@
 // Module namespace
 var discardable_memory = discardable_memory || {};
 discardable_memory.mojom = discardable_memory.mojom || {};
+var mojo_base = mojo_base || {};
 
 discardable_memory.mojom.DiscardableSharedMemoryManager = {};
 discardable_memory.mojom.DiscardableSharedMemoryManager.$interfaceName = 'discardable_memory.mojom.DiscardableSharedMemoryManager';
@@ -97,6 +98,40 @@ discardable_memory.mojom.DiscardableSharedMemoryManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+discardable_memory.mojom.DiscardableSharedMemoryManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.allocateLockedDiscardableSharedMemory(params.size, params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deletedDiscardableSharedMemory(params.id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+discardable_memory.mojom.DiscardableSharedMemoryManagerReceiver = discardable_memory.mojom.DiscardableSharedMemoryManagerReceiver;
 
 discardable_memory.mojom.DiscardableSharedMemoryManagerPtr = discardable_memory.mojom.DiscardableSharedMemoryManagerRemote;
 discardable_memory.mojom.DiscardableSharedMemoryManagerRequest = discardable_memory.mojom.DiscardableSharedMemoryManagerPendingReceiver;

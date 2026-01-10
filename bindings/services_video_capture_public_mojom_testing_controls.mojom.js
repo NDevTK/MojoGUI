@@ -72,6 +72,28 @@ video_capture.mojom.TestingControls.getRemote = function() {
   return remote.$;
 };
 
+video_capture.mojom.TestingControlsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = video_capture.mojom.TestingControls_Crash_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.crash();
+          break;
+        }
+      }
+    });
+  }
+};
+
+video_capture.mojom.TestingControlsReceiver = video_capture.mojom.TestingControlsReceiver;
+
 video_capture.mojom.TestingControlsPtr = video_capture.mojom.TestingControlsRemote;
 video_capture.mojom.TestingControlsRequest = video_capture.mojom.TestingControlsPendingReceiver;
 

@@ -7,9 +7,6 @@
 // Module namespace
 var payments = payments || {};
 payments.mojom = payments.mojom || {};
-var components = components || {};
-var blink = blink || {};
-var blink = blink || {};
 var blink = blink || {};
 var url = url || {};
 
@@ -394,6 +391,117 @@ payments.mojom.PaymentManager.getRemote = function() {
   return remote.$;
 };
 
+payments.mojom.PaymentManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = payments.mojom.PaymentManager_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.context_url, params.service_worker_scope);
+          break;
+        }
+        case 1: {
+          const params = payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deletePaymentInstrument(params.instrument_key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPaymentInstrument(params.instrument_key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.keysOfPaymentInstruments();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasPaymentInstrument(params.instrument_key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPaymentInstrument(params.instrument_key, params.instrument);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearPaymentInstruments();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = payments.mojom.PaymentManager_SetUserHint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUserHint(params.user_hint);
+          break;
+        }
+        case 8: {
+          const params = payments.mojom.PaymentManager_EnableDelegations_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableDelegations(params.delegations);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+payments.mojom.PaymentManagerReceiver = payments.mojom.PaymentManagerReceiver;
+
 payments.mojom.PaymentManagerPtr = payments.mojom.PaymentManagerRemote;
 payments.mojom.PaymentManagerRequest = payments.mojom.PaymentManagerPendingReceiver;
 
@@ -490,6 +598,38 @@ payments.mojom.PaymentHandlerResponseCallback.getRemote = function() {
     'context');
   return remote.$;
 };
+
+payments.mojom.PaymentHandlerResponseCallbackReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResponseForAbortPayment(params.payment_aborted);
+          break;
+        }
+        case 1: {
+          const params = payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResponseForCanMakePayment(params.response);
+          break;
+        }
+        case 2: {
+          const params = payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResponseForPaymentRequest(params.response);
+          break;
+        }
+      }
+    });
+  }
+};
+
+payments.mojom.PaymentHandlerResponseCallbackReceiver = payments.mojom.PaymentHandlerResponseCallbackReceiver;
 
 payments.mojom.PaymentHandlerResponseCallbackPtr = payments.mojom.PaymentHandlerResponseCallbackRemote;
 payments.mojom.PaymentHandlerResponseCallbackRequest = payments.mojom.PaymentHandlerResponseCallbackPendingReceiver;

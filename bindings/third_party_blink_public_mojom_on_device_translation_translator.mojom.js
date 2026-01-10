@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 
 blink.mojom.Translator = {};
 blink.mojom.Translator.$interfaceName = 'blink.mojom.Translator';
@@ -92,6 +91,33 @@ blink.mojom.Translator.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.TranslatorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.Translator_Translate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.translate(params.input, params.pending_responder);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.Translator_TranslateStreaming_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.translateStreaming(params.input, params.pending_responder);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.TranslatorReceiver = blink.mojom.TranslatorReceiver;
 
 blink.mojom.TranslatorPtr = blink.mojom.TranslatorRemote;
 blink.mojom.TranslatorRequest = blink.mojom.TranslatorPendingReceiver;

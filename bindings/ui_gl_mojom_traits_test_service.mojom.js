@@ -7,8 +7,6 @@
 // Module namespace
 var gl = gl || {};
 gl.mojom = gl.mojom || {};
-var ui = ui || {};
-var ui = ui || {};
 
 gl.mojom.TraitsTestService = {};
 gl.mojom.TraitsTestService.$interfaceName = 'gl.mojom.TraitsTestService';
@@ -105,6 +103,47 @@ gl.mojom.TraitsTestService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+gl.mojom.TraitsTestServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoGpuPreference(params.g);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoGLImplementationParts(params.impl);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+gl.mojom.TraitsTestServiceReceiver = gl.mojom.TraitsTestServiceReceiver;
 
 gl.mojom.TraitsTestServicePtr = gl.mojom.TraitsTestServiceRemote;
 gl.mojom.TraitsTestServiceRequest = gl.mojom.TraitsTestServicePendingReceiver;

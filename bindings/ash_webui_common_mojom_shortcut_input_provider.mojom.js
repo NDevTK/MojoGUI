@@ -8,7 +8,6 @@
 var ash = ash || {};
 ash.common = ash.common || {};
 ash.common.mojom = ash.common.mojom || {};
-var ash = ash || {};
 
 ash.common.mojom.ShortcutInputObserver = {};
 ash.common.mojom.ShortcutInputObserver.$interfaceName = 'ash.common.mojom.ShortcutInputObserver';
@@ -98,6 +97,33 @@ ash.common.mojom.ShortcutInputObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.common.mojom.ShortcutInputObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onShortcutInputEventPressed(params.prerewritten_key_event, params.key_event);
+          break;
+        }
+        case 1: {
+          const params = ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onShortcutInputEventReleased(params.prerewritten_key_event, params.key_event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.common.mojom.ShortcutInputObserverReceiver = ash.common.mojom.ShortcutInputObserverReceiver;
+
 ash.common.mojom.ShortcutInputObserverPtr = ash.common.mojom.ShortcutInputObserverRemote;
 ash.common.mojom.ShortcutInputObserverRequest = ash.common.mojom.ShortcutInputObserverPendingReceiver;
 
@@ -177,6 +203,33 @@ ash.common.mojom.ShortcutInputProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.common.mojom.ShortcutInputProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startObservingShortcutInput(params.observer);
+          break;
+        }
+        case 1: {
+          const params = ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopObservingShortcutInput();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.common.mojom.ShortcutInputProviderReceiver = ash.common.mojom.ShortcutInputProviderReceiver;
 
 ash.common.mojom.ShortcutInputProviderPtr = ash.common.mojom.ShortcutInputProviderRemote;
 ash.common.mojom.ShortcutInputProviderRequest = ash.common.mojom.ShortcutInputProviderPendingReceiver;

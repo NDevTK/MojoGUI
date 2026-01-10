@@ -7,6 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var mojo_base = mojo_base || {};
 
 media.mojom.ReadWriteAudioDataPipeSpec = { $: {} };
 

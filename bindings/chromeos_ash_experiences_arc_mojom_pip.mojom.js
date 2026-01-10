@@ -85,6 +85,28 @@ arc.mojom.PipHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.PipHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.PipHost_OnPipEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPipEvent(params.event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.PipHostReceiver = arc.mojom.PipHostReceiver;
+
 arc.mojom.PipHostPtr = arc.mojom.PipHostRemote;
 arc.mojom.PipHostRequest = arc.mojom.PipHostPendingReceiver;
 
@@ -185,6 +207,45 @@ arc.mojom.PipInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.PipInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.PipInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.PipInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.PipInstance_ClosePip_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closePip();
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPipSuppressionStatus(params.suppressed);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.PipInstanceReceiver = arc.mojom.PipInstanceReceiver;
 
 arc.mojom.PipInstancePtr = arc.mojom.PipInstanceRemote;
 arc.mojom.PipInstanceRequest = arc.mojom.PipInstancePendingReceiver;

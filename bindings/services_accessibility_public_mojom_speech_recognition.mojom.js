@@ -7,7 +7,6 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
-var services = services || {};
 
 ax.mojom.SpeechRecognitionTypeSpec = { $: mojo.internal.Enum() };
 ax.mojom.ObserverOrErrorSpec = { $: {} };
@@ -181,6 +180,38 @@ ax.mojom.SpeechRecognitionEventObserver.getRemote = function() {
   return remote.$;
 };
 
+ax.mojom.SpeechRecognitionEventObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStop();
+          break;
+        }
+        case 1: {
+          const params = ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResult(params.event);
+          break;
+        }
+        case 2: {
+          const params = ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.mojom.SpeechRecognitionEventObserverReceiver = ax.mojom.SpeechRecognitionEventObserverReceiver;
+
 ax.mojom.SpeechRecognitionEventObserverPtr = ax.mojom.SpeechRecognitionEventObserverRemote;
 ax.mojom.SpeechRecognitionEventObserverRequest = ax.mojom.SpeechRecognitionEventObserverPendingReceiver;
 
@@ -273,6 +304,47 @@ ax.mojom.SpeechRecognition.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ax.mojom.SpeechRecognitionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ax.mojom.SpeechRecognition_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ax.mojom.SpeechRecognition_Start_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ax.mojom.SpeechRecognition_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.mojom.SpeechRecognitionReceiver = ax.mojom.SpeechRecognitionReceiver;
 
 ax.mojom.SpeechRecognitionPtr = ax.mojom.SpeechRecognitionRemote;
 ax.mojom.SpeechRecognitionRequest = ax.mojom.SpeechRecognitionPendingReceiver;

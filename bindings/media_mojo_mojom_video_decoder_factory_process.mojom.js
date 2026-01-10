@@ -7,7 +7,9 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var services = services || {};
+var gpu = gpu || {};
+var sandbox = sandbox || {};
+var viz = viz || {};
 
 media.mojom.VideoDecoderFactoryProcess = {};
 media.mojom.VideoDecoderFactoryProcess.$interfaceName = 'media.mojom.VideoDecoderFactoryProcess';
@@ -75,6 +77,28 @@ media.mojom.VideoDecoderFactoryProcess.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.VideoDecoderFactoryProcessReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initializeVideoDecoderFactory(params.gpu_feature_info, params.receiver, params.gpu_remote);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.VideoDecoderFactoryProcessReceiver = media.mojom.VideoDecoderFactoryProcessReceiver;
 
 media.mojom.VideoDecoderFactoryProcessPtr = media.mojom.VideoDecoderFactoryProcessRemote;
 media.mojom.VideoDecoderFactoryProcessRequest = media.mojom.VideoDecoderFactoryProcessPendingReceiver;

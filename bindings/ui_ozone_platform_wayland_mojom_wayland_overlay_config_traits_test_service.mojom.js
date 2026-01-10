@@ -7,7 +7,6 @@
 // Module namespace
 var wl = wl || {};
 wl.mojom = wl.mojom || {};
-var ui = ui || {};
 
 wl.mojom.ConfigTraitsTestService = {};
 wl.mojom.ConfigTraitsTestService.$interfaceName = 'wl.mojom.ConfigTraitsTestService';
@@ -80,6 +79,35 @@ wl.mojom.ConfigTraitsTestService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+wl.mojom.ConfigTraitsTestServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoTransform(params.t);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+wl.mojom.ConfigTraitsTestServiceReceiver = wl.mojom.ConfigTraitsTestServiceReceiver;
 
 wl.mojom.ConfigTraitsTestServicePtr = wl.mojom.ConfigTraitsTestServiceRemote;
 wl.mojom.ConfigTraitsTestServiceRequest = wl.mojom.ConfigTraitsTestServicePendingReceiver;

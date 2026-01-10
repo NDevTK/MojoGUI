@@ -7,7 +7,7 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
-var chromeos = chromeos || {};
+var mojo_base = mojo_base || {};
 
 crosapi.mojom.ButtonTypeSpec = { $: mojo.internal.Enum() };
 crosapi.mojom.TelemetryDiagnosticLedNameSpec = { $: mojo.internal.Enum() };
@@ -609,6 +609,45 @@ crosapi.mojom.TelemetryDiagnosticRoutineControl.getRemote = function() {
   return remote.$;
 };
 
+crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.TelemetryDiagnosticRoutineControl_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start();
+          break;
+        }
+        case 2: {
+          const params = crosapi.mojom.TelemetryDiagnosticRoutineControl_ReplyToInquiry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.replyToInquiry(params.reply);
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver = crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver;
+
 crosapi.mojom.TelemetryDiagnosticRoutineControlPtr = crosapi.mojom.TelemetryDiagnosticRoutineControlRemote;
 crosapi.mojom.TelemetryDiagnosticRoutineControlRequest = crosapi.mojom.TelemetryDiagnosticRoutineControlPendingReceiver;
 
@@ -673,6 +712,28 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.TelemetryDiagnosticRoutineObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRoutineStateChange(params.state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutineObserverReceiver = crosapi.mojom.TelemetryDiagnosticRoutineObserverReceiver;
 
 crosapi.mojom.TelemetryDiagnosticRoutineObserverPtr = crosapi.mojom.TelemetryDiagnosticRoutineObserverRemote;
 crosapi.mojom.TelemetryDiagnosticRoutineObserverRequest = crosapi.mojom.TelemetryDiagnosticRoutineObserverPendingReceiver;
@@ -762,6 +823,40 @@ crosapi.mojom.TelemetryDiagnosticRoutinesService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createRoutine(params.routine_argument, params.routine_receiver, params.routine_observer);
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isRoutineArgumentSupported(params.routine_argument);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.TelemetryDiagnosticRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver = crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver;
 
 crosapi.mojom.TelemetryDiagnosticRoutinesServicePtr = crosapi.mojom.TelemetryDiagnosticRoutinesServiceRemote;
 crosapi.mojom.TelemetryDiagnosticRoutinesServiceRequest = crosapi.mojom.TelemetryDiagnosticRoutinesServicePendingReceiver;

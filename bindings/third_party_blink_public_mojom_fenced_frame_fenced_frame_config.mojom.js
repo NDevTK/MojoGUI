@@ -7,12 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var ui = ui || {};
+var network = network || {};
 var gfx = gfx || {};
-var url = url || {};
 var url = url || {};
 
 blink.mojom.ReportingDestinationSpec = { $: mojo.internal.Enum() };

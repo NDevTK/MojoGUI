@@ -7,8 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var blink = blink || {};
+var network = network || {};
 var url = url || {};
 
 blink.mojom.SpeculationActionSpec = { $: mojo.internal.Enum() };
@@ -160,6 +159,38 @@ blink.mojom.SpeculationHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.SpeculationHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateSpeculationCandidates(params.candidates, params.enable_cross_origin_prerender_iframes);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLCPPredicted();
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initiatePreview(params.url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SpeculationHostReceiver = blink.mojom.SpeculationHostReceiver;
 
 blink.mojom.SpeculationHostPtr = blink.mojom.SpeculationHostRemote;
 blink.mojom.SpeculationHostRequest = blink.mojom.SpeculationHostPendingReceiver;

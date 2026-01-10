@@ -7,7 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 media.mojom.PlaybackPropertiesSpec = { $: {} };
@@ -245,6 +245,68 @@ media.mojom.WatchTimeRecorder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.WatchTimeRecorderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordWatchTime(params.key, params.watch_time);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.finalizeWatchTime(params.watch_time_keys);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.WatchTimeRecorder_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.status);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateSecondaryProperties(params.secondary_properties);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAutoplayInitiated(params.value);
+          break;
+        }
+        case 5: {
+          const params = media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDurationChanged(params.duration);
+          break;
+        }
+        case 6: {
+          const params = media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateVideoDecodeStats(params.frames_decoded, params.frames_dropped);
+          break;
+        }
+        case 7: {
+          const params = media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateUnderflowCount(params.total_count);
+          break;
+        }
+        case 8: {
+          const params = media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateUnderflowDuration(params.total_completed_count, params.total_duration);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.WatchTimeRecorderReceiver = media.mojom.WatchTimeRecorderReceiver;
 
 media.mojom.WatchTimeRecorderPtr = media.mojom.WatchTimeRecorderRemote;
 media.mojom.WatchTimeRecorderRequest = media.mojom.WatchTimeRecorderPendingReceiver;

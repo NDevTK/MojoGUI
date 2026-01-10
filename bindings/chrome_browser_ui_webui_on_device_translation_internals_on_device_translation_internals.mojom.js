@@ -98,6 +98,28 @@ on_device_translation_internals.mojom.PageHandlerFactory.getRemote = function() 
   return remote.$;
 };
 
+on_device_translation_internals.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_translation_internals.mojom.PageHandlerFactoryReceiver = on_device_translation_internals.mojom.PageHandlerFactoryReceiver;
+
 on_device_translation_internals.mojom.PageHandlerFactoryPtr = on_device_translation_internals.mojom.PageHandlerFactoryRemote;
 on_device_translation_internals.mojom.PageHandlerFactoryRequest = on_device_translation_internals.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -179,6 +201,33 @@ on_device_translation_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+on_device_translation_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installLanguagePackage(params.package_index);
+          break;
+        }
+        case 1: {
+          const params = on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.uninstallLanguagePackage(params.package_index);
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_translation_internals.mojom.PageHandlerReceiver = on_device_translation_internals.mojom.PageHandlerReceiver;
+
 on_device_translation_internals.mojom.PageHandlerPtr = on_device_translation_internals.mojom.PageHandlerRemote;
 on_device_translation_internals.mojom.PageHandlerRequest = on_device_translation_internals.mojom.PageHandlerPendingReceiver;
 
@@ -243,6 +292,28 @@ on_device_translation_internals.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+on_device_translation_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLanguagePackStatus(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_translation_internals.mojom.PageReceiver = on_device_translation_internals.mojom.PageReceiver;
 
 on_device_translation_internals.mojom.PagePtr = on_device_translation_internals.mojom.PageRemote;
 on_device_translation_internals.mojom.PageRequest = on_device_translation_internals.mojom.PagePendingReceiver;

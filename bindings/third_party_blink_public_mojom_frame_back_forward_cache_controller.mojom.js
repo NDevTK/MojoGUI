@@ -7,9 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
 
 blink.mojom.BlockingDetailsSpec = { $: {} };
 blink.mojom.BackForwardCacheControllerHost = {};
@@ -102,6 +99,33 @@ blink.mojom.BackForwardCacheControllerHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.BackForwardCacheControllerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.evictFromBackForwardCache(params.reason, params.source);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didChangeBackForwardCacheDisablingFeatures(params.details);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.BackForwardCacheControllerHostReceiver = blink.mojom.BackForwardCacheControllerHostReceiver;
 
 blink.mojom.BackForwardCacheControllerHostPtr = blink.mojom.BackForwardCacheControllerHostRemote;
 blink.mojom.BackForwardCacheControllerHostRequest = blink.mojom.BackForwardCacheControllerHostPendingReceiver;

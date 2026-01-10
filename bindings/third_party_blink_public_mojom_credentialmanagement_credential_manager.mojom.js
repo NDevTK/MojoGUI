@@ -7,7 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 blink.mojom.CredentialTypeSpec = { $: mojo.internal.Enum() };
@@ -168,6 +168,59 @@ blink.mojom.CredentialManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.CredentialManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.CredentialManager_Store_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.store(params.credential);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.CredentialManager_Store_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.preventSilentAccess();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.CredentialManager_Get_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.get(params.mediation, params.include_passwords, params.federations);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.CredentialManager_Get_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.CredentialManagerReceiver = blink.mojom.CredentialManagerReceiver;
 
 blink.mojom.CredentialManagerPtr = blink.mojom.CredentialManagerRemote;
 blink.mojom.CredentialManagerRequest = blink.mojom.CredentialManagerPendingReceiver;

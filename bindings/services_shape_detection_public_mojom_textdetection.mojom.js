@@ -8,7 +8,6 @@
 var shape_detection = shape_detection || {};
 shape_detection.mojom = shape_detection.mojom || {};
 var skia = skia || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 shape_detection.mojom.TextDetectionResultSpec = { $: {} };
@@ -92,6 +91,35 @@ shape_detection.mojom.TextDetection.getRemote = function() {
     'context');
   return remote.$;
 };
+
+shape_detection.mojom.TextDetectionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = shape_detection.mojom.TextDetection_Detect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.detect(params.bitmap_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+shape_detection.mojom.TextDetectionReceiver = shape_detection.mojom.TextDetectionReceiver;
 
 shape_detection.mojom.TextDetectionPtr = shape_detection.mojom.TextDetectionRemote;
 shape_detection.mojom.TextDetectionRequest = shape_detection.mojom.TextDetectionPendingReceiver;

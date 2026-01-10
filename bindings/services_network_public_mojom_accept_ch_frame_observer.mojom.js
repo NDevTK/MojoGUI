@@ -7,8 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
 var url = url || {};
 
 network.mojom.AcceptCHFrameObserver = {};
@@ -100,6 +98,40 @@ network.mojom.AcceptCHFrameObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.AcceptCHFrameObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAcceptCHFrameReceived(params.origin, params.accept_ch_frame);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.listener);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.AcceptCHFrameObserverReceiver = network.mojom.AcceptCHFrameObserverReceiver;
 
 network.mojom.AcceptCHFrameObserverPtr = network.mojom.AcceptCHFrameObserverRemote;
 network.mojom.AcceptCHFrameObserverRequest = network.mojom.AcceptCHFrameObserverPendingReceiver;

@@ -7,8 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 var url = url || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.PushErrorTypeSpec = { $: mojo.internal.Enum() };
 blink.mojom.PushSubscriptionOptionsSpec = { $: {} };
@@ -168,6 +168,59 @@ blink.mojom.PushMessaging.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.PushMessagingReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PushMessaging_Subscribe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.subscribe(params.service_worker_registration_id, params.options, params.user_gesture);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.PushMessaging_Unsubscribe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unsubscribe(params.service_worker_registration_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.PushMessaging_GetSubscription_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSubscription(params.service_worker_registration_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PushMessagingReceiver = blink.mojom.PushMessagingReceiver;
 
 blink.mojom.PushMessagingPtr = blink.mojom.PushMessagingRemote;
 blink.mojom.PushMessagingRequest = blink.mojom.PushMessagingPendingReceiver;

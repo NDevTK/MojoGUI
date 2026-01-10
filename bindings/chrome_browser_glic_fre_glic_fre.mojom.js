@@ -100,6 +100,28 @@ glic.mojom.FrePageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+glic.mojom.FrePageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+glic.mojom.FrePageHandlerFactoryReceiver = glic.mojom.FrePageHandlerFactoryReceiver;
+
 glic.mojom.FrePageHandlerFactoryPtr = glic.mojom.FrePageHandlerFactoryRemote;
 glic.mojom.FrePageHandlerFactoryRequest = glic.mojom.FrePageHandlerFactoryPendingReceiver;
 
@@ -292,6 +314,75 @@ glic.mojom.FrePageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+glic.mojom.FrePageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = glic.mojom.FrePageHandler_AcceptFre_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acceptFre();
+          break;
+        }
+        case 1: {
+          const params = glic.mojom.FrePageHandler_RejectFre_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rejectFre();
+          break;
+        }
+        case 2: {
+          const params = glic.mojom.FrePageHandler_DismissFre_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dismissFre(params.panel);
+          break;
+        }
+        case 3: {
+          const params = glic.mojom.FrePageHandler_FreReloaded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.freReloaded();
+          break;
+        }
+        case 4: {
+          const params = glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.prepareForClient();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.validateAndOpenLinkInNewTab(params.url);
+          break;
+        }
+        case 6: {
+          const params = glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.webUiStateChanged(params.new_state);
+          break;
+        }
+        case 7: {
+          const params = glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.exceededTimeoutError();
+          break;
+        }
+        case 8: {
+          const params = glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logWebUiLoadComplete();
+          break;
+        }
+      }
+    });
+  }
+};
+
+glic.mojom.FrePageHandlerReceiver = glic.mojom.FrePageHandlerReceiver;
 
 glic.mojom.FrePageHandlerPtr = glic.mojom.FrePageHandlerRemote;
 glic.mojom.FrePageHandlerRequest = glic.mojom.FrePageHandlerPendingReceiver;

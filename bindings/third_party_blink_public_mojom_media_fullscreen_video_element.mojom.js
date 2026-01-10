@@ -72,6 +72,28 @@ blink.mojom.FullscreenVideoElementHandler.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.FullscreenVideoElementHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestFullscreenVideoElement();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FullscreenVideoElementHandlerReceiver = blink.mojom.FullscreenVideoElementHandlerReceiver;
+
 blink.mojom.FullscreenVideoElementHandlerPtr = blink.mojom.FullscreenVideoElementHandlerRemote;
 blink.mojom.FullscreenVideoElementHandlerRequest = blink.mojom.FullscreenVideoElementHandlerPendingReceiver;
 

@@ -7,6 +7,7 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
+var mojo_base = mojo_base || {};
 
 ax.mojom.AccessibilityFileLoader = {};
 ax.mojom.AccessibilityFileLoader.$interfaceName = 'ax.mojom.AccessibilityFileLoader';
@@ -79,6 +80,35 @@ ax.mojom.AccessibilityFileLoader.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ax.mojom.AccessibilityFileLoaderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ax.mojom.AccessibilityFileLoader_Load_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.load(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.mojom.AccessibilityFileLoaderReceiver = ax.mojom.AccessibilityFileLoaderReceiver;
 
 ax.mojom.AccessibilityFileLoaderPtr = ax.mojom.AccessibilityFileLoaderRemote;
 ax.mojom.AccessibilityFileLoaderRequest = ax.mojom.AccessibilityFileLoaderPendingReceiver;

@@ -7,7 +7,6 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 viz.mojom.SelectionSpec = { $: {} };

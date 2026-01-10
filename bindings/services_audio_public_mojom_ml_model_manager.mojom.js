@@ -7,6 +7,8 @@
 // Module namespace
 var audio = audio || {};
 audio.mojom = audio.mojom || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 audio.mojom.MlModelManager = {};
 audio.mojom.MlModelManager.$interfaceName = 'audio.mojom.MlModelManager';
@@ -88,6 +90,33 @@ audio.mojom.MlModelManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+audio.mojom.MlModelManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setResidualEchoEstimationModel(params.tflite_file);
+          break;
+        }
+        case 1: {
+          const params = audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopServingResidualEchoEstimationModel();
+          break;
+        }
+      }
+    });
+  }
+};
+
+audio.mojom.MlModelManagerReceiver = audio.mojom.MlModelManagerReceiver;
 
 audio.mojom.MlModelManagerPtr = audio.mojom.MlModelManagerRemote;
 audio.mojom.MlModelManagerRequest = audio.mojom.MlModelManagerPendingReceiver;

@@ -7,6 +7,7 @@
 // Module namespace
 var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
+var mojo_base = mojo_base || {};
 
 tracing.mojom.ConsoleOutputSpec = { $: mojo.internal.Enum() };
 tracing.mojom.BufferFillPolicySpec = { $: mojo.internal.Enum() };
@@ -378,6 +379,55 @@ tracing.mojom.ProducerHost.getRemote = function() {
   return remote.$;
 };
 
+tracing.mojom.ProducerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tracing.mojom.ProducerHost_CommitData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.commitData(params.data_request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerDataSource(params.registration_info);
+          break;
+        }
+        case 2: {
+          const params = tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateDataSource(params.registration_info);
+          break;
+        }
+        case 3: {
+          const params = tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerTraceWriter(params.writer_id, params.target_buffer);
+          break;
+        }
+        case 4: {
+          const params = tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unregisterTraceWriter(params.writer_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tracing.mojom.ProducerHostReceiver = tracing.mojom.ProducerHostReceiver;
+
 tracing.mojom.ProducerHostPtr = tracing.mojom.ProducerHostRemote;
 tracing.mojom.ProducerHostRequest = tracing.mojom.ProducerHostPendingReceiver;
 
@@ -517,6 +567,62 @@ tracing.mojom.ProducerClient.getRemote = function() {
   return remote.$;
 };
 
+tracing.mojom.ProducerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTracingStart();
+          break;
+        }
+        case 1: {
+          const params = tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startDataSource(params.id, params.data_source_config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = tracing.mojom.ProducerClient_StopDataSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopDataSource(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = tracing.mojom.ProducerClient_Flush_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flush(params.flush_request_id, params.data_source_ids);
+          break;
+        }
+        case 4: {
+          const params = tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearIncrementalState();
+          break;
+        }
+      }
+    });
+  }
+};
+
+tracing.mojom.ProducerClientReceiver = tracing.mojom.ProducerClientReceiver;
+
 tracing.mojom.ProducerClientPtr = tracing.mojom.ProducerClientRemote;
 tracing.mojom.ProducerClientRequest = tracing.mojom.ProducerClientPendingReceiver;
 
@@ -584,6 +690,28 @@ tracing.mojom.PerfettoService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+tracing.mojom.PerfettoServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectToProducerHost(params.producer_client, params.producer_host_receiver, params.shared_memory, params.shared_memory_buffer_page_size_bytes);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tracing.mojom.PerfettoServiceReceiver = tracing.mojom.PerfettoServiceReceiver;
 
 tracing.mojom.PerfettoServicePtr = tracing.mojom.PerfettoServiceRemote;
 tracing.mojom.PerfettoServiceRequest = tracing.mojom.PerfettoServicePendingReceiver;
@@ -679,6 +807,40 @@ tracing.mojom.ConsumerHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+tracing.mojom.ConsumerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableTracing(params.tracing_session_host, params.tracing_session_client, params.config, params.output_file);
+          break;
+        }
+        case 1: {
+          const params = tracing.mojom.ConsumerHost_CloneSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cloneSession(params.tracing_session_host, params.tracing_session_client, params.unguessable_name, params.privacy_filtering_enabled);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+tracing.mojom.ConsumerHostReceiver = tracing.mojom.ConsumerHostReceiver;
 
 tracing.mojom.ConsumerHostPtr = tracing.mojom.ConsumerHostRemote;
 tracing.mojom.ConsumerHostRequest = tracing.mojom.ConsumerHostPendingReceiver;
@@ -827,6 +989,69 @@ tracing.mojom.TracingSessionHost.getRemote = function() {
   return remote.$;
 };
 
+tracing.mojom.TracingSessionHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.changeTraceConfig(params.config);
+          break;
+        }
+        case 1: {
+          const params = tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableTracing();
+          break;
+        }
+        case 2: {
+          const params = tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readBuffers(params.stream);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestBufferUsage();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableTracingAndEmitJson(params.agent_label_filter, params.stream, params.privacy_filtering_enabled);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+tracing.mojom.TracingSessionHostReceiver = tracing.mojom.TracingSessionHostReceiver;
+
 tracing.mojom.TracingSessionHostPtr = tracing.mojom.TracingSessionHostRemote;
 tracing.mojom.TracingSessionHostRequest = tracing.mojom.TracingSessionHostPendingReceiver;
 
@@ -906,6 +1131,33 @@ tracing.mojom.TracingSessionClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+tracing.mojom.TracingSessionClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTracingEnabled();
+          break;
+        }
+        case 1: {
+          const params = tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTracingDisabled(params.tracing_succeeded);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tracing.mojom.TracingSessionClientReceiver = tracing.mojom.TracingSessionClientReceiver;
 
 tracing.mojom.TracingSessionClientPtr = tracing.mojom.TracingSessionClientRemote;
 tracing.mojom.TracingSessionClientRequest = tracing.mojom.TracingSessionClientPendingReceiver;

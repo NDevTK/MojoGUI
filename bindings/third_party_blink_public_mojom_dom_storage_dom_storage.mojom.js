@@ -7,10 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
 
 blink.mojom.DomStorageProvider = {};
 blink.mojom.DomStorageProvider.$interfaceName = 'blink.mojom.DomStorageProvider';
@@ -86,6 +82,28 @@ blink.mojom.DomStorageProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.DomStorageProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindDomStorage(params.receiver, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DomStorageProviderReceiver = blink.mojom.DomStorageProviderReceiver;
 
 blink.mojom.DomStorageProviderPtr = blink.mojom.DomStorageProviderRemote;
 blink.mojom.DomStorageProviderRequest = blink.mojom.DomStorageProviderPendingReceiver;
@@ -190,6 +208,38 @@ blink.mojom.DomStorage.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.DomStorageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openLocalStorage(params.storage_key, params.local_frame_token, params.area);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSessionStorageNamespace(params.namespace_id, params.receiver);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSessionStorageArea(params.storage_key, params.local_frame_token, params.namespace_id, params.session_namespace);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DomStorageReceiver = blink.mojom.DomStorageReceiver;
+
 blink.mojom.DomStoragePtr = blink.mojom.DomStorageRemote;
 blink.mojom.DomStorageRequest = blink.mojom.DomStoragePendingReceiver;
 
@@ -268,6 +318,33 @@ blink.mojom.DomStorageClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.DomStorageClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetSessionStorageConnections();
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetLocalStorageConnections();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DomStorageClientReceiver = blink.mojom.DomStorageClientReceiver;
 
 blink.mojom.DomStorageClientPtr = blink.mojom.DomStorageClientRemote;
 blink.mojom.DomStorageClientRequest = blink.mojom.DomStorageClientPendingReceiver;

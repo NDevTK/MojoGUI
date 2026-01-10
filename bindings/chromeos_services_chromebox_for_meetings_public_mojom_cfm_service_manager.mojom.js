@@ -78,6 +78,23 @@ chromeos.cfm.mojom.DisconnectReason.getRemote = function() {
   return remote.$;
 };
 
+chromeos.cfm.mojom.DisconnectReasonReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+chromeos.cfm.mojom.DisconnectReasonReceiver = chromeos.cfm.mojom.DisconnectReasonReceiver;
+
 chromeos.cfm.mojom.DisconnectReasonPtr = chromeos.cfm.mojom.DisconnectReasonRemote;
 chromeos.cfm.mojom.DisconnectReasonRequest = chromeos.cfm.mojom.DisconnectReasonPendingReceiver;
 
@@ -173,6 +190,47 @@ chromeos.cfm.mojom.CfmServiceContext.getRemote = function() {
   return remote.$;
 };
 
+chromeos.cfm.mojom.CfmServiceContextReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.provideAdaptor(params.interface_name, params.adaptor_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestBindService(params.interface_name, params.receiver_pipe);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.cfm.mojom.CfmServiceContextReceiver = chromeos.cfm.mojom.CfmServiceContextReceiver;
+
 chromeos.cfm.mojom.CfmServiceContextPtr = chromeos.cfm.mojom.CfmServiceContextRemote;
 chromeos.cfm.mojom.CfmServiceContextRequest = chromeos.cfm.mojom.CfmServiceContextPendingReceiver;
 
@@ -237,6 +295,28 @@ chromeos.cfm.mojom.CfmServiceAdaptor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBindService(params.receiver_pipe);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.cfm.mojom.CfmServiceAdaptorReceiver = chromeos.cfm.mojom.CfmServiceAdaptorReceiver;
 
 chromeos.cfm.mojom.CfmServiceAdaptorPtr = chromeos.cfm.mojom.CfmServiceAdaptorRemote;
 chromeos.cfm.mojom.CfmServiceAdaptorRequest = chromeos.cfm.mojom.CfmServiceAdaptorPendingReceiver;

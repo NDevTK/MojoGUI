@@ -124,6 +124,28 @@ sensor.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+sensor.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+sensor.mojom.PageHandlerFactoryReceiver = sensor.mojom.PageHandlerFactoryReceiver;
+
 sensor.mojom.PageHandlerFactoryPtr = sensor.mojom.PageHandlerFactoryRemote;
 sensor.mojom.PageHandlerFactoryRequest = sensor.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -202,6 +224,33 @@ sensor.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+sensor.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startRecordingUpdate();
+          break;
+        }
+        case 1: {
+          const params = sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopRecordingUpdate();
+          break;
+        }
+      }
+    });
+  }
+};
+
+sensor.mojom.PageHandlerReceiver = sensor.mojom.PageHandlerReceiver;
 
 sensor.mojom.PageHandlerPtr = sensor.mojom.PageHandlerRemote;
 sensor.mojom.PageHandlerRequest = sensor.mojom.PageHandlerPendingReceiver;

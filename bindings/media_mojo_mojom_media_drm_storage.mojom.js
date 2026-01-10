@@ -7,6 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var mojo_base = mojo_base || {};
 
 media.mojom.SessionDataSpec = { $: {} };
 media.mojom.MediaDrmStorage = {};
@@ -186,6 +187,83 @@ media.mojom.MediaDrmStorage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.MediaDrmStorageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.MediaDrmStorage_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProvisioned();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.savePersistentSession(params.session_id, params.session_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadPersistentSession(params.session_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removePersistentSession(params.session_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.MediaDrmStorageReceiver = media.mojom.MediaDrmStorageReceiver;
 
 media.mojom.MediaDrmStoragePtr = media.mojom.MediaDrmStorageRemote;
 media.mojom.MediaDrmStorageRequest = media.mojom.MediaDrmStoragePendingReceiver;

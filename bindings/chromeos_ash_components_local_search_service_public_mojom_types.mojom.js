@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.local_search_service = ash.local_search_service || {};
 ash.local_search_service.mojom = ash.local_search_service.mojom || {};
+var mojo_base = mojo_base || {};
 
 ash.local_search_service.mojom.ResponseStatusSpec = { $: mojo.internal.Enum() };
 ash.local_search_service.mojom.ContentSpec = { $: {} };

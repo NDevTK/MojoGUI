@@ -7,6 +7,7 @@
 // Module namespace
 var on_load_script_injector = on_load_script_injector || {};
 on_load_script_injector.mojom = on_load_script_injector.mojom || {};
+var mojo_base = mojo_base || {};
 
 on_load_script_injector.mojom.OnLoadScriptInjector = {};
 on_load_script_injector.mojom.OnLoadScriptInjector.$interfaceName = 'on_load_script_injector.mojom.OnLoadScriptInjector';
@@ -88,6 +89,33 @@ on_load_script_injector.mojom.OnLoadScriptInjector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+on_load_script_injector.mojom.OnLoadScriptInjectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addOnLoadScript(params.script);
+          break;
+        }
+        case 1: {
+          const params = on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearOnLoadScripts();
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_load_script_injector.mojom.OnLoadScriptInjectorReceiver = on_load_script_injector.mojom.OnLoadScriptInjectorReceiver;
 
 on_load_script_injector.mojom.OnLoadScriptInjectorPtr = on_load_script_injector.mojom.OnLoadScriptInjectorRemote;
 on_load_script_injector.mojom.OnLoadScriptInjectorRequest = on_load_script_injector.mojom.OnLoadScriptInjectorPendingReceiver;

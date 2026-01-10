@@ -59,6 +59,23 @@ blink.mojom.AssociatedInterface.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.AssociatedInterfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+blink.mojom.AssociatedInterfaceReceiver = blink.mojom.AssociatedInterfaceReceiver;
+
 blink.mojom.AssociatedInterfacePtr = blink.mojom.AssociatedInterfaceRemote;
 blink.mojom.AssociatedInterfaceRequest = blink.mojom.AssociatedInterfacePendingReceiver;
 
@@ -67,7 +84,7 @@ blink.mojom.AssociatedInterfaceRequest = blink.mojom.AssociatedInterfacePendingR
 mojo.internal.Struct(
     blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec, 'blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_Params', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -124,6 +141,28 @@ blink.mojom.AssociatedInterfaceProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.AssociatedInterfaceProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAssociatedInterface(params.name, params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AssociatedInterfaceProviderReceiver = blink.mojom.AssociatedInterfaceProviderReceiver;
 
 blink.mojom.AssociatedInterfaceProviderPtr = blink.mojom.AssociatedInterfaceProviderRemote;
 blink.mojom.AssociatedInterfaceProviderRequest = blink.mojom.AssociatedInterfaceProviderPendingReceiver;

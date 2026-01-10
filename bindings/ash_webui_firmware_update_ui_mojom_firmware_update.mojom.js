@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.firmware_update = ash.firmware_update || {};
 ash.firmware_update.mojom = ash.firmware_update.mojom || {};
+var mojo_base = mojo_base || {};
 
 ash.firmware_update.mojom.UpdatePrioritySpec = { $: mojo.internal.Enum() };
 ash.firmware_update.mojom.UpdateStateSpec = { $: mojo.internal.Enum() };
@@ -169,6 +170,28 @@ ash.firmware_update.mojom.UpdateObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.firmware_update.mojom.UpdateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onUpdateListChanged(params.firmware_updates);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.firmware_update.mojom.UpdateObserverReceiver = ash.firmware_update.mojom.UpdateObserverReceiver;
+
 ash.firmware_update.mojom.UpdateObserverPtr = ash.firmware_update.mojom.UpdateObserverRemote;
 ash.firmware_update.mojom.UpdateObserverRequest = ash.firmware_update.mojom.UpdateObserverPendingReceiver;
 
@@ -234,6 +257,28 @@ ash.firmware_update.mojom.DeviceRequestObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.firmware_update.mojom.DeviceRequestObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceRequest(params.request);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.firmware_update.mojom.DeviceRequestObserverReceiver = ash.firmware_update.mojom.DeviceRequestObserverReceiver;
+
 ash.firmware_update.mojom.DeviceRequestObserverPtr = ash.firmware_update.mojom.DeviceRequestObserverRemote;
 ash.firmware_update.mojom.DeviceRequestObserverRequest = ash.firmware_update.mojom.DeviceRequestObserverPendingReceiver;
 
@@ -298,6 +343,28 @@ ash.firmware_update.mojom.UpdateProgressObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.firmware_update.mojom.UpdateProgressObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStatusChanged(params.update);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.firmware_update.mojom.UpdateProgressObserverReceiver = ash.firmware_update.mojom.UpdateProgressObserverReceiver;
 
 ash.firmware_update.mojom.UpdateProgressObserverPtr = ash.firmware_update.mojom.UpdateProgressObserverRemote;
 ash.firmware_update.mojom.UpdateProgressObserverRequest = ash.firmware_update.mojom.UpdateProgressObserverPendingReceiver;
@@ -407,6 +474,52 @@ ash.firmware_update.mojom.UpdateProvider.getRemote = function() {
   return remote.$;
 };
 
+ash.firmware_update.mojom.UpdateProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observePeripheralUpdates(params.observer);
+          break;
+        }
+        case 1: {
+          const params = ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.prepareForUpdate(params.device_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fetchInProgressUpdate();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.firmware_update.mojom.UpdateProviderReceiver = ash.firmware_update.mojom.UpdateProviderReceiver;
+
 ash.firmware_update.mojom.UpdateProviderPtr = ash.firmware_update.mojom.UpdateProviderRemote;
 ash.firmware_update.mojom.UpdateProviderRequest = ash.firmware_update.mojom.UpdateProviderPendingReceiver;
 
@@ -505,6 +618,38 @@ ash.firmware_update.mojom.InstallController.getRemote = function() {
   return remote.$;
 };
 
+ash.firmware_update.mojom.InstallControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.beginUpdate(params.device_id, params.filepath);
+          break;
+        }
+        case 1: {
+          const params = ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addDeviceRequestObserver(params.observer);
+          break;
+        }
+        case 2: {
+          const params = ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addUpdateProgressObserver(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.firmware_update.mojom.InstallControllerReceiver = ash.firmware_update.mojom.InstallControllerReceiver;
+
 ash.firmware_update.mojom.InstallControllerPtr = ash.firmware_update.mojom.InstallControllerRemote;
 ash.firmware_update.mojom.InstallControllerRequest = ash.firmware_update.mojom.InstallControllerPendingReceiver;
 
@@ -568,6 +713,28 @@ ash.firmware_update.mojom.SystemUtils.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.firmware_update.mojom.SystemUtilsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restart();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.firmware_update.mojom.SystemUtilsReceiver = ash.firmware_update.mojom.SystemUtilsReceiver;
 
 ash.firmware_update.mojom.SystemUtilsPtr = ash.firmware_update.mojom.SystemUtilsRemote;
 ash.firmware_update.mojom.SystemUtilsRequest = ash.firmware_update.mojom.SystemUtilsPendingReceiver;

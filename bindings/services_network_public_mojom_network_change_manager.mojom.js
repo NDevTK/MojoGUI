@@ -7,7 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
 
 network.mojom.ConnectionTypeSpec = { $: mojo.internal.Enum() };
 network.mojom.ConnectionSubtypeSpec = { $: mojo.internal.Enum() };
@@ -159,6 +158,33 @@ network.mojom.NetworkChangeManagerClient.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.NetworkChangeManagerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onInitialConnectionType(params.type);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNetworkChanged(params.type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.NetworkChangeManagerClientReceiver = network.mojom.NetworkChangeManagerClientReceiver;
+
 network.mojom.NetworkChangeManagerClientPtr = network.mojom.NetworkChangeManagerClientRemote;
 network.mojom.NetworkChangeManagerClientRequest = network.mojom.NetworkChangeManagerClientPendingReceiver;
 
@@ -183,7 +209,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec, 'network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_Params', [
-      mojo.internal.StructField('notifier', 0, 0, mojo.internal.AssociatedInterfaceRequest(network.mojom.NetworkInterfaceChangeListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('notifier', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -260,6 +286,38 @@ network.mojom.NetworkChangeManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.NetworkChangeManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestNotifications(params.client_remote);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNetworkChanged(params.dns_changed, params.ip_address_change_type, params.connection_type_changed, params.new_connection_type, params.connection_subtype_changed, params.new_connection_subtype);
+          break;
+        }
+        case 2: {
+          const params = network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindNetworkInterfaceChangeListener(params.notifier);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.NetworkChangeManagerReceiver = network.mojom.NetworkChangeManagerReceiver;
 
 network.mojom.NetworkChangeManagerPtr = network.mojom.NetworkChangeManagerRemote;
 network.mojom.NetworkChangeManagerRequest = network.mojom.NetworkChangeManagerPendingReceiver;

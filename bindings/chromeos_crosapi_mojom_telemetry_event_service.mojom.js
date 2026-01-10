@@ -7,10 +7,6 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
-var chromeos = chromeos || {};
-var chromeos = chromeos || {};
-var chromeos = chromeos || {};
-var chromeos = chromeos || {};
 
 crosapi.mojom.StateSpec = { $: mojo.internal.Enum() };
 crosapi.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
@@ -429,6 +425,28 @@ crosapi.mojom.TelemetryEventObserver.getRemote = function() {
   return remote.$;
 };
 
+crosapi.mojom.TelemetryEventObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEvent(params.info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.TelemetryEventObserverReceiver = crosapi.mojom.TelemetryEventObserverReceiver;
+
 crosapi.mojom.TelemetryEventObserverPtr = crosapi.mojom.TelemetryEventObserverRemote;
 crosapi.mojom.TelemetryEventObserverRequest = crosapi.mojom.TelemetryEventObserverPendingReceiver;
 
@@ -516,6 +534,40 @@ crosapi.mojom.TelemetryEventService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.TelemetryEventServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addEventObserver(params.category, params.observer);
+          break;
+        }
+        case 2: {
+          const params = crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isEventSupported(params.category);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.TelemetryEventServiceReceiver = crosapi.mojom.TelemetryEventServiceReceiver;
 
 crosapi.mojom.TelemetryEventServicePtr = crosapi.mojom.TelemetryEventServiceRemote;
 crosapi.mojom.TelemetryEventServiceRequest = crosapi.mojom.TelemetryEventServicePendingReceiver;

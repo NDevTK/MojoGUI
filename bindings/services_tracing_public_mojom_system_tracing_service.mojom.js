@@ -7,6 +7,7 @@
 // Module namespace
 var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
+var mojo_base = mojo_base || {};
 
 tracing.mojom.SystemTracingService = {};
 tracing.mojom.SystemTracingService.$interfaceName = 'tracing.mojom.SystemTracingService';
@@ -78,6 +79,35 @@ tracing.mojom.SystemTracingService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+tracing.mojom.SystemTracingServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openProducerSocket();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+tracing.mojom.SystemTracingServiceReceiver = tracing.mojom.SystemTracingServiceReceiver;
 
 tracing.mojom.SystemTracingServicePtr = tracing.mojom.SystemTracingServiceRemote;
 tracing.mojom.SystemTracingServiceRequest = tracing.mojom.SystemTracingServicePendingReceiver;

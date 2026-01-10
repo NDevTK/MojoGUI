@@ -7,6 +7,7 @@
 // Module namespace
 var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
+var mojo_base = mojo_base || {};
 
 service_manager.mojom.ServiceFilterSpec = { $: {} };
 

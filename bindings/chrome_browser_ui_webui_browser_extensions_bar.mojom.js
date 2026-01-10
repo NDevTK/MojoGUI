@@ -99,6 +99,28 @@ extensions_bar.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+extensions_bar.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions_bar.mojom.PageHandlerFactoryReceiver = extensions_bar.mojom.PageHandlerFactoryReceiver;
+
 extensions_bar.mojom.PageHandlerFactoryPtr = extensions_bar.mojom.PageHandlerFactoryRemote;
 extensions_bar.mojom.PageHandlerFactoryRequest = extensions_bar.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -195,6 +217,38 @@ extensions_bar.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+extensions_bar.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeUserAction(params.id);
+          break;
+        }
+        case 1: {
+          const params = extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showContextMenu(params.source, params.id);
+          break;
+        }
+        case 2: {
+          const params = extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleExtensionsMenuFromWebUI();
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions_bar.mojom.PageHandlerReceiver = extensions_bar.mojom.PageHandlerReceiver;
 
 extensions_bar.mojom.PageHandlerPtr = extensions_bar.mojom.PageHandlerRemote;
 extensions_bar.mojom.PageHandlerRequest = extensions_bar.mojom.PageHandlerPendingReceiver;
@@ -296,6 +350,45 @@ extensions_bar.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+extensions_bar.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.actionsAddedOrUpdated(params.actions);
+          break;
+        }
+        case 1: {
+          const params = extensions_bar.mojom.Page_ActionRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.actionRemoved(params.id);
+          break;
+        }
+        case 2: {
+          const params = extensions_bar.mojom.Page_ActionPoppedOut_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.actionPoppedOut();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions_bar.mojom.PageReceiver = extensions_bar.mojom.PageReceiver;
 
 extensions_bar.mojom.PagePtr = extensions_bar.mojom.PageRemote;
 extensions_bar.mojom.PageRequest = extensions_bar.mojom.PagePendingReceiver;

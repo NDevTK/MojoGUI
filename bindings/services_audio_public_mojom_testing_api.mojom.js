@@ -72,6 +72,28 @@ audio.mojom.TestingApi.getRemote = function() {
   return remote.$;
 };
 
+audio.mojom.TestingApiReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = audio.mojom.TestingApi_Crash_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.crash();
+          break;
+        }
+      }
+    });
+  }
+};
+
+audio.mojom.TestingApiReceiver = audio.mojom.TestingApiReceiver;
+
 audio.mojom.TestingApiPtr = audio.mojom.TestingApiRemote;
 audio.mojom.TestingApiRequest = audio.mojom.TestingApiPendingReceiver;
 

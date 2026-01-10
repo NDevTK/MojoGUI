@@ -7,7 +7,6 @@
 // Module namespace
 var content_capture = content_capture || {};
 content_capture.mojom = content_capture.mojom || {};
-var components = components || {};
 
 content_capture.mojom.ContentCaptureReceiver = {};
 content_capture.mojom.ContentCaptureReceiver.$interfaceName = 'content_capture.mojom.ContentCaptureReceiver';
@@ -129,6 +128,43 @@ content_capture.mojom.ContentCaptureReceiver.getRemote = function() {
   return remote.$;
 };
 
+content_capture.mojom.ContentCaptureReceiverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didCompleteBatchCaptureContent();
+          break;
+        }
+        case 1: {
+          const params = content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didCaptureContent(params.data, params.first_data);
+          break;
+        }
+        case 2: {
+          const params = content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didUpdateContent(params.data);
+          break;
+        }
+        case 3: {
+          const params = content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didRemoveContent(params.ids);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content_capture.mojom.ContentCaptureReceiverReceiver = content_capture.mojom.ContentCaptureReceiverReceiver;
+
 content_capture.mojom.ContentCaptureReceiverPtr = content_capture.mojom.ContentCaptureReceiverRemote;
 content_capture.mojom.ContentCaptureReceiverRequest = content_capture.mojom.ContentCaptureReceiverPendingReceiver;
 
@@ -207,6 +243,33 @@ content_capture.mojom.ContentCaptureSender.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content_capture.mojom.ContentCaptureSenderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startCapture();
+          break;
+        }
+        case 1: {
+          const params = content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopCapture();
+          break;
+        }
+      }
+    });
+  }
+};
+
+content_capture.mojom.ContentCaptureSenderReceiver = content_capture.mojom.ContentCaptureSenderReceiver;
 
 content_capture.mojom.ContentCaptureSenderPtr = content_capture.mojom.ContentCaptureSenderRemote;
 content_capture.mojom.ContentCaptureSenderRequest = content_capture.mojom.ContentCaptureSenderPendingReceiver;

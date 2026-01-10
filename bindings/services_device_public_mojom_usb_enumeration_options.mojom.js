@@ -7,6 +7,7 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var mojo_base = mojo_base || {};
 
 device.mojom.UsbDeviceFilterSpec = { $: {} };
 device.mojom.UsbEnumerationOptionsSpec = { $: {} };

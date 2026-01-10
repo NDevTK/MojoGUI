@@ -7,9 +7,6 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
 
 ax.mojom.AXUpdatesAndEventsSpec = { $: {} };
 

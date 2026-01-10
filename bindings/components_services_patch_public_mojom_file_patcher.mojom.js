@@ -7,6 +7,8 @@
 // Module namespace
 var patch = patch || {};
 patch.mojom = patch.mojom || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 patch.mojom.ZucchiniStatusSpec = { $: mojo.internal.Enum() };
 patch.mojom.FilePatcher = {};
@@ -123,6 +125,47 @@ patch.mojom.FilePatcher.getRemote = function() {
     'context');
   return remote.$;
 };
+
+patch.mojom.FilePatcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.patchFilePuffPatch(params.input_file, params.patch_file, params.output_file);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.patchFileZucchini(params.input_file, params.patch_file, params.output_file);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+patch.mojom.FilePatcherReceiver = patch.mojom.FilePatcherReceiver;
 
 patch.mojom.FilePatcherPtr = patch.mojom.FilePatcherRemote;
 patch.mojom.FilePatcherRequest = patch.mojom.FilePatcherPendingReceiver;

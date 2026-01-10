@@ -7,10 +7,9 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var blink = blink || {};
-var ui = ui || {};
-var ui = ui || {};
+var cc = cc || {};
+var viz = viz || {};
+var display = display || {};
 var gfx = gfx || {};
 var ui = ui || {};
 

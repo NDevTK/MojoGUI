@@ -90,6 +90,23 @@ arc.mojom.NearbyShareSessionHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.NearbyShareSessionHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+arc.mojom.NearbyShareSessionHostReceiver = arc.mojom.NearbyShareSessionHostReceiver;
+
 arc.mojom.NearbyShareSessionHostPtr = arc.mojom.NearbyShareSessionHostRemote;
 arc.mojom.NearbyShareSessionHostRequest = arc.mojom.NearbyShareSessionHostPendingReceiver;
 
@@ -153,6 +170,28 @@ arc.mojom.NearbyShareSessionInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.NearbyShareSessionInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNearbyShareViewClosed();
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.NearbyShareSessionInstanceReceiver = arc.mojom.NearbyShareSessionInstanceReceiver;
 
 arc.mojom.NearbyShareSessionInstancePtr = arc.mojom.NearbyShareSessionInstanceRemote;
 arc.mojom.NearbyShareSessionInstanceRequest = arc.mojom.NearbyShareSessionInstancePendingReceiver;
@@ -227,6 +266,35 @@ arc.mojom.NearbyShareHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.NearbyShareHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startNearbyShare(params.task_id, params.info, params.instance);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.NearbyShareHostReceiver = arc.mojom.NearbyShareHostReceiver;
+
 arc.mojom.NearbyShareHostPtr = arc.mojom.NearbyShareHostRemote;
 arc.mojom.NearbyShareHostRequest = arc.mojom.NearbyShareHostPendingReceiver;
 
@@ -296,6 +364,35 @@ arc.mojom.NearbyShareInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.NearbyShareInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.NearbyShareInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.NearbyShareInstanceReceiver = arc.mojom.NearbyShareInstanceReceiver;
 
 arc.mojom.NearbyShareInstancePtr = arc.mojom.NearbyShareInstanceRemote;
 arc.mojom.NearbyShareInstanceRequest = arc.mojom.NearbyShareInstancePendingReceiver;

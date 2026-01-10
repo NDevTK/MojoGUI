@@ -75,6 +75,28 @@ chrome.mojom.OpenSearchDescriptionDocumentHandler.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.OpenSearchDescriptionDocumentHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pageHasOpenSearchDescriptionDocument(params.page_url, params.osdd_url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.OpenSearchDescriptionDocumentHandlerReceiver = chrome.mojom.OpenSearchDescriptionDocumentHandlerReceiver;
+
 chrome.mojom.OpenSearchDescriptionDocumentHandlerPtr = chrome.mojom.OpenSearchDescriptionDocumentHandlerRemote;
 chrome.mojom.OpenSearchDescriptionDocumentHandlerRequest = chrome.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver;
 

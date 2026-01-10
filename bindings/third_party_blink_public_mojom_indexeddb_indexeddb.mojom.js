@@ -7,8 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.IDBCursorDirectionSpec = { $: mojo.internal.Enum() };
 blink.mojom.IDBDataLossSpec = { $: mojo.internal.Enum() };
@@ -483,7 +482,7 @@ mojo.internal.Struct(
 // Struct: IDBDatabaseOpenCursorValue
 mojo.internal.Struct(
     blink.mojom.IDBDatabaseOpenCursorValueSpec, 'blink.mojom.IDBDatabaseOpenCursorValue', [
-      mojo.internal.StructField('cursor', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.IDBCursorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('cursor', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('key', 8, 0, blink.mojom.IDBKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('primary_key', 16, 0, blink.mojom.IDBKeySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('value', 24, 0, blink.mojom.IDBValueSpec.$, null, true, 0, undefined),
@@ -506,7 +505,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec, 'blink.mojom.IDBFactoryClient_UpgradeNeeded_Params', [
-      mojo.internal.StructField('pending_database', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.IDBDatabaseRemote), null, false, 0, undefined),
+      mojo.internal.StructField('pending_database', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('old_version', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('data_loss', 16, 0, blink.mojom.IDBDataLossSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('data_loss_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
@@ -516,7 +515,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec, 'blink.mojom.IDBFactoryClient_OpenSuccess_Params', [
-      mojo.internal.StructField('pending_database', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.IDBDatabaseRemote), null, true, 0, undefined),
+      mojo.internal.StructField('pending_database', 0, 0, mojo.internal.Pointer, null, true, 0, undefined),
       mojo.internal.StructField('metadata', 8, 0, blink.mojom.IDBDatabaseMetadataSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -620,6 +619,48 @@ blink.mojom.IDBFactoryClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.IDBFactoryClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.IDBFactoryClient_Error_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.error(params.code, params.message);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.IDBFactoryClient_Blocked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.blocked(params.existing_version);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.upgradeNeeded(params.pending_database, params.old_version, params.data_loss, params.data_loss_message, params.db_metadata);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openSuccess(params.pending_database, params.metadata);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.IDBFactoryClient_DeleteSuccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteSuccess(params.old_version);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.IDBFactoryClientReceiver = blink.mojom.IDBFactoryClientReceiver;
 
 blink.mojom.IDBFactoryClientPtr = blink.mojom.IDBFactoryClientRemote;
 blink.mojom.IDBFactoryClientRequest = blink.mojom.IDBFactoryClientPendingReceiver;
@@ -735,6 +776,43 @@ blink.mojom.IDBDatabaseCallbacks.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.IDBDatabaseCallbacksReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.IDBDatabaseCallbacks_ForcedClose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forcedClose();
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.IDBDatabaseCallbacks_VersionChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.versionChange(params.old_version, params.new_version);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.IDBDatabaseCallbacks_Abort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.abort(params.transaction_id, params.code, params.message);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.IDBDatabaseCallbacks_Complete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.complete(params.transaction_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.IDBDatabaseCallbacksReceiver = blink.mojom.IDBDatabaseCallbacksReceiver;
 
 blink.mojom.IDBDatabaseCallbacksPtr = blink.mojom.IDBDatabaseCallbacksRemote;
 blink.mojom.IDBDatabaseCallbacksRequest = blink.mojom.IDBDatabaseCallbacksPendingReceiver;
@@ -867,6 +945,64 @@ blink.mojom.IDBCursor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.IDBCursorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.IDBCursor_Advance_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.advance(params.count);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.IDBCursor_Advance_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.IDBCursor_Continue_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.continue(params.key, params.primary_key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.IDBCursor_Continue_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.IDBCursor_Prefetch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.prefetch(params.count);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.IDBCursor_PrefetchReset_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.prefetchReset(params.used_prefetches);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.IDBCursorReceiver = blink.mojom.IDBCursorReceiver;
 
 blink.mojom.IDBCursorPtr = blink.mojom.IDBCursorRemote;
 blink.mojom.IDBCursorRequest = blink.mojom.IDBCursorPendingReceiver;
@@ -1027,6 +1163,60 @@ blink.mojom.IDBTransaction.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.IDBTransactionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.IDBTransaction_CreateObjectStore_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createObjectStore(params.object_store_id, params.name, params.key_path, params.auto_increment);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.IDBTransaction_DeleteObjectStore_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteObjectStore(params.object_store_id);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.IDBTransaction_Put_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.put(params.object_store_id, params.value, params.key, params.mode, params.index_keys);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.IDBTransaction_Put_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.IDBTransaction_SetIndexKeys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIndexKeys(params.object_store_id, params.primary_key, params.index_keys);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.IDBTransaction_SetIndexKeysDone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIndexKeysDone();
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.IDBTransaction_Commit_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.commit(params.num_errors_handled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.IDBTransactionReceiver = blink.mojom.IDBTransactionReceiver;
+
 blink.mojom.IDBTransactionPtr = blink.mojom.IDBTransactionRemote;
 blink.mojom.IDBTransactionRequest = blink.mojom.IDBTransactionPendingReceiver;
 
@@ -1109,6 +1299,33 @@ blink.mojom.IDBDatabaseGetAllResultSink.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.IDBDatabaseGetAllResultSinkReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.IDBDatabaseGetAllResultSink_ReceiveResults_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.receiveResults(params.records, params.done);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.IDBDatabaseGetAllResultSink_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.IDBDatabaseGetAllResultSinkReceiver = blink.mojom.IDBDatabaseGetAllResultSinkReceiver;
+
 blink.mojom.IDBDatabaseGetAllResultSinkPtr = blink.mojom.IDBDatabaseGetAllResultSinkRemote;
 blink.mojom.IDBDatabaseGetAllResultSinkRequest = blink.mojom.IDBDatabaseGetAllResultSinkPendingReceiver;
 
@@ -1124,7 +1341,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec, 'blink.mojom.IDBDatabase_CreateTransaction_Params', [
-      mojo.internal.StructField('transaction_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.IDBTransactionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('transaction_receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('transaction_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('object_store_ids', 16, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
       mojo.internal.StructField('mode', 24, 0, blink.mojom.IDBTransactionModeSpec.$, null, false, 0, undefined),
@@ -1167,7 +1384,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec, 'blink.mojom.IDBDatabase_GetAll_ResponseParams', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.IDBDatabaseGetAllResultSinkRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1492,6 +1709,152 @@ blink.mojom.IDBDatabase.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.IDBDatabaseReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.IDBDatabase_RenameObjectStore_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.renameObjectStore(params.transaction_id, params.object_store_id, params.new_name);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createTransaction(params.transaction_receiver, params.transaction_id, params.object_store_ids, params.mode, params.durability);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.IDBDatabase_VersionChangeIgnored_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.versionChangeIgnored();
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.IDBDatabase_Get_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.get(params.transaction_id, params.object_store_id, params.index_id, params.key_range, params.key_only);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.IDBDatabase_Get_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.IDBDatabase_GetAll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAll(params.transaction_id, params.object_store_id, params.index_id, params.key_range, params.result_type, params.max_count, params.direction);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.IDBDatabase_OpenCursor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openCursor(params.transaction_id, params.object_store_id, params.index_id, params.key_range, params.direction, params.key_only, params.task_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.IDBDatabase_Count_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.count(params.transaction_id, params.object_store_id, params.index_id, params.key_range);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.IDBDatabase_Count_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.IDBDatabase_DeleteRange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteRange(params.transaction_id, params.object_store_id, params.key_range);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getKeyGeneratorCurrentNumber(params.transaction_id, params.object_store_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.IDBDatabase_Clear_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clear(params.transaction_id, params.object_store_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.IDBDatabase_Clear_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.IDBDatabase_CreateIndex_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createIndex(params.transaction_id, params.object_store_id, params.index);
+          break;
+        }
+        case 11: {
+          const params = blink.mojom.IDBDatabase_DeleteIndex_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteIndex(params.transaction_id, params.object_store_id, params.index_id);
+          break;
+        }
+        case 12: {
+          const params = blink.mojom.IDBDatabase_RenameIndex_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.renameIndex(params.transaction_id, params.object_store_id, params.index_id, params.new_name);
+          break;
+        }
+        case 13: {
+          const params = blink.mojom.IDBDatabase_Abort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.abort(params.transaction_id);
+          break;
+        }
+        case 14: {
+          const params = blink.mojom.IDBDatabase_DidBecomeInactive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didBecomeInactive();
+          break;
+        }
+        case 15: {
+          const params = blink.mojom.IDBDatabase_UpdatePriority_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updatePriority(params.new_priority);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.IDBDatabaseReceiver = blink.mojom.IDBDatabaseReceiver;
+
 blink.mojom.IDBDatabasePtr = blink.mojom.IDBDatabaseRemote;
 blink.mojom.IDBDatabaseRequest = blink.mojom.IDBDatabasePendingReceiver;
 
@@ -1511,11 +1874,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.IDBFactory_Open_ParamsSpec, 'blink.mojom.IDBFactory_Open_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.IDBFactoryClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('database_callbacks', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.IDBDatabaseCallbacksRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('database_callbacks', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('name', 16, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('version', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('version_change_transaction_receiver', 32, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.IDBTransactionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('version_change_transaction_receiver', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('transaction_id', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('priority', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -1523,7 +1886,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec, 'blink.mojom.IDBFactory_DeleteDatabase_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.IDBFactoryClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('name', 8, 0, mojo_base.mojom.String16Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('force_close', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -1602,6 +1965,45 @@ blink.mojom.IDBFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.IDBFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.IDBFactory_GetDatabaseInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDatabaseInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.IDBFactory_Open_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.open(params.client, params.database_callbacks, params.name, params.version, params.version_change_transaction_receiver, params.transaction_id, params.priority);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteDatabase(params.client, params.name, params.force_close);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.IDBFactoryReceiver = blink.mojom.IDBFactoryReceiver;
 
 blink.mojom.IDBFactoryPtr = blink.mojom.IDBFactoryRemote;
 blink.mojom.IDBFactoryRequest = blink.mojom.IDBFactoryPendingReceiver;

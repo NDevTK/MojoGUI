@@ -7,7 +7,6 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
-var chromeos = chromeos || {};
 
 crosapi.mojom.TelemetryKeyboardConnectionTypeSpec = { $: mojo.internal.Enum() };
 crosapi.mojom.TelemetryKeyboardPhysicalLayoutSpec = { $: mojo.internal.Enum() };

@@ -8,6 +8,7 @@
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
 chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
+var mojo_base = mojo_base || {};
 
 chromeos.machine_learning.mojom.OptionalBoolSpec = { $: mojo.internal.Enum() };
 chromeos.machine_learning.mojom.SodaRecognitionModeSpec = { $: mojo.internal.Enum() };
@@ -312,6 +313,38 @@ chromeos.machine_learning.mojom.SodaClient.getRemote = function() {
   return remote.$;
 };
 
+chromeos.machine_learning.mojom.SodaClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStart();
+          break;
+        }
+        case 1: {
+          const params = chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStop();
+          break;
+        }
+        case 2: {
+          const params = chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSpeechRecognizerEvent(params.event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.machine_learning.mojom.SodaClientReceiver = chromeos.machine_learning.mojom.SodaClientReceiver;
+
 chromeos.machine_learning.mojom.SodaClientPtr = chromeos.machine_learning.mojom.SodaClientRemote;
 chromeos.machine_learning.mojom.SodaClientRequest = chromeos.machine_learning.mojom.SodaClientPendingReceiver;
 
@@ -421,6 +454,43 @@ chromeos.machine_learning.mojom.SodaRecognizer.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.machine_learning.mojom.SodaRecognizerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addAudio(params.audio);
+          break;
+        }
+        case 1: {
+          const params = chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop();
+          break;
+        }
+        case 2: {
+          const params = chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start();
+          break;
+        }
+        case 3: {
+          const params = chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.markDone();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.machine_learning.mojom.SodaRecognizerReceiver = chromeos.machine_learning.mojom.SodaRecognizerReceiver;
 
 chromeos.machine_learning.mojom.SodaRecognizerPtr = chromeos.machine_learning.mojom.SodaRecognizerRemote;
 chromeos.machine_learning.mojom.SodaRecognizerRequest = chromeos.machine_learning.mojom.SodaRecognizerPendingReceiver;

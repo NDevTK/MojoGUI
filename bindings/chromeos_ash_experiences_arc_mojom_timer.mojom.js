@@ -7,6 +7,7 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var mojo_base = mojo_base || {};
 
 arc.mojom.ArcTimerResultSpec = { $: mojo.internal.Enum() };
 arc.mojom.ClockIdSpec = { $: mojo.internal.Enum() };
@@ -156,6 +157,59 @@ arc.mojom.TimerHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.TimerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.TimerHost_CreateTimers_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createTimers(params.timer_requests);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.TimerHost_StartTimer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startTimer(params.clock_id, params.absolute_expiration_time);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.TimerHost_StartTimer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.TimerHost_SetTime_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTime(params.time);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.TimerHost_SetTime_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.TimerHostReceiver = arc.mojom.TimerHostReceiver;
+
 arc.mojom.TimerHostPtr = arc.mojom.TimerHostRemote;
 arc.mojom.TimerHostRequest = arc.mojom.TimerHostPendingReceiver;
 
@@ -225,6 +279,35 @@ arc.mojom.TimerInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.TimerInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.TimerInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.TimerInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.TimerInstanceReceiver = arc.mojom.TimerInstanceReceiver;
 
 arc.mojom.TimerInstancePtr = arc.mojom.TimerInstanceRemote;
 arc.mojom.TimerInstanceRequest = arc.mojom.TimerInstancePendingReceiver;

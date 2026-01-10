@@ -7,13 +7,8 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var gpu = gpu || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 media.mojom.VideoRotationSpec = { $: mojo.internal.Enum() };
@@ -352,7 +347,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.VideoDecoderConfigSpec, 'media.mojom.VideoDecoderConfig', [
       mojo.internal.StructField('codec', 0, 0, media.mojom.VideoCodecSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('profile', 8, 0, media.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 8, 0, gpu.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('transformation', 16, 0, media.mojom.VideoTransformationSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('coded_size', 24, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('visible_rect', 32, 0, gfx.mojom.RectSpec.$, null, false, 0, undefined),
@@ -565,7 +560,7 @@ mojo.internal.Struct(
 // Struct: PredictionFeatures
 mojo.internal.Struct(
     media.mojom.PredictionFeaturesSpec, 'media.mojom.PredictionFeatures', [
-      mojo.internal.StructField('profile', 0, 0, media.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('profile', 0, 0, gpu.mojom.VideoCodecProfileSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('video_size', 8, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('frames_per_sec', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('key_system', 24, 0, mojo.internal.String, null, false, 0, undefined),

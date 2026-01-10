@@ -7,6 +7,7 @@
 // Module namespace
 var watermark = watermark || {};
 watermark.mojom = watermark.mojom || {};
+var mojo_base = mojo_base || {};
 
 watermark.mojom.WatermarkBlockSpec = { $: {} };
 

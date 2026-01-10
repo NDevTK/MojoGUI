@@ -8,6 +8,7 @@
 var chromecast = chromecast || {};
 chromecast.shell = chromecast.shell || {};
 chromecast.shell.mojom = chromecast.shell.mojom || {};
+var mojo_base = mojo_base || {};
 
 chromecast.shell.mojom.QueryableDataStore = {};
 chromecast.shell.mojom.QueryableDataStore.$interfaceName = 'chromecast.shell.mojom.QueryableDataStore';
@@ -74,6 +75,28 @@ chromecast.shell.mojom.QueryableDataStore.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.shell.mojom.QueryableDataStoreReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.set(params.key, params.value);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.shell.mojom.QueryableDataStoreReceiver = chromecast.shell.mojom.QueryableDataStoreReceiver;
 
 chromecast.shell.mojom.QueryableDataStorePtr = chromecast.shell.mojom.QueryableDataStoreRemote;
 chromecast.shell.mojom.QueryableDataStoreRequest = chromecast.shell.mojom.QueryableDataStorePendingReceiver;

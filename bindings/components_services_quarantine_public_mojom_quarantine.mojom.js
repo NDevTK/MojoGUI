@@ -7,7 +7,8 @@
 // Module namespace
 var quarantine = quarantine || {};
 quarantine.mojom = quarantine.mojom || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 var url = url || {};
 
 quarantine.mojom.QuarantineFileResultSpec = { $: mojo.internal.Enum() };
@@ -97,6 +98,35 @@ quarantine.mojom.Quarantine.getRemote = function() {
     'context');
   return remote.$;
 };
+
+quarantine.mojom.QuarantineReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.quarantineFile(params.full_path, params.source_url, params.referrer_url, params.request_initiator, params.client_guid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+quarantine.mojom.QuarantineReceiver = quarantine.mojom.QuarantineReceiver;
 
 quarantine.mojom.QuarantinePtr = quarantine.mojom.QuarantineRemote;
 quarantine.mojom.QuarantineRequest = quarantine.mojom.QuarantinePendingReceiver;

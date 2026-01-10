@@ -200,6 +200,63 @@ media.mojom.AudioLog.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.AudioLogReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioLog_OnCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCreated(params.params, params.device_id);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.AudioLog_OnStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStarted();
+          break;
+        }
+        case 2: {
+          const params = media.mojom.AudioLog_OnStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStopped();
+          break;
+        }
+        case 3: {
+          const params = media.mojom.AudioLog_OnClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClosed();
+          break;
+        }
+        case 4: {
+          const params = media.mojom.AudioLog_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError();
+          break;
+        }
+        case 5: {
+          const params = media.mojom.AudioLog_OnSetVolume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSetVolume(params.volume);
+          break;
+        }
+        case 6: {
+          const params = media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProcessingStateChanged(params.message);
+          break;
+        }
+        case 7: {
+          const params = media.mojom.AudioLog_OnLogMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLogMessage(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioLogReceiver = media.mojom.AudioLogReceiver;
+
 media.mojom.AudioLogPtr = media.mojom.AudioLogRemote;
 media.mojom.AudioLogRequest = media.mojom.AudioLogPendingReceiver;
 
@@ -266,6 +323,28 @@ media.mojom.AudioLogFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.AudioLogFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createAudioLog(params.component, params.component_id, params.audio_log_receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioLogFactoryReceiver = media.mojom.AudioLogFactoryReceiver;
 
 media.mojom.AudioLogFactoryPtr = media.mojom.AudioLogFactoryRemote;
 media.mojom.AudioLogFactoryRequest = media.mojom.AudioLogFactoryPendingReceiver;

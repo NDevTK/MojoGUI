@@ -71,6 +71,28 @@ mojom.ResetPasswordHandler.getRemote = function() {
   return remote.$;
 };
 
+mojom.ResetPasswordHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handlePasswordReset();
+          break;
+        }
+      }
+    });
+  }
+};
+
+mojom.ResetPasswordHandlerReceiver = mojom.ResetPasswordHandlerReceiver;
+
 mojom.ResetPasswordHandlerPtr = mojom.ResetPasswordHandlerRemote;
 mojom.ResetPasswordHandlerRequest = mojom.ResetPasswordHandlerPendingReceiver;
 

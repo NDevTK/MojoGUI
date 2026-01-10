@@ -87,6 +87,28 @@ ash.color_internals.mojom.WallpaperColorsObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.color_internals.mojom.WallpaperColorsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWallpaperColorsChanged(params.colors);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.color_internals.mojom.WallpaperColorsObserverReceiver = ash.color_internals.mojom.WallpaperColorsObserverReceiver;
+
 ash.color_internals.mojom.WallpaperColorsObserverPtr = ash.color_internals.mojom.WallpaperColorsObserverRemote;
 ash.color_internals.mojom.WallpaperColorsObserverRequest = ash.color_internals.mojom.WallpaperColorsObserverPendingReceiver;
 
@@ -151,6 +173,28 @@ ash.color_internals.mojom.WallpaperColorsHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.color_internals.mojom.WallpaperColorsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWallpaperColorsObserver(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.color_internals.mojom.WallpaperColorsHandlerReceiver = ash.color_internals.mojom.WallpaperColorsHandlerReceiver;
 
 ash.color_internals.mojom.WallpaperColorsHandlerPtr = ash.color_internals.mojom.WallpaperColorsHandlerRemote;
 ash.color_internals.mojom.WallpaperColorsHandlerRequest = ash.color_internals.mojom.WallpaperColorsHandlerPendingReceiver;

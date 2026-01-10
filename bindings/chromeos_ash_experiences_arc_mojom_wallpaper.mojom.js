@@ -118,6 +118,45 @@ arc.mojom.WallpaperHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.WallpaperHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWallpaper();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWallpaper(params.data, params.wallpaper_id);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDefaultWallpaper();
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.WallpaperHostReceiver = arc.mojom.WallpaperHostReceiver;
+
 arc.mojom.WallpaperHostPtr = arc.mojom.WallpaperHostRemote;
 arc.mojom.WallpaperHostRequest = arc.mojom.WallpaperHostPendingReceiver;
 
@@ -203,6 +242,40 @@ arc.mojom.WallpaperInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.WallpaperInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 3: {
+          const params = arc.mojom.WallpaperInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.WallpaperInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWallpaperChanged(params.wallpaper_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.WallpaperInstanceReceiver = arc.mojom.WallpaperInstanceReceiver;
 
 arc.mojom.WallpaperInstancePtr = arc.mojom.WallpaperInstanceRemote;
 arc.mojom.WallpaperInstanceRequest = arc.mojom.WallpaperInstancePendingReceiver;

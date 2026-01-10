@@ -7,7 +7,7 @@
 // Module namespace
 var media_session = media_session || {};
 media_session.mojom = media_session.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -360,6 +360,48 @@ media_session.mojom.MediaSessionObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media_session.mojom.MediaSessionObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mediaSessionInfoChanged(params.info);
+          break;
+        }
+        case 1: {
+          const params = media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mediaSessionMetadataChanged(params.metadata);
+          break;
+        }
+        case 2: {
+          const params = media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mediaSessionActionsChanged(params.action);
+          break;
+        }
+        case 3: {
+          const params = media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mediaSessionImagesChanged(params.images);
+          break;
+        }
+        case 4: {
+          const params = media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mediaSessionPositionChanged(params.position);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media_session.mojom.MediaSessionObserverReceiver = media_session.mojom.MediaSessionObserverReceiver;
 
 media_session.mojom.MediaSessionObserverPtr = media_session.mojom.MediaSessionObserverRemote;
 media_session.mojom.MediaSessionObserverRequest = media_session.mojom.MediaSessionObserverPendingReceiver;
@@ -865,6 +907,191 @@ media_session.mojom.MediaSession.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media_session.mojom.MediaSessionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMediaSessionInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDebugInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = media_session.mojom.MediaSession_StartDucking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startDucking();
+          break;
+        }
+        case 3: {
+          const params = media_session.mojom.MediaSession_StopDucking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopDucking();
+          break;
+        }
+        case 4: {
+          const params = media_session.mojom.MediaSession_Suspend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suspend(params.suspend_type);
+          break;
+        }
+        case 5: {
+          const params = media_session.mojom.MediaSession_Resume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resume(params.suspend_type);
+          break;
+        }
+        case 6: {
+          const params = media_session.mojom.MediaSession_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 7: {
+          const params = media_session.mojom.MediaSession_PreviousTrack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.previousTrack();
+          break;
+        }
+        case 8: {
+          const params = media_session.mojom.MediaSession_NextTrack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.nextTrack();
+          break;
+        }
+        case 9: {
+          const params = media_session.mojom.MediaSession_Seek_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.seek(params.seek_time);
+          break;
+        }
+        case 10: {
+          const params = media_session.mojom.MediaSession_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop(params.suspend_type);
+          break;
+        }
+        case 11: {
+          const params = media_session.mojom.MediaSession_SkipAd_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.skipAd();
+          break;
+        }
+        case 12: {
+          const params = media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMediaImageBitmap(params.image, params.minimum_size_px, params.desired_size_px);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = media_session.mojom.MediaSession_SeekTo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.seekTo(params.seek_time);
+          break;
+        }
+        case 14: {
+          const params = media_session.mojom.MediaSession_ScrubTo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.scrubTo(params.seek_time);
+          break;
+        }
+        case 15: {
+          const params = media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enterPictureInPicture();
+          break;
+        }
+        case 16: {
+          const params = media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.exitPictureInPicture();
+          break;
+        }
+        case 17: {
+          const params = media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAudioSinkId(params.id);
+          break;
+        }
+        case 18: {
+          const params = media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleMicrophone();
+          break;
+        }
+        case 19: {
+          const params = media_session.mojom.MediaSession_ToggleCamera_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleCamera();
+          break;
+        }
+        case 20: {
+          const params = media_session.mojom.MediaSession_HangUp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hangUp();
+          break;
+        }
+        case 21: {
+          const params = media_session.mojom.MediaSession_Raise_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.raise();
+          break;
+        }
+        case 22: {
+          const params = media_session.mojom.MediaSession_SetMute_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMute(params.mute);
+          break;
+        }
+        case 23: {
+          const params = media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestMediaRemoting();
+          break;
+        }
+        case 24: {
+          const params = media_session.mojom.MediaSession_PreviousSlide_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.previousSlide();
+          break;
+        }
+        case 25: {
+          const params = media_session.mojom.MediaSession_NextSlide_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.nextSlide();
+          break;
+        }
+        case 26: {
+          const params = media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enterAutoPictureInPicture();
+          break;
+        }
+        case 27: {
+          const params = media_session.mojom.MediaSession_GetVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVisibility();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media_session.mojom.MediaSessionReceiver = media_session.mojom.MediaSessionReceiver;
 
 media_session.mojom.MediaSessionPtr = media_session.mojom.MediaSessionRemote;
 media_session.mojom.MediaSessionRequest = media_session.mojom.MediaSessionPendingReceiver;

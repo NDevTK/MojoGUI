@@ -7,7 +7,6 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 media.mojom.DecryptStatusSpec = { $: mojo.internal.Enum() };
@@ -104,6 +103,28 @@ media.mojom.CdmContextEventCallback.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.CdmContextEventCallbackReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.eventCallback(params.event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.CdmContextEventCallbackReceiver = media.mojom.CdmContextEventCallbackReceiver;
 
 media.mojom.CdmContextEventCallbackPtr = media.mojom.CdmContextEventCallbackRemote;
 media.mojom.CdmContextEventCallbackRequest = media.mojom.CdmContextEventCallbackPendingReceiver;
@@ -308,6 +329,100 @@ media.mojom.CdmContextForOOPVD.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.CdmContextForOOPVDReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getHwKeyData(params.decrypt_config, params.hw_identifier);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerEventCallback(params.callback);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getHwConfigData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getScreenResolutions();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.allocateSecureBuffer(params.size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseEncryptedSliceHeader(params.secure_handle, params.offset, params.stream_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decryptVideoBuffer(params.buffer, params.bytes);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.CdmContextForOOPVDReceiver = media.mojom.CdmContextForOOPVDReceiver;
 
 media.mojom.CdmContextForOOPVDPtr = media.mojom.CdmContextForOOPVDRemote;
 media.mojom.CdmContextForOOPVDRequest = media.mojom.CdmContextForOOPVDPendingReceiver;

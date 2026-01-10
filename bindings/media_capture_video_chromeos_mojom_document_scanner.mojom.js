@@ -7,8 +7,8 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
+var mojo_base = mojo_base || {};
 
 cros.mojom.DetectCornersResultSpec = { $: {} };
 cros.mojom.CrosDocumentScanner = {};
@@ -90,6 +90,35 @@ cros.mojom.CrosDocumentScanner.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cros.mojom.CrosDocumentScannerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.detectCornersFromNV12Image(params.nv12_image);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.CrosDocumentScannerReceiver = cros.mojom.CrosDocumentScannerReceiver;
 
 cros.mojom.CrosDocumentScannerPtr = cros.mojom.CrosDocumentScannerRemote;
 cros.mojom.CrosDocumentScannerRequest = cros.mojom.CrosDocumentScannerPendingReceiver;

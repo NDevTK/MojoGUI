@@ -103,6 +103,28 @@ chrome_urls.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+chrome_urls.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome_urls.mojom.PageHandlerFactoryReceiver = chrome_urls.mojom.PageHandlerFactoryReceiver;
+
 chrome_urls.mojom.PageHandlerFactoryPtr = chrome_urls.mojom.PageHandlerFactoryRemote;
 chrome_urls.mojom.PageHandlerFactoryRequest = chrome_urls.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -194,6 +216,47 @@ chrome_urls.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+chrome_urls.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUrls();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDebugPagesEnabled(params.enabled);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome_urls.mojom.PageHandlerReceiver = chrome_urls.mojom.PageHandlerReceiver;
+
 chrome_urls.mojom.PageHandlerPtr = chrome_urls.mojom.PageHandlerRemote;
 chrome_urls.mojom.PageHandlerRequest = chrome_urls.mojom.PageHandlerPendingReceiver;
 
@@ -242,6 +305,23 @@ chrome_urls.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome_urls.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+chrome_urls.mojom.PageReceiver = chrome_urls.mojom.PageReceiver;
 
 chrome_urls.mojom.PagePtr = chrome_urls.mojom.PageRemote;
 chrome_urls.mojom.PageRequest = chrome_urls.mojom.PagePendingReceiver;

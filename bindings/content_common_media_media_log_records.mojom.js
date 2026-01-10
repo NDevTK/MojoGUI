@@ -7,6 +7,7 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var media = media || {};
 
 content.mojom.MediaInternalLogRecords = {};
 content.mojom.MediaInternalLogRecords.$interfaceName = 'content.mojom.MediaInternalLogRecords';
@@ -72,6 +73,28 @@ content.mojom.MediaInternalLogRecords.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.MediaInternalLogRecordsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.MediaInternalLogRecords_Log_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.log(params.events);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.MediaInternalLogRecordsReceiver = content.mojom.MediaInternalLogRecordsReceiver;
 
 content.mojom.MediaInternalLogRecordsPtr = content.mojom.MediaInternalLogRecordsRemote;
 content.mojom.MediaInternalLogRecordsRequest = content.mojom.MediaInternalLogRecordsPendingReceiver;

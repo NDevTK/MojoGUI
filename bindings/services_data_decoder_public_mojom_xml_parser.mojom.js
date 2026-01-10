@@ -7,6 +7,7 @@
 // Module namespace
 var data_decoder = data_decoder || {};
 data_decoder.mojom = data_decoder.mojom || {};
+var mojo_base = mojo_base || {};
 
 data_decoder.mojom.WhitespaceBehaviorSpec = { $: mojo.internal.Enum() };
 data_decoder.mojom.XmlParser = {};
@@ -106,6 +107,35 @@ data_decoder.mojom.XmlParser.getRemote = function() {
     'context');
   return remote.$;
 };
+
+data_decoder.mojom.XmlParserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = data_decoder.mojom.XmlParser_Parse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parse(params.xml, params.whitespace_behavior);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+data_decoder.mojom.XmlParserReceiver = data_decoder.mojom.XmlParserReceiver;
 
 data_decoder.mojom.XmlParserPtr = data_decoder.mojom.XmlParserRemote;
 data_decoder.mojom.XmlParserRequest = data_decoder.mojom.XmlParserPendingReceiver;

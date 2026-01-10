@@ -75,6 +75,28 @@ viz.mojom.CompositingModeWatcher.getRemote = function() {
   return remote.$;
 };
 
+viz.mojom.CompositingModeWatcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.compositingModeFallbackToSoftware();
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.CompositingModeWatcherReceiver = viz.mojom.CompositingModeWatcherReceiver;
+
 viz.mojom.CompositingModeWatcherPtr = viz.mojom.CompositingModeWatcherRemote;
 viz.mojom.CompositingModeWatcherRequest = viz.mojom.CompositingModeWatcherPendingReceiver;
 
@@ -139,6 +161,28 @@ viz.mojom.CompositingModeReporter.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.CompositingModeReporterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addCompositingModeWatcher(params.watcher);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.CompositingModeReporterReceiver = viz.mojom.CompositingModeReporterReceiver;
 
 viz.mojom.CompositingModeReporterPtr = viz.mojom.CompositingModeReporterRemote;
 viz.mojom.CompositingModeReporterRequest = viz.mojom.CompositingModeReporterPendingReceiver;

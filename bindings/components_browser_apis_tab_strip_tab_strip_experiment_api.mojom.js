@@ -7,9 +7,7 @@
 // Module namespace
 var tabs_api = tabs_api || {};
 tabs_api.mojom = tabs_api.mojom || {};
-var components = components || {};
-var components = components || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 tabs_api.mojom.TabStripExperimentService = {};
@@ -95,6 +93,33 @@ tabs_api.mojom.TabStripExperimentService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+tabs_api.mojom.TabStripExperimentServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateTabGroupVisual(params.id, params.visual_data);
+          break;
+        }
+        case 1: {
+          const params = tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showTabContextMenu(params.tab_id, params.location);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tabs_api.mojom.TabStripExperimentServiceReceiver = tabs_api.mojom.TabStripExperimentServiceReceiver;
 
 tabs_api.mojom.TabStripExperimentServicePtr = tabs_api.mojom.TabStripExperimentServiceRemote;
 tabs_api.mojom.TabStripExperimentServiceRequest = tabs_api.mojom.TabStripExperimentServicePendingReceiver;

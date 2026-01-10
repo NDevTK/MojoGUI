@@ -7,7 +7,7 @@
 // Module namespace
 var customize_buttons = customize_buttons || {};
 customize_buttons.mojom = customize_buttons.mojom || {};
-var ui = ui || {};
+var side_panel = side_panel || {};
 
 customize_buttons.mojom.SidePanelOpenTriggerSpec = { $: mojo.internal.Enum() };
 customize_buttons.mojom.CustomizeButtonsHandlerFactory = {};
@@ -89,6 +89,28 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+customize_buttons.mojom.CustomizeButtonsHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCustomizeButtonsHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+customize_buttons.mojom.CustomizeButtonsHandlerFactoryReceiver = customize_buttons.mojom.CustomizeButtonsHandlerFactoryReceiver;
 
 customize_buttons.mojom.CustomizeButtonsHandlerFactoryPtr = customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemote;
 customize_buttons.mojom.CustomizeButtonsHandlerFactoryRequest = customize_buttons.mojom.CustomizeButtonsHandlerFactoryPendingReceiver;
@@ -187,6 +209,38 @@ customize_buttons.mojom.CustomizeButtonsHandler.getRemote = function() {
   return remote.$;
 };
 
+customize_buttons.mojom.CustomizeButtonsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.incrementCustomizeChromeButtonOpenCount();
+          break;
+        }
+        case 1: {
+          const params = customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.incrementWallpaperSearchButtonShownCount();
+          break;
+        }
+        case 2: {
+          const params = customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCustomizeChromeSidePanelVisible(params.visible, params.section, params.trigger);
+          break;
+        }
+      }
+    });
+  }
+};
+
+customize_buttons.mojom.CustomizeButtonsHandlerReceiver = customize_buttons.mojom.CustomizeButtonsHandlerReceiver;
+
 customize_buttons.mojom.CustomizeButtonsHandlerPtr = customize_buttons.mojom.CustomizeButtonsHandlerRemote;
 customize_buttons.mojom.CustomizeButtonsHandlerRequest = customize_buttons.mojom.CustomizeButtonsHandlerPendingReceiver;
 
@@ -251,6 +305,28 @@ customize_buttons.mojom.CustomizeButtonsDocument.getRemote = function() {
     'context');
   return remote.$;
 };
+
+customize_buttons.mojom.CustomizeButtonsDocumentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCustomizeChromeSidePanelVisibility(params.visible);
+          break;
+        }
+      }
+    });
+  }
+};
+
+customize_buttons.mojom.CustomizeButtonsDocumentReceiver = customize_buttons.mojom.CustomizeButtonsDocumentReceiver;
 
 customize_buttons.mojom.CustomizeButtonsDocumentPtr = customize_buttons.mojom.CustomizeButtonsDocumentRemote;
 customize_buttons.mojom.CustomizeButtonsDocumentRequest = customize_buttons.mojom.CustomizeButtonsDocumentPendingReceiver;

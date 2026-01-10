@@ -78,6 +78,28 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+ash.mojom.demo_mode.UntrustedPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.mojom.demo_mode.UntrustedPageHandlerFactoryReceiver = ash.mojom.demo_mode.UntrustedPageHandlerFactoryReceiver;
+
 ash.mojom.demo_mode.UntrustedPageHandlerFactoryPtr = ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemote;
 ash.mojom.demo_mode.UntrustedPageHandlerFactoryRequest = ash.mojom.demo_mode.UntrustedPageHandlerFactoryPendingReceiver;
 
@@ -157,6 +179,33 @@ ash.mojom.demo_mode.UntrustedPageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.mojom.demo_mode.UntrustedPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleFullscreen();
+          break;
+        }
+        case 1: {
+          const params = ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launchApp(params.app_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.mojom.demo_mode.UntrustedPageHandlerReceiver = ash.mojom.demo_mode.UntrustedPageHandlerReceiver;
 
 ash.mojom.demo_mode.UntrustedPageHandlerPtr = ash.mojom.demo_mode.UntrustedPageHandlerRemote;
 ash.mojom.demo_mode.UntrustedPageHandlerRequest = ash.mojom.demo_mode.UntrustedPageHandlerPendingReceiver;

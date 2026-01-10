@@ -78,6 +78,28 @@ remoting.mojom.ChromotingHostServices.getRemote = function() {
   return remote.$;
 };
 
+remoting.mojom.ChromotingHostServicesReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSessionServices(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.ChromotingHostServicesReceiver = remoting.mojom.ChromotingHostServicesReceiver;
+
 remoting.mojom.ChromotingHostServicesPtr = remoting.mojom.ChromotingHostServicesRemote;
 remoting.mojom.ChromotingHostServicesRequest = remoting.mojom.ChromotingHostServicesPendingReceiver;
 
@@ -174,6 +196,38 @@ remoting.mojom.ChromotingSessionServices.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remoting.mojom.ChromotingSessionServicesReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindWebAuthnProxy(params.receiver);
+          break;
+        }
+        case 1: {
+          const params = remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindRemoteUrlOpener(params.receiver);
+          break;
+        }
+        case 2: {
+          const params = remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSecurityKeyForwarder(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.ChromotingSessionServicesReceiver = remoting.mojom.ChromotingSessionServicesReceiver;
 
 remoting.mojom.ChromotingSessionServicesPtr = remoting.mojom.ChromotingSessionServicesRemote;
 remoting.mojom.ChromotingSessionServicesRequest = remoting.mojom.ChromotingSessionServicesPendingReceiver;

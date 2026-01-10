@@ -132,6 +132,38 @@ blink.mojom.TextSuggestionHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.TextSuggestionHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startSuggestionMenuTimer();
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showSpellCheckSuggestionMenu(params.caret_x, params.caret_y, params.marked_text, params.suggestions);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showTextSuggestionMenu(params.caret_x, params.caret_y, params.marked_text, params.suggestions);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.TextSuggestionHostReceiver = blink.mojom.TextSuggestionHostReceiver;
+
 blink.mojom.TextSuggestionHostPtr = blink.mojom.TextSuggestionHostRemote;
 blink.mojom.TextSuggestionHostRequest = blink.mojom.TextSuggestionHostPendingReceiver;
 

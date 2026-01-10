@@ -7,7 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
+var media = media || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.MediaStreamTypeSpec = { $: mojo.internal.Enum() };
 blink.mojom.MediaStreamRequestResultSpec = { $: mojo.internal.Enum() };
@@ -415,6 +416,53 @@ blink.mojom.MediaStreamDeviceObserver.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.MediaStreamDeviceObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceStopped(params.label, params.device);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceChanged(params.label, params.old_device, params.new_device);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceRequestStateChange(params.label, params.device, params.new_state);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceCaptureConfigurationChange(params.label, params.device);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceCaptureHandleChange(params.label, params.device);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onZoomLevelChange(params.label, params.device, params.zoom_level);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.MediaStreamDeviceObserverReceiver = blink.mojom.MediaStreamDeviceObserverReceiver;
+
 blink.mojom.MediaStreamDeviceObserverPtr = blink.mojom.MediaStreamDeviceObserverRemote;
 blink.mojom.MediaStreamDeviceObserverRequest = blink.mojom.MediaStreamDeviceObserverPendingReceiver;
 
@@ -737,6 +785,137 @@ blink.mojom.MediaStreamDispatcherHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.MediaStreamDispatcherHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generateStreams(params.request_id, params.controls, params.user_gesture, params.audio_stream_selection_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focusCapturedSurface(params.label, params.focus);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelRequest(params.request_id);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopStreamDevice(params.device_id, params.session_id);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openDevice(params.request_id, params.device_id, params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeDevice(params.label);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCapturingLinkSecured(params.session_id, params.type, params.is_secure);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applySubCaptureTarget(params.session_id, params.type, params.sub_capture_target, params.sub_capture_target_version);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendWheel(params.session_id, params.action);
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateZoomLevel(params.session_id, params.action);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestCapturedSurfaceControlPermission(params.session_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOpenDevice(params.request_id, params.session_id, params.transfer_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.keepDeviceAliveForTransfer(params.session_id, params.transfer_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.MediaStreamDispatcherHostReceiver = blink.mojom.MediaStreamDispatcherHostReceiver;
+
 blink.mojom.MediaStreamDispatcherHostPtr = blink.mojom.MediaStreamDispatcherHostRemote;
 blink.mojom.MediaStreamDispatcherHostRequest = blink.mojom.MediaStreamDispatcherHostPendingReceiver;
 
@@ -819,6 +998,33 @@ blink.mojom.MediaStreamTrackMetricsHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.MediaStreamTrackMetricsHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addTrack(params.id, params.is_audio, params.is_remote);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeTrack(params.id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.MediaStreamTrackMetricsHostReceiver = blink.mojom.MediaStreamTrackMetricsHostReceiver;
 
 blink.mojom.MediaStreamTrackMetricsHostPtr = blink.mojom.MediaStreamTrackMetricsHostRemote;
 blink.mojom.MediaStreamTrackMetricsHostRequest = blink.mojom.MediaStreamTrackMetricsHostPendingReceiver;

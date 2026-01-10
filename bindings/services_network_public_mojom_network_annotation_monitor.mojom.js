@@ -73,6 +73,28 @@ network.mojom.NetworkAnnotationMonitor.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.NetworkAnnotationMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.report(params.hash_code);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.NetworkAnnotationMonitorReceiver = network.mojom.NetworkAnnotationMonitorReceiver;
+
 network.mojom.NetworkAnnotationMonitorPtr = network.mojom.NetworkAnnotationMonitorRemote;
 network.mojom.NetworkAnnotationMonitorRequest = network.mojom.NetworkAnnotationMonitorPendingReceiver;
 

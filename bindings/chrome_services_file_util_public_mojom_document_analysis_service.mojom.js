@@ -7,6 +7,7 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
+var sandbox = sandbox || {};
 var services = services || {};
 
 chrome.mojom.DocumentAnalysisService = {};
@@ -73,6 +74,28 @@ chrome.mojom.DocumentAnalysisService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.DocumentAnalysisServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSafeDocumentAnalyzer(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.DocumentAnalysisServiceReceiver = chrome.mojom.DocumentAnalysisServiceReceiver;
 
 chrome.mojom.DocumentAnalysisServicePtr = chrome.mojom.DocumentAnalysisServiceRemote;
 chrome.mojom.DocumentAnalysisServiceRequest = chrome.mojom.DocumentAnalysisServicePendingReceiver;

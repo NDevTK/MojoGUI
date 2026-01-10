@@ -77,6 +77,28 @@ chromecast.metrics.mojom.MetricsHelper.getRemote = function() {
   return remote.$;
 };
 
+chromecast.metrics.mojom.MetricsHelperReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordApplicationEvent(params.app_id, params.session_id, params.sdk_version, params.event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.metrics.mojom.MetricsHelperReceiver = chromecast.metrics.mojom.MetricsHelperReceiver;
+
 chromecast.metrics.mojom.MetricsHelperPtr = chromecast.metrics.mojom.MetricsHelperRemote;
 chromecast.metrics.mojom.MetricsHelperRequest = chromecast.metrics.mojom.MetricsHelperPendingReceiver;
 

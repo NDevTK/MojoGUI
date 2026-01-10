@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 
 blink.mojom.ServiceWorkerRunningStatusCallback = {};
 blink.mojom.ServiceWorkerRunningStatusCallback.$interfaceName = 'blink.mojom.ServiceWorkerRunningStatusCallback';
@@ -73,6 +72,28 @@ blink.mojom.ServiceWorkerRunningStatusCallback.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ServiceWorkerRunningStatusCallbackReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStatusChanged(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ServiceWorkerRunningStatusCallbackReceiver = blink.mojom.ServiceWorkerRunningStatusCallbackReceiver;
 
 blink.mojom.ServiceWorkerRunningStatusCallbackPtr = blink.mojom.ServiceWorkerRunningStatusCallbackRemote;
 blink.mojom.ServiceWorkerRunningStatusCallbackRequest = blink.mojom.ServiceWorkerRunningStatusCallbackPendingReceiver;

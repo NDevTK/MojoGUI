@@ -298,6 +298,57 @@ mojom.OmniboxPageHandler.getRemote = function() {
   return remote.$;
 };
 
+mojom.OmniboxPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mojom.OmniboxPageHandler_SetClientPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setClientPage(params.page);
+          break;
+        }
+        case 1: {
+          const params = mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startOmniboxQuery(params.input_string, params.reset_autocomplete_controller, params.cursor_position, params.zero_suggest, params.prevent_inline_autocomplete, params.prefer_keyword, params.current_url, params.page_classification);
+          break;
+        }
+        case 2: {
+          const params = mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMlModelVersion();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = mojom.OmniboxPageHandler_StartMl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startMl(params.signals);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+mojom.OmniboxPageHandlerReceiver = mojom.OmniboxPageHandlerReceiver;
+
 mojom.OmniboxPageHandlerPtr = mojom.OmniboxPageHandlerRemote;
 mojom.OmniboxPageHandlerRequest = mojom.OmniboxPageHandlerPendingReceiver;
 
@@ -416,6 +467,43 @@ mojom.OmniboxPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+mojom.OmniboxPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleNewAutocompleteQuery(params.autocomplete_controller_type, params.input_text);
+          break;
+        }
+        case 1: {
+          const params = mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleNewAutocompleteResponse(params.autocomplete_controller_type, params.response);
+          break;
+        }
+        case 2: {
+          const params = mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleNewMlResponse(params.autocomplete_controller_type, params.input_text, params.matches);
+          break;
+        }
+        case 3: {
+          const params = mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleAnswerIconImageData(params.autocomplete_controller_type, params.image_url, params.image_data);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mojom.OmniboxPageReceiver = mojom.OmniboxPageReceiver;
 
 mojom.OmniboxPagePtr = mojom.OmniboxPageRemote;
 mojom.OmniboxPageRequest = mojom.OmniboxPagePendingReceiver;

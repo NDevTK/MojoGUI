@@ -7,7 +7,6 @@
 // Module namespace
 var tracked_element = tracked_element || {};
 tracked_element.mojom = tracked_element.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 tracked_element.mojom.TrackedElementHandler = {};
@@ -111,6 +110,38 @@ tracked_element.mojom.TrackedElementHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+tracked_element.mojom.TrackedElementHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.trackedElementVisibilityChanged(params.native_identifier, params.visible, params.rect);
+          break;
+        }
+        case 1: {
+          const params = tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.trackedElementActivated(params.native_identifier);
+          break;
+        }
+        case 2: {
+          const params = tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.trackedElementCustomEvent(params.native_identifier, params.custom_event_name);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tracked_element.mojom.TrackedElementHandlerReceiver = tracked_element.mojom.TrackedElementHandlerReceiver;
 
 tracked_element.mojom.TrackedElementHandlerPtr = tracked_element.mojom.TrackedElementHandlerRemote;
 tracked_element.mojom.TrackedElementHandlerRequest = tracked_element.mojom.TrackedElementHandlerPendingReceiver;

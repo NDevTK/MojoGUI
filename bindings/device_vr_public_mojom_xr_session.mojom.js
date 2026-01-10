@@ -8,8 +8,8 @@
 var device = device || {};
 device.mojom = device.mojom || {};
 var skia = skia || {};
-var ui = ui || {};
 var gfx = gfx || {};
+var mojo_base = mojo_base || {};
 
 device.mojom.RequestSessionErrorSpec = { $: mojo.internal.Enum() };
 device.mojom.XRSessionFeatureSpec = { $: mojo.internal.Enum() };

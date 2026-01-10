@@ -7,12 +7,8 @@
 // Module namespace
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
-var services = services || {};
-var ui = ui || {};
+var viz = viz || {};
 var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var skia = skia || {};
 var skia = skia || {};
 
 gpu.mojom.SharedImageMetadataSpec = { $: {} };

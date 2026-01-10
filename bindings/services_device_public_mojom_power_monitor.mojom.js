@@ -7,6 +7,7 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var mojo_base = mojo_base || {};
 
 device.mojom.PowerMonitor = {};
 device.mojom.PowerMonitor.$interfaceName = 'device.mojom.PowerMonitor';
@@ -77,6 +78,28 @@ device.mojom.PowerMonitor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.PowerMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.PowerMonitor_AddClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addClient(params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.PowerMonitorReceiver = device.mojom.PowerMonitorReceiver;
 
 device.mojom.PowerMonitorPtr = device.mojom.PowerMonitorRemote;
 device.mojom.PowerMonitorRequest = device.mojom.PowerMonitorPendingReceiver;
@@ -172,6 +195,38 @@ device.mojom.PowerMonitorClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.PowerMonitorClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.powerStateChange(params.battery_power_status);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.PowerMonitorClient_Suspend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suspend();
+          break;
+        }
+        case 2: {
+          const params = device.mojom.PowerMonitorClient_Resume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resume();
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.PowerMonitorClientReceiver = device.mojom.PowerMonitorClientReceiver;
 
 device.mojom.PowerMonitorClientPtr = device.mojom.PowerMonitorClientRemote;
 device.mojom.PowerMonitorClientRequest = device.mojom.PowerMonitorClientPendingReceiver;

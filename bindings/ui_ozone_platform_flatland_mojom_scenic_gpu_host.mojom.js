@@ -74,6 +74,28 @@ ui.mojom.ScenicGpuHost.getRemote = function() {
   return remote.$;
 };
 
+ui.mojom.ScenicGpuHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.attachSurfaceToWindow(params.window_id, params.view_holder_token);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ui.mojom.ScenicGpuHostReceiver = ui.mojom.ScenicGpuHostReceiver;
+
 ui.mojom.ScenicGpuHostPtr = ui.mojom.ScenicGpuHostRemote;
 ui.mojom.ScenicGpuHostRequest = ui.mojom.ScenicGpuHostPendingReceiver;
 

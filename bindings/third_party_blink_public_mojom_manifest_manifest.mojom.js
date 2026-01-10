@@ -7,14 +7,10 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var blink = blink || {};
-var blink = blink || {};
-var services = services || {};
-var blink = blink || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var device = device || {};
+var network = network || {};
 var gfx = gfx || {};
-var url = url || {};
 var url = url || {};
 
 blink.mojom.TextDirectionSpec = { $: mojo.internal.Enum() };

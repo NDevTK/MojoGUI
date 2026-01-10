@@ -29,8 +29,8 @@ search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec = { $: {} };
 // Interface: EmbeddedSearchConnector
 mojo.internal.Struct(
     search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec, 'search.mojom.EmbeddedSearchConnector_Connect_Params', [
-      mojo.internal.StructField('embedded_search', 0, 0, mojo.internal.AssociatedInterfaceRequest(search.mojom.EmbeddedSearchRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.AssociatedInterfaceProxy(search.mojom.EmbeddedSearchClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('embedded_search', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -87,6 +87,28 @@ search.mojom.EmbeddedSearchConnector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+search.mojom.EmbeddedSearchConnectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.embedded_search, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+search.mojom.EmbeddedSearchConnectorReceiver = search.mojom.EmbeddedSearchConnectorReceiver;
 
 search.mojom.EmbeddedSearchConnectorPtr = search.mojom.EmbeddedSearchConnectorRemote;
 search.mojom.EmbeddedSearchConnectorRequest = search.mojom.EmbeddedSearchConnectorPendingReceiver;
@@ -203,6 +225,43 @@ search.mojom.EmbeddedSearch.getRemote = function() {
     'context');
   return remote.$;
 };
+
+search.mojom.EmbeddedSearchReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focusOmnibox(params.page_seq_no, params.focus);
+          break;
+        }
+        case 1: {
+          const params = search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteMostVisitedItem(params.page_seq_no, params.url);
+          break;
+        }
+        case 2: {
+          const params = search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.undoAllMostVisitedDeletions(params.page_seq_no);
+          break;
+        }
+        case 3: {
+          const params = search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.undoMostVisitedDeletion(params.page_seq_no, params.url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+search.mojom.EmbeddedSearchReceiver = search.mojom.EmbeddedSearchReceiver;
 
 search.mojom.EmbeddedSearchPtr = search.mojom.EmbeddedSearchRemote;
 search.mojom.EmbeddedSearchRequest = search.mojom.EmbeddedSearchPendingReceiver;
@@ -333,6 +392,48 @@ search.mojom.EmbeddedSearchClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+search.mojom.EmbeddedSearchClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPageSequenceNumber(params.page_seq_no);
+          break;
+        }
+        case 1: {
+          const params = search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focusChanged(params.new_focus_state, params.reason);
+          break;
+        }
+        case 2: {
+          const params = search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mostVisitedInfoChanged(params.most_visited_info);
+          break;
+        }
+        case 3: {
+          const params = search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setInputInProgress(params.input_in_progress);
+          break;
+        }
+        case 4: {
+          const params = search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.themeChanged(params.theme);
+          break;
+        }
+      }
+    });
+  }
+};
+
+search.mojom.EmbeddedSearchClientReceiver = search.mojom.EmbeddedSearchClientReceiver;
 
 search.mojom.EmbeddedSearchClientPtr = search.mojom.EmbeddedSearchClientRemote;
 search.mojom.EmbeddedSearchClientRequest = search.mojom.EmbeddedSearchClientPendingReceiver;

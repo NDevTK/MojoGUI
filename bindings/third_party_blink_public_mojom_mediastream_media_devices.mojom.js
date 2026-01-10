@@ -7,7 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
+var media = media || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.MediaDeviceTypeSpec = { $: mojo.internal.Enum() };
 blink.mojom.FacingModeSpec = { $: mojo.internal.Enum() };
@@ -391,6 +392,134 @@ blink.mojom.MediaDevicesDispatcherHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.MediaDevicesDispatcherHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enumerateDevices(params.request_audio_input, params.request_video_input, params.request_audio_output, params.request_video_input_capabilities, params.request_audio_input_capabilities);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVideoInputCapabilities();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllVideoInputDeviceFormats(params.device_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAvailableVideoInputDeviceFormats(params.device_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAudioInputCapabilities();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addMediaDevicesListener(params.subscribe_audio_input, params.subscribe_video_input, params.subscribe_audio_output, params.listener);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCaptureHandleConfig(params.config);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeFocusWindowOfOpportunity(params.label);
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.produceSubCaptureTargetId(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPreferredSinkId(params.sink_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectAudioOutput(params.device_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.MediaDevicesDispatcherHostReceiver = blink.mojom.MediaDevicesDispatcherHostReceiver;
+
 blink.mojom.MediaDevicesDispatcherHostPtr = blink.mojom.MediaDevicesDispatcherHostRemote;
 blink.mojom.MediaDevicesDispatcherHostRequest = blink.mojom.MediaDevicesDispatcherHostPendingReceiver;
 
@@ -456,6 +585,28 @@ blink.mojom.MediaDevicesListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.MediaDevicesListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDevicesChanged(params.type, params.device_infos);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.MediaDevicesListenerReceiver = blink.mojom.MediaDevicesListenerReceiver;
 
 blink.mojom.MediaDevicesListenerPtr = blink.mojom.MediaDevicesListenerRemote;
 blink.mojom.MediaDevicesListenerRequest = blink.mojom.MediaDevicesListenerPendingReceiver;

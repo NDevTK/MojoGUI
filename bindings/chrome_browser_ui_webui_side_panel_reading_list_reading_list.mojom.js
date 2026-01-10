@@ -134,6 +134,28 @@ reading_list.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+reading_list.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+reading_list.mojom.PageHandlerFactoryReceiver = reading_list.mojom.PageHandlerFactoryReceiver;
+
 reading_list.mojom.PageHandlerFactoryPtr = reading_list.mojom.PageHandlerFactoryRemote;
 reading_list.mojom.PageHandlerFactoryRequest = reading_list.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -369,6 +391,92 @@ reading_list.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+reading_list.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getReadLaterEntries();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = reading_list.mojom.PageHandler_OpenURL_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openURL(params.url, params.mark_as_read, params.click_modifiers);
+          break;
+        }
+        case 2: {
+          const params = reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateReadStatus(params.url, params.read);
+          break;
+        }
+        case 3: {
+          const params = reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.markCurrentTabAsRead();
+          break;
+        }
+        case 4: {
+          const params = reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addCurrentTab();
+          break;
+        }
+        case 5: {
+          const params = reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeEntry(params.url);
+          break;
+        }
+        case 6: {
+          const params = reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showContextMenuForURL(params.url, params.x, params.y);
+          break;
+        }
+        case 7: {
+          const params = reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateCurrentPageActionButtonState();
+          break;
+        }
+        case 8: {
+          const params = reading_list.mojom.PageHandler_ShowUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showUI();
+          break;
+        }
+        case 9: {
+          const params = reading_list.mojom.PageHandler_CloseUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeUI();
+          break;
+        }
+        case 10: {
+          const params = reading_list.mojom.PageHandler_GetWindowData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWindowData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+reading_list.mojom.PageHandlerReceiver = reading_list.mojom.PageHandlerReceiver;
+
 reading_list.mojom.PageHandlerPtr = reading_list.mojom.PageHandlerRemote;
 reading_list.mojom.PageHandlerRequest = reading_list.mojom.PageHandlerPendingReceiver;
 
@@ -449,6 +557,33 @@ reading_list.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+reading_list.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = reading_list.mojom.Page_ItemsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.itemsChanged(params.entries);
+          break;
+        }
+        case 1: {
+          const params = reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.currentPageActionButtonStateChanged(params.state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+reading_list.mojom.PageReceiver = reading_list.mojom.PageReceiver;
 
 reading_list.mojom.PagePtr = reading_list.mojom.PageRemote;
 reading_list.mojom.PageRequest = reading_list.mojom.PagePendingReceiver;

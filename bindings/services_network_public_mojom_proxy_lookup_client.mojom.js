@@ -7,7 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
+var proxy_resolver = proxy_resolver || {};
 
 network.mojom.ProxyLookupClient = {};
 network.mojom.ProxyLookupClient.$interfaceName = 'network.mojom.ProxyLookupClient';
@@ -74,6 +74,28 @@ network.mojom.ProxyLookupClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.ProxyLookupClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProxyLookupComplete(params.net_error, params.proxy_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.ProxyLookupClientReceiver = network.mojom.ProxyLookupClientReceiver;
 
 network.mojom.ProxyLookupClientPtr = network.mojom.ProxyLookupClientRemote;
 network.mojom.ProxyLookupClientRequest = network.mojom.ProxyLookupClientPendingReceiver;

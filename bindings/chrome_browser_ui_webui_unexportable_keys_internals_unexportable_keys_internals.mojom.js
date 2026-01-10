@@ -7,6 +7,7 @@
 // Module namespace
 var unexportable_keys_internals = unexportable_keys_internals || {};
 unexportable_keys_internals.mojom = unexportable_keys_internals.mojom || {};
+var mojo_base = mojo_base || {};
 
 unexportable_keys_internals.mojom.UnexportableKeyIdSpec = { $: {} };
 unexportable_keys_internals.mojom.UnexportableKeyInfoSpec = { $: {} };
@@ -102,6 +103,28 @@ unexportable_keys_internals.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+unexportable_keys_internals.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createUnexportableKeysInternalsHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+unexportable_keys_internals.mojom.PageHandlerFactoryReceiver = unexportable_keys_internals.mojom.PageHandlerFactoryReceiver;
+
 unexportable_keys_internals.mojom.PageHandlerFactoryPtr = unexportable_keys_internals.mojom.PageHandlerFactoryRemote;
 unexportable_keys_internals.mojom.PageHandlerFactoryRequest = unexportable_keys_internals.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -194,6 +217,47 @@ unexportable_keys_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+unexportable_keys_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUnexportableKeysInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteKey(params.key_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+unexportable_keys_internals.mojom.PageHandlerReceiver = unexportable_keys_internals.mojom.PageHandlerReceiver;
+
 unexportable_keys_internals.mojom.PageHandlerPtr = unexportable_keys_internals.mojom.PageHandlerRemote;
 unexportable_keys_internals.mojom.PageHandlerRequest = unexportable_keys_internals.mojom.PageHandlerPendingReceiver;
 
@@ -242,6 +306,23 @@ unexportable_keys_internals.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+unexportable_keys_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+unexportable_keys_internals.mojom.PageReceiver = unexportable_keys_internals.mojom.PageReceiver;
 
 unexportable_keys_internals.mojom.PagePtr = unexportable_keys_internals.mojom.PageRemote;
 unexportable_keys_internals.mojom.PageRequest = unexportable_keys_internals.mojom.PagePendingReceiver;

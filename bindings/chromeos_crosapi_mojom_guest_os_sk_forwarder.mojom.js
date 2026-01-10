@@ -77,6 +77,28 @@ crosapi.mojom.GuestOsSkForwarderFactory.getRemote = function() {
   return remote.$;
 };
 
+crosapi.mojom.GuestOsSkForwarderFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindGuestOsSkForwarder(params.remote);
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.GuestOsSkForwarderFactoryReceiver = crosapi.mojom.GuestOsSkForwarderFactoryReceiver;
+
 crosapi.mojom.GuestOsSkForwarderFactoryPtr = crosapi.mojom.GuestOsSkForwarderFactoryRemote;
 crosapi.mojom.GuestOsSkForwarderFactoryRequest = crosapi.mojom.GuestOsSkForwarderFactoryPendingReceiver;
 
@@ -147,6 +169,35 @@ crosapi.mojom.GuestOsSkForwarder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.GuestOsSkForwarderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forwardRequest(params.message);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.GuestOsSkForwarderReceiver = crosapi.mojom.GuestOsSkForwarderReceiver;
 
 crosapi.mojom.GuestOsSkForwarderPtr = crosapi.mojom.GuestOsSkForwarderRemote;
 crosapi.mojom.GuestOsSkForwarderRequest = crosapi.mojom.GuestOsSkForwarderPendingReceiver;

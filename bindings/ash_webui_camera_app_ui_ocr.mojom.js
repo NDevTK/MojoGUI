@@ -8,7 +8,6 @@
 var ash = ash || {};
 ash.camera_app = ash.camera_app || {};
 ash.camera_app.mojom = ash.camera_app.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 ash.camera_app.mojom.WordDirectionSpec = { $: mojo.internal.Enum() };

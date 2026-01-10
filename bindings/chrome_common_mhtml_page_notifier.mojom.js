@@ -7,6 +7,7 @@
 // Module namespace
 var offline_pages = offline_pages || {};
 offline_pages.mojom = offline_pages.mojom || {};
+var mojo_base = mojo_base || {};
 var blink = blink || {};
 var url = url || {};
 
@@ -76,6 +77,28 @@ offline_pages.mojom.MhtmlPageNotifier.getRemote = function() {
     'context');
   return remote.$;
 };
+
+offline_pages.mojom.MhtmlPageNotifierReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyMhtmlPageLoadAttempted(params.load_result, params.url, params.date);
+          break;
+        }
+      }
+    });
+  }
+};
+
+offline_pages.mojom.MhtmlPageNotifierReceiver = offline_pages.mojom.MhtmlPageNotifierReceiver;
 
 offline_pages.mojom.MhtmlPageNotifierPtr = offline_pages.mojom.MhtmlPageNotifierRemote;
 offline_pages.mojom.MhtmlPageNotifierRequest = offline_pages.mojom.MhtmlPageNotifierPendingReceiver;

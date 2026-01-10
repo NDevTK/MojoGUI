@@ -7,17 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var viz = viz || {};
 var gfx = gfx || {};
 
 blink.mojom.SyncCompositorDemandDrawHwParamsSpec = { $: {} };
@@ -375,6 +366,116 @@ blink.mojom.SynchronousCompositor.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.SynchronousCompositorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.demandDrawHwAsync(params.draw_params);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.demandDrawHw(params.draw_params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSharedMemory(params.shm_region);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.demandDrawSw(params.draw_params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.willSkipDraw();
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.zeroSharedMemory();
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.zoomBy(params.delta, params.anchor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMemoryPolicy(params.bytes_limit);
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reclaimResources(params.layer_tree_frame_sink_id, params.resources);
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCompositorFrameTransitionDirectiveProcessed(params.layer_tree_frame_sink_id, params.sequence_id);
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setScroll(params.offset);
+          break;
+        }
+        case 11: {
+          const params = blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.beginFrame(params.args, params.timing_details);
+          break;
+        }
+        case 12: {
+          const params = blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBeginFrameSourcePaused(params.paused);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SynchronousCompositorReceiver = blink.mojom.SynchronousCompositorReceiver;
+
 blink.mojom.SynchronousCompositorPtr = blink.mojom.SynchronousCompositorRemote;
 blink.mojom.SynchronousCompositorRequest = blink.mojom.SynchronousCompositorPendingReceiver;
 
@@ -487,6 +588,43 @@ blink.mojom.SynchronousCompositorHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.SynchronousCompositorHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.layerTreeFrameSinkCreated();
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateState(params.params);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNeedsBeginFrames(params.needs_begin_frames);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setThreads(params.threads);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SynchronousCompositorHostReceiver = blink.mojom.SynchronousCompositorHostReceiver;
+
 blink.mojom.SynchronousCompositorHostPtr = blink.mojom.SynchronousCompositorHostRemote;
 blink.mojom.SynchronousCompositorHostRequest = blink.mojom.SynchronousCompositorHostPendingReceiver;
 
@@ -571,6 +709,33 @@ blink.mojom.SynchronousCompositorControlHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.SynchronousCompositorControlHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.returnFrame(params.layer_tree_frame_sink_id, params.metadata_version, params.local_surface_id, params.frame, params.hit_test_region_list);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.beginFrameResponse(params.params);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SynchronousCompositorControlHostReceiver = blink.mojom.SynchronousCompositorControlHostReceiver;
 
 blink.mojom.SynchronousCompositorControlHostPtr = blink.mojom.SynchronousCompositorControlHostRemote;
 blink.mojom.SynchronousCompositorControlHostRequest = blink.mojom.SynchronousCompositorControlHostPendingReceiver;

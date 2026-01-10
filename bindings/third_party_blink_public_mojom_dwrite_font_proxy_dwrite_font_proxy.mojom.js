@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.DWriteStringPairSpec = { $: {} };
 blink.mojom.DWriteFontStyleSpec = { $: {} };
@@ -234,6 +235,95 @@ blink.mojom.DWriteFontProxy.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.DWriteFontProxyReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.findFamily(params.family_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFamilyCount();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFamilyNames(params.family_index);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFontFileHandles(params.family_index);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.matchUniqueFont(params.font_unique_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mapCharacters(params.text, params.font_style, params.locale_name, params.reading_direction, params.base_family_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DWriteFontProxyReceiver = blink.mojom.DWriteFontProxyReceiver;
 
 blink.mojom.DWriteFontProxyPtr = blink.mojom.DWriteFontProxyRemote;
 blink.mojom.DWriteFontProxyRequest = blink.mojom.DWriteFontProxyPendingReceiver;

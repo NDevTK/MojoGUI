@@ -7,9 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var blink = blink || {};
-var blink = blink || {};
+var network = network || {};
 var url = url || {};
 
 blink.mojom.SharedWorkerSameSiteCookiesSpec = { $: mojo.internal.Enum() };

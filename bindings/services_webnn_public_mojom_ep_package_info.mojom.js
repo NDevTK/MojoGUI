@@ -7,6 +7,7 @@
 // Module namespace
 var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
+var mojo_base = mojo_base || {};
 
 webnn.mojom.PackageVersionSpec = { $: {} };
 webnn.mojom.EpPackageInfoSpec = { $: {} };

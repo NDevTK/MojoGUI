@@ -7,6 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var media = media || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.RendererAudioInputStreamFactory = {};
 blink.mojom.RendererAudioInputStreamFactory.$interfaceName = 'blink.mojom.RendererAudioInputStreamFactory';
@@ -99,6 +101,33 @@ blink.mojom.RendererAudioInputStreamFactory.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.RendererAudioInputStreamFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.RendererAudioInputStreamFactory_CreateStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createStream(params.client, params.session_id, params.params, params.automatic_gain_control, params.shared_memory_count, params.processing_config);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.RendererAudioInputStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.associateInputAndOutputForAec(params.input_stream_id, params.output_device_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.RendererAudioInputStreamFactoryReceiver = blink.mojom.RendererAudioInputStreamFactoryReceiver;
+
 blink.mojom.RendererAudioInputStreamFactoryPtr = blink.mojom.RendererAudioInputStreamFactoryRemote;
 blink.mojom.RendererAudioInputStreamFactoryRequest = blink.mojom.RendererAudioInputStreamFactoryPendingReceiver;
 
@@ -167,6 +196,28 @@ blink.mojom.RendererAudioInputStreamFactoryClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.RendererAudioInputStreamFactoryClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.RendererAudioInputStreamFactoryClient_StreamCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.streamCreated(params.stream, params.client_request, params.data_pipe, params.initially_muted, params.stream_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.RendererAudioInputStreamFactoryClientReceiver = blink.mojom.RendererAudioInputStreamFactoryClientReceiver;
 
 blink.mojom.RendererAudioInputStreamFactoryClientPtr = blink.mojom.RendererAudioInputStreamFactoryClientRemote;
 blink.mojom.RendererAudioInputStreamFactoryClientRequest = blink.mojom.RendererAudioInputStreamFactoryClientPendingReceiver;

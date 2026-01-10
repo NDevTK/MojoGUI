@@ -8,9 +8,7 @@
 var ash = ash || {};
 ash.quick_start = ash.quick_start || {};
 ash.quick_start.mojom = ash.quick_start.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
+var sandbox = sandbox || {};
 
 ash.quick_start.mojom.QuickStartDecoder = {};
 ash.quick_start.mojom.QuickStartDecoder.$interfaceName = 'ash.quick_start.mojom.QuickStartDecoder';
@@ -84,6 +82,35 @@ ash.quick_start.mojom.QuickStartDecoder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.quick_start.mojom.QuickStartDecoderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decodeQuickStartMessage(params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.quick_start.mojom.QuickStartDecoderReceiver = ash.quick_start.mojom.QuickStartDecoderReceiver;
 
 ash.quick_start.mojom.QuickStartDecoderPtr = ash.quick_start.mojom.QuickStartDecoderRemote;
 ash.quick_start.mojom.QuickStartDecoderRequest = ash.quick_start.mojom.QuickStartDecoderPendingReceiver;

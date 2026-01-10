@@ -7,7 +7,7 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 device.mojom.ProviderStateSpec = { $: mojo.internal.Enum() };
 device.mojom.LocationProviderManagerModeSpec = { $: mojo.internal.Enum() };
@@ -205,6 +205,38 @@ device.mojom.GeolocationInternalsObserver.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.GeolocationInternalsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDiagnosticsChanged(params.diagnostics);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNetworkLocationRequested(params.access_point_data);
+          break;
+        }
+        case 2: {
+          const params = device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNetworkLocationReceived(params.response);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.GeolocationInternalsObserverReceiver = device.mojom.GeolocationInternalsObserverReceiver;
+
 device.mojom.GeolocationInternalsObserverPtr = device.mojom.GeolocationInternalsObserverRemote;
 device.mojom.GeolocationInternalsObserverRequest = device.mojom.GeolocationInternalsObserverPendingReceiver;
 
@@ -275,6 +307,35 @@ device.mojom.GeolocationInternals.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.GeolocationInternalsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addInternalsObserver(params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.GeolocationInternalsReceiver = device.mojom.GeolocationInternalsReceiver;
 
 device.mojom.GeolocationInternalsPtr = device.mojom.GeolocationInternalsRemote;
 device.mojom.GeolocationInternalsRequest = device.mojom.GeolocationInternalsPendingReceiver;

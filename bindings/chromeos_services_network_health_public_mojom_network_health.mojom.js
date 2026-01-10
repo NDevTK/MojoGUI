@@ -8,8 +8,6 @@
 var chromeos = chromeos || {};
 chromeos.network_health = chromeos.network_health || {};
 chromeos.network_health.mojom = chromeos.network_health.mojom || {};
-var chromeos = chromeos || {};
-var services = services || {};
 
 chromeos.network_health.mojom.NetworkEventsObserver = {};
 chromeos.network_health.mojom.NetworkEventsObserver.$interfaceName = 'chromeos.network_health.mojom.NetworkEventsObserver';
@@ -120,6 +118,38 @@ chromeos.network_health.mojom.NetworkEventsObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.network_health.mojom.NetworkEventsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnectionStateChanged(params.guid, params.state);
+          break;
+        }
+        case 1: {
+          const params = chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSignalStrengthChanged(params.guid, params.signal_strength);
+          break;
+        }
+        case 2: {
+          const params = chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNetworkListChanged(params.networks);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.network_health.mojom.NetworkEventsObserverReceiver = chromeos.network_health.mojom.NetworkEventsObserverReceiver;
 
 chromeos.network_health.mojom.NetworkEventsObserverPtr = chromeos.network_health.mojom.NetworkEventsObserverRemote;
 chromeos.network_health.mojom.NetworkEventsObserverRequest = chromeos.network_health.mojom.NetworkEventsObserverPendingReceiver;
@@ -248,6 +278,64 @@ chromeos.network_health.mojom.NetworkHealthService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.network_health.mojom.NetworkHealthServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNetworkList();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getHealthSnapshot();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRecentlyActiveNetworks();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.network_health.mojom.NetworkHealthServiceReceiver = chromeos.network_health.mojom.NetworkHealthServiceReceiver;
 
 chromeos.network_health.mojom.NetworkHealthServicePtr = chromeos.network_health.mojom.NetworkHealthServiceRemote;
 chromeos.network_health.mojom.NetworkHealthServiceRequest = chromeos.network_health.mojom.NetworkHealthServicePendingReceiver;

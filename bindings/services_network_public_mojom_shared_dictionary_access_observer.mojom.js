@@ -7,8 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var url = url || {};
 var url = url || {};
 
 network.mojom.TypeSpec = { $: mojo.internal.Enum() };
@@ -107,6 +105,33 @@ network.mojom.SharedDictionaryAccessObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.SharedDictionaryAccessObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSharedDictionaryAccessed(params.details);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.SharedDictionaryAccessObserverReceiver = network.mojom.SharedDictionaryAccessObserverReceiver;
 
 network.mojom.SharedDictionaryAccessObserverPtr = network.mojom.SharedDictionaryAccessObserverRemote;
 network.mojom.SharedDictionaryAccessObserverRequest = network.mojom.SharedDictionaryAccessObserverPendingReceiver;

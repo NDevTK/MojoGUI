@@ -44,7 +44,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.CdmStorage_Open_ResponseParamsSpec, 'media.mojom.CdmStorage_Open_ResponseParams', [
       mojo.internal.StructField('status', 0, 0, media.mojom.StatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('cdm_file', 8, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.CdmFileRemote), null, true, 0, undefined),
+      mojo.internal.StructField('cdm_file', 8, 0, mojo.internal.Pointer, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -101,6 +101,35 @@ media.mojom.CdmStorage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.CdmStorageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.CdmStorage_Open_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.open(params.file_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.CdmStorage_Open_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.CdmStorageReceiver = media.mojom.CdmStorageReceiver;
 
 media.mojom.CdmStoragePtr = media.mojom.CdmStorageRemote;
 media.mojom.CdmStorageRequest = media.mojom.CdmStoragePendingReceiver;
@@ -194,6 +223,47 @@ media.mojom.CdmFile.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.CdmFileReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.CdmFile_Read_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.read();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.CdmFile_Read_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.CdmFile_Write_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.write(params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.CdmFile_Write_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.CdmFileReceiver = media.mojom.CdmFileReceiver;
 
 media.mojom.CdmFilePtr = media.mojom.CdmFileRemote;
 media.mojom.CdmFileRequest = media.mojom.CdmFilePendingReceiver;

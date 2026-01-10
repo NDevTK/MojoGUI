@@ -8,6 +8,8 @@
 var ash = ash || {};
 ash.trash_service = ash.trash_service || {};
 ash.trash_service.mojom = ash.trash_service.mojom || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 ash.trash_service.mojom.TrashService = {};
 ash.trash_service.mojom.TrashService.$interfaceName = 'ash.trash_service.mojom.TrashService';
@@ -82,6 +84,35 @@ ash.trash_service.mojom.TrashService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.trash_service.mojom.TrashServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseTrashInfoFile(params.trash_info_file);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.trash_service.mojom.TrashServiceReceiver = ash.trash_service.mojom.TrashServiceReceiver;
 
 ash.trash_service.mojom.TrashServicePtr = ash.trash_service.mojom.TrashServiceRemote;
 ash.trash_service.mojom.TrashServiceRequest = ash.trash_service.mojom.TrashServicePendingReceiver;

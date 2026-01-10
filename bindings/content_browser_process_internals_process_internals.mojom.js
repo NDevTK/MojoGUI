@@ -289,6 +289,107 @@ mojom.ProcessInternalsHandler.getRemote = function() {
   return remote.$;
 };
 
+mojom.ProcessInternalsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getProcessCountInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getIsolationMode();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getProcessPerSiteMode();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUserTriggeredIsolatedOrigins();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWebTriggeredIsolatedOrigins();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getGloballyIsolatedOrigins();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllWebContentsInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+mojom.ProcessInternalsHandlerReceiver = mojom.ProcessInternalsHandlerReceiver;
+
 mojom.ProcessInternalsHandlerPtr = mojom.ProcessInternalsHandlerRemote;
 mojom.ProcessInternalsHandlerRequest = mojom.ProcessInternalsHandlerPendingReceiver;
 

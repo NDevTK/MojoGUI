@@ -107,6 +107,40 @@ blink.mojom.WebOTPService.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.WebOTPServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WebOTPService_Receive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.receive();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.WebOTPService_Receive_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.WebOTPService_Abort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.abort();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WebOTPServiceReceiver = blink.mojom.WebOTPServiceReceiver;
+
 blink.mojom.WebOTPServicePtr = blink.mojom.WebOTPServiceRemote;
 blink.mojom.WebOTPServiceRequest = blink.mojom.WebOTPServicePendingReceiver;
 

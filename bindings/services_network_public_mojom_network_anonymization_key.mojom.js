@@ -7,8 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 network.mojom.NetworkAnonymizationKeySpec = { $: {} };
 network.mojom.EmptyNetworkAnonymizationKeySpec = { $: {} };

@@ -7,6 +7,8 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 content.mojom.PowerMonitorTest = {};
 content.mojom.PowerMonitorTest.$interfaceName = 'content.mojom.PowerMonitorTest';
@@ -78,6 +80,35 @@ content.mojom.PowerMonitorTest.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.PowerMonitorTestReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queryNextState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.PowerMonitorTestReceiver = content.mojom.PowerMonitorTestReceiver;
 
 content.mojom.PowerMonitorTestPtr = content.mojom.PowerMonitorTestRemote;
 content.mojom.PowerMonitorTestRequest = content.mojom.PowerMonitorTestPendingReceiver;

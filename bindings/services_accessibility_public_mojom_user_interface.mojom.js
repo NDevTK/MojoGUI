@@ -7,8 +7,6 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
-var services = services || {};
-var ui = ui || {};
 var gfx = gfx || {};
 var skia = skia || {};
 
@@ -201,6 +199,60 @@ ax.mojom.UserInterface.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ax.mojom.UserInterfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ax.mojom.UserInterface_DarkenScreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.darkenScreen(params.darken);
+          break;
+        }
+        case 1: {
+          const params = ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openSettingsSubpage(params.subpage);
+          break;
+        }
+        case 2: {
+          const params = ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showConfirmationDialog(params.title, params.description, params.cancelName);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ax.mojom.UserInterface_SetFocusRings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFocusRings(params.focus_rings, params.at_type);
+          break;
+        }
+        case 4: {
+          const params = ax.mojom.UserInterface_SetHighlights_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHighlights(params.rects, params.color);
+          break;
+        }
+        case 5: {
+          const params = ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVirtualKeyboardVisible(params.is_visible);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.mojom.UserInterfaceReceiver = ax.mojom.UserInterfaceReceiver;
 
 ax.mojom.UserInterfacePtr = ax.mojom.UserInterfaceRemote;
 ax.mojom.UserInterfaceRequest = ax.mojom.UserInterfacePendingReceiver;

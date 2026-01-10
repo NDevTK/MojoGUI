@@ -7,8 +7,6 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
 
 arc.mojom.WifiScanResultSpec = { $: {} };
 arc.mojom.ArcWifiHost = {};
@@ -162,6 +160,64 @@ arc.mojom.ArcWifiHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.ArcWifiHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWifiEnabledState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWifiEnabledState(params.enabled);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.ArcWifiHost_StartScan_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startScan();
+          break;
+        }
+        case 4: {
+          const params = arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getScanResults();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ArcWifiHostReceiver = arc.mojom.ArcWifiHostReceiver;
+
 arc.mojom.ArcWifiHostPtr = arc.mojom.ArcWifiHostRemote;
 arc.mojom.ArcWifiHostRequest = arc.mojom.ArcWifiHostPendingReceiver;
 
@@ -262,6 +318,45 @@ arc.mojom.ArcWifiInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.ArcWifiInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.ArcWifiInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.wifiEnabledStateChanged(params.enabled);
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.scanCompleted();
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ArcWifiInstanceReceiver = arc.mojom.ArcWifiInstanceReceiver;
 
 arc.mojom.ArcWifiInstancePtr = arc.mojom.ArcWifiInstanceRemote;
 arc.mojom.ArcWifiInstanceRequest = arc.mojom.ArcWifiInstancePendingReceiver;

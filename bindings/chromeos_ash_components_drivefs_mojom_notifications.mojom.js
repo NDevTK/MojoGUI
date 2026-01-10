@@ -7,6 +7,7 @@
 // Module namespace
 var drivefs = drivefs || {};
 drivefs.mojom = drivefs.mojom || {};
+var mojo_base = mojo_base || {};
 
 drivefs.mojom.DriveFsNotificationSpec = { $: {} };
 drivefs.mojom.MirrorDownloadDeletedNotificationSpec = { $: {} };

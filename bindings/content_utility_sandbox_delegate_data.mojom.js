@@ -8,6 +8,7 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 content.mojom.sandbox = content.mojom.sandbox || {};
+var mojo_base = mojo_base || {};
 
 content.mojom.sandbox.UtilityConfigSpec = { $: {} };
 

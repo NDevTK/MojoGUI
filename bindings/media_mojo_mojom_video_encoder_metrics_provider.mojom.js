@@ -7,7 +7,6 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 media.mojom.VideoEncoderUseCaseSpec = { $: mojo.internal.Enum() };
@@ -141,6 +140,43 @@ media.mojom.VideoEncoderMetricsProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.VideoEncoderMetricsProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.encoder_id, params.encoder_use_case, params.profile, params.encode_size, params.is_hardware_encoder, params.svc_mode);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setEncodedFrameCount(params.encoder_id, params.num_encoded_frames);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setError(params.encoder_id, params.status);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.complete(params.encoder_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.VideoEncoderMetricsProviderReceiver = media.mojom.VideoEncoderMetricsProviderReceiver;
 
 media.mojom.VideoEncoderMetricsProviderPtr = media.mojom.VideoEncoderMetricsProviderRemote;
 media.mojom.VideoEncoderMetricsProviderRequest = media.mojom.VideoEncoderMetricsProviderPendingReceiver;

@@ -7,7 +7,6 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 device.mojom.XRHandJointSpec = { $: mojo.internal.Enum() };

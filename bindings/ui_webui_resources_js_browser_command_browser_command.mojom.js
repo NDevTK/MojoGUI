@@ -116,6 +116,28 @@ browser_command.mojom.CommandHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+browser_command.mojom.CommandHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createBrowserCommandHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+browser_command.mojom.CommandHandlerFactoryReceiver = browser_command.mojom.CommandHandlerFactoryReceiver;
+
 browser_command.mojom.CommandHandlerFactoryPtr = browser_command.mojom.CommandHandlerFactoryRemote;
 browser_command.mojom.CommandHandlerFactoryRequest = browser_command.mojom.CommandHandlerFactoryPendingReceiver;
 
@@ -209,6 +231,47 @@ browser_command.mojom.CommandHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+browser_command.mojom.CommandHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.canExecuteCommand(params.command_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeCommand(params.command_id, params.click_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+browser_command.mojom.CommandHandlerReceiver = browser_command.mojom.CommandHandlerReceiver;
 
 browser_command.mojom.CommandHandlerPtr = browser_command.mojom.CommandHandlerRemote;
 browser_command.mojom.CommandHandlerRequest = browser_command.mojom.CommandHandlerPendingReceiver;

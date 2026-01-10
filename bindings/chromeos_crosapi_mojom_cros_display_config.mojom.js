@@ -7,9 +7,8 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
-var ui = ui || {};
+var display = display || {};
 
 crosapi.mojom.DisplayConfigResultSpec = { $: mojo.internal.Enum() };
 crosapi.mojom.DisplayLayoutModeSpec = { $: mojo.internal.Enum() };
@@ -214,7 +213,7 @@ mojo.internal.Struct(
 // Interface: CrosDisplayConfigController
 mojo.internal.Struct(
     crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec, 'crosapi.mojom.CrosDisplayConfigController_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.AssociatedInterfaceProxy(crosapi.mojom.CrosDisplayConfigObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -459,6 +458,115 @@ crosapi.mojom.CrosDisplayConfigController.getRemote = function() {
   return remote.$;
 };
 
+crosapi.mojom.CrosDisplayConfigControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDisplayLayoutInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDisplayLayoutInfo(params.info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDisplayUnitInfoList(params.single_unified);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDisplayProperties(params.id, params.properties, params.source);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUnifiedDesktopEnabled(params.enabled);
+          break;
+        }
+        case 6: {
+          const params = crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.overscanCalibration(params.display_id, params.op, params.delta);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.touchCalibration(params.display_id, params.op, params.calibration);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.highlightDisplay(params.id);
+          break;
+        }
+        case 9: {
+          const params = crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dragDisplayDelta(params.display_id, params.delta_x, params.delta_y);
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.CrosDisplayConfigControllerReceiver = crosapi.mojom.CrosDisplayConfigControllerReceiver;
+
 crosapi.mojom.CrosDisplayConfigControllerPtr = crosapi.mojom.CrosDisplayConfigControllerRemote;
 crosapi.mojom.CrosDisplayConfigControllerRequest = crosapi.mojom.CrosDisplayConfigControllerPendingReceiver;
 
@@ -522,6 +630,28 @@ crosapi.mojom.CrosDisplayConfigObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.CrosDisplayConfigObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDisplayConfigChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.CrosDisplayConfigObserverReceiver = crosapi.mojom.CrosDisplayConfigObserverReceiver;
 
 crosapi.mojom.CrosDisplayConfigObserverPtr = crosapi.mojom.CrosDisplayConfigObserverRemote;
 crosapi.mojom.CrosDisplayConfigObserverRequest = crosapi.mojom.CrosDisplayConfigObserverPendingReceiver;

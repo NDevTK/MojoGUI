@@ -7,6 +7,7 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 device.mojom.UsbOpenDeviceSuccessSpec = { $: mojo.internal.Enum() };
@@ -637,6 +638,191 @@ device.mojom.UsbDevice.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.UsbDeviceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.UsbDevice_Open_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.open();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDevice_Open_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.UsbDevice_Close_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.close();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDevice_Close_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.UsbDevice_SetConfiguration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setConfiguration(params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = device.mojom.UsbDevice_ClaimInterface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.claimInterface(params.interface_number);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = device.mojom.UsbDevice_ReleaseInterface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.releaseInterface(params.interface_number);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setInterfaceAlternateSetting(params.interface_number, params.alternate_setting);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = device.mojom.UsbDevice_Reset_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reset();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDevice_Reset_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = device.mojom.UsbDevice_ClearHalt_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearHalt(params.direction, params.endpoint_number);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = device.mojom.UsbDevice_ControlTransferIn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.controlTransferIn(params.params, params.length, params.timeout);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = device.mojom.UsbDevice_ControlTransferOut_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.controlTransferOut(params.params, params.data, params.timeout);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = device.mojom.UsbDevice_GenericTransferIn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.genericTransferIn(params.endpoint_number, params.length, params.timeout);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = device.mojom.UsbDevice_GenericTransferOut_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.genericTransferOut(params.endpoint_number, params.data, params.timeout);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isochronousTransferIn(params.endpoint_number, params.packet_lengths, params.timeout);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isochronousTransferOut(params.endpoint_number, params.data, params.packet_lengths, params.timeout);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.UsbDeviceReceiver = device.mojom.UsbDeviceReceiver;
+
 device.mojom.UsbDevicePtr = device.mojom.UsbDeviceRemote;
 device.mojom.UsbDeviceRequest = device.mojom.UsbDevicePendingReceiver;
 
@@ -715,6 +901,33 @@ device.mojom.UsbDeviceClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.UsbDeviceClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.UsbDeviceClient_OnDeviceOpened_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceOpened();
+          break;
+        }
+        case 1: {
+          const params = device.mojom.UsbDeviceClient_OnDeviceClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceClosed();
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.UsbDeviceClientReceiver = device.mojom.UsbDeviceClientReceiver;
 
 device.mojom.UsbDeviceClientPtr = device.mojom.UsbDeviceClientRemote;
 device.mojom.UsbDeviceClientRequest = device.mojom.UsbDeviceClientPendingReceiver;

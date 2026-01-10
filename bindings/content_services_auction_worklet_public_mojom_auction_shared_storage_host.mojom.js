@@ -7,7 +7,7 @@
 // Module namespace
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
-var services = services || {};
+var network = network || {};
 
 auction_worklet.mojom.AuctionWorkletFunctionSpec = { $: mojo.internal.Enum() };
 auction_worklet.mojom.AuctionSharedStorageHost = {};
@@ -102,6 +102,33 @@ auction_worklet.mojom.AuctionSharedStorageHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+auction_worklet.mojom.AuctionSharedStorageHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sharedStorageUpdate(params.method_with_options, params.source_auction_worklet_function);
+          break;
+        }
+        case 1: {
+          const params = auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sharedStorageBatchUpdate(params.methods_with_options, params.with_lock, params.source_auction_worklet_function);
+          break;
+        }
+      }
+    });
+  }
+};
+
+auction_worklet.mojom.AuctionSharedStorageHostReceiver = auction_worklet.mojom.AuctionSharedStorageHostReceiver;
 
 auction_worklet.mojom.AuctionSharedStorageHostPtr = auction_worklet.mojom.AuctionSharedStorageHostRemote;
 auction_worklet.mojom.AuctionSharedStorageHostRequest = auction_worklet.mojom.AuctionSharedStorageHostPendingReceiver;

@@ -7,9 +7,8 @@
 // Module namespace
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
+var nearby_share = nearby_share || {};
+var mojo_base = mojo_base || {};
 
 sharing.mojom.TypeSpec = { $: mojo.internal.Enum() };
 sharing.mojom.TypeSpec = { $: mojo.internal.Enum() };

@@ -8,7 +8,7 @@
 var ash = ash || {};
 ash.borealis_installer = ash.borealis_installer || {};
 ash.borealis_installer.mojom = ash.borealis_installer.mojom || {};
-var ash = ash || {};
+var borealis = borealis || {};
 
 ash.borealis_installer.mojom.PageHandlerFactory = {};
 ash.borealis_installer.mojom.PageHandlerFactory.$interfaceName = 'ash.borealis_installer.mojom.PageHandlerFactory';
@@ -88,6 +88,28 @@ ash.borealis_installer.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.borealis_installer.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.borealis_installer.mojom.PageHandlerFactoryReceiver = ash.borealis_installer.mojom.PageHandlerFactoryReceiver;
 
 ash.borealis_installer.mojom.PageHandlerFactoryPtr = ash.borealis_installer.mojom.PageHandlerFactoryRemote;
 ash.borealis_installer.mojom.PageHandlerFactoryRequest = ash.borealis_installer.mojom.PageHandlerFactoryPendingReceiver;
@@ -228,6 +250,53 @@ ash.borealis_installer.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.borealis_installer.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.install();
+          break;
+        }
+        case 1: {
+          const params = ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shutDown();
+          break;
+        }
+        case 2: {
+          const params = ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launch();
+          break;
+        }
+        case 3: {
+          const params = ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelInstall();
+          break;
+        }
+        case 4: {
+          const params = ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPageClosed();
+          break;
+        }
+        case 5: {
+          const params = ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openStoragePage();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.borealis_installer.mojom.PageHandlerReceiver = ash.borealis_installer.mojom.PageHandlerReceiver;
+
 ash.borealis_installer.mojom.PageHandlerPtr = ash.borealis_installer.mojom.PageHandlerRemote;
 ash.borealis_installer.mojom.PageHandlerRequest = ash.borealis_installer.mojom.PageHandlerPendingReceiver;
 
@@ -324,6 +393,38 @@ ash.borealis_installer.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.borealis_installer.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProgressUpdate(params.progress_fraction, params.label);
+          break;
+        }
+        case 1: {
+          const params = ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onInstallFinished(params.error);
+          break;
+        }
+        case 2: {
+          const params = ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestClose();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.borealis_installer.mojom.PageReceiver = ash.borealis_installer.mojom.PageReceiver;
 
 ash.borealis_installer.mojom.PagePtr = ash.borealis_installer.mojom.PageRemote;
 ash.borealis_installer.mojom.PageRequest = ash.borealis_installer.mojom.PagePendingReceiver;

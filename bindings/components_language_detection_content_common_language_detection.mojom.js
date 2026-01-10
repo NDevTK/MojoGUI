@@ -7,6 +7,7 @@
 // Module namespace
 var language_detection = language_detection || {};
 language_detection.mojom = language_detection.mojom || {};
+var mojo_base = mojo_base || {};
 
 language_detection.mojom.LanguageDetectionModelStatusSpec = { $: mojo.internal.Enum() };
 language_detection.mojom.ContentLanguageDetectionDriver = {};
@@ -109,6 +110,47 @@ language_detection.mojom.ContentLanguageDetectionDriver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+language_detection.mojom.ContentLanguageDetectionDriverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLanguageDetectionModel();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLanguageDetectionModelStatus();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+language_detection.mojom.ContentLanguageDetectionDriverReceiver = language_detection.mojom.ContentLanguageDetectionDriverReceiver;
 
 language_detection.mojom.ContentLanguageDetectionDriverPtr = language_detection.mojom.ContentLanguageDetectionDriverRemote;
 language_detection.mojom.ContentLanguageDetectionDriverRequest = language_detection.mojom.ContentLanguageDetectionDriverPendingReceiver;

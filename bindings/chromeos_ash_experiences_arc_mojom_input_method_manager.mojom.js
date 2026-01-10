@@ -7,10 +7,7 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
+var mojo_base = mojo_base || {};
 
 arc.mojom.ImeInfoSpec = { $: {} };
 arc.mojom.TextInputStateSpec = { $: {} };
@@ -250,6 +247,70 @@ arc.mojom.InputConnection.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.InputConnectionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.InputConnection_CommitText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.commitText(params.text, params.new_cursor_pos);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.InputConnection_DeleteSurroundingText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteSurroundingText(params.before, params.after);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.InputConnection_FinishComposingText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.finishComposingText();
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.InputConnection_RequestTextInputState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestTextInputState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.InputConnection_RequestTextInputState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = arc.mojom.InputConnection_SetComposingText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setComposingText(params.text, params.new_cursor_pos, params.new_selection_range);
+          break;
+        }
+        case 5: {
+          const params = arc.mojom.InputConnection_SetSelection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSelection(params.new_selection_range);
+          break;
+        }
+        case 6: {
+          const params = arc.mojom.InputConnection_SendKeyEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendKeyEvent(params.key_event_data);
+          break;
+        }
+        case 7: {
+          const params = arc.mojom.InputConnection_SetCompositionRange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCompositionRange(params.new_range);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.InputConnectionReceiver = arc.mojom.InputConnectionReceiver;
+
 arc.mojom.InputConnectionPtr = arc.mojom.InputConnectionRemote;
 arc.mojom.InputConnectionRequest = arc.mojom.InputConnectionPendingReceiver;
 
@@ -346,6 +407,38 @@ arc.mojom.InputMethodManagerHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.InputMethodManagerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.InputMethodManagerHost_OnActiveImeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onActiveImeChanged(params.ime_id);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.InputMethodManagerHost_OnImeDisabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onImeDisabled(params.ime_id);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.InputMethodManagerHost_OnImeInfoChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onImeInfoChanged(params.ime_infos);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.InputMethodManagerHostReceiver = arc.mojom.InputMethodManagerHostReceiver;
 
 arc.mojom.InputMethodManagerHostPtr = arc.mojom.InputMethodManagerHostRemote;
 arc.mojom.InputMethodManagerHostRequest = arc.mojom.InputMethodManagerHostPendingReceiver;
@@ -524,6 +617,79 @@ arc.mojom.InputMethodManagerInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.InputMethodManagerInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.InputMethodManagerInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.InputMethodManagerInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableIme(params.ime_id, params.enable);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.InputMethodManagerInstance_EnableIme_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.InputMethodManagerInstance_SwitchImeTo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.switchImeTo(params.ime_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.InputMethodManagerInstance_SwitchImeTo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focus(params.connection, params.initial_state);
+          break;
+        }
+        case 4: {
+          const params = arc.mojom.InputMethodManagerInstance_UpdateTextInputState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateTextInputState(params.state);
+          break;
+        }
+        case 5: {
+          const params = arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showVirtualKeyboard();
+          break;
+        }
+        case 6: {
+          const params = arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hideVirtualKeyboard();
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.InputMethodManagerInstanceReceiver = arc.mojom.InputMethodManagerInstanceReceiver;
 
 arc.mojom.InputMethodManagerInstancePtr = arc.mojom.InputMethodManagerInstanceRemote;
 arc.mojom.InputMethodManagerInstanceRequest = arc.mojom.InputMethodManagerInstancePendingReceiver;

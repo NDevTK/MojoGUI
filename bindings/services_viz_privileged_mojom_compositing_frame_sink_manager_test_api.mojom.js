@@ -7,8 +7,6 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 viz.mojom.FrameSinkManagerTestApi = {};
@@ -151,6 +149,71 @@ viz.mojom.FrameSinkManagerTestApi.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.FrameSinkManagerTestApiReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasUnclaimedViewTransitionResources();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSameDocNavigationScreenshotSize(params.result_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getForceEnableZoomState(params.frame_sink_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.waitForSurfaceAnimationManager(params.frame_sink_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.FrameSinkManagerTestApiReceiver = viz.mojom.FrameSinkManagerTestApiReceiver;
 
 viz.mojom.FrameSinkManagerTestApiPtr = viz.mojom.FrameSinkManagerTestApiRemote;
 viz.mojom.FrameSinkManagerTestApiRequest = viz.mojom.FrameSinkManagerTestApiPendingReceiver;

@@ -8,8 +8,6 @@
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
 var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 ax.mojom.SyntheticMouseEventButtonSpec = { $: mojo.internal.Enum() };
@@ -125,6 +123,33 @@ ax.mojom.UserInput.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ax.mojom.UserInputReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendSyntheticKeyEventForShortcutOrNavigation(params.key_event);
+          break;
+        }
+        case 1: {
+          const params = ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendSyntheticMouseEvent(params.mouse_event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.mojom.UserInputReceiver = ax.mojom.UserInputReceiver;
 
 ax.mojom.UserInputPtr = ax.mojom.UserInputRemote;
 ax.mojom.UserInputRequest = ax.mojom.UserInputPendingReceiver;

@@ -7,6 +7,7 @@
 // Module namespace
 var guest_contents = guest_contents || {};
 guest_contents.mojom = guest_contents.mojom || {};
+var mojo_base = mojo_base || {};
 var blink = blink || {};
 
 guest_contents.mojom.GuestContentsHost = {};
@@ -81,6 +82,35 @@ guest_contents.mojom.GuestContentsHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+guest_contents.mojom.GuestContentsHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.attach(params.frame_to_swap, params.guest_contents_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+guest_contents.mojom.GuestContentsHostReceiver = guest_contents.mojom.GuestContentsHostReceiver;
 
 guest_contents.mojom.GuestContentsHostPtr = guest_contents.mojom.GuestContentsHostRemote;
 guest_contents.mojom.GuestContentsHostRequest = guest_contents.mojom.GuestContentsHostPendingReceiver;

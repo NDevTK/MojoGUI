@@ -7,7 +7,6 @@
 // Module namespace
 var content_settings = content_settings || {};
 content_settings.mojom = content_settings.mojom || {};
-var components = components || {};
 
 content_settings.mojom.ContentSettingsAgent = {};
 content_settings.mojom.ContentSettingsAgent.$interfaceName = 'content_settings.mojom.ContentSettingsAgent';
@@ -89,6 +88,33 @@ content_settings.mojom.ContentSettingsAgent.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content_settings.mojom.ContentSettingsAgentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAllowRunningInsecureContent();
+          break;
+        }
+        case 1: {
+          const params = content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendRendererContentSettingRules(params.renderer_settings);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content_settings.mojom.ContentSettingsAgentReceiver = content_settings.mojom.ContentSettingsAgentReceiver;
 
 content_settings.mojom.ContentSettingsAgentPtr = content_settings.mojom.ContentSettingsAgentRemote;
 content_settings.mojom.ContentSettingsAgentRequest = content_settings.mojom.ContentSettingsAgentPendingReceiver;

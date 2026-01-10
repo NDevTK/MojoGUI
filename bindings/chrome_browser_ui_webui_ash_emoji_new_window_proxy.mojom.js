@@ -74,6 +74,28 @@ new_window_proxy.mojom.NewWindowProxy.getRemote = function() {
   return remote.$;
 };
 
+new_window_proxy.mojom.NewWindowProxyReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openUrl(params.url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+new_window_proxy.mojom.NewWindowProxyReceiver = new_window_proxy.mojom.NewWindowProxyReceiver;
+
 new_window_proxy.mojom.NewWindowProxyPtr = new_window_proxy.mojom.NewWindowProxyRemote;
 new_window_proxy.mojom.NewWindowProxyRequest = new_window_proxy.mojom.NewWindowProxyPendingReceiver;
 

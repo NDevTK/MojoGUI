@@ -75,6 +75,28 @@ viz.mojom.GpuLogging.getRemote = function() {
   return remote.$;
 };
 
+viz.mojom.GpuLoggingReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordLogMessage(params.severity, params.header, params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.GpuLoggingReceiver = viz.mojom.GpuLoggingReceiver;
+
 viz.mojom.GpuLoggingPtr = viz.mojom.GpuLoggingRemote;
 viz.mojom.GpuLoggingRequest = viz.mojom.GpuLoggingPendingReceiver;
 

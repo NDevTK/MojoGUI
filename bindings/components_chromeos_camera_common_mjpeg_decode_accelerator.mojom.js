@@ -7,8 +7,8 @@
 // Module namespace
 var chromeos_camera = chromeos_camera || {};
 chromeos_camera.mojom = chromeos_camera.mojom || {};
-var components = components || {};
-var ui = ui || {};
+var media = media || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 chromeos_camera.mojom.DecodeErrorSpec = { $: mojo.internal.Enum() };
@@ -179,6 +179,64 @@ chromeos_camera.mojom.MjpegDecodeAccelerator.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decode(params.input_buffer, params.coded_size, params.output_handle, params.output_buffer_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decodeWithDmaBuf(params.task_id, params.src_dmabuf_fd, params.src_size, params.src_offset, params.dst_frame);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.uninitialize();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver;
 
 chromeos_camera.mojom.MjpegDecodeAcceleratorPtr = chromeos_camera.mojom.MjpegDecodeAcceleratorRemote;
 chromeos_camera.mojom.MjpegDecodeAcceleratorRequest = chromeos_camera.mojom.MjpegDecodeAcceleratorPendingReceiver;

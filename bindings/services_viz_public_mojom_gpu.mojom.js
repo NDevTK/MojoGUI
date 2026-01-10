@@ -7,10 +7,10 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var components = components || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var gpu = gpu || {};
+var chromeos_camera = chromeos_camera || {};
+var media = media || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 viz.mojom.Gpu = {};
@@ -121,6 +121,45 @@ viz.mojom.Gpu.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.GpuReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishGpuChannel();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.Gpu_CreateJpegDecodeAccelerator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createJpegDecodeAccelerator(params.jda);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createVideoEncodeAcceleratorProvider(params.vea_provider);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.GpuReceiver = viz.mojom.GpuReceiver;
 
 viz.mojom.GpuPtr = viz.mojom.GpuRemote;
 viz.mojom.GpuRequest = viz.mojom.GpuPendingReceiver;

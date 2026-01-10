@@ -8,7 +8,6 @@
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
 var blink = blink || {};
-var blink = blink || {};
 
 storage.mojom.FileSystemAccessContext = {};
 storage.mojom.FileSystemAccessContext.$interfaceName = 'storage.mojom.FileSystemAccessContext';
@@ -117,6 +116,45 @@ storage.mojom.FileSystemAccessContext.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.FileSystemAccessContextReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.serializeHandle(params.token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deserializeHandle(params.storage_key, params.bits, params.token);
+          break;
+        }
+        case 2: {
+          const params = storage.mojom.FileSystemAccessContext_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.receiever);
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.FileSystemAccessContextReceiver = storage.mojom.FileSystemAccessContextReceiver;
 
 storage.mojom.FileSystemAccessContextPtr = storage.mojom.FileSystemAccessContextRemote;
 storage.mojom.FileSystemAccessContextRequest = storage.mojom.FileSystemAccessContextPendingReceiver;

@@ -8,7 +8,6 @@
 var side_panel = side_panel || {};
 side_panel.mojom = side_panel.mojom || {};
 var ui = ui || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 side_panel.mojom.ActionSourceSpec = { $: mojo.internal.Enum() };
@@ -156,6 +155,28 @@ side_panel.mojom.BookmarksPageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+side_panel.mojom.BookmarksPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createBookmarksPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+side_panel.mojom.BookmarksPageHandlerFactoryReceiver = side_panel.mojom.BookmarksPageHandlerFactoryReceiver;
 
 side_panel.mojom.BookmarksPageHandlerFactoryPtr = side_panel.mojom.BookmarksPageHandlerFactoryRemote;
 side_panel.mojom.BookmarksPageHandlerFactoryRequest = side_panel.mojom.BookmarksPageHandlerFactoryPendingReceiver;
@@ -611,6 +632,166 @@ side_panel.mojom.BookmarksPageHandler.getRemote = function() {
   return remote.$;
 };
 
+side_panel.mojom.BookmarksPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bookmarkCurrentTabInFolder(params.folder_id);
+          break;
+        }
+        case 1: {
+          const params = side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createFolder(params.folder_id, params.title);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dropBookmarks(params.folder_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_DropBookmarks_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeEditCommand(params.node_ids, params.source);
+          break;
+        }
+        case 4: {
+          const params = side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeMoveCommand(params.node_ids, params.source);
+          break;
+        }
+        case 5: {
+          const params = side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeOpenInNewTabCommand(params.side_panel_ids, params.source);
+          break;
+        }
+        case 6: {
+          const params = side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeOpenInNewWindowCommand(params.side_panel_ids, params.source);
+          break;
+        }
+        case 7: {
+          const params = side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeOpenInIncognitoWindowCommand(params.side_panel_ids, params.source);
+          break;
+        }
+        case 8: {
+          const params = side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeOpenInNewTabGroupCommand(params.side_panel_ids, params.source);
+          break;
+        }
+        case 9: {
+          const params = side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeOpenInSplitViewCommand(params.node_ids, params.source);
+          break;
+        }
+        case 10: {
+          const params = side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeAddToBookmarksBarCommand(params.node_id, params.source);
+          break;
+        }
+        case 11: {
+          const params = side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeRemoveFromBookmarksBarCommand(params.node_id, params.source);
+          break;
+        }
+        case 12: {
+          const params = side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeDeleteCommand(params.node_ids, params.source);
+          break;
+        }
+        case 13: {
+          const params = side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openBookmark(params.node_id, params.parent_folder_depth, params.click_modifiers, params.source);
+          break;
+        }
+        case 14: {
+          const params = side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.undo();
+          break;
+        }
+        case 15: {
+          const params = side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.renameBookmark(params.node_id, params.new_title);
+          break;
+        }
+        case 16: {
+          const params = side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.moveBookmark(params.node_id, params.folder_id);
+          break;
+        }
+        case 17: {
+          const params = side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeBookmarks(params.node_ids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 18: {
+          const params = side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSortOrder(params.sort_order);
+          break;
+        }
+        case 19: {
+          const params = side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setViewType(params.view_type);
+          break;
+        }
+        case 20: {
+          const params = side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showContextMenu(params.id, params.point, params.source);
+          break;
+        }
+        case 21: {
+          const params = side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showUI();
+          break;
+        }
+        case 22: {
+          const params = side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllBookmarks();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+side_panel.mojom.BookmarksPageHandlerReceiver = side_panel.mojom.BookmarksPageHandlerReceiver;
+
 side_panel.mojom.BookmarksPageHandlerPtr = side_panel.mojom.BookmarksPageHandlerRemote;
 side_panel.mojom.BookmarksPageHandlerRequest = side_panel.mojom.BookmarksPageHandlerPendingReceiver;
 
@@ -745,6 +926,48 @@ side_panel.mojom.BookmarksPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+side_panel.mojom.BookmarksPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBookmarkNodeAdded(params.node);
+          break;
+        }
+        case 1: {
+          const params = side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBookmarkNodesRemoved(params.node_ids);
+          break;
+        }
+        case 2: {
+          const params = side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBookmarkParentFolderChildrenReordered(params.folder_id, params.children_ordered_ids);
+          break;
+        }
+        case 3: {
+          const params = side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBookmarkNodeMoved(params.old_parent_index, params.old_node_index, params.new_parent_index, params.new_node_index);
+          break;
+        }
+        case 4: {
+          const params = side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBookmarkNodeChanged(params.id, params.new_title, params.new_url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+side_panel.mojom.BookmarksPageReceiver = side_panel.mojom.BookmarksPageReceiver;
 
 side_panel.mojom.BookmarksPagePtr = side_panel.mojom.BookmarksPageRemote;
 side_panel.mojom.BookmarksPageRequest = side_panel.mojom.BookmarksPagePendingReceiver;

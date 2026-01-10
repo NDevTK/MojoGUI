@@ -185,6 +185,52 @@ blink.mojom.OneShotBackgroundSyncService.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.OneShotBackgroundSyncServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.register(params.options, params.service_worker_registration_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didResolveRegistration(params.registration_info);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRegistrations(params.service_worker_registration_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.OneShotBackgroundSyncServiceReceiver = blink.mojom.OneShotBackgroundSyncServiceReceiver;
+
 blink.mojom.OneShotBackgroundSyncServicePtr = blink.mojom.OneShotBackgroundSyncServiceRemote;
 blink.mojom.OneShotBackgroundSyncServiceRequest = blink.mojom.OneShotBackgroundSyncServicePendingReceiver;
 
@@ -303,6 +349,59 @@ blink.mojom.PeriodicBackgroundSyncService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.PeriodicBackgroundSyncServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.register(params.options, params.service_worker_registration_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unregister(params.service_worker_registration_id, params.tag);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRegistrations(params.service_worker_registration_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PeriodicBackgroundSyncServiceReceiver = blink.mojom.PeriodicBackgroundSyncServiceReceiver;
 
 blink.mojom.PeriodicBackgroundSyncServicePtr = blink.mojom.PeriodicBackgroundSyncServiceRemote;
 blink.mojom.PeriodicBackgroundSyncServiceRequest = blink.mojom.PeriodicBackgroundSyncServicePendingReceiver;

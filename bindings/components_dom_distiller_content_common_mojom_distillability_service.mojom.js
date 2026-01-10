@@ -76,6 +76,28 @@ dom_distiller.mojom.DistillabilityService.getRemote = function() {
   return remote.$;
 };
 
+dom_distiller.mojom.DistillabilityServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyIsDistillable(params.page_is_distillable, params.is_last_update, params.is_long_article, params.is_mobile_friendly);
+          break;
+        }
+      }
+    });
+  }
+};
+
+dom_distiller.mojom.DistillabilityServiceReceiver = dom_distiller.mojom.DistillabilityServiceReceiver;
+
 dom_distiller.mojom.DistillabilityServicePtr = dom_distiller.mojom.DistillabilityServiceRemote;
 dom_distiller.mojom.DistillabilityServiceRequest = dom_distiller.mojom.DistillabilityServicePendingReceiver;
 

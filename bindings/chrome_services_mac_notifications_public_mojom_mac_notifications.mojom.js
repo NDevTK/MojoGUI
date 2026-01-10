@@ -7,7 +7,8 @@
 // Module namespace
 var mac_notifications = mac_notifications || {};
 mac_notifications.mojom = mac_notifications.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -271,6 +272,67 @@ mac_notifications.mojom.MacNotificationService.getRemote = function() {
   return remote.$;
 };
 
+mac_notifications.mojom.MacNotificationServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.displayNotification(params.notification);
+          break;
+        }
+        case 1: {
+          const params = mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDisplayedNotifications(params.profile, params.origin);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeNotification(params.identifier);
+          break;
+        }
+        case 3: {
+          const params = mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeNotificationsForProfile(params.profile);
+          break;
+        }
+        case 4: {
+          const params = mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeAllNotifications();
+          break;
+        }
+        case 5: {
+          const params = mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.okayToTerminateService();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+mac_notifications.mojom.MacNotificationServiceReceiver = mac_notifications.mojom.MacNotificationServiceReceiver;
+
 mac_notifications.mojom.MacNotificationServicePtr = mac_notifications.mojom.MacNotificationServiceRemote;
 mac_notifications.mojom.MacNotificationServiceRequest = mac_notifications.mojom.MacNotificationServicePendingReceiver;
 
@@ -335,6 +397,28 @@ mac_notifications.mojom.MacNotificationActionHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+mac_notifications.mojom.MacNotificationActionHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNotificationAction(params.info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mac_notifications.mojom.MacNotificationActionHandlerReceiver = mac_notifications.mojom.MacNotificationActionHandlerReceiver;
 
 mac_notifications.mojom.MacNotificationActionHandlerPtr = mac_notifications.mojom.MacNotificationActionHandlerRemote;
 mac_notifications.mojom.MacNotificationActionHandlerRequest = mac_notifications.mojom.MacNotificationActionHandlerPendingReceiver;
@@ -401,6 +485,28 @@ mac_notifications.mojom.MacNotificationProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+mac_notifications.mojom.MacNotificationProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindNotificationService(params.service, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mac_notifications.mojom.MacNotificationProviderReceiver = mac_notifications.mojom.MacNotificationProviderReceiver;
 
 mac_notifications.mojom.MacNotificationProviderPtr = mac_notifications.mojom.MacNotificationProviderRemote;
 mac_notifications.mojom.MacNotificationProviderRequest = mac_notifications.mojom.MacNotificationProviderPendingReceiver;

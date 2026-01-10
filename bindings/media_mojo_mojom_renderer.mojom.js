@@ -7,11 +7,9 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var services = services || {};
-var services = services || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var gfx = gfx || {};
-var url = url || {};
 var url = url || {};
 
 media.mojom.Renderer = {};
@@ -42,7 +40,7 @@ media.mojom.RendererClient_OnWaiting_ParamsSpec = { $: {} };
 // Interface: Renderer
 mojo.internal.Struct(
     media.mojom.Renderer_Initialize_ParamsSpec, 'media.mojom.Renderer_Initialize_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.RendererClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('streams', 8, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(media.mojom.DemuxerStreamRemote), false), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -212,6 +210,79 @@ media.mojom.Renderer.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.RendererReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.Renderer_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.client, params.streams);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.Renderer_Initialize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.Renderer_Flush_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flush();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.Renderer_Flush_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = media.mojom.Renderer_StartPlayingFrom_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startPlayingFrom(params.time);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.Renderer_SetPlaybackRate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPlaybackRate(params.playback_rate);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.Renderer_SetVolume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVolume(params.volume);
+          break;
+        }
+        case 5: {
+          const params = media.mojom.Renderer_SetCdm_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCdm(params.cdm_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.Renderer_SetCdm_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = media.mojom.Renderer_SetLatencyHint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLatencyHint(params.latency_hint);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.RendererReceiver = media.mojom.RendererReceiver;
 
 media.mojom.RendererPtr = media.mojom.RendererRemote;
 media.mojom.RendererRequest = media.mojom.RendererPendingReceiver;
@@ -423,6 +494,73 @@ media.mojom.RendererClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.RendererClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.RendererClient_OnTimeUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTimeUpdate(params.time, params.max_time, params.capture_time);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBufferingStateChange(params.state, params.reason);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.RendererClient_OnEnded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEnded();
+          break;
+        }
+        case 3: {
+          const params = media.mojom.RendererClient_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.status);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAudioConfigChange(params.config);
+          break;
+        }
+        case 5: {
+          const params = media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVideoConfigChange(params.config);
+          break;
+        }
+        case 6: {
+          const params = media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVideoNaturalSizeChange(params.size);
+          break;
+        }
+        case 7: {
+          const params = media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVideoOpacityChange(params.opaque);
+          break;
+        }
+        case 8: {
+          const params = media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStatisticsUpdate(params.stats);
+          break;
+        }
+        case 9: {
+          const params = media.mojom.RendererClient_OnWaiting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWaiting(params.reason);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.RendererClientReceiver = media.mojom.RendererClientReceiver;
 
 media.mojom.RendererClientPtr = media.mojom.RendererClientRemote;
 media.mojom.RendererClientRequest = media.mojom.RendererClientPendingReceiver;

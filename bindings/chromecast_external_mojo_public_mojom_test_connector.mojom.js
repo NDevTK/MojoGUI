@@ -76,6 +76,28 @@ chromecast.external_mojo.mojom.TestExternalConnector.getRemote = function() {
   return remote.$;
 };
 
+chromecast.external_mojo.mojom.TestExternalConnectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindInterfaceInternal(params.service_name, params.interface_name, params.interface_pipe);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.external_mojo.mojom.TestExternalConnectorReceiver = chromecast.external_mojo.mojom.TestExternalConnectorReceiver;
+
 chromecast.external_mojo.mojom.TestExternalConnectorPtr = chromecast.external_mojo.mojom.TestExternalConnectorRemote;
 chromecast.external_mojo.mojom.TestExternalConnectorRequest = chromecast.external_mojo.mojom.TestExternalConnectorPendingReceiver;
 

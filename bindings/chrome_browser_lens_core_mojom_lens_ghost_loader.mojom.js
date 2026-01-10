@@ -76,6 +76,28 @@ lens.mojom.LensGhostLoaderPageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+lens.mojom.LensGhostLoaderPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createGhostLoaderPage(params.page);
+          break;
+        }
+      }
+    });
+  }
+};
+
+lens.mojom.LensGhostLoaderPageHandlerFactoryReceiver = lens.mojom.LensGhostLoaderPageHandlerFactoryReceiver;
+
 lens.mojom.LensGhostLoaderPageHandlerFactoryPtr = lens.mojom.LensGhostLoaderPageHandlerFactoryRemote;
 lens.mojom.LensGhostLoaderPageHandlerFactoryRequest = lens.mojom.LensGhostLoaderPageHandlerFactoryPendingReceiver;
 
@@ -139,6 +161,28 @@ lens.mojom.LensGhostLoaderPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+lens.mojom.LensGhostLoaderPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showErrorState();
+          break;
+        }
+      }
+    });
+  }
+};
+
+lens.mojom.LensGhostLoaderPageReceiver = lens.mojom.LensGhostLoaderPageReceiver;
 
 lens.mojom.LensGhostLoaderPagePtr = lens.mojom.LensGhostLoaderPageRemote;
 lens.mojom.LensGhostLoaderPageRequest = lens.mojom.LensGhostLoaderPagePendingReceiver;

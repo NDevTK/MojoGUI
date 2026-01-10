@@ -7,7 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 network.mojom.NetworkContextClient = {};
@@ -200,6 +200,88 @@ network.mojom.NetworkContextClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.NetworkContextClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFileUploadRequested(params.process_id, params.async, params.file_paths, params.destination_url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCanSendReportingReports(params.origins);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCanSendDomainReliabilityUpload(params.origin);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onGenerateHttpNegotiateAuthToken(params.server_auth_token, params.can_delegate, params.auth_negotiate_android_account_type, params.spn);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCanSendSCTAuditingReport();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewSCTAuditingReportSent();
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.NetworkContextClientReceiver = network.mojom.NetworkContextClientReceiver;
 
 network.mojom.NetworkContextClientPtr = network.mojom.NetworkContextClientRemote;
 network.mojom.NetworkContextClientRequest = network.mojom.NetworkContextClientPendingReceiver;

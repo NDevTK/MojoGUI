@@ -7,7 +7,8 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var printing = printing || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -499,6 +500,33 @@ crosapi.mojom.PrintServerObserver.getRemote = function() {
   return remote.$;
 };
 
+crosapi.mojom.PrintServerObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.PrintServerObserver_OnPrintServersChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPrintServersChanged(params.config);
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.PrintServerObserver_OnServerPrintersChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onServerPrintersChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.PrintServerObserverReceiver = crosapi.mojom.PrintServerObserverReceiver;
+
 crosapi.mojom.PrintServerObserverPtr = crosapi.mojom.PrintServerObserverRemote;
 crosapi.mojom.PrintServerObserverRequest = crosapi.mojom.PrintServerObserverPendingReceiver;
 
@@ -584,6 +612,33 @@ crosapi.mojom.PrintJobObserver.getRemote = function() {
   return remote.$;
 };
 
+crosapi.mojom.PrintJobObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.PrintJobObserver_OnPrintJobUpdateDeprecated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPrintJobUpdateDeprecated(params.printer_id, params.job_id, params.status);
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.PrintJobObserver_OnPrintJobUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPrintJobUpdate(params.printer_id, params.job_id, params.update);
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.PrintJobObserverReceiver = crosapi.mojom.PrintJobObserverReceiver;
+
 crosapi.mojom.PrintJobObserverPtr = crosapi.mojom.PrintJobObserverRemote;
 crosapi.mojom.PrintJobObserverRequest = crosapi.mojom.PrintJobObserverPendingReceiver;
 
@@ -648,6 +703,28 @@ crosapi.mojom.LocalPrintersObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.LocalPrintersObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLocalPrintersUpdated(params.printers);
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.LocalPrintersObserverReceiver = crosapi.mojom.LocalPrintersObserverReceiver;
 
 crosapi.mojom.LocalPrintersObserverPtr = crosapi.mojom.LocalPrintersObserverRemote;
 crosapi.mojom.LocalPrintersObserverRequest = crosapi.mojom.LocalPrintersObserverPendingReceiver;
@@ -1062,6 +1139,227 @@ crosapi.mojom.LocalPrinter.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.LocalPrinterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.LocalPrinter_GetPrinters_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPrinters();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetPrinters_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.LocalPrinter_GetCapability_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCapability(params.printer_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetCapability_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEulaUrl(params.printer_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = crosapi.mojom.LocalPrinter_GetStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getStatus(params.printer_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showSystemPrintSettings();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = crosapi.mojom.LocalPrinter_CreatePrintJob_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPrintJob(params.job);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_CreatePrintJob_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = crosapi.mojom.LocalPrinter_CancelPrintJob_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelPrintJob(params.printer_id, params.job_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_CancelPrintJob_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = crosapi.mojom.LocalPrinter_GetPrintServersConfig_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPrintServersConfig();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = crosapi.mojom.LocalPrinter_ChoosePrintServers_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.choosePrintServers(params.print_server_ids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_ChoosePrintServers_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = crosapi.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addPrintServerObserver(params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_AddPrintServerObserver_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPolicies();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUsernamePerPolicy();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPrinterTypeDenyList();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addPrintJobObserver(params.observer, params.source);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOAuthAccessToken(params.printer_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getIppClientInfo(params.printer_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addLocalPrintersObserver(params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.LocalPrinterReceiver = crosapi.mojom.LocalPrinterReceiver;
 
 crosapi.mojom.LocalPrinterPtr = crosapi.mojom.LocalPrinterRemote;
 crosapi.mojom.LocalPrinterRequest = crosapi.mojom.LocalPrinterPendingReceiver;

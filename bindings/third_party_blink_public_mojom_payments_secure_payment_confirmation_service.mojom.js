@@ -149,6 +149,59 @@ payments.mojom.SecurePaymentConfirmationService.getRemote = function() {
   return remote.$;
 };
 
+payments.mojom.SecurePaymentConfirmationServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.securePaymentConfirmationAvailability();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.storePaymentCredential(params.credential_id, params.rp_id, params.user_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.makePaymentCredential(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+payments.mojom.SecurePaymentConfirmationServiceReceiver = payments.mojom.SecurePaymentConfirmationServiceReceiver;
+
 payments.mojom.SecurePaymentConfirmationServicePtr = payments.mojom.SecurePaymentConfirmationServiceRemote;
 payments.mojom.SecurePaymentConfirmationServiceRequest = payments.mojom.SecurePaymentConfirmationServicePendingReceiver;
 

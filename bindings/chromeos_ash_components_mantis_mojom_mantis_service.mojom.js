@@ -7,11 +7,8 @@
 // Module namespace
 var mantis = mantis || {};
 mantis.mojom = mantis.mojom || {};
-var ash = ash || {};
 var chromeos = chromeos || {};
-var components = components || {};
-var chromeos = chromeos || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 mantis.mojom.MantisFeatureStatusSpec = { $: mojo.internal.Enum() };
 mantis.mojom.InitializeResultSpec = { $: mojo.internal.Enum() };
@@ -100,6 +97,28 @@ mantis.mojom.PlatformModelProgressObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+mantis.mojom.PlatformModelProgressObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.progress(params.progress);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mantis.mojom.PlatformModelProgressObserverReceiver = mantis.mojom.PlatformModelProgressObserverReceiver;
 
 mantis.mojom.PlatformModelProgressObserverPtr = mantis.mojom.PlatformModelProgressObserverRemote;
 mantis.mojom.PlatformModelProgressObserverRequest = mantis.mojom.PlatformModelProgressObserverPendingReceiver;
@@ -195,6 +214,47 @@ mantis.mojom.MantisService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+mantis.mojom.MantisServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMantisFeatureStatus();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 0: {
+          const params = mantis.mojom.MantisService_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.progress_observer, params.processor, params.dlc_uuid, params.text_classifier);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mantis.mojom.MantisService_Initialize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+mantis.mojom.MantisServiceReceiver = mantis.mojom.MantisServiceReceiver;
 
 mantis.mojom.MantisServicePtr = mantis.mojom.MantisServiceRemote;
 mantis.mojom.MantisServiceRequest = mantis.mojom.MantisServicePendingReceiver;

@@ -7,21 +7,6 @@
 // Module namespace
 var wl = wl || {};
 wl.mojom = wl.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
 var gfx = gfx || {};
 var skia = skia || {};
 

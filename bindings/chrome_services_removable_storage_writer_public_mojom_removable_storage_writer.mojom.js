@@ -7,6 +7,8 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 chrome.mojom.RemovableStorageWriter = {};
 chrome.mojom.RemovableStorageWriter.$interfaceName = 'chrome.mojom.RemovableStorageWriter';
@@ -110,6 +112,33 @@ chrome.mojom.RemovableStorageWriter.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.RemovableStorageWriterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.write(params.source, params.target, params.client);
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.verify(params.source, params.target, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.RemovableStorageWriterReceiver = chrome.mojom.RemovableStorageWriterReceiver;
+
 chrome.mojom.RemovableStorageWriterPtr = chrome.mojom.RemovableStorageWriterRemote;
 chrome.mojom.RemovableStorageWriterRequest = chrome.mojom.RemovableStorageWriterPendingReceiver;
 
@@ -190,6 +219,33 @@ chrome.mojom.RemovableStorageWriterClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.RemovableStorageWriterClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.progress(params.progress);
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.complete(params.error);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.RemovableStorageWriterClientReceiver = chrome.mojom.RemovableStorageWriterClientReceiver;
 
 chrome.mojom.RemovableStorageWriterClientPtr = chrome.mojom.RemovableStorageWriterClientRemote;
 chrome.mojom.RemovableStorageWriterClientRequest = chrome.mojom.RemovableStorageWriterClientPendingReceiver;

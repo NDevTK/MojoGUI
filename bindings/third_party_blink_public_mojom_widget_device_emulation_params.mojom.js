@@ -7,10 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var ui = ui || {};
 var gfx = gfx || {};
-var ui = ui || {};
+var display = display || {};
 
 blink.mojom.EmulatedScreenTypeSpec = { $: mojo.internal.Enum() };
 blink.mojom.DeviceEmulationParamsSpec = { $: {} };

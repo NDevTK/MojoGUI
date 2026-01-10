@@ -7,7 +7,8 @@
 // Module namespace
 var on_device_model = on_device_model || {};
 on_device_model.mojom = on_device_model.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 on_device_model.mojom.ModelBackendTypeSpec = { $: mojo.internal.Enum() };
 on_device_model.mojom.ModelPerformanceHintSpec = { $: mojo.internal.Enum() };
@@ -236,6 +237,28 @@ on_device_model.mojom.PlatformModelProgressObserver.getRemote = function() {
   return remote.$;
 };
 
+on_device_model.mojom.PlatformModelProgressObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.progress(params.progress);
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_model.mojom.PlatformModelProgressObserverReceiver = on_device_model.mojom.PlatformModelProgressObserverReceiver;
+
 on_device_model.mojom.PlatformModelProgressObserverPtr = on_device_model.mojom.PlatformModelProgressObserverRemote;
 on_device_model.mojom.PlatformModelProgressObserverRequest = on_device_model.mojom.PlatformModelProgressObserverPendingReceiver;
 
@@ -368,6 +391,64 @@ on_device_model.mojom.OnDeviceModelService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+on_device_model.mojom.OnDeviceModelServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadModel(params.params, params.model);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCapabilities(params.weights);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadTextSafetyModel(params.params, params.model);
+          break;
+        }
+        case 3: {
+          const params = on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceAndPerformanceInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_model.mojom.OnDeviceModelServiceReceiver = on_device_model.mojom.OnDeviceModelServiceReceiver;
 
 on_device_model.mojom.OnDeviceModelServicePtr = on_device_model.mojom.OnDeviceModelServiceRemote;
 on_device_model.mojom.OnDeviceModelServiceRequest = on_device_model.mojom.OnDeviceModelServicePendingReceiver;
@@ -532,6 +613,83 @@ on_device_model.mojom.OnDeviceModelPlatformService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadPlatformModel(params.uuid, params.model, params.progress_observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPlatformModelState(params.uuid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEstimatedPerformanceClass();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.formatInput(params.uuid, params.feature, params.fields);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.validateSafetyResult(params.safety_feature, params.text, params.safety_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_model.mojom.OnDeviceModelPlatformServiceReceiver = on_device_model.mojom.OnDeviceModelPlatformServiceReceiver;
 
 on_device_model.mojom.OnDeviceModelPlatformServicePtr = on_device_model.mojom.OnDeviceModelPlatformServiceRemote;
 on_device_model.mojom.OnDeviceModelPlatformServiceRequest = on_device_model.mojom.OnDeviceModelPlatformServicePendingReceiver;

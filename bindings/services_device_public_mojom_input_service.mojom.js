@@ -132,6 +132,33 @@ device.mojom.InputDeviceManagerClient.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.InputDeviceManagerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.inputDeviceAdded(params.device_info);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.inputDeviceRemoved(params.id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.InputDeviceManagerClientReceiver = device.mojom.InputDeviceManagerClientReceiver;
+
 device.mojom.InputDeviceManagerClientPtr = device.mojom.InputDeviceManagerClientRemote;
 device.mojom.InputDeviceManagerClientRequest = device.mojom.InputDeviceManagerClientPendingReceiver;
 
@@ -139,7 +166,7 @@ device.mojom.InputDeviceManagerClientRequest = device.mojom.InputDeviceManagerCl
 // Interface: InputDeviceManager
 mojo.internal.Struct(
     device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec, 'device.mojom.InputDeviceManager_GetDevicesAndSetClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(device.mojom.InputDeviceManagerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -223,6 +250,47 @@ device.mojom.InputDeviceManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.InputDeviceManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDevicesAndSetClient(params.client);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.InputDeviceManager_GetDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDevices();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.InputDeviceManagerReceiver = device.mojom.InputDeviceManagerReceiver;
 
 device.mojom.InputDeviceManagerPtr = device.mojom.InputDeviceManagerRemote;
 device.mojom.InputDeviceManagerRequest = device.mojom.InputDeviceManagerPendingReceiver;

@@ -7,8 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
 
 blink.mojom.CanCreateTranslatorResultSpec = { $: mojo.internal.Enum() };
 blink.mojom.CreateTranslatorErrorSpec = { $: mojo.internal.Enum() };
@@ -146,6 +144,28 @@ blink.mojom.TranslationManagerCreateTranslatorClient.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.TranslationManagerCreateTranslatorClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResult(params.result, params.source_lang, params.target_lang);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.TranslationManagerCreateTranslatorClientReceiver = blink.mojom.TranslationManagerCreateTranslatorClientReceiver;
+
 blink.mojom.TranslationManagerCreateTranslatorClientPtr = blink.mojom.TranslationManagerCreateTranslatorClientRemote;
 blink.mojom.TranslationManagerCreateTranslatorClientRequest = blink.mojom.TranslationManagerCreateTranslatorClientPendingReceiver;
 
@@ -234,6 +254,40 @@ blink.mojom.TranslationManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.TranslationManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.TranslationManager_CreateTranslator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createTranslator(params.client, params.options);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.translationAvailable(params.source_lang, params.target_lang);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.TranslationManagerReceiver = blink.mojom.TranslationManagerReceiver;
 
 blink.mojom.TranslationManagerPtr = blink.mojom.TranslationManagerRemote;
 blink.mojom.TranslationManagerRequest = blink.mojom.TranslationManagerPendingReceiver;

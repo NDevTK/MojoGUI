@@ -105,6 +105,38 @@ chrome.mojom.NetErrorPageSupport.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.NetErrorPageSupportReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.downloadPageLater();
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsShowingDownloadButtonInErrorPage(params.showing_download_button);
+          break;
+        }
+        case 2: {
+          const params = chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showPortalSignin();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.NetErrorPageSupportReceiver = chrome.mojom.NetErrorPageSupportReceiver;
+
 chrome.mojom.NetErrorPageSupportPtr = chrome.mojom.NetErrorPageSupportRemote;
 chrome.mojom.NetErrorPageSupportRequest = chrome.mojom.NetErrorPageSupportPendingReceiver;
 

@@ -8,10 +8,7 @@
 var screen_ai = screen_ai || {};
 screen_ai.mojom = screen_ai.mojom || {};
 var skia = skia || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
+var ax = ax || {};
 var gfx = gfx || {};
 
 screen_ai.mojom.DirectionSpec = { $: mojo.internal.Enum() };
@@ -272,6 +269,81 @@ screen_ai.mojom.ScreenAIAnnotator.getRemote = function() {
   return remote.$;
 };
 
+screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.performOcrAndReturnAXTreeUpdate(params.image);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.performOcrAndReturnAnnotation(params.image);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setClientType(params.client_type);
+          break;
+        }
+        case 3: {
+          const params = screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMaxImageDimension();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOCRLightMode(params.enabled);
+          break;
+        }
+        case 5: {
+          const params = screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isOCRBusy();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+screen_ai.mojom.ScreenAIAnnotatorReceiver = screen_ai.mojom.ScreenAIAnnotatorReceiver;
+
 screen_ai.mojom.ScreenAIAnnotatorPtr = screen_ai.mojom.ScreenAIAnnotatorRemote;
 screen_ai.mojom.ScreenAIAnnotatorRequest = screen_ai.mojom.ScreenAIAnnotatorPendingReceiver;
 
@@ -404,6 +476,64 @@ screen_ai.mojom.Screen2xMainContentExtractor.getRemote = function() {
   return remote.$;
 };
 
+screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.extractMainContent(params.snapshot);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.extractMainNode(params.snapshot);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.identifyMainNode(params.ax_tree);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setClientType(params.client_type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+screen_ai.mojom.Screen2xMainContentExtractorReceiver = screen_ai.mojom.Screen2xMainContentExtractorReceiver;
+
 screen_ai.mojom.Screen2xMainContentExtractorPtr = screen_ai.mojom.Screen2xMainContentExtractorRemote;
 screen_ai.mojom.Screen2xMainContentExtractorRequest = screen_ai.mojom.Screen2xMainContentExtractorPendingReceiver;
 
@@ -469,6 +599,28 @@ screen_ai.mojom.OCRService.getRemote = function() {
   return remote.$;
 };
 
+screen_ai.mojom.OCRServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindAnnotator(params.annotator);
+          break;
+        }
+      }
+    });
+  }
+};
+
+screen_ai.mojom.OCRServiceReceiver = screen_ai.mojom.OCRServiceReceiver;
+
 screen_ai.mojom.OCRServicePtr = screen_ai.mojom.OCRServiceRemote;
 screen_ai.mojom.OCRServiceRequest = screen_ai.mojom.OCRServicePendingReceiver;
 
@@ -533,6 +685,28 @@ screen_ai.mojom.MainContentExtractionService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+screen_ai.mojom.MainContentExtractionServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindMainContentExtractor(params.main_content_extractor);
+          break;
+        }
+      }
+    });
+  }
+};
+
+screen_ai.mojom.MainContentExtractionServiceReceiver = screen_ai.mojom.MainContentExtractionServiceReceiver;
 
 screen_ai.mojom.MainContentExtractionServicePtr = screen_ai.mojom.MainContentExtractionServiceRemote;
 screen_ai.mojom.MainContentExtractionServiceRequest = screen_ai.mojom.MainContentExtractionServicePendingReceiver;

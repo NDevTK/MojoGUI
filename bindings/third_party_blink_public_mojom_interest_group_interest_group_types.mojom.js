@@ -7,8 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 blink.mojom.ExecutionModeSpec = { $: mojo.internal.Enum() };

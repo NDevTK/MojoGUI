@@ -72,6 +72,28 @@ mojom.ModuleEventSink.getRemote = function() {
   return remote.$;
 };
 
+mojom.ModuleEventSinkReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mojom.ModuleEventSink_OnModuleEvents_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onModuleEvents(params.module_load_addresses);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mojom.ModuleEventSinkReceiver = mojom.ModuleEventSinkReceiver;
+
 mojom.ModuleEventSinkPtr = mojom.ModuleEventSinkRemote;
 mojom.ModuleEventSinkRequest = mojom.ModuleEventSinkPendingReceiver;
 

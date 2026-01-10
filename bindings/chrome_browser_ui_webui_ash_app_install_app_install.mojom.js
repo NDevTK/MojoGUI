@@ -8,7 +8,6 @@
 var ash = ash || {};
 ash.app_install = ash.app_install || {};
 ash.app_install.mojom = ash.app_install.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -169,6 +168,40 @@ ash.app_install.mojom.AppInfoActions.getRemote = function() {
   return remote.$;
 };
 
+ash.app_install.mojom.AppInfoActionsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installApp();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launchApp();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.app_install.mojom.AppInfoActionsReceiver = ash.app_install.mojom.AppInfoActionsReceiver;
+
 ash.app_install.mojom.AppInfoActionsPtr = ash.app_install.mojom.AppInfoActionsRemote;
 ash.app_install.mojom.AppInfoActionsRequest = ash.app_install.mojom.AppInfoActionsPendingReceiver;
 
@@ -232,6 +265,28 @@ ash.app_install.mojom.ConnectionErrorActions.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.app_install.mojom.ConnectionErrorActionsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tryAgain();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.app_install.mojom.ConnectionErrorActionsReceiver = ash.app_install.mojom.ConnectionErrorActionsReceiver;
 
 ash.app_install.mojom.ConnectionErrorActionsPtr = ash.app_install.mojom.ConnectionErrorActionsRemote;
 ash.app_install.mojom.ConnectionErrorActionsRequest = ash.app_install.mojom.ConnectionErrorActionsPendingReceiver;
@@ -297,6 +352,28 @@ ash.app_install.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.app_install.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.app_install.mojom.PageHandlerFactoryReceiver = ash.app_install.mojom.PageHandlerFactoryReceiver;
 
 ash.app_install.mojom.PageHandlerFactoryPtr = ash.app_install.mojom.PageHandlerFactoryRemote;
 ash.app_install.mojom.PageHandlerFactoryRequest = ash.app_install.mojom.PageHandlerFactoryPendingReceiver;
@@ -382,6 +459,40 @@ ash.app_install.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.app_install.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDialogArgs();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeDialog();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.app_install.mojom.PageHandlerReceiver = ash.app_install.mojom.PageHandlerReceiver;
 
 ash.app_install.mojom.PageHandlerPtr = ash.app_install.mojom.PageHandlerRemote;
 ash.app_install.mojom.PageHandlerRequest = ash.app_install.mojom.PageHandlerPendingReceiver;

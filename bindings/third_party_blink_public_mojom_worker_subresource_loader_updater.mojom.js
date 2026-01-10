@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 
 blink.mojom.SubresourceLoaderUpdater = {};
 blink.mojom.SubresourceLoaderUpdater.$interfaceName = 'blink.mojom.SubresourceLoaderUpdater';
@@ -73,6 +72,28 @@ blink.mojom.SubresourceLoaderUpdater.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.SubresourceLoaderUpdaterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateSubresourceLoaderFactories(params.subresource_loader_factories);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SubresourceLoaderUpdaterReceiver = blink.mojom.SubresourceLoaderUpdaterReceiver;
 
 blink.mojom.SubresourceLoaderUpdaterPtr = blink.mojom.SubresourceLoaderUpdaterRemote;
 blink.mojom.SubresourceLoaderUpdaterRequest = blink.mojom.SubresourceLoaderUpdaterPendingReceiver;

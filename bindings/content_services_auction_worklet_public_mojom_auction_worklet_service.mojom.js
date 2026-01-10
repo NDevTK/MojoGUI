@@ -7,21 +7,9 @@
 // Module namespace
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
-var content = content || {};
-var services = services || {};
-var content = content || {};
-var services = services || {};
-var content = content || {};
-var services = services || {};
-var content = content || {};
-var services = services || {};
-var content = content || {};
-var services = services || {};
-var content = content || {};
-var services = services || {};
-var services = services || {};
+var sandbox = sandbox || {};
+var network = network || {};
 var blink = blink || {};
-var url = url || {};
 var url = url || {};
 
 auction_worklet.mojom.BrowserSignalsSpec = { $: {} };
@@ -120,6 +108,28 @@ auction_worklet.mojom.LoadSellerWorkletClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+auction_worklet.mojom.LoadSellerWorkletClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sellerWorkletLoaded(params.trusted_signals_url_allowed);
+          break;
+        }
+      }
+    });
+  }
+};
+
+auction_worklet.mojom.LoadSellerWorkletClientReceiver = auction_worklet.mojom.LoadSellerWorkletClientReceiver;
 
 auction_worklet.mojom.LoadSellerWorkletClientPtr = auction_worklet.mojom.LoadSellerWorkletClientRemote;
 auction_worklet.mojom.LoadSellerWorkletClientRequest = auction_worklet.mojom.LoadSellerWorkletClientPendingReceiver;
@@ -244,6 +254,38 @@ auction_worklet.mojom.AuctionWorkletService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+auction_worklet.mojom.AuctionWorkletServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTrustedSignalsCache(params.trusted_signals_cache);
+          break;
+        }
+        case 1: {
+          const params = auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadBidderWorklet(params.bidder_worklet, params.shared_storage_hosts, params.pause_for_debugger_on_start, params.url_loader_factory, params.auction_network_events_handler, params.script_source_load, params.wasm_helper_load, params.trusted_bidding_signals_url, params.trusted_bidding_signals_slot_size_param, params.top_window_origin, params.permissions_policy_state, params.experiment_group_id, params.public_key);
+          break;
+        }
+        case 2: {
+          const params = auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadSellerWorklet(params.seller_worklet, params.shared_storage_hosts, params.pause_for_debugger_on_start, params.url_loader_factory, params.auction_network_events_handler, params.script_source_load, params.trusted_scoring_signals_url, params.top_window_origin, params.permissions_policy_state, params.experiment_group_id, params.send_creative_scanning_metadata, params.public_key, params.load_seller_worklet_client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+auction_worklet.mojom.AuctionWorkletServiceReceiver = auction_worklet.mojom.AuctionWorkletServiceReceiver;
 
 auction_worklet.mojom.AuctionWorkletServicePtr = auction_worklet.mojom.AuctionWorkletServiceRemote;
 auction_worklet.mojom.AuctionWorkletServiceRequest = auction_worklet.mojom.AuctionWorkletServicePendingReceiver;

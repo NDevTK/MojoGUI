@@ -220,6 +220,83 @@ chromeos.remote_apps.mojom.RemoteApps.getRemote = function() {
   return remote.$;
 };
 
+chromeos.remote_apps.mojom.RemoteAppsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addFolder(params.name, params.add_to_front);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addApp(params.source_id, params.name, params.folder_id, params.icon_url, params.add_to_front);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteApp(params.app_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sortLauncherWithRemoteAppsFirst();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPinnedApps(params.app_ids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.remote_apps.mojom.RemoteAppsReceiver = chromeos.remote_apps.mojom.RemoteAppsReceiver;
+
 chromeos.remote_apps.mojom.RemoteAppsPtr = chromeos.remote_apps.mojom.RemoteAppsRemote;
 chromeos.remote_apps.mojom.RemoteAppsRequest = chromeos.remote_apps.mojom.RemoteAppsPendingReceiver;
 
@@ -287,6 +364,28 @@ chromeos.remote_apps.mojom.RemoteAppsFactory.getRemote = function() {
   return remote.$;
 };
 
+chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindRemoteAppsAndAppLaunchObserver(params.source_id, params.remote_apps, params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver = chromeos.remote_apps.mojom.RemoteAppsFactoryReceiver;
+
 chromeos.remote_apps.mojom.RemoteAppsFactoryPtr = chromeos.remote_apps.mojom.RemoteAppsFactoryRemote;
 chromeos.remote_apps.mojom.RemoteAppsFactoryRequest = chromeos.remote_apps.mojom.RemoteAppsFactoryPendingReceiver;
 
@@ -352,6 +451,28 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRemoteAppLaunched(params.app_id, params.source_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceiver = chromeos.remote_apps.mojom.RemoteAppLaunchObserverReceiver;
 
 chromeos.remote_apps.mojom.RemoteAppLaunchObserverPtr = chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemote;
 chromeos.remote_apps.mojom.RemoteAppLaunchObserverRequest = chromeos.remote_apps.mojom.RemoteAppLaunchObserverPendingReceiver;

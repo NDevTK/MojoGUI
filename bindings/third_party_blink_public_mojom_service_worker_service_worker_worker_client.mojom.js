@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 
 blink.mojom.ServiceWorkerWorkerClient = {};
 blink.mojom.ServiceWorkerWorkerClient.$interfaceName = 'blink.mojom.ServiceWorkerWorkerClient';
@@ -73,6 +72,28 @@ blink.mojom.ServiceWorkerWorkerClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ServiceWorkerWorkerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onControllerChanged(params.mode);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ServiceWorkerWorkerClientReceiver = blink.mojom.ServiceWorkerWorkerClientReceiver;
 
 blink.mojom.ServiceWorkerWorkerClientPtr = blink.mojom.ServiceWorkerWorkerClientRemote;
 blink.mojom.ServiceWorkerWorkerClientRequest = blink.mojom.ServiceWorkerWorkerClientPendingReceiver;

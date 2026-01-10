@@ -107,6 +107,33 @@ tracing.mojom.BackgroundTracingAgentClient.getRemote = function() {
   return remote.$;
 };
 
+tracing.mojom.BackgroundTracingAgentClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onInitialized();
+          break;
+        }
+        case 1: {
+          const params = tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTriggerBackgroundTrace(params.rule, params.histogram_value, params.flow_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tracing.mojom.BackgroundTracingAgentClientReceiver = tracing.mojom.BackgroundTracingAgentClientReceiver;
+
 tracing.mojom.BackgroundTracingAgentClientPtr = tracing.mojom.BackgroundTracingAgentClientRemote;
 tracing.mojom.BackgroundTracingAgentClientRequest = tracing.mojom.BackgroundTracingAgentClientPendingReceiver;
 
@@ -191,6 +218,33 @@ tracing.mojom.BackgroundTracingAgent.getRemote = function() {
   return remote.$;
 };
 
+tracing.mojom.BackgroundTracingAgentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUMACallback(params.rule, params.histogram_name, params.histogram_lower_value, params.histogram_upper_value);
+          break;
+        }
+        case 1: {
+          const params = tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearUMACallback(params.rule);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tracing.mojom.BackgroundTracingAgentReceiver = tracing.mojom.BackgroundTracingAgentReceiver;
+
 tracing.mojom.BackgroundTracingAgentPtr = tracing.mojom.BackgroundTracingAgentRemote;
 tracing.mojom.BackgroundTracingAgentRequest = tracing.mojom.BackgroundTracingAgentPendingReceiver;
 
@@ -257,6 +311,28 @@ tracing.mojom.BackgroundTracingAgentProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+tracing.mojom.BackgroundTracingAgentProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.create(params.tracing_process_id, params.client, params.agent);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tracing.mojom.BackgroundTracingAgentProviderReceiver = tracing.mojom.BackgroundTracingAgentProviderReceiver;
 
 tracing.mojom.BackgroundTracingAgentProviderPtr = tracing.mojom.BackgroundTracingAgentProviderRemote;
 tracing.mojom.BackgroundTracingAgentProviderRequest = tracing.mojom.BackgroundTracingAgentProviderPendingReceiver;

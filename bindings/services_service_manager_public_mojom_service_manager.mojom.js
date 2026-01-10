@@ -7,7 +7,6 @@
 // Module namespace
 var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
-var services = services || {};
 
 service_manager.mojom.InstanceStateSpec = { $: mojo.internal.Enum() };
 service_manager.mojom.RunningServiceInfoSpec = { $: {} };
@@ -182,6 +181,53 @@ service_manager.mojom.ServiceManagerListener.getRemote = function() {
   return remote.$;
 };
 
+service_manager.mojom.ServiceManagerListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onInit(params.running_services);
+          break;
+        }
+        case 1: {
+          const params = service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onServiceCreated(params.service);
+          break;
+        }
+        case 2: {
+          const params = service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onServiceStarted(params.identity, params.pid_deprecated);
+          break;
+        }
+        case 3: {
+          const params = service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onServicePIDReceived(params.identity, params.pid);
+          break;
+        }
+        case 4: {
+          const params = service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onServiceFailedToStart(params.identity);
+          break;
+        }
+        case 5: {
+          const params = service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onServiceStopped(params.identity);
+          break;
+        }
+      }
+    });
+  }
+};
+
+service_manager.mojom.ServiceManagerListenerReceiver = service_manager.mojom.ServiceManagerListenerReceiver;
+
 service_manager.mojom.ServiceManagerListenerPtr = service_manager.mojom.ServiceManagerListenerRemote;
 service_manager.mojom.ServiceManagerListenerRequest = service_manager.mojom.ServiceManagerListenerPendingReceiver;
 
@@ -246,6 +292,28 @@ service_manager.mojom.ServiceManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+service_manager.mojom.ServiceManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = service_manager.mojom.ServiceManager_AddListener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addListener(params.listener);
+          break;
+        }
+      }
+    });
+  }
+};
+
+service_manager.mojom.ServiceManagerReceiver = service_manager.mojom.ServiceManagerReceiver;
 
 service_manager.mojom.ServiceManagerPtr = service_manager.mojom.ServiceManagerRemote;
 service_manager.mojom.ServiceManagerRequest = service_manager.mojom.ServiceManagerPendingReceiver;

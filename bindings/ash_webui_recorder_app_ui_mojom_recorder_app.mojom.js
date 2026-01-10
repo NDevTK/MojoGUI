@@ -9,9 +9,8 @@ var ash = ash || {};
 ash.recorder_app = ash.recorder_app || {};
 ash.recorder_app.mojom = ash.recorder_app.mojom || {};
 var chromeos = chromeos || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var on_device_model = on_device_model || {};
 
 ash.recorder_app.mojom.ModelStateTypeSpec = { $: mojo.internal.Enum() };
 ash.recorder_app.mojom.ModelStateSpec = { $: {} };
@@ -165,6 +164,28 @@ ash.recorder_app.mojom.ModelStateMonitor.getRemote = function() {
   return remote.$;
 };
 
+ash.recorder_app.mojom.ModelStateMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.update(params.state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.recorder_app.mojom.ModelStateMonitorReceiver = ash.recorder_app.mojom.ModelStateMonitorReceiver;
+
 ash.recorder_app.mojom.ModelStateMonitorPtr = ash.recorder_app.mojom.ModelStateMonitorRemote;
 ash.recorder_app.mojom.ModelStateMonitorRequest = ash.recorder_app.mojom.ModelStateMonitorPendingReceiver;
 
@@ -229,6 +250,28 @@ ash.recorder_app.mojom.QuietModeMonitor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.recorder_app.mojom.QuietModeMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.update(params.in_quiet_mode);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.recorder_app.mojom.QuietModeMonitorReceiver = ash.recorder_app.mojom.QuietModeMonitorReceiver;
 
 ash.recorder_app.mojom.QuietModeMonitorPtr = ash.recorder_app.mojom.QuietModeMonitorRemote;
 ash.recorder_app.mojom.QuietModeMonitorRequest = ash.recorder_app.mojom.QuietModeMonitorPendingReceiver;
@@ -640,6 +683,206 @@ ash.recorder_app.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.recorder_app.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getModelInfo(params.feature);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadModel(params.model_id, params.model);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.formatModelInput(params.uuid, params.feature, params.fields);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.validateSafetyResult(params.safety_feature, params.text, params.safety_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addModelMonitor(params.model_id, params.monitor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAvailableLangPacks();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDefaultLanguage();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addSodaMonitor(params.language, params.monitor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installSoda(params.language);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_InstallSoda_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadSpeechRecognizer(params.language, params.soda_client, params.soda_recognizer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openAiFeedbackDialog(params.description_template);
+          break;
+        }
+        case 11: {
+          const params = ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMicrophoneInfo(params.source_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addQuietModeMonitor(params.monitor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setQuietMode(params.quiet_mode);
+          break;
+        }
+        case 14: {
+          const params = ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.canUseSpeakerLabel();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordSpeakerLabelConsent(params.consent_given, params.consent_description_names, params.consent_confirmation_name);
+          break;
+        }
+        case 16: {
+          const params = ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.canCaptureSystemAudioWithLoopback();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.recorder_app.mojom.PageHandlerReceiver = ash.recorder_app.mojom.PageHandlerReceiver;
 
 ash.recorder_app.mojom.PageHandlerPtr = ash.recorder_app.mojom.PageHandlerRemote;
 ash.recorder_app.mojom.PageHandlerRequest = ash.recorder_app.mojom.PageHandlerPendingReceiver;

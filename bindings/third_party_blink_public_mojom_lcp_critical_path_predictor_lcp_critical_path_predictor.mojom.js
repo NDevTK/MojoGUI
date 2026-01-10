@@ -7,8 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var url = url || {};
 
 blink.mojom.LcpElementSpec = { $: {} };
@@ -205,6 +205,58 @@ blink.mojom.LCPCriticalPathPredictorHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.LCPCriticalPathPredictorHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLcpUpdated(params.lcp_element);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLcpTimingPredictedForTesting(params.element_locator);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLcpInfluencerScriptUrls(params.lcp_influencer_scripts);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addPreconnectOrigin(params.origin);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyFetchedFont(params.font_url, params.hit);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyFetchedSubresource(params.subresource_url, params.subresource_load_start, params.request_destination);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUnusedPreloads(params.unused_preloads);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.LCPCriticalPathPredictorHostReceiver = blink.mojom.LCPCriticalPathPredictorHostReceiver;
 
 blink.mojom.LCPCriticalPathPredictorHostPtr = blink.mojom.LCPCriticalPathPredictorHostRemote;
 blink.mojom.LCPCriticalPathPredictorHostRequest = blink.mojom.LCPCriticalPathPredictorHostPendingReceiver;

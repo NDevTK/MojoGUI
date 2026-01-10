@@ -56,6 +56,23 @@ blink.mojom.PauseSubresourceLoadingHandle.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.PauseSubresourceLoadingHandleReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+blink.mojom.PauseSubresourceLoadingHandleReceiver = blink.mojom.PauseSubresourceLoadingHandleReceiver;
+
 blink.mojom.PauseSubresourceLoadingHandlePtr = blink.mojom.PauseSubresourceLoadingHandleRemote;
 blink.mojom.PauseSubresourceLoadingHandleRequest = blink.mojom.PauseSubresourceLoadingHandlePendingReceiver;
 

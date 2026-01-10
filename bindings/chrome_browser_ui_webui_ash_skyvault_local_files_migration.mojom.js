@@ -108,6 +108,28 @@ policy.local_user_files.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+policy.local_user_files.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+policy.local_user_files.mojom.PageHandlerFactoryReceiver = policy.local_user_files.mojom.PageHandlerFactoryReceiver;
+
 policy.local_user_files.mojom.PageHandlerFactoryPtr = policy.local_user_files.mojom.PageHandlerFactoryRemote;
 policy.local_user_files.mojom.PageHandlerFactoryRequest = policy.local_user_files.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -210,6 +232,45 @@ policy.local_user_files.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+policy.local_user_files.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getInitialDialogInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.uploadOrDeleteNow();
+          break;
+        }
+        case 2: {
+          const params = policy.local_user_files.mojom.PageHandler_Close_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.close();
+          break;
+        }
+      }
+    });
+  }
+};
+
+policy.local_user_files.mojom.PageHandlerReceiver = policy.local_user_files.mojom.PageHandlerReceiver;
+
 policy.local_user_files.mojom.PageHandlerPtr = policy.local_user_files.mojom.PageHandlerRemote;
 policy.local_user_files.mojom.PageHandlerRequest = policy.local_user_files.mojom.PageHandlerPendingReceiver;
 
@@ -274,6 +335,28 @@ policy.local_user_files.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+policy.local_user_files.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateRemainingTime(params.remaining_time);
+          break;
+        }
+      }
+    });
+  }
+};
+
+policy.local_user_files.mojom.PageReceiver = policy.local_user_files.mojom.PageReceiver;
 
 policy.local_user_files.mojom.PagePtr = policy.local_user_files.mojom.PageRemote;
 policy.local_user_files.mojom.PageRequest = policy.local_user_files.mojom.PagePendingReceiver;

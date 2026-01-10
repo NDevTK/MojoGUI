@@ -7,7 +7,6 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
-var content = content || {};
 
 content.mojom.MemoryConsumerTraitsTest = {};
 content.mojom.MemoryConsumerTraitsTest.$interfaceName = 'content.mojom.MemoryConsumerTraitsTest';
@@ -80,6 +79,35 @@ content.mojom.MemoryConsumerTraitsTest.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.MemoryConsumerTraitsTestReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoMemoryConsumerTraits(params.in);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.MemoryConsumerTraitsTestReceiver = content.mojom.MemoryConsumerTraitsTestReceiver;
 
 content.mojom.MemoryConsumerTraitsTestPtr = content.mojom.MemoryConsumerTraitsTestRemote;
 content.mojom.MemoryConsumerTraitsTestRequest = content.mojom.MemoryConsumerTraitsTestPendingReceiver;

@@ -102,6 +102,28 @@ ukm.mojom.SingularUkmInterface.getRemote = function() {
   return remote.$;
 };
 
+ukm.mojom.SingularUkmInterfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ukm.mojom.SingularUkmInterface_Submit_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.submit(params.entry);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ukm.mojom.SingularUkmInterfaceReceiver = ukm.mojom.SingularUkmInterfaceReceiver;
+
 ukm.mojom.SingularUkmInterfacePtr = ukm.mojom.SingularUkmInterfaceRemote;
 ukm.mojom.SingularUkmInterfaceRequest = ukm.mojom.SingularUkmInterfacePendingReceiver;
 
@@ -166,6 +188,28 @@ ukm.mojom.UkmRecorderClientInterface.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ukm.mojom.UkmRecorderClientInterfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setParameters(params.params);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ukm.mojom.UkmRecorderClientInterfaceReceiver = ukm.mojom.UkmRecorderClientInterfaceReceiver;
 
 ukm.mojom.UkmRecorderClientInterfacePtr = ukm.mojom.UkmRecorderClientInterfaceRemote;
 ukm.mojom.UkmRecorderClientInterfaceRequest = ukm.mojom.UkmRecorderClientInterfacePendingReceiver;
@@ -249,6 +293,33 @@ ukm.mojom.UkmRecorderInterface.getRemote = function() {
   return remote.$;
 };
 
+ukm.mojom.UkmRecorderInterfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addEntry(params.entry);
+          break;
+        }
+        case 1: {
+          const params = ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateSourceURL(params.source_id, params.url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ukm.mojom.UkmRecorderInterfaceReceiver = ukm.mojom.UkmRecorderInterfaceReceiver;
+
 ukm.mojom.UkmRecorderInterfacePtr = ukm.mojom.UkmRecorderInterfaceRemote;
 ukm.mojom.UkmRecorderInterfaceRequest = ukm.mojom.UkmRecorderInterfacePendingReceiver;
 
@@ -314,6 +385,28 @@ ukm.mojom.UkmRecorderFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ukm.mojom.UkmRecorderFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createUkmRecorder(params.receiver, params.client_remote);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ukm.mojom.UkmRecorderFactoryReceiver = ukm.mojom.UkmRecorderFactoryReceiver;
 
 ukm.mojom.UkmRecorderFactoryPtr = ukm.mojom.UkmRecorderFactoryRemote;
 ukm.mojom.UkmRecorderFactoryRequest = ukm.mojom.UkmRecorderFactoryPendingReceiver;

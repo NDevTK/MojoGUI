@@ -7,6 +7,7 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
+var mojo_base = mojo_base || {};
 
 cros.mojom.CameraEffectSpec = { $: mojo.internal.Enum() };
 cros.mojom.GpuApiSpec = { $: mojo.internal.Enum() };

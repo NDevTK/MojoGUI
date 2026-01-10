@@ -7,7 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
+var network = network || {};
 
 blink.mojom.SharedWorkerErrorTypeSpec = { $: mojo.internal.Enum() };
 blink.mojom.SharedWorkerExceptionDetailsSpec = { $: {} };

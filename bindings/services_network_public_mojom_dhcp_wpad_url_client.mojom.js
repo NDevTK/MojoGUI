@@ -7,6 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var mojo_base = mojo_base || {};
 
 network.mojom.DhcpWpadUrlClient = {};
 network.mojom.DhcpWpadUrlClient.$interfaceName = 'network.mojom.DhcpWpadUrlClient';
@@ -78,6 +79,35 @@ network.mojom.DhcpWpadUrlClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.DhcpWpadUrlClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPacUrl();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.DhcpWpadUrlClientReceiver = network.mojom.DhcpWpadUrlClientReceiver;
 
 network.mojom.DhcpWpadUrlClientPtr = network.mojom.DhcpWpadUrlClientRemote;
 network.mojom.DhcpWpadUrlClientRequest = network.mojom.DhcpWpadUrlClientPendingReceiver;

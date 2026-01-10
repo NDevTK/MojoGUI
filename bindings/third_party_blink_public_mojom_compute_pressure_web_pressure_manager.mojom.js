@@ -7,9 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var services = services || {};
-var blink = blink || {};
+var device = device || {};
 
 blink.mojom.WebPressureManager = {};
 blink.mojom.WebPressureManager.$interfaceName = 'blink.mojom.WebPressureManager';
@@ -23,7 +21,7 @@ blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.WebPressureManager_AddClient_ParamsSpec, 'blink.mojom.WebPressureManager_AddClient_Params', [
       mojo.internal.StructField('source', 0, 0, device.mojom.PressureSourceSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.WebPressureClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, pending_associated_remote<blink.mojom.WebPressureClient>Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -86,6 +84,35 @@ blink.mojom.WebPressureManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.WebPressureManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WebPressureManager_AddClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addClient(params.source, params.client);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WebPressureManagerReceiver = blink.mojom.WebPressureManagerReceiver;
 
 blink.mojom.WebPressureManagerPtr = blink.mojom.WebPressureManagerRemote;
 blink.mojom.WebPressureManagerRequest = blink.mojom.WebPressureManagerPendingReceiver;
@@ -151,6 +178,28 @@ blink.mojom.WebPressureClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.WebPressureClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPressureUpdated(params.update);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WebPressureClientReceiver = blink.mojom.WebPressureClientReceiver;
 
 blink.mojom.WebPressureClientPtr = blink.mojom.WebPressureClientRemote;
 blink.mojom.WebPressureClientRequest = blink.mojom.WebPressureClientPendingReceiver;

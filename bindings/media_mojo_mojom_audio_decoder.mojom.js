@@ -7,6 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var mojo_base = mojo_base || {};
 
 media.mojom.SupportedAudioDecoderConfigSpec = { $: {} };
 media.mojom.AudioDecoder = {};
@@ -48,7 +49,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.AudioDecoder_Construct_ParamsSpec, 'media.mojom.AudioDecoder_Construct_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.AudioDecoderClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('media_log', 8, 0, mojo.internal.InterfaceProxy(media.mojom.MediaLogRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -200,6 +201,81 @@ media.mojom.AudioDecoder.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.AudioDecoderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSupportedConfigs();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.AudioDecoder_Construct_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.construct(params.client, params.media_log);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.AudioDecoder_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.config, params.cdm_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.AudioDecoder_Initialize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = media.mojom.AudioDecoder_SetDataSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDataSource(params.receive_pipe);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.AudioDecoder_Decode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decode(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.AudioDecoder_Decode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = media.mojom.AudioDecoder_Reset_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reset();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.AudioDecoder_Reset_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioDecoderReceiver = media.mojom.AudioDecoderReceiver;
+
 media.mojom.AudioDecoderPtr = media.mojom.AudioDecoderRemote;
 media.mojom.AudioDecoderRequest = media.mojom.AudioDecoderPendingReceiver;
 
@@ -280,6 +356,33 @@ media.mojom.AudioDecoderClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.AudioDecoderClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBufferDecoded(params.buffer);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWaiting(params.reason);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioDecoderClientReceiver = media.mojom.AudioDecoderClientReceiver;
 
 media.mojom.AudioDecoderClientPtr = media.mojom.AudioDecoderClientRemote;
 media.mojom.AudioDecoderClientRequest = media.mojom.AudioDecoderClientPendingReceiver;

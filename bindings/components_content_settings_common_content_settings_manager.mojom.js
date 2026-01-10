@@ -7,9 +7,7 @@
 // Module namespace
 var content_settings = content_settings || {};
 content_settings.mojom = content_settings.mojom || {};
-var components = components || {};
-var components = components || {};
-var services = services || {};
+var network = network || {};
 var blink = blink || {};
 var url = url || {};
 
@@ -134,6 +132,45 @@ content_settings.mojom.ContentSettingsManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content_settings.mojom.ContentSettingsManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.clone);
+          break;
+        }
+        case 1: {
+          const params = content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.allowStorageAccess(params.frame_token, params.storage_type, params.origin, params.site_for_cookies, params.top_frame_origin);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onContentBlocked(params.frame_token, params.type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content_settings.mojom.ContentSettingsManagerReceiver = content_settings.mojom.ContentSettingsManagerReceiver;
 
 content_settings.mojom.ContentSettingsManagerPtr = content_settings.mojom.ContentSettingsManagerRemote;
 content_settings.mojom.ContentSettingsManagerRequest = content_settings.mojom.ContentSettingsManagerPendingReceiver;

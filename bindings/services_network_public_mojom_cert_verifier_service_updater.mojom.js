@@ -7,8 +7,7 @@
 // Module namespace
 var cert_verifier = cert_verifier || {};
 cert_verifier.mojom = cert_verifier.mojom || {};
-var services = services || {};
-var services = services || {};
+var network = network || {};
 
 cert_verifier.mojom.CIDRSpec = { $: {} };
 cert_verifier.mojom.CertWithConstraintsSpec = { $: {} };
@@ -147,6 +146,45 @@ cert_verifier.mojom.CertVerifierServiceUpdater.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cert_verifier.mojom.CertVerifierServiceUpdaterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateAdditionalCertificates(params.certificates);
+          break;
+        }
+        case 1: {
+          const params = cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.waitUntilNextUpdateForTesting();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCTPolicy(params.ct_policy);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cert_verifier.mojom.CertVerifierServiceUpdaterReceiver = cert_verifier.mojom.CertVerifierServiceUpdaterReceiver;
 
 cert_verifier.mojom.CertVerifierServiceUpdaterPtr = cert_verifier.mojom.CertVerifierServiceUpdaterRemote;
 cert_verifier.mojom.CertVerifierServiceUpdaterRequest = cert_verifier.mojom.CertVerifierServiceUpdaterPendingReceiver;

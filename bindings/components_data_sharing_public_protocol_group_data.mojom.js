@@ -7,6 +7,7 @@
 // Module namespace
 var data_sharing = data_sharing || {};
 data_sharing.mojom = data_sharing.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 data_sharing.mojom.MemberRoleSpec = { $: mojo.internal.Enum() };

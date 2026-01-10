@@ -7,6 +7,8 @@
 // Module namespace
 var device_signals = device_signals || {};
 device_signals.mojom = device_signals.mojom || {};
+var sandbox = sandbox || {};
+var mojo_base = mojo_base || {};
 
 device_signals.mojom.PresenceValueSpec = { $: mojo.internal.Enum() };
 device_signals.mojom.AntiVirusProductStateSpec = { $: mojo.internal.Enum() };
@@ -194,6 +196,59 @@ device_signals.mojom.SystemSignalsService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device_signals.mojom.SystemSignalsServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFileSystemSignals(params.requests);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAntiVirusSignals();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getHotfixSignals();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device_signals.mojom.SystemSignalsServiceReceiver = device_signals.mojom.SystemSignalsServiceReceiver;
 
 device_signals.mojom.SystemSignalsServicePtr = device_signals.mojom.SystemSignalsServiceRemote;
 device_signals.mojom.SystemSignalsServiceRequest = device_signals.mojom.SystemSignalsServicePendingReceiver;

@@ -96,6 +96,35 @@ blink.mojom.AppBannerController.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.AppBannerControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bannerPromptRequest(params.service, params.event_receiver, params.platform);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AppBannerControllerReceiver = blink.mojom.AppBannerControllerReceiver;
+
 blink.mojom.AppBannerControllerPtr = blink.mojom.AppBannerControllerRemote;
 blink.mojom.AppBannerControllerRequest = blink.mojom.AppBannerControllerPendingReceiver;
 
@@ -176,6 +205,33 @@ blink.mojom.AppBannerEvent.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.AppBannerEventReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bannerAccepted(params.platform);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bannerDismissed();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AppBannerEventReceiver = blink.mojom.AppBannerEventReceiver;
+
 blink.mojom.AppBannerEventPtr = blink.mojom.AppBannerEventRemote;
 blink.mojom.AppBannerEventRequest = blink.mojom.AppBannerEventPendingReceiver;
 
@@ -239,6 +295,28 @@ blink.mojom.AppBannerService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.AppBannerServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.displayAppBanner();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AppBannerServiceReceiver = blink.mojom.AppBannerServiceReceiver;
 
 blink.mojom.AppBannerServicePtr = blink.mojom.AppBannerServiceRemote;
 blink.mojom.AppBannerServiceRequest = blink.mojom.AppBannerServicePendingReceiver;

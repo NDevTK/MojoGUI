@@ -7,8 +7,6 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
-var chromeos = chromeos || {};
-var chromeos = chromeos || {};
 
 cros.mojom.CameraFacingSpec = { $: mojo.internal.Enum() };
 cros.mojom.CameraDeviceStatusSpec = { $: mojo.internal.Enum() };
@@ -186,6 +184,33 @@ cros.mojom.CameraModuleCallbacks.getRemote = function() {
   return remote.$;
 };
 
+cros.mojom.CameraModuleCallbacksReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cameraDeviceStatusChange(params.camera_id, params.new_status);
+          break;
+        }
+        case 1: {
+          const params = cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.torchModeStatusChange(params.camera_id, params.new_status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.CameraModuleCallbacksReceiver = cros.mojom.CameraModuleCallbacksReceiver;
+
 cros.mojom.CameraModuleCallbacksPtr = cros.mojom.CameraModuleCallbacksRemote;
 cros.mojom.CameraModuleCallbacksRequest = cros.mojom.CameraModuleCallbacksPendingReceiver;
 
@@ -343,6 +368,83 @@ cros.mojom.VendorTagOps.getRemote = function() {
   return remote.$;
 };
 
+cros.mojom.VendorTagOpsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.VendorTagOps_GetTagCount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTagCount();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = cros.mojom.VendorTagOps_GetAllTags_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllTags();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = cros.mojom.VendorTagOps_GetSectionName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSectionName(params.tag);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = cros.mojom.VendorTagOps_GetTagName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTagName(params.tag);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = cros.mojom.VendorTagOps_GetTagType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTagType(params.tag);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.VendorTagOpsReceiver = cros.mojom.VendorTagOpsReceiver;
+
 cros.mojom.VendorTagOpsPtr = cros.mojom.VendorTagOpsRemote;
 cros.mojom.VendorTagOpsRequest = cros.mojom.VendorTagOpsPendingReceiver;
 
@@ -434,7 +536,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec, 'cros.mojom.CameraModule_SetCallbacksAssociated_Params', [
-      mojo.internal.StructField('callbacks', 0, 0, mojo.internal.AssociatedInterfaceProxy(cros.mojom.CameraModuleCallbacksRemote), null, false, 0, undefined),
+      mojo.internal.StructField('callbacks', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -567,6 +669,119 @@ cros.mojom.CameraModule.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cros.mojom.CameraModuleReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.CameraModule_OpenDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openDevice(params.camera_id, params.device_ops_receiver);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNumberOfCameras();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = cros.mojom.CameraModule_GetCameraInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCameraInfo(params.camera_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = cros.mojom.CameraModule_SetCallbacks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCallbacks(params.callbacks);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = cros.mojom.CameraModule_SetTorchMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTorchMode(params.camera_id, params.enabled);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = cros.mojom.CameraModule_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CameraModule_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVendorTagOps(params.vendor_tag_ops_receiver);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCallbacksAssociated(params.callbacks);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.CameraModuleReceiver = cros.mojom.CameraModuleReceiver;
 
 cros.mojom.CameraModulePtr = cros.mojom.CameraModuleRemote;
 cros.mojom.CameraModuleRequest = cros.mojom.CameraModulePendingReceiver;

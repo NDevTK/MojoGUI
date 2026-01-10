@@ -7,8 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
 
 network.mojom.FirstPartySetsAccessDelegateParamsSpec = { $: {} };
 network.mojom.FirstPartySetsReadyEventSpec = { $: {} };
@@ -108,6 +106,33 @@ network.mojom.FirstPartySetsAccessDelegate.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.FirstPartySetsAccessDelegateReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyReady(params.ready_event);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setEnabled(params.enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.FirstPartySetsAccessDelegateReceiver = network.mojom.FirstPartySetsAccessDelegateReceiver;
 
 network.mojom.FirstPartySetsAccessDelegatePtr = network.mojom.FirstPartySetsAccessDelegateRemote;
 network.mojom.FirstPartySetsAccessDelegateRequest = network.mojom.FirstPartySetsAccessDelegatePendingReceiver;

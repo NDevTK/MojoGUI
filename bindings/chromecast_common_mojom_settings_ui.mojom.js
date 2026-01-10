@@ -7,7 +7,6 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 chromecast.mojom.SideSwipeEventSpec = { $: mojo.internal.Enum() };
@@ -115,6 +114,33 @@ chromecast.mojom.SettingsClient.getRemote = function() {
   return remote.$;
 };
 
+chromecast.mojom.SettingsClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleSideSwipe(params.event, params.origin, params.touch_location);
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendPlatformInfo(params.platform_info_json);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.SettingsClientReceiver = chromecast.mojom.SettingsClientReceiver;
+
 chromecast.mojom.SettingsClientPtr = chromecast.mojom.SettingsClientRemote;
 chromecast.mojom.SettingsClientRequest = chromecast.mojom.SettingsClientPendingReceiver;
 
@@ -195,6 +221,33 @@ chromecast.mojom.SettingsPlatform.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.SettingsPlatformReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.SettingsPlatform_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.client);
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestVisible(params.visible);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.SettingsPlatformReceiver = chromecast.mojom.SettingsPlatformReceiver;
 
 chromecast.mojom.SettingsPlatformPtr = chromecast.mojom.SettingsPlatformRemote;
 chromecast.mojom.SettingsPlatformRequest = chromecast.mojom.SettingsPlatformPendingReceiver;

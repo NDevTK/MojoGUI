@@ -86,6 +86,28 @@ ash.office_fallback.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+ash.office_fallback.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.office_fallback.mojom.PageHandlerFactoryReceiver = ash.office_fallback.mojom.PageHandlerFactoryReceiver;
+
 ash.office_fallback.mojom.PageHandlerFactoryPtr = ash.office_fallback.mojom.PageHandlerFactoryRemote;
 ash.office_fallback.mojom.PageHandlerFactoryRequest = ash.office_fallback.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -150,6 +172,28 @@ ash.office_fallback.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.office_fallback.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.office_fallback.mojom.PageHandler_Close_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.close(params.choice);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.office_fallback.mojom.PageHandlerReceiver = ash.office_fallback.mojom.PageHandlerReceiver;
 
 ash.office_fallback.mojom.PageHandlerPtr = ash.office_fallback.mojom.PageHandlerRemote;
 ash.office_fallback.mojom.PageHandlerRequest = ash.office_fallback.mojom.PageHandlerPendingReceiver;

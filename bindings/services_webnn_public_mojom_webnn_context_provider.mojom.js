@@ -7,11 +7,6 @@
 // Module namespace
 var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
 var blink = blink || {};
 
 webnn.mojom.PowerPreferenceSpec = { $: mojo.internal.Enum() };
@@ -129,6 +124,35 @@ webnn.mojom.WebNNContextProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+webnn.mojom.WebNNContextProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createWebNNContext(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+webnn.mojom.WebNNContextProviderReceiver = webnn.mojom.WebNNContextProviderReceiver;
 
 webnn.mojom.WebNNContextProviderPtr = webnn.mojom.WebNNContextProviderRemote;
 webnn.mojom.WebNNContextProviderRequest = webnn.mojom.WebNNContextProviderPendingReceiver;

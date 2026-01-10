@@ -7,15 +7,8 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var ui = ui || {};
+var cc = cc || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 viz.mojom.LayerContextSettingsSpec = { $: {} };
@@ -228,6 +221,58 @@ viz.mojom.CompositorFrameSink.getRemote = function() {
   return remote.$;
 };
 
+viz.mojom.CompositorFrameSinkReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.CompositorFrameSink_SetParams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setParams(params.params);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNeedsBeginFrame(params.needs_begin_frame);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.submitCompositorFrame(params.local_surface_id, params.frame, params.hit_test_region_list, params.submit_time);
+          break;
+        }
+        case 3: {
+          const params = viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didNotProduceFrame(params.ack);
+          break;
+        }
+        case 4: {
+          const params = viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyNewLocalSurfaceIdExpectedWhilePaused();
+          break;
+        }
+        case 5: {
+          const params = viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindLayerContext(params.context, params.settings);
+          break;
+        }
+        case 6: {
+          const params = viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setThreads(params.threads);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.CompositorFrameSinkReceiver = viz.mojom.CompositorFrameSinkReceiver;
+
 viz.mojom.CompositorFrameSinkPtr = viz.mojom.CompositorFrameSinkRemote;
 viz.mojom.CompositorFrameSinkRequest = viz.mojom.CompositorFrameSinkPendingReceiver;
 
@@ -374,6 +419,53 @@ viz.mojom.CompositorFrameSinkClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.CompositorFrameSinkClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didReceiveCompositorFrameAck(params.resources);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBeginFrame(params.args, params.details, params.resources);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBeginFramePausedChanged(params.paused);
+          break;
+        }
+        case 3: {
+          const params = viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reclaimResources(params.resources);
+          break;
+        }
+        case 4: {
+          const params = viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCompositorFrameTransitionDirectiveProcessed(params.sequence_id);
+          break;
+        }
+        case 5: {
+          const params = viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSurfaceEvicted(params.local_surface_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.CompositorFrameSinkClientReceiver = viz.mojom.CompositorFrameSinkClientReceiver;
 
 viz.mojom.CompositorFrameSinkClientPtr = viz.mojom.CompositorFrameSinkClientRemote;
 viz.mojom.CompositorFrameSinkClientRequest = viz.mojom.CompositorFrameSinkClientPendingReceiver;

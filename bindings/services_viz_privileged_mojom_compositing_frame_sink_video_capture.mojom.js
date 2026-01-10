@@ -7,10 +7,9 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
-var services = services || {};
+var media = media || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 viz.mojom.BufferFormatPreferenceSpec = { $: mojo.internal.Enum() };
@@ -152,6 +151,33 @@ viz.mojom.FrameSinkVideoConsumerFrameCallbacks.getRemote = function() {
   return remote.$;
 };
 
+viz.mojom.FrameSinkVideoConsumerFrameCallbacksReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.FrameSinkVideoConsumerFrameCallbacks_Done_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.done();
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.FrameSinkVideoConsumerFrameCallbacks_ProvideFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.provideFeedback(params.feedback);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.FrameSinkVideoConsumerFrameCallbacksReceiver = viz.mojom.FrameSinkVideoConsumerFrameCallbacksReceiver;
+
 viz.mojom.FrameSinkVideoConsumerFrameCallbacksPtr = viz.mojom.FrameSinkVideoConsumerFrameCallbacksRemote;
 viz.mojom.FrameSinkVideoConsumerFrameCallbacksRequest = viz.mojom.FrameSinkVideoConsumerFrameCallbacksPendingReceiver;
 
@@ -281,6 +307,48 @@ viz.mojom.FrameSinkVideoConsumer.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.FrameSinkVideoConsumerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.FrameSinkVideoConsumer_OnFrameCaptured_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameCaptured(params.data, params.info, params.content_rect, params.callbacks);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.FrameSinkVideoConsumer_OnNewCaptureVersion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewCaptureVersion(params.capture_version);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.FrameSinkVideoConsumer_OnFrameWithEmptyRegionCapture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameWithEmptyRegionCapture();
+          break;
+        }
+        case 3: {
+          const params = viz.mojom.FrameSinkVideoConsumer_OnStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStopped();
+          break;
+        }
+        case 4: {
+          const params = viz.mojom.FrameSinkVideoConsumer_OnLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLog(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.FrameSinkVideoConsumerReceiver = viz.mojom.FrameSinkVideoConsumerReceiver;
 
 viz.mojom.FrameSinkVideoConsumerPtr = viz.mojom.FrameSinkVideoConsumerRemote;
 viz.mojom.FrameSinkVideoConsumerRequest = viz.mojom.FrameSinkVideoConsumerPendingReceiver;
@@ -511,6 +579,78 @@ viz.mojom.FrameSinkVideoCapturer.getRemote = function() {
   return remote.$;
 };
 
+viz.mojom.FrameSinkVideoCapturerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.FrameSinkVideoCapturer_SetFormat_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFormat(params.format);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.FrameSinkVideoCapturer_SetMinCapturePeriod_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMinCapturePeriod(params.min_period);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.FrameSinkVideoCapturer_SetMinSizeChangePeriod_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMinSizeChangePeriod(params.min_period);
+          break;
+        }
+        case 3: {
+          const params = viz.mojom.FrameSinkVideoCapturer_SetResolutionConstraints_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setResolutionConstraints(params.min_size, params.max_size, params.use_fixed_aspect_ratio);
+          break;
+        }
+        case 4: {
+          const params = viz.mojom.FrameSinkVideoCapturer_SetAutoThrottlingEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAutoThrottlingEnabled(params.enabled);
+          break;
+        }
+        case 5: {
+          const params = viz.mojom.FrameSinkVideoCapturer_SetAnimationFpsLockIn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAnimationFpsLockIn(params.enabled, params.majority_damaged_pixel_min_ratio);
+          break;
+        }
+        case 6: {
+          const params = viz.mojom.FrameSinkVideoCapturer_ChangeTarget_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.changeTarget(params.target, params.sub_capture_version);
+          break;
+        }
+        case 7: {
+          const params = viz.mojom.FrameSinkVideoCapturer_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start(params.consumer, params.buffer_format_preference);
+          break;
+        }
+        case 8: {
+          const params = viz.mojom.FrameSinkVideoCapturer_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop();
+          break;
+        }
+        case 9: {
+          const params = viz.mojom.FrameSinkVideoCapturer_RequestRefreshFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestRefreshFrame();
+          break;
+        }
+        case 10: {
+          const params = viz.mojom.FrameSinkVideoCapturer_CreateOverlay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createOverlay(params.stacking_index, params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.FrameSinkVideoCapturerReceiver = viz.mojom.FrameSinkVideoCapturerReceiver;
+
 viz.mojom.FrameSinkVideoCapturerPtr = viz.mojom.FrameSinkVideoCapturerRemote;
 viz.mojom.FrameSinkVideoCapturerRequest = viz.mojom.FrameSinkVideoCapturerPendingReceiver;
 
@@ -608,6 +748,38 @@ viz.mojom.FrameSinkVideoCaptureOverlay.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.FrameSinkVideoCaptureOverlayReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.FrameSinkVideoCaptureOverlay_SetImageAndBounds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setImageAndBounds(params.image, params.bounds);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.FrameSinkVideoCaptureOverlay_SetBounds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBounds(params.bounds);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.FrameSinkVideoCaptureOverlay_OnCapturedMouseEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCapturedMouseEvent(params.coordinates);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.FrameSinkVideoCaptureOverlayReceiver = viz.mojom.FrameSinkVideoCaptureOverlayReceiver;
 
 viz.mojom.FrameSinkVideoCaptureOverlayPtr = viz.mojom.FrameSinkVideoCaptureOverlayRemote;
 viz.mojom.FrameSinkVideoCaptureOverlayRequest = viz.mojom.FrameSinkVideoCaptureOverlayPendingReceiver;

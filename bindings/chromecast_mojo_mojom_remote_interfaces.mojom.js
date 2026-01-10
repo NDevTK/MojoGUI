@@ -91,6 +91,33 @@ chromecast.mojom.RemoteInterfaces.getRemote = function() {
   return remote.$;
 };
 
+chromecast.mojom.RemoteInterfacesReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindInterface(params.interface_name, params.pipe);
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addClient(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.RemoteInterfacesReceiver = chromecast.mojom.RemoteInterfacesReceiver;
+
 chromecast.mojom.RemoteInterfacesPtr = chromecast.mojom.RemoteInterfacesRemote;
 chromecast.mojom.RemoteInterfacesRequest = chromecast.mojom.RemoteInterfacesPendingReceiver;
 

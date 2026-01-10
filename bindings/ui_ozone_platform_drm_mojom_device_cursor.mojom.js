@@ -8,10 +8,8 @@
 var ui = ui || {};
 ui.ozone = ui.ozone || {};
 ui.ozone.mojom = ui.ozone.mojom || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 ui.ozone.mojom.DeviceCursor = {};
@@ -99,6 +97,33 @@ ui.ozone.mojom.DeviceCursor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ui.ozone.mojom.DeviceCursorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCursor(params.window, params.bitmaps, params.point, params.frame_delay);
+          break;
+        }
+        case 1: {
+          const params = ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.moveCursor(params.window, params.point);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ui.ozone.mojom.DeviceCursorReceiver = ui.ozone.mojom.DeviceCursorReceiver;
 
 ui.ozone.mojom.DeviceCursorPtr = ui.ozone.mojom.DeviceCursorRemote;
 ui.ozone.mojom.DeviceCursorRequest = ui.ozone.mojom.DeviceCursorPendingReceiver;

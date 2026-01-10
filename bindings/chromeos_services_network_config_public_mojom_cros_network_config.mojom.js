@@ -8,9 +8,8 @@
 var chromeos = chromeos || {};
 chromeos.network_config = chromeos.network_config || {};
 chromeos.network_config.mojom = chromeos.network_config.mojom || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var url = url || {};
 
 chromeos.network_config.mojom.ActivationStateTypeSpec = { $: mojo.internal.Enum() };
@@ -1903,6 +1902,310 @@ chromeos.network_config.mojom.CrosNetworkConfig.getRemote = function() {
   return remote.$;
 };
 
+chromeos.network_config.mojom.CrosNetworkConfigReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNetworkState(params.guid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNetworkStateList(params.filter);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceStateList();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getManagedProperties(params.guid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setProperties(params.guid, params.properties);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.configureNetwork(params.properties, params.shared);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forgetNetwork(params.guid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNetworkTypeEnabledState(params.type, params.enabled);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCellularSimState(params.state);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectCellularMobileNetwork(params.guid, params.network_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestNetworkScan(params.type);
+          break;
+        }
+        case 12: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getGlobalPolicy();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startConnect(params.guid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startDisconnect(params.guid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVpnProviders(params.providers);
+          break;
+        }
+        case 16: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVpnProviders();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 17: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNetworkCertificates();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 18: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAlwaysOnVpn();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 19: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAlwaysOnVpn(params.properties);
+          break;
+        }
+        case 20: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSupportedVpnTypes();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 21: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestTrafficCounters(params.guid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 22: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetTrafficCounters(params.guid);
+          break;
+        }
+        case 23: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTrafficCountersResetDay(params.guid, params.day);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 24: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCustomApn(params.network_guid, params.apn);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 25: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createExclusivelyEnabledCustomApn(params.network_guid, params.apn);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 26: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeCustomApn(params.network_guid, params.apn_id);
+          break;
+        }
+        case 27: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.modifyCustomApn(params.network_guid, params.apn);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.network_config.mojom.CrosNetworkConfigReceiver = chromeos.network_config.mojom.CrosNetworkConfigReceiver;
+
 chromeos.network_config.mojom.CrosNetworkConfigPtr = chromeos.network_config.mojom.CrosNetworkConfigRemote;
 chromeos.network_config.mojom.CrosNetworkConfigRequest = chromeos.network_config.mojom.CrosNetworkConfigPendingReceiver;
 
@@ -2059,6 +2362,58 @@ chromeos.network_config.mojom.CrosNetworkConfigObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.network_config.mojom.CrosNetworkConfigObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onActiveNetworksChanged(params.networks);
+          break;
+        }
+        case 1: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNetworkStateChanged(params.network);
+          break;
+        }
+        case 2: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNetworkStateListChanged();
+          break;
+        }
+        case 3: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceStateListChanged();
+          break;
+        }
+        case 4: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVpnProvidersChanged();
+          break;
+        }
+        case 5: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNetworkCertificatesChanged();
+          break;
+        }
+        case 6: {
+          const params = chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPoliciesApplied(params.userhash);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.network_config.mojom.CrosNetworkConfigObserverReceiver = chromeos.network_config.mojom.CrosNetworkConfigObserverReceiver;
 
 chromeos.network_config.mojom.CrosNetworkConfigObserverPtr = chromeos.network_config.mojom.CrosNetworkConfigObserverRemote;
 chromeos.network_config.mojom.CrosNetworkConfigObserverRequest = chromeos.network_config.mojom.CrosNetworkConfigObserverPendingReceiver;

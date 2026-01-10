@@ -166,6 +166,45 @@ ash.heartd.mojom.HeartdControl.getRemote = function() {
   return remote.$;
 };
 
+ash.heartd.mojom.HeartdControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableNormalRebootAction();
+          break;
+        }
+        case 1: {
+          const params = ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableForceRebootAction();
+          break;
+        }
+        case 2: {
+          const params = ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runAction(params.action);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.heartd.mojom.HeartdControlReceiver = ash.heartd.mojom.HeartdControlReceiver;
+
 ash.heartd.mojom.HeartdControlPtr = ash.heartd.mojom.HeartdControlRemote;
 ash.heartd.mojom.HeartdControlRequest = ash.heartd.mojom.HeartdControlPendingReceiver;
 
@@ -238,6 +277,35 @@ ash.heartd.mojom.HeartbeatService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.heartd.mojom.HeartbeatServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.heartd.mojom.HeartbeatService_Register_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.register(params.name, params.argument, params.receiver);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.heartd.mojom.HeartbeatServiceReceiver = ash.heartd.mojom.HeartbeatServiceReceiver;
 
 ash.heartd.mojom.HeartbeatServicePtr = ash.heartd.mojom.HeartbeatServiceRemote;
 ash.heartd.mojom.HeartbeatServiceRequest = ash.heartd.mojom.HeartbeatServicePendingReceiver;
@@ -328,6 +396,47 @@ ash.heartd.mojom.Pacemaker.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.heartd.mojom.PacemakerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendHeartbeat();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopMonitor();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.heartd.mojom.PacemakerReceiver = ash.heartd.mojom.PacemakerReceiver;
 
 ash.heartd.mojom.PacemakerPtr = ash.heartd.mojom.PacemakerRemote;
 ash.heartd.mojom.PacemakerRequest = ash.heartd.mojom.PacemakerPendingReceiver;

@@ -7,29 +7,11 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var gpu = gpu || {};
+var mojo_base = mojo_base || {};
 var blink = blink || {};
-var blink = blink || {};
-var ui = ui || {};
 var gfx = gfx || {};
-var components = components || {};
+var input = input || {};
 
 viz.mojom.RootCompositorFrameSinkParamsSpec = { $: {} };
 viz.mojom.CompositorDisplayLinkParamsSpec = { $: {} };
@@ -84,12 +66,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('widget', 8, 0, gpu.mojom.SurfaceHandleSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('renderer_settings', 16, 0, viz.mojom.RendererSettingsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('compositor_frame_sink', 24, 0, mojo.internal.AssociatedInterfaceRequest(viz.mojom.CompositorFrameSinkRemote), null, false, 0, undefined),
+      mojo.internal.StructField('compositor_frame_sink', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('compositor_frame_sink_client', 32, 0, mojo.internal.InterfaceProxy(viz.mojom.CompositorFrameSinkClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('display_private', 40, 0, mojo.internal.AssociatedInterfaceRequest(viz.mojom.DisplayPrivateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('display_private', 40, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('display_client', 48, 0, mojo.internal.InterfaceProxy(viz.mojom.DisplayClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('external_begin_frame_controller', 56, 0, mojo.internal.AssociatedInterfaceRequest(viz.mojom.ExternalBeginFrameControllerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('external_begin_frame_controller_client', 64, 0, mojo.internal.AssociatedInterfaceProxy(viz.mojom.ExternalBeginFrameControllerClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('external_begin_frame_controller', 56, 0, mojo.internal.Pointer, null, true, 0, undefined),
+      mojo.internal.StructField('external_begin_frame_controller_client', 64, 0, mojo.internal.Pointer, null, true, 0, undefined),
       mojo.internal.StructField('refresh_rate', 72, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('gpu_compositing', 76, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('send_swap_size_notifications', 76, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -596,6 +578,174 @@ viz.mojom.FrameSinkManager.getRemote = function() {
   return remote.$;
 };
 
+viz.mojom.FrameSinkManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerFrameSinkId(params.frame_sink_id, params.report_activation);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.invalidateFrameSinkId(params.frame_sink_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFrameSinkDebugLabel(params.frame_sink_id, params.debug_label);
+          break;
+        }
+        case 3: {
+          const params = viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createRootCompositorFrameSink(params.params);
+          break;
+        }
+        case 4: {
+          const params = viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCompositorDisplayLink(params.params);
+          break;
+        }
+        case 5: {
+          const params = viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createFrameSinkBundle(params.bundle_id, params.receiver, params.client);
+          break;
+        }
+        case 6: {
+          const params = viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCompositorFrameSink(params.frame_sink_id, params.bundle_id, params.compositor_frame_sink, params.compositor_frame_sink_client, params.config);
+          break;
+        }
+        case 7: {
+          const params = viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.destroyCompositorFrameSink(params.frame_sink_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerFrameSinkHierarchy(params.parent_frame_sink_id, params.child_frame_sink_id);
+          break;
+        }
+        case 9: {
+          const params = viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unregisterFrameSinkHierarchy(params.parent_frame_sink_id, params.child_frame_sink_id);
+          break;
+        }
+        case 10: {
+          const params = viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addVideoDetectorObserver(params.observer);
+          break;
+        }
+        case 11: {
+          const params = viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createVideoCapturer(params.receiver, params.capture_version_source);
+          break;
+        }
+        case 12: {
+          const params = viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.evictSurfaces(params.surface_ids);
+          break;
+        }
+        case 13: {
+          const params = viz.mojom.FrameSinkManager_Throttle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.throttle(params.frame_sink_ids, params.interval);
+          break;
+        }
+        case 14: {
+          const params = viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startThrottlingAllFrameSinks(params.interval);
+          break;
+        }
+        case 15: {
+          const params = viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopThrottlingAllFrameSinks();
+          break;
+        }
+        case 16: {
+          const params = viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestCopyOfOutput(params.surface_id, params.request, params.capture_exact_surface_id);
+          break;
+        }
+        case 17: {
+          const params = viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cacheBackBuffer(params.cache_id, params.root_frame_sink_id);
+          break;
+        }
+        case 18: {
+          const params = viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.evictBackBuffer(params.cache_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.FrameSinkManager_EvictBackBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 19: {
+          const params = viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateDebugRendererSettings(params.debug_settings);
+          break;
+        }
+        case 20: {
+          const params = viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearUnclaimedViewTransitionResources(params.transition_token);
+          break;
+        }
+        case 21: {
+          const params = viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createMetricsRecorderForTest(params.receiver);
+          break;
+        }
+        case 22: {
+          const params = viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableFrameSinkManagerTestApi(params.receiver);
+          break;
+        }
+        case 23: {
+          const params = viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setupRendererInputRouterDelegateRegistry(params.receiver);
+          break;
+        }
+        case 24: {
+          const params = viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyRendererBlockStateChanged(params.blocked, params.render_input_routers);
+          break;
+        }
+        case 25: {
+          const params = viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestInputBack();
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.FrameSinkManagerReceiver = viz.mojom.FrameSinkManagerReceiver;
+
 viz.mojom.FrameSinkManagerPtr = viz.mojom.FrameSinkManagerRemote;
 viz.mojom.FrameSinkManagerRequest = viz.mojom.FrameSinkManagerPendingReceiver;
 
@@ -767,6 +917,65 @@ viz.mojom.FrameSinkManagerClient.getRemote = function() {
   return remote.$;
 };
 
+viz.mojom.FrameSinkManagerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFirstSurfaceActivation(params.surface_info);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAggregatedHitTestRegionListUpdated(params.frame_sink_id, params.hit_test_data);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameTokenChanged(params.frame_sink_id, params.frame_token, params.activation_time);
+          break;
+        }
+        case 3: {
+          const params = viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.verifyThreadIdsDoNotBelongToHost(params.thread_ids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScreenshotCaptured(params.destination_token, params.copy_output_result);
+          break;
+        }
+        case 5: {
+          const params = viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVizTouchStateAvailable(params.region);
+          break;
+        }
+        case 6: {
+          const params = viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onViewTransitionResourcesCaptured(params.transition_token);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.FrameSinkManagerClientReceiver = viz.mojom.FrameSinkManagerClientReceiver;
+
 viz.mojom.FrameSinkManagerClientPtr = viz.mojom.FrameSinkManagerClientRemote;
 viz.mojom.FrameSinkManagerClientRequest = viz.mojom.FrameSinkManagerClientPendingReceiver;
 
@@ -775,8 +984,8 @@ viz.mojom.FrameSinkManagerClientRequest = viz.mojom.FrameSinkManagerClientPendin
 mojo.internal.Struct(
     viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec, 'viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_Params', [
       mojo.internal.StructField('id', 0, 0, viz.mojom.FrameSinkIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('rir_delegate_client_remote', 8, 0, mojo.internal.AssociatedInterfaceProxy(input.mojom.RenderInputRouterDelegateClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('rir_delegate_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(input.mojom.RenderInputRouterDelegateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('rir_delegate_client_remote', 8, 0, pending_associated_remote<input.mojom.RenderInputRouterDelegateClient>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('rir_delegate_receiver', 16, 0, pending_associated_receiver<input.mojom.RenderInputRouterDelegate>Spec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -833,6 +1042,28 @@ viz.mojom.RendererInputRouterDelegateRegistry.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.RendererInputRouterDelegateRegistryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setupRenderInputRouterDelegateConnection(params.id, params.rir_delegate_client_remote, params.rir_delegate_receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.RendererInputRouterDelegateRegistryReceiver = viz.mojom.RendererInputRouterDelegateRegistryReceiver;
 
 viz.mojom.RendererInputRouterDelegateRegistryPtr = viz.mojom.RendererInputRouterDelegateRegistryRemote;
 viz.mojom.RendererInputRouterDelegateRegistryRequest = viz.mojom.RendererInputRouterDelegateRegistryPendingReceiver;

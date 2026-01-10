@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.screens_login = ash.screens_login || {};
 ash.screens_login.mojom = ash.screens_login.mojom || {};
+var mojo_base = mojo_base || {};
 
 ash.screens_login.mojom.ArcVmUIStateSpec = { $: mojo.internal.Enum() };
 ash.screens_login.mojom.UIStateSpec = { $: mojo.internal.Enum() };
@@ -181,6 +182,48 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.screens_login.mojom.ArcVmDataMigrationPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResumeClicked();
+          break;
+        }
+        case 1: {
+          const params = ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onUpdateClicked();
+          break;
+        }
+        case 2: {
+          const params = ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFinishClicked();
+          break;
+        }
+        case 3: {
+          const params = ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSkipClicked();
+          break;
+        }
+        case 4: {
+          const params = ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReportClicked();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_login.mojom.ArcVmDataMigrationPageHandlerReceiver = ash.screens_login.mojom.ArcVmDataMigrationPageHandlerReceiver;
+
 ash.screens_login.mojom.ArcVmDataMigrationPageHandlerPtr = ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemote;
 ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRequest = ash.screens_login.mojom.ArcVmDataMigrationPageHandlerPendingReceiver;
 
@@ -327,6 +370,53 @@ ash.screens_login.mojom.ArcVmDataMigrationPage.getRemote = function() {
   return remote.$;
 };
 
+ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUIState(params.state);
+          break;
+        }
+        case 1: {
+          const params = ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRequiredFreeDiskSpace(params.required_space);
+          break;
+        }
+        case 2: {
+          const params = ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMinimumBatteryPercent(params.percent);
+          break;
+        }
+        case 3: {
+          const params = ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBatteryState(params.enough, params.connected);
+          break;
+        }
+        case 4: {
+          const params = ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMigrationProgress(params.progress);
+          break;
+        }
+        case 5: {
+          const params = ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setEstimatedRemainingTime(params.remaining_time);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_login.mojom.ArcVmDataMigrationPageReceiver = ash.screens_login.mojom.ArcVmDataMigrationPageReceiver;
+
 ash.screens_login.mojom.ArcVmDataMigrationPagePtr = ash.screens_login.mojom.ArcVmDataMigrationPageRemote;
 ash.screens_login.mojom.ArcVmDataMigrationPageRequest = ash.screens_login.mojom.ArcVmDataMigrationPagePendingReceiver;
 
@@ -450,6 +540,48 @@ ash.screens_login.mojom.EncryptionMigrationPageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.screens_login.mojom.EncryptionMigrationPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStartMigration();
+          break;
+        }
+        case 1: {
+          const params = ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSkipMigration();
+          break;
+        }
+        case 2: {
+          const params = ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRequestRestartOnLowStorage();
+          break;
+        }
+        case 3: {
+          const params = ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRequestRestartOnFailure();
+          break;
+        }
+        case 4: {
+          const params = ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOpenFeedbackDialog();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_login.mojom.EncryptionMigrationPageHandlerReceiver = ash.screens_login.mojom.EncryptionMigrationPageHandlerReceiver;
 
 ash.screens_login.mojom.EncryptionMigrationPageHandlerPtr = ash.screens_login.mojom.EncryptionMigrationPageHandlerRemote;
 ash.screens_login.mojom.EncryptionMigrationPageHandlerRequest = ash.screens_login.mojom.EncryptionMigrationPageHandlerPendingReceiver;
@@ -598,6 +730,53 @@ ash.screens_login.mojom.EncryptionMigrationPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.screens_login.mojom.EncryptionMigrationPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUIState(params.state);
+          break;
+        }
+        case 1: {
+          const params = ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMigrationProgress(params.progress);
+          break;
+        }
+        case 2: {
+          const params = ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsResuming(params.is_resuming);
+          break;
+        }
+        case 3: {
+          const params = ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBatteryState(params.percent, params.is_enough, params.is_charging);
+          break;
+        }
+        case 4: {
+          const params = ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNecessaryBatteryPercent(params.percent);
+          break;
+        }
+        case 5: {
+          const params = ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSpaceInfoInString(params.available_space, params.required_space);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_login.mojom.EncryptionMigrationPageReceiver = ash.screens_login.mojom.EncryptionMigrationPageReceiver;
 
 ash.screens_login.mojom.EncryptionMigrationPagePtr = ash.screens_login.mojom.EncryptionMigrationPageRemote;
 ash.screens_login.mojom.EncryptionMigrationPageRequest = ash.screens_login.mojom.EncryptionMigrationPagePendingReceiver;

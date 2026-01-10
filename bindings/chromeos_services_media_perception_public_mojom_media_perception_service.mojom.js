@@ -8,9 +8,7 @@
 var chromeos = chromeos || {};
 chromeos.media_perception = chromeos.media_perception || {};
 chromeos.media_perception.mojom = chromeos.media_perception.mojom || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var services = services || {};
+var video_capture = video_capture || {};
 
 chromeos.media_perception.mojom.MediaPerceptionService = {};
 chromeos.media_perception.mojom.MediaPerceptionService.$interfaceName = 'chromeos.media_perception.mojom.MediaPerceptionService';
@@ -84,6 +82,28 @@ chromeos.media_perception.mojom.MediaPerceptionService.getRemote = function() {
   return remote.$;
 };
 
+chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getController(params.receiver, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.media_perception.mojom.MediaPerceptionServiceReceiver = chromeos.media_perception.mojom.MediaPerceptionServiceReceiver;
+
 chromeos.media_perception.mojom.MediaPerceptionServicePtr = chromeos.media_perception.mojom.MediaPerceptionServiceRemote;
 chromeos.media_perception.mojom.MediaPerceptionServiceRequest = chromeos.media_perception.mojom.MediaPerceptionServicePendingReceiver;
 
@@ -149,6 +169,28 @@ chromeos.media_perception.mojom.MediaPerceptionController.getRemote = function()
   return remote.$;
 };
 
+chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.activateMediaPerception(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.media_perception.mojom.MediaPerceptionControllerReceiver = chromeos.media_perception.mojom.MediaPerceptionControllerReceiver;
+
 chromeos.media_perception.mojom.MediaPerceptionControllerPtr = chromeos.media_perception.mojom.MediaPerceptionControllerRemote;
 chromeos.media_perception.mojom.MediaPerceptionControllerRequest = chromeos.media_perception.mojom.MediaPerceptionControllerPendingReceiver;
 
@@ -213,6 +255,28 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClient.getRemote = func
     'context');
   return remote.$;
 };
+
+chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectToVideoCaptureService(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver = chromeos.media_perception.mojom.MediaPerceptionControllerClientReceiver;
 
 chromeos.media_perception.mojom.MediaPerceptionControllerClientPtr = chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote;
 chromeos.media_perception.mojom.MediaPerceptionControllerClientRequest = chromeos.media_perception.mojom.MediaPerceptionControllerClientPendingReceiver;

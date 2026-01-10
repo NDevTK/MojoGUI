@@ -7,9 +7,6 @@
 // Module namespace
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
 
 sharing.mojom.NearbySharingDecoder = {};
 sharing.mojom.NearbySharingDecoder.$interfaceName = 'sharing.mojom.NearbySharingDecoder';
@@ -106,6 +103,47 @@ sharing.mojom.NearbySharingDecoder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+sharing.mojom.NearbySharingDecoderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decodeAdvertisement(params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decodeFrame(params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+sharing.mojom.NearbySharingDecoderReceiver = sharing.mojom.NearbySharingDecoderReceiver;
 
 sharing.mojom.NearbySharingDecoderPtr = sharing.mojom.NearbySharingDecoderRemote;
 sharing.mojom.NearbySharingDecoderRequest = sharing.mojom.NearbySharingDecoderPendingReceiver;

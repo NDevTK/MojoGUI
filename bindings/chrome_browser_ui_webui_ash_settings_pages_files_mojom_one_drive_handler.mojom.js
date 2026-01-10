@@ -90,6 +90,28 @@ ash.settings.one_drive.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.one_drive.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.one_drive.mojom.PageHandlerFactoryReceiver = ash.settings.one_drive.mojom.PageHandlerFactoryReceiver;
+
 ash.settings.one_drive.mojom.PageHandlerFactoryPtr = ash.settings.one_drive.mojom.PageHandlerFactoryRemote;
 ash.settings.one_drive.mojom.PageHandlerFactoryRequest = ash.settings.one_drive.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -223,6 +245,71 @@ ash.settings.one_drive.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.one_drive.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUserEmailAddress();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectToOneDrive();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disconnectFromOneDrive();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openOneDriveFolder();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.one_drive.mojom.PageHandlerReceiver = ash.settings.one_drive.mojom.PageHandlerReceiver;
+
 ash.settings.one_drive.mojom.PageHandlerPtr = ash.settings.one_drive.mojom.PageHandlerRemote;
 ash.settings.one_drive.mojom.PageHandlerRequest = ash.settings.one_drive.mojom.PageHandlerPendingReceiver;
 
@@ -302,6 +389,33 @@ ash.settings.one_drive.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.one_drive.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onODFSMountOrUnmount();
+          break;
+        }
+        case 1: {
+          const params = ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAllowUserToRemoveODFSChanged(params.is_allowed);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.one_drive.mojom.PageReceiver = ash.settings.one_drive.mojom.PageReceiver;
 
 ash.settings.one_drive.mojom.PagePtr = ash.settings.one_drive.mojom.PageRemote;
 ash.settings.one_drive.mojom.PageRequest = ash.settings.one_drive.mojom.PagePendingReceiver;

@@ -8,7 +8,7 @@
 var ash = ash || {};
 ash.projector = ash.projector || {};
 ash.projector.mojom = ash.projector.mojom || {};
-var ash = ash || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 ash.projector.mojom.UntrustedProjectorPageHandler = {};
@@ -333,6 +333,155 @@ ash.projector.mojom.UntrustedProjectorPageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNewScreencastPrecondition();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldDownloadSoda();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installSoda();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPendingScreencasts();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUserPref(params.pref);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUserPref(params.pref, params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFeedbackDialog();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startProjectorSession(params.storage_dir_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendXhr(params.url, params.method, params.request_body, params.use_credentials, params.use_api_key, params.headers, params.account_email);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAccounts();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVideo(params.video_file_id, params.resource_key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = ash.projector.mojom.UntrustedProjectorPageHandlerReceiver;
+
 ash.projector.mojom.UntrustedProjectorPageHandlerPtr = ash.projector.mojom.UntrustedProjectorPageHandlerRemote;
 ash.projector.mojom.UntrustedProjectorPageHandlerRequest = ash.projector.mojom.UntrustedProjectorPageHandlerPendingReceiver;
 
@@ -460,6 +609,48 @@ ash.projector.mojom.UntrustedProjectorPage.getRemote = function() {
   return remote.$;
 };
 
+ash.projector.mojom.UntrustedProjectorPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewScreencastPreconditionChanged(params.precondition);
+          break;
+        }
+        case 1: {
+          const params = ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSodaInstallProgressUpdated(params.progress);
+          break;
+        }
+        case 2: {
+          const params = ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSodaInstalled();
+          break;
+        }
+        case 3: {
+          const params = ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSodaInstallError();
+          break;
+        }
+        case 4: {
+          const params = ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScreencastsStateChange(params.pending_screencasts);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageReceiver = ash.projector.mojom.UntrustedProjectorPageReceiver;
+
 ash.projector.mojom.UntrustedProjectorPagePtr = ash.projector.mojom.UntrustedProjectorPageRemote;
 ash.projector.mojom.UntrustedProjectorPageRequest = ash.projector.mojom.UntrustedProjectorPagePendingReceiver;
 
@@ -525,6 +716,28 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactory.getRemote = function() 
     'context');
   return remote.$;
 };
+
+ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.create(params.handler, params.page);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver = ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver;
 
 ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPtr = ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemote;
 ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRequest = ash.projector.mojom.UntrustedProjectorPageHandlerFactoryPendingReceiver;

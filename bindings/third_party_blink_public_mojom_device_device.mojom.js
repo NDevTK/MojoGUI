@@ -105,6 +105,28 @@ blink.mojom.ManagedConfigurationObserver.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.ManagedConfigurationObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConfigurationChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ManagedConfigurationObserverReceiver = blink.mojom.ManagedConfigurationObserverReceiver;
+
 blink.mojom.ManagedConfigurationObserverPtr = blink.mojom.ManagedConfigurationObserverRemote;
 blink.mojom.ManagedConfigurationObserverRequest = blink.mojom.ManagedConfigurationObserverPendingReceiver;
 
@@ -259,6 +281,83 @@ blink.mojom.DeviceAPIService.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.DeviceAPIServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDirectoryId();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.DeviceAPIService_GetHostname_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getHostname();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSerialNumber();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAnnotatedAssetId();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAnnotatedLocation();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DeviceAPIServiceReceiver = blink.mojom.DeviceAPIServiceReceiver;
+
 blink.mojom.DeviceAPIServicePtr = blink.mojom.DeviceAPIServiceRemote;
 blink.mojom.DeviceAPIServiceRequest = blink.mojom.DeviceAPIServicePendingReceiver;
 
@@ -345,6 +444,40 @@ blink.mojom.ManagedConfigurationService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ManagedConfigurationServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getManagedConfiguration(params.keys);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.subscribeToManagedConfiguration(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ManagedConfigurationServiceReceiver = blink.mojom.ManagedConfigurationServiceReceiver;
 
 blink.mojom.ManagedConfigurationServicePtr = blink.mojom.ManagedConfigurationServiceRemote;
 blink.mojom.ManagedConfigurationServiceRequest = blink.mojom.ManagedConfigurationServicePendingReceiver;

@@ -7,6 +7,7 @@
 // Module namespace
 var filesystem = filesystem || {};
 filesystem.mojom = filesystem.mojom || {};
+var mojo_base = mojo_base || {};
 
 filesystem.mojom.WhenceSpec = { $: mojo.internal.Enum() };
 filesystem.mojom.FsFileTypeSpec = { $: mojo.internal.Enum() };

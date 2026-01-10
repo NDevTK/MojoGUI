@@ -7,7 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
 
 network.mojom.IfAddrMsgSpec = { $: {} };
 network.mojom.AddressMapSpec = { $: {} };
@@ -119,6 +118,28 @@ network.mojom.NetworkInterfaceChangeListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.NetworkInterfaceChangeListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNetworkInterfacesChanged(params.params);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.NetworkInterfaceChangeListenerReceiver = network.mojom.NetworkInterfaceChangeListenerReceiver;
 
 network.mojom.NetworkInterfaceChangeListenerPtr = network.mojom.NetworkInterfaceChangeListenerRemote;
 network.mojom.NetworkInterfaceChangeListenerRequest = network.mojom.NetworkInterfaceChangeListenerPendingReceiver;

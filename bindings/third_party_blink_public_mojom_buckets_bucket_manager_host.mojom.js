@@ -7,12 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.BucketErrorSpec = { $: mojo.internal.Enum() };
 blink.mojom.BucketPoliciesSpec = { $: {} };
@@ -338,6 +333,134 @@ blink.mojom.BucketHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.BucketHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.BucketHost_Persist_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.persist();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BucketHost_Persist_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.BucketHost_Persisted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.persisted();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BucketHost_Persisted_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.BucketHost_Estimate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.estimate();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BucketHost_Estimate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.BucketHost_Durability_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.durability();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BucketHost_Durability_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.BucketHost_SetExpires_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setExpires(params.expires);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BucketHost_SetExpires_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.BucketHost_Expires_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.expires();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BucketHost_Expires_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.BucketHost_GetIdbFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getIdbFactory(params.idb_factory);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.BucketHost_GetLockManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLockManager(params.lock_manager);
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.BucketHost_GetCaches_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCaches(params.cache_storage);
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.BucketHost_GetDirectory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDirectory();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDirectoryForDevtools(params.directory_path_components);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.BucketHostReceiver = blink.mojom.BucketHostReceiver;
+
 blink.mojom.BucketHostPtr = blink.mojom.BucketHostRemote;
 blink.mojom.BucketHostRequest = blink.mojom.BucketHostPendingReceiver;
 
@@ -471,6 +594,64 @@ blink.mojom.BucketManagerHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.BucketManagerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openBucket(params.name, params.policy);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBucketForDevtools(params.name, params.receiver);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.BucketManagerHost_Keys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.keys();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteBucket(params.name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.BucketManagerHostReceiver = blink.mojom.BucketManagerHostReceiver;
 
 blink.mojom.BucketManagerHostPtr = blink.mojom.BucketManagerHostRemote;
 blink.mojom.BucketManagerHostRequest = blink.mojom.BucketManagerHostPendingReceiver;

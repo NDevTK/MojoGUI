@@ -102,6 +102,33 @@ arc.mojom.SystemUiInstance.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.SystemUiInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDarkThemeStatus(params.active);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOverlayColor(params.source_color, params.theme_style);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.SystemUiInstanceReceiver = arc.mojom.SystemUiInstanceReceiver;
+
 arc.mojom.SystemUiInstancePtr = arc.mojom.SystemUiInstanceRemote;
 arc.mojom.SystemUiInstanceRequest = arc.mojom.SystemUiInstancePendingReceiver;
 

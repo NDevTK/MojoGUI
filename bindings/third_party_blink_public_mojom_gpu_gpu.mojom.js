@@ -81,6 +81,35 @@ blink.mojom.GpuDataManager.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.GpuDataManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.are3DAPIsBlockedForUrl(params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.GpuDataManager_Are3DAPIsBlockedForUrl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.GpuDataManagerReceiver = blink.mojom.GpuDataManagerReceiver;
+
 blink.mojom.GpuDataManagerPtr = blink.mojom.GpuDataManagerRemote;
 blink.mojom.GpuDataManagerRequest = blink.mojom.GpuDataManagerPendingReceiver;
 

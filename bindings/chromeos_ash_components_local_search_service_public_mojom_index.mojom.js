@@ -8,9 +8,7 @@
 var ash = ash || {};
 ash.local_search_service = ash.local_search_service || {};
 ash.local_search_service.mojom = ash.local_search_service.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var components = components || {};
+var mojo_base = mojo_base || {};
 
 ash.local_search_service.mojom.Index = {};
 ash.local_search_service.mojom.Index.$interfaceName = 'ash.local_search_service.mojom.Index';
@@ -224,6 +222,107 @@ ash.local_search_service.mojom.Index.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.local_search_service.mojom.IndexReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.local_search_service.mojom.Index_GetSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSize();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addOrUpdate(params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.local_search_service.mojom.Index_Delete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.delete(params.ids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateDocuments(params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.local_search_service.mojom.Index_Find_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.find(params.query, params.max_results);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.local_search_service.mojom.Index_Find_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearIndex();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSearchParams(params.search_params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.local_search_service.mojom.IndexReceiver = ash.local_search_service.mojom.IndexReceiver;
 
 ash.local_search_service.mojom.IndexPtr = ash.local_search_service.mojom.IndexRemote;
 ash.local_search_service.mojom.IndexRequest = ash.local_search_service.mojom.IndexPendingReceiver;

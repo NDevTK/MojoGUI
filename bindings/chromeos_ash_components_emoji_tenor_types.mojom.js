@@ -8,7 +8,6 @@
 var tenor = tenor || {};
 tenor.mojom = tenor.mojom || {};
 var url = url || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 tenor.mojom.StatusSpec = { $: mojo.internal.Enum() };

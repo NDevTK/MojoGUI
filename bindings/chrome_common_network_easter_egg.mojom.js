@@ -112,6 +112,45 @@ chrome.mojom.NetworkEasterEgg.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.NetworkEasterEggReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getHighScore();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateHighScore(params.high_score);
+          break;
+        }
+        case 2: {
+          const params = chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetHighScore();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.NetworkEasterEggReceiver = chrome.mojom.NetworkEasterEggReceiver;
+
 chrome.mojom.NetworkEasterEggPtr = chrome.mojom.NetworkEasterEggRemote;
 chrome.mojom.NetworkEasterEggRequest = chrome.mojom.NetworkEasterEggPendingReceiver;
 

@@ -76,6 +76,28 @@ color_change_listener.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+color_change_listener.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = color_change_listener.mojom.PageHandler_SetPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPage(params.page);
+          break;
+        }
+      }
+    });
+  }
+};
+
+color_change_listener.mojom.PageHandlerReceiver = color_change_listener.mojom.PageHandlerReceiver;
+
 color_change_listener.mojom.PageHandlerPtr = color_change_listener.mojom.PageHandlerRemote;
 color_change_listener.mojom.PageHandlerRequest = color_change_listener.mojom.PageHandlerPendingReceiver;
 
@@ -139,6 +161,28 @@ color_change_listener.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+color_change_listener.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onColorProviderChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+color_change_listener.mojom.PageReceiver = color_change_listener.mojom.PageReceiver;
 
 color_change_listener.mojom.PagePtr = color_change_listener.mojom.PageRemote;
 color_change_listener.mojom.PageRequest = color_change_listener.mojom.PagePendingReceiver;

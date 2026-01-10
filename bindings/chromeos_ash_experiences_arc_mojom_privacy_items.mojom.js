@@ -7,10 +7,6 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
 
 arc.mojom.PrivacyApplicationSpec = { $: {} };
 arc.mojom.PrivacyItemSpec = { $: {} };
@@ -134,6 +130,38 @@ arc.mojom.PrivacyItemsHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.PrivacyItemsHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPrivacyItemsChanged(params.privacy_items);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMicCameraIndicatorRequirementChanged(params.flag);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLocationIndicatorRequirementChanged(params.flag);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.PrivacyItemsHostReceiver = arc.mojom.PrivacyItemsHostReceiver;
+
 arc.mojom.PrivacyItemsHostPtr = arc.mojom.PrivacyItemsHostRemote;
 arc.mojom.PrivacyItemsHostRequest = arc.mojom.PrivacyItemsHostPendingReceiver;
 
@@ -220,6 +248,40 @@ arc.mojom.PrivacyItemsInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.PrivacyItemsInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.PrivacyItemsInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStaticPrivacyIndicatorBoundsChanged(params.displayId, params.bounds);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.PrivacyItemsInstanceReceiver = arc.mojom.PrivacyItemsInstanceReceiver;
 
 arc.mojom.PrivacyItemsInstancePtr = arc.mojom.PrivacyItemsInstanceRemote;
 arc.mojom.PrivacyItemsInstanceRequest = arc.mojom.PrivacyItemsInstancePendingReceiver;

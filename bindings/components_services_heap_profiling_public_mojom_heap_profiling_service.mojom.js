@@ -7,8 +7,7 @@
 // Module namespace
 var heap_profiling = heap_profiling || {};
 heap_profiling.mojom = heap_profiling.mojom || {};
-var components = components || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 heap_profiling.mojom.ProcessTypeSpec = { $: mojo.internal.Enum() };
 heap_profiling.mojom.ProfilingService = {};
@@ -117,6 +116,47 @@ heap_profiling.mojom.ProfilingService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+heap_profiling.mojom.ProfilingServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addProfilingClient(params.pid, params.client, params.process_type, params.params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getProfiledPids();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+heap_profiling.mojom.ProfilingServiceReceiver = heap_profiling.mojom.ProfilingServiceReceiver;
 
 heap_profiling.mojom.ProfilingServicePtr = heap_profiling.mojom.ProfilingServiceRemote;
 heap_profiling.mojom.ProfilingServiceRequest = heap_profiling.mojom.ProfilingServicePendingReceiver;

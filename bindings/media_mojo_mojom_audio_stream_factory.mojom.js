@@ -7,6 +7,8 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 media.mojom.LocalMuter = {};
 media.mojom.LocalMuter.$interfaceName = 'media.mojom.LocalMuter';
@@ -68,6 +70,23 @@ media.mojom.LocalMuter.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.LocalMuterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+media.mojom.LocalMuterReceiver = media.mojom.LocalMuterReceiver;
+
 media.mojom.LocalMuterPtr = media.mojom.LocalMuterRemote;
 media.mojom.LocalMuterRequest = media.mojom.LocalMuterPendingReceiver;
 
@@ -106,7 +125,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec, 'media.mojom.AudioStreamFactory_CreateOutputStream_Params', [
       mojo.internal.StructField('stream', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AudioOutputStreamRemote), null, false, 0, undefined),
-      mojo.internal.StructField('observer', 8, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.AudioOutputStreamObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('observer', 8, 0, pending_associated_remote<media.mojom.AudioOutputStreamObserver>Spec.$, null, true, 0, undefined),
       mojo.internal.StructField('log', 16, 0, mojo.internal.InterfaceProxy(media.mojom.AudioLogRemote), null, true, 0, undefined),
       mojo.internal.StructField('device_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('params', 32, 0, media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
@@ -124,7 +143,7 @@ mojo.internal.Struct(
     media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec, 'media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_Params', [
       mojo.internal.StructField('stream', 0, 0, mojo.internal.InterfaceRequest(media.mojom.AudioOutputStreamRemote), null, false, 0, undefined),
       mojo.internal.StructField('device_switch_receiver', 8, 0, mojo.internal.InterfaceRequest(media.mojom.DeviceSwitchInterfaceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('observer', 16, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.AudioOutputStreamObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('observer', 16, 0, pending_associated_remote<media.mojom.AudioOutputStreamObserver>Spec.$, null, true, 0, undefined),
       mojo.internal.StructField('log', 24, 0, mojo.internal.InterfaceProxy(media.mojom.AudioLogRemote), null, true, 0, undefined),
       mojo.internal.StructField('device_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('params', 40, 0, media.mojom.AudioParametersSpec.$, null, false, 0, undefined),
@@ -140,7 +159,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     media.mojom.AudioStreamFactory_BindMuter_ParamsSpec, 'media.mojom.AudioStreamFactory_BindMuter_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(media.mojom.LocalMuterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('group_id', 8, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -265,6 +284,81 @@ media.mojom.AudioStreamFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.AudioStreamFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createInputStream(params.stream, params.client, params.observer, params.log, params.device_id, params.params, params.group_id, params.shared_memory_count, params.enable_agc, params.processing_config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.associateInputAndOutputForAec(params.input_stream_id, params.output_device_id);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createOutputStream(params.stream, params.observer, params.log, params.device_id, params.params, params.group_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createSwitchableOutputStream(params.stream, params.device_switch_receiver, params.observer, params.log, params.device_id, params.params, params.group_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = media.mojom.AudioStreamFactory_BindMuter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindMuter(params.receiver, params.group_id);
+          break;
+        }
+        case 5: {
+          const params = media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createLoopbackStream(params.receiver, params.client, params.observer, params.params, params.shared_memory_count, params.group_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioStreamFactoryReceiver = media.mojom.AudioStreamFactoryReceiver;
 
 media.mojom.AudioStreamFactoryPtr = media.mojom.AudioStreamFactoryRemote;
 media.mojom.AudioStreamFactoryRequest = media.mojom.AudioStreamFactoryPendingReceiver;

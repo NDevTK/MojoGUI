@@ -7,7 +7,6 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
-var chromeos = chromeos || {};
 
 cros.mojom.CameraHalClient = {};
 cros.mojom.CameraHalClient.$interfaceName = 'cros.mojom.CameraHalClient';
@@ -73,6 +72,28 @@ cros.mojom.CameraHalClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cros.mojom.CameraHalClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUpChannel(params.camera_module);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.CameraHalClientReceiver = cros.mojom.CameraHalClientReceiver;
 
 cros.mojom.CameraHalClientPtr = cros.mojom.CameraHalClientRemote;
 cros.mojom.CameraHalClientRequest = cros.mojom.CameraHalClientPendingReceiver;

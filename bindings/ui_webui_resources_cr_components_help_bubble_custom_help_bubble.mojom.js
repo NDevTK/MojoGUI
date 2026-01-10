@@ -85,6 +85,28 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCustomHelpBubbleHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryReceiver = custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryReceiver;
+
 custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryPtr = custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemote;
 custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRequest = custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryPendingReceiver;
 
@@ -149,6 +171,28 @@ custom_help_bubble.mojom.CustomHelpBubbleHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+custom_help_bubble.mojom.CustomHelpBubbleHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyUserAction(params.action);
+          break;
+        }
+      }
+    });
+  }
+};
+
+custom_help_bubble.mojom.CustomHelpBubbleHandlerReceiver = custom_help_bubble.mojom.CustomHelpBubbleHandlerReceiver;
 
 custom_help_bubble.mojom.CustomHelpBubbleHandlerPtr = custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote;
 custom_help_bubble.mojom.CustomHelpBubbleHandlerRequest = custom_help_bubble.mojom.CustomHelpBubbleHandlerPendingReceiver;

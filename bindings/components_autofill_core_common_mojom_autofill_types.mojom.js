@@ -7,7 +7,7 @@
 // Module namespace
 var autofill = autofill || {};
 autofill.mojom = autofill.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 var url = url || {};
 

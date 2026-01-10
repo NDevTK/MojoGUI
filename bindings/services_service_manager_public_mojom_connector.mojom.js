@@ -7,9 +7,7 @@
 // Module namespace
 var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 service_manager.mojom.ConnectResultSpec = { $: mojo.internal.Enum() };
 service_manager.mojom.BindInterfacePrioritySpec = { $: mojo.internal.Enum() };
@@ -120,6 +118,28 @@ service_manager.mojom.ProcessMetadata.getRemote = function() {
     'context');
   return remote.$;
 };
+
+service_manager.mojom.ProcessMetadataReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPID(params.pid);
+          break;
+        }
+      }
+    });
+  }
+};
+
+service_manager.mojom.ProcessMetadataReceiver = service_manager.mojom.ProcessMetadataReceiver;
 
 service_manager.mojom.ProcessMetadataPtr = service_manager.mojom.ProcessMetadataRemote;
 service_manager.mojom.ProcessMetadataRequest = service_manager.mojom.ProcessMetadataPendingReceiver;
@@ -280,6 +300,76 @@ service_manager.mojom.Connector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+service_manager.mojom.ConnectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = service_manager.mojom.Connector_BindInterface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindInterface(params.filter, params.interface_name, params.interface_pipe, params.priority);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, service_manager.mojom.Connector_BindInterface_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = service_manager.mojom.Connector_QueryService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queryService(params.service_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, service_manager.mojom.Connector_QueryService_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = service_manager.mojom.Connector_WarmService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.warmService(params.filter);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, service_manager.mojom.Connector_WarmService_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerServiceInstance(params.identity, params.service, params.metadata_receiver);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = service_manager.mojom.Connector_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+service_manager.mojom.ConnectorReceiver = service_manager.mojom.ConnectorReceiver;
 
 service_manager.mojom.ConnectorPtr = service_manager.mojom.ConnectorRemote;
 service_manager.mojom.ConnectorRequest = service_manager.mojom.ConnectorPendingReceiver;

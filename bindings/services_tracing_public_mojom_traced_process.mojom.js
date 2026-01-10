@@ -7,7 +7,6 @@
 // Module namespace
 var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
-var services = services || {};
 
 tracing.mojom.ConnectToTracingRequestSpec = { $: {} };
 tracing.mojom.TracedProcess = {};
@@ -87,6 +86,35 @@ tracing.mojom.TracedProcess.getRemote = function() {
     'context');
   return remote.$;
 };
+
+tracing.mojom.TracedProcessReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectToTracingService(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+tracing.mojom.TracedProcessReceiver = tracing.mojom.TracedProcessReceiver;
 
 tracing.mojom.TracedProcessPtr = tracing.mojom.TracedProcessRemote;
 tracing.mojom.TracedProcessRequest = tracing.mojom.TracedProcessPendingReceiver;

@@ -73,6 +73,28 @@ chrome.mojom.GoogleAccountsPrivateApiExtension.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.GoogleAccountsPrivateApiExtensionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setConsentResult(params.consent_result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.GoogleAccountsPrivateApiExtensionReceiver = chrome.mojom.GoogleAccountsPrivateApiExtensionReceiver;
+
 chrome.mojom.GoogleAccountsPrivateApiExtensionPtr = chrome.mojom.GoogleAccountsPrivateApiExtensionRemote;
 chrome.mojom.GoogleAccountsPrivateApiExtensionRequest = chrome.mojom.GoogleAccountsPrivateApiExtensionPendingReceiver;
 

@@ -7,7 +7,7 @@
 // Module namespace
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 gpu.mojom.VulkanImplementationNameSpec = { $: mojo.internal.Enum() };

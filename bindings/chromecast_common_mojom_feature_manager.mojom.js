@@ -8,6 +8,7 @@
 var chromecast = chromecast || {};
 chromecast.shell = chromecast.shell || {};
 chromecast.shell.mojom = chromecast.shell.mojom || {};
+var mojo_base = mojo_base || {};
 
 chromecast.shell.mojom.FeatureSpec = { $: {} };
 chromecast.shell.mojom.FeatureManager = {};
@@ -82,6 +83,28 @@ chromecast.shell.mojom.FeatureManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.shell.mojom.FeatureManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.configureFeatures(params.features);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.shell.mojom.FeatureManagerReceiver = chromecast.shell.mojom.FeatureManagerReceiver;
 
 chromecast.shell.mojom.FeatureManagerPtr = chromecast.shell.mojom.FeatureManagerRemote;
 chromecast.shell.mojom.FeatureManagerRequest = chromecast.shell.mojom.FeatureManagerPendingReceiver;

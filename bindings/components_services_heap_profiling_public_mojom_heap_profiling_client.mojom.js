@@ -146,6 +146,47 @@ heap_profiling.mojom.ProfilingClient.getRemote = function() {
   return remote.$;
 };
 
+heap_profiling.mojom.ProfilingClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startProfiling(params.params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.retrieveHeapProfile();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+heap_profiling.mojom.ProfilingClientReceiver = heap_profiling.mojom.ProfilingClientReceiver;
+
 heap_profiling.mojom.ProfilingClientPtr = heap_profiling.mojom.ProfilingClientRemote;
 heap_profiling.mojom.ProfilingClientRequest = heap_profiling.mojom.ProfilingClientPendingReceiver;
 

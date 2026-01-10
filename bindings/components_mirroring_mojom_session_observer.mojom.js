@@ -191,6 +191,58 @@ mirroring.mojom.SessionObserver.getRemote = function() {
   return remote.$;
 };
 
+mirroring.mojom.SessionObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mirroring.mojom.SessionObserver_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error);
+          break;
+        }
+        case 1: {
+          const params = mirroring.mojom.SessionObserver_DidStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didStart();
+          break;
+        }
+        case 2: {
+          const params = mirroring.mojom.SessionObserver_DidStop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didStop();
+          break;
+        }
+        case 3: {
+          const params = mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logInfoMessage(params.message);
+          break;
+        }
+        case 4: {
+          const params = mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logErrorMessage(params.message);
+          break;
+        }
+        case 5: {
+          const params = mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSourceChanged();
+          break;
+        }
+        case 6: {
+          const params = mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRemotingStateChanged(params.is_remoting);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mirroring.mojom.SessionObserverReceiver = mirroring.mojom.SessionObserverReceiver;
+
 mirroring.mojom.SessionObserverPtr = mirroring.mojom.SessionObserverRemote;
 mirroring.mojom.SessionObserverRequest = mirroring.mojom.SessionObserverPendingReceiver;
 

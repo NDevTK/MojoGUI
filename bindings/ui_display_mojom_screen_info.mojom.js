@@ -7,10 +7,6 @@
 // Module namespace
 var display = display || {};
 display.mojom = display.mojom || {};
-var ui = ui || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 display.mojom.ScreenInfoSpec = { $: {} };

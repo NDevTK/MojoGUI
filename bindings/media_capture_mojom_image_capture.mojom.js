@@ -293,6 +293,59 @@ media.mojom.ImageCapture.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.ImageCaptureReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.ImageCapture_GetPhotoState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPhotoState(params.source_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPhotoOptions(params.source_id, params.settings);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = media.mojom.ImageCapture_TakePhoto_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.takePhoto(params.source_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.ImageCaptureReceiver = media.mojom.ImageCaptureReceiver;
+
 media.mojom.ImageCapturePtr = media.mojom.ImageCaptureRemote;
 media.mojom.ImageCaptureRequest = media.mojom.ImageCapturePendingReceiver;
 

@@ -103,6 +103,28 @@ media.mojom.FuchsiaMediaCdmProvider.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.FuchsiaMediaCdmProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCdm(params.key_system, params.cdm_request);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.FuchsiaMediaCdmProviderReceiver = media.mojom.FuchsiaMediaCdmProviderReceiver;
+
 media.mojom.FuchsiaMediaCdmProviderPtr = media.mojom.FuchsiaMediaCdmProviderRemote;
 media.mojom.FuchsiaMediaCdmProviderRequest = media.mojom.FuchsiaMediaCdmProviderPendingReceiver;
 
@@ -190,6 +212,40 @@ media.mojom.FuchsiaMediaCodecProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.FuchsiaMediaCodecProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createVideoDecoder(params.codec, params.secure_mode, params.stream_processor_request);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSupportedVideoDecoderConfigs();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.FuchsiaMediaCodecProviderReceiver = media.mojom.FuchsiaMediaCodecProviderReceiver;
 
 media.mojom.FuchsiaMediaCodecProviderPtr = media.mojom.FuchsiaMediaCodecProviderRemote;
 media.mojom.FuchsiaMediaCodecProviderRequest = media.mojom.FuchsiaMediaCodecProviderPendingReceiver;

@@ -7,8 +7,7 @@
 // Module namespace
 var autofill = autofill || {};
 autofill.mojom = autofill.mojom || {};
-var components = components || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -369,6 +368,103 @@ autofill.mojom.AutofillDriver.getRemote = function() {
   return remote.$;
 };
 
+autofill.mojom.AutofillDriverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.formsSeen(params.updated_forms, params.removed_forms);
+          break;
+        }
+        case 1: {
+          const params = autofill.mojom.AutofillDriver_FormSubmitted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.formSubmitted(params.form, params.source);
+          break;
+        }
+        case 2: {
+          const params = autofill.mojom.AutofillDriver_CaretMovedInFormField_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.caretMovedInFormField(params.form, params.field_id, params.caret_bounds);
+          break;
+        }
+        case 3: {
+          const params = autofill.mojom.AutofillDriver_TextFieldValueChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.textFieldValueChanged(params.form, params.field_id, params.timestamp);
+          break;
+        }
+        case 4: {
+          const params = autofill.mojom.AutofillDriver_DidEndTextFieldEditing_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didEndTextFieldEditing();
+          break;
+        }
+        case 5: {
+          const params = autofill.mojom.AutofillDriver_TextFieldDidScroll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.textFieldDidScroll(params.form, params.field_id);
+          break;
+        }
+        case 6: {
+          const params = autofill.mojom.AutofillDriver_SelectControlSelectionChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectControlSelectionChanged(params.form, params.field_id);
+          break;
+        }
+        case 7: {
+          const params = autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectFieldOptionsDidChange(params.form, params.field_id);
+          break;
+        }
+        case 8: {
+          const params = autofill.mojom.AutofillDriver_FocusOnFormField_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focusOnFormField(params.form, params.field_id);
+          break;
+        }
+        case 9: {
+          const params = autofill.mojom.AutofillDriver_FocusOnNonFormField_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focusOnNonFormField();
+          break;
+        }
+        case 10: {
+          const params = autofill.mojom.AutofillDriver_AskForValuesToFill_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.askForValuesToFill(params.form, params.field_id, params.caret_bounds, params.trigger_source, params.password_request);
+          break;
+        }
+        case 11: {
+          const params = autofill.mojom.AutofillDriver_HidePopup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hidePopup();
+          break;
+        }
+        case 12: {
+          const params = autofill.mojom.AutofillDriver_DidAutofillForm_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didAutofillForm(params.form);
+          break;
+        }
+        case 13: {
+          const params = autofill.mojom.AutofillDriver_SuppressAutomaticRefills_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suppressAutomaticRefills(params.fill_id);
+          break;
+        }
+        case 14: {
+          const params = autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestRefill(params.fill_id);
+          break;
+        }
+        case 15: {
+          const params = autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.javaScriptChangedAutofilledValue(params.form, params.field_id, params.old_value);
+          break;
+        }
+      }
+    });
+  }
+};
+
+autofill.mojom.AutofillDriverReceiver = autofill.mojom.AutofillDriverReceiver;
+
 autofill.mojom.AutofillDriverPtr = autofill.mojom.AutofillDriverRemote;
 autofill.mojom.AutofillDriverRequest = autofill.mojom.AutofillDriverPendingReceiver;
 
@@ -631,6 +727,88 @@ autofill.mojom.PasswordManagerDriver.getRemote = function() {
   return remote.$;
 };
 
+autofill.mojom.PasswordManagerDriverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.passwordFormsParsed(params.forms_data);
+          break;
+        }
+        case 1: {
+          const params = autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.passwordFormsRendered(params.visible_forms_data);
+          break;
+        }
+        case 2: {
+          const params = autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.passwordFormSubmitted(params.form_data);
+          break;
+        }
+        case 3: {
+          const params = autofill.mojom.PasswordManagerDriver_InformAboutUserInput_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.informAboutUserInput(params.form_data);
+          break;
+        }
+        case 4: {
+          const params = autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dynamicFormSubmission(params.submission_indication_event);
+          break;
+        }
+        case 5: {
+          const params = autofill.mojom.PasswordManagerDriver_PasswordFormCleared_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.passwordFormCleared(params.form_data);
+          break;
+        }
+        case 6: {
+          const params = autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordSavePasswordProgress(params.log);
+          break;
+        }
+        case 7: {
+          const params = autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.userModifiedPasswordField();
+          break;
+        }
+        case 8: {
+          const params = autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.userModifiedNonPasswordField(params.renderer_id, params.value, params.autocomplete_attribute_has_username, params.is_likely_otp);
+          break;
+        }
+        case 9: {
+          const params = autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showPasswordSuggestions(params.request);
+          break;
+        }
+        case 10: {
+          const params = autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkSafeBrowsingReputation(params.form_action, params.frame_url);
+          break;
+        }
+        case 11: {
+          const params = autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focusedInputChanged(params.focused_field_id, params.focused_field_type);
+          break;
+        }
+        case 12: {
+          const params = autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logFirstFillingResult(params.form_renderer_id, params.result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+autofill.mojom.PasswordManagerDriverReceiver = autofill.mojom.PasswordManagerDriverReceiver;
+
 autofill.mojom.PasswordManagerDriverPtr = autofill.mojom.PasswordManagerDriverRemote;
 autofill.mojom.PasswordManagerDriverRequest = autofill.mojom.PasswordManagerDriverPendingReceiver;
 
@@ -792,6 +970,58 @@ autofill.mojom.PasswordGenerationDriver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+autofill.mojom.PasswordGenerationDriverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.automaticGenerationAvailable(params.password_generation_ui_data);
+          break;
+        }
+        case 1: {
+          const params = autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.presaveGeneratedPassword(params.form_data, params.password_value);
+          break;
+        }
+        case 2: {
+          const params = autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.passwordNoLongerGenerated(params.form_data);
+          break;
+        }
+        case 3: {
+          const params = autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showPasswordEditingPopup(params.bounds, params.form_data, params.field_renderer_id, params.password_value);
+          break;
+        }
+        case 4: {
+          const params = autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.passwordGenerationRejectedByTyping();
+          break;
+        }
+        case 5: {
+          const params = autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.frameWasScrolled();
+          break;
+        }
+        case 6: {
+          const params = autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generationElementLostFocus();
+          break;
+        }
+      }
+    });
+  }
+};
+
+autofill.mojom.PasswordGenerationDriverReceiver = autofill.mojom.PasswordGenerationDriverReceiver;
 
 autofill.mojom.PasswordGenerationDriverPtr = autofill.mojom.PasswordGenerationDriverRemote;
 autofill.mojom.PasswordGenerationDriverRequest = autofill.mojom.PasswordGenerationDriverPendingReceiver;

@@ -93,6 +93,28 @@ ash.extended_updates.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+ash.extended_updates.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.extended_updates.mojom.PageHandlerFactoryReceiver = ash.extended_updates.mojom.PageHandlerFactoryReceiver;
+
 ash.extended_updates.mojom.PageHandlerFactoryPtr = ash.extended_updates.mojom.PageHandlerFactoryRemote;
 ash.extended_updates.mojom.PageHandlerFactoryRequest = ash.extended_updates.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -199,6 +221,52 @@ ash.extended_updates.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.extended_updates.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.optInToExtendedUpdates();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeDialog();
+          break;
+        }
+        case 2: {
+          const params = ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getInstalledAndroidApps();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.extended_updates.mojom.PageHandlerReceiver = ash.extended_updates.mojom.PageHandlerReceiver;
+
 ash.extended_updates.mojom.PageHandlerPtr = ash.extended_updates.mojom.PageHandlerRemote;
 ash.extended_updates.mojom.PageHandlerRequest = ash.extended_updates.mojom.PageHandlerPendingReceiver;
 
@@ -247,6 +315,23 @@ ash.extended_updates.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.extended_updates.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+ash.extended_updates.mojom.PageReceiver = ash.extended_updates.mojom.PageReceiver;
 
 ash.extended_updates.mojom.PagePtr = ash.extended_updates.mojom.PageRemote;
 ash.extended_updates.mojom.PageRequest = ash.extended_updates.mojom.PagePendingReceiver;

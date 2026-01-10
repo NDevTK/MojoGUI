@@ -187,6 +187,28 @@ url_rewrite.mojom.UrlRequestRulesReceiver.getRemote = function() {
   return remote.$;
 };
 
+url_rewrite.mojom.UrlRequestRulesReceiverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRulesUpdated(params.rules);
+          break;
+        }
+      }
+    });
+  }
+};
+
+url_rewrite.mojom.UrlRequestRulesReceiverReceiver = url_rewrite.mojom.UrlRequestRulesReceiverReceiver;
+
 url_rewrite.mojom.UrlRequestRulesReceiverPtr = url_rewrite.mojom.UrlRequestRulesReceiverRemote;
 url_rewrite.mojom.UrlRequestRulesReceiverRequest = url_rewrite.mojom.UrlRequestRulesReceiverPendingReceiver;
 

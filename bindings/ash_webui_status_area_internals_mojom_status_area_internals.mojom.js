@@ -273,6 +273,83 @@ ash.mojom.status_area_internals.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.mojom.status_area_internals.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleImeTray(params.visible);
+          break;
+        }
+        case 1: {
+          const params = ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.togglePaletteTray(params.visible);
+          break;
+        }
+        case 2: {
+          const params = ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleLogoutTray(params.visible);
+          break;
+        }
+        case 3: {
+          const params = ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleVirtualKeyboardTray(params.visible);
+          break;
+        }
+        case 4: {
+          const params = ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleDictationTray(params.visible);
+          break;
+        }
+        case 5: {
+          const params = ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleVideoConferenceTray(params.visible);
+          break;
+        }
+        case 6: {
+          const params = ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleAnnotationTray(params.visible);
+          break;
+        }
+        case 7: {
+          const params = ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsInUserChildSession(params.in_child_session);
+          break;
+        }
+        case 8: {
+          const params = ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.triggerPrivacyIndicators(params.app_id, params.app_name, params.is_camera_used, params.is_microphone_used);
+          break;
+        }
+        case 9: {
+          const params = ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetHmrConsentStatus();
+          break;
+        }
+        case 10: {
+          const params = ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBatteryIcon(params.icon);
+          break;
+        }
+        case 11: {
+          const params = ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBatteryPercent(params.percent);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.mojom.status_area_internals.PageHandlerReceiver = ash.mojom.status_area_internals.PageHandlerReceiver;
+
 ash.mojom.status_area_internals.PageHandlerPtr = ash.mojom.status_area_internals.PageHandlerRemote;
 ash.mojom.status_area_internals.PageHandlerRequest = ash.mojom.status_area_internals.PageHandlerPendingReceiver;
 

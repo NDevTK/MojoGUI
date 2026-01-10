@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.SingletonJavaScriptValueSpec = { $: mojo.internal.Enum() };
 blink.mojom.RemoteArrayTypeSpec = { $: mojo.internal.Enum() };
@@ -244,6 +245,38 @@ blink.mojom.RemoteObjectHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.RemoteObjectHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.RemoteObjectHost_GetObject_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getObject(params.object_id, params.receiver);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acquireObject(params.object_id);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.releaseObject(params.object_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.RemoteObjectHostReceiver = blink.mojom.RemoteObjectHostReceiver;
+
 blink.mojom.RemoteObjectHostPtr = blink.mojom.RemoteObjectHostRemote;
 blink.mojom.RemoteObjectHostRequest = blink.mojom.RemoteObjectHostPendingReceiver;
 
@@ -374,6 +407,64 @@ blink.mojom.RemoteObject.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.RemoteObjectReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.RemoteObject_HasMethod_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasMethod(params.name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.RemoteObject_GetMethods_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMethods();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.RemoteObject_InvokeMethod_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.invokeMethod(params.name, params.arguments);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyReleasedObject();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.RemoteObjectReceiver = blink.mojom.RemoteObjectReceiver;
+
 blink.mojom.RemoteObjectPtr = blink.mojom.RemoteObjectRemote;
 blink.mojom.RemoteObjectRequest = blink.mojom.RemoteObjectPendingReceiver;
 
@@ -439,6 +530,28 @@ blink.mojom.RemoteObjectGatewayFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.RemoteObjectGatewayFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createRemoteObjectGateway(params.host, params.gateway);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.RemoteObjectGatewayFactoryReceiver = blink.mojom.RemoteObjectGatewayFactoryReceiver;
 
 blink.mojom.RemoteObjectGatewayFactoryPtr = blink.mojom.RemoteObjectGatewayFactoryRemote;
 blink.mojom.RemoteObjectGatewayFactoryRequest = blink.mojom.RemoteObjectGatewayFactoryPendingReceiver;
@@ -521,6 +634,33 @@ blink.mojom.RemoteObjectGateway.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.RemoteObjectGatewayReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addNamedObject(params.name, params.object_id);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeNamedObject(params.name);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.RemoteObjectGatewayReceiver = blink.mojom.RemoteObjectGatewayReceiver;
 
 blink.mojom.RemoteObjectGatewayPtr = blink.mojom.RemoteObjectGatewayRemote;
 blink.mojom.RemoteObjectGatewayRequest = blink.mojom.RemoteObjectGatewayPendingReceiver;

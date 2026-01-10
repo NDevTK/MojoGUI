@@ -7,9 +7,7 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var network = network || {};
 
 device.mojom.PublicIpAddressGeolocationProvider = {};
 device.mojom.PublicIpAddressGeolocationProvider.$interfaceName = 'device.mojom.PublicIpAddressGeolocationProvider';
@@ -77,6 +75,28 @@ device.mojom.PublicIpAddressGeolocationProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.PublicIpAddressGeolocationProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createGeolocation(params.tag, params.receiver, params.client_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.PublicIpAddressGeolocationProviderReceiver = device.mojom.PublicIpAddressGeolocationProviderReceiver;
 
 device.mojom.PublicIpAddressGeolocationProviderPtr = device.mojom.PublicIpAddressGeolocationProviderRemote;
 device.mojom.PublicIpAddressGeolocationProviderRequest = device.mojom.PublicIpAddressGeolocationProviderPendingReceiver;

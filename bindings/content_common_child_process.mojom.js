@@ -7,8 +7,9 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
-var services = services || {};
-var services = services || {};
+var IPC = IPC || {};
+var mojo_base = mojo_base || {};
+var tracing = tracing || {};
 
 content.mojom.LoggingSettingsSpec = { $: {} };
 content.mojom.ChildProcessHost = {};
@@ -123,6 +124,40 @@ content.mojom.ChildProcessHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.ChildProcessHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.ChildProcessHost_Ping_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.ping();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.ChildProcessHost_Ping_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindHostReceiver(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.ChildProcessHostReceiver = content.mojom.ChildProcessHostReceiver;
 
 content.mojom.ChildProcessHostPtr = content.mojom.ChildProcessHostRemote;
 content.mojom.ChildProcessHostRequest = content.mojom.ChildProcessHostPendingReceiver;
@@ -403,6 +438,107 @@ content.mojom.ChildProcess.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.ChildProcessReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.ChildProcess_ProcessShutdown_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.processShutdown();
+          break;
+        }
+        case 1: {
+          const params = content.mojom.ChildProcess_GetTaskPort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTaskPort();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIPCLoggingEnabled(params.on);
+          break;
+        }
+        case 3: {
+          const params = content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBackgroundTracingAgentProvider(params.receiver);
+          break;
+        }
+        case 4: {
+          const params = content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableSystemTracingService(params.remote);
+          break;
+        }
+        case 5: {
+          const params = content.mojom.ChildProcess_CrashHungProcess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.crashHungProcess();
+          break;
+        }
+        case 6: {
+          const params = content.mojom.ChildProcess_BindServiceInterface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindServiceInterface(params.receiver);
+          break;
+        }
+        case 7: {
+          const params = content.mojom.ChildProcess_BindReceiver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindReceiver(params.receiver);
+          break;
+        }
+        case 8: {
+          const params = content.mojom.ChildProcess_SetProfilingFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setProfilingFile(params.file);
+          break;
+        }
+        case 9: {
+          const params = content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeClangProfilingProfile();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPseudonymizationSalt(params.salt);
+          break;
+        }
+        case 11: {
+          const params = content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reinitializeLogging(params.settings);
+          break;
+        }
+        case 12: {
+          const params = content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMemoryPressure(params.memory_pressure_level);
+          break;
+        }
+        case 13: {
+          const params = content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBatterySaverMode(params.battery_saver_mode_enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.ChildProcessReceiver = content.mojom.ChildProcessReceiver;
 
 content.mojom.ChildProcessPtr = content.mojom.ChildProcessRemote;
 content.mojom.ChildProcessRequest = content.mojom.ChildProcessPendingReceiver;

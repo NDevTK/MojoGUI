@@ -7,19 +7,10 @@
 // Module namespace
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
+var mojo_base = mojo_base || {};
 var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
 var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var display = display || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -176,6 +167,28 @@ remote_cocoa.mojom.PopupMenuRunner.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remote_cocoa.mojom.PopupMenuRunnerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remote_cocoa.mojom.PopupMenuRunner_Hide_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hide();
+          break;
+        }
+      }
+    });
+  }
+};
+
+remote_cocoa.mojom.PopupMenuRunnerReceiver = remote_cocoa.mojom.PopupMenuRunnerReceiver;
 
 remote_cocoa.mojom.PopupMenuRunnerPtr = remote_cocoa.mojom.PopupMenuRunnerRemote;
 remote_cocoa.mojom.PopupMenuRunnerRequest = remote_cocoa.mojom.PopupMenuRunnerPendingReceiver;
@@ -657,6 +670,167 @@ remote_cocoa.mojom.RenderWidgetHostNSView.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_InitAsPopup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initAsPopup(params.content_rect, params.popup_parent_ns_view_id);
+          break;
+        }
+        case 1: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_SetParentWebContentsNSView_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setParentWebContentsNSView(params.parent_ns_view_id);
+          break;
+        }
+        case 2: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_DisableDisplay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableDisplay();
+          break;
+        }
+        case 3: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_MakeFirstResponder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.makeFirstResponder();
+          break;
+        }
+        case 4: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_SetBounds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBounds(params.rect);
+          break;
+        }
+        case 5: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_SetCALayerParams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCALayerParams(params.ca_layer_params);
+          break;
+        }
+        case 6: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_SetBackgroundColor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBackgroundColor(params.color);
+          break;
+        }
+        case 7: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_SetVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVisible(params.visible);
+          break;
+        }
+        case 8: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_SetTooltipText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTooltipText(params.display_text);
+          break;
+        }
+        case 9: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_SetTextInputState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTextInputState(params.text_input_type, params.flags);
+          break;
+        }
+        case 10: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_SetTextSelection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTextSelection(params.text, params.offset, params.range);
+          break;
+        }
+        case 11: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_SetCompositionRangeInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCompositionRangeInfo(params.range);
+          break;
+        }
+        case 12: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_CancelComposition_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelComposition();
+          break;
+        }
+        case 13: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_SetShowingContextMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setShowingContextMenu(params.showing);
+          break;
+        }
+        case 14: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_DisplayCursor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.displayCursor(params.cursor);
+          break;
+        }
+        case 15: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLocked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCursorLocked(params.locked);
+          break;
+        }
+        case 16: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_SetCursorLockedUnacceleratedMovement_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCursorLockedUnacceleratedMovement(params.unaccelerated_movement);
+          break;
+        }
+        case 17: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlayForSelection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showDictionaryOverlayForSelection();
+          break;
+        }
+        case 18: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_ShowDictionaryOverlay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showDictionaryOverlay(params.attributed_string, params.baseline_point);
+          break;
+        }
+        case 19: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_LockKeyboard_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.lockKeyboard(params.dom_codes);
+          break;
+        }
+        case 20: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_UnlockKeyboard_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unlockKeyboard();
+          break;
+        }
+        case 21: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showSharingServicePicker(params.title, params.text, params.url, params.file_paths);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSView_ShowSharingServicePicker_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 22: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_Destroy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.destroy();
+          break;
+        }
+        case 23: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_GestureScrollEventAck_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.gestureScrollEventAck(params.event, params.consumed);
+          break;
+        }
+        case 24: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_DidOverscroll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didOverscroll(params.params);
+          break;
+        }
+        case 25: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.displayPopupMenu(params.menu);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSView_DisplayPopupMenu_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+remote_cocoa.mojom.RenderWidgetHostNSViewReceiver = remote_cocoa.mojom.RenderWidgetHostNSViewReceiver;
 
 remote_cocoa.mojom.RenderWidgetHostNSViewPtr = remote_cocoa.mojom.RenderWidgetHostNSViewRemote;
 remote_cocoa.mojom.RenderWidgetHostNSViewRequest = remote_cocoa.mojom.RenderWidgetHostNSViewPendingReceiver;
@@ -1370,6 +1544,258 @@ remote_cocoa.mojom.RenderWidgetHostNSViewHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.syncIsWidgetForMainFrame();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsWidgetForMainFrame_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_RequestShutdown_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestShutdown();
+          break;
+        }
+        case 2: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnFirstResponderChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFirstResponderChanged(params.is_first_responder);
+          break;
+        }
+        case 3: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowIsKeyChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWindowIsKeyChanged(params.is_key);
+          break;
+        }
+        case 4: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnBoundsInWindowChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBoundsInWindowChanged(params.view_bounds_in_window_dip, params.attached_to_window);
+          break;
+        }
+        case 5: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnWindowFrameInScreenChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWindowFrameInScreenChanged(params.window_frame_in_screen_dip);
+          break;
+        }
+        case 6: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_OnScreenInfosChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScreenInfosChanged(params.screen_infos);
+          break;
+        }
+        case 7: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_BeginKeyboardEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.beginKeyboardEvent();
+          break;
+        }
+        case 8: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_EndKeyboardEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.endKeyboardEvent();
+          break;
+        }
+        case 9: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardKeyboardEventWithCommands_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forwardKeyboardEventWithCommands(params.event, params.native_event_data, params.skip_if_unhandled, params.commands);
+          break;
+        }
+        case 10: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessMouseEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.routeOrProcessMouseEvent(params.event);
+          break;
+        }
+        case 11: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessTouchEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.routeOrProcessTouchEvent(params.event);
+          break;
+        }
+        case 12: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_RouteOrProcessWheelEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.routeOrProcessWheelEvent(params.event);
+          break;
+        }
+        case 13: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardMouseEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forwardMouseEvent(params.event);
+          break;
+        }
+        case 14: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_ForwardWheelEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forwardWheelEvent(params.event);
+          break;
+        }
+        case 15: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_PinchEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pinchEvent(params.event, params.is_synthetically_injected);
+          break;
+        }
+        case 16: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_SmartMagnifyEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.smartMagnifyEvent(params.event);
+          break;
+        }
+        case 17: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeSetComposition_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.imeSetComposition(params.text, params.ime_text_spans, params.replacement_range, params.selection_start, params.selection_end);
+          break;
+        }
+        case 18: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCommitText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.imeCommitText(params.text, params.replacement_range);
+          break;
+        }
+        case 19: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeFinishComposingText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.imeFinishComposingText();
+          break;
+        }
+        case 20: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_ImeCancelCompositionFromCocoa_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.imeCancelCompositionFromCocoa();
+          break;
+        }
+        case 21: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayAtPoint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.lookUpDictionaryOverlayAtPoint(params.root_point);
+          break;
+        }
+        case 22: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_LookUpDictionaryOverlayFromRange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.lookUpDictionaryOverlayFromRange(params.range);
+          break;
+        }
+        case 23: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.syncGetCharacterIndexAtPoint(params.root_point);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetCharacterIndexAtPoint_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 24: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.syncGetFirstRectForRange(params.requested_range);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncGetFirstRectForRange_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 25: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_ExecuteEditCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeEditCommand(params.command);
+          break;
+        }
+        case 26: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_Undo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.undo();
+          break;
+        }
+        case 27: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_Redo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.redo();
+          break;
+        }
+        case 28: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_Cut_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cut();
+          break;
+        }
+        case 29: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_Copy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.copy();
+          break;
+        }
+        case 30: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_CopyToFindPboard_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.copyToFindPboard();
+          break;
+        }
+        case 31: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_CenterSelection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.centerSelection();
+          break;
+        }
+        case 32: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_Paste_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.paste();
+          break;
+        }
+        case 33: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_PasteAndMatchStyle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pasteAndMatchStyle();
+          break;
+        }
+        case 34: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_SelectAll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectAll();
+          break;
+        }
+        case 35: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_StartSpeaking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startSpeaking();
+          break;
+        }
+        case 36: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_StopSpeaking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopSpeaking();
+          break;
+        }
+        case 37: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.syncIsSpeaking();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_SyncIsSpeaking_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 38: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRenderWidgetAccessibilityToken();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.RenderWidgetHostNSViewHost_GetRenderWidgetAccessibilityToken_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 39: {
+          const params = remote_cocoa.mojom.RenderWidgetHostNSViewHost_SetRemoteAccessibilityWindowToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRemoteAccessibilityWindowToken(params.window_token);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver = remote_cocoa.mojom.RenderWidgetHostNSViewHostReceiver;
 
 remote_cocoa.mojom.RenderWidgetHostNSViewHostPtr = remote_cocoa.mojom.RenderWidgetHostNSViewHostRemote;
 remote_cocoa.mojom.RenderWidgetHostNSViewHostRequest = remote_cocoa.mojom.RenderWidgetHostNSViewHostPendingReceiver;

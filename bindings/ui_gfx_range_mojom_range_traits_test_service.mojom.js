@@ -7,8 +7,6 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
 
 gfx.mojom.RangeTraitsTestService = {};
 gfx.mojom.RangeTraitsTestService.$interfaceName = 'gfx.mojom.RangeTraitsTestService';
@@ -105,6 +103,47 @@ gfx.mojom.RangeTraitsTestService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+gfx.mojom.RangeTraitsTestServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoRange(params.p);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoRangeF(params.p);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+gfx.mojom.RangeTraitsTestServiceReceiver = gfx.mojom.RangeTraitsTestServiceReceiver;
 
 gfx.mojom.RangeTraitsTestServicePtr = gfx.mojom.RangeTraitsTestServiceRemote;
 gfx.mojom.RangeTraitsTestServiceRequest = gfx.mojom.RangeTraitsTestServicePendingReceiver;

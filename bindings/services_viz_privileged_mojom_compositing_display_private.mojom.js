@@ -7,23 +7,11 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var ui = ui || {};
-var ui = ui || {};
+var gpu = gpu || {};
+var mojo_base = mojo_base || {};
+var display = display || {};
 var gfx = gfx || {};
 var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
 
 viz.mojom.DisplayPrivate = {};
 viz.mojom.DisplayPrivate.$interfaceName = 'viz.mojom.DisplayPrivate';
@@ -396,6 +384,120 @@ viz.mojom.DisplayPrivate.getRemote = function() {
   return remote.$;
 };
 
+viz.mojom.DisplayPrivateReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDisplayVisible(params.visible);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableSwapUntilResize();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.DisplayPrivate_Resize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resize(params.size);
+          break;
+        }
+        case 3: {
+          const params = viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDisplayColorMatrix(params.color_matrix);
+          break;
+        }
+        case 4: {
+          const params = viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDisplayColorSpaces(params.display_color_spaces);
+          break;
+        }
+        case 5: {
+          const params = viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOutputIsSecure(params.secure);
+          break;
+        }
+        case 6: {
+          const params = viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVSyncDisplayID(params.display_id);
+          break;
+        }
+        case 7: {
+          const params = viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDisplayVSyncParameters(params.timebase, params.interval);
+          break;
+        }
+        case 8: {
+          const params = viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forceImmediateDrawAndSwapIfPossible();
+          break;
+        }
+        case 9: {
+          const params = viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateRefreshRate(params.refresh_rate);
+          break;
+        }
+        case 10: {
+          const params = viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAdaptiveRefreshRateInfo(params.has_support, params.suggested_high, params.device_scale_factor);
+          break;
+        }
+        case 11: {
+          const params = viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSupportedRefreshRates(params.refresh_rates);
+          break;
+        }
+        case 12: {
+          const params = viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.preserveChildSurfaceControls();
+          break;
+        }
+        case 13: {
+          const params = viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSwapCompletionCallbackEnabled(params.enable);
+          break;
+        }
+        case 14: {
+          const params = viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addVSyncParameterObserver(params.observer);
+          break;
+        }
+        case 15: {
+          const params = viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDelegatedInkPointRenderer(params.receiver);
+          break;
+        }
+        case 16: {
+          const params = viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setStandaloneBeginFrameObserver(params.observer);
+          break;
+        }
+        case 17: {
+          const params = viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMaxVSyncAndVrr(params.max_vsync_interval, params.vrr_state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.DisplayPrivateReceiver = viz.mojom.DisplayPrivateReceiver;
+
 viz.mojom.DisplayPrivatePtr = viz.mojom.DisplayPrivateRemote;
 viz.mojom.DisplayPrivateRequest = viz.mojom.DisplayPrivatePendingReceiver;
 
@@ -572,6 +674,63 @@ viz.mojom.DisplayClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.DisplayClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDisplayReceivedCALayerParams(params.ca_layer_params);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createLayeredWindowUpdater(params.receiver);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addChildWindowToBrowser(params.child_window);
+          break;
+        }
+        case 3: {
+          const params = viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didCompleteSwapWithSize(params.size);
+          break;
+        }
+        case 4: {
+          const params = viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didCompleteSwapWithNewSize(params.size);
+          break;
+        }
+        case 5: {
+          const params = viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onContextCreationResult(params.result);
+          break;
+        }
+        case 6: {
+          const params = viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWideColorEnabled(params.enabled);
+          break;
+        }
+        case 7: {
+          const params = viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPreferredRefreshRate(params.refresh_rate);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.DisplayClientReceiver = viz.mojom.DisplayClientReceiver;
 
 viz.mojom.DisplayClientPtr = viz.mojom.DisplayClientRemote;
 viz.mojom.DisplayClientRequest = viz.mojom.DisplayClientPendingReceiver;

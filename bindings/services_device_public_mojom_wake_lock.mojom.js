@@ -168,6 +168,62 @@ device.mojom.WakeLock.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.WakeLockReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.WakeLock_RequestWakeLock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestWakeLock();
+          break;
+        }
+        case 1: {
+          const params = device.mojom.WakeLock_CancelWakeLock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelWakeLock();
+          break;
+        }
+        case 2: {
+          const params = device.mojom.WakeLock_AddClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addClient(params.wake_lock);
+          break;
+        }
+        case 3: {
+          const params = device.mojom.WakeLock_ChangeType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.changeType(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.WakeLock_ChangeType_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasWakeLockForTests();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.WakeLockReceiver = device.mojom.WakeLockReceiver;
+
 device.mojom.WakeLockPtr = device.mojom.WakeLockRemote;
 device.mojom.WakeLockRequest = device.mojom.WakeLockPendingReceiver;
 

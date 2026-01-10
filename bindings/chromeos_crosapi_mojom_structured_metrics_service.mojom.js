@@ -7,7 +7,7 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
-var components = components || {};
+var metrics = metrics || {};
 
 crosapi.mojom.StructuredMetricsService = {};
 crosapi.mojom.StructuredMetricsService.$interfaceName = 'crosapi.mojom.StructuredMetricsService';
@@ -73,6 +73,28 @@ crosapi.mojom.StructuredMetricsService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.StructuredMetricsServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.StructuredMetricsService_Record_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.record(params.events);
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.StructuredMetricsServiceReceiver = crosapi.mojom.StructuredMetricsServiceReceiver;
 
 crosapi.mojom.StructuredMetricsServicePtr = crosapi.mojom.StructuredMetricsServiceRemote;
 crosapi.mojom.StructuredMetricsServiceRequest = crosapi.mojom.StructuredMetricsServicePendingReceiver;

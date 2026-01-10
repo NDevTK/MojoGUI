@@ -7,6 +7,7 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var mojo_base = mojo_base || {};
 
 arc.mojom.MountEventSpec = { $: mojo.internal.Enum() };
 arc.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
@@ -149,6 +150,45 @@ arc.mojom.VolumeMounterHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.VolumeMounterHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestAllMountPoints();
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUpExternalStorageMountPoints(params.media_provider_uid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReadyToSuspend(params.success);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.VolumeMounterHostReceiver = arc.mojom.VolumeMounterHostReceiver;
+
 arc.mojom.VolumeMounterHostPtr = arc.mojom.VolumeMounterHostRemote;
 arc.mojom.VolumeMounterHostRequest = arc.mojom.VolumeMounterHostPendingReceiver;
 
@@ -256,6 +296,52 @@ arc.mojom.VolumeMounterInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.VolumeMounterInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.VolumeMounterInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.VolumeMounterInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMountEvent(params.mount_point_info);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.prepareForRemovableMediaUnmount(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.VolumeMounterInstanceReceiver = arc.mojom.VolumeMounterInstanceReceiver;
 
 arc.mojom.VolumeMounterInstancePtr = arc.mojom.VolumeMounterInstanceRemote;
 arc.mojom.VolumeMounterInstanceRequest = arc.mojom.VolumeMounterInstancePendingReceiver;

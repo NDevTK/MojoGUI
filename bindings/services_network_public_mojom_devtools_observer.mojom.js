@@ -7,27 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 network.mojom.URLRequestDevToolsInfoSpec = { $: {} };
@@ -400,6 +380,93 @@ network.mojom.DevToolsObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.DevToolsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRawRequest(params.devtool_request_id, params.cookies_with_access_result, params.headers, params.timestamp, params.client_security_state, params.other_partition_info, params.applied_network_conditions_id);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRawResponse(params.devtool_request_id, params.cookies_with_access_result, params.headers, params.raw_response_headers, params.resource_address_space, params.http_status_code, params.cookie_partition_key);
+          break;
+        }
+        case 2: {
+          const params = network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEarlyHintsResponse(params.devtool_request_id, params.headers);
+          break;
+        }
+        case 3: {
+          const params = network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPrivateNetworkRequest(params.devtool_request_id, params.url, params.is_warning, params.resource_address_space, params.client_security_state);
+          break;
+        }
+        case 4: {
+          const params = network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCorsPreflightRequest(params.devtool_request_id, params.request_headers, params.request_info, params.initiator_url, params.initiator_devtool_request_id);
+          break;
+        }
+        case 5: {
+          const params = network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCorsPreflightResponse(params.devtool_request_id, params.url, params.head);
+          break;
+        }
+        case 6: {
+          const params = network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCorsPreflightRequestCompleted(params.devtool_request_id, params.status);
+          break;
+        }
+        case 7: {
+          const params = network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTrustTokenOperationDone(params.devtool_request_id, params.result);
+          break;
+        }
+        case 8: {
+          const params = network.mojom.DevToolsObserver_OnCorsError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCorsError(params.devtool_request_id, params.initiator_origin, params.client_security_state, params.url, params.status, params.is_warning);
+          break;
+        }
+        case 9: {
+          const params = network.mojom.DevToolsObserver_OnOrbError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOrbError(params.devtools_request_id, params.url);
+          break;
+        }
+        case 10: {
+          const params = network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSharedDictionaryError(params.devtool_request_id, params.url, params.error);
+          break;
+        }
+        case 11: {
+          const params = network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSRIMessageSignatureIssue(params.devtool_request_id, params.url, params.issues);
+          break;
+        }
+        case 12: {
+          const params = network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onUnencodedDigestError(params.devtool_request_id, params.url, params.issue);
+          break;
+        }
+        case 13: {
+          const params = network.mojom.DevToolsObserver_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.listener);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.DevToolsObserverReceiver = network.mojom.DevToolsObserverReceiver;
 
 network.mojom.DevToolsObserverPtr = network.mojom.DevToolsObserverRemote;
 network.mojom.DevToolsObserverRequest = network.mojom.DevToolsObserverPendingReceiver;

@@ -96,6 +96,40 @@ blink.mojom.FileSystemAccessFileModificationHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.FileSystemAccessFileModificationHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestCapacityChange(params.capacity_delta);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onContentsModified();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FileSystemAccessFileModificationHostReceiver = blink.mojom.FileSystemAccessFileModificationHostReceiver;
+
 blink.mojom.FileSystemAccessFileModificationHostPtr = blink.mojom.FileSystemAccessFileModificationHostRemote;
 blink.mojom.FileSystemAccessFileModificationHostRequest = blink.mojom.FileSystemAccessFileModificationHostPendingReceiver;
 

@@ -392,6 +392,128 @@ security_interstitials.mojom.InterstitialCommands.getRemote = function() {
   return remote.$;
 };
 
+security_interstitials.mojom.InterstitialCommandsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dontProceed();
+          break;
+        }
+        case 1: {
+          const params = security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.proceed();
+          break;
+        }
+        case 2: {
+          const params = security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showMoreSection();
+          break;
+        }
+        case 3: {
+          const params = security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openHelpCenter();
+          break;
+        }
+        case 4: {
+          const params = security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openDiagnostic();
+          break;
+        }
+        case 5: {
+          const params = security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reload();
+          break;
+        }
+        case 6: {
+          const params = security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openDateSettings();
+          break;
+        }
+        case 7: {
+          const params = security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openLogin();
+          break;
+        }
+        case 8: {
+          const params = security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.doReport();
+          break;
+        }
+        case 9: {
+          const params = security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dontReport();
+          break;
+        }
+        case 10: {
+          const params = security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openReportingPrivacy();
+          break;
+        }
+        case 11: {
+          const params = security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openWhitepaper();
+          break;
+        }
+        case 12: {
+          const params = security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openHelpCenterInNewTab();
+          break;
+        }
+        case 13: {
+          const params = security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openDiagnosticInNewTab();
+          break;
+        }
+        case 14: {
+          const params = security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openReportingPrivacyInNewTab();
+          break;
+        }
+        case 15: {
+          const params = security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openWhitepaperInNewTab();
+          break;
+        }
+        case 16: {
+          const params = security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportPhishingErrorInNewTab();
+          break;
+        }
+        case 17: {
+          const params = security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportPhishingError();
+          break;
+        }
+        case 18: {
+          const params = security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openEnhancedProtectionSettings();
+          break;
+        }
+        case 19: {
+          const params = security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showCertificateViewer();
+          break;
+        }
+        case 20: {
+          const params = security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openAndroidAdvancedProtectionSettings();
+          break;
+        }
+      }
+    });
+  }
+};
+
+security_interstitials.mojom.InterstitialCommandsReceiver = security_interstitials.mojom.InterstitialCommandsReceiver;
+
 security_interstitials.mojom.InterstitialCommandsPtr = security_interstitials.mojom.InterstitialCommandsRemote;
 security_interstitials.mojom.InterstitialCommandsRequest = security_interstitials.mojom.InterstitialCommandsPendingReceiver;
 

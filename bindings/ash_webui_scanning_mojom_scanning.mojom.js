@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.scanning = ash.scanning || {};
 ash.scanning.mojom = ash.scanning.mojom || {};
+var mojo_base = mojo_base || {};
 
 ash.scanning.mojom.ColorModeSpec = { $: mojo.internal.Enum() };
 ash.scanning.mojom.FileTypeSpec = { $: mojo.internal.Enum() };
@@ -256,6 +257,48 @@ ash.scanning.mojom.ScanJobObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.scanning.mojom.ScanJobObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPageProgress(params.page_number, params.progress_percent);
+          break;
+        }
+        case 1: {
+          const params = ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPageComplete(params.page_data, params.new_page_index);
+          break;
+        }
+        case 2: {
+          const params = ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScanComplete(params.result, params.scanned_file_paths);
+          break;
+        }
+        case 3: {
+          const params = ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCancelComplete(params.success);
+          break;
+        }
+        case 4: {
+          const params = ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMultiPageScanFail(params.result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.scanning.mojom.ScanJobObserverReceiver = ash.scanning.mojom.ScanJobObserverReceiver;
+
 ash.scanning.mojom.ScanJobObserverPtr = ash.scanning.mojom.ScanJobObserverRemote;
 ash.scanning.mojom.ScanJobObserverRequest = ash.scanning.mojom.ScanJobObserverPendingReceiver;
 
@@ -411,6 +454,76 @@ ash.scanning.mojom.ScanService.getRemote = function() {
   return remote.$;
 };
 
+ash.scanning.mojom.ScanServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.scanning.mojom.ScanService_GetScanners_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getScanners();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getScannerCapabilities(params.scanner_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.scanning.mojom.ScanService_StartScan_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startScan(params.scanner_id, params.settings, params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startMultiPageScan(params.scanner_id, params.settings, params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.scanning.mojom.ScanService_CancelScan_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelScan();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.scanning.mojom.ScanServiceReceiver = ash.scanning.mojom.ScanServiceReceiver;
+
 ash.scanning.mojom.ScanServicePtr = ash.scanning.mojom.ScanServiceRemote;
 ash.scanning.mojom.ScanServiceRequest = ash.scanning.mojom.ScanServicePendingReceiver;
 
@@ -537,6 +650,57 @@ ash.scanning.mojom.MultiPageScanController.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.scanning.mojom.MultiPageScanControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.scanNextPage(params.scanner_id, params.settings);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removePage(params.page_index);
+          break;
+        }
+        case 2: {
+          const params = ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rescanPage(params.scanner_id, params.settings, params.page_index);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.completeMultiPageScan();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.scanning.mojom.MultiPageScanControllerReceiver = ash.scanning.mojom.MultiPageScanControllerReceiver;
 
 ash.scanning.mojom.MultiPageScanControllerPtr = ash.scanning.mojom.MultiPageScanControllerRemote;
 ash.scanning.mojom.MultiPageScanControllerRequest = ash.scanning.mojom.MultiPageScanControllerPendingReceiver;

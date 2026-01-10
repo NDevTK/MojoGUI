@@ -73,6 +73,28 @@ content.mojom.DomAutomationControllerHost.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.DomAutomationControllerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.domOperationResponse(params.json_string);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.DomAutomationControllerHostReceiver = content.mojom.DomAutomationControllerHostReceiver;
+
 content.mojom.DomAutomationControllerHostPtr = content.mojom.DomAutomationControllerHostRemote;
 content.mojom.DomAutomationControllerHostRequest = content.mojom.DomAutomationControllerHostPendingReceiver;
 

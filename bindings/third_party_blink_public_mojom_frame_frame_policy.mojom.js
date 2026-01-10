@@ -7,11 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var blink = blink || {};
-var services = services || {};
-var blink = blink || {};
-var blink = blink || {};
+var network = network || {};
 
 blink.mojom.FramePolicySpec = { $: {} };
 

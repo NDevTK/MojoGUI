@@ -104,6 +104,47 @@ ash.rollback_network_config.mojom.RollbackNetworkConfig.getRemote = function() {
   return remote.$;
 };
 
+ash.rollback_network_config.mojom.RollbackNetworkConfigReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rollbackConfigImport(params.config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rollbackConfigExport();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.rollback_network_config.mojom.RollbackNetworkConfigReceiver = ash.rollback_network_config.mojom.RollbackNetworkConfigReceiver;
+
 ash.rollback_network_config.mojom.RollbackNetworkConfigPtr = ash.rollback_network_config.mojom.RollbackNetworkConfigRemote;
 ash.rollback_network_config.mojom.RollbackNetworkConfigRequest = ash.rollback_network_config.mojom.RollbackNetworkConfigPendingReceiver;
 

@@ -8,15 +8,9 @@
 var ash = ash || {};
 ash.camera_app = ash.camera_app || {};
 ash.camera_app.mojom = ash.camera_app.mojom || {};
-var ash = ash || {};
+var arc = arc || {};
 var chromeos = chromeos || {};
-var ash = ash || {};
-var ash = ash || {};
-var ash = ash || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -289,6 +283,28 @@ ash.camera_app.mojom.TabletModeMonitor.getRemote = function() {
   return remote.$;
 };
 
+ash.camera_app.mojom.TabletModeMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.camera_app.mojom.TabletModeMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.update(params.is_tablet_mode);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.camera_app.mojom.TabletModeMonitorReceiver = ash.camera_app.mojom.TabletModeMonitorReceiver;
+
 ash.camera_app.mojom.TabletModeMonitorPtr = ash.camera_app.mojom.TabletModeMonitorRemote;
 ash.camera_app.mojom.TabletModeMonitorRequest = ash.camera_app.mojom.TabletModeMonitorPendingReceiver;
 
@@ -353,6 +369,28 @@ ash.camera_app.mojom.ScreenStateMonitor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.camera_app.mojom.ScreenStateMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.camera_app.mojom.ScreenStateMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.update(params.state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.camera_app.mojom.ScreenStateMonitorReceiver = ash.camera_app.mojom.ScreenStateMonitorReceiver;
 
 ash.camera_app.mojom.ScreenStateMonitorPtr = ash.camera_app.mojom.ScreenStateMonitorRemote;
 ash.camera_app.mojom.ScreenStateMonitorRequest = ash.camera_app.mojom.ScreenStateMonitorPendingReceiver;
@@ -419,6 +457,28 @@ ash.camera_app.mojom.ScreenLockedMonitor.getRemote = function() {
   return remote.$;
 };
 
+ash.camera_app.mojom.ScreenLockedMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.camera_app.mojom.ScreenLockedMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.update(params.is_screen_locked);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.camera_app.mojom.ScreenLockedMonitorReceiver = ash.camera_app.mojom.ScreenLockedMonitorReceiver;
+
 ash.camera_app.mojom.ScreenLockedMonitorPtr = ash.camera_app.mojom.ScreenLockedMonitorRemote;
 ash.camera_app.mojom.ScreenLockedMonitorRequest = ash.camera_app.mojom.ScreenLockedMonitorPendingReceiver;
 
@@ -483,6 +543,28 @@ ash.camera_app.mojom.ExternalScreenMonitor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.camera_app.mojom.ExternalScreenMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.camera_app.mojom.ExternalScreenMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.update(params.has_external_screen);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.camera_app.mojom.ExternalScreenMonitorReceiver = ash.camera_app.mojom.ExternalScreenMonitorReceiver;
 
 ash.camera_app.mojom.ExternalScreenMonitorPtr = ash.camera_app.mojom.ExternalScreenMonitorRemote;
 ash.camera_app.mojom.ExternalScreenMonitorRequest = ash.camera_app.mojom.ExternalScreenMonitorPendingReceiver;
@@ -554,6 +636,35 @@ ash.camera_app.mojom.CameraUsageOwnershipMonitor.getRemote = function() {
   return remote.$;
 };
 
+ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCameraUsageOwnershipChanged(params.has_usage);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraUsageOwnershipMonitor_OnCameraUsageOwnershipChanged_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver = ash.camera_app.mojom.CameraUsageOwnershipMonitorReceiver;
+
 ash.camera_app.mojom.CameraUsageOwnershipMonitorPtr = ash.camera_app.mojom.CameraUsageOwnershipMonitorRemote;
 ash.camera_app.mojom.CameraUsageOwnershipMonitorRequest = ash.camera_app.mojom.CameraUsageOwnershipMonitorPendingReceiver;
 
@@ -619,6 +730,28 @@ ash.camera_app.mojom.LidStateMonitor.getRemote = function() {
   return remote.$;
 };
 
+ash.camera_app.mojom.LidStateMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.camera_app.mojom.LidStateMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.update(params.lid_status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.camera_app.mojom.LidStateMonitorReceiver = ash.camera_app.mojom.LidStateMonitorReceiver;
+
 ash.camera_app.mojom.LidStateMonitorPtr = ash.camera_app.mojom.LidStateMonitorRemote;
 ash.camera_app.mojom.LidStateMonitorRequest = ash.camera_app.mojom.LidStateMonitorPendingReceiver;
 
@@ -683,6 +816,28 @@ ash.camera_app.mojom.SWPrivacySwitchMonitor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.camera_app.mojom.SWPrivacySwitchMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.update(params.is_sw_privacy_switch_on);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver = ash.camera_app.mojom.SWPrivacySwitchMonitorReceiver;
 
 ash.camera_app.mojom.SWPrivacySwitchMonitorPtr = ash.camera_app.mojom.SWPrivacySwitchMonitorRemote;
 ash.camera_app.mojom.SWPrivacySwitchMonitorRequest = ash.camera_app.mojom.SWPrivacySwitchMonitorPendingReceiver;
@@ -765,6 +920,33 @@ ash.camera_app.mojom.WindowStateMonitor.getRemote = function() {
   return remote.$;
 };
 
+ash.camera_app.mojom.WindowStateMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.camera_app.mojom.WindowStateMonitor_OnWindowStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWindowStateChanged(params.states);
+          break;
+        }
+        case 1: {
+          const params = ash.camera_app.mojom.WindowStateMonitor_OnWindowFocusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWindowFocusChanged(params.is_focus);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.camera_app.mojom.WindowStateMonitorReceiver = ash.camera_app.mojom.WindowStateMonitorReceiver;
+
 ash.camera_app.mojom.WindowStateMonitorPtr = ash.camera_app.mojom.WindowStateMonitorRemote;
 ash.camera_app.mojom.WindowStateMonitorRequest = ash.camera_app.mojom.WindowStateMonitorPendingReceiver;
 
@@ -829,6 +1011,28 @@ ash.camera_app.mojom.StorageMonitor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.camera_app.mojom.StorageMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.camera_app.mojom.StorageMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.update(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.camera_app.mojom.StorageMonitorReceiver = ash.camera_app.mojom.StorageMonitorReceiver;
 
 ash.camera_app.mojom.StorageMonitorPtr = ash.camera_app.mojom.StorageMonitorRemote;
 ash.camera_app.mojom.StorageMonitorRequest = ash.camera_app.mojom.StorageMonitorPendingReceiver;
@@ -1021,6 +1225,107 @@ ash.camera_app.mojom.WindowStateController.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.camera_app.mojom.WindowStateControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.camera_app.mojom.WindowStateController_AddMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addMonitor(params.monitor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_AddMonitor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.camera_app.mojom.WindowStateController_GetWindowState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWindowState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_GetWindowState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.camera_app.mojom.WindowStateController_Minimize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.minimize();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Minimize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.camera_app.mojom.WindowStateController_Restore_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restore();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Restore_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.camera_app.mojom.WindowStateController_Maximize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.maximize();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Maximize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.camera_app.mojom.WindowStateController_Fullscreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fullscreen();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Fullscreen_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = ash.camera_app.mojom.WindowStateController_Focus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focus();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.WindowStateController_Focus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.camera_app.mojom.WindowStateControllerReceiver = ash.camera_app.mojom.WindowStateControllerReceiver;
 
 ash.camera_app.mojom.WindowStateControllerPtr = ash.camera_app.mojom.WindowStateControllerRemote;
 ash.camera_app.mojom.WindowStateControllerRequest = ash.camera_app.mojom.WindowStateControllerPendingReceiver;
@@ -1709,6 +2014,337 @@ ash.camera_app.mojom.CameraAppHelper.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.camera_app.mojom.CameraAppHelperReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleCameraResult(params.intent_id, params.action, params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_HandleCameraResult_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isTabletMode();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_IsTabletMode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.camera_app.mojom.CameraAppHelper_StartPerfEventTrace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startPerfEventTrace(params.event);
+          break;
+        }
+        case 3: {
+          const params = ash.camera_app.mojom.CameraAppHelper_StopPerfEventTrace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopPerfEventTrace(params.event);
+          break;
+        }
+        case 4: {
+          const params = ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTabletMonitor(params.monitor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetTabletMonitor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setScreenStateMonitor(params.monitor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetScreenStateMonitor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isMetricsAndCrashReportingEnabled();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_IsMetricsAndCrashReportingEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setExternalScreenMonitor(params.monitor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetExternalScreenMonitor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = ash.camera_app.mojom.CameraAppHelper_OpenFileInGallery_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFileInGallery(params.name);
+          break;
+        }
+        case 9: {
+          const params = ash.camera_app.mojom.CameraAppHelper_OpenFeedbackDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFeedbackDialog(params.placeholder);
+          break;
+        }
+        case 10: {
+          const params = ash.camera_app.mojom.CameraAppHelper_OpenUrlInBrowser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openUrlInBrowser(params.url);
+          break;
+        }
+        case 11: {
+          const params = ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWindowStateController();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_GetWindowStateController_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.processCapturedFile(params.file_type, params.destination);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_ProcessCapturedFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.monitorFileDeletion(params.name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_MonitorFileDeletion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isDocumentScannerSupported();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_IsDocumentScannerSupported_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkDocumentModeReadiness();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_CheckDocumentModeReadiness_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.scanDocumentCorners(params.jpeg_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_ScanDocumentCorners_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 17: {
+          const params = ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.convertToDocument(params.jpeg_data, params.corners, params.rotation);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_ConvertToDocument_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 18: {
+          const params = ash.camera_app.mojom.CameraAppHelper_MaybeTriggerSurvey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.maybeTriggerSurvey();
+          break;
+        }
+        case 19: {
+          const params = ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startStorageMonitor(params.monitor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_StartStorageMonitor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 20: {
+          const params = ash.camera_app.mojom.CameraAppHelper_StopStorageMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopStorageMonitor();
+          break;
+        }
+        case 21: {
+          const params = ash.camera_app.mojom.CameraAppHelper_OpenStorageManagement_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openStorageManagement();
+          break;
+        }
+        case 22: {
+          const params = ash.camera_app.mojom.CameraAppHelper_OpenWifiDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openWifiDialog(params.config);
+          break;
+        }
+        case 23: {
+          const params = ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLidStateMonitor(params.monitor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetLidStateMonitor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 24: {
+          const params = ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSWPrivacySwitchMonitor(params.monitor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetSWPrivacySwitchMonitor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 25: {
+          const params = ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEventsSender();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_GetEventsSender_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 26: {
+          const params = ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setScreenLockedMonitor(params.monitor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_SetScreenLockedMonitor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 27: {
+          const params = ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.renderPdfAsJpeg(params.pdf_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_RenderPdfAsJpeg_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 28: {
+          const params = ash.camera_app.mojom.CameraAppHelper_PerformOcr_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.performOcr(params.jpeg_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_PerformOcr_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 29: {
+          const params = ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.performOcrInline(params.jpeg_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_PerformOcrInline_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 30: {
+          const params = ash.camera_app.mojom.CameraAppHelper_CreatePdfBuilder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPdfBuilder(params.builder);
+          break;
+        }
+        case 31: {
+          const params = ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAspectRatioOrder();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.CameraAppHelper_GetAspectRatioOrder_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.camera_app.mojom.CameraAppHelperReceiver = ash.camera_app.mojom.CameraAppHelperReceiver;
 
 ash.camera_app.mojom.CameraAppHelperPtr = ash.camera_app.mojom.CameraAppHelperRemote;
 ash.camera_app.mojom.CameraAppHelperRequest = ash.camera_app.mojom.CameraAppHelperPendingReceiver;

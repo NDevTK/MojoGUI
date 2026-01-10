@@ -75,6 +75,28 @@ ash.common.mojom.WebUiSyslogEmitter.getRemote = function() {
   return remote.$;
 };
 
+ash.common.mojom.WebUiSyslogEmitterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.emitSyslog(params.prefix, params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.common.mojom.WebUiSyslogEmitterReceiver = ash.common.mojom.WebUiSyslogEmitterReceiver;
+
 ash.common.mojom.WebUiSyslogEmitterPtr = ash.common.mojom.WebUiSyslogEmitterRemote;
 ash.common.mojom.WebUiSyslogEmitterRequest = ash.common.mojom.WebUiSyslogEmitterPendingReceiver;
 

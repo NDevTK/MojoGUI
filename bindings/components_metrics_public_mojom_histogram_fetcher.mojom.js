@@ -7,6 +7,7 @@
 // Module namespace
 var metrics = metrics || {};
 metrics.mojom = metrics.mojom || {};
+var mojo_base = mojo_base || {};
 
 metrics.mojom.UmaChildPingStatusSpec = { $: mojo.internal.Enum() };
 metrics.mojom.UmaPingCallSourceSpec = { $: mojo.internal.Enum() };
@@ -94,6 +95,28 @@ metrics.mojom.ChildHistogramFetcherFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+metrics.mojom.ChildHistogramFetcherFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createFetcher(params.shared_memory, params.child_histogram_fetcher);
+          break;
+        }
+      }
+    });
+  }
+};
+
+metrics.mojom.ChildHistogramFetcherFactoryReceiver = metrics.mojom.ChildHistogramFetcherFactoryReceiver;
 
 metrics.mojom.ChildHistogramFetcherFactoryPtr = metrics.mojom.ChildHistogramFetcherFactoryRemote;
 metrics.mojom.ChildHistogramFetcherFactoryRequest = metrics.mojom.ChildHistogramFetcherFactoryPendingReceiver;
@@ -185,6 +208,47 @@ metrics.mojom.ChildHistogramFetcher.getRemote = function() {
     'context');
   return remote.$;
 };
+
+metrics.mojom.ChildHistogramFetcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getChildNonPersistentHistogramData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.ping(params.call_source);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+metrics.mojom.ChildHistogramFetcherReceiver = metrics.mojom.ChildHistogramFetcherReceiver;
 
 metrics.mojom.ChildHistogramFetcherPtr = metrics.mojom.ChildHistogramFetcherRemote;
 metrics.mojom.ChildHistogramFetcherRequest = metrics.mojom.ChildHistogramFetcherPendingReceiver;

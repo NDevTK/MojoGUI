@@ -6,6 +6,7 @@
 
 // Module namespace
 var mojom = mojom || {};
+var bluetooth = bluetooth || {};
 
 mojom.DebugLogsChangeHandler = {};
 mojom.DebugLogsChangeHandler.$interfaceName = 'mojom.DebugLogsChangeHandler';
@@ -93,6 +94,28 @@ mojom.DebugLogsChangeHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+mojom.DebugLogsChangeHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.changeDebugLogsState(params.should_debug_logs_be_enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mojom.DebugLogsChangeHandlerReceiver = mojom.DebugLogsChangeHandlerReceiver;
 
 mojom.DebugLogsChangeHandlerPtr = mojom.DebugLogsChangeHandlerRemote;
 mojom.DebugLogsChangeHandlerRequest = mojom.DebugLogsChangeHandlerPendingReceiver;
@@ -312,6 +335,119 @@ mojom.BluetoothInternalsHandler.getRemote = function() {
   return remote.$;
 };
 
+mojom.BluetoothInternalsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAdapter();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDebugLogsChangeHandler();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkSystemPermissions();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestSystemPermissions();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestLocationServices();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restartSystemBluetooth();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startBtsnoop();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isBtsnoopFeatureEnabled();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+mojom.BluetoothInternalsHandlerReceiver = mojom.BluetoothInternalsHandlerReceiver;
+
 mojom.BluetoothInternalsHandlerPtr = mojom.BluetoothInternalsHandlerRemote;
 mojom.BluetoothInternalsHandlerRequest = mojom.BluetoothInternalsHandlerPendingReceiver;
 
@@ -381,6 +517,35 @@ mojom.BluetoothBtsnoop.getRemote = function() {
     'context');
   return remote.$;
 };
+
+mojom.BluetoothBtsnoopReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mojom.BluetoothBtsnoop_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+mojom.BluetoothBtsnoopReceiver = mojom.BluetoothBtsnoopReceiver;
 
 mojom.BluetoothBtsnoopPtr = mojom.BluetoothBtsnoopRemote;
 mojom.BluetoothBtsnoopRequest = mojom.BluetoothBtsnoopPendingReceiver;

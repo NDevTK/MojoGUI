@@ -105,6 +105,33 @@ blink.mojom.BadgeService.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.BadgeServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.BadgeService_SetBadge_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBadge(params.value);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.BadgeService_ClearBadge_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearBadge();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.BadgeServiceReceiver = blink.mojom.BadgeServiceReceiver;
+
 blink.mojom.BadgeServicePtr = blink.mojom.BadgeServiceRemote;
 blink.mojom.BadgeServiceRequest = blink.mojom.BadgeServicePendingReceiver;
 

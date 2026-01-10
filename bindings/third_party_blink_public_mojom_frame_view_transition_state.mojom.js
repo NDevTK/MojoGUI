@@ -7,11 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var blink = blink || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var viz = viz || {};
 var gfx = gfx || {};
 
 blink.mojom.ViewTransitionPropertyIdSpec = { $: mojo.internal.Enum() };

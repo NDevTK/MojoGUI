@@ -8,9 +8,7 @@
 var ash = ash || {};
 ash.quick_pair = ash.quick_pair || {};
 ash.quick_pair.mojom = ash.quick_pair.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
+var sandbox = sandbox || {};
 
 ash.quick_pair.mojom.QuickPairService = {};
 ash.quick_pair.mojom.QuickPairService.$interfaceName = 'ash.quick_pair.mojom.QuickPairService';
@@ -76,6 +74,28 @@ ash.quick_pair.mojom.QuickPairService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.quick_pair.mojom.QuickPairServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.fast_pair_data_parser);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.quick_pair.mojom.QuickPairServiceReceiver = ash.quick_pair.mojom.QuickPairServiceReceiver;
 
 ash.quick_pair.mojom.QuickPairServicePtr = ash.quick_pair.mojom.QuickPairServiceRemote;
 ash.quick_pair.mojom.QuickPairServiceRequest = ash.quick_pair.mojom.QuickPairServicePendingReceiver;

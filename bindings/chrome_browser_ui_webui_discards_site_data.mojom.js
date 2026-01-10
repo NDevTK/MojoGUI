@@ -161,6 +161,47 @@ discards.mojom.SiteDataProvider.getRemote = function() {
   return remote.$;
 };
 
+discards.mojom.SiteDataProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSiteDataArray(params.explicitly_requested_origins);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSiteDataDatabaseSize();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+discards.mojom.SiteDataProviderReceiver = discards.mojom.SiteDataProviderReceiver;
+
 discards.mojom.SiteDataProviderPtr = discards.mojom.SiteDataProviderRemote;
 discards.mojom.SiteDataProviderRequest = discards.mojom.SiteDataProviderPendingReceiver;
 

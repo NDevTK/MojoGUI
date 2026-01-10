@@ -56,6 +56,23 @@ blink.mojom.KeepAliveHandle.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.KeepAliveHandleReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+blink.mojom.KeepAliveHandleReceiver = blink.mojom.KeepAliveHandleReceiver;
+
 blink.mojom.KeepAliveHandlePtr = blink.mojom.KeepAliveHandleRemote;
 blink.mojom.KeepAliveHandleRequest = blink.mojom.KeepAliveHandlePendingReceiver;
 

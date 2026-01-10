@@ -7,7 +7,7 @@
 // Module namespace
 var tab_strip = tab_strip || {};
 tab_strip.mojom = tab_strip.mojom || {};
-var ui = ui || {};
+var tabs = tabs || {};
 var url = url || {};
 
 tab_strip.mojom.TabSpec = { $: {} };
@@ -150,6 +150,28 @@ tab_strip.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+tab_strip.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tab_strip.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tab_strip.mojom.PageHandlerFactoryReceiver = tab_strip.mojom.PageHandlerFactoryReceiver;
 
 tab_strip.mojom.PageHandlerFactoryPtr = tab_strip.mojom.PageHandlerFactoryRemote;
 tab_strip.mojom.PageHandlerFactoryRequest = tab_strip.mojom.PageHandlerFactoryPendingReceiver;
@@ -500,6 +522,129 @@ tab_strip.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+tab_strip.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tab_strip.mojom.PageHandler_GetGroupVisualData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getGroupVisualData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = tab_strip.mojom.PageHandler_GetTabs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTabs();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = tab_strip.mojom.PageHandler_CloseTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeTab(params.tab_id, params.tab_was_swiped);
+          break;
+        }
+        case 3: {
+          const params = tab_strip.mojom.PageHandler_GroupTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.groupTab(params.tab_id, params.group_id);
+          break;
+        }
+        case 4: {
+          const params = tab_strip.mojom.PageHandler_MoveGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.moveGroup(params.group_id, params.to_index);
+          break;
+        }
+        case 5: {
+          const params = tab_strip.mojom.PageHandler_MoveTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.moveTab(params.tab_id, params.to_index);
+          break;
+        }
+        case 6: {
+          const params = tab_strip.mojom.PageHandler_SetThumbnailTracked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setThumbnailTracked(params.tab_id, params.thumbnail_tracked);
+          break;
+        }
+        case 7: {
+          const params = tab_strip.mojom.PageHandler_UngroupTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.ungroupTab(params.tab_id);
+          break;
+        }
+        case 8: {
+          const params = tab_strip.mojom.PageHandler_GetLayout_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLayout();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = tab_strip.mojom.PageHandler_ShowEditDialogForGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showEditDialogForGroup(params.group_id, params.location_x, params.location_y, params.width, params.height);
+          break;
+        }
+        case 10: {
+          const params = tab_strip.mojom.PageHandler_ShowTabContextMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showTabContextMenu(params.tab_id, params.location_x, params.location_y);
+          break;
+        }
+        case 11: {
+          const params = tab_strip.mojom.PageHandler_ShowBackgroundContextMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showBackgroundContextMenu(params.location_x, params.location_y);
+          break;
+        }
+        case 12: {
+          const params = tab_strip.mojom.PageHandler_CloseContainer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeContainer();
+          break;
+        }
+        case 13: {
+          const params = tab_strip.mojom.PageHandler_ReportTabActivationDuration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportTabActivationDuration(params.duration_ms);
+          break;
+        }
+        case 14: {
+          const params = tab_strip.mojom.PageHandler_ReportTabDataReceivedDuration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportTabDataReceivedDuration(params.tab_count, params.duration_ms);
+          break;
+        }
+        case 15: {
+          const params = tab_strip.mojom.PageHandler_ReportTabCreationDuration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportTabCreationDuration(params.tab_count, params.duration_ms);
+          break;
+        }
+        case 16: {
+          const params = tab_strip.mojom.PageHandler_ActivateTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.activateTab(params.tab_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tab_strip.mojom.PageHandlerReceiver = tab_strip.mojom.PageHandlerReceiver;
+
 tab_strip.mojom.PageHandlerPtr = tab_strip.mojom.PageHandlerRemote;
 tab_strip.mojom.PageHandlerRequest = tab_strip.mojom.PageHandlerPendingReceiver;
 
@@ -839,6 +984,113 @@ tab_strip.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+tab_strip.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tab_strip.mojom.Page_LayoutChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.layoutChanged(params.layout);
+          break;
+        }
+        case 1: {
+          const params = tab_strip.mojom.Page_ReceivedKeyboardFocus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.receivedKeyboardFocus();
+          break;
+        }
+        case 2: {
+          const params = tab_strip.mojom.Page_ContextMenuClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.contextMenuClosed();
+          break;
+        }
+        case 3: {
+          const params = tab_strip.mojom.Page_LongPress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.longPress();
+          break;
+        }
+        case 4: {
+          const params = tab_strip.mojom.Page_TabGroupVisualsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tabGroupVisualsChanged(params.group_id, params.tab_group);
+          break;
+        }
+        case 5: {
+          const params = tab_strip.mojom.Page_TabGroupMoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tabGroupMoved(params.group_id, params.index);
+          break;
+        }
+        case 6: {
+          const params = tab_strip.mojom.Page_TabGroupClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tabGroupClosed(params.group_id);
+          break;
+        }
+        case 7: {
+          const params = tab_strip.mojom.Page_TabGroupStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tabGroupStateChanged(params.tab_id, params.index, params.group_id);
+          break;
+        }
+        case 8: {
+          const params = tab_strip.mojom.Page_TabCloseCancelled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tabCloseCancelled(params.tab_id);
+          break;
+        }
+        case 9: {
+          const params = tab_strip.mojom.Page_TabCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tabCreated(params.tab);
+          break;
+        }
+        case 10: {
+          const params = tab_strip.mojom.Page_TabRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tabRemoved(params.tab_id);
+          break;
+        }
+        case 11: {
+          const params = tab_strip.mojom.Page_TabMoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tabMoved(params.tab_id, params.to_index, params.in_pinned);
+          break;
+        }
+        case 12: {
+          const params = tab_strip.mojom.Page_TabReplaced_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tabReplaced(params.tab_id, params.new_tab_id);
+          break;
+        }
+        case 13: {
+          const params = tab_strip.mojom.Page_TabActiveChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tabActiveChanged(params.tab_id);
+          break;
+        }
+        case 14: {
+          const params = tab_strip.mojom.Page_TabUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tabUpdated(params.tab);
+          break;
+        }
+        case 15: {
+          const params = tab_strip.mojom.Page_TabThumbnailUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tabThumbnailUpdated(params.tab_id, params.data_uri);
+          break;
+        }
+        case 16: {
+          const params = tab_strip.mojom.Page_ShowContextMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showContextMenu();
+          break;
+        }
+        case 17: {
+          const params = tab_strip.mojom.Page_ThemeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.themeChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+tab_strip.mojom.PageReceiver = tab_strip.mojom.PageReceiver;
 
 tab_strip.mojom.PagePtr = tab_strip.mojom.PageRemote;
 tab_strip.mojom.PageRequest = tab_strip.mojom.PagePendingReceiver;

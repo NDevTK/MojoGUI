@@ -7,12 +7,8 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 storage.mojom.StorageService = {};
 storage.mojom.StorageService.$interfaceName = 'storage.mojom.StorageService';
@@ -152,6 +148,48 @@ storage.mojom.StorageService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.StorageServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableAggressiveDomStorageFlushing();
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.StorageService_SetDataDirectory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDataDirectory(params.path, params.directory);
+          break;
+        }
+        case 2: {
+          const params = storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSessionStorageControl(params.path, params.receiver);
+          break;
+        }
+        case 3: {
+          const params = storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindLocalStorageControl(params.path, params.receiver);
+          break;
+        }
+        case 4: {
+          const params = storage.mojom.StorageService_BindTestApi_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindTestApi(params.test_api_receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.StorageServiceReceiver = storage.mojom.StorageServiceReceiver;
 
 storage.mojom.StorageServicePtr = storage.mojom.StorageServiceRemote;
 storage.mojom.StorageServiceRequest = storage.mojom.StorageServicePendingReceiver;

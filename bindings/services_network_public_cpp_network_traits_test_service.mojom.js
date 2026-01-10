@@ -7,7 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
 
 network.mojom.TraitsTestService = {};
 network.mojom.TraitsTestService.$interfaceName = 'network.mojom.TraitsTestService';
@@ -80,6 +79,35 @@ network.mojom.TraitsTestService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.TraitsTestServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoHttpRequestHeaders(params.headers);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.TraitsTestServiceReceiver = network.mojom.TraitsTestServiceReceiver;
 
 network.mojom.TraitsTestServicePtr = network.mojom.TraitsTestServiceRemote;
 network.mojom.TraitsTestServiceRequest = network.mojom.TraitsTestServicePendingReceiver;

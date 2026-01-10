@@ -79,6 +79,35 @@ blink.mojom.InnerHtmlAgent.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.InnerHtmlAgentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getInnerHtml();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.InnerHtmlAgentReceiver = blink.mojom.InnerHtmlAgentReceiver;
+
 blink.mojom.InnerHtmlAgentPtr = blink.mojom.InnerHtmlAgentRemote;
 blink.mojom.InnerHtmlAgentRequest = blink.mojom.InnerHtmlAgentPendingReceiver;
 

@@ -299,6 +299,63 @@ nearby_share.mojom.NearbyShareSettingsObserver.getRemote = function() {
   return remote.$;
 };
 
+nearby_share.mojom.NearbyShareSettingsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby_share.mojom.NearbyShareSettingsObserver_OnEnabledChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEnabledChanged(params.enabled);
+          break;
+        }
+        case 1: {
+          const params = nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFastInitiationNotificationStateChanged(params.state);
+          break;
+        }
+        case 2: {
+          const params = nearby_share.mojom.NearbyShareSettingsObserver_OnIsFastInitiationHardwareSupportedChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onIsFastInitiationHardwareSupportedChanged(params.is_supported);
+          break;
+        }
+        case 3: {
+          const params = nearby_share.mojom.NearbyShareSettingsObserver_OnDeviceNameChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceNameChanged(params.device_name);
+          break;
+        }
+        case 4: {
+          const params = nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDataUsageChanged(params.data_usage);
+          break;
+        }
+        case 5: {
+          const params = nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVisibilityChanged(params.visibility);
+          break;
+        }
+        case 6: {
+          const params = nearby_share.mojom.NearbyShareSettingsObserver_OnAllowedContactsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAllowedContactsChanged(params.visible_contact_ids);
+          break;
+        }
+        case 7: {
+          const params = nearby_share.mojom.NearbyShareSettingsObserver_OnIsOnboardingCompleteChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onIsOnboardingCompleteChanged(params.is_complete);
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby_share.mojom.NearbyShareSettingsObserverReceiver = nearby_share.mojom.NearbyShareSettingsObserverReceiver;
+
 nearby_share.mojom.NearbyShareSettingsObserverPtr = nearby_share.mojom.NearbyShareSettingsObserverRemote;
 nearby_share.mojom.NearbyShareSettingsObserverRequest = nearby_share.mojom.NearbyShareSettingsObserverPendingReceiver;
 
@@ -672,6 +729,178 @@ nearby_share.mojom.NearbyShareSettings.getRemote = function() {
   return remote.$;
 };
 
+nearby_share.mojom.NearbyShareSettingsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addSettingsObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = nearby_share.mojom.NearbyShareSettings_GetEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEnabled();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = nearby_share.mojom.NearbyShareSettings_SetEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setEnabled(params.enabled);
+          break;
+        }
+        case 3: {
+          const params = nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isOnboardingComplete();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = nearby_share.mojom.NearbyShareSettings_SetIsOnboardingComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsOnboardingComplete(params.completed);
+          break;
+        }
+        case 5: {
+          const params = nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFastInitiationNotificationState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFastInitiationNotificationState(params.state);
+          break;
+        }
+        case 7: {
+          const params = nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getIsFastInitiationHardwareSupported();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = nearby_share.mojom.NearbyShareSettings_GetDeviceName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceName();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.validateDeviceName(params.device_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = nearby_share.mojom.NearbyShareSettings_SetDeviceName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDeviceName(params.device_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = nearby_share.mojom.NearbyShareSettings_GetDataUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDataUsage();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = nearby_share.mojom.NearbyShareSettings_SetDataUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDataUsage(params.data_usage);
+          break;
+        }
+        case 13: {
+          const params = nearby_share.mojom.NearbyShareSettings_GetVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVisibility();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = nearby_share.mojom.NearbyShareSettings_SetVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVisibility(params.visibility);
+          break;
+        }
+        case 15: {
+          const params = nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllowedContacts();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = nearby_share.mojom.NearbyShareSettings_SetAllowedContacts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAllowedContacts(params.allowed_contacts);
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby_share.mojom.NearbyShareSettingsReceiver = nearby_share.mojom.NearbyShareSettingsReceiver;
+
 nearby_share.mojom.NearbyShareSettingsPtr = nearby_share.mojom.NearbyShareSettingsRemote;
 nearby_share.mojom.NearbyShareSettingsRequest = nearby_share.mojom.NearbyShareSettingsPendingReceiver;
 
@@ -753,6 +982,33 @@ nearby_share.mojom.DownloadContactsObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+nearby_share.mojom.DownloadContactsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onContactsDownloaded(params.allowed_contacts, params.contacts, params.num_unreachable_contacts_filtered_out);
+          break;
+        }
+        case 1: {
+          const params = nearby_share.mojom.DownloadContactsObserver_OnContactsDownloadFailed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onContactsDownloadFailed();
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby_share.mojom.DownloadContactsObserverReceiver = nearby_share.mojom.DownloadContactsObserverReceiver;
 
 nearby_share.mojom.DownloadContactsObserverPtr = nearby_share.mojom.DownloadContactsObserverRemote;
 nearby_share.mojom.DownloadContactsObserverRequest = nearby_share.mojom.DownloadContactsObserverPendingReceiver;
@@ -849,6 +1105,38 @@ nearby_share.mojom.ContactManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+nearby_share.mojom.ContactManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addDownloadContactsObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = nearby_share.mojom.ContactManager_DownloadContacts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.downloadContacts();
+          break;
+        }
+        case 2: {
+          const params = nearby_share.mojom.ContactManager_SetAllowedContacts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAllowedContacts(params.allowed_contacts);
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby_share.mojom.ContactManagerReceiver = nearby_share.mojom.ContactManagerReceiver;
 
 nearby_share.mojom.ContactManagerPtr = nearby_share.mojom.ContactManagerRemote;
 nearby_share.mojom.ContactManagerRequest = nearby_share.mojom.ContactManagerPendingReceiver;

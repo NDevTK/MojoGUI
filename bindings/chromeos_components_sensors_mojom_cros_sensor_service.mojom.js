@@ -8,8 +8,6 @@
 var chromeos = chromeos || {};
 chromeos.sensors = chromeos.sensors || {};
 chromeos.sensors.mojom = chromeos.sensors.mojom || {};
-var chromeos = chromeos || {};
-var components = components || {};
 
 chromeos.sensors.mojom.SensorHalServer = {};
 chromeos.sensors.mojom.SensorHalServer.$interfaceName = 'chromeos.sensors.mojom.SensorHalServer';
@@ -79,6 +77,28 @@ chromeos.sensors.mojom.SensorHalServer.getRemote = function() {
   return remote.$;
 };
 
+chromeos.sensors.mojom.SensorHalServerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createChannel(params.sensor_service_request);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.sensors.mojom.SensorHalServerReceiver = chromeos.sensors.mojom.SensorHalServerReceiver;
+
 chromeos.sensors.mojom.SensorHalServerPtr = chromeos.sensors.mojom.SensorHalServerRemote;
 chromeos.sensors.mojom.SensorHalServerRequest = chromeos.sensors.mojom.SensorHalServerPendingReceiver;
 
@@ -143,6 +163,28 @@ chromeos.sensors.mojom.SensorHalClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.sensors.mojom.SensorHalClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.sensors.mojom.SensorHalClient_SetUpChannel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUpChannel(params.sensor_service_ptr);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.sensors.mojom.SensorHalClientReceiver = chromeos.sensors.mojom.SensorHalClientReceiver;
 
 chromeos.sensors.mojom.SensorHalClientPtr = chromeos.sensors.mojom.SensorHalClientRemote;
 chromeos.sensors.mojom.SensorHalClientRequest = chromeos.sensors.mojom.SensorHalClientPendingReceiver;

@@ -83,6 +83,35 @@ safe_browsing.mojom.SafeBrowsingUrlChecker.getRemote = function() {
   return remote.$;
 };
 
+safe_browsing.mojom.SafeBrowsingUrlCheckerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkUrl(params.url, params.method);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+safe_browsing.mojom.SafeBrowsingUrlCheckerReceiver = safe_browsing.mojom.SafeBrowsingUrlCheckerReceiver;
+
 safe_browsing.mojom.SafeBrowsingUrlCheckerPtr = safe_browsing.mojom.SafeBrowsingUrlCheckerRemote;
 safe_browsing.mojom.SafeBrowsingUrlCheckerRequest = safe_browsing.mojom.SafeBrowsingUrlCheckerPendingReceiver;
 

@@ -7,8 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -110,6 +108,33 @@ blink.mojom.NoStatePrefetchProcessor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.NoStatePrefetchProcessorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start(params.prerender_attribute);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancel();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.NoStatePrefetchProcessorReceiver = blink.mojom.NoStatePrefetchProcessorReceiver;
 
 blink.mojom.NoStatePrefetchProcessorPtr = blink.mojom.NoStatePrefetchProcessorRemote;
 blink.mojom.NoStatePrefetchProcessorRequest = blink.mojom.NoStatePrefetchProcessorPendingReceiver;

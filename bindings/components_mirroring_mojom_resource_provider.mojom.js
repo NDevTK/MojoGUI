@@ -7,8 +7,10 @@
 // Module namespace
 var mirroring = mirroring || {};
 mirroring.mojom = mirroring.mojom || {};
-var services = services || {};
-var services = services || {};
+var media = media || {};
+var network = network || {};
+var sandbox = sandbox || {};
+var viz = viz || {};
 
 mirroring.mojom.AudioStreamCreatorClient = {};
 mirroring.mojom.AudioStreamCreatorClient.$interfaceName = 'mirroring.mojom.AudioStreamCreatorClient';
@@ -84,6 +86,28 @@ mirroring.mojom.AudioStreamCreatorClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+mirroring.mojom.AudioStreamCreatorClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.streamCreated(params.stream, params.client_receiver, params.data_pipe);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mirroring.mojom.AudioStreamCreatorClientReceiver = mirroring.mojom.AudioStreamCreatorClientReceiver;
 
 mirroring.mojom.AudioStreamCreatorClientPtr = mirroring.mojom.AudioStreamCreatorClientRemote;
 mirroring.mojom.AudioStreamCreatorClientRequest = mirroring.mojom.AudioStreamCreatorClientPendingReceiver;
@@ -232,6 +256,53 @@ mirroring.mojom.ResourceProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+mirroring.mojom.ResourceProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindGpu(params.receiver);
+          break;
+        }
+        case 1: {
+          const params = mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVideoCaptureHost(params.receiver);
+          break;
+        }
+        case 2: {
+          const params = mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVideoEncoderMetricsProvider(params.receiver);
+          break;
+        }
+        case 3: {
+          const params = mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNetworkContext(params.receiver);
+          break;
+        }
+        case 4: {
+          const params = mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createAudioStream(params.client, params.param, params.shared_memory_count);
+          break;
+        }
+        case 5: {
+          const params = mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectToRemotingSource(params.remoter, params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mirroring.mojom.ResourceProviderReceiver = mirroring.mojom.ResourceProviderReceiver;
 
 mirroring.mojom.ResourceProviderPtr = mirroring.mojom.ResourceProviderRemote;
 mirroring.mojom.ResourceProviderRequest = mirroring.mojom.ResourceProviderPendingReceiver;

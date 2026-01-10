@@ -7,9 +7,7 @@
 // Module namespace
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
-var ui = ui || {};
-var ui = ui || {};
-var gfx = gfx || {};
+var mojo_base = mojo_base || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
@@ -383,6 +381,168 @@ remote_cocoa.mojom.TextInputHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remote_cocoa.mojom.TextInputHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasClient();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasInputContext();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isRTL();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSelectionRange();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSelectionText();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.insertText(params.text, params.as_character);
+          break;
+        }
+        case 6: {
+          const params = remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteRange(params.range);
+          break;
+        }
+        case 7: {
+          const params = remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCompositionText(params.text, params.selected_range, params.replacement_range);
+          break;
+        }
+        case 8: {
+          const params = remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.confirmCompositionText();
+          break;
+        }
+        case 9: {
+          const params = remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasCompositionText();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCompositionTextRange();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAttributedSubstringForRange(params.requested_range);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFirstRectForRange(params.requested_range);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isTextEditCommandEnabled(params.command);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTextEditCommandForNextKeyEvent(params.command);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remote_cocoa.mojom.TextInputHostReceiver = remote_cocoa.mojom.TextInputHostReceiver;
 
 remote_cocoa.mojom.TextInputHostPtr = remote_cocoa.mojom.TextInputHostRemote;
 remote_cocoa.mojom.TextInputHostRequest = remote_cocoa.mojom.TextInputHostPendingReceiver;

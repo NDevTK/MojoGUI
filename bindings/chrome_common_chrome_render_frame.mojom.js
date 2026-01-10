@@ -7,10 +7,11 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
-var components = components || {};
+var actor = actor || {};
+var lens = lens || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
 var blink = blink || {};
-var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -169,7 +170,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec, 'chrome.mojom.ChromeRenderFrame_StartActorJournal_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(actor.mojom.JournalClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, pending_associated_remote<actor.mojom.JournalClient>Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -374,6 +375,140 @@ chrome.mojom.ChromeRenderFrame.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.ChromeRenderFrameReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWindowFeatures(params.window_features);
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestReloadImageForContextNode();
+          break;
+        }
+        case 2: {
+          const params = chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestBitmapForContextNode();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestBitmapForContextNodeWithBoundsHint();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestBoundsHintForAllImages();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestImageForContextNode(params.image_min_area_pixels, params.image_max_size_pixels, params.image_format, params.quality);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeWebUIJavaScript(params.javascript);
+          break;
+        }
+        case 7: {
+          const params = chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCCTClientHeader(params.header);
+          break;
+        }
+        case 8: {
+          const params = chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMediaFeedURL();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadBlockedPlugins(params.identifier);
+          break;
+        }
+        case 10: {
+          const params = chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setShouldDeferMediaLoad(params.should_defer);
+          break;
+        }
+        case 11: {
+          const params = chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.invokeTool(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelTool(params.task_id);
+          break;
+        }
+        case 13: {
+          const params = chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startActorJournal(params.client);
+          break;
+        }
+        case 14: {
+          const params = chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageStabilityMonitor(params.monitor, params.task_id, params.supports_paint_stability);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.ChromeRenderFrameReceiver = chrome.mojom.ChromeRenderFrameReceiver;
 
 chrome.mojom.ChromeRenderFramePtr = chrome.mojom.ChromeRenderFrameRemote;
 chrome.mojom.ChromeRenderFrameRequest = chrome.mojom.ChromeRenderFramePendingReceiver;

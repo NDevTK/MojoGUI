@@ -7,7 +7,7 @@
 // Module namespace
 var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
-var services = services || {};
+var media = media || {};
 
 video_capture.mojom.Device = {};
 video_capture.mojom.Device.$interfaceName = 'video_capture.mojom.Device';
@@ -209,6 +209,84 @@ video_capture.mojom.Device.getRemote = function() {
     'context');
   return remote.$;
 };
+
+video_capture.mojom.DeviceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = video_capture.mojom.Device_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start(params.requested_settings, params.handler);
+          break;
+        }
+        case 1: {
+          const params = video_capture.mojom.Device_MaybeSuspend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.maybeSuspend();
+          break;
+        }
+        case 2: {
+          const params = video_capture.mojom.Device_Resume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resume();
+          break;
+        }
+        case 3: {
+          const params = video_capture.mojom.Device_GetPhotoState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPhotoState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = video_capture.mojom.Device_SetPhotoOptions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPhotoOptions(params.settings);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = video_capture.mojom.Device_TakePhoto_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.takePhoto();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, video_capture.mojom.Device_TakePhoto_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = video_capture.mojom.Device_ProcessFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.processFeedback(params.feedback);
+          break;
+        }
+        case 7: {
+          const params = video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestRefreshFrame();
+          break;
+        }
+      }
+    });
+  }
+};
+
+video_capture.mojom.DeviceReceiver = video_capture.mojom.DeviceReceiver;
 
 video_capture.mojom.DevicePtr = video_capture.mojom.DeviceRemote;
 video_capture.mojom.DeviceRequest = video_capture.mojom.DevicePendingReceiver;

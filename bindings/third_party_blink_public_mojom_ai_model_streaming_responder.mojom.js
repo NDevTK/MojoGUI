@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 
 blink.mojom.ModelStreamingResponseStatusSpec = { $: mojo.internal.Enum() };
 blink.mojom.ModelExecutionContextInfoSpec = { $: {} };
@@ -153,6 +152,43 @@ blink.mojom.ModelStreamingResponder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ModelStreamingResponderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCompletion(params.context_info);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ModelStreamingResponder_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.status, params.quota_error_info);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStreaming(params.text);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onQuotaOverflow();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ModelStreamingResponderReceiver = blink.mojom.ModelStreamingResponderReceiver;
 
 blink.mojom.ModelStreamingResponderPtr = blink.mojom.ModelStreamingResponderRemote;
 blink.mojom.ModelStreamingResponderRequest = blink.mojom.ModelStreamingResponderPendingReceiver;

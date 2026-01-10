@@ -540,6 +540,111 @@ arc.mojom.AuthHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.AuthHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 19: {
+          const params = arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAuthorizationResult(params.result, params.account);
+          break;
+        }
+        case 8: {
+          const params = arc.mojom.AuthHost_ReportMetrics_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportMetrics(params.metrics_type, params.value);
+          break;
+        }
+        case 9: {
+          const params = arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportAccountCheckStatus(params.status);
+          break;
+        }
+        case 11: {
+          const params = arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportManagementChangeStatus(params.status);
+          break;
+        }
+        case 18: {
+          const params = arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPrimaryAccount();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPrimaryAccountInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestAccountInfo(params.account_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isAccountManagerAvailable();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleAddAccountRequest();
+          break;
+        }
+        case 16: {
+          const params = arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleRemoveAccountRequest(params.account_name);
+          break;
+        }
+        case 17: {
+          const params = arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleUpdateCredentialsRequest(params.account_name);
+          break;
+        }
+        case 20: {
+          const params = arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportAccountReauthReason(params.reason);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.AuthHostReceiver = arc.mojom.AuthHostReceiver;
+
 arc.mojom.AuthHostPtr = arc.mojom.AuthHostRemote;
 arc.mojom.AuthHostRequest = arc.mojom.AuthHostPendingReceiver;
 
@@ -684,6 +789,69 @@ arc.mojom.AuthInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.AuthInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 2: {
+          const params = arc.mojom.AuthInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.AuthInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAccountUpdated(params.account_name, params.update_type);
+          break;
+        }
+        case 4: {
+          const params = arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getGoogleAccounts();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMainAccountResolutionStatus();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = arc.mojom.AuthInstance_SetAccounts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAccounts(params.accounts);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.AuthInstanceReceiver = arc.mojom.AuthInstanceReceiver;
 
 arc.mojom.AuthInstancePtr = arc.mojom.AuthInstanceRemote;
 arc.mojom.AuthInstanceRequest = arc.mojom.AuthInstancePendingReceiver;

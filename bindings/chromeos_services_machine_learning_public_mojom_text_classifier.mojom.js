@@ -8,6 +8,7 @@
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
 chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
+var mojo_base = mojo_base || {};
 
 chromeos.machine_learning.mojom.AnnotationUsecaseSpec = { $: mojo.internal.Enum() };
 chromeos.machine_learning.mojom.TextEntityDataSpec = { $: {} };
@@ -216,6 +217,59 @@ chromeos.machine_learning.mojom.TextClassifier.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.machine_learning.mojom.TextClassifierReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.annotate(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.findLanguages(params.text);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rEMOVED_1(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.machine_learning.mojom.TextClassifierReceiver = chromeos.machine_learning.mojom.TextClassifierReceiver;
 
 chromeos.machine_learning.mojom.TextClassifierPtr = chromeos.machine_learning.mojom.TextClassifierRemote;
 chromeos.machine_learning.mojom.TextClassifierRequest = chromeos.machine_learning.mojom.TextClassifierPendingReceiver;

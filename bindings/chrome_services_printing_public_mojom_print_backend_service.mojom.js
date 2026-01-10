@@ -7,9 +7,9 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 var gfx = gfx || {};
-var services = services || {};
 
 printing.mojom.PrinterCapsAndInfoSpec = { $: {} };
 printing.mojom.UnsandboxedPrintBackendHost = {};
@@ -112,6 +112,28 @@ printing.mojom.UnsandboxedPrintBackendHost.getRemote = function() {
   return remote.$;
 };
 
+printing.mojom.UnsandboxedPrintBackendHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindBackend(params.service);
+          break;
+        }
+      }
+    });
+  }
+};
+
+printing.mojom.UnsandboxedPrintBackendHostReceiver = printing.mojom.UnsandboxedPrintBackendHostReceiver;
+
 printing.mojom.UnsandboxedPrintBackendHostPtr = printing.mojom.UnsandboxedPrintBackendHostRemote;
 printing.mojom.UnsandboxedPrintBackendHostRequest = printing.mojom.UnsandboxedPrintBackendHostPendingReceiver;
 
@@ -176,6 +198,28 @@ printing.mojom.SandboxedPrintBackendHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+printing.mojom.SandboxedPrintBackendHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindBackend(params.service);
+          break;
+        }
+      }
+    });
+  }
+};
+
+printing.mojom.SandboxedPrintBackendHostReceiver = printing.mojom.SandboxedPrintBackendHostReceiver;
 
 printing.mojom.SandboxedPrintBackendHostPtr = printing.mojom.SandboxedPrintBackendHostRemote;
 printing.mojom.SandboxedPrintBackendHostRequest = printing.mojom.SandboxedPrintBackendHostPendingReceiver;
@@ -533,6 +577,145 @@ printing.mojom.PrintBackendService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+printing.mojom.PrintBackendServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = printing.mojom.PrintBackendService_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.locale, params.remote);
+          break;
+        }
+        case 1: {
+          const params = printing.mojom.PrintBackendService_Poke_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.poke();
+          break;
+        }
+        case 2: {
+          const params = printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enumeratePrinters();
+          break;
+        }
+        case 3: {
+          const params = printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDefaultPrinterName();
+          break;
+        }
+        case 4: {
+          const params = printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPrinterSemanticCapsAndDefaults(params.printer_name);
+          break;
+        }
+        case 5: {
+          const params = printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fetchCapabilities(params.printer_name);
+          break;
+        }
+        case 6: {
+          const params = printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPaperPrintableArea(params.printer_name, params.media);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PrintBackendService_GetPaperPrintableArea_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishPrintingContext(params.context_id, params.parent_window_id);
+          break;
+        }
+        case 8: {
+          const params = printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.useDefaultSettings(params.context_id);
+          break;
+        }
+        case 9: {
+          const params = printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.askUserForSettings(params.context_id, params.max_pages, params.has_selection, params.is_scripted);
+          break;
+        }
+        case 10: {
+          const params = printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updatePrintSettings(params.context_id, params.job_settings);
+          break;
+        }
+        case 11: {
+          const params = printing.mojom.PrintBackendService_StartPrinting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startPrinting(params.context_id, params.document_cookie, params.document_name, params.settings);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PrintBackendService_StartPrinting_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.renderPrintedPage(params.document_cookie, params.page_index, params.page_data_type, params.serialized_page, params.page_size, params.page_content_rect, params.shrink_factor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PrintBackendService_RenderPrintedPage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.renderPrintedDocument(params.document_cookie, params.page_count, params.data_type, params.serialized_doc);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PrintBackendService_RenderPrintedDocument_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = printing.mojom.PrintBackendService_DocumentDone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.documentDone(params.document_cookie);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PrintBackendService_DocumentDone_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = printing.mojom.PrintBackendService_Cancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancel(params.document_cookie);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PrintBackendService_Cancel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+printing.mojom.PrintBackendServiceReceiver = printing.mojom.PrintBackendServiceReceiver;
 
 printing.mojom.PrintBackendServicePtr = printing.mojom.PrintBackendServiceRemote;
 printing.mojom.PrintBackendServiceRequest = printing.mojom.PrintBackendServicePendingReceiver;

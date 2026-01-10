@@ -7,8 +7,9 @@
 // Module namespace
 var data_sharing_internals = data_sharing_internals || {};
 data_sharing_internals.mojom = data_sharing_internals.mojom || {};
-var components = components || {};
-var components = components || {};
+var data_sharing = data_sharing || {};
+var logger_common = logger_common || {};
+var mojo_base = mojo_base || {};
 
 data_sharing_internals.mojom.PageHandlerFactory = {};
 data_sharing_internals.mojom.PageHandlerFactory.$interfaceName = 'data_sharing_internals.mojom.PageHandlerFactory';
@@ -84,6 +85,28 @@ data_sharing_internals.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+data_sharing_internals.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+data_sharing_internals.mojom.PageHandlerFactoryReceiver = data_sharing_internals.mojom.PageHandlerFactoryReceiver;
 
 data_sharing_internals.mojom.PageHandlerFactoryPtr = data_sharing_internals.mojom.PageHandlerFactoryRemote;
 data_sharing_internals.mojom.PageHandlerFactoryRequest = data_sharing_internals.mojom.PageHandlerFactoryPendingReceiver;
@@ -177,6 +200,47 @@ data_sharing_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+data_sharing_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isEmptyService();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllGroups();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+data_sharing_internals.mojom.PageHandlerReceiver = data_sharing_internals.mojom.PageHandlerReceiver;
+
 data_sharing_internals.mojom.PageHandlerPtr = data_sharing_internals.mojom.PageHandlerRemote;
 data_sharing_internals.mojom.PageHandlerRequest = data_sharing_internals.mojom.PageHandlerPendingReceiver;
 
@@ -245,6 +309,28 @@ data_sharing_internals.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+data_sharing_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLogMessageAdded(params.event_time, params.log_source, params.source_file, params.source_line, params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+data_sharing_internals.mojom.PageReceiver = data_sharing_internals.mojom.PageReceiver;
 
 data_sharing_internals.mojom.PagePtr = data_sharing_internals.mojom.PageRemote;
 data_sharing_internals.mojom.PageRequest = data_sharing_internals.mojom.PagePendingReceiver;

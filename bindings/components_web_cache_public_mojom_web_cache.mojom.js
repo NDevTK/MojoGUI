@@ -73,6 +73,28 @@ web_cache.mojom.WebCache.getRemote = function() {
   return remote.$;
 };
 
+web_cache.mojom.WebCacheReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = web_cache.mojom.WebCache_ClearCache_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearCache(params.on_navigation);
+          break;
+        }
+      }
+    });
+  }
+};
+
+web_cache.mojom.WebCacheReceiver = web_cache.mojom.WebCacheReceiver;
+
 web_cache.mojom.WebCachePtr = web_cache.mojom.WebCacheRemote;
 web_cache.mojom.WebCacheRequest = web_cache.mojom.WebCachePendingReceiver;
 

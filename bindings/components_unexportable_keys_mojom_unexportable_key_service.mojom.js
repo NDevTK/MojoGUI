@@ -7,6 +7,7 @@
 // Module namespace
 var unexportable_keys = unexportable_keys || {};
 unexportable_keys.mojom = unexportable_keys.mojom || {};
+var mojo_base = mojo_base || {};
 
 unexportable_keys.mojom.SignatureAlgorithmSpec = { $: mojo.internal.Enum() };
 unexportable_keys.mojom.ServiceErrorSpec = { $: mojo.internal.Enum() };
@@ -220,6 +221,60 @@ unexportable_keys.mojom.UnexportableKeyService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+unexportable_keys.mojom.UnexportableKeyServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generateSigningKey(params.acceptable_algorithms, params.priority);
+          break;
+        }
+        case 1: {
+          const params = unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fromWrappedSigningKey(params.wrapped_key, params.priority);
+          break;
+        }
+        case 2: {
+          const params = unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sign(params.key_id, params.data, params.priority);
+          break;
+        }
+        case 3: {
+          const params = unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllSigningKeysForGarbageCollection(params.priority);
+          break;
+        }
+        case 4: {
+          const params = unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteKey(params.key_id, params.priority);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteAllKeys(params.priority);
+          break;
+        }
+      }
+    });
+  }
+};
+
+unexportable_keys.mojom.UnexportableKeyServiceReceiver = unexportable_keys.mojom.UnexportableKeyServiceReceiver;
 
 unexportable_keys.mojom.UnexportableKeyServicePtr = unexportable_keys.mojom.UnexportableKeyServiceRemote;
 unexportable_keys.mojom.UnexportableKeyServiceRequest = unexportable_keys.mojom.UnexportableKeyServicePendingReceiver;

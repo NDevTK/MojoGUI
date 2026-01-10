@@ -7,12 +7,6 @@
 // Module namespace
 var smbfs = smbfs || {};
 smbfs.mojom = smbfs.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var components = components || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var components = components || {};
 
 smbfs.mojom.MountErrorSpec = { $: mojo.internal.Enum() };
 smbfs.mojom.DeleteRecursivelyErrorSpec = { $: mojo.internal.Enum() };
@@ -189,6 +183,35 @@ smbfs.mojom.SmbFsBootstrap.getRemote = function() {
   return remote.$;
 };
 
+smbfs.mojom.SmbFsBootstrapReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mountShare(params.options, params.delegate);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+smbfs.mojom.SmbFsBootstrapReceiver = smbfs.mojom.SmbFsBootstrapReceiver;
+
 smbfs.mojom.SmbFsBootstrapPtr = smbfs.mojom.SmbFsBootstrapRemote;
 smbfs.mojom.SmbFsBootstrapRequest = smbfs.mojom.SmbFsBootstrapPendingReceiver;
 
@@ -281,6 +304,47 @@ smbfs.mojom.SmbFs.getRemote = function() {
   return remote.$;
 };
 
+smbfs.mojom.SmbFsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeSavedCredentials();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteRecursively(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+smbfs.mojom.SmbFsReceiver = smbfs.mojom.SmbFsReceiver;
+
 smbfs.mojom.SmbFsPtr = smbfs.mojom.SmbFsRemote;
 smbfs.mojom.SmbFsRequest = smbfs.mojom.SmbFsPendingReceiver;
 
@@ -350,6 +414,35 @@ smbfs.mojom.SmbFsDelegate.getRemote = function() {
     'context');
   return remote.$;
 };
+
+smbfs.mojom.SmbFsDelegateReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestCredentials();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+smbfs.mojom.SmbFsDelegateReceiver = smbfs.mojom.SmbFsDelegateReceiver;
 
 smbfs.mojom.SmbFsDelegatePtr = smbfs.mojom.SmbFsDelegateRemote;
 smbfs.mojom.SmbFsDelegateRequest = smbfs.mojom.SmbFsDelegatePendingReceiver;

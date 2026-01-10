@@ -97,6 +97,28 @@ download.mojom.DownloadStreamClient.getRemote = function() {
   return remote.$;
 };
 
+download.mojom.DownloadStreamClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStreamCompleted(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+download.mojom.DownloadStreamClientReceiver = download.mojom.DownloadStreamClientReceiver;
+
 download.mojom.DownloadStreamClientPtr = download.mojom.DownloadStreamClientRemote;
 download.mojom.DownloadStreamClientRequest = download.mojom.DownloadStreamClientPendingReceiver;
 

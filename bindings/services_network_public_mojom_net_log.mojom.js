@@ -7,7 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 network.mojom.NetLogCaptureModeSpec = { $: mojo.internal.Enum() };
 network.mojom.NetLogEventPhaseSpec = { $: mojo.internal.Enum() };
@@ -133,6 +133,47 @@ network.mojom.NetLogExporter.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.NetLogExporterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.NetLogExporter_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start(params.destination, params.extra_constants, params.capture_mode, params.max_file_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetLogExporter_Start_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.NetLogExporter_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop(params.polled_values);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetLogExporter_Stop_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.NetLogExporterReceiver = network.mojom.NetLogExporterReceiver;
+
 network.mojom.NetLogExporterPtr = network.mojom.NetLogExporterRemote;
 network.mojom.NetLogExporterRequest = network.mojom.NetLogExporterPendingReceiver;
 
@@ -197,6 +238,28 @@ network.mojom.NetLogProxySource.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.NetLogProxySourceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateCaptureModes(params.modes);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.NetLogProxySourceReceiver = network.mojom.NetLogProxySourceReceiver;
 
 network.mojom.NetLogProxySourcePtr = network.mojom.NetLogProxySourceRemote;
 network.mojom.NetLogProxySourceRequest = network.mojom.NetLogProxySourcePendingReceiver;
@@ -266,6 +329,28 @@ network.mojom.NetLogProxySink.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.NetLogProxySinkReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.NetLogProxySink_AddEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addEntry(params.type, params.net_log_source, params.phase, params.time, params.params);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.NetLogProxySinkReceiver = network.mojom.NetLogProxySinkReceiver;
 
 network.mojom.NetLogProxySinkPtr = network.mojom.NetLogProxySinkRemote;
 network.mojom.NetLogProxySinkRequest = network.mojom.NetLogProxySinkPendingReceiver;

@@ -7,6 +7,7 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var mojo_base = mojo_base || {};
 
 viz.mojom.VizDebugOutput = {};
 viz.mojom.VizDebugOutput.$interfaceName = 'viz.mojom.VizDebugOutput';
@@ -72,6 +73,28 @@ viz.mojom.VizDebugOutput.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.VizDebugOutputReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.VizDebugOutput_LogFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logFrame(params.frameData);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.VizDebugOutputReceiver = viz.mojom.VizDebugOutputReceiver;
 
 viz.mojom.VizDebugOutputPtr = viz.mojom.VizDebugOutputRemote;
 viz.mojom.VizDebugOutputRequest = viz.mojom.VizDebugOutputPendingReceiver;

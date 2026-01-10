@@ -7,7 +7,7 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -156,6 +156,57 @@ printing.mojom.PdfNupConverter.getRemote = function() {
     'context');
   return remote.$;
 };
+
+printing.mojom.PdfNupConverterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = printing.mojom.PdfNupConverter_NupPageConvert_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.nupPageConvert(params.pages_per_sheet, params.page_size, params.printable_area, params.pdf_page_regions);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PdfNupConverter_NupPageConvert_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = printing.mojom.PdfNupConverter_NupDocumentConvert_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.nupDocumentConvert(params.pages_per_sheet, params.page_size, params.printable_area, params.src_pdf_region);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PdfNupConverter_NupDocumentConvert_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = printing.mojom.PdfNupConverter_SetWebContentsURL_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWebContentsURL(params.url);
+          break;
+        }
+        case 3: {
+          const params = printing.mojom.PdfNupConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUseSkiaRendererPolicy(params.use_skia);
+          break;
+        }
+      }
+    });
+  }
+};
+
+printing.mojom.PdfNupConverterReceiver = printing.mojom.PdfNupConverterReceiver;
 
 printing.mojom.PdfNupConverterPtr = printing.mojom.PdfNupConverterRemote;
 printing.mojom.PdfNupConverterRequest = printing.mojom.PdfNupConverterPendingReceiver;

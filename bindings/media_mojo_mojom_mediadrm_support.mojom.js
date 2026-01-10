@@ -7,6 +7,8 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 media.mojom.MediaDrmSupportResultSpec = { $: {} };
 media.mojom.MediaDrmSupport = {};
@@ -90,6 +92,35 @@ media.mojom.MediaDrmSupport.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.MediaDrmSupportReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isKeySystemSupported(params.key_system, params.is_secure);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.MediaDrmSupportReceiver = media.mojom.MediaDrmSupportReceiver;
 
 media.mojom.MediaDrmSupportPtr = media.mojom.MediaDrmSupportRemote;
 media.mojom.MediaDrmSupportRequest = media.mojom.MediaDrmSupportPendingReceiver;

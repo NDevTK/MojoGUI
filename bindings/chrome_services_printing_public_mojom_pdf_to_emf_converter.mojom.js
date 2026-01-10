@@ -7,7 +7,7 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 printing.mojom.PdfToEmfConverter = {};
@@ -121,6 +121,45 @@ printing.mojom.PdfToEmfConverter.getRemote = function() {
   return remote.$;
 };
 
+printing.mojom.PdfToEmfConverterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.convertPage(params.page_index);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWebContentsURL(params.url);
+          break;
+        }
+        case 2: {
+          const params = printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUseSkiaRendererPolicy(params.use_skia);
+          break;
+        }
+      }
+    });
+  }
+};
+
+printing.mojom.PdfToEmfConverterReceiver = printing.mojom.PdfToEmfConverterReceiver;
+
 printing.mojom.PdfToEmfConverterPtr = printing.mojom.PdfToEmfConverterRemote;
 printing.mojom.PdfToEmfConverterRequest = printing.mojom.PdfToEmfConverterPendingReceiver;
 
@@ -193,6 +232,35 @@ printing.mojom.PdfToEmfConverterFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+printing.mojom.PdfToEmfConverterFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createConverter(params.pdf_region, params.render_settings);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+printing.mojom.PdfToEmfConverterFactoryReceiver = printing.mojom.PdfToEmfConverterFactoryReceiver;
 
 printing.mojom.PdfToEmfConverterFactoryPtr = printing.mojom.PdfToEmfConverterFactoryRemote;
 printing.mojom.PdfToEmfConverterFactoryRequest = printing.mojom.PdfToEmfConverterFactoryPendingReceiver;

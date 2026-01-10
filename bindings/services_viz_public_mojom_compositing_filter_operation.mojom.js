@@ -7,10 +7,7 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
 var skia = skia || {};
-var skia = skia || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 viz.mojom.FilterTypeSpec = { $: mojo.internal.Enum() };

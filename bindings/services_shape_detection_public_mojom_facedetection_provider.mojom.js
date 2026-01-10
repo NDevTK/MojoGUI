@@ -7,7 +7,6 @@
 // Module namespace
 var shape_detection = shape_detection || {};
 shape_detection.mojom = shape_detection.mojom || {};
-var services = services || {};
 
 shape_detection.mojom.FaceDetectionProvider = {};
 shape_detection.mojom.FaceDetectionProvider.$interfaceName = 'shape_detection.mojom.FaceDetectionProvider';
@@ -74,6 +73,28 @@ shape_detection.mojom.FaceDetectionProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+shape_detection.mojom.FaceDetectionProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createFaceDetection(params.receiver, params.options);
+          break;
+        }
+      }
+    });
+  }
+};
+
+shape_detection.mojom.FaceDetectionProviderReceiver = shape_detection.mojom.FaceDetectionProviderReceiver;
 
 shape_detection.mojom.FaceDetectionProviderPtr = shape_detection.mojom.FaceDetectionProviderRemote;
 shape_detection.mojom.FaceDetectionProviderRequest = shape_detection.mojom.FaceDetectionProviderPendingReceiver;

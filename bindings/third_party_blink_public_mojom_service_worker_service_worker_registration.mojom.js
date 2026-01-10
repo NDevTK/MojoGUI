@@ -7,12 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
 var url = url || {};
 
 blink.mojom.ChangedServiceWorkerObjectsMaskSpec = { $: {} };
@@ -50,8 +44,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('scope', 8, 0, url.mojom.UrlSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('update_via_cache', 16, 0, blink.mojom.ServiceWorkerUpdateViaCacheSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('host_remote', 24, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.ServiceWorkerRegistrationObjectHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 32, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.ServiceWorkerRegistrationObjectRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host_remote', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('installing', 40, 0, blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('waiting', 48, 0, blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('active', 56, 0, blink.mojom.ServiceWorkerObjectInfoSpec.$, null, true, 0, undefined),
@@ -217,6 +211,83 @@ blink.mojom.ServiceWorkerRegistrationObjectHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.update(params.outside_fetch_client_settings_object);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unregister();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableNavigationPreload(params.enable);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNavigationPreloadState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNavigationPreloadHeader(params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ServiceWorkerRegistrationObjectHostReceiver = blink.mojom.ServiceWorkerRegistrationObjectHostReceiver;
+
 blink.mojom.ServiceWorkerRegistrationObjectHostPtr = blink.mojom.ServiceWorkerRegistrationObjectHostRemote;
 blink.mojom.ServiceWorkerRegistrationObjectHostRequest = blink.mojom.ServiceWorkerRegistrationObjectHostPendingReceiver;
 
@@ -315,6 +386,38 @@ blink.mojom.ServiceWorkerRegistrationObject.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ServiceWorkerRegistrationObjectReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setServiceWorkerObjects(params.changed_mask, params.installing, params.waiting, params.active);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUpdateViaCache(params.update_via_cache);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateFound();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ServiceWorkerRegistrationObjectReceiver = blink.mojom.ServiceWorkerRegistrationObjectReceiver;
 
 blink.mojom.ServiceWorkerRegistrationObjectPtr = blink.mojom.ServiceWorkerRegistrationObjectRemote;
 blink.mojom.ServiceWorkerRegistrationObjectRequest = blink.mojom.ServiceWorkerRegistrationObjectPendingReceiver;

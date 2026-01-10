@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.BrowserInterfaceBroker = {};
 blink.mojom.BrowserInterfaceBroker.$interfaceName = 'blink.mojom.BrowserInterfaceBroker';
@@ -72,6 +73,28 @@ blink.mojom.BrowserInterfaceBroker.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.BrowserInterfaceBrokerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getInterface(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.BrowserInterfaceBrokerReceiver = blink.mojom.BrowserInterfaceBrokerReceiver;
 
 blink.mojom.BrowserInterfaceBrokerPtr = blink.mojom.BrowserInterfaceBrokerRemote;
 blink.mojom.BrowserInterfaceBrokerRequest = blink.mojom.BrowserInterfaceBrokerPendingReceiver;

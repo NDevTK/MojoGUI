@@ -7,6 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var mojo_base = mojo_base || {};
 
 media.mojom.VideoCaptureStateSpec = { $: mojo.internal.Enum() };
 media.mojom.VideoCaptureResultSpec = { $: {} };
@@ -197,6 +198,53 @@ media.mojom.VideoCaptureObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.VideoCaptureObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStateChanged(params.result);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewBuffer(params.buffer_id, params.buffer_handle);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBufferReady(params.buffer);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBufferDestroyed(params.buffer_id);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameDropped(params.reason);
+          break;
+        }
+        case 5: {
+          const params = media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewCaptureVersion(params.capture_version);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.VideoCaptureObserverReceiver = media.mojom.VideoCaptureObserverReceiver;
 
 media.mojom.VideoCaptureObserverPtr = media.mojom.VideoCaptureObserverRemote;
 media.mojom.VideoCaptureObserverRequest = media.mojom.VideoCaptureObserverPendingReceiver;
@@ -412,6 +460,82 @@ media.mojom.VideoCaptureHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.VideoCaptureHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.VideoCaptureHost_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start(params.device_id, params.session_id, params.params, params.observer);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.VideoCaptureHost_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop(params.device_id);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.VideoCaptureHost_Pause_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pause(params.device_id);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.VideoCaptureHost_Resume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resume(params.device_id, params.session_id, params.params);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestRefreshFrame(params.device_id);
+          break;
+        }
+        case 5: {
+          const params = media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.releaseBuffer(params.device_id, params.buffer_id, params.feedback);
+          break;
+        }
+        case 6: {
+          const params = media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceSupportedFormats(params.device_id, params.session_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceFormatsInUse(params.device_id, params.session_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = media.mojom.VideoCaptureHost_OnLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLog(params.device_id, params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.VideoCaptureHostReceiver = media.mojom.VideoCaptureHostReceiver;
 
 media.mojom.VideoCaptureHostPtr = media.mojom.VideoCaptureHostRemote;
 media.mojom.VideoCaptureHostRequest = media.mojom.VideoCaptureHostPendingReceiver;

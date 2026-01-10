@@ -105,6 +105,40 @@ chrome.mojom.OfflinePageAutoFetcher.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.OfflinePageAutoFetcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.trySchedule(params.user_requested);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelSchedule();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.OfflinePageAutoFetcherReceiver = chrome.mojom.OfflinePageAutoFetcherReceiver;
+
 chrome.mojom.OfflinePageAutoFetcherPtr = chrome.mojom.OfflinePageAutoFetcherRemote;
 chrome.mojom.OfflinePageAutoFetcherRequest = chrome.mojom.OfflinePageAutoFetcherPendingReceiver;
 

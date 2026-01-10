@@ -7,6 +7,7 @@
 // Module namespace
 var legion = legion || {};
 legion.mojom = legion.mojom || {};
+var sandbox = sandbox || {};
 
 legion.mojom.HandshakeMessageSpec = { $: {} };
 legion.mojom.OakSession = {};
@@ -159,6 +160,71 @@ legion.mojom.OakSession.getRemote = function() {
     'context');
   return remote.$;
 };
+
+legion.mojom.OakSessionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = legion.mojom.OakSession_InitiateHandshake_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initiateHandshake();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = legion.mojom.OakSession_CompleteHandshake_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.completeHandshake(params.response);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = legion.mojom.OakSession_Encrypt_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.encrypt(params.input);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, legion.mojom.OakSession_Encrypt_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = legion.mojom.OakSession_Decrypt_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decrypt(params.input);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, legion.mojom.OakSession_Decrypt_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+legion.mojom.OakSessionReceiver = legion.mojom.OakSessionReceiver;
 
 legion.mojom.OakSessionPtr = legion.mojom.OakSessionRemote;
 legion.mojom.OakSessionRequest = legion.mojom.OakSessionPendingReceiver;

@@ -7,7 +7,7 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
-var services = services || {};
+var service_manager = service_manager || {};
 var blink = blink || {};
 
 content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec = { $: {} };

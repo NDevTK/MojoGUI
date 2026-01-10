@@ -349,6 +349,83 @@ ash.quick_pair.mojom.FastPairDataParser.getRemote = function() {
   return remote.$;
 };
 
+ash.quick_pair.mojom.FastPairDataParserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getHexModelIdFromServiceData(params.service_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseDecryptedResponse(params.aes_key, params.encrypted_response_bytes);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseDecryptedPasskey(params.aes_key, params.encrypted_passkey_bytes);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseNotDiscoverableAdvertisement(params.service_data, params.address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseMessageStreamMessages(params.message_bytes);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.quick_pair.mojom.FastPairDataParserReceiver = ash.quick_pair.mojom.FastPairDataParserReceiver;
+
 ash.quick_pair.mojom.FastPairDataParserPtr = ash.quick_pair.mojom.FastPairDataParserRemote;
 ash.quick_pair.mojom.FastPairDataParserRequest = ash.quick_pair.mojom.FastPairDataParserPendingReceiver;
 

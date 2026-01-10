@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.shimless_rma = ash.shimless_rma || {};
 ash.shimless_rma.mojom = ash.shimless_rma.mojom || {};
+var mojo_base = mojo_base || {};
 
 ash.shimless_rma.mojom.StateSpec = { $: mojo.internal.Enum() };
 ash.shimless_rma.mojom.RmadErrorCodeSpec = { $: mojo.internal.Enum() };
@@ -641,6 +642,28 @@ ash.shimless_rma.mojom.ErrorObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.shimless_rma.mojom.ErrorObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.shimless_rma.mojom.ErrorObserverReceiver = ash.shimless_rma.mojom.ErrorObserverReceiver;
+
 ash.shimless_rma.mojom.ErrorObserverPtr = ash.shimless_rma.mojom.ErrorObserverRemote;
 ash.shimless_rma.mojom.ErrorObserverRequest = ash.shimless_rma.mojom.ErrorObserverPendingReceiver;
 
@@ -707,6 +730,28 @@ ash.shimless_rma.mojom.OsUpdateObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.shimless_rma.mojom.OsUpdateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOsUpdateProgressUpdated(params.operation, params.progress, params.update_error_code);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.shimless_rma.mojom.OsUpdateObserverReceiver = ash.shimless_rma.mojom.OsUpdateObserverReceiver;
 
 ash.shimless_rma.mojom.OsUpdateObserverPtr = ash.shimless_rma.mojom.OsUpdateObserverRemote;
 ash.shimless_rma.mojom.OsUpdateObserverRequest = ash.shimless_rma.mojom.OsUpdateObserverPendingReceiver;
@@ -789,6 +834,33 @@ ash.shimless_rma.mojom.CalibrationObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.shimless_rma.mojom.CalibrationObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCalibrationUpdated(params.componentStatus);
+          break;
+        }
+        case 1: {
+          const params = ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCalibrationStepComplete(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.shimless_rma.mojom.CalibrationObserverReceiver = ash.shimless_rma.mojom.CalibrationObserverReceiver;
+
 ash.shimless_rma.mojom.CalibrationObserverPtr = ash.shimless_rma.mojom.CalibrationObserverRemote;
 ash.shimless_rma.mojom.CalibrationObserverRequest = ash.shimless_rma.mojom.CalibrationObserverPendingReceiver;
 
@@ -856,6 +928,28 @@ ash.shimless_rma.mojom.ProvisioningObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.shimless_rma.mojom.ProvisioningObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProvisioningUpdated(params.status, params.progress, params.error);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.shimless_rma.mojom.ProvisioningObserverReceiver = ash.shimless_rma.mojom.ProvisioningObserverReceiver;
+
 ash.shimless_rma.mojom.ProvisioningObserverPtr = ash.shimless_rma.mojom.ProvisioningObserverRemote;
 ash.shimless_rma.mojom.ProvisioningObserverRequest = ash.shimless_rma.mojom.ProvisioningObserverPendingReceiver;
 
@@ -920,6 +1014,28 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver.getRemote = function
     'context');
   return remote.$;
 };
+
+ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHardwareWriteProtectionStateChanged(params.enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverReceiver = ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverReceiver;
 
 ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverPtr = ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemote;
 ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRequest = ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverPendingReceiver;
@@ -986,6 +1102,28 @@ ash.shimless_rma.mojom.PowerCableStateObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.shimless_rma.mojom.PowerCableStateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPowerCableStateChanged(params.plugged_in);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.shimless_rma.mojom.PowerCableStateObserverReceiver = ash.shimless_rma.mojom.PowerCableStateObserverReceiver;
+
 ash.shimless_rma.mojom.PowerCableStateObserverPtr = ash.shimless_rma.mojom.PowerCableStateObserverRemote;
 ash.shimless_rma.mojom.PowerCableStateObserverRequest = ash.shimless_rma.mojom.PowerCableStateObserverPendingReceiver;
 
@@ -1051,6 +1189,28 @@ ash.shimless_rma.mojom.ExternalDiskStateObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.shimless_rma.mojom.ExternalDiskStateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onExternalDiskStateChanged(params.detected);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.shimless_rma.mojom.ExternalDiskStateObserverReceiver = ash.shimless_rma.mojom.ExternalDiskStateObserverReceiver;
+
 ash.shimless_rma.mojom.ExternalDiskStateObserverPtr = ash.shimless_rma.mojom.ExternalDiskStateObserverRemote;
 ash.shimless_rma.mojom.ExternalDiskStateObserverRequest = ash.shimless_rma.mojom.ExternalDiskStateObserverPendingReceiver;
 
@@ -1115,6 +1275,28 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserver.getRemote = function()
     'context');
   return remote.$;
 };
+
+ash.shimless_rma.mojom.HardwareVerificationStatusObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHardwareVerificationResult(params.result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.shimless_rma.mojom.HardwareVerificationStatusObserverReceiver = ash.shimless_rma.mojom.HardwareVerificationStatusObserverReceiver;
 
 ash.shimless_rma.mojom.HardwareVerificationStatusObserverPtr = ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemote;
 ash.shimless_rma.mojom.HardwareVerificationStatusObserverRequest = ash.shimless_rma.mojom.HardwareVerificationStatusObserverPendingReceiver;
@@ -1183,6 +1365,28 @@ ash.shimless_rma.mojom.FinalizationObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.shimless_rma.mojom.FinalizationObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFinalizationUpdated(params.status, params.progress, params.error);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.shimless_rma.mojom.FinalizationObserverReceiver = ash.shimless_rma.mojom.FinalizationObserverReceiver;
+
 ash.shimless_rma.mojom.FinalizationObserverPtr = ash.shimless_rma.mojom.FinalizationObserverRemote;
 ash.shimless_rma.mojom.FinalizationObserverRequest = ash.shimless_rma.mojom.FinalizationObserverPendingReceiver;
 
@@ -1247,6 +1451,28 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.shimless_rma.mojom.UpdateRoFirmwareObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onUpdateRoFirmwareStatusChanged(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.shimless_rma.mojom.UpdateRoFirmwareObserverReceiver = ash.shimless_rma.mojom.UpdateRoFirmwareObserverReceiver;
 
 ash.shimless_rma.mojom.UpdateRoFirmwareObserverPtr = ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemote;
 ash.shimless_rma.mojom.UpdateRoFirmwareObserverRequest = ash.shimless_rma.mojom.UpdateRoFirmwareObserverPendingReceiver;
@@ -2797,6 +3023,820 @@ ash.shimless_rma.mojom.ShimlessRmaService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCurrentState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getStateProperties();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.transitionPreviousState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.abortRma();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.beginFinalization();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.trackConfiguredNetworks();
+          break;
+        }
+        case 6: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.networkSelectionComplete();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCurrentOsVersion();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkForOsUpdates();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateOs();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateOsSkipped();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSameOwner();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDifferentOwner();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWipeDevice(params.should_wipe_device);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setManuallyDisableWriteProtect();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRsuDisableWriteProtect();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRsuDisableWriteProtectChallenge();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 17: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRsuDisableWriteProtectHwid();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 18: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRsuDisableWriteProtectChallengeQrCode();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 19: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRsuDisableWriteProtectCode(params.code);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 20: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeProtectManuallyDisabled();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 21: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWriteProtectDisableCompleteAction();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 22: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.confirmManualWpDisableComplete();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 23: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getComponentList();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 24: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setComponentList(params.components);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 25: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reworkMainboard();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 26: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.roFirmwareUpdateComplete();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 27: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shutdownForRestock();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 28: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.continueFinalizationAfterRestock();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 29: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRegionList();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 30: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSkuList();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 31: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCustomLabelList();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 32: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSkuDescriptionList();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 33: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOriginalSerialNumber();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 34: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOriginalRegion();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 35: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOriginalSku();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 36: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOriginalCustomLabel();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 37: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOriginalDramPartNumber();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 38: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOriginalFeatureLevel();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 39: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDeviceInformation(params.serial_number, params.region_index, params.sku_index, params.custom_label_index, params.dram_part_number, params.is_chassis_branded, params.hw_compliance_version);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 40: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCalibrationComponentList();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 41: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCalibrationSetupInstructions();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 42: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startCalibration(params.components);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 43: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runCalibrationStep();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 44: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.continueCalibration();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 45: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.calibrationComplete();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 46: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.retryProvisioning();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 47: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.provisioningComplete();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 48: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.retryFinalization();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 49: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.finalizationComplete();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 50: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeProtectManuallyEnabled();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 51: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLog();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 52: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.saveLog();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 53: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPowerwashRequired();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 54: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launchDiagnostics();
+          break;
+        }
+        case 55: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.endRma(params.shutdown_method);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 56: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shutDownAfterHardwareError();
+          break;
+        }
+        case 57: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.criticalErrorExitToLogin();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 58: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.criticalErrorReboot();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 59: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.get3pDiagnosticsProvider();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 60: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getInstallable3pDiagnosticsAppPath();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 61: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installLastFound3pDiagnosticsApp();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 62: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.completeLast3pDiagnosticsInstallation(params.is_approved);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 63: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.show3pDiagnosticsApp();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 64: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeError(params.observer);
+          break;
+        }
+        case 65: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeOsUpdateProgress(params.observer);
+          break;
+        }
+        case 66: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeCalibrationProgress(params.observer);
+          break;
+        }
+        case 67: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeProvisioningProgress(params.observer);
+          break;
+        }
+        case 68: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeHardwareWriteProtectionState(params.observer);
+          break;
+        }
+        case 69: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observePowerCableState(params.observer);
+          break;
+        }
+        case 70: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeExternalDiskState(params.observer);
+          break;
+        }
+        case 71: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeHardwareVerificationStatus(params.observer);
+          break;
+        }
+        case 72: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeFinalizationStatus(params.observer);
+          break;
+        }
+        case 73: {
+          const params = ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeRoFirmwareUpdateProgress(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = ash.shimless_rma.mojom.ShimlessRmaServiceReceiver;
 
 ash.shimless_rma.mojom.ShimlessRmaServicePtr = ash.shimless_rma.mojom.ShimlessRmaServiceRemote;
 ash.shimless_rma.mojom.ShimlessRmaServiceRequest = ash.shimless_rma.mojom.ShimlessRmaServicePendingReceiver;

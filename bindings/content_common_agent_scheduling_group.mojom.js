@@ -7,13 +7,6 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
-var content = content || {};
-var content = content || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
 var blink = blink || {};
 
 content.mojom.AgentSchedulingGroupHost = {};
@@ -87,6 +80,28 @@ content.mojom.AgentSchedulingGroupHost.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.AgentSchedulingGroupHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didUnloadRenderFrame(params.frame_token);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.AgentSchedulingGroupHostReceiver = content.mojom.AgentSchedulingGroupHostReceiver;
+
 content.mojom.AgentSchedulingGroupHostPtr = content.mojom.AgentSchedulingGroupHostRemote;
 content.mojom.AgentSchedulingGroupHostRequest = content.mojom.AgentSchedulingGroupHostPendingReceiver;
 
@@ -94,8 +109,8 @@ content.mojom.AgentSchedulingGroupHostRequest = content.mojom.AgentSchedulingGro
 // Interface: AgentSchedulingGroup
 mojo.internal.Struct(
     content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec, 'content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_Params', [
-      mojo.internal.StructField('remote_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(content.mojom.AgentSchedulingGroupHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('route_provider_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(content.mojom.RouteProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('remote_host', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('route_provider_receiver', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -201,6 +216,43 @@ content.mojom.AgentSchedulingGroup.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.AgentSchedulingGroupReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindAssociatedInterfaces(params.remote_host, params.route_provider_receiver);
+          break;
+        }
+        case 1: {
+          const params = content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createView(params.params);
+          break;
+        }
+        case 2: {
+          const params = content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createFrame(params.params);
+          break;
+        }
+        case 3: {
+          const params = content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createSharedStorageWorkletService(params.receiver, params.global_scope_creation_params);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.AgentSchedulingGroupReceiver = content.mojom.AgentSchedulingGroupReceiver;
 
 content.mojom.AgentSchedulingGroupPtr = content.mojom.AgentSchedulingGroupRemote;
 content.mojom.AgentSchedulingGroupRequest = content.mojom.AgentSchedulingGroupPendingReceiver;

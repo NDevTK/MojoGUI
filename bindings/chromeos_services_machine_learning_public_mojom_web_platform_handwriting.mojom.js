@@ -9,7 +9,7 @@ var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
 chromeos.machine_learning.web_platform = chromeos.machine_learning.web_platform || {};
 chromeos.machine_learning.web_platform.mojom = chromeos.machine_learning.web_platform.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 chromeos.machine_learning.web_platform.mojom.HandwritingPointSpec = { $: {} };
@@ -151,6 +151,35 @@ chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer.getRemote = f
     'context');
   return remote.$;
 };
+
+chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPrediction(params.strokes, params.hints);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerReceiver = chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerReceiver;
 
 chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerPtr = chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemote;
 chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRequest = chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerPendingReceiver;

@@ -7,6 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var mojo_base = mojo_base || {};
 
 network.mojom.LogTypeSpec = { $: mojo.internal.Enum() };
 network.mojom.PreviousOperatorEntrySpec = { $: {} };

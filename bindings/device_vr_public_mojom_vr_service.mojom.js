@@ -7,12 +7,9 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var ui = ui || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var gpu = gpu || {};
+var display = display || {};
 var gfx = gfx || {};
 
 device.mojom.XRHandednessSpec = { $: mojo.internal.Enum() };
@@ -1029,6 +1026,81 @@ device.mojom.VRService.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.VRServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.VRService_SetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setClient(params.client);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.VRService_RequestSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestSession(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.VRService_RequestSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.VRService_SupportsSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.supportsSession(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.VRService_SupportsSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = device.mojom.VRService_ExitPresent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.exitPresent();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.VRService_ExitPresent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = device.mojom.VRService_SetFramesThrottled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFramesThrottled(params.throttled);
+          break;
+        }
+        case 5: {
+          const params = device.mojom.VRService_MakeXrCompatible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.makeXrCompatible();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.VRServiceReceiver = device.mojom.VRServiceReceiver;
+
 device.mojom.VRServicePtr = device.mojom.VRServiceRemote;
 device.mojom.VRServiceRequest = device.mojom.VRServicePendingReceiver;
 
@@ -1094,6 +1166,28 @@ device.mojom.XRSessionMetricsRecorder.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.XRSessionMetricsRecorderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportFeatureUsed(params.feature);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.XRSessionMetricsRecorderReceiver = device.mojom.XRSessionMetricsRecorderReceiver;
+
 device.mojom.XRSessionMetricsRecorderPtr = device.mojom.XRSessionMetricsRecorderRemote;
 device.mojom.XRSessionMetricsRecorderRequest = device.mojom.XRSessionMetricsRecorderPendingReceiver;
 
@@ -1157,6 +1251,28 @@ device.mojom.VRServiceClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.VRServiceClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.VRServiceClientReceiver = device.mojom.VRServiceClientReceiver;
 
 device.mojom.VRServiceClientPtr = device.mojom.VRServiceClientRemote;
 device.mojom.VRServiceClientRequest = device.mojom.VRServiceClientPendingReceiver;
@@ -1311,6 +1427,69 @@ device.mojom.XREnvironmentIntegrationProvider.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.XREnvironmentIntegrationProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.subscribeToHitTest(params.native_origin_information, params.entity_types, params.ray);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.subscribeToHitTestForTransientInput(params.profile_name, params.entity_types, params.ray);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unsubscribeFromHitTest(params.subscription_id);
+          break;
+        }
+        case 3: {
+          const params = device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createAnchor(params.native_origin_information, params.native_origin_from_anchor, params.plane_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.detachAnchor(params.anchor_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.XREnvironmentIntegrationProviderReceiver = device.mojom.XREnvironmentIntegrationProviderReceiver;
+
 device.mojom.XREnvironmentIntegrationProviderPtr = device.mojom.XREnvironmentIntegrationProviderRemote;
 device.mojom.XREnvironmentIntegrationProviderRequest = device.mojom.XREnvironmentIntegrationProviderPendingReceiver;
 
@@ -1330,7 +1509,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec, 'device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_Params', [
-      mojo.internal.StructField('environment_provider', 0, 0, mojo.internal.AssociatedInterfaceRequest(device.mojom.XREnvironmentIntegrationProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('environment_provider', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1397,6 +1576,40 @@ device.mojom.XRFrameDataProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.XRFrameDataProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFrameData(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEnvironmentIntegrationProvider(params.environment_provider);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.XRFrameDataProviderReceiver = device.mojom.XRFrameDataProviderReceiver;
 
 device.mojom.XRFrameDataProviderPtr = device.mojom.XRFrameDataProviderRemote;
 device.mojom.XRFrameDataProviderRequest = device.mojom.XRFrameDataProviderPendingReceiver;
@@ -1537,6 +1750,48 @@ device.mojom.XRPresentationProvider.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.XRPresentationProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateLayerBounds(params.frame_id, params.left_bounds, params.right_bounds, params.source_size);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.submitFrameMissing(params.frame_id, params.sync_token);
+          break;
+        }
+        case 2: {
+          const params = device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.submitFrame(params.frame_id, params.time_waited);
+          break;
+        }
+        case 3: {
+          const params = device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.submitFrameWithTextureHandle(params.frame_id, params.texture, params.sync_token);
+          break;
+        }
+        case 4: {
+          const params = device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.submitFrameDrawnIntoTexture(params.frame_id, params.layer_ids, params.sync_token, params.time_waited);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.XRPresentationProviderReceiver = device.mojom.XRPresentationProviderReceiver;
+
 device.mojom.XRPresentationProviderPtr = device.mojom.XRPresentationProviderRemote;
 device.mojom.XRPresentationProviderRequest = device.mojom.XRPresentationProviderPendingReceiver;
 
@@ -1633,6 +1888,38 @@ device.mojom.XRPresentationClient.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.XRPresentationClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSubmitFrameTransferred(params.success);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSubmitFrameRendered();
+          break;
+        }
+        case 2: {
+          const params = device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSubmitFrameGpuFence(params.gpu_fence_handle);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.XRPresentationClientReceiver = device.mojom.XRPresentationClientReceiver;
+
 device.mojom.XRPresentationClientPtr = device.mojom.XRPresentationClientRemote;
 device.mojom.XRPresentationClientRequest = device.mojom.XRPresentationClientPendingReceiver;
 
@@ -1712,6 +1999,33 @@ device.mojom.XRSessionClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.XRSessionClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.XRSessionClient_OnExitPresent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onExitPresent();
+          break;
+        }
+        case 1: {
+          const params = device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVisibilityStateChanged(params.visibility_state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.XRSessionClientReceiver = device.mojom.XRSessionClientReceiver;
 
 device.mojom.XRSessionClientPtr = device.mojom.XRSessionClientRemote;
 device.mojom.XRSessionClientRequest = device.mojom.XRSessionClientPendingReceiver;
@@ -1833,6 +2147,50 @@ device.mojom.XRLayerManager.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.XRLayerManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCompositionLayer(params.create_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.destroyCompositionLayer(params.layer_id);
+          break;
+        }
+        case 2: {
+          const params = device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateCompositionLayer(params.layer_id, params.update_data);
+          break;
+        }
+        case 3: {
+          const params = device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setEnabledCompositionLayers(params.layer_ids);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.XRLayerManagerReceiver = device.mojom.XRLayerManagerReceiver;
+
 device.mojom.XRLayerManagerPtr = device.mojom.XRLayerManagerRemote;
 device.mojom.XRLayerManagerRequest = device.mojom.XRLayerManagerPendingReceiver;
 
@@ -1913,6 +2271,33 @@ device.mojom.WebXrInternalsRendererListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.WebXrInternalsRendererListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameData(params.xrframe_statistics);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConsoleLog(params.xrlogging_statistics);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.WebXrInternalsRendererListenerReceiver = device.mojom.WebXrInternalsRendererListenerReceiver;
 
 device.mojom.WebXrInternalsRendererListenerPtr = device.mojom.WebXrInternalsRendererListenerRemote;
 device.mojom.WebXrInternalsRendererListenerRequest = device.mojom.WebXrInternalsRendererListenerPendingReceiver;

@@ -7,11 +7,8 @@
 // Module namespace
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
-var components = components || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 remote_cocoa.mojom.MenuItemSpec = { $: {} };
@@ -172,6 +169,33 @@ remote_cocoa.mojom.MenuHost.getRemote = function() {
   return remote.$;
 };
 
+remote_cocoa.mojom.MenuHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.commandActivated(params.command_id, params.event_flags);
+          break;
+        }
+        case 1: {
+          const params = remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.menuClosed();
+          break;
+        }
+      }
+    });
+  }
+};
+
+remote_cocoa.mojom.MenuHostReceiver = remote_cocoa.mojom.MenuHostReceiver;
+
 remote_cocoa.mojom.MenuHostPtr = remote_cocoa.mojom.MenuHostRemote;
 remote_cocoa.mojom.MenuHostRequest = remote_cocoa.mojom.MenuHostPendingReceiver;
 
@@ -254,6 +278,33 @@ remote_cocoa.mojom.Menu.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remote_cocoa.mojom.MenuReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remote_cocoa.mojom.Menu_Cancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancel();
+          break;
+        }
+        case 1: {
+          const params = remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateMenuItem(params.command_id, params.enabled, params.visible, params.label);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remote_cocoa.mojom.MenuReceiver = remote_cocoa.mojom.MenuReceiver;
 
 remote_cocoa.mojom.MenuPtr = remote_cocoa.mojom.MenuRemote;
 remote_cocoa.mojom.MenuRequest = remote_cocoa.mojom.MenuPendingReceiver;

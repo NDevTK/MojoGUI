@@ -8,6 +8,7 @@
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
 chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
+var mojo_base = mojo_base || {};
 
 chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
 chromeos.machine_learning.mojom.LoadHandwritingModelResultSpec = { $: mojo.internal.Enum() };
@@ -207,6 +208,35 @@ chromeos.machine_learning.mojom.HandwritingRecognizer.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.machine_learning.mojom.HandwritingRecognizerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recognize(params.query);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.machine_learning.mojom.HandwritingRecognizerReceiver = chromeos.machine_learning.mojom.HandwritingRecognizerReceiver;
 
 chromeos.machine_learning.mojom.HandwritingRecognizerPtr = chromeos.machine_learning.mojom.HandwritingRecognizerRemote;
 chromeos.machine_learning.mojom.HandwritingRecognizerRequest = chromeos.machine_learning.mojom.HandwritingRecognizerPendingReceiver;

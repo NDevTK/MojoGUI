@@ -7,7 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var device = device || {};
 
 blink.mojom.WebPressureUpdateSpec = { $: {} };
 

@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.FileSystemAccessStatusSpec = { $: mojo.internal.Enum() };
 blink.mojom.FileSystemAccessErrorSpec = { $: {} };

@@ -80,6 +80,28 @@ updater_ui.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+updater_ui.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = updater_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+updater_ui.mojom.PageHandlerFactoryReceiver = updater_ui.mojom.PageHandlerFactoryReceiver;
+
 updater_ui.mojom.PageHandlerFactoryPtr = updater_ui.mojom.PageHandlerFactoryRemote;
 updater_ui.mojom.PageHandlerFactoryRequest = updater_ui.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -150,6 +172,35 @@ updater_ui.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+updater_ui.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllUpdaterEvents();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater_ui.mojom.PageHandler_GetAllUpdaterEvents_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+updater_ui.mojom.PageHandlerReceiver = updater_ui.mojom.PageHandlerReceiver;
+
 updater_ui.mojom.PageHandlerPtr = updater_ui.mojom.PageHandlerRemote;
 updater_ui.mojom.PageHandlerRequest = updater_ui.mojom.PageHandlerPendingReceiver;
 
@@ -198,6 +249,23 @@ updater_ui.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+updater_ui.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+updater_ui.mojom.PageReceiver = updater_ui.mojom.PageReceiver;
 
 updater_ui.mojom.PagePtr = updater_ui.mojom.PageRemote;
 updater_ui.mojom.PageRequest = updater_ui.mojom.PagePendingReceiver;

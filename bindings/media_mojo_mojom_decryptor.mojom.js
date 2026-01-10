@@ -254,6 +254,103 @@ media.mojom.Decryptor.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.DecryptorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.Decryptor_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.audio_pipe, params.video_pipe, params.decrypt_pipe, params.decrypted_pipe);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.Decryptor_Decrypt_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decrypt(params.stream_type, params.encrypted);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.Decryptor_Decrypt_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = media.mojom.Decryptor_CancelDecrypt_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelDecrypt(params.stream_type);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initializeAudioDecoder(params.config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initializeVideoDecoder(params.config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decryptAndDecodeAudio(params.encrypted);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decryptAndDecodeVideo(params.encrypted);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = media.mojom.Decryptor_ResetDecoder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetDecoder(params.stream_type);
+          break;
+        }
+        case 8: {
+          const params = media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deinitializeDecoder(params.stream_type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.DecryptorReceiver = media.mojom.DecryptorReceiver;
+
 media.mojom.DecryptorPtr = media.mojom.DecryptorRemote;
 media.mojom.DecryptorRequest = media.mojom.DecryptorPendingReceiver;
 
@@ -302,6 +399,23 @@ media.mojom.FrameResourceReleaser.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.FrameResourceReleaserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+media.mojom.FrameResourceReleaserReceiver = media.mojom.FrameResourceReleaserReceiver;
 
 media.mojom.FrameResourceReleaserPtr = media.mojom.FrameResourceReleaserRemote;
 media.mojom.FrameResourceReleaserRequest = media.mojom.FrameResourceReleaserPendingReceiver;

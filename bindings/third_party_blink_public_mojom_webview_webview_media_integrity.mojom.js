@@ -113,6 +113,35 @@ blink.mojom.WebViewMediaIntegrityService.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.WebViewMediaIntegrityServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getIntegrityProvider(params.provider_receiver, params.cloud_project_number);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WebViewMediaIntegrityServiceReceiver = blink.mojom.WebViewMediaIntegrityServiceReceiver;
+
 blink.mojom.WebViewMediaIntegrityServicePtr = blink.mojom.WebViewMediaIntegrityServiceRemote;
 blink.mojom.WebViewMediaIntegrityServiceRequest = blink.mojom.WebViewMediaIntegrityServicePendingReceiver;
 
@@ -183,6 +212,35 @@ blink.mojom.WebViewMediaIntegrityProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.WebViewMediaIntegrityProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestToken(params.content_binding);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WebViewMediaIntegrityProviderReceiver = blink.mojom.WebViewMediaIntegrityProviderReceiver;
 
 blink.mojom.WebViewMediaIntegrityProviderPtr = blink.mojom.WebViewMediaIntegrityProviderRemote;
 blink.mojom.WebViewMediaIntegrityProviderRequest = blink.mojom.WebViewMediaIntegrityProviderPendingReceiver;

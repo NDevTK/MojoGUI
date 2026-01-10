@@ -92,6 +92,28 @@ ash.media_app_ui.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+ash.media_app_ui.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.media_app_ui.mojom.PageHandlerFactoryReceiver = ash.media_app_ui.mojom.PageHandlerFactoryReceiver;
+
 ash.media_app_ui.mojom.PageHandlerFactoryPtr = ash.media_app_ui.mojom.PageHandlerFactoryRemote;
 ash.media_app_ui.mojom.PageHandlerFactoryRequest = ash.media_app_ui.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -290,6 +312,107 @@ ash.media_app_ui.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.media_app_ui.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFeedbackDialog();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleBrowserFullscreenMode();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.maybeTriggerPdfHats();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isFileArcWritable(params.token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isFileBrowserWritable(params.token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.editInPhotos(params.token, params.mime_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.submitForm(params.url, params.payload, params.header);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.media_app_ui.mojom.PageHandlerReceiver = ash.media_app_ui.mojom.PageHandlerReceiver;
 
 ash.media_app_ui.mojom.PageHandlerPtr = ash.media_app_ui.mojom.PageHandlerRemote;
 ash.media_app_ui.mojom.PageHandlerRequest = ash.media_app_ui.mojom.PageHandlerPendingReceiver;

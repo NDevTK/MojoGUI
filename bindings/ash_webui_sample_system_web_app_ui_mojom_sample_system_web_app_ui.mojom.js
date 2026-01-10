@@ -8,7 +8,6 @@
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
 ash.mojom.sample_swa = ash.mojom.sample_swa || {};
-var ash = ash || {};
 
 ash.mojom.sample_swa.PreferencesSpec = { $: {} };
 ash.mojom.sample_swa.PageHandlerFactory = {};
@@ -94,6 +93,28 @@ ash.mojom.sample_swa.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.mojom.sample_swa.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler, params.page);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.mojom.sample_swa.PageHandlerFactoryReceiver = ash.mojom.sample_swa.PageHandlerFactoryReceiver;
 
 ash.mojom.sample_swa.PageHandlerFactoryPtr = ash.mojom.sample_swa.PageHandlerFactoryRemote;
 ash.mojom.sample_swa.PageHandlerFactoryRequest = ash.mojom.sample_swa.PageHandlerFactoryPendingReceiver;
@@ -196,6 +217,45 @@ ash.mojom.sample_swa.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.mojom.sample_swa.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPreferences();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.send(params.message);
+          break;
+        }
+        case 2: {
+          const params = ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.doSomething();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.mojom.sample_swa.PageHandlerReceiver = ash.mojom.sample_swa.PageHandlerReceiver;
+
 ash.mojom.sample_swa.PageHandlerPtr = ash.mojom.sample_swa.PageHandlerRemote;
 ash.mojom.sample_swa.PageHandlerRequest = ash.mojom.sample_swa.PageHandlerPendingReceiver;
 
@@ -277,6 +337,33 @@ ash.mojom.sample_swa.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.mojom.sample_swa.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEventOccurred(params.name);
+          break;
+        }
+        case 1: {
+          const params = ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createParentPage(params.child_untrusted_page, params.parent_trusted_page);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.mojom.sample_swa.PageReceiver = ash.mojom.sample_swa.PageReceiver;
 
 ash.mojom.sample_swa.PagePtr = ash.mojom.sample_swa.PageRemote;
 ash.mojom.sample_swa.PageRequest = ash.mojom.sample_swa.PagePendingReceiver;

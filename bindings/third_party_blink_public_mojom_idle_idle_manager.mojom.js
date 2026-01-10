@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.IdleManagerErrorSpec = { $: mojo.internal.Enum() };
 blink.mojom.IdleStateSpec = { $: {} };
@@ -96,6 +97,28 @@ blink.mojom.IdleMonitor.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.IdleMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.IdleMonitor_Update_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.update(params.state, params.is_overridden_by_devtools);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.IdleMonitorReceiver = blink.mojom.IdleMonitorReceiver;
+
 blink.mojom.IdleMonitorPtr = blink.mojom.IdleMonitorRemote;
 blink.mojom.IdleMonitorRequest = blink.mojom.IdleMonitorPendingReceiver;
 
@@ -167,6 +190,35 @@ blink.mojom.IdleManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.IdleManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.IdleManager_AddMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addMonitor(params.monitor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.IdleManagerReceiver = blink.mojom.IdleManagerReceiver;
 
 blink.mojom.IdleManagerPtr = blink.mojom.IdleManagerRemote;
 blink.mojom.IdleManagerRequest = blink.mojom.IdleManagerPendingReceiver;

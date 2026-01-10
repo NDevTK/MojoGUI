@@ -7,7 +7,7 @@
 // Module namespace
 var prefs = prefs || {};
 prefs.mojom = prefs.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 prefs.mojom.EnforcementLevelSpec = { $: mojo.internal.Enum() };
 prefs.mojom.PrefTrackingStrategySpec = { $: mojo.internal.Enum() };
@@ -117,6 +117,28 @@ prefs.mojom.ResetOnLoadObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+prefs.mojom.ResetOnLoadObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResetOnLoad();
+          break;
+        }
+      }
+    });
+  }
+};
+
+prefs.mojom.ResetOnLoadObserverReceiver = prefs.mojom.ResetOnLoadObserverReceiver;
 
 prefs.mojom.ResetOnLoadObserverPtr = prefs.mojom.ResetOnLoadObserverRemote;
 prefs.mojom.ResetOnLoadObserverRequest = prefs.mojom.ResetOnLoadObserverPendingReceiver;

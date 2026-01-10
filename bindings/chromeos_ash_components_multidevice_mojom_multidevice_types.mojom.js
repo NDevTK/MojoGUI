@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.multidevice = ash.multidevice || {};
 ash.multidevice.mojom = ash.multidevice.mojom || {};
+var mojo_base = mojo_base || {};
 
 ash.multidevice.mojom.SoftwareFeatureSpec = { $: mojo.internal.Enum() };
 ash.multidevice.mojom.SoftwareFeatureStateSpec = { $: mojo.internal.Enum() };

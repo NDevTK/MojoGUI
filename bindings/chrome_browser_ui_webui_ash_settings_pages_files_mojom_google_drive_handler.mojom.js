@@ -9,9 +9,7 @@ var ash = ash || {};
 ash.settings = ash.settings || {};
 ash.settings.google_drive = ash.settings.google_drive || {};
 ash.settings.google_drive.mojom = ash.settings.google_drive.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var components = components || {};
+var drivefs = drivefs || {};
 
 ash.settings.google_drive.mojom.StatusSpec = { $: {} };
 ash.settings.google_drive.mojom.PageHandlerFactory = {};
@@ -102,6 +100,28 @@ ash.settings.google_drive.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.google_drive.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.google_drive.mojom.PageHandlerFactoryReceiver = ash.settings.google_drive.mojom.PageHandlerFactoryReceiver;
 
 ash.settings.google_drive.mojom.PageHandlerFactoryPtr = ash.settings.google_drive.mojom.PageHandlerFactoryRemote;
 ash.settings.google_drive.mojom.PageHandlerFactoryRequest = ash.settings.google_drive.mojom.PageHandlerFactoryPendingReceiver;
@@ -223,6 +243,57 @@ ash.settings.google_drive.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.google_drive.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.calculateRequiredSpace();
+          break;
+        }
+        case 1: {
+          const params = ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getContentCacheSize();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearPinnedFiles();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordBulkPinningEnabledMetric();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.google_drive.mojom.PageHandlerReceiver = ash.settings.google_drive.mojom.PageHandlerReceiver;
+
 ash.settings.google_drive.mojom.PageHandlerPtr = ash.settings.google_drive.mojom.PageHandlerRemote;
 ash.settings.google_drive.mojom.PageHandlerRequest = ash.settings.google_drive.mojom.PageHandlerPendingReceiver;
 
@@ -302,6 +373,33 @@ ash.settings.google_drive.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.google_drive.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onServiceUnavailable();
+          break;
+        }
+        case 1: {
+          const params = ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProgress(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.google_drive.mojom.PageReceiver = ash.settings.google_drive.mojom.PageReceiver;
 
 ash.settings.google_drive.mojom.PagePtr = ash.settings.google_drive.mojom.PageRemote;
 ash.settings.google_drive.mojom.PageRequest = ash.settings.google_drive.mojom.PagePendingReceiver;

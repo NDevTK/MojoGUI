@@ -8,7 +8,8 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var skia = skia || {};
-var skia = skia || {};
+var gpu = gpu || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.SerializedStaticBitmapImageSpec = { $: {} };
 blink.mojom.AcceleratedStaticBitmapImageSpec = { $: {} };
@@ -101,6 +102,28 @@ blink.mojom.ImageReleaseCallback.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ImageReleaseCallbackReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ImageReleaseCallback_Release_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.release(params.token);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ImageReleaseCallbackReceiver = blink.mojom.ImageReleaseCallbackReceiver;
 
 blink.mojom.ImageReleaseCallbackPtr = blink.mojom.ImageReleaseCallbackRemote;
 blink.mojom.ImageReleaseCallbackRequest = blink.mojom.ImageReleaseCallbackPendingReceiver;

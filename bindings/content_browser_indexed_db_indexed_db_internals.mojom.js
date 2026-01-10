@@ -7,12 +7,7 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 storage.mojom.IdbPartitionMetadataSpec = { $: {} };
 storage.mojom.IdbInternalsHandler = {};
@@ -215,6 +210,95 @@ storage.mojom.IdbInternalsHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.IdbInternalsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllBucketsAcrossAllStorageKeys();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_GetAllBucketsAcrossAllStorageKeys_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.IdbInternalsHandler_DownloadBucketData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.downloadBucketData(params.bucketId);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_DownloadBucketData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = storage.mojom.IdbInternalsHandler_ForceClose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forceClose(params.bucketId);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_ForceClose_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = storage.mojom.IdbInternalsHandler_StartMetadataRecording_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startMetadataRecording(params.bucket_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_StartMetadataRecording_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = storage.mojom.IdbInternalsHandler_StopMetadataRecording_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopMetadataRecording(params.bucket_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_StopMetadataRecording_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = storage.mojom.IdbInternalsHandler_InspectClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.inspectClient(params.client_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.IdbInternalsHandler_InspectClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.IdbInternalsHandlerReceiver = storage.mojom.IdbInternalsHandlerReceiver;
 
 storage.mojom.IdbInternalsHandlerPtr = storage.mojom.IdbInternalsHandlerRemote;
 storage.mojom.IdbInternalsHandlerRequest = storage.mojom.IdbInternalsHandlerPendingReceiver;

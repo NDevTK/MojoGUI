@@ -7,7 +7,6 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 media.mojom.VideoCapturePixelFormatSpec = { $: mojo.internal.Enum() };

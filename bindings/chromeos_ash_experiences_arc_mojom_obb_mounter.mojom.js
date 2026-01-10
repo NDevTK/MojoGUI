@@ -110,6 +110,47 @@ arc.mojom.ObbMounterHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.ObbMounterHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.ObbMounterHost_MountObb_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mountObb(params.obb_file, params.target_path, params.owner_gid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unmountObb(params.target_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ObbMounterHostReceiver = arc.mojom.ObbMounterHostReceiver;
+
 arc.mojom.ObbMounterHostPtr = arc.mojom.ObbMounterHostRemote;
 arc.mojom.ObbMounterHostRequest = arc.mojom.ObbMounterHostPendingReceiver;
 
@@ -179,6 +220,35 @@ arc.mojom.ObbMounterInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.ObbMounterInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.ObbMounterInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ObbMounterInstanceReceiver = arc.mojom.ObbMounterInstanceReceiver;
 
 arc.mojom.ObbMounterInstancePtr = arc.mojom.ObbMounterInstanceRemote;
 arc.mojom.ObbMounterInstanceRequest = arc.mojom.ObbMounterInstancePendingReceiver;

@@ -8,8 +8,8 @@
 var actor = actor || {};
 actor.ui = actor.ui || {};
 actor.ui.mojom = actor.ui.mojom || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 actor.ui.mojom.ThemeSpec = { $: {} };
@@ -103,6 +103,28 @@ actor.ui.mojom.ActorOverlayPageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver;
+
 actor.ui.mojom.ActorOverlayPageHandlerFactoryPtr = actor.ui.mojom.ActorOverlayPageHandlerFactoryRemote;
 actor.ui.mojom.ActorOverlayPageHandlerFactoryRequest = actor.ui.mojom.ActorOverlayPageHandlerFactoryPendingReceiver;
 
@@ -188,6 +210,40 @@ actor.ui.mojom.ActorOverlayPageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHoverStatusChanged(params.is_hovering);
+          break;
+        }
+        case 1: {
+          const params = actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCurrentBorderGlowVisibility();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+actor.ui.mojom.ActorOverlayPageHandlerReceiver = actor.ui.mojom.ActorOverlayPageHandlerReceiver;
 
 actor.ui.mojom.ActorOverlayPageHandlerPtr = actor.ui.mojom.ActorOverlayPageHandlerRemote;
 actor.ui.mojom.ActorOverlayPageHandlerRequest = actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver;
@@ -326,6 +382,62 @@ actor.ui.mojom.ActorOverlayPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+actor.ui.mojom.ActorOverlayPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setScrimBackground(params.is_visible);
+          break;
+        }
+        case 1: {
+          const params = actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBorderGlowVisibility(params.is_visible);
+          break;
+        }
+        case 2: {
+          const params = actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTheme(params.theme);
+          break;
+        }
+        case 3: {
+          const params = actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.moveCursorTo(params.point);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.triggerClickAnimation();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+actor.ui.mojom.ActorOverlayPageReceiver = actor.ui.mojom.ActorOverlayPageReceiver;
 
 actor.ui.mojom.ActorOverlayPagePtr = actor.ui.mojom.ActorOverlayPageRemote;
 actor.ui.mojom.ActorOverlayPageRequest = actor.ui.mojom.ActorOverlayPagePendingReceiver;

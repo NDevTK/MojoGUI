@@ -7,13 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 network.mojom.LocalNetworkAccessResultSpec = { $: mojo.internal.Enum() };
@@ -172,6 +166,38 @@ network.mojom.ClientCertificateResponder.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.ClientCertificateResponderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.continueWithCertificate(params.x509_certificate, params.provider_name, params.algorithm_preferences, params.ssl_private_key);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.continueWithoutCertificate();
+          break;
+        }
+        case 2: {
+          const params = network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelRequest();
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.ClientCertificateResponderReceiver = network.mojom.ClientCertificateResponderReceiver;
+
 network.mojom.ClientCertificateResponderPtr = network.mojom.ClientCertificateResponderRemote;
 network.mojom.ClientCertificateResponderRequest = network.mojom.ClientCertificateResponderPendingReceiver;
 
@@ -245,6 +271,35 @@ network.mojom.SSLPrivateKey.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.SSLPrivateKeyReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.SSLPrivateKey_Sign_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sign(params.algorithm, params.input);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.SSLPrivateKeyReceiver = network.mojom.SSLPrivateKeyReceiver;
+
 network.mojom.SSLPrivateKeyPtr = network.mojom.SSLPrivateKeyRemote;
 network.mojom.SSLPrivateKeyRequest = network.mojom.SSLPrivateKeyPendingReceiver;
 
@@ -309,6 +364,28 @@ network.mojom.AuthChallengeResponder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.AuthChallengeResponderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAuthCredentials(params.credentials);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.AuthChallengeResponderReceiver = network.mojom.AuthChallengeResponderReceiver;
 
 network.mojom.AuthChallengeResponderPtr = network.mojom.AuthChallengeResponderRemote;
 network.mojom.AuthChallengeResponderRequest = network.mojom.AuthChallengeResponderPendingReceiver;
@@ -602,6 +679,118 @@ network.mojom.URLLoaderNetworkServiceObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSSLCertificateError(params.url, params.net_error, params.ssl_info, params.fatal);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCertificateRequested(params.window_id, params.cert_info, params.cert_responder);
+          break;
+        }
+        case 2: {
+          const params = network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAuthRequired(params.window_id, params.request_id, params.url, params.first_auth_attempt, params.auth_info, params.head_headers, params.auth_challenge_responder);
+          break;
+        }
+        case 3: {
+          const params = network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLocalNetworkAccessPermissionRequired(params.transport_type, params.ip_address_space);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClearSiteData(params.url, params.header_value, params.load_flags, params.cookie_partition_key, params.partitioned_state_allowed_only);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLoadingStateUpdate(params.info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDataUseUpdate(params.network_traffic_annotation_id_hash, params.recv_bytes, params.sent_bytes);
+          break;
+        }
+        case 7: {
+          const params = network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSharedStorageHeaderReceived(params.request_origin, params.methods_with_options, params.with_lock);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAdAuctionEventRecordHeaderReceived(params.ad_auction_event_record, params.top_frame_origin);
+          break;
+        }
+        case 9: {
+          const params = network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.listener);
+          break;
+        }
+        case 10: {
+          const params = network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWebSocketConnectedToPrivateNetwork(params.request_url, params.ip_address_space);
+          break;
+        }
+        case 11: {
+          const params = network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onUrlLoaderConnectedToPrivateNetwork(params.request_url, params.response_address_space, params.client_address_space, params.target_address_space);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.URLLoaderNetworkServiceObserverReceiver = network.mojom.URLLoaderNetworkServiceObserverReceiver;
 
 network.mojom.URLLoaderNetworkServiceObserverPtr = network.mojom.URLLoaderNetworkServiceObserverRemote;
 network.mojom.URLLoaderNetworkServiceObserverRequest = network.mojom.URLLoaderNetworkServiceObserverPendingReceiver;

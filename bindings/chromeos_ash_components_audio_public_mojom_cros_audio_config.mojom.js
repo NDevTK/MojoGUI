@@ -178,6 +178,28 @@ ash.audio_config.mojom.AudioSystemPropertiesObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.audio_config.mojom.AudioSystemPropertiesObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPropertiesUpdated(params.properties);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.audio_config.mojom.AudioSystemPropertiesObserverReceiver = ash.audio_config.mojom.AudioSystemPropertiesObserverReceiver;
+
 ash.audio_config.mojom.AudioSystemPropertiesObserverPtr = ash.audio_config.mojom.AudioSystemPropertiesObserverRemote;
 ash.audio_config.mojom.AudioSystemPropertiesObserverRequest = ash.audio_config.mojom.AudioSystemPropertiesObserverPendingReceiver;
 
@@ -433,6 +455,88 @@ ash.audio_config.mojom.CrosAudioConfig.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.audio_config.mojom.CrosAudioConfigReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeAudioSystemProperties(params.observer);
+          break;
+        }
+        case 1: {
+          const params = ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOutputMuted(params.muted);
+          break;
+        }
+        case 2: {
+          const params = ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOutputVolumePercent(params.volume);
+          break;
+        }
+        case 3: {
+          const params = ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setInputGainPercent(params.gain);
+          break;
+        }
+        case 4: {
+          const params = ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setActiveDevice(params.device);
+          break;
+        }
+        case 5: {
+          const params = ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setInputMuted(params.muted);
+          break;
+        }
+        case 6: {
+          const params = ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordVoiceIsolationEnabledChange();
+          break;
+        }
+        case 7: {
+          const params = ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordVoiceIsolationPreferredEffectChange(params.preferred_effect);
+          break;
+        }
+        case 8: {
+          const params = ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNoiseCancellationEnabled(params.enabled);
+          break;
+        }
+        case 9: {
+          const params = ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setStyleTransferEnabled(params.enabled);
+          break;
+        }
+        case 10: {
+          const params = ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setForceRespectUiGainsEnabled(params.enabled);
+          break;
+        }
+        case 11: {
+          const params = ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHfpMicSrEnabled(params.enabled);
+          break;
+        }
+        case 12: {
+          const params = ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSpatialAudioEnabled(params.enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.audio_config.mojom.CrosAudioConfigReceiver = ash.audio_config.mojom.CrosAudioConfigReceiver;
 
 ash.audio_config.mojom.CrosAudioConfigPtr = ash.audio_config.mojom.CrosAudioConfigRemote;
 ash.audio_config.mojom.CrosAudioConfigRequest = ash.audio_config.mojom.CrosAudioConfigPendingReceiver;

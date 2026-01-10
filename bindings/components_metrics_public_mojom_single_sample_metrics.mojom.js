@@ -81,6 +81,28 @@ metrics.mojom.SingleSampleMetricsProvider.getRemote = function() {
   return remote.$;
 };
 
+metrics.mojom.SingleSampleMetricsProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acquireSingleSampleMetric(params.histogram_name, params.min, params.max, params.bucket_count, params.flags, params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+metrics.mojom.SingleSampleMetricsProviderReceiver = metrics.mojom.SingleSampleMetricsProviderReceiver;
+
 metrics.mojom.SingleSampleMetricsProviderPtr = metrics.mojom.SingleSampleMetricsProviderRemote;
 metrics.mojom.SingleSampleMetricsProviderRequest = metrics.mojom.SingleSampleMetricsProviderPendingReceiver;
 
@@ -145,6 +167,28 @@ metrics.mojom.SingleSampleMetric.getRemote = function() {
     'context');
   return remote.$;
 };
+
+metrics.mojom.SingleSampleMetricReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSample(params.sample);
+          break;
+        }
+      }
+    });
+  }
+};
+
+metrics.mojom.SingleSampleMetricReceiver = metrics.mojom.SingleSampleMetricReceiver;
 
 metrics.mojom.SingleSampleMetricPtr = metrics.mojom.SingleSampleMetricRemote;
 metrics.mojom.SingleSampleMetricRequest = metrics.mojom.SingleSampleMetricPendingReceiver;

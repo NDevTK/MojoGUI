@@ -126,6 +126,28 @@ chromeos.cfm.mojom.LoggerStateObserver.getRemote = function() {
   return remote.$;
 };
 
+chromeos.cfm.mojom.LoggerStateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNotifyState(params.state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.cfm.mojom.LoggerStateObserverReceiver = chromeos.cfm.mojom.LoggerStateObserverReceiver;
+
 chromeos.cfm.mojom.LoggerStateObserverPtr = chromeos.cfm.mojom.LoggerStateObserverRemote;
 chromeos.cfm.mojom.LoggerStateObserverRequest = chromeos.cfm.mojom.LoggerStateObserverPendingReceiver;
 
@@ -213,6 +235,40 @@ chromeos.cfm.mojom.MeetDevicesLogger.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enqueue(params.record, params.priority);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addStateObserver(params.pending_observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.cfm.mojom.MeetDevicesLoggerReceiver = chromeos.cfm.mojom.MeetDevicesLoggerReceiver;
 
 chromeos.cfm.mojom.MeetDevicesLoggerPtr = chromeos.cfm.mojom.MeetDevicesLoggerRemote;
 chromeos.cfm.mojom.MeetDevicesLoggerRequest = chromeos.cfm.mojom.MeetDevicesLoggerPendingReceiver;

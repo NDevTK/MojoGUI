@@ -7,7 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
 var url = url || {};
 
 network.mojom.LinkRelAttributeSpec = { $: mojo.internal.Enum() };

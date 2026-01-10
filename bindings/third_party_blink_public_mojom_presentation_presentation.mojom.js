@@ -211,6 +211,38 @@ blink.mojom.PresentationConnection.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.PresentationConnectionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PresentationConnection_OnMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMessage(params.message);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.PresentationConnection_DidChangeState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didChangeState(params.state);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.PresentationConnection_DidClose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didClose(params.reason);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PresentationConnectionReceiver = blink.mojom.PresentationConnectionReceiver;
+
 blink.mojom.PresentationConnectionPtr = blink.mojom.PresentationConnectionRemote;
 blink.mojom.PresentationConnectionRequest = blink.mojom.PresentationConnectionPendingReceiver;
 
@@ -421,6 +453,82 @@ blink.mojom.PresentationService.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.PresentationServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PresentationService_SetController_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setController(params.controller);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.PresentationService_SetReceiver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setReceiver(params.receiver);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDefaultPresentationUrls(params.presentation_urls);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listenForScreenAvailability(params.availability_url);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopListeningForScreenAvailability(params.availability_url);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.PresentationService_StartPresentation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startPresentation(params.presentation_urls);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reconnectPresentation(params.presentation_urls, params.presentation_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.PresentationService_CloseConnection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeConnection(params.presentation_url, params.presentation_id);
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.PresentationService_Terminate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.terminate(params.presentation_url, params.presentation_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PresentationServiceReceiver = blink.mojom.PresentationServiceReceiver;
+
 blink.mojom.PresentationServicePtr = blink.mojom.PresentationServiceRemote;
 blink.mojom.PresentationServiceRequest = blink.mojom.PresentationServicePendingReceiver;
 
@@ -538,6 +646,43 @@ blink.mojom.PresentationController.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.PresentationControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScreenAvailabilityUpdated(params.url, params.availability);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDefaultPresentationStarted(params.result);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnectionStateChanged(params.presentation_info, params.newState);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnectionClosed(params.presentation_info, params.reason, params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PresentationControllerReceiver = blink.mojom.PresentationControllerReceiver;
+
 blink.mojom.PresentationControllerPtr = blink.mojom.PresentationControllerRemote;
 blink.mojom.PresentationControllerRequest = blink.mojom.PresentationControllerPendingReceiver;
 
@@ -602,6 +747,28 @@ blink.mojom.PresentationReceiver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.PresentationReceiverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReceiverConnectionAvailable(params.result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PresentationReceiverReceiver = blink.mojom.PresentationReceiverReceiver;
 
 blink.mojom.PresentationReceiverPtr = blink.mojom.PresentationReceiverRemote;
 blink.mojom.PresentationReceiverRequest = blink.mojom.PresentationReceiverPendingReceiver;

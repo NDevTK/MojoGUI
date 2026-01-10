@@ -7,8 +7,6 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
 
 gfx.mojom.DelegatedInkPointRenderer = {};
 gfx.mojom.DelegatedInkPointRenderer.$interfaceName = 'gfx.mojom.DelegatedInkPointRenderer';
@@ -90,6 +88,33 @@ gfx.mojom.DelegatedInkPointRenderer.getRemote = function() {
     'context');
   return remote.$;
 };
+
+gfx.mojom.DelegatedInkPointRendererReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.storeDelegatedInkPoint(params.point);
+          break;
+        }
+        case 1: {
+          const params = gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetPrediction();
+          break;
+        }
+      }
+    });
+  }
+};
+
+gfx.mojom.DelegatedInkPointRendererReceiver = gfx.mojom.DelegatedInkPointRendererReceiver;
 
 gfx.mojom.DelegatedInkPointRendererPtr = gfx.mojom.DelegatedInkPointRendererRemote;
 gfx.mojom.DelegatedInkPointRendererRequest = gfx.mojom.DelegatedInkPointRendererPendingReceiver;

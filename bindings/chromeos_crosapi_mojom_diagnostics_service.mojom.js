@@ -7,7 +7,6 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
-var chromeos = chromeos || {};
 
 crosapi.mojom.DiagnosticsRoutineEnumSpec = { $: mojo.internal.Enum() };
 crosapi.mojom.DiagnosticsRoutineStatusEnumSpec = { $: mojo.internal.Enum() };
@@ -964,6 +963,407 @@ crosapi.mojom.DiagnosticsService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.DiagnosticsServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAvailableRoutines();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRoutineUpdate(params.id, params.command, params.include_output);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runBatteryCapacityRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runBatteryHealthRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runSmartctlCheckRoutine(params.percentage_used_threshold);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runAcPowerRoutine(params.expected_status, params.expected_power_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runCpuCacheRoutine(params.length_seconds);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runCpuStressRoutine(params.length_seconds);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runFloatingPointAccuracyRoutine(params.length_seconds);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dEPRECATED_RunNvmeWearLevelRoutine(params.wear_level_threshold);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runNvmeSelfTestRoutine(params.nvme_self_test_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runDiskReadRoutine(params.type, params.length_seconds, params.file_size_mb);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runPrimeSearchRoutine(params.length_seconds);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runBatteryDischargeRoutine(params.length_seconds, params.maximum_discharge_percent_allowed);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runBatteryChargeRoutine(params.length_seconds, params.minimum_charge_percent_required);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runMemoryRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runLanConnectivityRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 17: {
+          const params = crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runDnsResolutionRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 18: {
+          const params = crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runSignalStrengthRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 19: {
+          const params = crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runGatewayCanBePingedRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 20: {
+          const params = crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runDnsResolverPresentRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 21: {
+          const params = crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runSensitiveSensorRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 22: {
+          const params = crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runFingerprintAliveRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 23: {
+          const params = crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runEmmcLifetimeRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 24: {
+          const params = crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runBluetoothPowerRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 25: {
+          const params = crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runUfsLifetimeRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 26: {
+          const params = crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runPowerButtonRoutine(params.timeout_seconds);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 27: {
+          const params = crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runAudioDriverRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 28: {
+          const params = crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runBluetoothDiscoveryRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 29: {
+          const params = crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runBluetoothScanningRoutine(params.length_seconds);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 30: {
+          const params = crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runBluetoothPairingRoutine(params.peripheral_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 31: {
+          const params = crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runFanRoutine();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.DiagnosticsServiceReceiver = crosapi.mojom.DiagnosticsServiceReceiver;
 
 crosapi.mojom.DiagnosticsServicePtr = crosapi.mojom.DiagnosticsServiceRemote;
 crosapi.mojom.DiagnosticsServiceRequest = crosapi.mojom.DiagnosticsServicePendingReceiver;

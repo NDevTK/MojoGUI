@@ -7,6 +7,7 @@
 // Module namespace
 var spellcheck = spellcheck || {};
 spellcheck.mojom = spellcheck.mojom || {};
+var mojo_base = mojo_base || {};
 
 spellcheck.mojom.SpellCheckPanel = {};
 spellcheck.mojom.SpellCheckPanel.$interfaceName = 'spellcheck.mojom.SpellCheckPanel';
@@ -93,6 +94,33 @@ spellcheck.mojom.SpellCheckPanel.getRemote = function() {
   return remote.$;
 };
 
+spellcheck.mojom.SpellCheckPanelReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleSpellPanel(params.visible);
+          break;
+        }
+        case 1: {
+          const params = spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.advanceToNextMisspelling();
+          break;
+        }
+      }
+    });
+  }
+};
+
+spellcheck.mojom.SpellCheckPanelReceiver = spellcheck.mojom.SpellCheckPanelReceiver;
+
 spellcheck.mojom.SpellCheckPanelPtr = spellcheck.mojom.SpellCheckPanelRemote;
 spellcheck.mojom.SpellCheckPanelRequest = spellcheck.mojom.SpellCheckPanelPendingReceiver;
 
@@ -173,6 +201,33 @@ spellcheck.mojom.SpellCheckPanelHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+spellcheck.mojom.SpellCheckPanelHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showSpellingPanel(params.show);
+          break;
+        }
+        case 1: {
+          const params = spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateSpellingPanelWithMisspelledWord(params.word);
+          break;
+        }
+      }
+    });
+  }
+};
+
+spellcheck.mojom.SpellCheckPanelHostReceiver = spellcheck.mojom.SpellCheckPanelHostReceiver;
 
 spellcheck.mojom.SpellCheckPanelHostPtr = spellcheck.mojom.SpellCheckPanelHostRemote;
 spellcheck.mojom.SpellCheckPanelHostRequest = spellcheck.mojom.SpellCheckPanelHostPendingReceiver;

@@ -7,11 +7,10 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var services = services || {};
-var services = services || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var device_test = device_test || {};
+var gpu = gpu || {};
+var sandbox = sandbox || {};
+var viz = viz || {};
 var gfx = gfx || {};
 
 device.mojom.XRRuntimeSessionOptionsSpec = { $: {} };
@@ -154,6 +153,28 @@ device.mojom.XRSessionController.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.XRSessionControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFrameDataRestricted(params.restricted);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.XRSessionControllerReceiver = device.mojom.XRSessionControllerReceiver;
+
 device.mojom.XRSessionControllerPtr = device.mojom.XRSessionControllerRemote;
 device.mojom.XRSessionControllerRequest = device.mojom.XRSessionControllerPendingReceiver;
 
@@ -234,6 +255,33 @@ device.mojom.XRRuntimeEventListener.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.XRRuntimeEventListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVisibilityStateChanged(params.visibility_state);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onExitPresent();
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.XRRuntimeEventListenerReceiver = device.mojom.XRRuntimeEventListenerReceiver;
+
 device.mojom.XRRuntimeEventListenerPtr = device.mojom.XRRuntimeEventListenerRemote;
 device.mojom.XRRuntimeEventListenerRequest = device.mojom.XRRuntimeEventListenerPendingReceiver;
 
@@ -263,7 +311,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec, 'device.mojom.XRRuntime_ListenToDeviceChanges_Params', [
-      mojo.internal.StructField('listener', 0, 0, mojo.internal.AssociatedInterfaceProxy(device.mojom.XRRuntimeEventListenerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('listener', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -340,6 +388,52 @@ device.mojom.XRRuntime.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.XRRuntimeReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.XRRuntime_RequestSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestSession(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.XRRuntime_RequestSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.XRRuntime_ShutdownSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shutdownSession();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.XRRuntime_ShutdownSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listenToDeviceChanges(params.listener);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.XRRuntimeReceiver = device.mojom.XRRuntimeReceiver;
 
 device.mojom.XRRuntimePtr = device.mojom.XRRuntimeRemote;
 device.mojom.XRRuntimeRequest = device.mojom.XRRuntimePendingReceiver;
@@ -474,6 +568,64 @@ device.mojom.ImmersiveOverlay.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.ImmersiveOverlayReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestNextOverlayPose();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.submitOverlayTexture(params.frame_id, params.texture, params.sync_token, params.left_bounds, params.right_bounds);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOverlayAndWebXRVisibility(params.overlay_visible, params.webxr_visible);
+          break;
+        }
+        case 3: {
+          const params = device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestNotificationOnWebXrSubmitted();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.ImmersiveOverlayReceiver = device.mojom.ImmersiveOverlayReceiver;
+
 device.mojom.ImmersiveOverlayPtr = device.mojom.ImmersiveOverlayRemote;
 device.mojom.ImmersiveOverlayRequest = device.mojom.ImmersiveOverlayPendingReceiver;
 
@@ -572,6 +724,38 @@ device.mojom.IsolatedXRRuntimeProviderClient.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.IsolatedXRRuntimeProviderClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceAdded(params.runtime, params.device_data, params.device_id);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceRemoved(params.device_index);
+          break;
+        }
+        case 2: {
+          const params = device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDevicesEnumerated();
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.IsolatedXRRuntimeProviderClientReceiver = device.mojom.IsolatedXRRuntimeProviderClientReceiver;
+
 device.mojom.IsolatedXRRuntimeProviderClientPtr = device.mojom.IsolatedXRRuntimeProviderClientRemote;
 device.mojom.IsolatedXRRuntimeProviderClientRequest = device.mojom.IsolatedXRRuntimeProviderClientPendingReceiver;
 
@@ -636,6 +820,28 @@ device.mojom.IsolatedXRRuntimeProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.IsolatedXRRuntimeProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestDevices(params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.IsolatedXRRuntimeProviderReceiver = device.mojom.IsolatedXRRuntimeProviderReceiver;
 
 device.mojom.IsolatedXRRuntimeProviderPtr = device.mojom.IsolatedXRRuntimeProviderRemote;
 device.mojom.IsolatedXRRuntimeProviderRequest = device.mojom.IsolatedXRRuntimeProviderPendingReceiver;
@@ -719,6 +925,33 @@ device.mojom.XRDeviceService.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.XRDeviceServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindRuntimeProvider(params.receiver, params.host);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.XRDeviceService_BindTestHook_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindTestHook(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.XRDeviceServiceReceiver = device.mojom.XRDeviceServiceReceiver;
+
 device.mojom.XRDeviceServicePtr = device.mojom.XRDeviceServiceRemote;
 device.mojom.XRDeviceServiceRequest = device.mojom.XRDeviceServicePendingReceiver;
 
@@ -783,6 +1016,28 @@ device.mojom.XRDeviceServiceHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.XRDeviceServiceHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindGpu(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.XRDeviceServiceHostReceiver = device.mojom.XRDeviceServiceHostReceiver;
 
 device.mojom.XRDeviceServiceHostPtr = device.mojom.XRDeviceServiceHostRemote;
 device.mojom.XRDeviceServiceHostRequest = device.mojom.XRDeviceServiceHostPendingReceiver;

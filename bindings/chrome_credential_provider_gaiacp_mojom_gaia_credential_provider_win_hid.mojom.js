@@ -7,6 +7,7 @@
 // Module namespace
 var gcpw_hid = gcpw_hid || {};
 gcpw_hid.mojom = gcpw_hid.mojom || {};
+var mojo_base = mojo_base || {};
 
 gcpw_hid.mojom.GaiaCredentialProviderHidBroker = {};
 gcpw_hid.mojom.GaiaCredentialProviderHidBroker.$interfaceName = 'gcpw_hid.mojom.GaiaCredentialProviderHidBroker';
@@ -79,6 +80,35 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBroker.getRemote = function() {
     'context');
   return remote.$;
 };
+
+gcpw_hid.mojom.GaiaCredentialProviderHidBrokerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openDevice(params.device_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+gcpw_hid.mojom.GaiaCredentialProviderHidBrokerReceiver = gcpw_hid.mojom.GaiaCredentialProviderHidBrokerReceiver;
 
 gcpw_hid.mojom.GaiaCredentialProviderHidBrokerPtr = gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemote;
 gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRequest = gcpw_hid.mojom.GaiaCredentialProviderHidBrokerPendingReceiver;

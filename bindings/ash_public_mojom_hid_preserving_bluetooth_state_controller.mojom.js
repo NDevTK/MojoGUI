@@ -81,6 +81,28 @@ ash.mojom.HidPreservingBluetoothStateController.getRemote = function() {
   return remote.$;
 };
 
+ash.mojom.HidPreservingBluetoothStateControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tryToSetBluetoothEnabledState(params.enabled, params.source);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.mojom.HidPreservingBluetoothStateControllerReceiver = ash.mojom.HidPreservingBluetoothStateControllerReceiver;
+
 ash.mojom.HidPreservingBluetoothStateControllerPtr = ash.mojom.HidPreservingBluetoothStateControllerRemote;
 ash.mojom.HidPreservingBluetoothStateControllerRequest = ash.mojom.HidPreservingBluetoothStateControllerPendingReceiver;
 

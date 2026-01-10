@@ -7,7 +7,9 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
+var bluetooth = bluetooth || {};
+var mojo_base = mojo_base || {};
+var device = device || {};
 
 blink.mojom.SerialPortInfoSpec = { $: {} };
 blink.mojom.SerialPortFilterSpec = { $: {} };
@@ -200,6 +202,76 @@ blink.mojom.SerialService.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.SerialServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SerialService_SetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setClient(params.client);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.SerialService_GetPorts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPorts();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SerialService_GetPorts_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.SerialService_RequestPort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPort(params.filters, params.allowed_bluetooth_service_class_ids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SerialService_RequestPort_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.SerialService_OpenPort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openPort(params.token, params.options, params.client);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SerialService_OpenPort_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.SerialService_ForgetPort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forgetPort(params.token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SerialService_ForgetPort_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SerialServiceReceiver = blink.mojom.SerialServiceReceiver;
+
 blink.mojom.SerialServicePtr = blink.mojom.SerialServiceRemote;
 blink.mojom.SerialServiceRequest = blink.mojom.SerialServicePendingReceiver;
 
@@ -264,6 +336,28 @@ blink.mojom.SerialServiceClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.SerialServiceClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPortConnectedStateChanged(params.port_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SerialServiceClientReceiver = blink.mojom.SerialServiceClientReceiver;
 
 blink.mojom.SerialServiceClientPtr = blink.mojom.SerialServiceClientRemote;
 blink.mojom.SerialServiceClientRequest = blink.mojom.SerialServiceClientPendingReceiver;

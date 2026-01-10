@@ -8,6 +8,7 @@
 var commerce = commerce || {};
 commerce.shared = commerce.shared || {};
 commerce.shared.mojom = commerce.shared.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 commerce.shared.mojom.ProductInfoSpec = { $: {} };

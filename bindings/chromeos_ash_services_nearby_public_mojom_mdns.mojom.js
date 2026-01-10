@@ -110,6 +110,33 @@ sharing.mojom.MdnsObserver.getRemote = function() {
   return remote.$;
 };
 
+sharing.mojom.MdnsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.serviceFound(params.service_info);
+          break;
+        }
+        case 1: {
+          const params = sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.serviceLost(params.service_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+sharing.mojom.MdnsObserverReceiver = sharing.mojom.MdnsObserverReceiver;
+
 sharing.mojom.MdnsObserverPtr = sharing.mojom.MdnsObserverRemote;
 sharing.mojom.MdnsObserverRequest = sharing.mojom.MdnsObserverPendingReceiver;
 
@@ -218,6 +245,52 @@ sharing.mojom.MdnsManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+sharing.mojom.MdnsManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = sharing.mojom.MdnsManager_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startDiscoverySession(params.service_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopDiscoverySession(params.service_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+sharing.mojom.MdnsManagerReceiver = sharing.mojom.MdnsManagerReceiver;
 
 sharing.mojom.MdnsManagerPtr = sharing.mojom.MdnsManagerRemote;
 sharing.mojom.MdnsManagerRequest = sharing.mojom.MdnsManagerPendingReceiver;

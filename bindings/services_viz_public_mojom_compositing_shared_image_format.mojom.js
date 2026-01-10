@@ -7,7 +7,6 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
 
 viz.mojom.PlaneConfigSpec = { $: mojo.internal.Enum() };
 viz.mojom.SubsamplingSpec = { $: mojo.internal.Enum() };

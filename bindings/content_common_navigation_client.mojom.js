@@ -7,31 +7,9 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
-var content = content || {};
-var content = content || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var services = services || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var url = url || {};
 var url = url || {};
 
 content.mojom.NavigationClientDisconnectReasonSpec = { $: mojo.internal.Enum() };
@@ -67,8 +45,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('contents_mime_type', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('method', 56, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('post_id', 64, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('previous_page_state', 72, 0, content.mojom.PageStateSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('page_state', 80, 0, content.mojom.PageStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('previous_page_state', 72, 0, blink.mojom.PageStateSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('page_state', 80, 0, blink.mojom.PageStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('origin', 88, 0, url.mojom.OriginSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('initiator_base_url', 96, 0, url.mojom.UrlSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('permissions_policy_header', 104, 0, mojo.internal.Array(network.mojom.ParsedPermissionsPolicyDeclarationSpec.$, false), null, false, 0, undefined),
@@ -136,7 +114,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('container_info', 64, 0, blink.mojom.ServiceWorkerContainerInfoForClientSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('subresource_proxying_loader_factory', 72, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('keep_alive_loader_factory', 80, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderFactoryRemote), null, true, 0, undefined),
-      mojo.internal.StructField('fetch_later_loader_factory', 88, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.FetchLaterLoaderFactoryRemote), null, true, 0, undefined),
+      mojo.internal.StructField('fetch_later_loader_factory', 88, 0, pending_associated_remote<blink.mojom.FetchLaterLoaderFactory>Spec.$, null, true, 0, undefined),
       mojo.internal.StructField('document_token', 96, 0, blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('devtools_navigation_token', 104, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('base_auction_nonce', 112, 0, mojo_base.mojom.UuidSpec.$, null, false, 0, undefined),
@@ -243,6 +221,47 @@ content.mojom.NavigationClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.NavigationClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.NavigationClient_CommitNavigation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.commitNavigation(params.common_params, params.request_params, params.response_head, params.response_body, params.url_loader_client_endpoints, params.subresource_loader_factories, params.subresource_overrides, params.controller_service_worker_info, params.container_info, params.subresource_proxying_loader_factory, params.keep_alive_loader_factory, params.fetch_later_loader_factory, params.document_token, params.devtools_navigation_token, params.base_auction_nonce, params.permissions_policy, params.policy_container, params.code_cache_host, params.code_cache_host_for_background, params.cookie_manager_info, params.storage_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.commitFailedNavigation(params.common_params, params.request_params, params.has_stale_copy_in_cache, params.error_code, params.extended_error_code, params.resolve_error_info, params.error_page_content, params.subresource_loader_factories, params.document_token, params.devtools_navigation_token, params.policy_container, params.alternative_error_page_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.NavigationClientReceiver = content.mojom.NavigationClientReceiver;
 
 content.mojom.NavigationClientPtr = content.mojom.NavigationClientRemote;
 content.mojom.NavigationClientRequest = content.mojom.NavigationClientPendingReceiver;

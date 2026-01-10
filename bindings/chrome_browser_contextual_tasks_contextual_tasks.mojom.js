@@ -7,6 +7,7 @@
 // Module namespace
 var contextual_tasks = contextual_tasks || {};
 contextual_tasks.mojom = contextual_tasks.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 contextual_tasks.mojom.TabSpec = { $: {} };
@@ -386,6 +387,138 @@ contextual_tasks.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+contextual_tasks.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getThreadUrl();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUrlForTask(params.uuid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTaskId(params.uuid);
+          break;
+        }
+        case 3: {
+          const params = contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isZeroState(params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = contextual_tasks.mojom.PageHandler_SetThreadTitle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setThreadTitle(params.title);
+          break;
+        }
+        case 5: {
+          const params = contextual_tasks.mojom.PageHandler_CloseSidePanel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeSidePanel();
+          break;
+        }
+        case 6: {
+          const params = contextual_tasks.mojom.PageHandler_ShowThreadHistory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showThreadHistory();
+          break;
+        }
+        case 7: {
+          const params = contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isShownInTab();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openMyActivityUi();
+          break;
+        }
+        case 9: {
+          const params = contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openHelpUi();
+          break;
+        }
+        case 10: {
+          const params = contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openOnboardingHelpUi();
+          break;
+        }
+        case 11: {
+          const params = contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.moveTaskUiToNewTab();
+          break;
+        }
+        case 12: {
+          const params = contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTabClickedFromSourcesMenu(params.tab_id, params.url);
+          break;
+        }
+        case 13: {
+          const params = contextual_tasks.mojom.PageHandler_OnWebviewMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWebviewMessage(params.message);
+          break;
+        }
+        case 14: {
+          const params = contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCommonSearchParams(params.is_dark_mode, params.is_side_panel);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onboardingTooltipDismissed();
+          break;
+        }
+      }
+    });
+  }
+};
+
+contextual_tasks.mojom.PageHandlerReceiver = contextual_tasks.mojom.PageHandlerReceiver;
+
 contextual_tasks.mojom.PageHandlerPtr = contextual_tasks.mojom.PageHandlerRemote;
 contextual_tasks.mojom.PageHandlerRequest = contextual_tasks.mojom.PageHandlerPendingReceiver;
 
@@ -655,6 +788,93 @@ contextual_tasks.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
+contextual_tasks.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = contextual_tasks.mojom.Page_SetThreadTitle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setThreadTitle(params.title);
+          break;
+        }
+        case 1: {
+          const params = contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTaskDetails(params.uuid, params.thread_id, params.turn_id);
+          break;
+        }
+        case 2: {
+          const params = contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSidePanelStateChanged();
+          break;
+        }
+        case 3: {
+          const params = contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.postMessageToWebview(params.message);
+          break;
+        }
+        case 4: {
+          const params = contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHandshakeComplete();
+          break;
+        }
+        case 5: {
+          const params = contextual_tasks.mojom.Page_SetOAuthToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOAuthToken(params.oauth_token);
+          break;
+        }
+        case 6: {
+          const params = contextual_tasks.mojom.Page_OnContextUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onContextUpdated(params.context_tabs);
+          break;
+        }
+        case 7: {
+          const params = contextual_tasks.mojom.Page_HideInput_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hideInput();
+          break;
+        }
+        case 8: {
+          const params = contextual_tasks.mojom.Page_RestoreInput_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restoreInput();
+          break;
+        }
+        case 9: {
+          const params = contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onZeroStateChange(params.is_zero_state);
+          break;
+        }
+        case 10: {
+          const params = contextual_tasks.mojom.Page_OnAiPageStatusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAiPageStatusChanged(params.is_ai_page);
+          break;
+        }
+        case 11: {
+          const params = contextual_tasks.mojom.Page_OnLensOverlayStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLensOverlayStateChanged(params.is_showing);
+          break;
+        }
+        case 12: {
+          const params = contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showErrorPage();
+          break;
+        }
+        case 13: {
+          const params = contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hideErrorPage();
+          break;
+        }
+      }
+    });
+  }
+};
+
+contextual_tasks.mojom.PageReceiver = contextual_tasks.mojom.PageReceiver;
+
 contextual_tasks.mojom.PagePtr = contextual_tasks.mojom.PageRemote;
 contextual_tasks.mojom.PageRequest = contextual_tasks.mojom.PagePendingReceiver;
 
@@ -720,6 +940,28 @@ contextual_tasks.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+contextual_tasks.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.page_handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+contextual_tasks.mojom.PageHandlerFactoryReceiver = contextual_tasks.mojom.PageHandlerFactoryReceiver;
 
 contextual_tasks.mojom.PageHandlerFactoryPtr = contextual_tasks.mojom.PageHandlerFactoryRemote;
 contextual_tasks.mojom.PageHandlerFactoryRequest = contextual_tasks.mojom.PageHandlerFactoryPendingReceiver;

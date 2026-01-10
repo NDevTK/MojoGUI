@@ -264,6 +264,95 @@ mantis.mojom.MantisProcessor.getRemote = function() {
   return remote.$;
 };
 
+mantis.mojom.MantisProcessorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mantis.mojom.MantisProcessor_Inpainting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.inpainting(params.image, params.mask, params.seed);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generativeFill(params.image, params.mask, params.seed, params.prompt);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = mantis.mojom.MantisProcessor_Segmentation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.segmentation(params.image, params.prior);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.classifyImageSafety(params.image);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = mantis.mojom.MantisProcessor_Outpainting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.outpainting(params.image, params.mask, params.seed);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.inferSegmentationMode(params.gesture);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+mantis.mojom.MantisProcessorReceiver = mantis.mojom.MantisProcessorReceiver;
+
 mantis.mojom.MantisProcessorPtr = mantis.mojom.MantisProcessorRemote;
 mantis.mojom.MantisProcessorRequest = mantis.mojom.MantisProcessorPendingReceiver;
 

@@ -7,9 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
 
 network.mojom.URLLoaderFactory = {};
 network.mojom.URLLoaderFactory.$interfaceName = 'network.mojom.URLLoaderFactory';
@@ -119,6 +116,33 @@ network.mojom.URLLoaderFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.URLLoaderFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createLoaderAndStart(params.loader, params.request_id, params.options, params.request, params.client, params.traffic_annotation);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.URLLoaderFactory_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.factory);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.URLLoaderFactoryReceiver = network.mojom.URLLoaderFactoryReceiver;
 
 network.mojom.URLLoaderFactoryPtr = network.mojom.URLLoaderFactoryRemote;
 network.mojom.URLLoaderFactoryRequest = network.mojom.URLLoaderFactoryPendingReceiver;

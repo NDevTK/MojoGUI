@@ -8,9 +8,6 @@
 var ash = ash || {};
 ash.secure_channel = ash.secure_channel || {};
 ash.secure_channel.mojom = ash.secure_channel.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
 
 ash.secure_channel.mojom.NearbyConnectionStepSpec = { $: mojo.internal.Enum() };
 ash.secure_channel.mojom.NearbyConnectionStepResultSpec = { $: mojo.internal.Enum() };
@@ -137,6 +134,28 @@ ash.secure_channel.mojom.NearbyConnectionStateListener.getRemote = function() {
   return remote.$;
 };
 
+ash.secure_channel.mojom.NearbyConnectionStateListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNearbyConnectionStateChanged(params.step, params.result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.secure_channel.mojom.NearbyConnectionStateListenerReceiver = ash.secure_channel.mojom.NearbyConnectionStateListenerReceiver;
+
 ash.secure_channel.mojom.NearbyConnectionStateListenerPtr = ash.secure_channel.mojom.NearbyConnectionStateListenerRemote;
 ash.secure_channel.mojom.NearbyConnectionStateListenerRequest = ash.secure_channel.mojom.NearbyConnectionStateListenerPendingReceiver;
 
@@ -208,6 +227,35 @@ ash.secure_channel.mojom.NearbyMessageSender.getRemote = function() {
   return remote.$;
 };
 
+ash.secure_channel.mojom.NearbyMessageSenderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendMessage(params.message);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.secure_channel.mojom.NearbyMessageSenderReceiver = ash.secure_channel.mojom.NearbyMessageSenderReceiver;
+
 ash.secure_channel.mojom.NearbyMessageSenderPtr = ash.secure_channel.mojom.NearbyMessageSenderRemote;
 ash.secure_channel.mojom.NearbyMessageSenderRequest = ash.secure_channel.mojom.NearbyMessageSenderPendingReceiver;
 
@@ -272,6 +320,28 @@ ash.secure_channel.mojom.NearbyMessageReceiver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.secure_channel.mojom.NearbyMessageReceiverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMessageReceived(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.secure_channel.mojom.NearbyMessageReceiverReceiver = ash.secure_channel.mojom.NearbyMessageReceiverReceiver;
 
 ash.secure_channel.mojom.NearbyMessageReceiverPtr = ash.secure_channel.mojom.NearbyMessageReceiverRemote;
 ash.secure_channel.mojom.NearbyMessageReceiverRequest = ash.secure_channel.mojom.NearbyMessageReceiverPendingReceiver;
@@ -345,6 +415,35 @@ ash.secure_channel.mojom.NearbyFilePayloadHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.secure_channel.mojom.NearbyFilePayloadHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerPayloadFile(params.payload_id, params.payload_files, params.listener);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.secure_channel.mojom.NearbyFilePayloadHandlerReceiver = ash.secure_channel.mojom.NearbyFilePayloadHandlerReceiver;
 
 ash.secure_channel.mojom.NearbyFilePayloadHandlerPtr = ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote;
 ash.secure_channel.mojom.NearbyFilePayloadHandlerRequest = ash.secure_channel.mojom.NearbyFilePayloadHandlerPendingReceiver;
@@ -420,6 +519,35 @@ ash.secure_channel.mojom.NearbyConnector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.secure_channel.mojom.NearbyConnectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.bluetooth_public_address, params.eid, params.message_receiver, params.nearby_connection_state_listener);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.secure_channel.mojom.NearbyConnectorReceiver = ash.secure_channel.mojom.NearbyConnectorReceiver;
 
 ash.secure_channel.mojom.NearbyConnectorPtr = ash.secure_channel.mojom.NearbyConnectorRemote;
 ash.secure_channel.mojom.NearbyConnectorRequest = ash.secure_channel.mojom.NearbyConnectorPendingReceiver;

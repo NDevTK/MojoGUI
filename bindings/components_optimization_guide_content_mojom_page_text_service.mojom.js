@@ -7,6 +7,7 @@
 // Module namespace
 var optimization_guide = optimization_guide || {};
 optimization_guide.mojom = optimization_guide.mojom || {};
+var mojo_base = mojo_base || {};
 
 optimization_guide.mojom.TextDumpEventSpec = { $: mojo.internal.Enum() };
 optimization_guide.mojom.PageTextDumpRequestSpec = { $: {} };
@@ -108,6 +109,33 @@ optimization_guide.mojom.PageTextConsumer.getRemote = function() {
   return remote.$;
 };
 
+optimization_guide.mojom.PageTextConsumerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTextDumpChunk(params.chunk);
+          break;
+        }
+        case 1: {
+          const params = optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onChunksEnd();
+          break;
+        }
+      }
+    });
+  }
+};
+
+optimization_guide.mojom.PageTextConsumerReceiver = optimization_guide.mojom.PageTextConsumerReceiver;
+
 optimization_guide.mojom.PageTextConsumerPtr = optimization_guide.mojom.PageTextConsumerRemote;
 optimization_guide.mojom.PageTextConsumerRequest = optimization_guide.mojom.PageTextConsumerPendingReceiver;
 
@@ -173,6 +201,28 @@ optimization_guide.mojom.PageTextService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+optimization_guide.mojom.PageTextServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPageTextDump(params.request, params.consumer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+optimization_guide.mojom.PageTextServiceReceiver = optimization_guide.mojom.PageTextServiceReceiver;
 
 optimization_guide.mojom.PageTextServicePtr = optimization_guide.mojom.PageTextServiceRemote;
 optimization_guide.mojom.PageTextServiceRequest = optimization_guide.mojom.PageTextServicePendingReceiver;

@@ -7,13 +7,9 @@
 // Module namespace
 var read_anything = read_anything || {};
 read_anything.mojom = read_anything.mojom || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
-var skia = skia || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
+var ax = ax || {};
 
 read_anything.mojom.InstallationStateSpec = { $: mojo.internal.Enum() };
 read_anything.mojom.ErrorCodeSpec = { $: mojo.internal.Enum() };
@@ -267,6 +263,33 @@ read_anything.mojom.UntrustedPageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+read_anything.mojom.UntrustedPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createUntrustedPageHandler(params.page, params.handler);
+          break;
+        }
+        case 1: {
+          const params = read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldShowUI();
+          break;
+        }
+      }
+    });
+  }
+};
+
+read_anything.mojom.UntrustedPageHandlerFactoryReceiver = read_anything.mojom.UntrustedPageHandlerFactoryReceiver;
 
 read_anything.mojom.UntrustedPageHandlerFactoryPtr = read_anything.mojom.UntrustedPageHandlerFactoryRemote;
 read_anything.mojom.UntrustedPageHandlerFactoryRequest = read_anything.mojom.UntrustedPageHandlerFactoryPendingReceiver;
@@ -834,6 +857,190 @@ read_anything.mojom.UntrustedPageHandler.getRemote = function() {
   return remote.$;
 };
 
+read_anything.mojom.UntrustedPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDependencyParserModel();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPresentationState();
+          break;
+        }
+        case 2: {
+          const params = read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVoicePackInfo(params.language);
+          break;
+        }
+        case 3: {
+          const params = read_anything.mojom.UntrustedPageHandler_InstallVoicePack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installVoicePack(params.language);
+          break;
+        }
+        case 4: {
+          const params = read_anything.mojom.UntrustedPageHandler_UninstallVoice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.uninstallVoice(params.language);
+          break;
+        }
+        case 5: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCopy();
+          break;
+        }
+        case 6: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLineSpaceChange(params.line_spacing);
+          break;
+        }
+        case 7: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLetterSpaceChange(params.letter_spacing);
+          break;
+        }
+        case 8: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnFontChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFontChange(params.font);
+          break;
+        }
+        case 9: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnFontSizeChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFontSizeChange(params.font_size);
+          break;
+        }
+        case 10: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnLinksEnabledChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLinksEnabledChanged(params.enabled);
+          break;
+        }
+        case 11: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnImagesEnabledChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onImagesEnabledChanged(params.enabled);
+          break;
+        }
+        case 12: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onColorChange(params.color);
+          break;
+        }
+        case 13: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnSpeechRateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSpeechRateChange(params.rate);
+          break;
+        }
+        case 14: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnVoiceChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVoiceChange(params.voice, params.lang);
+          break;
+        }
+        case 15: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnLanguagePrefChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLanguagePrefChange(params.lang, params.enabled);
+          break;
+        }
+        case 16: {
+          const params = read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logExtensionState();
+          break;
+        }
+        case 17: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHighlightGranularityChanged(params.granularity);
+          break;
+        }
+        case 18: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLineFocusChanged(params.granularity);
+          break;
+        }
+        case 19: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnReadAloudAudioStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReadAloudAudioStateChange(params.playing);
+          break;
+        }
+        case 20: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLinkClicked(params.target_tree_id, params.target_node_id);
+          break;
+        }
+        case 21: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onImageDataRequested(params.target_tree_id, params.target_node_id);
+          break;
+        }
+        case 22: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSelectionChange(params.target_tree_id, params.anchor_node_id, params.anchor_offset, params.focus_node_id, params.focus_offset);
+          break;
+        }
+        case 23: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCollapseSelection();
+          break;
+        }
+        case 24: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScreenshotRequested();
+          break;
+        }
+        case 25: {
+          const params = read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDistillationStatus(params.status, params.word_count);
+          break;
+        }
+        case 26: {
+          const params = read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.scrollToTargetNode(params.target_tree_id, params.target_node_id);
+          break;
+        }
+        case 27: {
+          const params = read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeUI();
+          break;
+        }
+        case 28: {
+          const params = read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.togglePinState();
+          break;
+        }
+        case 29: {
+          const params = read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendPinStateRequest();
+          break;
+        }
+        case 30: {
+          const params = read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.togglePresentation();
+          break;
+        }
+        case 31: {
+          const params = read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.ackReadingModeHidden();
+          break;
+        }
+      }
+    });
+  }
+};
+
+read_anything.mojom.UntrustedPageHandlerReceiver = read_anything.mojom.UntrustedPageHandlerReceiver;
+
 read_anything.mojom.UntrustedPageHandlerPtr = read_anything.mojom.UntrustedPageHandlerRemote;
 read_anything.mojom.UntrustedPageHandlerRequest = read_anything.mojom.UntrustedPageHandlerPendingReceiver;
 
@@ -1168,6 +1375,108 @@ read_anything.mojom.UntrustedPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+read_anything.mojom.UntrustedPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.accessibilityEventReceived(params.tree_id, params.updates, params.events);
+          break;
+        }
+        case 1: {
+          const params = read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onGetPresentationState(params.presentation_state);
+          break;
+        }
+        case 2: {
+          const params = read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onGetVoicePackInfo(params.voice_pack_info);
+          break;
+        }
+        case 3: {
+          const params = read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.accessibilityLocationChangesReceived(params.tree_id, params.details);
+          break;
+        }
+        case 4: {
+          const params = read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onActiveAXTreeIDChanged(params.tree_id, params.ukm_source_id, params.is_pdf);
+          break;
+        }
+        case 5: {
+          const params = read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAXTreeDestroyed(params.tree_id);
+          break;
+        }
+        case 6: {
+          const params = read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLanguageCode(params.code);
+          break;
+        }
+        case 7: {
+          const params = read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceLocked();
+          break;
+        }
+        case 8: {
+          const params = read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTtsEngineInstalled();
+          break;
+        }
+        case 9: {
+          const params = read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDefaultLanguageCode(params.code);
+          break;
+        }
+        case 10: {
+          const params = read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSettingsRestoredFromPrefs(params.line_spacing, params.letter_spacing, params.font, params.font_size, params.links_enabled, params.images_enabled, params.color, params.speech_rate, params.voices, params.languages_enabled_in_pref, params.granularity, params.line_focus);
+          break;
+        }
+        case 11: {
+          const params = read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.screenAIServiceReady();
+          break;
+        }
+        case 12: {
+          const params = read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReadingModeHidden(params.tab_active);
+          break;
+        }
+        case 13: {
+          const params = read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTabWillDetach();
+          break;
+        }
+        case 14: {
+          const params = read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTabMuteStateChange(params.muted);
+          break;
+        }
+        case 15: {
+          const params = read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onImageDataDownloaded(params.tree_id, params.node_id, params.image);
+          break;
+        }
+        case 16: {
+          const params = read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPinStatusReceived(params.new_pin_state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+read_anything.mojom.UntrustedPageReceiver = read_anything.mojom.UntrustedPageReceiver;
 
 read_anything.mojom.UntrustedPagePtr = read_anything.mojom.UntrustedPageRemote;
 read_anything.mojom.UntrustedPageRequest = read_anything.mojom.UntrustedPagePendingReceiver;

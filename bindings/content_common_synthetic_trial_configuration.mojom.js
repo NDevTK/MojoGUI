@@ -99,6 +99,33 @@ content.mojom.SyntheticTrialConfiguration.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.SyntheticTrialConfigurationReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addOrUpdateSyntheticTrialGroups(params.groups);
+          break;
+        }
+        case 1: {
+          const params = content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeSyntheticTrialGroups(params.groups);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.SyntheticTrialConfigurationReceiver = content.mojom.SyntheticTrialConfigurationReceiver;
+
 content.mojom.SyntheticTrialConfigurationPtr = content.mojom.SyntheticTrialConfigurationRemote;
 content.mojom.SyntheticTrialConfigurationRequest = content.mojom.SyntheticTrialConfigurationPendingReceiver;
 

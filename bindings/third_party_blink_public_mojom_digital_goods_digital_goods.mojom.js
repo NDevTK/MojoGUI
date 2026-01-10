@@ -7,7 +7,6 @@
 // Module namespace
 var payments = payments || {};
 payments.mojom = payments.mojom || {};
-var components = components || {};
 
 payments.mojom.DigitalGoods = {};
 payments.mojom.DigitalGoods.$interfaceName = 'payments.mojom.DigitalGoods';
@@ -158,6 +157,71 @@ payments.mojom.DigitalGoods.getRemote = function() {
   return remote.$;
 };
 
+payments.mojom.DigitalGoodsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = payments.mojom.DigitalGoods_GetDetails_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDetails(params.item_ids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = payments.mojom.DigitalGoods_ListPurchases_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listPurchases();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listPurchaseHistory();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = payments.mojom.DigitalGoods_Consume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.consume(params.purchase_token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.DigitalGoods_Consume_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+payments.mojom.DigitalGoodsReceiver = payments.mojom.DigitalGoodsReceiver;
+
 payments.mojom.DigitalGoodsPtr = payments.mojom.DigitalGoodsRemote;
 payments.mojom.DigitalGoodsRequest = payments.mojom.DigitalGoodsPendingReceiver;
 
@@ -229,6 +293,35 @@ payments.mojom.DigitalGoodsFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+payments.mojom.DigitalGoodsFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createDigitalGoods(params.payment_method);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+payments.mojom.DigitalGoodsFactoryReceiver = payments.mojom.DigitalGoodsFactoryReceiver;
 
 payments.mojom.DigitalGoodsFactoryPtr = payments.mojom.DigitalGoodsFactoryRemote;
 payments.mojom.DigitalGoodsFactoryRequest = payments.mojom.DigitalGoodsFactoryPendingReceiver;

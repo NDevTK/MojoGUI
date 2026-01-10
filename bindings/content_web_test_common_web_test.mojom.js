@@ -7,14 +7,11 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
 var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
-var blink = blink || {};
 
 content.mojom.AutoResponseModeSpec = { $: mojo.internal.Enum() };
 content.mojom.WorkItemSpec = { $: {} };
@@ -445,6 +442,102 @@ content.mojom.WebTestRenderFrame.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.WebTestRenderFrameReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.synchronouslyCompositeAfterTest();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = content.mojom.WebTestRenderFrame_DumpFrameLayout_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dumpFrameLayout();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.WebTestRenderFrame_DumpFrameLayout_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = content.mojom.WebTestRenderFrame_SetTestConfiguration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTestConfiguration(params.config, params.starting_test);
+          break;
+        }
+        case 3: {
+          const params = content.mojom.WebTestRenderFrame_OnDeactivated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeactivated();
+          break;
+        }
+        case 4: {
+          const params = content.mojom.WebTestRenderFrame_OnReactivated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReactivated();
+          break;
+        }
+        case 5: {
+          const params = content.mojom.WebTestRenderFrame_BlockTestUntilStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.blockTestUntilStart();
+          break;
+        }
+        case 6: {
+          const params = content.mojom.WebTestRenderFrame_StartTest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startTest();
+          break;
+        }
+        case 7: {
+          const params = content.mojom.WebTestRenderFrame_SetupRendererProcessForNonTestWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setupRendererProcessForNonTestWindow();
+          break;
+        }
+        case 8: {
+          const params = content.mojom.WebTestRenderFrame_ReplicateWebTestRuntimeFlagsChanges_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.replicateWebTestRuntimeFlagsChanges(params.changed_layout_test_runtime_flags);
+          break;
+        }
+        case 9: {
+          const params = content.mojom.WebTestRenderFrame_TestFinishedFromSecondaryRenderer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.testFinishedFromSecondaryRenderer();
+          break;
+        }
+        case 10: {
+          const params = content.mojom.WebTestRenderFrame_ResetRendererAfterWebTest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetRendererAfterWebTest();
+          break;
+        }
+        case 11: {
+          const params = content.mojom.WebTestRenderFrame_ProcessWorkItem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.processWorkItem(params.work_item);
+          break;
+        }
+        case 12: {
+          const params = content.mojom.WebTestRenderFrame_ReplicateWorkQueueStates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.replicateWorkQueueStates(params.work_queue_states);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.WebTestRenderFrameReceiver = content.mojom.WebTestRenderFrameReceiver;
 
 content.mojom.WebTestRenderFramePtr = content.mojom.WebTestRenderFrameRemote;
 content.mojom.WebTestRenderFrameRequest = content.mojom.WebTestRenderFramePendingReceiver;
@@ -1168,6 +1261,265 @@ content.mojom.WebTestControlHost.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.WebTestControlHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initiateCaptureDump(params.result, params.capture_navigation_history, params.capture_pixels);
+          break;
+        }
+        case 1: {
+          const params = content.mojom.WebTestControlHost_TestFinishedInSecondaryRenderer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.testFinishedInSecondaryRenderer();
+          break;
+        }
+        case 2: {
+          const params = content.mojom.WebTestControlHost_PrintMessageToStderr_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.printMessageToStderr(params.message);
+          break;
+        }
+        case 3: {
+          const params = content.mojom.WebTestControlHost_PrintMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.printMessage(params.message);
+          break;
+        }
+        case 4: {
+          const params = content.mojom.WebTestControlHost_OverridePreferences_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.overridePreferences(params.web_preferences);
+          break;
+        }
+        case 5: {
+          const params = content.mojom.WebTestControlHost_Reload_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reload();
+          break;
+        }
+        case 6: {
+          const params = content.mojom.WebTestControlHost_CheckForLeakedWindows_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkForLeakedWindows();
+          break;
+        }
+        case 7: {
+          const params = content.mojom.WebTestControlHost_SetMainWindowHidden_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMainWindowHidden(params.hidden);
+          break;
+        }
+        case 8: {
+          const params = content.mojom.WebTestControlHost_SetFrameWindowHidden_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFrameWindowHidden(params.frame_token, params.hidden);
+          break;
+        }
+        case 9: {
+          const params = content.mojom.WebTestControlHost_GoToOffset_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.goToOffset(params.offset);
+          break;
+        }
+        case 10: {
+          const params = content.mojom.WebTestControlHost_SendBluetoothManualChooserEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendBluetoothManualChooserEvent(params.event, params.argument);
+          break;
+        }
+        case 11: {
+          const params = content.mojom.WebTestControlHost_SetBluetoothManualChooser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBluetoothManualChooser(params.enable);
+          break;
+        }
+        case 12: {
+          const params = content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBluetoothManualChooserEvents();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.WebTestControlHost_GetBluetoothManualChooserEvents_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = content.mojom.WebTestControlHost_SetPopupBlockingEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPopupBlockingEnabled(params.block_popups);
+          break;
+        }
+        case 14: {
+          const params = content.mojom.WebTestControlHost_LoadURLForFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadURLForFrame(params.url, params.frame_name);
+          break;
+        }
+        case 15: {
+          const params = content.mojom.WebTestControlHost_SimulateScreenOrientationChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulateScreenOrientationChanged();
+          break;
+        }
+        case 16: {
+          const params = content.mojom.WebTestControlHost_SetPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPermission(params.name, params.status, params.origin, params.embedding_origin);
+          break;
+        }
+        case 17: {
+          const params = content.mojom.WebTestControlHost_BlockThirdPartyCookies_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.blockThirdPartyCookies(params.block);
+          break;
+        }
+        case 18: {
+          const params = content.mojom.WebTestControlHost_GetWritableDirectory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWritableDirectory();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.WebTestControlHost_GetWritableDirectory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 19: {
+          const params = content.mojom.WebTestControlHost_SetFilePathForMockFileDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFilePathForMockFileDialog(params.path);
+          break;
+        }
+        case 20: {
+          const params = content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createSubresourceFilterRulesetFile(params.disallowed_suffixes);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.WebTestControlHost_CreateSubresourceFilterRulesetFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 21: {
+          const params = content.mojom.WebTestControlHost_FocusDevtoolsSecondaryWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focusDevtoolsSecondaryWindow();
+          break;
+        }
+        case 22: {
+          const params = content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTrustTokenKeyCommitments(params.raw_commitments);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.WebTestControlHost_SetTrustTokenKeyCommitments_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 23: {
+          const params = content.mojom.WebTestControlHost_ClearTrustTokenState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearTrustTokenState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.WebTestControlHost_ClearTrustTokenState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 24: {
+          const params = content.mojom.WebTestControlHost_SimulateWebNotificationClick_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulateWebNotificationClick(params.title, params.action_index, params.reply);
+          break;
+        }
+        case 25: {
+          const params = content.mojom.WebTestControlHost_SimulateWebNotificationClose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulateWebNotificationClose(params.title, params.by_user);
+          break;
+        }
+        case 26: {
+          const params = content.mojom.WebTestControlHost_SimulateWebContentIndexDelete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulateWebContentIndexDelete(params.id);
+          break;
+        }
+        case 27: {
+          const params = content.mojom.WebTestControlHost_WebTestRuntimeFlagsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.webTestRuntimeFlagsChanged(params.changed_web_test_runtime_flags);
+          break;
+        }
+        case 28: {
+          const params = content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerIsolatedFileSystem(params.file_paths);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.WebTestControlHost_RegisterIsolatedFileSystem_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 29: {
+          const params = content.mojom.WebTestControlHost_DropPointerLock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dropPointerLock();
+          break;
+        }
+        case 30: {
+          const params = content.mojom.WebTestControlHost_SetPointerLockWillFail_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPointerLockWillFail();
+          break;
+        }
+        case 31: {
+          const params = content.mojom.WebTestControlHost_SetPointerLockWillRespondAsynchronously_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPointerLockWillRespondAsynchronously();
+          break;
+        }
+        case 32: {
+          const params = content.mojom.WebTestControlHost_AllowPointerLock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.allowPointerLock();
+          break;
+        }
+        case 33: {
+          const params = content.mojom.WebTestControlHost_WorkItemAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.workItemAdded(params.work_item);
+          break;
+        }
+        case 34: {
+          const params = content.mojom.WebTestControlHost_RequestWorkItem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestWorkItem();
+          break;
+        }
+        case 35: {
+          const params = content.mojom.WebTestControlHost_WorkQueueStatesChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.workQueueStatesChanged(params.changed_work_queue_states);
+          break;
+        }
+        case 36: {
+          const params = content.mojom.WebTestControlHost_SetAcceptLanguages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAcceptLanguages(params.accept_languages);
+          break;
+        }
+        case 37: {
+          const params = content.mojom.WebTestControlHost_SetRegisterProtocolHandlerMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRegisterProtocolHandlerMode(params.mode);
+          break;
+        }
+        case 38: {
+          const params = content.mojom.WebTestControlHost_EnableAutoResize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableAutoResize(params.min_size, params.max_size);
+          break;
+        }
+        case 39: {
+          const params = content.mojom.WebTestControlHost_DisableAutoResize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableAutoResize(params.new_size);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.WebTestControlHostReceiver = content.mojom.WebTestControlHostReceiver;
+
 content.mojom.WebTestControlHostPtr = content.mojom.WebTestControlHostRemote;
 content.mojom.WebTestControlHostRequest = content.mojom.WebTestControlHostPendingReceiver;
 
@@ -1232,6 +1584,28 @@ content.mojom.NonAssociatedWebTestControlHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.NonAssociatedWebTestControlHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLCPPNavigationHint(params.hint);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.NonAssociatedWebTestControlHostReceiver = content.mojom.NonAssociatedWebTestControlHostReceiver;
 
 content.mojom.NonAssociatedWebTestControlHostPtr = content.mojom.NonAssociatedWebTestControlHostRemote;
 content.mojom.NonAssociatedWebTestControlHostRequest = content.mojom.NonAssociatedWebTestControlHostPendingReceiver;

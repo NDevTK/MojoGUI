@@ -7,9 +7,8 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 var url = url || {};
 
 network.mojom.DeviceBoundSessionAccessTypeSpec = { $: mojo.internal.Enum() };
@@ -519,6 +518,74 @@ network.mojom.DeviceBoundSessionManager.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.DeviceBoundSessionManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllSessions();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteSession(params.reason, params.session);
+          break;
+        }
+        case 2: {
+          const params = network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteAllSessions(params.reason, params.created_after_time, params.created_before_time, params.filter);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.url, params.observer);
+          break;
+        }
+        case 4: {
+          const params = network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addEventObserver(params.observer);
+          break;
+        }
+        case 5: {
+          const params = network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createBoundSessions(params.params, params.wrapped_key, params.cookies_to_set, params.cookie_options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.DeviceBoundSessionManagerReceiver = network.mojom.DeviceBoundSessionManagerReceiver;
+
 network.mojom.DeviceBoundSessionManagerPtr = network.mojom.DeviceBoundSessionManagerRemote;
 network.mojom.DeviceBoundSessionManagerRequest = network.mojom.DeviceBoundSessionManagerPendingReceiver;
 
@@ -600,6 +667,33 @@ network.mojom.DeviceBoundSessionAccessObserver.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.DeviceBoundSessionAccessObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceBoundSessionAccessed(params.access);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.DeviceBoundSessionAccessObserverReceiver = network.mojom.DeviceBoundSessionAccessObserverReceiver;
+
 network.mojom.DeviceBoundSessionAccessObserverPtr = network.mojom.DeviceBoundSessionAccessObserverRemote;
 network.mojom.DeviceBoundSessionAccessObserverRequest = network.mojom.DeviceBoundSessionAccessObserverPendingReceiver;
 
@@ -680,6 +774,33 @@ network.mojom.DeviceBoundSessionEventObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.DeviceBoundSessionEventObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceBoundSessionEventReceived(params.event);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addDeviceBoundSessionDisplays(params.session_displays);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.DeviceBoundSessionEventObserverReceiver = network.mojom.DeviceBoundSessionEventObserverReceiver;
 
 network.mojom.DeviceBoundSessionEventObserverPtr = network.mojom.DeviceBoundSessionEventObserverRemote;
 network.mojom.DeviceBoundSessionEventObserverRequest = network.mojom.DeviceBoundSessionEventObserverPendingReceiver;

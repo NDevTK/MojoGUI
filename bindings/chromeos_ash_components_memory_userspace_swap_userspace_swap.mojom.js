@@ -97,6 +97,35 @@ userspace_swap.mojom.UserspaceSwapInitialization.getRemote = function() {
   return remote.$;
 };
 
+userspace_swap.mojom.UserspaceSwapInitializationReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.transferUserfaultFD(params.uffd_error, params.uffd_handle, params.mmap_error, params.swap_area);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+userspace_swap.mojom.UserspaceSwapInitializationReceiver = userspace_swap.mojom.UserspaceSwapInitializationReceiver;
+
 userspace_swap.mojom.UserspaceSwapInitializationPtr = userspace_swap.mojom.UserspaceSwapInitializationRemote;
 userspace_swap.mojom.UserspaceSwapInitializationRequest = userspace_swap.mojom.UserspaceSwapInitializationPendingReceiver;
 
@@ -200,6 +229,45 @@ userspace_swap.mojom.UserspaceSwap.getRemote = function() {
     'context');
   return remote.$;
 };
+
+userspace_swap.mojom.UserspaceSwapReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.movePTEsLeavingMapping(params.src, params.dest);
+          break;
+        }
+        case 1: {
+          const params = userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mapArea(params.area);
+          break;
+        }
+        case 2: {
+          const params = userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPartitionAllocSuperPagesUsed(params.max_superpages);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+userspace_swap.mojom.UserspaceSwapReceiver = userspace_swap.mojom.UserspaceSwapReceiver;
 
 userspace_swap.mojom.UserspaceSwapPtr = userspace_swap.mojom.UserspaceSwapRemote;
 userspace_swap.mojom.UserspaceSwapRequest = userspace_swap.mojom.UserspaceSwapPendingReceiver;

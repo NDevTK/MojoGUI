@@ -79,6 +79,35 @@ chromecast.mojom.AudioSocketBroker.getRemote = function() {
   return remote.$;
 };
 
+chromecast.mojom.AudioSocketBrokerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSocketDescriptor();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.AudioSocketBrokerReceiver = chromecast.mojom.AudioSocketBrokerReceiver;
+
 chromecast.mojom.AudioSocketBrokerPtr = chromecast.mojom.AudioSocketBrokerRemote;
 chromecast.mojom.AudioSocketBrokerRequest = chromecast.mojom.AudioSocketBrokerPendingReceiver;
 

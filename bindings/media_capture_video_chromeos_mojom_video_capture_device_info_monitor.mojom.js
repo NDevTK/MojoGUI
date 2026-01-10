@@ -77,6 +77,28 @@ cros.mojom.VideoCaptureDeviceInfoObserver.getRemote = function() {
   return remote.$;
 };
 
+cros.mojom.VideoCaptureDeviceInfoObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onGetCameraIdToDeviceIdMapping(params.camera_id, params.device_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.VideoCaptureDeviceInfoObserverReceiver = cros.mojom.VideoCaptureDeviceInfoObserverReceiver;
+
 cros.mojom.VideoCaptureDeviceInfoObserverPtr = cros.mojom.VideoCaptureDeviceInfoObserverRemote;
 cros.mojom.VideoCaptureDeviceInfoObserverRequest = cros.mojom.VideoCaptureDeviceInfoObserverPendingReceiver;
 
@@ -141,6 +163,28 @@ cros.mojom.VideoCaptureDeviceInfoMonitor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cros.mojom.VideoCaptureDeviceInfoMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addVideoCaptureDeviceInfoObserver(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.VideoCaptureDeviceInfoMonitorReceiver = cros.mojom.VideoCaptureDeviceInfoMonitorReceiver;
 
 cros.mojom.VideoCaptureDeviceInfoMonitorPtr = cros.mojom.VideoCaptureDeviceInfoMonitorRemote;
 cros.mojom.VideoCaptureDeviceInfoMonitorRequest = cros.mojom.VideoCaptureDeviceInfoMonitorPendingReceiver;

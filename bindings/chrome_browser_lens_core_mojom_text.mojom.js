@@ -7,8 +7,8 @@
 // Module namespace
 var lens = lens || {};
 lens.mojom = lens.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
 
 lens.mojom.WritingDirectionSpec = { $: mojo.internal.Enum() };

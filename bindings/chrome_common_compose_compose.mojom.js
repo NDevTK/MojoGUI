@@ -7,7 +7,6 @@
 // Module namespace
 var compose = compose || {};
 compose.mojom = compose.mojom || {};
-var components = components || {};
 
 compose.mojom.InputModeSpec = { $: mojo.internal.Enum() };
 compose.mojom.StyleModifierSpec = { $: mojo.internal.Enum() };
@@ -203,6 +202,28 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+compose.mojom.ComposeSessionUntrustedPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createComposeSessionUntrustedPageHandler(params.client_handler, params.handler, params.dialog);
+          break;
+        }
+      }
+    });
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandlerFactoryReceiver = compose.mojom.ComposeSessionUntrustedPageHandlerFactoryReceiver;
 
 compose.mojom.ComposeSessionUntrustedPageHandlerFactoryPtr = compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemote;
 compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRequest = compose.mojom.ComposeSessionUntrustedPageHandlerFactoryPendingReceiver;
@@ -551,6 +572,150 @@ compose.mojom.ComposeSessionUntrustedPageHandler.getRemote = function() {
   return remote.$;
 };
 
+compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logCancelEdit();
+          break;
+        }
+        case 1: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.compose(params.input, params.mode, params.edited);
+          break;
+        }
+        case 2: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rewrite(params.style);
+          break;
+        }
+        case 3: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logEditInput();
+          break;
+        }
+        case 4: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.saveWebUIState(params.webui_state);
+          break;
+        }
+        case 5: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acceptComposeResult();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestInitialState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.undo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recoverFromErrorState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.redo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openBugReportingLink();
+          break;
+        }
+        case 11: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openComposeLearnMorePage();
+          break;
+        }
+        case 12: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openEnterpriseComposeLearnMorePage();
+          break;
+        }
+        case 13: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFeedbackSurveyLink();
+          break;
+        }
+        case 14: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openSignInPage();
+          break;
+        }
+        case 15: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUserFeedback(params.feedback);
+          break;
+        }
+        case 16: {
+          const params = compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.editResult(params.new_result);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = compose.mojom.ComposeSessionUntrustedPageHandlerReceiver;
+
 compose.mojom.ComposeSessionUntrustedPageHandlerPtr = compose.mojom.ComposeSessionUntrustedPageHandlerRemote;
 compose.mojom.ComposeSessionUntrustedPageHandlerRequest = compose.mojom.ComposeSessionUntrustedPageHandlerPendingReceiver;
 
@@ -661,6 +826,43 @@ compose.mojom.ComposeClientUntrustedPageHandler.getRemote = function() {
   return remote.$;
 };
 
+compose.mojom.ComposeClientUntrustedPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showUI();
+          break;
+        }
+        case 1: {
+          const params = compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeUI(params.reason);
+          break;
+        }
+        case 2: {
+          const params = compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.completeFirstRun();
+          break;
+        }
+        case 3: {
+          const params = compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openComposeSettings();
+          break;
+        }
+      }
+    });
+  }
+};
+
+compose.mojom.ComposeClientUntrustedPageHandlerReceiver = compose.mojom.ComposeClientUntrustedPageHandlerReceiver;
+
 compose.mojom.ComposeClientUntrustedPageHandlerPtr = compose.mojom.ComposeClientUntrustedPageHandlerRemote;
 compose.mojom.ComposeClientUntrustedPageHandlerRequest = compose.mojom.ComposeClientUntrustedPageHandlerPendingReceiver;
 
@@ -741,6 +943,33 @@ compose.mojom.ComposeUntrustedDialog.getRemote = function() {
     'context');
   return remote.$;
 };
+
+compose.mojom.ComposeUntrustedDialogReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.responseReceived(params.response);
+          break;
+        }
+        case 1: {
+          const params = compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.partialResponseReceived(params.partial_response);
+          break;
+        }
+      }
+    });
+  }
+};
+
+compose.mojom.ComposeUntrustedDialogReceiver = compose.mojom.ComposeUntrustedDialogReceiver;
 
 compose.mojom.ComposeUntrustedDialogPtr = compose.mojom.ComposeUntrustedDialogRemote;
 compose.mojom.ComposeUntrustedDialogRequest = compose.mojom.ComposeUntrustedDialogPendingReceiver;

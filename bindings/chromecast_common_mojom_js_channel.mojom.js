@@ -80,6 +80,28 @@ chromecast.mojom.JsChannel.getRemote = function() {
   return remote.$;
 };
 
+chromecast.mojom.JsChannelReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.JsChannel_PostMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.postMessage(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.JsChannelReceiver = chromecast.mojom.JsChannelReceiver;
+
 chromecast.mojom.JsChannelPtr = chromecast.mojom.JsChannelRemote;
 chromecast.mojom.JsChannelRequest = chromecast.mojom.JsChannelPendingReceiver;
 
@@ -162,6 +184,33 @@ chromecast.mojom.JsChannelClient.getRemote = function() {
   return remote.$;
 };
 
+chromecast.mojom.JsChannelClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createChannel(params.channel, params.pipe);
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeChannel(params.channel);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.JsChannelClientReceiver = chromecast.mojom.JsChannelClientReceiver;
+
 chromecast.mojom.JsChannelClientPtr = chromecast.mojom.JsChannelClientRemote;
 chromecast.mojom.JsChannelClientRequest = chromecast.mojom.JsChannelClientPendingReceiver;
 
@@ -227,6 +276,28 @@ chromecast.mojom.JsChannelBindingProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.JsChannelBindingProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.register(params.routing_id, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.JsChannelBindingProviderReceiver = chromecast.mojom.JsChannelBindingProviderReceiver;
 
 chromecast.mojom.JsChannelBindingProviderPtr = chromecast.mojom.JsChannelBindingProviderRemote;
 chromecast.mojom.JsChannelBindingProviderRequest = chromecast.mojom.JsChannelBindingProviderPendingReceiver;

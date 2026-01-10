@@ -8,6 +8,7 @@
 var ntp = ntp || {};
 ntp.most_relevant_tab_resumption = ntp.most_relevant_tab_resumption || {};
 ntp.most_relevant_tab_resumption.mojom = ntp.most_relevant_tab_resumption.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 ntp.most_relevant_tab_resumption.mojom.FormFactorSpec = { $: mojo.internal.Enum() };

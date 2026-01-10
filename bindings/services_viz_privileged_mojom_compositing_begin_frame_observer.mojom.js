@@ -7,7 +7,6 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
 
 viz.mojom.BeginFrameObserver = {};
 viz.mojom.BeginFrameObserver.$interfaceName = 'viz.mojom.BeginFrameObserver';
@@ -73,6 +72,28 @@ viz.mojom.BeginFrameObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.BeginFrameObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStandaloneBeginFrame(params.args);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.BeginFrameObserverReceiver = viz.mojom.BeginFrameObserverReceiver;
 
 viz.mojom.BeginFrameObserverPtr = viz.mojom.BeginFrameObserverRemote;
 viz.mojom.BeginFrameObserverRequest = viz.mojom.BeginFrameObserverPendingReceiver;

@@ -7,14 +7,6 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
 
 gfx.mojom.TraitsTestService = {};
 gfx.mojom.TraitsTestService.$interfaceName = 'gfx.mojom.TraitsTestService';
@@ -159,6 +151,71 @@ gfx.mojom.TraitsTestService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+gfx.mojom.TraitsTestServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoSelectionBound(params.s);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoTransform(params.t);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoGpuMemoryBufferHandle(params.g);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoRRectF(params.t);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+gfx.mojom.TraitsTestServiceReceiver = gfx.mojom.TraitsTestServiceReceiver;
 
 gfx.mojom.TraitsTestServicePtr = gfx.mojom.TraitsTestServiceRemote;
 gfx.mojom.TraitsTestServiceRequest = gfx.mojom.TraitsTestServicePendingReceiver;

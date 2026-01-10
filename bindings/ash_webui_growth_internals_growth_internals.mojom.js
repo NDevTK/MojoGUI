@@ -96,6 +96,40 @@ ash.growth.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.growth.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCampaignsLogs();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearAllEvents();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.growth.mojom.PageHandlerReceiver = ash.growth.mojom.PageHandlerReceiver;
+
 ash.growth.mojom.PageHandlerPtr = ash.growth.mojom.PageHandlerRemote;
 ash.growth.mojom.PageHandlerRequest = ash.growth.mojom.PageHandlerPendingReceiver;
 

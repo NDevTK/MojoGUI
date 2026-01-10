@@ -95,6 +95,33 @@ arc.mojom.KioskHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.KioskHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMaintenanceSessionCreated(params.session_id);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMaintenanceSessionFinished(params.session_id, params.succeeded);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.KioskHostReceiver = arc.mojom.KioskHostReceiver;
+
 arc.mojom.KioskHostPtr = arc.mojom.KioskHostRemote;
 arc.mojom.KioskHostRequest = arc.mojom.KioskHostPendingReceiver;
 
@@ -164,6 +191,35 @@ arc.mojom.KioskInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.KioskInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.KioskInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.KioskInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.KioskInstanceReceiver = arc.mojom.KioskInstanceReceiver;
 
 arc.mojom.KioskInstancePtr = arc.mojom.KioskInstanceRemote;
 arc.mojom.KioskInstanceRequest = arc.mojom.KioskInstancePendingReceiver;

@@ -7,14 +7,12 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
+var gpu = gpu || {};
+var mojo_base = mojo_base || {};
 var blink = blink || {};
-var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
-var services = services || {};
-var ui = ui || {};
-var gfx = gfx || {};
+var webnn = webnn || {};
 
 viz.mojom.GpuHost = {};
 viz.mojom.GpuHost.$interfaceName = 'viz.mojom.GpuHost';
@@ -374,6 +372,129 @@ viz.mojom.GpuHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.GpuHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.GpuHost_DidInitialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didInitialize(params.gpu_info, params.gpu_feature_info, params.gpu_info_for_hardware_gpu, params.gpu_feature_info_for_hardware_gpu, params.gpu_extra_info);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.GpuHost_DidFailInitialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didFailInitialize();
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didCreateContextSuccessfully();
+          break;
+        }
+        case 3: {
+          const params = viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didCreateOffscreenContext(params.url);
+          break;
+        }
+        case 4: {
+          const params = viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didDestroyOffscreenContext(params.url);
+          break;
+        }
+        case 5: {
+          const params = viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didDestroyChannel(params.client_id);
+          break;
+        }
+        case 6: {
+          const params = viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didDestroyAllChannels();
+          break;
+        }
+        case 7: {
+          const params = viz.mojom.GpuHost_DidLoseContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didLoseContext(params.reason, params.active_url);
+          break;
+        }
+        case 8: {
+          const params = viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didUpdateGPUInfo(params.gpu_info);
+          break;
+        }
+        case 9: {
+          const params = viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didUpdateOverlayInfo(params.overlay_info);
+          break;
+        }
+        case 10: {
+          const params = viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didUpdateDXGIInfo(params.dxgi_info);
+          break;
+        }
+        case 11: {
+          const params = viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableGpuCompositing();
+          break;
+        }
+        case 12: {
+          const params = viz.mojom.GpuHost_GetIsolationKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getIsolationKey(params.client_id, params.wgpu_context_token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.storeBlobToDisk(params.cache_handle, params.key, params.blob);
+          break;
+        }
+        case 14: {
+          const params = viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearGrShaderDiskCache();
+          break;
+        }
+        case 15: {
+          const params = viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.ensureWebNNExecutionProvidersReady();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createWebNNWeightsFile();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.GpuHostReceiver = viz.mojom.GpuHostReceiver;
 
 viz.mojom.GpuHostPtr = viz.mojom.GpuHostRemote;
 viz.mojom.GpuHostRequest = viz.mojom.GpuHostPendingReceiver;

@@ -112,6 +112,45 @@ ntp.calendar.mojom.GoogleCalendarPageHandler.getRemote = function() {
   return remote.$;
 };
 
+ntp.calendar.mojom.GoogleCalendarPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEvents();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dismissModule();
+          break;
+        }
+        case 2: {
+          const params = ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restoreModule();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ntp.calendar.mojom.GoogleCalendarPageHandlerReceiver = ntp.calendar.mojom.GoogleCalendarPageHandlerReceiver;
+
 ntp.calendar.mojom.GoogleCalendarPageHandlerPtr = ntp.calendar.mojom.GoogleCalendarPageHandlerRemote;
 ntp.calendar.mojom.GoogleCalendarPageHandlerRequest = ntp.calendar.mojom.GoogleCalendarPageHandlerPendingReceiver;
 

@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.MemoryUsageMonitorLinux = {};
 blink.mojom.MemoryUsageMonitorLinux.$interfaceName = 'blink.mojom.MemoryUsageMonitorLinux';
@@ -73,6 +74,28 @@ blink.mojom.MemoryUsageMonitorLinux.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.MemoryUsageMonitorLinuxReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setProcFiles(params.statm_file, params.status_file);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.MemoryUsageMonitorLinuxReceiver = blink.mojom.MemoryUsageMonitorLinuxReceiver;
 
 blink.mojom.MemoryUsageMonitorLinuxPtr = blink.mojom.MemoryUsageMonitorLinuxRemote;
 blink.mojom.MemoryUsageMonitorLinuxRequest = blink.mojom.MemoryUsageMonitorLinuxPendingReceiver;

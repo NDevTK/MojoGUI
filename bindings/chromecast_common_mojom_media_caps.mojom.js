@@ -87,6 +87,28 @@ chromecast.media.mojom.MediaCaps.getRemote = function() {
   return remote.$;
 };
 
+chromecast.media.mojom.MediaCapsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.media.mojom.MediaCapsReceiver = chromecast.media.mojom.MediaCapsReceiver;
+
 chromecast.media.mojom.MediaCapsPtr = chromecast.media.mojom.MediaCapsRemote;
 chromecast.media.mojom.MediaCapsRequest = chromecast.media.mojom.MediaCapsPendingReceiver;
 
@@ -151,6 +173,28 @@ chromecast.media.mojom.MediaCapsObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.media.mojom.MediaCapsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addSupportedCodecProfileLevel(params.codec_profile_level);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.media.mojom.MediaCapsObserverReceiver = chromecast.media.mojom.MediaCapsObserverReceiver;
 
 chromecast.media.mojom.MediaCapsObserverPtr = chromecast.media.mojom.MediaCapsObserverRemote;
 chromecast.media.mojom.MediaCapsObserverRequest = chromecast.media.mojom.MediaCapsObserverPendingReceiver;

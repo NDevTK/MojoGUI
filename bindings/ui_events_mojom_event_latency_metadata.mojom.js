@@ -7,6 +7,7 @@
 // Module namespace
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
+var mojo_base = mojo_base || {};
 
 ui.mojom.EventLatencyMetadataSpec = { $: {} };
 

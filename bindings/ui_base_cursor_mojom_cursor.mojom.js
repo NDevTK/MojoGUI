@@ -8,8 +8,6 @@
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
 var skia = skia || {};
-var ui = ui || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 ui.mojom.CursorSpec = { $: {} };

@@ -7,10 +7,9 @@
 // Module namespace
 var gpu = gpu || {};
 gpu.mojom = gpu.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
-var ui = ui || {};
-var ui = ui || {};
+var gl = gl || {};
 
 gpu.mojom.SkiaBackendTypeSpec = { $: mojo.internal.Enum() };
 gpu.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum() };

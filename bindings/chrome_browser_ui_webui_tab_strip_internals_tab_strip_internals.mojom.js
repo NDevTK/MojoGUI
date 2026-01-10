@@ -7,8 +7,9 @@
 // Module namespace
 var tab_strip_internals = tab_strip_internals || {};
 tab_strip_internals.mojom = tab_strip_internals.mojom || {};
-var ui = ui || {};
-var components = components || {};
+var tabs = tabs || {};
+var tab_groups = tab_groups || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 tab_strip_internals.mojom.TypeSpec = { $: mojo.internal.Enum() };
@@ -354,6 +355,28 @@ tab_strip_internals.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+tab_strip_internals.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tab_strip_internals.mojom.PageHandlerFactoryReceiver = tab_strip_internals.mojom.PageHandlerFactoryReceiver;
+
 tab_strip_internals.mojom.PageHandlerFactoryPtr = tab_strip_internals.mojom.PageHandlerFactoryRemote;
 tab_strip_internals.mojom.PageHandlerFactoryRequest = tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -424,6 +447,35 @@ tab_strip_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+tab_strip_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTabStripData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+tab_strip_internals.mojom.PageHandlerReceiver = tab_strip_internals.mojom.PageHandlerReceiver;
+
 tab_strip_internals.mojom.PageHandlerPtr = tab_strip_internals.mojom.PageHandlerRemote;
 tab_strip_internals.mojom.PageHandlerRequest = tab_strip_internals.mojom.PageHandlerPendingReceiver;
 
@@ -488,6 +540,28 @@ tab_strip_internals.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+tab_strip_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTabStripUpdated(params.data);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tab_strip_internals.mojom.PageReceiver = tab_strip_internals.mojom.PageReceiver;
 
 tab_strip_internals.mojom.PagePtr = tab_strip_internals.mojom.PageRemote;
 tab_strip_internals.mojom.PageRequest = tab_strip_internals.mojom.PagePendingReceiver;

@@ -128,6 +128,50 @@ ntp.safe_browsing.mojom.SafeBrowsingHandler.getRemote = function() {
   return remote.$;
 };
 
+ntp.safe_browsing.mojom.SafeBrowsingHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.canShowModule();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.processModuleClick();
+          break;
+        }
+        case 2: {
+          const params = ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dismissModule();
+          break;
+        }
+        case 3: {
+          const params = ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restoreModule();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ntp.safe_browsing.mojom.SafeBrowsingHandlerReceiver = ntp.safe_browsing.mojom.SafeBrowsingHandlerReceiver;
+
 ntp.safe_browsing.mojom.SafeBrowsingHandlerPtr = ntp.safe_browsing.mojom.SafeBrowsingHandlerRemote;
 ntp.safe_browsing.mojom.SafeBrowsingHandlerRequest = ntp.safe_browsing.mojom.SafeBrowsingHandlerPendingReceiver;
 

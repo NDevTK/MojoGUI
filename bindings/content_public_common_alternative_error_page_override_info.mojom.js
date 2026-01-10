@@ -7,6 +7,7 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var mojo_base = mojo_base || {};
 
 content.mojom.AlternativeErrorPageOverrideInfoSpec = { $: {} };
 

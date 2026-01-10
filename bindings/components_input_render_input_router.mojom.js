@@ -7,9 +7,8 @@
 // Module namespace
 var input = input || {};
 input.mojom = input.mojom || {};
-var services = services || {};
-var blink = blink || {};
-var blink = blink || {};
+var mojo_base = mojo_base || {};
+var viz = viz || {};
 var blink = blink || {};
 var ui = ui || {};
 
@@ -195,6 +194,53 @@ input.mojom.RenderInputRouterDelegate.getRemote = function() {
   return remote.$;
 };
 
+input.mojom.RenderInputRouterDelegateReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stateOnTouchTransfer(params.state);
+          break;
+        }
+        case 1: {
+          const params = input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forceEnableZoomStateChanged(params.force_enable_zoom, params.frame_sink_id);
+          break;
+        }
+        case 2: {
+          const params = input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopFlingingOnViz(params.frame_sink_id);
+          break;
+        }
+        case 3: {
+          const params = input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restartInputEventAckTimeoutIfNecessary(params.frame_sink_id);
+          break;
+        }
+        case 4: {
+          const params = input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyVisibilityChanged(params.frame_sink_id, params.is_hidden);
+          break;
+        }
+        case 5: {
+          const params = input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetGestureDetection(params.root_widget_frame_sink_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+input.mojom.RenderInputRouterDelegateReceiver = input.mojom.RenderInputRouterDelegateReceiver;
+
 input.mojom.RenderInputRouterDelegatePtr = input.mojom.RenderInputRouterDelegateRemote;
 input.mojom.RenderInputRouterDelegateRequest = input.mojom.RenderInputRouterDelegatePendingReceiver;
 
@@ -326,6 +372,48 @@ input.mojom.RenderInputRouterDelegateClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+input.mojom.RenderInputRouterDelegateClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyObserversOfInputEvent(params.event, params.dispatched_to_renderer);
+          break;
+        }
+        case 1: {
+          const params = input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyObserversOfInputEventAcks(params.ack_source, params.ack_result, params.event);
+          break;
+        }
+        case 2: {
+          const params = input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onInvalidInputEventSource();
+          break;
+        }
+        case 3: {
+          const params = input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stateOnOverscrollTransfer(params.overscroll);
+          break;
+        }
+        case 4: {
+          const params = input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rendererInputResponsivenessChanged(params.is_responsive, params.ack_timeout_ts);
+          break;
+        }
+      }
+    });
+  }
+};
+
+input.mojom.RenderInputRouterDelegateClientReceiver = input.mojom.RenderInputRouterDelegateClientReceiver;
 
 input.mojom.RenderInputRouterDelegateClientPtr = input.mojom.RenderInputRouterDelegateClientRemote;
 input.mojom.RenderInputRouterDelegateClientRequest = input.mojom.RenderInputRouterDelegateClientPendingReceiver;

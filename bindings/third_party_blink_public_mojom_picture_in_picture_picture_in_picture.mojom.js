@@ -7,9 +7,9 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var services = services || {};
-var ui = ui || {};
+var media = media || {};
+var media_session = media_session || {};
+var viz = viz || {};
 var gfx = gfx || {};
 
 blink.mojom.PictureInPictureSessionObserver = {};
@@ -103,6 +103,33 @@ blink.mojom.PictureInPictureSessionObserver.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.PictureInPictureSessionObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWindowSizeChanged(params.size);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStopped();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PictureInPictureSessionObserverReceiver = blink.mojom.PictureInPictureSessionObserverReceiver;
+
 blink.mojom.PictureInPictureSessionObserverPtr = blink.mojom.PictureInPictureSessionObserverRemote;
 blink.mojom.PictureInPictureSessionObserverRequest = blink.mojom.PictureInPictureSessionObserverPendingReceiver;
 
@@ -110,7 +137,7 @@ blink.mojom.PictureInPictureSessionObserverRequest = blink.mojom.PictureInPictur
 // Interface: PictureInPictureSession
 mojo.internal.Struct(
     blink.mojom.PictureInPictureSession_Update_ParamsSpec, 'blink.mojom.PictureInPictureSession_Update_Params', [
-      mojo.internal.StructField('player_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.MediaPlayerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('player_remote', 0, 0, pending_associated_remote<media.mojom.MediaPlayer>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('surface_id', 8, 0, viz.mojom.SurfaceIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('natural_size', 16, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('player_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -208,6 +235,45 @@ blink.mojom.PictureInPictureSession.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.PictureInPictureSessionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PictureInPictureSession_Update_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.update(params.player_id, params.player_remote, params.surface_id, params.natural_size, params.show_play_pause_button);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.PictureInPictureSession_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PictureInPictureSession_Stop_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateMediaPosition(params.media_position);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PictureInPictureSessionReceiver = blink.mojom.PictureInPictureSessionReceiver;
+
 blink.mojom.PictureInPictureSessionPtr = blink.mojom.PictureInPictureSessionRemote;
 blink.mojom.PictureInPictureSessionRequest = blink.mojom.PictureInPictureSessionPendingReceiver;
 
@@ -215,7 +281,7 @@ blink.mojom.PictureInPictureSessionRequest = blink.mojom.PictureInPictureSession
 // Interface: PictureInPictureService
 mojo.internal.Struct(
     blink.mojom.PictureInPictureService_StartSession_ParamsSpec, 'blink.mojom.PictureInPictureService_StartSession_Params', [
-      mojo.internal.StructField('player_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.MediaPlayerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('player_remote', 0, 0, pending_associated_remote<media.mojom.MediaPlayer>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('surface_id', 8, 0, viz.mojom.SurfaceIdSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('natural_size', 16, 0, gfx.mojom.SizeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('observer', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.PictureInPictureSessionObserverRemote), null, false, 0, undefined),
@@ -285,6 +351,35 @@ blink.mojom.PictureInPictureService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.PictureInPictureServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PictureInPictureService_StartSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startSession(params.player_id, params.player_remote, params.surface_id, params.natural_size, params.show_play_pause_button, params.observer, params.source_bounds);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PictureInPictureServiceReceiver = blink.mojom.PictureInPictureServiceReceiver;
 
 blink.mojom.PictureInPictureServicePtr = blink.mojom.PictureInPictureServiceRemote;
 blink.mojom.PictureInPictureServiceRequest = blink.mojom.PictureInPictureServicePendingReceiver;

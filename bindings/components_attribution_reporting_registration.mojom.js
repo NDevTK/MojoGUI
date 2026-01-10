@@ -7,11 +7,8 @@
 // Module namespace
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
-var components = components || {};
-var components = components || {};
-var components = components || {};
-var services = services || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var url = url || {};
 
 attribution_reporting.mojom.SuitableOriginSpec = { $: {} };

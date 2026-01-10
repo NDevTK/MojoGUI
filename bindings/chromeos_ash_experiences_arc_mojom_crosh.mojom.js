@@ -113,6 +113,35 @@ arc.mojom.ArcShellExecutionInstance.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.ArcShellExecutionInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.exec(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ArcShellExecutionInstanceReceiver = arc.mojom.ArcShellExecutionInstanceReceiver;
+
 arc.mojom.ArcShellExecutionInstancePtr = arc.mojom.ArcShellExecutionInstanceRemote;
 arc.mojom.ArcShellExecutionInstanceRequest = arc.mojom.ArcShellExecutionInstancePendingReceiver;
 

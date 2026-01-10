@@ -109,6 +109,38 @@ components.media_control.mojom.MediaPlaybackOptions.getRemote = function() {
   return remote.$;
 };
 
+components.media_control.mojom.MediaPlaybackOptionsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMediaLoadingBlocked(params.blocked);
+          break;
+        }
+        case 1: {
+          const params = components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBackgroundVideoPlaybackEnabled(params.enabled);
+          break;
+        }
+        case 2: {
+          const params = components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRendererType(params.type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+components.media_control.mojom.MediaPlaybackOptionsReceiver = components.media_control.mojom.MediaPlaybackOptionsReceiver;
+
 components.media_control.mojom.MediaPlaybackOptionsPtr = components.media_control.mojom.MediaPlaybackOptionsRemote;
 components.media_control.mojom.MediaPlaybackOptionsRequest = components.media_control.mojom.MediaPlaybackOptionsPendingReceiver;
 

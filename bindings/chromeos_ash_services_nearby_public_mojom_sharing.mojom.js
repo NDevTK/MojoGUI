@@ -7,41 +7,11 @@
 // Module namespace
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
+var nearby = nearby || {};
 var ash = ash || {};
 var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
+var bluetooth = bluetooth || {};
+var sandbox = sandbox || {};
 
 sharing.mojom.WifiLanDependenciesSpec = { $: {} };
 sharing.mojom.WifiDirectDependenciesSpec = { $: {} };
@@ -165,6 +135,40 @@ sharing.mojom.Sharing.getRemote = function() {
     'context');
   return remote.$;
 };
+
+sharing.mojom.SharingReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = sharing.mojom.Sharing_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.deps, params.nearby_connections, params.nearby_presence, params.decoder, params.quick_start_decoder);
+          break;
+        }
+        case 1: {
+          const params = sharing.mojom.Sharing_ShutDown_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shutDown();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, sharing.mojom.Sharing_ShutDown_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+sharing.mojom.SharingReceiver = sharing.mojom.SharingReceiver;
 
 sharing.mojom.SharingPtr = sharing.mojom.SharingRemote;
 sharing.mojom.SharingRequest = sharing.mojom.SharingPendingReceiver;

@@ -112,6 +112,47 @@ blink.mojom.LockScreenService.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.LockScreenServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.LockScreenService_GetKeys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getKeys();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.LockScreenService_SetData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setData(params.key, params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.LockScreenService_SetData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.LockScreenServiceReceiver = blink.mojom.LockScreenServiceReceiver;
+
 blink.mojom.LockScreenServicePtr = blink.mojom.LockScreenServiceRemote;
 blink.mojom.LockScreenServiceRequest = blink.mojom.LockScreenServicePendingReceiver;
 

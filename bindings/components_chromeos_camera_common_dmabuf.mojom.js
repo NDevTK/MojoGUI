@@ -7,6 +7,7 @@
 // Module namespace
 var chromeos_camera = chromeos_camera || {};
 chromeos_camera.mojom = chromeos_camera.mojom || {};
+var media = media || {};
 
 chromeos_camera.mojom.DmaBufPlaneSpec = { $: {} };
 chromeos_camera.mojom.DmaBufVideoFrameSpec = { $: {} };

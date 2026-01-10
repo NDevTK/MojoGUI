@@ -107,6 +107,28 @@ bookmark_bar.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+bookmark_bar.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+bookmark_bar.mojom.PageHandlerFactoryReceiver = bookmark_bar.mojom.PageHandlerFactoryReceiver;
+
 bookmark_bar.mojom.PageHandlerFactoryPtr = bookmark_bar.mojom.PageHandlerFactoryRemote;
 bookmark_bar.mojom.PageHandlerFactoryRequest = bookmark_bar.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -192,6 +214,40 @@ bookmark_bar.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+bookmark_bar.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBookmarkBar();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openInNewTab(params.node_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+bookmark_bar.mojom.PageHandlerReceiver = bookmark_bar.mojom.PageHandlerReceiver;
 
 bookmark_bar.mojom.PageHandlerPtr = bookmark_bar.mojom.PageHandlerRemote;
 bookmark_bar.mojom.PageHandlerRequest = bookmark_bar.mojom.PageHandlerPendingReceiver;
@@ -302,6 +358,43 @@ bookmark_bar.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+bookmark_bar.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bookmarkLoaded();
+          break;
+        }
+        case 1: {
+          const params = bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.favIconChanged(params.bookmark_data);
+          break;
+        }
+        case 2: {
+          const params = bookmark_bar.mojom.Page_Show_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.show();
+          break;
+        }
+        case 3: {
+          const params = bookmark_bar.mojom.Page_Hide_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hide();
+          break;
+        }
+      }
+    });
+  }
+};
+
+bookmark_bar.mojom.PageReceiver = bookmark_bar.mojom.PageReceiver;
 
 bookmark_bar.mojom.PagePtr = bookmark_bar.mojom.PageRemote;
 bookmark_bar.mojom.PageRequest = bookmark_bar.mojom.PagePendingReceiver;

@@ -7,7 +7,6 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var services = services || {};
 
 device.mojom.UsbDeviceManagerClient = {};
 device.mojom.UsbDeviceManagerClient.$interfaceName = 'device.mojom.UsbDeviceManagerClient';
@@ -90,6 +89,33 @@ device.mojom.UsbDeviceManagerClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.UsbDeviceManagerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceAdded(params.device_info);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceRemoved(params.device_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.UsbDeviceManagerClientReceiver = device.mojom.UsbDeviceManagerClientReceiver;
 
 device.mojom.UsbDeviceManagerClientPtr = device.mojom.UsbDeviceManagerClientRemote;
 device.mojom.UsbDeviceManagerClientRequest = device.mojom.UsbDeviceManagerClientPendingReceiver;

@@ -108,6 +108,33 @@ media.mojom.AudioInputStream.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.AudioInputStreamReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioInputStream_Record_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.record();
+          break;
+        }
+        case 1: {
+          const params = media.mojom.AudioInputStream_SetVolume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVolume(params.volume);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioInputStreamReceiver = media.mojom.AudioInputStreamReceiver;
+
 media.mojom.AudioInputStreamPtr = media.mojom.AudioInputStreamRemote;
 media.mojom.AudioInputStreamRequest = media.mojom.AudioInputStreamPendingReceiver;
 
@@ -189,6 +216,33 @@ media.mojom.AudioInputStreamClient.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.AudioInputStreamClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioInputStreamClient_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.code);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMutedStateChanged(params.is_muted);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioInputStreamClientReceiver = media.mojom.AudioInputStreamClientReceiver;
+
 media.mojom.AudioInputStreamClientPtr = media.mojom.AudioInputStreamClientRemote;
 media.mojom.AudioInputStreamClientRequest = media.mojom.AudioInputStreamClientPendingReceiver;
 
@@ -252,6 +306,28 @@ media.mojom.AudioInputStreamObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.AudioInputStreamObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didStartRecording();
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioInputStreamObserverReceiver = media.mojom.AudioInputStreamObserverReceiver;
 
 media.mojom.AudioInputStreamObserverPtr = media.mojom.AudioInputStreamObserverRemote;
 media.mojom.AudioInputStreamObserverRequest = media.mojom.AudioInputStreamObserverPendingReceiver;

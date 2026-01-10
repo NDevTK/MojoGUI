@@ -122,6 +122,40 @@ extensions.mime_handler.MimeHandlerService.getRemote = function() {
   return remote.$;
 };
 
+extensions.mime_handler.MimeHandlerServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getStreamInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPdfPluginAttributes(params.pdf_plugin_attributes);
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions.mime_handler.MimeHandlerServiceReceiver = extensions.mime_handler.MimeHandlerServiceReceiver;
+
 extensions.mime_handler.MimeHandlerServicePtr = extensions.mime_handler.MimeHandlerServiceRemote;
 extensions.mime_handler.MimeHandlerServiceRequest = extensions.mime_handler.MimeHandlerServicePendingReceiver;
 
@@ -191,6 +225,35 @@ extensions.mime_handler.BeforeUnloadControl.getRemote = function() {
     'context');
   return remote.$;
 };
+
+extensions.mime_handler.BeforeUnloadControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setShowBeforeUnloadDialog(params.show_dialog);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions.mime_handler.BeforeUnloadControlReceiver = extensions.mime_handler.BeforeUnloadControlReceiver;
 
 extensions.mime_handler.BeforeUnloadControlPtr = extensions.mime_handler.BeforeUnloadControlRemote;
 extensions.mime_handler.BeforeUnloadControlRequest = extensions.mime_handler.BeforeUnloadControlPendingReceiver;

@@ -7,7 +7,6 @@
 // Module namespace
 var dom_distiller = dom_distiller || {};
 dom_distiller.mojom = dom_distiller.mojom || {};
-var components = components || {};
 
 dom_distiller.mojom.DistillerJavaScriptService = {};
 dom_distiller.mojom.DistillerJavaScriptService.$interfaceName = 'dom_distiller.mojom.DistillerJavaScriptService';
@@ -123,6 +122,43 @@ dom_distiller.mojom.DistillerJavaScriptService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+dom_distiller.mojom.DistillerJavaScriptServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleDistillerOpenSettingsCall();
+          break;
+        }
+        case 1: {
+          const params = dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleStoreThemePref(params.theme);
+          break;
+        }
+        case 2: {
+          const params = dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleStoreFontFamilyPref(params.font_family);
+          break;
+        }
+        case 3: {
+          const params = dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleStoreFontScalingPref(params.font_scale);
+          break;
+        }
+      }
+    });
+  }
+};
+
+dom_distiller.mojom.DistillerJavaScriptServiceReceiver = dom_distiller.mojom.DistillerJavaScriptServiceReceiver;
 
 dom_distiller.mojom.DistillerJavaScriptServicePtr = dom_distiller.mojom.DistillerJavaScriptServiceRemote;
 dom_distiller.mojom.DistillerJavaScriptServiceRequest = dom_distiller.mojom.DistillerJavaScriptServicePendingReceiver;

@@ -7,7 +7,7 @@
 // Module namespace
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 ui.mojom.FontAttributeSpec = { $: {} };

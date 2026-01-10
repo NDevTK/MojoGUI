@@ -161,6 +161,28 @@ certificate_manager.mojom.CertificateManagerPageHandlerFactory.getRemote = funct
   return remote.$;
 };
 
+certificate_manager.mojom.CertificateManagerPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = certificate_manager.mojom.CertificateManagerPageHandlerFactory_CreateCertificateManagerPageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCertificateManagerPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPageHandlerFactoryReceiver = certificate_manager.mojom.CertificateManagerPageHandlerFactoryReceiver;
+
 certificate_manager.mojom.CertificateManagerPageHandlerFactoryPtr = certificate_manager.mojom.CertificateManagerPageHandlerFactoryRemote;
 certificate_manager.mojom.CertificateManagerPageHandlerFactoryRequest = certificate_manager.mojom.CertificateManagerPageHandlerFactoryPendingReceiver;
 
@@ -385,6 +407,103 @@ certificate_manager.mojom.CertificateManagerPageHandler.getRemote = function() {
   return remote.$;
 };
 
+certificate_manager.mojom.CertificateManagerPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCertificates(params.source);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_GetCertificates_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCertManagementMetadata();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_GetCertManagementMetadata_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = certificate_manager.mojom.CertificateManagerPageHandler_ViewCertificate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.viewCertificate(params.source, params.sha256_hash_hex);
+          break;
+        }
+        case 3: {
+          const params = certificate_manager.mojom.CertificateManagerPageHandler_ExportCertificates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.exportCertificates(params.source);
+          break;
+        }
+        case 4: {
+          const params = certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.importCertificate(params.source);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_ImportCertificate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.importAndBindCertificate(params.source);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_ImportAndBindCertificate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteCertificate(params.source, params.display_name, params.sha256_hash_hex);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPageHandler_DeleteCertificate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = certificate_manager.mojom.CertificateManagerPageHandler_ShowNativeManageCertificates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showNativeManageCertificates();
+          break;
+        }
+        case 8: {
+          const params = certificate_manager.mojom.CertificateManagerPageHandler_SetIncludeSystemTrustStore_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIncludeSystemTrustStore(params.include);
+          break;
+        }
+      }
+    });
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPageHandlerReceiver = certificate_manager.mojom.CertificateManagerPageHandlerReceiver;
+
 certificate_manager.mojom.CertificateManagerPageHandlerPtr = certificate_manager.mojom.CertificateManagerPageHandlerRemote;
 certificate_manager.mojom.CertificateManagerPageHandlerRequest = certificate_manager.mojom.CertificateManagerPageHandlerPendingReceiver;
 
@@ -508,6 +627,57 @@ certificate_manager.mojom.CertificateManagerPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+certificate_manager.mojom.CertificateManagerPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.askForImportPassword();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPage_AskForImportPassword_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.askForConfirmation(params.title, params.message);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, certificate_manager.mojom.CertificateManagerPage_AskForConfirmation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = certificate_manager.mojom.CertificateManagerPage_TriggerReload_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.triggerReload(params.sources);
+          break;
+        }
+        case 3: {
+          const params = certificate_manager.mojom.CertificateManagerPage_TriggerMetadataUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.triggerMetadataUpdate();
+          break;
+        }
+      }
+    });
+  }
+};
+
+certificate_manager.mojom.CertificateManagerPageReceiver = certificate_manager.mojom.CertificateManagerPageReceiver;
 
 certificate_manager.mojom.CertificateManagerPagePtr = certificate_manager.mojom.CertificateManagerPageRemote;
 certificate_manager.mojom.CertificateManagerPageRequest = certificate_manager.mojom.CertificateManagerPagePendingReceiver;

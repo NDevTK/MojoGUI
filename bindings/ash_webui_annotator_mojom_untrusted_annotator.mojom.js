@@ -8,7 +8,6 @@
 var ash = ash || {};
 ash.annotator = ash.annotator || {};
 ash.annotator.mojom = ash.annotator.mojom || {};
-var ash = ash || {};
 
 ash.annotator.mojom.UntrustedAnnotatorPage = {};
 ash.annotator.mojom.UntrustedAnnotatorPage.$interfaceName = 'ash.annotator.mojom.UntrustedAnnotatorPage';
@@ -130,6 +129,43 @@ ash.annotator.mojom.UntrustedAnnotatorPage.getRemote = function() {
   return remote.$;
 };
 
+ash.annotator.mojom.UntrustedAnnotatorPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clear();
+          break;
+        }
+        case 1: {
+          const params = ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.undo();
+          break;
+        }
+        case 2: {
+          const params = ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.redo();
+          break;
+        }
+        case 3: {
+          const params = ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTool(params.tool);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.annotator.mojom.UntrustedAnnotatorPageReceiver = ash.annotator.mojom.UntrustedAnnotatorPageReceiver;
+
 ash.annotator.mojom.UntrustedAnnotatorPagePtr = ash.annotator.mojom.UntrustedAnnotatorPageRemote;
 ash.annotator.mojom.UntrustedAnnotatorPageRequest = ash.annotator.mojom.UntrustedAnnotatorPagePendingReceiver;
 
@@ -212,6 +248,33 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onUndoRedoAvailabilityChanged(params.undo_available, params.redo_available);
+          break;
+        }
+        case 1: {
+          const params = ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCanvasInitialized(params.success);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver = ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver;
+
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerPtr = ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote;
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerRequest = ash.annotator.mojom.UntrustedAnnotatorPageHandlerPendingReceiver;
 
@@ -277,6 +340,28 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory.getRemote = function() 
     'context');
   return remote.$;
 };
+
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.create(params.handler, params.annotator);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryReceiver = ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryReceiver;
 
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryPtr = ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemote;
 ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRequest = ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryPendingReceiver;

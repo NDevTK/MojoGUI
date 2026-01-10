@@ -7,8 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var blink = blink || {};
+var device = device || {};
 
 blink.mojom.GeolocationService = {};
 blink.mojom.GeolocationService.$interfaceName = 'blink.mojom.GeolocationService';
@@ -82,6 +81,35 @@ blink.mojom.GeolocationService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.GeolocationServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createGeolocation(params.receiver, params.user_gesture);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.GeolocationServiceReceiver = blink.mojom.GeolocationServiceReceiver;
 
 blink.mojom.GeolocationServicePtr = blink.mojom.GeolocationServiceRemote;
 blink.mojom.GeolocationServiceRequest = blink.mojom.GeolocationServicePendingReceiver;

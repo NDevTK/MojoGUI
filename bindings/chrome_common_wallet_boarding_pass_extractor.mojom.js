@@ -79,6 +79,35 @@ wallet.mojom.BoardingPassExtractor.getRemote = function() {
   return remote.$;
 };
 
+wallet.mojom.BoardingPassExtractorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.extractBoardingPass();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+wallet.mojom.BoardingPassExtractorReceiver = wallet.mojom.BoardingPassExtractorReceiver;
+
 wallet.mojom.BoardingPassExtractorPtr = wallet.mojom.BoardingPassExtractorRemote;
 wallet.mojom.BoardingPassExtractorRequest = wallet.mojom.BoardingPassExtractorPendingReceiver;
 

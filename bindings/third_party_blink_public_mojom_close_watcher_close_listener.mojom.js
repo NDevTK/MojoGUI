@@ -72,6 +72,28 @@ blink.mojom.CloseListener.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.CloseListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.CloseListener_Signal_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.signal();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.CloseListenerReceiver = blink.mojom.CloseListenerReceiver;
+
 blink.mojom.CloseListenerPtr = blink.mojom.CloseListenerRemote;
 blink.mojom.CloseListenerRequest = blink.mojom.CloseListenerPendingReceiver;
 

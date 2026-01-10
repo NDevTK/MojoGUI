@@ -8,7 +8,6 @@
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
 ash.mojom.sample_swa = ash.mojom.sample_swa || {};
-var ash = ash || {};
 
 ash.mojom.sample_swa.UntrustedPageInterfacesFactory = {};
 ash.mojom.sample_swa.UntrustedPageInterfacesFactory.$interfaceName = 'ash.mojom.sample_swa.UntrustedPageInterfacesFactory';
@@ -75,6 +74,28 @@ ash.mojom.sample_swa.UntrustedPageInterfacesFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.mojom.sample_swa.UntrustedPageInterfacesFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createParentPage(params.child_page, params.parent_page);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.mojom.sample_swa.UntrustedPageInterfacesFactoryReceiver = ash.mojom.sample_swa.UntrustedPageInterfacesFactoryReceiver;
 
 ash.mojom.sample_swa.UntrustedPageInterfacesFactoryPtr = ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRemote;
 ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRequest = ash.mojom.sample_swa.UntrustedPageInterfacesFactoryPendingReceiver;

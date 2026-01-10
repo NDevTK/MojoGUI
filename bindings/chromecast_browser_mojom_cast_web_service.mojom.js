@@ -7,6 +7,7 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 chromecast.mojom.BackgroundColorSpec = { $: mojo.internal.Enum() };
@@ -199,6 +200,50 @@ chromecast.mojom.CastWebService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.CastWebServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createWebView(params.params, params.web_contents, params.window);
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerWebUiClient(params.client, params.hosts);
+          break;
+        }
+        case 2: {
+          const params = chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flushDomLocalStorage();
+          break;
+        }
+        case 3: {
+          const params = chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearLocalStorage();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.CastWebServiceReceiver = chromecast.mojom.CastWebServiceReceiver;
 
 chromecast.mojom.CastWebServicePtr = chromecast.mojom.CastWebServiceRemote;
 chromecast.mojom.CastWebServiceRequest = chromecast.mojom.CastWebServicePendingReceiver;

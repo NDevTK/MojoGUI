@@ -81,6 +81,35 @@ ash.ime.mojom.InputChannel.getRemote = function() {
   return remote.$;
 };
 
+ash.ime.mojom.InputChannelReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.processMessage(params.message);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.ime.mojom.InputChannelReceiver = ash.ime.mojom.InputChannelReceiver;
+
 ash.ime.mojom.InputChannelPtr = ash.ime.mojom.InputChannelRemote;
 ash.ime.mojom.InputChannelRequest = ash.ime.mojom.InputChannelPendingReceiver;
 

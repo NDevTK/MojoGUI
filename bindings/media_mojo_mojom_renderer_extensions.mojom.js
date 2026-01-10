@@ -7,9 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 media.mojom.FrameTextureInfoSpec = { $: {} };
@@ -106,6 +104,28 @@ media.mojom.FlingingRendererClientExtension.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.FlingingRendererClientExtensionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRemotePlayStateChange(params.state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.FlingingRendererClientExtensionReceiver = media.mojom.FlingingRendererClientExtensionReceiver;
 
 media.mojom.FlingingRendererClientExtensionPtr = media.mojom.FlingingRendererClientExtensionRemote;
 media.mojom.FlingingRendererClientExtensionRequest = media.mojom.FlingingRendererClientExtensionPendingReceiver;
@@ -216,6 +236,52 @@ media.mojom.MediaFoundationRendererExtension.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.MediaFoundationRendererExtensionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDCOMPSurface();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVideoStreamEnabled(params.enabled);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOutputRect(params.rect);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.MediaFoundationRendererExtensionReceiver = media.mojom.MediaFoundationRendererExtensionReceiver;
+
 media.mojom.MediaFoundationRendererExtensionPtr = media.mojom.MediaFoundationRendererExtensionRemote;
 media.mojom.MediaFoundationRendererExtensionRequest = media.mojom.MediaFoundationRendererExtensionPendingReceiver;
 
@@ -264,6 +330,23 @@ media.mojom.MediaFoundationRendererObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.MediaFoundationRendererObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+media.mojom.MediaFoundationRendererObserverReceiver = media.mojom.MediaFoundationRendererObserverReceiver;
 
 media.mojom.MediaFoundationRendererObserverPtr = media.mojom.MediaFoundationRendererObserverRemote;
 media.mojom.MediaFoundationRendererObserverRequest = media.mojom.MediaFoundationRendererObserverPendingReceiver;
@@ -329,6 +412,28 @@ media.mojom.MediaFoundationRendererNotifier.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.MediaFoundationRendererNotifierReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mediaFoundationRendererCreated(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.MediaFoundationRendererNotifierReceiver = media.mojom.MediaFoundationRendererNotifierReceiver;
 
 media.mojom.MediaFoundationRendererNotifierPtr = media.mojom.MediaFoundationRendererNotifierRemote;
 media.mojom.MediaFoundationRendererNotifierRequest = media.mojom.MediaFoundationRendererNotifierPendingReceiver;

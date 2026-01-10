@@ -7,8 +7,8 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
-var components = components || {};
-var services = services || {};
+var filesystem = filesystem || {};
+var mojo_base = mojo_base || {};
 
 chrome.mojom.ZipListener = {};
 chrome.mojom.ZipListener.$interfaceName = 'chrome.mojom.ZipListener';
@@ -97,6 +97,33 @@ chrome.mojom.ZipListener.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.ZipListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.ZipListener_OnProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProgress(params.bytes, params.files, params.directories);
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.ZipListener_OnFinished_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFinished(params.success);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.ZipListenerReceiver = chrome.mojom.ZipListenerReceiver;
+
 chrome.mojom.ZipListenerPtr = chrome.mojom.ZipListenerRemote;
 chrome.mojom.ZipListenerRequest = chrome.mojom.ZipListenerPendingReceiver;
 
@@ -164,6 +191,28 @@ chrome.mojom.ZipFileCreator.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.ZipFileCreatorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createZipFile(params.src_dir, params.relative_paths, params.zip_file, params.listener);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.ZipFileCreatorReceiver = chrome.mojom.ZipFileCreatorReceiver;
 
 chrome.mojom.ZipFileCreatorPtr = chrome.mojom.ZipFileCreatorRemote;
 chrome.mojom.ZipFileCreatorRequest = chrome.mojom.ZipFileCreatorPendingReceiver;

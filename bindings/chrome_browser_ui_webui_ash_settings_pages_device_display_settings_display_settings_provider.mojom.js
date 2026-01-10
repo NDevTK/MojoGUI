@@ -152,6 +152,28 @@ ash.settings.mojom.TabletModeObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.mojom.TabletModeObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTabletModeChanged(params.is_tablet_mode);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.TabletModeObserverReceiver = ash.settings.mojom.TabletModeObserverReceiver;
+
 ash.settings.mojom.TabletModeObserverPtr = ash.settings.mojom.TabletModeObserverRemote;
 ash.settings.mojom.TabletModeObserverRequest = ash.settings.mojom.TabletModeObserverPendingReceiver;
 
@@ -215,6 +237,28 @@ ash.settings.mojom.DisplayConfigurationObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.mojom.DisplayConfigurationObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDisplayConfigurationChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.DisplayConfigurationObserverReceiver = ash.settings.mojom.DisplayConfigurationObserverReceiver;
 
 ash.settings.mojom.DisplayConfigurationObserverPtr = ash.settings.mojom.DisplayConfigurationObserverRemote;
 ash.settings.mojom.DisplayConfigurationObserverRequest = ash.settings.mojom.DisplayConfigurationObserverPendingReceiver;
@@ -282,6 +326,28 @@ ash.settings.mojom.DisplayBrightnessSettingsObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.mojom.DisplayBrightnessSettingsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDisplayBrightnessChanged(params.brightness_percent, params.triggered_by_als);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.DisplayBrightnessSettingsObserverReceiver = ash.settings.mojom.DisplayBrightnessSettingsObserverReceiver;
+
 ash.settings.mojom.DisplayBrightnessSettingsObserverPtr = ash.settings.mojom.DisplayBrightnessSettingsObserverRemote;
 ash.settings.mojom.DisplayBrightnessSettingsObserverRequest = ash.settings.mojom.DisplayBrightnessSettingsObserverPendingReceiver;
 
@@ -346,6 +412,28 @@ ash.settings.mojom.AmbientLightSensorObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.mojom.AmbientLightSensorObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAmbientLightSensorEnabledChanged(params.is_ambient_light_sensor_enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.AmbientLightSensorObserverReceiver = ash.settings.mojom.AmbientLightSensorObserverReceiver;
 
 ash.settings.mojom.AmbientLightSensorObserverPtr = ash.settings.mojom.AmbientLightSensorObserverRemote;
 ash.settings.mojom.AmbientLightSensorObserverRequest = ash.settings.mojom.AmbientLightSensorObserverPendingReceiver;
@@ -578,6 +666,101 @@ ash.settings.mojom.DisplaySettingsProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.mojom.DisplaySettingsProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeTabletMode(params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeDisplayConfiguration(params.observer);
+          break;
+        }
+        case 2: {
+          const params = ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeDisplayBrightnessSettings(params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeAmbientLightSensor(params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordChangingDisplaySettings(params.type, params.value);
+          break;
+        }
+        case 5: {
+          const params = ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setShinyPerformance(params.enabled);
+          break;
+        }
+        case 6: {
+          const params = ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setInternalDisplayScreenBrightness(params.percent);
+          break;
+        }
+        case 7: {
+          const params = ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setInternalDisplayAmbientLightSensorEnabled(params.enabled);
+          break;
+        }
+        case 8: {
+          const params = ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startNativeTouchscreenMappingExperience();
+          break;
+        }
+        case 9: {
+          const params = ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasAmbientLightSensor();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.DisplaySettingsProviderReceiver = ash.settings.mojom.DisplaySettingsProviderReceiver;
 
 ash.settings.mojom.DisplaySettingsProviderPtr = ash.settings.mojom.DisplaySettingsProviderRemote;
 ash.settings.mojom.DisplaySettingsProviderRequest = ash.settings.mojom.DisplaySettingsProviderPendingReceiver;

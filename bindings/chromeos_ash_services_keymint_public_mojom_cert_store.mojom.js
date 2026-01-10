@@ -8,9 +8,6 @@
 var arc = arc || {};
 arc.keymint = arc.keymint || {};
 arc.keymint.mojom = arc.keymint.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
 
 arc.keymint.mojom.KeyDataSpec = { $: {} };
 arc.keymint.mojom.ChapsKeyDataSpec = { $: {} };
@@ -130,6 +127,40 @@ arc.keymint.mojom.CertStoreInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.keymint.mojom.CertStoreInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updatePlaceholderKeys(params.keys);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.keymint.mojom.CertStoreInstance_SetSerialNumber_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSerialNumber(params.serial_number);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.keymint.mojom.CertStoreInstanceReceiver = arc.keymint.mojom.CertStoreInstanceReceiver;
 
 arc.keymint.mojom.CertStoreInstancePtr = arc.keymint.mojom.CertStoreInstanceRemote;
 arc.keymint.mojom.CertStoreInstanceRequest = arc.keymint.mojom.CertStoreInstancePendingReceiver;

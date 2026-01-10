@@ -7,6 +7,7 @@
 // Module namespace
 var drivefs = drivefs || {};
 drivefs.mojom = drivefs.mojom || {};
+var mojo_base = mojo_base || {};
 
 drivefs.mojom.FakeDriveFsLauncher = {};
 drivefs.mojom.FakeDriveFsLauncher.$interfaceName = 'drivefs.mojom.FakeDriveFsLauncher';
@@ -74,6 +75,28 @@ drivefs.mojom.FakeDriveFsLauncher.getRemote = function() {
     'context');
   return remote.$;
 };
+
+drivefs.mojom.FakeDriveFsLauncherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launchDriveFs(params.datadir_path, params.mount_path, params.mojo_socket_handle);
+          break;
+        }
+      }
+    });
+  }
+};
+
+drivefs.mojom.FakeDriveFsLauncherReceiver = drivefs.mojom.FakeDriveFsLauncherReceiver;
 
 drivefs.mojom.FakeDriveFsLauncherPtr = drivefs.mojom.FakeDriveFsLauncherRemote;
 drivefs.mojom.FakeDriveFsLauncherRequest = drivefs.mojom.FakeDriveFsLauncherPendingReceiver;

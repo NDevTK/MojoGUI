@@ -78,6 +78,28 @@ ash.common.mojom.ForceHiddenElementsVisibleObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.common.mojom.ForceHiddenElementsVisibleObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onForceHiddenElementsVisibleChange(params.forceVisible);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.common.mojom.ForceHiddenElementsVisibleObserverReceiver = ash.common.mojom.ForceHiddenElementsVisibleObserverReceiver;
+
 ash.common.mojom.ForceHiddenElementsVisibleObserverPtr = ash.common.mojom.ForceHiddenElementsVisibleObserverRemote;
 ash.common.mojom.ForceHiddenElementsVisibleObserverRequest = ash.common.mojom.ForceHiddenElementsVisibleObserverPendingReceiver;
 
@@ -148,6 +170,35 @@ ash.common.mojom.AccessibilityFeatures.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.common.mojom.AccessibilityFeaturesReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeForceHiddenElementsVisible(params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.common.mojom.AccessibilityFeaturesReceiver = ash.common.mojom.AccessibilityFeaturesReceiver;
 
 ash.common.mojom.AccessibilityFeaturesPtr = ash.common.mojom.AccessibilityFeaturesRemote;
 ash.common.mojom.AccessibilityFeaturesRequest = ash.common.mojom.AccessibilityFeaturesPendingReceiver;

@@ -7,7 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
 
 network.mojom.P2PTrustedSocketManagerClient = {};
 network.mojom.P2PTrustedSocketManagerClient.$interfaceName = 'network.mojom.P2PTrustedSocketManagerClient';
@@ -97,6 +96,33 @@ network.mojom.P2PTrustedSocketManagerClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.P2PTrustedSocketManagerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.invalidSocketPortRangeRequested();
+          break;
+        }
+        case 1: {
+          const params = network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dumpPacket(params.packet_header, params.packet_length, params.incoming);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.P2PTrustedSocketManagerClientReceiver = network.mojom.P2PTrustedSocketManagerClientReceiver;
 
 network.mojom.P2PTrustedSocketManagerClientPtr = network.mojom.P2PTrustedSocketManagerClientRemote;
 network.mojom.P2PTrustedSocketManagerClientRequest = network.mojom.P2PTrustedSocketManagerClientPendingReceiver;
@@ -210,6 +236,43 @@ network.mojom.P2PTrustedSocketManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.P2PTrustedSocketManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startRtpDump(params.incoming, params.outgoing);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopRtpDump(params.incoming, params.outgoing);
+          break;
+        }
+        case 2: {
+          const params = network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pauseNetworkChangeNotifications();
+          break;
+        }
+        case 3: {
+          const params = network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resumeNetworkChangeNotifications();
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.P2PTrustedSocketManagerReceiver = network.mojom.P2PTrustedSocketManagerReceiver;
 
 network.mojom.P2PTrustedSocketManagerPtr = network.mojom.P2PTrustedSocketManagerRemote;
 network.mojom.P2PTrustedSocketManagerRequest = network.mojom.P2PTrustedSocketManagerPendingReceiver;

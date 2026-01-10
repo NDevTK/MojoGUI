@@ -123,6 +123,45 @@ ash.mojom.scanner_feedback_ui.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.mojom.scanner_feedback_ui.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFeedbackInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeDialog();
+          break;
+        }
+        case 2: {
+          const params = ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendFeedback(params.user_description);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.mojom.scanner_feedback_ui.PageHandlerReceiver = ash.mojom.scanner_feedback_ui.PageHandlerReceiver;
+
 ash.mojom.scanner_feedback_ui.PageHandlerPtr = ash.mojom.scanner_feedback_ui.PageHandlerRemote;
 ash.mojom.scanner_feedback_ui.PageHandlerRequest = ash.mojom.scanner_feedback_ui.PageHandlerPendingReceiver;
 

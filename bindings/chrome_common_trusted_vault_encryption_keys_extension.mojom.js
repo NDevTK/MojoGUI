@@ -114,6 +114,47 @@ chrome.mojom.TrustedVaultEncryptionKeysExtension.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.TrustedVaultEncryptionKeysExtensionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setEncryptionKeys(params.gaia_id, params.encryption_keys);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addTrustedRecoveryMethod(params.gaia_id, params.public_key, params.method_type_hint);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.TrustedVaultEncryptionKeysExtensionReceiver = chrome.mojom.TrustedVaultEncryptionKeysExtensionReceiver;
+
 chrome.mojom.TrustedVaultEncryptionKeysExtensionPtr = chrome.mojom.TrustedVaultEncryptionKeysExtensionRemote;
 chrome.mojom.TrustedVaultEncryptionKeysExtensionRequest = chrome.mojom.TrustedVaultEncryptionKeysExtensionPendingReceiver;
 
