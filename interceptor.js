@@ -167,8 +167,14 @@
                 }
             }
 
-            // Fallback: Try global[name] or simple namespaces
-            return global[name];
+            // Fallback: Try traversing dotted path in global scope
+            const fallbackParts = name.split('.');
+            let current = global;
+            for (const part of fallbackParts) {
+                if (!current) break;
+                current = current[part];
+            }
+            return current;
         }
     }
 
@@ -181,7 +187,11 @@
 
             // Initialize the real remote using provided components
             if (comps && comps.Remote) {
-                this.realRemote = new comps.Remote(realHandle);
+                try {
+                    this.realRemote = new comps.Remote(realHandle);
+                } catch (e) {
+                    console.error(`[MojoProxy] Error instantiating Remote for ${interfaceName}:`, e);
+                }
             } else {
                 // Fallback: try finding it again
                 const resolved = MojoProxy.getInterfaceComponents(interfaceName);

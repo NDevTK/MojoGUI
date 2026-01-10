@@ -346,23 +346,55 @@ jobs:
               return 'mojo.internal.Pointer'
 
 
-          def generate_js_binding(parsed, global_kind_map={}):
+          def generate_js_binding(parsed, global_kind_map={}, file_to_module={}):
               """Generate JavaScript binding code that works with the Mojo runtime."""
               if not parsed or not parsed.get('module'):
                   return None
               
               module = parsed['module']
-              module_parts = module.split('.')
+              current_ns = module # Used for local references
               
               # Build set of valid types for this module
               valid_types = set()
               for s in parsed.get('structs', []): valid_types.add(s['name'])
               for e in parsed.get('enums', []): valid_types.add(e['name'])
+              for i in parsed.get('interfaces', []): valid_types.add(i['name'])
               
-              # Map imports to their module namespaces (naive mapping)
-              # Standard Mojo mapping: "foo/bar/baz.mojom" -> "baz.mojom" -> "baz.mojom.Type"
-              # We need to be smarter. For now, assume if it looks like a Type, it might be one.
-              
+              imports = parsed.get('imports', [])
+
+              def find_type_module(name):
+                  # 1. Local?
+                  if name in valid_types:
+                      return current_ns
+                  
+                  # 2. Global FQN match?
+                  if name in global_kind_map or f"{name}.{module}" in global_kind_map: 
+                      # This logic is weak for FQNs, simplified below
+                      pass
+
+                  # 3. Check imports
+                  # Iterate imports to find one that exports this type
+                  for imp in imports:
+                      # Try to resolve import path to module
+                      # file_to_module keys should match import strings if paths are consistent
+                      imp_mod = file_to_module.get(imp)
+                      if not imp_mod:
+                          # Try normalizing or guessing? 
+                          # If import is "foo/bar.mojom", and we have "chromium_src/foo/bar.mojom"
+                          # file_to_module keys might be different. 
+                          # Check suffix?
+                          for k, v in file_to_module.items():
+                             if k.endswith(imp):
+                                 imp_mod = v
+                                 break
+                      
+                      if imp_mod:
+                          fqn = f"{imp_mod}.{name}"
+                          if fqn in global_kind_map:
+                              return imp_mod
+                  
+                  return None
+
               def resolve_mojo_type(type_name):
                   # Recursive parsing for complex types (Array/Map)
                   type_name = type_name.strip()
@@ -373,22 +405,16 @@ jobs:
                           is_nullable = True
                           type_name = type_name[:-1].strip()
                       
-                      # Extract inner type
                       inner = type_name[6:-1].strip()
-
-                      # Check for size parameter (comma at depth 0)
-                      depth = 0
-                      comma_idx = -1
+                      # Parsing logic for comma...
+                      depth = 0; comma_idx = -1
                       for i, char in enumerate(inner):
                           if char == '<': depth += 1
                           elif char == '>': depth -= 1
                           elif char == ',' and depth == 0:
-                              comma_idx = i
-                              break
+                              comma_idx = i; break
                       
-                      if comma_idx != -1:
-                          inner = inner[:comma_idx].strip()
-
+                      if comma_idx != -1: inner = inner[:comma_idx].strip()
                       return f"mojo.internal.Array({resolve_mojo_type(inner)}, {'true' if is_nullable else 'false'})"
 
                   if type_name.startswith('map<'):
@@ -396,85 +422,72 @@ jobs:
                       if type_name.endswith('?'):
                           is_nullable = True
                           type_name = type_name[:-1].strip()
-                      
                       content = type_name[4:-1].strip()
-                      # Split by comma respecting nested brackets
-                      depth = 0
-                      comma_idx = -1
+                      depth = 0; comma_idx = -1
                       for i, char in enumerate(content):
                           if char == '<': depth += 1
                           elif char == '>': depth -= 1
                           elif char == ',' and depth == 0:
-                              comma_idx = i
-                              break
+                              comma_idx = i; break
                       
                       if comma_idx != -1:
                           key_type = content[:comma_idx].strip()
                           val_type = content[comma_idx+1:].strip()
                           return f"mojo.internal.Map({resolve_mojo_type(key_type)}, {resolve_mojo_type(val_type)}, {'true' if is_nullable else 'false'})"
-                      # Fallback if parsing fails
                       return 'mojo.internal.Map'
 
                   # Basic types
                   if type_name in TYPE_MAPPING:
                        return TYPE_MAPPING[type_name]
                   
-                  # Recursive handling for pending types
+                  # Pending Types
                   if type_name.startswith('pending_remote<'):
                       inner = type_name[15:-1].strip()
-                      # Return InterfaceProxy(...) directly but tell recursive call not to wrap
                       return f"mojo.internal.InterfaceProxy({resolve_mojo_type_raw(inner)})"
-                  
                   if type_name.startswith('pending_receiver<'):
                       inner = type_name[17:-1].strip()
                       return f"mojo.internal.InterfaceRequest({resolve_mojo_type_raw(inner)})"
                   
-                  if type_name.startswith('pending_associated_remote<'):
-                      inner = type_name[26:-1].strip()
-                      return f"mojo.internal.AssociatedInterfaceProxy({resolve_mojo_type_raw(inner)})"
- 
-                  if type_name.startswith('pending_associated_receiver<'):
-                      inner = type_name[28:-1].strip()
-                      return f"mojo.internal.AssociatedInterfaceRequest({resolve_mojo_type_raw(inner)})"
-
-                  # Check local types
+                  # Check local types or imports
                   clean_name = type_name.replace('?', '').strip()
                   
-                  # Determine fully qualified name to check kind
-                  fq_name = f"{module}.{clean_name}"
-                  kind = global_kind_map.get(fq_name) or global_kind_map.get(clean_name)
-                  
-                  suffix = 'Spec'
-                  is_iface = False
-                  if kind == 'interface':
-                      suffix = 'Remote'
-                      is_iface = True
-                  
-                  res_type = ""
-                  if clean_name in valid_types:
-                      res_type = f"{current_ns}.{clean_name}{suffix}"
-                      if not is_iface: res_type += '.$'
-                  elif '.' in clean_name:
+                  # Explicit FQN?
+                  if '.' in clean_name and not clean_name.startswith('mojo.'):
+                      # Validate FQN module
                       parts = clean_name.split('.')
-                      ext_iface = parts[-1]
-                      ext_prefix = '.'.join(parts[:-1])
+                      iface_name = parts[-1]
+                      mod_prefix = '.'.join(parts[:-1])
                       
                       kind = global_kind_map.get(clean_name)
                       suffix = 'Spec'
+                      if kind == 'interface': suffix = 'Remote' # Use Remote as the type reference usually
+                      
+                      res_type = f"{mod_prefix}.{iface_name}{suffix}"
+                      if kind != 'interface': res_type += '.$'
+                      
+                      if kind == 'interface': return f"mojo.internal.InterfaceProxy({res_type})"
+                      return res_type
+
+                  # Unqualified name - Find Module
+                  target_mod = find_type_module(clean_name)
+                  if target_mod:
+                      fqn = f"{target_mod}.{clean_name}"
+                      kind = global_kind_map.get(fqn)
+                      
+                      suffix = 'Spec'
                       if kind == 'interface': suffix = 'Remote'
                       
-                      res_type = f"{ext_prefix}.{ext_iface}{suffix}"
+                      res_type = f"{target_mod}.{clean_name}{suffix}"
                       if kind != 'interface': res_type += '.$'
-                  elif clean_name and clean_name[0].isupper() and clean_name not in TYPE_MAPPING:
-                      # Heuristic: Uppercase unqualified
-                      res_type = f"{current_ns}.{clean_name}{suffix}"
-                      if not is_iface: res_type += '.$'
-                  
-                  if res_type:
-                      if is_iface:
-                          return f"mojo.internal.InterfaceProxy({res_type})"
+                      
+                      if kind == 'interface': return f"mojo.internal.InterfaceProxy({res_type})"
                       return res_type
                   
+                  # Fallback heuristic
+                  if clean_name and clean_name[0].isupper():
+                      # Default to current namespace if unknown
+                      return f"{current_ns}.{clean_name}Spec.$"
+
                   return 'mojo.internal.Pointer'
 
               def resolve_mojo_type_raw(type_name):
@@ -743,21 +756,36 @@ jobs:
                   js_code += f"{current_ns}.{part} = {current_ns}.{part} || {{}};\n"
                   current_ns += f".{part}"
               
-              # Declare external namespaces from imports (heuristic)
-              # e.g., import "third_party/blink/..." -> var blink = blink || {};
+              # Declare external namespaces from imports (dynamic)
+              declared_roots = set()
+              # Add current module root to avoid redeclaration or logic error
+              declared_roots.add(module_parts[0])
+              
               for imp in parsed.get('imports', []):
-                  parts = imp.split('/')
-                  # Common roots: blink, ui, gfx, skia, url
-                  if 'blink' in parts: js_code += "var blink = blink || {};\n"
-                  if 'ui' in parts: js_code += "var ui = ui || {};\n"
-                  if 'gfx' in parts: js_code += "var gfx = gfx || {};\n"
-                  if 'skia' in parts: js_code += "var skia = skia || {};\n"
-                  if 'url' in parts: js_code += "var url = url || {};\n"
-                  if 'content' in parts: js_code += "var content = content || {};\n"
-                  if 'ash' in parts: js_code += "var ash = ash || {};\n"
-                  if 'chromeos' in parts: js_code += "var chromeos = chromeos || {};\n"
-                  if 'components' in parts: js_code += "var components = components || {};\n"
-                  if 'services' in parts: js_code += "var services = services || {};\n"
+                  mod = None
+                  # Try exact path match
+                  if imp in file_to_module:
+                      mod = file_to_module[imp]
+                  else:
+                      # Try suffix match
+                      for k, v in file_to_module.items():
+                          if k.endswith(imp):
+                              mod = v
+                              break
+                  
+                  if mod:
+                      root = mod.split('.')[0]
+                      if root not in declared_roots:
+                          js_code += f"var {root} = {root} || {{}};\n"
+                          declared_roots.add(root)
+                  else:
+                       # Fallback heuristic for standard libraries if not in file list
+                       parts = imp.split('/')
+                       roots = ['blink', 'ui', 'gfx', 'skia', 'url', 'content', 'ash', 'chromeos', 'components', 'services', 'network', 'media', 'webview']
+                       for r in roots:
+                           if r in parts and r not in declared_roots:
+                               js_code += f"var {r} = {r} || {{}};\n"
+                               declared_roots.add(r)
               
               js_code += "\n"
               
@@ -948,6 +976,59 @@ jobs:
                   js_code += "  return remote.$;\n"
                   js_code += "};\n\n"
                   
+                  # Generate Receiver class
+                  js_code += f"{full_name}Receiver = class {{\n"
+                  js_code += "  constructor(impl) {\n"
+                  js_code += "    this.impl = impl;\n"
+                  js_code += "    this.endpoint = null;\n"
+                  js_code += "  }\n"
+                  js_code += "  bind(handle) {\n"
+                  js_code += "    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);\n"
+                  js_code += "    this.endpoint.start((message) => {\n"
+                  js_code += "      const header = message.header;\n"
+                  js_code += "      switch (header.ordinal) {\n"
+                  
+                  for idx, method in enumerate(interface.get('methods', [])):
+                      ordinal = method.get('ordinal')
+                      if ordinal is None: ordinal = idx
+                      
+                      method_name = method['name']
+                      method_name_camel = to_camel_case(method_name)
+                      
+                      js_code += f"        case {ordinal}: {{\n"
+                      
+                      # Decode params
+                      param_struct_name = f"{iface_name}_{method_name}_Params"
+                      js_code += f"          const params = {current_ns}.{param_struct_name}Spec.$.decode(message.payload);\n"
+                      
+                      # Call implementation
+                      param_names = [p['name'] for p in method.get('params', []) if p and p.get('name')]
+                      args_js = ", ".join([f"params.{name}" for name in param_names])
+                      
+                      js_code += f"          const result = this.impl.{method_name_camel}({args_js});\n"
+                      
+                      # Handle response
+                      if not method.get('is_one_way'):
+                          resp_struct_name = f"{iface_name}_{method_name}_ResponseParams"
+                          js_code += f"          if (header.expectsResponse) {{\n"
+                          js_code += f"            Promise.resolve(result).then(response => {{\n"
+                          js_code += f"              const responder = mojo.internal.interfaceSupport.createResponder(\n"
+                          js_code += f"                this.endpoint, header.requestId, {current_ns}.{resp_struct_name}Spec);\n"
+                          js_code += "               responder(response);\n"
+                          js_code += "            }});\n"
+                          js_code += "          }\n"
+                          
+                      js_code += "          break;\n"
+                      js_code += "        }\n"
+                  
+                  js_code += "      }\n" # End switch
+                  js_code += "    });\n" # End start
+                  js_code += "  }\n"
+                  js_code += "};\n\n"
+                  
+                  # Legacy/Lite Alias
+                  js_code += f"{current_ns}.{iface_name}Receiver = {full_name}Receiver;\n\n"
+                  
                   # Legacy compatibility
                   js_code += f"{full_name}Ptr = {full_name}Remote;\n"
                   js_code += f"{full_name}Request = {full_name}PendingReceiver;\n\n"
@@ -975,6 +1056,7 @@ jobs:
               # Pass 1: Parse all files and build Global Type Map
               all_parsed = []
               global_kind_map = {}
+              file_to_module = {} # Map file path -> module name
               
               for mojom_path in files:
                   if not os.path.isfile(mojom_path):
@@ -983,6 +1065,13 @@ jobs:
                   parsed = parse_mojom_file(mojom_path)
                   if parsed:
                       all_parsed.append({'path': mojom_path, 'data': parsed})
+                      
+                      # Map file to module for import resolution
+                      if parsed.get('module'):
+                          real_path = str(Path(mojom_path)) # normalize
+                          file_to_module[real_path] = parsed['module']
+                          # Also map the raw path as found in list
+                          file_to_module[mojom_path] = parsed['module']
                       
                       # Populate Global Map
                       mod_prefix = f"{parsed['module']}." if parsed.get('module') else ""
@@ -1003,7 +1092,7 @@ jobs:
                       out_filename = rel_path.replace('/', '_').replace('.mojom', '.mojom.js')
                       out_path = bindings_dir / out_filename
                       
-                      js_code = generate_js_binding(parsed, global_kind_map)
+                      js_code = generate_js_binding(parsed, global_kind_map, file_to_module)
                       if js_code:
                           with open(out_path, 'w') as f:
                               f.write(js_code)
