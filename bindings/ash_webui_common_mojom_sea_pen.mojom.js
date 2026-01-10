@@ -241,32 +241,55 @@ ash.personalization_app.mojom.SeaPenObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnSelectedSeaPenImageChanged
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSelectedSeaPenImageChanged (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnTextQueryHistoryChanged
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTextQueryHistoryChanged (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSelectedSeaPenImageChanged');
           const result = this.impl.onSelectedSeaPenImageChanged(params.id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTextQueryHistoryChanged');
           const result = this.impl.onTextQueryHistoryChanged(params.entries);
           break;
@@ -636,32 +659,163 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SetSeaPenObserver
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSeaPenObserver (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetSeaPenThumbnails
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSeaPenThumbnails (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SelectSeaPenThumbnail
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectSeaPenThumbnail (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GetRecentSeaPenImageIds
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRecentSeaPenImageIds (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: SelectRecentSeaPenImage
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SelectRecentSeaPenImage (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: GetRecentSeaPenImageThumbnail
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRecentSeaPenImageThumbnail (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: DeleteRecentSeaPenImage
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteRecentSeaPenImage (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: OpenFeedbackDialog
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFeedbackDialog (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: ShouldShowSeaPenIntroductionDialog
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowSeaPenIntroductionDialog (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: HandleSeaPenIntroductionDialogClosed
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleSeaPenIntroductionDialogClosed (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: ShouldShowSeaPenFreeformIntroductionDialog
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldShowSeaPenFreeformIntroductionDialog (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: HandleSeaPenFreeformIntroductionDialogClosed
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleSeaPenFreeformIntroductionDialogClosed (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: IsInTabletMode
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsInTabletMode (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: MakeTransparent
+        try {
+             decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeTransparent (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSeaPenObserver');
           const result = this.impl.setSeaPenObserver(params.observer);
           break;
         }
-        case 1: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSeaPenThumbnails');
           const result = this.impl.getSeaPenThumbnails(params.query);
           if (header.expectsResponse) {
@@ -672,9 +826,9 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.selectSeaPenThumbnail');
           const result = this.impl.selectSeaPenThumbnail(params.id, params.preview_mode);
           if (header.expectsResponse) {
@@ -685,9 +839,9 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getRecentSeaPenImageIds');
           const result = this.impl.getRecentSeaPenImageIds();
           if (header.expectsResponse) {
@@ -698,9 +852,9 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.selectRecentSeaPenImage');
           const result = this.impl.selectRecentSeaPenImage(params.id, params.preview_mode);
           if (header.expectsResponse) {
@@ -711,9 +865,9 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getRecentSeaPenImageThumbnail');
           const result = this.impl.getRecentSeaPenImageThumbnail(params.id);
           if (header.expectsResponse) {
@@ -724,9 +878,9 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteRecentSeaPenImage');
           const result = this.impl.deleteRecentSeaPenImage(params.id);
           if (header.expectsResponse) {
@@ -737,16 +891,16 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
           const result = this.impl.openFeedbackDialog(params.metadata);
           break;
         }
-        case 8: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.shouldShowSeaPenIntroductionDialog');
           const result = this.impl.shouldShowSeaPenIntroductionDialog();
           if (header.expectsResponse) {
@@ -757,16 +911,16 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.handleSeaPenIntroductionDialogClosed');
           const result = this.impl.handleSeaPenIntroductionDialogClosed();
           break;
         }
-        case 10: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.shouldShowSeaPenFreeformIntroductionDialog');
           const result = this.impl.shouldShowSeaPenFreeformIntroductionDialog();
           if (header.expectsResponse) {
@@ -777,16 +931,16 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.handleSeaPenFreeformIntroductionDialogClosed');
           const result = this.impl.handleSeaPenFreeformIntroductionDialogClosed();
           break;
         }
-        case 12: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isInTabletMode');
           const result = this.impl.isInTabletMode();
           if (header.expectsResponse) {
@@ -799,7 +953,7 @@ ash.personalization_app.mojom.SeaPenProviderReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.makeTransparent');
           const result = this.impl.makeTransparent();
           break;

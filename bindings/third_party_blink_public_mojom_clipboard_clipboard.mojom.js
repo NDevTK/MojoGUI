@@ -172,25 +172,39 @@ blink.mojom.ClipboardListenerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnClipboardDataChanged
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClipboardDataChanged (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onClipboardDataChanged');
           const result = this.impl.onClipboardDataChanged(params.types, params.change_id);
           break;
@@ -762,25 +776,246 @@ blink.mojom.ClipboardHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetSequenceNumber
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSequenceNumber (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: IsFormatAvailable
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsFormatAvailable (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ReadAvailableTypes
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadAvailableTypes (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ReadText
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_ReadText_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadText (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: ReadHtml
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_ReadHtml_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadHtml (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: ReadSvg
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_ReadSvg_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadSvg (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: ReadRtf
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_ReadRtf_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadRtf (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: ReadPng
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_ReadPng_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadPng (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: ReadFiles
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_ReadFiles_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadFiles (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: ReadDataTransferCustomData
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadDataTransferCustomData (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: ReadAvailableCustomAndStandardFormats
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadAvailableCustomAndStandardFormats (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: ReadUnsanitizedCustomFormat
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadUnsanitizedCustomFormat (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: WriteText
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_WriteText_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteText (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: WriteHtml
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_WriteHtml_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteHtml (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: WriteSvg
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_WriteSvg_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteSvg (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: WriteSmartPasteMarker
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteSmartPasteMarker (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: WriteDataTransferCustomData
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteDataTransferCustomData (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 17: WriteBookmark
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteBookmark (17)');
+             this.mapOrdinal(header.ordinal, 17);
+             dispatchId = 17;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 18: WriteImage
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_WriteImage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteImage (18)');
+             this.mapOrdinal(header.ordinal, 18);
+             dispatchId = 18;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 19: WriteUnsanitizedCustomFormat
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteUnsanitizedCustomFormat (19)');
+             this.mapOrdinal(header.ordinal, 19);
+             dispatchId = 19;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 20: CommitWrite
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_CommitWrite_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitWrite (20)');
+             this.mapOrdinal(header.ordinal, 20);
+             dispatchId = 20;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 21: WriteStringToFindPboard
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteStringToFindPboard (21)');
+             this.mapOrdinal(header.ordinal, 21);
+             dispatchId = 21;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 22: GetPlatformPermissionState
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPlatformPermissionState (22)');
+             this.mapOrdinal(header.ordinal, 22);
+             dispatchId = 22;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 23: RegisterClipboardListener
+        try {
+             decoder.decodeStruct(blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RegisterClipboardListener (23)');
+             this.mapOrdinal(header.ordinal, 23);
+             dispatchId = 23;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSequenceNumber');
           const result = this.impl.getSequenceNumber(params.buffer);
           if (header.expectsResponse) {
@@ -791,9 +1026,9 @@ blink.mojom.ClipboardHostReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isFormatAvailable');
           const result = this.impl.isFormatAvailable(params.format, params.buffer);
           if (header.expectsResponse) {
@@ -804,9 +1039,9 @@ blink.mojom.ClipboardHostReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readAvailableTypes');
           const result = this.impl.readAvailableTypes(params.buffer);
           if (header.expectsResponse) {
@@ -817,9 +1052,9 @@ blink.mojom.ClipboardHostReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadText_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadText_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readText');
           const result = this.impl.readText(params.buffer);
           if (header.expectsResponse) {
@@ -830,9 +1065,9 @@ blink.mojom.ClipboardHostReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadHtml_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadHtml_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readHtml');
           const result = this.impl.readHtml(params.buffer);
           if (header.expectsResponse) {
@@ -843,9 +1078,9 @@ blink.mojom.ClipboardHostReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadSvg_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadSvg_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readSvg');
           const result = this.impl.readSvg(params.buffer);
           if (header.expectsResponse) {
@@ -856,9 +1091,9 @@ blink.mojom.ClipboardHostReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadRtf_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadRtf_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readRtf');
           const result = this.impl.readRtf(params.buffer);
           if (header.expectsResponse) {
@@ -869,9 +1104,9 @@ blink.mojom.ClipboardHostReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadPng_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadPng_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readPng');
           const result = this.impl.readPng(params.buffer);
           if (header.expectsResponse) {
@@ -882,9 +1117,9 @@ blink.mojom.ClipboardHostReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadFiles_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadFiles_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readFiles');
           const result = this.impl.readFiles(params.buffer);
           if (header.expectsResponse) {
@@ -895,9 +1130,9 @@ blink.mojom.ClipboardHostReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readDataTransferCustomData');
           const result = this.impl.readDataTransferCustomData(params.buffer, params.type);
           if (header.expectsResponse) {
@@ -908,9 +1143,9 @@ blink.mojom.ClipboardHostReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readAvailableCustomAndStandardFormats');
           const result = this.impl.readAvailableCustomAndStandardFormats();
           if (header.expectsResponse) {
@@ -921,9 +1156,9 @@ blink.mojom.ClipboardHostReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readUnsanitizedCustomFormat');
           const result = this.impl.readUnsanitizedCustomFormat(params.format);
           if (header.expectsResponse) {
@@ -934,79 +1169,79 @@ blink.mojom.ClipboardHostReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteText_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteText_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeText');
           const result = this.impl.writeText(params.text);
           break;
         }
-        case 13: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteHtml_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteHtml_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeHtml');
           const result = this.impl.writeHtml(params.markup, params.url);
           break;
         }
-        case 14: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteSvg_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteSvg_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeSvg');
           const result = this.impl.writeSvg(params.markup);
           break;
         }
-        case 15: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeSmartPasteMarker');
           const result = this.impl.writeSmartPasteMarker();
           break;
         }
-        case 16: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeDataTransferCustomData');
           const result = this.impl.writeDataTransferCustomData(params.data);
           break;
         }
-        case 17: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeBookmark');
           const result = this.impl.writeBookmark(params.url, params.title);
           break;
         }
-        case 18: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteImage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteImage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeImage');
           const result = this.impl.writeImage(params.image);
           break;
         }
-        case 19: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeUnsanitizedCustomFormat');
           const result = this.impl.writeUnsanitizedCustomFormat(params.format, params.data);
           break;
         }
-        case 20: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_CommitWrite_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_CommitWrite_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.commitWrite');
           const result = this.impl.commitWrite();
           break;
         }
-        case 21: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeStringToFindPboard');
           const result = this.impl.writeStringToFindPboard(params.text);
           break;
         }
-        case 22: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPlatformPermissionState');
           const result = this.impl.getPlatformPermissionState();
           if (header.expectsResponse) {
@@ -1019,7 +1254,7 @@ blink.mojom.ClipboardHostReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.registerClipboardListener');
           const result = this.impl.registerClipboardListener(params.listener);
           break;

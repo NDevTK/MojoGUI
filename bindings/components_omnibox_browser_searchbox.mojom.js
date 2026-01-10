@@ -761,102 +761,305 @@ searchbox.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SetPage
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_SetPage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetPage (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnFocusChanged
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFocusChanged (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: QueryAutocomplete
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueryAutocomplete (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: StopAutocomplete
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopAutocomplete (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: OpenAutocompleteMatch
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAutocompleteMatch (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: OnNavigationLikely
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNavigationLikely (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: DeleteAutocompleteMatch
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteAutocompleteMatch (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: ActivateKeyword
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ActivateKeyword (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: ShowContextMenu
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowContextMenu (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: ExecuteAction
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteAction (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: OnThumbnailRemoved
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnThumbnailRemoved (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: GetPlaceholderConfig
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPlaceholderConfig (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: GetRecentTabs
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRecentTabs (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: GetTabPreview
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabPreview (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: NotifySessionStarted
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySessionStarted (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: NotifySessionAbandoned
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifySessionAbandoned (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: AddFileContext
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_AddFileContext_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddFileContext (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 17: AddTabContext
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_AddTabContext_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddTabContext (17)');
+             this.mapOrdinal(header.ordinal, 17);
+             dispatchId = 17;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 18: DeleteContext
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_DeleteContext_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteContext (18)');
+             this.mapOrdinal(header.ordinal, 18);
+             dispatchId = 18;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 19: ClearFiles
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_ClearFiles_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearFiles (19)');
+             this.mapOrdinal(header.ordinal, 19);
+             dispatchId = 19;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 20: SubmitQuery
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SubmitQuery (20)');
+             this.mapOrdinal(header.ordinal, 20);
+             dispatchId = 20;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 21: OpenLensSearch
+        try {
+             decoder.decodeStruct(searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenLensSearch (21)');
+             this.mapOrdinal(header.ordinal, 21);
+             dispatchId = 21;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_SetPage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_SetPage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setPage');
           const result = this.impl.setPage(params.page);
           break;
         }
-        case 1: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onFocusChanged');
           const result = this.impl.onFocusChanged(params.focused);
           break;
         }
-        case 2: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.queryAutocomplete');
           const result = this.impl.queryAutocomplete(params.input, params.prevent_inline_autocomplete);
           break;
         }
-        case 3: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.stopAutocomplete');
           const result = this.impl.stopAutocomplete(params.clear_result);
           break;
         }
-        case 4: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openAutocompleteMatch');
           const result = this.impl.openAutocompleteMatch(params.line, params.url, params.are_matches_showing, params.mouse_button, params.alt_key, params.ctrl_key, params.meta_key, params.shift_key);
           break;
         }
-        case 5: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onNavigationLikely');
           const result = this.impl.onNavigationLikely(params.line, params.url, params.navigation_predictor);
           break;
         }
-        case 6: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteAutocompleteMatch');
           const result = this.impl.deleteAutocompleteMatch(params.line, params.url);
           break;
         }
-        case 7: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.activateKeyword');
           const result = this.impl.activateKeyword(params.line, params.url, params.match_selection_timestamp, params.is_mouse_event);
           break;
         }
-        case 8: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.point);
           break;
         }
-        case 9: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.executeAction');
           const result = this.impl.executeAction(params.line, params.action_index, params.url, params.match_selection_timestamp, params.mouse_button, params.alt_key, params.ctrl_key, params.meta_key, params.shift_key);
           break;
         }
-        case 10: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onThumbnailRemoved');
           const result = this.impl.onThumbnailRemoved();
           break;
         }
-        case 11: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPlaceholderConfig');
           const result = this.impl.getPlaceholderConfig();
           if (header.expectsResponse) {
@@ -867,9 +1070,9 @@ searchbox.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getRecentTabs');
           const result = this.impl.getRecentTabs();
           if (header.expectsResponse) {
@@ -880,9 +1083,9 @@ searchbox.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getTabPreview');
           const result = this.impl.getTabPreview(params.tab_id);
           if (header.expectsResponse) {
@@ -893,23 +1096,23 @@ searchbox.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifySessionStarted');
           const result = this.impl.notifySessionStarted();
           break;
         }
-        case 15: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifySessionAbandoned');
           const result = this.impl.notifySessionAbandoned();
           break;
         }
-        case 16: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_AddFileContext_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_AddFileContext_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addFileContext');
           const result = this.impl.addFileContext(params.file_info, params.file_bytes);
           if (header.expectsResponse) {
@@ -920,9 +1123,9 @@ searchbox.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 17: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_AddTabContext_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_AddTabContext_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addTabContext');
           const result = this.impl.addTabContext(params.tab_id, params.delay_upload);
           if (header.expectsResponse) {
@@ -933,30 +1136,30 @@ searchbox.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 18: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_DeleteContext_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_DeleteContext_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteContext');
           const result = this.impl.deleteContext(params.token, params.from_automatic_chip);
           break;
         }
-        case 19: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_ClearFiles_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_ClearFiles_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearFiles');
           const result = this.impl.clearFiles();
           break;
         }
-        case 20: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.submitQuery');
           const result = this.impl.submitQuery(params.query_text, params.mouse_button, params.alt_key, params.ctrl_key, params.meta_key, params.shift_key);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openLensSearch');
           const result = this.impl.openLensSearch();
           break;
@@ -1279,116 +1482,247 @@ searchbox.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: AutocompleteResultChanged
+        try {
+             decoder.decodeStruct(searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AutocompleteResultChanged (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: UpdateSelection
+        try {
+             decoder.decodeStruct(searchbox.mojom.Page_UpdateSelection_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateSelection (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SetKeywordSelected
+        try {
+             decoder.decodeStruct(searchbox.mojom.Page_SetKeywordSelected_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetKeywordSelected (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnShow
+        try {
+             decoder.decodeStruct(searchbox.mojom.Page_OnShow_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShow (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: SetInputText
+        try {
+             decoder.decodeStruct(searchbox.mojom.Page_SetInputText_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInputText (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: SetThumbnail
+        try {
+             decoder.decodeStruct(searchbox.mojom.Page_SetThumbnail_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetThumbnail (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: OnContextualInputStatusChanged
+        try {
+             decoder.decodeStruct(searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnContextualInputStatusChanged (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: OnTabStripChanged
+        try {
+             decoder.decodeStruct(searchbox.mojom.Page_OnTabStripChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabStripChanged (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: AddFileContext
+        try {
+             decoder.decodeStruct(searchbox.mojom.Page_AddFileContext_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddFileContext (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: UpdateAutoSuggestedTabContext
+        try {
+             decoder.decodeStruct(searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAutoSuggestedTabContext (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: UpdateLensSearchEligibility
+        try {
+             decoder.decodeStruct(searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateLensSearchEligibility (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: UpdateContentSharingPolicy
+        try {
+             decoder.decodeStruct(searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateContentSharingPolicy (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: UpdateAimEligibility
+        try {
+             decoder.decodeStruct(searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateAimEligibility (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: OnShowAiModePrefChanged
+        try {
+             decoder.decodeStruct(searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShowAiModePrefChanged (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.autocompleteResultChanged');
           const result = this.impl.autocompleteResultChanged(params.result);
           break;
         }
-        case 1: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.Page_UpdateSelection_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.Page_UpdateSelection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateSelection');
           const result = this.impl.updateSelection(params.old_selection, params.selection);
           break;
         }
-        case 2: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.Page_SetKeywordSelected_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.Page_SetKeywordSelected_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setKeywordSelected');
           const result = this.impl.setKeywordSelected(params.is_keyword_selected);
           break;
         }
-        case 3: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.Page_OnShow_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.Page_OnShow_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onShow');
           const result = this.impl.onShow();
           break;
         }
-        case 4: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.Page_SetInputText_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.Page_SetInputText_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setInputText');
           const result = this.impl.setInputText(params.input);
           break;
         }
-        case 5: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.Page_SetThumbnail_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.Page_SetThumbnail_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setThumbnail');
           const result = this.impl.setThumbnail(params.thumbnail_url, params.is_deletable);
           break;
         }
-        case 6: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onContextualInputStatusChanged');
           const result = this.impl.onContextualInputStatusChanged(params.token, params.status, params.error_type);
           break;
         }
-        case 7: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.Page_OnTabStripChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.Page_OnTabStripChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTabStripChanged');
           const result = this.impl.onTabStripChanged();
           break;
         }
-        case 8: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.Page_AddFileContext_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.Page_AddFileContext_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addFileContext');
           const result = this.impl.addFileContext(params.token, params.file_info);
           break;
         }
-        case 9: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateAutoSuggestedTabContext');
           const result = this.impl.updateAutoSuggestedTabContext(params.tab);
           break;
         }
-        case 10: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateLensSearchEligibility');
           const result = this.impl.updateLensSearchEligibility(params.eligible);
           break;
         }
-        case 11: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateContentSharingPolicy');
           const result = this.impl.updateContentSharingPolicy(params.enabled);
           break;
         }
-        case 12: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateAimEligibility');
           const result = this.impl.updateAimEligibility(params.eligible);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onShowAiModePrefChanged');
           const result = this.impl.onShowAiModePrefChanged(params.canShow);
           break;

@@ -180,46 +180,96 @@ ash.camera_app.mojom.PdfBuilderReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: AddPage
+        try {
+             decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPage (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: AddPageInline
+        try {
+             decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddPageInline (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: DeletePage
+        try {
+             decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeletePage (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: Save
+        try {
+             decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Save (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: SaveInline
+        try {
+             decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SaveInline (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addPage');
           const result = this.impl.addPage(params.jpeg, params.page_index);
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addPageInline');
           const result = this.impl.addPageInline(params.jpeg, params.page_index);
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deletePage');
           const result = this.impl.deletePage(params.page_index);
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.save');
           const result = this.impl.save();
           if (header.expectsResponse) {
@@ -232,7 +282,7 @@ ash.camera_app.mojom.PdfBuilderReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.saveInline');
           const result = this.impl.saveInline();
           if (header.expectsResponse) {

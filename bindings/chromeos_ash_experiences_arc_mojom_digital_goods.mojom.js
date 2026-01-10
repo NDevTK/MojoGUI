@@ -261,25 +261,84 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetDetails
+        try {
+             decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDetails (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: Acknowledge
+        try {
+             decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Acknowledge (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: DeprecatedListPurchases
+        try {
+             decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeprecatedListPurchases (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ListPurchases
+        try {
+             decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListPurchases (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: ListPurchaseHistory
+        try {
+             decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ListPurchaseHistory (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: Consume
+        try {
+             decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Consume (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDetails');
           const result = this.impl.getDetails(params.package_name, params.scope, params.item_ids);
           if (header.expectsResponse) {
@@ -290,9 +349,9 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.acknowledge');
           const result = this.impl.acknowledge(params.package_name, params.scope, params.purchase_token, params.make_available_again);
           if (header.expectsResponse) {
@@ -303,9 +362,9 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deprecatedListPurchases');
           const result = this.impl.deprecatedListPurchases(params.package_name, params.scope);
           if (header.expectsResponse) {
@@ -316,9 +375,9 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.listPurchases');
           const result = this.impl.listPurchases(params.package_name, params.scope);
           if (header.expectsResponse) {
@@ -329,9 +388,9 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.listPurchaseHistory');
           const result = this.impl.listPurchaseHistory(params.package_name, params.scope);
           if (header.expectsResponse) {
@@ -344,7 +403,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.consume');
           const result = this.impl.consume(params.package_name, params.scope, params.purchase_token);
           if (header.expectsResponse) {

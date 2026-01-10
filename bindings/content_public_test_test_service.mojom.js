@@ -384,25 +384,147 @@ content.mojom.TestServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: DoSomething
+        try {
+             decoder.decodeStruct(content.mojom.TestService_DoSomething_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoSomething (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: DoTerminateProcess
+        try {
+             decoder.decodeStruct(content.mojom.TestService_DoTerminateProcess_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoTerminateProcess (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: DoCrashImmediately
+        try {
+             decoder.decodeStruct(content.mojom.TestService_DoCrashImmediately_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DoCrashImmediately (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: CreateFolder
+        try {
+             decoder.decodeStruct(content.mojom.TestService_CreateFolder_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateFolder (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: GetRequestorName
+        try {
+             decoder.decodeStruct(content.mojom.TestService_GetRequestorName_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRequestorName (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: CreateReadOnlySharedMemoryRegion
+        try {
+             decoder.decodeStruct(content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateReadOnlySharedMemoryRegion (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: CreateWritableSharedMemoryRegion
+        try {
+             decoder.decodeStruct(content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWritableSharedMemoryRegion (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: CreateUnsafeSharedMemoryRegion
+        try {
+             decoder.decodeStruct(content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateUnsafeSharedMemoryRegion (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: CloneSharedMemoryContents
+        try {
+             decoder.decodeStruct(content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloneSharedMemoryContents (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: IsProcessSandboxed
+        try {
+             decoder.decodeStruct(content.mojom.TestService_IsProcessSandboxed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsProcessSandboxed (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: PseudonymizeString
+        try {
+             decoder.decodeStruct(content.mojom.TestService_PseudonymizeString_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PseudonymizeString (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: PassWriteableFile
+        try {
+             decoder.decodeStruct(content.mojom.TestService_PassWriteableFile_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PassWriteableFile (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: WriteToPreloadedPipe
+        try {
+             decoder.decodeStruct(content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WriteToPreloadedPipe (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.TestService_DoSomething_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.TestService_DoSomething_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.doSomething');
           const result = this.impl.doSomething();
           if (header.expectsResponse) {
@@ -413,9 +535,9 @@ content.mojom.TestServiceReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.TestService_DoTerminateProcess_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.TestService_DoTerminateProcess_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.doTerminateProcess');
           const result = this.impl.doTerminateProcess();
           if (header.expectsResponse) {
@@ -426,9 +548,9 @@ content.mojom.TestServiceReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.TestService_DoCrashImmediately_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.TestService_DoCrashImmediately_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.doCrashImmediately');
           const result = this.impl.doCrashImmediately();
           if (header.expectsResponse) {
@@ -439,9 +561,9 @@ content.mojom.TestServiceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.TestService_CreateFolder_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.TestService_CreateFolder_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createFolder');
           const result = this.impl.createFolder();
           if (header.expectsResponse) {
@@ -452,9 +574,9 @@ content.mojom.TestServiceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.TestService_GetRequestorName_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.TestService_GetRequestorName_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getRequestorName');
           const result = this.impl.getRequestorName();
           if (header.expectsResponse) {
@@ -465,9 +587,9 @@ content.mojom.TestServiceReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createReadOnlySharedMemoryRegion');
           const result = this.impl.createReadOnlySharedMemoryRegion(params.message);
           if (header.expectsResponse) {
@@ -478,9 +600,9 @@ content.mojom.TestServiceReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createWritableSharedMemoryRegion');
           const result = this.impl.createWritableSharedMemoryRegion(params.message);
           if (header.expectsResponse) {
@@ -491,9 +613,9 @@ content.mojom.TestServiceReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createUnsafeSharedMemoryRegion');
           const result = this.impl.createUnsafeSharedMemoryRegion(params.message);
           if (header.expectsResponse) {
@@ -504,9 +626,9 @@ content.mojom.TestServiceReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.cloneSharedMemoryContents');
           const result = this.impl.cloneSharedMemoryContents(params.region);
           if (header.expectsResponse) {
@@ -517,9 +639,9 @@ content.mojom.TestServiceReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.TestService_IsProcessSandboxed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.TestService_IsProcessSandboxed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isProcessSandboxed');
           const result = this.impl.isProcessSandboxed();
           if (header.expectsResponse) {
@@ -530,9 +652,9 @@ content.mojom.TestServiceReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.TestService_PseudonymizeString_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.TestService_PseudonymizeString_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.pseudonymizeString');
           const result = this.impl.pseudonymizeString(params.value);
           if (header.expectsResponse) {
@@ -543,9 +665,9 @@ content.mojom.TestServiceReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.TestService_PassWriteableFile_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.TestService_PassWriteableFile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.passWriteableFile');
           const result = this.impl.passWriteableFile(params.file);
           if (header.expectsResponse) {
@@ -558,7 +680,7 @@ content.mojom.TestServiceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.writeToPreloadedPipe');
           const result = this.impl.writeToPreloadedPipe();
           break;

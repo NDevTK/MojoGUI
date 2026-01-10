@@ -273,46 +273,123 @@ arc.mojom.InputConnectionReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CommitText
+        try {
+             decoder.decodeStruct(arc.mojom.InputConnection_CommitText_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CommitText (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: DeleteSurroundingText
+        try {
+             decoder.decodeStruct(arc.mojom.InputConnection_DeleteSurroundingText_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteSurroundingText (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: FinishComposingText
+        try {
+             decoder.decodeStruct(arc.mojom.InputConnection_FinishComposingText_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FinishComposingText (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: RequestTextInputState
+        try {
+             decoder.decodeStruct(arc.mojom.InputConnection_RequestTextInputState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestTextInputState (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: SetComposingText
+        try {
+             decoder.decodeStruct(arc.mojom.InputConnection_SetComposingText_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetComposingText (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: SetSelection
+        try {
+             decoder.decodeStruct(arc.mojom.InputConnection_SetSelection_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSelection (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: SendKeyEvent
+        try {
+             decoder.decodeStruct(arc.mojom.InputConnection_SendKeyEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendKeyEvent (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: SetCompositionRange
+        try {
+             decoder.decodeStruct(arc.mojom.InputConnection_SetCompositionRange_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCompositionRange (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputConnection_CommitText_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputConnection_CommitText_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.commitText');
           const result = this.impl.commitText(params.text, params.new_cursor_pos);
           break;
         }
-        case 1: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputConnection_DeleteSurroundingText_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputConnection_DeleteSurroundingText_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteSurroundingText');
           const result = this.impl.deleteSurroundingText(params.before, params.after);
           break;
         }
-        case 2: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputConnection_FinishComposingText_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputConnection_FinishComposingText_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.finishComposingText');
           const result = this.impl.finishComposingText();
           break;
         }
-        case 3: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputConnection_RequestTextInputState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputConnection_RequestTextInputState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestTextInputState');
           const result = this.impl.requestTextInputState();
           if (header.expectsResponse) {
@@ -323,30 +400,30 @@ arc.mojom.InputConnectionReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputConnection_SetComposingText_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputConnection_SetComposingText_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setComposingText');
           const result = this.impl.setComposingText(params.text, params.new_cursor_pos, params.new_selection_range);
           break;
         }
-        case 5: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputConnection_SetSelection_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputConnection_SetSelection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSelection');
           const result = this.impl.setSelection(params.new_selection_range);
           break;
         }
-        case 6: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputConnection_SendKeyEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputConnection_SendKeyEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.sendKeyEvent');
           const result = this.impl.sendKeyEvent(params.key_event_data);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputConnection_SetCompositionRange_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputConnection_SetCompositionRange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setCompositionRange');
           const result = this.impl.setCompositionRange(params.new_range);
           break;
@@ -479,39 +556,71 @@ arc.mojom.InputMethodManagerHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnActiveImeChanged
+        try {
+             decoder.decodeStruct(arc.mojom.InputMethodManagerHost_OnActiveImeChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnActiveImeChanged (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnImeDisabled
+        try {
+             decoder.decodeStruct(arc.mojom.InputMethodManagerHost_OnImeDisabled_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImeDisabled (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnImeInfoChanged
+        try {
+             decoder.decodeStruct(arc.mojom.InputMethodManagerHost_OnImeInfoChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnImeInfoChanged (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerHost_OnActiveImeChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerHost_OnActiveImeChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onActiveImeChanged');
           const result = this.impl.onActiveImeChanged(params.ime_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerHost_OnImeDisabled_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerHost_OnImeDisabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onImeDisabled');
           const result = this.impl.onImeDisabled(params.ime_id);
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerHost_OnImeInfoChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerHost_OnImeInfoChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onImeInfoChanged');
           const result = this.impl.onImeInfoChanged(params.ime_infos);
           break;
@@ -729,25 +838,93 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Init
+        try {
+             decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_Init_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: EnableIme
+        try {
+             decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableIme (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SwitchImeTo
+        try {
+             decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_SwitchImeTo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SwitchImeTo (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: Focus
+        try {
+             decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Focus (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: UpdateTextInputState
+        try {
+             decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_UpdateTextInputState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateTextInputState (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: ShowVirtualKeyboard
+        try {
+             decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowVirtualKeyboard (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: HideVirtualKeyboard
+        try {
+             decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HideVirtualKeyboard (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_Init_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_Init_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -758,9 +935,9 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.enableIme');
           const result = this.impl.enableIme(params.ime_id, params.enable);
           if (header.expectsResponse) {
@@ -771,9 +948,9 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_SwitchImeTo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_SwitchImeTo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.switchImeTo');
           const result = this.impl.switchImeTo(params.ime_id);
           if (header.expectsResponse) {
@@ -784,30 +961,30 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.focus');
           const result = this.impl.focus(params.connection, params.initial_state);
           break;
         }
-        case 4: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_UpdateTextInputState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_UpdateTextInputState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateTextInputState');
           const result = this.impl.updateTextInputState(params.state);
           break;
         }
-        case 5: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showVirtualKeyboard');
           const result = this.impl.showVirtualKeyboard();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hideVirtualKeyboard');
           const result = this.impl.hideVirtualKeyboard();
           break;

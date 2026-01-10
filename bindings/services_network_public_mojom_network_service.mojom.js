@@ -226,25 +226,39 @@ network.mojom.GssapiLibraryLoadObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnBeforeGssapiLibraryLoad
+        try {
+             decoder.decodeStruct(network.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBeforeGssapiLibraryLoad (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBeforeGssapiLibraryLoad');
           const result = this.impl.onBeforeGssapiLibraryLoad();
           break;
@@ -1079,123 +1093,497 @@ network.mojom.NetworkServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SetParams
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetParams_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetParams (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: StartNetLog
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_StartNetLog_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartNetLog (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: AttachNetLogProxy
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_AttachNetLogProxy_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AttachNetLogProxy (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: SetSSLKeyLogFile
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSSLKeyLogFile (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: CreateNetworkContext
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_CreateNetworkContext_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNetworkContext (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: ConfigureStubHostResolver
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfigureStubHostResolver (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: DisableQuic
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_DisableQuic_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableQuic (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: SetUpHttpAuth
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetUpHttpAuth (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: ConfigureHttpAuthPrefs
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfigureHttpAuthPrefs (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: SetRawHeadersAccess
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetRawHeadersAccess (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: SetMaxConnectionsPerProxyChain
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetMaxConnectionsPerProxyChain_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMaxConnectionsPerProxyChain (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: GetNetworkChangeManager
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNetworkChangeManager (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: GetNetworkQualityEstimatorManager
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNetworkQualityEstimatorManager (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: GetDnsConfigChangeManager
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDnsConfigChangeManager (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: GetNetworkList
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_GetNetworkList_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetNetworkList (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: OnTrustStoreChanged
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTrustStoreChanged (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: OnClientCertStoreChanged
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClientCertStoreChanged (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 17: SetEncryptionKey
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetEncryptionKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEncryptionKey (17)');
+             this.mapOrdinal(header.ordinal, 17);
+             dispatchId = 17;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 18: OnPeerToPeerConnectionsCountChange
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPeerToPeerConnectionsCountChange (18)');
+             this.mapOrdinal(header.ordinal, 18);
+             dispatchId = 18;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 19: OnApplicationStateChange
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnApplicationStateChange (19)');
+             this.mapOrdinal(header.ordinal, 19);
+             dispatchId = 19;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 20: SetTrustTokenKeyCommitments
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTrustTokenKeyCommitments (20)');
+             this.mapOrdinal(header.ordinal, 20);
+             dispatchId = 20;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 21: ClearSCTAuditingCache
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearSCTAuditingCache (21)');
+             this.mapOrdinal(header.ordinal, 21);
+             dispatchId = 21;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 22: ConfigureSCTAuditing
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ConfigureSCTAuditing (22)');
+             this.mapOrdinal(header.ordinal, 22);
+             dispatchId = 22;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 23: UpdateCtLogList
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_UpdateCtLogList_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateCtLogList (23)');
+             this.mapOrdinal(header.ordinal, 23);
+             dispatchId = 23;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 24: UpdateCtKnownPopularSCTs
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateCtKnownPopularSCTs (24)');
+             this.mapOrdinal(header.ordinal, 24);
+             dispatchId = 24;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 25: SetCtEnforcementEnabled
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCtEnforcementEnabled (25)');
+             this.mapOrdinal(header.ordinal, 25);
+             dispatchId = 25;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 26: UpdateKeyPinsList
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateKeyPinsList (26)');
+             this.mapOrdinal(header.ordinal, 26);
+             dispatchId = 26;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 27: DumpWithoutCrashing
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DumpWithoutCrashing (27)');
+             this.mapOrdinal(header.ordinal, 27);
+             dispatchId = 27;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 28: BindTestInterfaceForTesting
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindTestInterfaceForTesting (28)');
+             this.mapOrdinal(header.ordinal, 28);
+             dispatchId = 28;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 29: SetFirstPartySets
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetFirstPartySets_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFirstPartySets (29)');
+             this.mapOrdinal(header.ordinal, 29);
+             dispatchId = 29;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 30: SetExplicitlyAllowedPorts
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetExplicitlyAllowedPorts (30)');
+             this.mapOrdinal(header.ordinal, 30);
+             dispatchId = 30;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 31: ParseHeaders
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_ParseHeaders_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseHeaders (31)');
+             this.mapOrdinal(header.ordinal, 31);
+             dispatchId = 31;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 32: EnableDataUseUpdates
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableDataUseUpdates (32)');
+             this.mapOrdinal(header.ordinal, 32);
+             dispatchId = 32;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 33: SetIPv6ReachabilityOverride
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIPv6ReachabilityOverride (33)');
+             this.mapOrdinal(header.ordinal, 33);
+             dispatchId = 33;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 34: SetGssapiLibraryLoadObserver
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetGssapiLibraryLoadObserver (34)');
+             this.mapOrdinal(header.ordinal, 34);
+             dispatchId = 34;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 35: SetNetworkAnnotationMonitor
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNetworkAnnotationMonitor (35)');
+             this.mapOrdinal(header.ordinal, 35);
+             dispatchId = 35;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 36: SetTpcdMetadataGrants
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTpcdMetadataGrants (36)');
+             this.mapOrdinal(header.ordinal, 36);
+             dispatchId = 36;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 37: InterceptUrlLoaderForBodyDecoding
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InterceptUrlLoaderForBodyDecoding (37)');
+             this.mapOrdinal(header.ordinal, 37);
+             dispatchId = 37;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 38: DecodeContentEncoding
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DecodeContentEncoding (38)');
+             this.mapOrdinal(header.ordinal, 38);
+             dispatchId = 38;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 39: SetTLS13EarlyDataEnabled
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTLS13EarlyDataEnabled (39)');
+             this.mapOrdinal(header.ordinal, 39);
+             dispatchId = 39;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 40: AddDurableMessageCollector
+        try {
+             decoder.decodeStruct(network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDurableMessageCollector (40)');
+             this.mapOrdinal(header.ordinal, 40);
+             dispatchId = 40;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetParams_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetParams_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setParams');
           const result = this.impl.setParams(params.params);
           break;
         }
-        case 1: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_StartNetLog_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_StartNetLog_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startNetLog');
           const result = this.impl.startNetLog(params.file, params.max_total_size, params.capture_mode, params.constants, params.duration);
           break;
         }
-        case 2: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_AttachNetLogProxy_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_AttachNetLogProxy_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.attachNetLogProxy');
           const result = this.impl.attachNetLogProxy(params.proxy_source, params.proxy_sink);
           break;
         }
-        case 3: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSSLKeyLogFile');
           const result = this.impl.setSSLKeyLogFile(params.file);
           break;
         }
-        case 4: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_CreateNetworkContext_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_CreateNetworkContext_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createNetworkContext');
           const result = this.impl.createNetworkContext(params.context, params.params);
           break;
         }
-        case 5: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.configureStubHostResolver');
           const result = this.impl.configureStubHostResolver(params.insecure_dns_client_enabled, params.happy_eyeballs_v3_enabled, params.secure_dns_mode, params.dns_over_https_config, params.additional_dns_types_enabled, params.fallback_doh_nameservers);
           break;
         }
-        case 6: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_DisableQuic_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_DisableQuic_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.disableQuic');
           const result = this.impl.disableQuic();
           break;
         }
-        case 7: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setUpHttpAuth');
           const result = this.impl.setUpHttpAuth(params.http_auth_static_params);
           break;
         }
-        case 8: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.configureHttpAuthPrefs');
           const result = this.impl.configureHttpAuthPrefs(params.http_auth_dynamic_params);
           break;
         }
-        case 9: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setRawHeadersAccess');
           const result = this.impl.setRawHeadersAccess(params.process_id, params.origins);
           break;
         }
-        case 10: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetMaxConnectionsPerProxyChain_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetMaxConnectionsPerProxyChain_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setMaxConnectionsPerProxyChain');
           const result = this.impl.setMaxConnectionsPerProxyChain(params.max_connections);
           break;
         }
-        case 11: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getNetworkChangeManager');
           const result = this.impl.getNetworkChangeManager(params.network_change_manager);
           break;
         }
-        case 12: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getNetworkQualityEstimatorManager');
           const result = this.impl.getNetworkQualityEstimatorManager(params.receiver);
           break;
         }
-        case 13: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDnsConfigChangeManager');
           const result = this.impl.getDnsConfigChangeManager(params.receiver);
           break;
         }
-        case 14: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_GetNetworkList_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_GetNetworkList_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getNetworkList');
           const result = this.impl.getNetworkList(params.policy);
           if (header.expectsResponse) {
@@ -1206,44 +1594,44 @@ network.mojom.NetworkServiceReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTrustStoreChanged');
           const result = this.impl.onTrustStoreChanged();
           break;
         }
-        case 16: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onClientCertStoreChanged');
           const result = this.impl.onClientCertStoreChanged();
           break;
         }
-        case 17: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetEncryptionKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetEncryptionKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setEncryptionKey');
           const result = this.impl.setEncryptionKey(params.encryption_key);
           break;
         }
-        case 18: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPeerToPeerConnectionsCountChange');
           const result = this.impl.onPeerToPeerConnectionsCountChange(params.count);
           break;
         }
-        case 19: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onApplicationStateChange');
           const result = this.impl.onApplicationStateChange(params.state);
           break;
         }
-        case 20: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setTrustTokenKeyCommitments');
           const result = this.impl.setTrustTokenKeyCommitments(params.raw_commitments);
           if (header.expectsResponse) {
@@ -1254,23 +1642,23 @@ network.mojom.NetworkServiceReceiver = class {
           }
           break;
         }
-        case 21: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearSCTAuditingCache');
           const result = this.impl.clearSCTAuditingCache();
           break;
         }
-        case 22: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.configureSCTAuditing');
           const result = this.impl.configureSCTAuditing(params.configuration);
           break;
         }
-        case 23: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_UpdateCtLogList_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_UpdateCtLogList_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateCtLogList');
           const result = this.impl.updateCtLogList(params.log_list);
           if (header.expectsResponse) {
@@ -1281,9 +1669,9 @@ network.mojom.NetworkServiceReceiver = class {
           }
           break;
         }
-        case 24: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateCtKnownPopularSCTs');
           const result = this.impl.updateCtKnownPopularSCTs(params.sct_hashes);
           if (header.expectsResponse) {
@@ -1294,9 +1682,9 @@ network.mojom.NetworkServiceReceiver = class {
           }
           break;
         }
-        case 25: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setCtEnforcementEnabled');
           const result = this.impl.setCtEnforcementEnabled(params.enabled);
           if (header.expectsResponse) {
@@ -1307,44 +1695,44 @@ network.mojom.NetworkServiceReceiver = class {
           }
           break;
         }
-        case 26: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateKeyPinsList');
           const result = this.impl.updateKeyPinsList(params.pin_list, params.update_time);
           break;
         }
-        case 27: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dumpWithoutCrashing');
           const result = this.impl.dumpWithoutCrashing(params.dump_request_time);
           break;
         }
-        case 28: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindTestInterfaceForTesting');
           const result = this.impl.bindTestInterfaceForTesting(params.receiver);
           break;
         }
-        case 29: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetFirstPartySets_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetFirstPartySets_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setFirstPartySets');
           const result = this.impl.setFirstPartySets(params.sets);
           break;
         }
-        case 30: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setExplicitlyAllowedPorts');
           const result = this.impl.setExplicitlyAllowedPorts(params.ports);
           break;
         }
-        case 31: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_ParseHeaders_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_ParseHeaders_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.parseHeaders');
           const result = this.impl.parseHeaders(params.url, params.headers);
           if (header.expectsResponse) {
@@ -1355,51 +1743,51 @@ network.mojom.NetworkServiceReceiver = class {
           }
           break;
         }
-        case 32: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.enableDataUseUpdates');
           const result = this.impl.enableDataUseUpdates(params.enable);
           break;
         }
-        case 33: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setIPv6ReachabilityOverride');
           const result = this.impl.setIPv6ReachabilityOverride(params.reachability_override);
           break;
         }
-        case 34: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setGssapiLibraryLoadObserver');
           const result = this.impl.setGssapiLibraryLoadObserver(params.gssapi_library_load_observer);
           break;
         }
-        case 35: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setNetworkAnnotationMonitor');
           const result = this.impl.setNetworkAnnotationMonitor(params.remote);
           break;
         }
-        case 36: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setTpcdMetadataGrants');
           const result = this.impl.setTpcdMetadataGrants(params.settings);
           break;
         }
-        case 37: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.interceptUrlLoaderForBodyDecoding');
           const result = this.impl.interceptUrlLoaderForBodyDecoding(params.content_encoding_types, params.source_body, params.dest_body, params.source_url_loader, params.source_url_loader_client, params.dest_url_loader, params.dest_url_loader_client);
           break;
         }
-        case 38: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.decodeContentEncoding');
           const result = this.impl.decodeContentEncoding(params.content_encoding_types, params.source_body, params.dest_body);
           if (header.expectsResponse) {
@@ -1410,16 +1798,16 @@ network.mojom.NetworkServiceReceiver = class {
           }
           break;
         }
-        case 39: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setTLS13EarlyDataEnabled');
           const result = this.impl.setTLS13EarlyDataEnabled(params.enabled);
           break;
         }
         case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addDurableMessageCollector');
           const result = this.impl.addDurableMessageCollector(params.receiver);
           break;
@@ -1590,25 +1978,66 @@ network.mojom.DurableMessageCollectorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Configure
+        try {
+             decoder.decodeStruct(network.mojom.DurableMessageCollector_Configure_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Configure (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: EnableForProfile
+        try {
+             decoder.decodeStruct(network.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableForProfile (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: DisableForProfile
+        try {
+             decoder.decodeStruct(network.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DisableForProfile (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: Retrieve
+        try {
+             decoder.decodeStruct(network.mojom.DurableMessageCollector_Retrieve_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Retrieve (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DurableMessageCollector_Configure_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.DurableMessageCollector_Configure_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.configure');
           const result = this.impl.configure(params.config);
           if (header.expectsResponse) {
@@ -1619,9 +2048,9 @@ network.mojom.DurableMessageCollectorReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.enableForProfile');
           const result = this.impl.enableForProfile(params.throttling_profile_id);
           if (header.expectsResponse) {
@@ -1632,9 +2061,9 @@ network.mojom.DurableMessageCollectorReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.disableForProfile');
           const result = this.impl.disableForProfile(params.throttling_profile_id);
           if (header.expectsResponse) {
@@ -1647,7 +2076,7 @@ network.mojom.DurableMessageCollectorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.DurableMessageCollector_Retrieve_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.DurableMessageCollector_Retrieve_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.retrieve');
           const result = this.impl.retrieve(params.devtools_request_id);
           if (header.expectsResponse) {

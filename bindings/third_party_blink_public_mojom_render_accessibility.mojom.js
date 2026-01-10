@@ -140,25 +140,48 @@ blink.mojom.RenderAccessibilityHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: HandleAXEvents
+        try {
+             decoder.decodeStruct(blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleAXEvents (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: HandleAXLocationChanges
+        try {
+             decoder.decodeStruct(blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleAXLocationChanges (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.handleAXEvents');
           const result = this.impl.handleAXEvents(params.events_and_updates, params.location_and_scroll_updates, params.reset_token);
           if (header.expectsResponse) {
@@ -171,7 +194,7 @@ blink.mojom.RenderAccessibilityHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.handleAXLocationChanges');
           const result = this.impl.handleAXLocationChanges(params.changes, params.reset_token);
           break;
@@ -346,39 +369,89 @@ blink.mojom.RenderAccessibilityReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SetMode
+        try {
+             decoder.decodeStruct(blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMode (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: FatalError
+        try {
+             decoder.decodeStruct(blink.mojom.RenderAccessibility_FatalError_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FatalError (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: HitTest
+        try {
+             decoder.decodeStruct(blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HitTest (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: PerformAction
+        try {
+             decoder.decodeStruct(blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PerformAction (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: Reset
+        try {
+             decoder.decodeStruct(blink.mojom.RenderAccessibility_Reset_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reset (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setMode');
           const result = this.impl.setMode(params.ax_mode, params.reset_token);
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_FatalError_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_FatalError_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.fatalError');
           const result = this.impl.fatalError();
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hitTest');
           const result = this.impl.hitTest(params.point, params.event_to_fire, params.request_id);
           if (header.expectsResponse) {
@@ -389,16 +462,16 @@ blink.mojom.RenderAccessibilityReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.performAction');
           const result = this.impl.performAction(params.action_data);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_Reset_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.RenderAccessibility_Reset_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reset');
           const result = this.impl.reset(params.reset_token);
           break;

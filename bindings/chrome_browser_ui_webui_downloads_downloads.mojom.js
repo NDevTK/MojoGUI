@@ -218,25 +218,39 @@ downloads.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreatePageHandler
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -726,186 +740,407 @@ downloads.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetDownloads
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_GetDownloads_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDownloads (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OpenFileRequiringGesture
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFileRequiringGesture (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: Drag
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_Drag_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Drag (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: SaveSuspiciousRequiringGesture
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SaveSuspiciousRequiringGesture (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: RecordOpenBypassWarningDialog
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordOpenBypassWarningDialog (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: SaveDangerousFromDialogRequiringGesture
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SaveDangerousFromDialogRequiringGesture (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: RecordCancelBypassWarningDialog
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RecordCancelBypassWarningDialog (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: DiscardDangerous
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DiscardDangerous (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: RetryDownload
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_RetryDownload_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RetryDownload (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: Show
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_Show_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Show (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: Pause
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_Pause_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Pause (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: Resume
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_Resume_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Resume (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: Remove
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_Remove_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Remove (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: Undo
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_Undo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Undo (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: Cancel
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_Cancel_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Cancel (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: ClearAll
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_ClearAll_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearAll (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: OpenDownloadsFolderRequiringGesture
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDownloadsFolderRequiringGesture (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 17: OpenEsbSettings
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenEsbSettings (17)');
+             this.mapOrdinal(header.ordinal, 17);
+             dispatchId = 17;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 18: LogEsbPromotionRowViewed
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LogEsbPromotionRowViewed (18)');
+             this.mapOrdinal(header.ordinal, 18);
+             dispatchId = 18;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 19: OpenDuringScanningRequiringGesture
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenDuringScanningRequiringGesture (19)');
+             this.mapOrdinal(header.ordinal, 19);
+             dispatchId = 19;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 20: ReviewDangerousRequiringGesture
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReviewDangerousRequiringGesture (20)');
+             this.mapOrdinal(header.ordinal, 20);
+             dispatchId = 20;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 21: DeepScan
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_DeepScan_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeepScan (21)');
+             this.mapOrdinal(header.ordinal, 21);
+             dispatchId = 21;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 22: BypassDeepScanRequiringGesture
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BypassDeepScanRequiringGesture (22)');
+             this.mapOrdinal(header.ordinal, 22);
+             dispatchId = 22;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 23: IsEligibleForEsbPromo
+        try {
+             decoder.decodeStruct(downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsEligibleForEsbPromo (23)');
+             this.mapOrdinal(header.ordinal, 23);
+             dispatchId = 23;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_GetDownloads_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_GetDownloads_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDownloads');
           const result = this.impl.getDownloads(params.search_terms);
           break;
         }
-        case 1: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openFileRequiringGesture');
           const result = this.impl.openFileRequiringGesture(params.id);
           break;
         }
-        case 2: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_Drag_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_Drag_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.drag');
           const result = this.impl.drag(params.id);
           break;
         }
-        case 3: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.saveSuspiciousRequiringGesture');
           const result = this.impl.saveSuspiciousRequiringGesture(params.id);
           break;
         }
-        case 4: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.recordOpenBypassWarningDialog');
           const result = this.impl.recordOpenBypassWarningDialog(params.id);
           break;
         }
-        case 5: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.saveDangerousFromDialogRequiringGesture');
           const result = this.impl.saveDangerousFromDialogRequiringGesture(params.id);
           break;
         }
-        case 6: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.recordCancelBypassWarningDialog');
           const result = this.impl.recordCancelBypassWarningDialog(params.id);
           break;
         }
-        case 7: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.discardDangerous');
           const result = this.impl.discardDangerous(params.id);
           break;
         }
-        case 8: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_RetryDownload_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_RetryDownload_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.retryDownload');
           const result = this.impl.retryDownload(params.id);
           break;
         }
-        case 9: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_Show_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_Show_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.show');
           const result = this.impl.show(params.id);
           break;
         }
-        case 10: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_Pause_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_Pause_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause(params.id);
           break;
         }
-        case 11: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_Resume_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_Resume_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume(params.id);
           break;
         }
-        case 12: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_Remove_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_Remove_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.remove');
           const result = this.impl.remove(params.id);
           break;
         }
-        case 13: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_Undo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_Undo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.undo');
           const result = this.impl.undo();
           break;
         }
-        case 14: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_Cancel_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_Cancel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel(params.id);
           break;
         }
-        case 15: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_ClearAll_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_ClearAll_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearAll');
           const result = this.impl.clearAll();
           break;
         }
-        case 16: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openDownloadsFolderRequiringGesture');
           const result = this.impl.openDownloadsFolderRequiringGesture();
           break;
         }
-        case 17: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openEsbSettings');
           const result = this.impl.openEsbSettings();
           break;
         }
-        case 18: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.logEsbPromotionRowViewed');
           const result = this.impl.logEsbPromotionRowViewed();
           break;
         }
-        case 19: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openDuringScanningRequiringGesture');
           const result = this.impl.openDuringScanningRequiringGesture(params.id);
           break;
         }
-        case 20: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reviewDangerousRequiringGesture');
           const result = this.impl.reviewDangerousRequiringGesture(params.id);
           break;
         }
-        case 21: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_DeepScan_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_DeepScan_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deepScan');
           const result = this.impl.deepScan(params.id);
           break;
         }
-        case 22: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bypassDeepScanRequiringGesture');
           const result = this.impl.bypassDeepScanRequiringGesture(params.id);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isEligibleForEsbPromo');
           const result = this.impl.isEligibleForEsbPromo();
           if (header.expectsResponse) {
@@ -1062,46 +1297,87 @@ downloads.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: RemoveItem
+        try {
+             decoder.decodeStruct(downloads.mojom.Page_RemoveItem_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemoveItem (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: UpdateItem
+        try {
+             decoder.decodeStruct(downloads.mojom.Page_UpdateItem_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateItem (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: InsertItems
+        try {
+             decoder.decodeStruct(downloads.mojom.Page_InsertItems_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InsertItems (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ClearAll
+        try {
+             decoder.decodeStruct(downloads.mojom.Page_ClearAll_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearAll (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.Page_RemoveItem_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.Page_RemoveItem_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.removeItem');
           const result = this.impl.removeItem(params.index);
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.Page_UpdateItem_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.Page_UpdateItem_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateItem');
           const result = this.impl.updateItem(params.index, params.data);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.Page_InsertItems_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.Page_InsertItems_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.insertItems');
           const result = this.impl.insertItems(params.index, params.items);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(downloads.mojom.Page_ClearAll_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(downloads.mojom.Page_ClearAll_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearAll');
           const result = this.impl.clearAll();
           break;

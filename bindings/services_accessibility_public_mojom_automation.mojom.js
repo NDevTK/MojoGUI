@@ -193,60 +193,119 @@ ax.mojom.AutomationReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: DispatchTreeDestroyedEvent
+        try {
+             decoder.decodeStruct(ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchTreeDestroyedEvent (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: DispatchActionResult
+        try {
+             decoder.decodeStruct(ax.mojom.Automation_DispatchActionResult_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchActionResult (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: DispatchAccessibilityEvents
+        try {
+             decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchAccessibilityEvents (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: DispatchAccessibilityLocationChange
+        try {
+             decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchAccessibilityLocationChange (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: DispatchAccessibilityScrollChange
+        try {
+             decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchAccessibilityScrollChange (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: DispatchGetTextLocationResult
+        try {
+             decoder.decodeStruct(ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchGetTextLocationResult (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchTreeDestroyedEvent');
           const result = this.impl.dispatchTreeDestroyedEvent(params.tree_id);
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchActionResult_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchActionResult_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchActionResult');
           const result = this.impl.dispatchActionResult(params.data, params.result);
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityEvents');
           const result = this.impl.dispatchAccessibilityEvents(params.tree_id, params.updates, params.mouse_location, params.events);
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityLocationChange');
           const result = this.impl.dispatchAccessibilityLocationChange(params.tree_id, params.node_id, params.bounds);
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityScrollChange');
           const result = this.impl.dispatchAccessibilityScrollChange(params.tree_id, params.node_id, params.scroll_x, params.scroll_y);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchGetTextLocationResult');
           const result = this.impl.dispatchGetTextLocationResult(params.data, params.rect);
           break;

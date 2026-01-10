@@ -234,46 +234,123 @@ blink.mojom.StorageAccessHandleReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: BindIndexedDB
+        try {
+             decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindIndexedDB (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: BindLocks
+        try {
+             decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindLocks (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: BindCaches
+        try {
+             decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindCaches (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GetDirectory
+        try {
+             decoder.decodeStruct(blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDirectory (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: Estimate
+        try {
+             decoder.decodeStruct(blink.mojom.StorageAccessHandle_Estimate_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Estimate (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: BindBlobStorage
+        try {
+             decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindBlobStorage (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: BindBroadcastChannel
+        try {
+             decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindBroadcastChannel (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: BindSharedWorker
+        try {
+             decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BindSharedWorker (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindIndexedDB');
           const result = this.impl.bindIndexedDB(params.receiver);
           break;
         }
-        case 1: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindLocks');
           const result = this.impl.bindLocks(params.receiver);
           break;
         }
-        case 2: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindCaches');
           const result = this.impl.bindCaches(params.receiver);
           break;
         }
-        case 3: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDirectory');
           const result = this.impl.getDirectory();
           if (header.expectsResponse) {
@@ -284,9 +361,9 @@ blink.mojom.StorageAccessHandleReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_Estimate_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_Estimate_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.estimate');
           const result = this.impl.estimate();
           if (header.expectsResponse) {
@@ -297,23 +374,23 @@ blink.mojom.StorageAccessHandleReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindBlobStorage');
           const result = this.impl.bindBlobStorage(params.receiver);
           break;
         }
-        case 6: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindBroadcastChannel');
           const result = this.impl.bindBroadcastChannel(params.receiver);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.bindSharedWorker');
           const result = this.impl.bindSharedWorker(params.receiver);
           break;

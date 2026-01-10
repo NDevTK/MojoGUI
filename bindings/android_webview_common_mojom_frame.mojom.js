@@ -205,39 +205,89 @@ android_webview.mojom.LocalMainFrameReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SetInitialPageScale
+        try {
+             decoder.decodeStruct(android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInitialPageScale (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: SetTextZoomFactor
+        try {
+             decoder.decodeStruct(android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetTextZoomFactor (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: DocumentHasImage
+        try {
+             decoder.decodeStruct(android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DocumentHasImage (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ResetScrollAndScaleState
+        try {
+             decoder.decodeStruct(android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetScrollAndScaleState (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: SmoothScroll
+        try {
+             decoder.decodeStruct(android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SmoothScroll (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setInitialPageScale');
           const result = this.impl.setInitialPageScale(params.page_scale_factor);
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setTextZoomFactor');
           const result = this.impl.setTextZoomFactor(params.zoom_factor);
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.documentHasImage');
           const result = this.impl.documentHasImage();
           if (header.expectsResponse) {
@@ -248,16 +298,16 @@ android_webview.mojom.LocalMainFrameReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.resetScrollAndScaleState');
           const result = this.impl.resetScrollAndScaleState();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.smoothScroll');
           const result = this.impl.smoothScroll(params.target_x, params.target_y, params.duration);
           break;
@@ -399,39 +449,71 @@ android_webview.mojom.FrameHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: UpdateHitTestData
+        try {
+             decoder.decodeStruct(android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateHitTestData (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: ContentsSizeChanged
+        try {
+             decoder.decodeStruct(android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ContentsSizeChanged (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ShouldOverrideUrlLoading
+        try {
+             decoder.decodeStruct(android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShouldOverrideUrlLoading (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateHitTestData');
           const result = this.impl.updateHitTestData(params.data);
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.contentsSizeChanged');
           const result = this.impl.contentsSizeChanged(params.contents_size);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.shouldOverrideUrlLoading');
           const result = this.impl.shouldOverrideUrlLoading(params.url, params.has_user_gesture, params.is_redirect, params.is_outermost_main_frame);
           if (header.expectsResponse) {

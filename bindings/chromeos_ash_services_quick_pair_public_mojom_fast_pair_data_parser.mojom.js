@@ -372,25 +372,75 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetHexModelIdFromServiceData
+        try {
+             decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHexModelIdFromServiceData (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: ParseDecryptedResponse
+        try {
+             decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseDecryptedResponse (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ParseDecryptedPasskey
+        try {
+             decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseDecryptedPasskey (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ParseNotDiscoverableAdvertisement
+        try {
+             decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseNotDiscoverableAdvertisement (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: ParseMessageStreamMessages
+        try {
+             decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ParseMessageStreamMessages (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getHexModelIdFromServiceData');
           const result = this.impl.getHexModelIdFromServiceData(params.service_data);
           if (header.expectsResponse) {
@@ -401,9 +451,9 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.parseDecryptedResponse');
           const result = this.impl.parseDecryptedResponse(params.aes_key, params.encrypted_response_bytes);
           if (header.expectsResponse) {
@@ -414,9 +464,9 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.parseDecryptedPasskey');
           const result = this.impl.parseDecryptedPasskey(params.aes_key, params.encrypted_passkey_bytes);
           if (header.expectsResponse) {
@@ -427,9 +477,9 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.parseNotDiscoverableAdvertisement');
           const result = this.impl.parseNotDiscoverableAdvertisement(params.service_data, params.address);
           if (header.expectsResponse) {
@@ -442,7 +492,7 @@ ash.quick_pair.mojom.FastPairDataParserReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.parseMessageStreamMessages');
           const result = this.impl.parseMessageStreamMessages(params.message_bytes);
           if (header.expectsResponse) {

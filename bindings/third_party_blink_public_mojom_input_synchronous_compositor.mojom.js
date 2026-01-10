@@ -397,32 +397,154 @@ blink.mojom.SynchronousCompositorReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: DemandDrawHwAsync
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DemandDrawHwAsync (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: DemandDrawHw
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DemandDrawHw (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SetSharedMemory
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSharedMemory (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: DemandDrawSw
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DemandDrawSw (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: WillSkipDraw
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WillSkipDraw (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: ZeroSharedMemory
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ZeroSharedMemory (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: ZoomBy
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ZoomBy (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: SetMemoryPolicy
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMemoryPolicy (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: ReclaimResources
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReclaimResources (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: OnCompositorFrameTransitionDirectiveProcessed
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCompositorFrameTransitionDirectiveProcessed (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: SetScroll
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetScroll (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: BeginFrame
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginFrame (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: SetBeginFrameSourcePaused
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBeginFrameSourcePaused (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.demandDrawHwAsync');
           const result = this.impl.demandDrawHwAsync(params.draw_params);
           break;
         }
-        case 1: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.demandDrawHw');
           const result = this.impl.demandDrawHw(params.draw_params);
           if (header.expectsResponse) {
@@ -433,9 +555,9 @@ blink.mojom.SynchronousCompositorReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSharedMemory');
           const result = this.impl.setSharedMemory(params.shm_region);
           if (header.expectsResponse) {
@@ -446,9 +568,9 @@ blink.mojom.SynchronousCompositorReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.demandDrawSw');
           const result = this.impl.demandDrawSw(params.draw_params);
           if (header.expectsResponse) {
@@ -459,23 +581,23 @@ blink.mojom.SynchronousCompositorReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.willSkipDraw');
           const result = this.impl.willSkipDraw();
           break;
         }
-        case 5: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.zeroSharedMemory');
           const result = this.impl.zeroSharedMemory();
           break;
         }
-        case 6: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.zoomBy');
           const result = this.impl.zoomBy(params.delta, params.anchor);
           if (header.expectsResponse) {
@@ -486,44 +608,44 @@ blink.mojom.SynchronousCompositorReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setMemoryPolicy');
           const result = this.impl.setMemoryPolicy(params.bytes_limit);
           break;
         }
-        case 8: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reclaimResources');
           const result = this.impl.reclaimResources(params.layer_tree_frame_sink_id, params.resources);
           break;
         }
-        case 9: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onCompositorFrameTransitionDirectiveProcessed');
           const result = this.impl.onCompositorFrameTransitionDirectiveProcessed(params.layer_tree_frame_sink_id, params.sequence_id);
           break;
         }
-        case 10: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setScroll');
           const result = this.impl.setScroll(params.offset);
           break;
         }
-        case 11: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.beginFrame');
           const result = this.impl.beginFrame(params.args, params.timing_details);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setBeginFrameSourcePaused');
           const result = this.impl.setBeginFrameSourcePaused(params.paused);
           break;
@@ -672,46 +794,87 @@ blink.mojom.SynchronousCompositorHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: LayerTreeFrameSinkCreated
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LayerTreeFrameSinkCreated (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: UpdateState
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateState (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SetNeedsBeginFrames
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNeedsBeginFrames (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: SetThreads
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetThreads (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.layerTreeFrameSinkCreated');
           const result = this.impl.layerTreeFrameSinkCreated();
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateState');
           const result = this.impl.updateState(params.params);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setNeedsBeginFrames');
           const result = this.impl.setNeedsBeginFrames(params.needs_begin_frames);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setThreads');
           const result = this.impl.setThreads(params.threads);
           break;
@@ -831,32 +994,55 @@ blink.mojom.SynchronousCompositorControlHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ReturnFrame
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReturnFrame (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: BeginFrameResponse
+        try {
+             decoder.decodeStruct(blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> BeginFrameResponse (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.returnFrame');
           const result = this.impl.returnFrame(params.layer_tree_frame_sink_id, params.metadata_version, params.local_surface_id, params.frame, params.hit_test_region_list);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.beginFrameResponse');
           const result = this.impl.beginFrameResponse(params.params);
           break;

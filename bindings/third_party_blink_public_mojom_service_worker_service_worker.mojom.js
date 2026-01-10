@@ -462,39 +462,152 @@ blink.mojom.ServiceWorkerHostReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SetCachedMetadata
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCachedMetadata (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: ClearCachedMetadata
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearCachedMetadata (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: GetClients
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetClients (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GetClient
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetClient (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: OpenNewTab
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenNewTab (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: OpenPaymentHandlerWindow
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenPaymentHandlerWindow (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: PostMessageToClient
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PostMessageToClient (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: FocusClient
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusClient (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: NavigateClient
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NavigateClient (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: SkipWaiting
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SkipWaiting (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: ClaimClients
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClaimClients (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: AddRoutes
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddRoutes (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setCachedMetadata');
           const result = this.impl.setCachedMetadata(params.url, params.data);
           break;
         }
-        case 1: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearCachedMetadata');
           const result = this.impl.clearCachedMetadata(params.url);
           break;
         }
-        case 2: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getClients');
           const result = this.impl.getClients(params.options);
           if (header.expectsResponse) {
@@ -505,9 +618,9 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getClient');
           const result = this.impl.getClient(params.client_uuid);
           if (header.expectsResponse) {
@@ -518,9 +631,9 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openNewTab');
           const result = this.impl.openNewTab(params.url);
           if (header.expectsResponse) {
@@ -531,9 +644,9 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openPaymentHandlerWindow');
           const result = this.impl.openPaymentHandlerWindow(params.url);
           if (header.expectsResponse) {
@@ -544,16 +657,16 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.postMessageToClient');
           const result = this.impl.postMessageToClient(params.client_uuid, params.message);
           break;
         }
-        case 7: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.focusClient');
           const result = this.impl.focusClient(params.client_uuid);
           if (header.expectsResponse) {
@@ -564,9 +677,9 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.navigateClient');
           const result = this.impl.navigateClient(params.client_uuid, params.url);
           if (header.expectsResponse) {
@@ -577,9 +690,9 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.skipWaiting');
           const result = this.impl.skipWaiting();
           if (header.expectsResponse) {
@@ -590,9 +703,9 @@ blink.mojom.ServiceWorkerHostReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.claimClients');
           const result = this.impl.claimClients();
           if (header.expectsResponse) {
@@ -605,7 +718,7 @@ blink.mojom.ServiceWorkerHostReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addRoutes');
           const result = this.impl.addRoutes(params.rules);
           if (header.expectsResponse) {
@@ -1301,32 +1414,280 @@ blink.mojom.ServiceWorkerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: InitializeGlobalScope
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InitializeGlobalScope (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: DispatchInstallEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchInstallEvent (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: DispatchActivateEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchActivateEvent (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: DispatchBackgroundFetchAbortEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchBackgroundFetchAbortEvent (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: DispatchBackgroundFetchClickEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchBackgroundFetchClickEvent (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: DispatchBackgroundFetchFailEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchBackgroundFetchFailEvent (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: DispatchBackgroundFetchSuccessEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchBackgroundFetchSuccessEvent (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: DispatchCookieChangeEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchCookieChangeEvent (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: DispatchFetchEventForMainResource
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchFetchEventForMainResource (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: DispatchNotificationClickEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchNotificationClickEvent (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: DispatchNotificationCloseEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchNotificationCloseEvent (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: DispatchPushEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchPushEvent (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: DispatchPushEventRecordingNetworkRequests
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchPushEventRecordingNetworkRequests (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: DispatchPushSubscriptionChangeEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchPushSubscriptionChangeEvent (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: DispatchSyncEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchSyncEvent (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: DispatchPeriodicSyncEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchPeriodicSyncEvent (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: DispatchAbortPaymentEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchAbortPaymentEvent (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 17: DispatchCanMakePaymentEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchCanMakePaymentEvent (17)');
+             this.mapOrdinal(header.ordinal, 17);
+             dispatchId = 17;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 18: DispatchPaymentRequestEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchPaymentRequestEvent (18)');
+             this.mapOrdinal(header.ordinal, 18);
+             dispatchId = 18;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 19: DispatchExtendableMessageEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchExtendableMessageEvent (19)');
+             this.mapOrdinal(header.ordinal, 19);
+             dispatchId = 19;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 20: DispatchContentDeleteEvent
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchContentDeleteEvent (20)');
+             this.mapOrdinal(header.ordinal, 20);
+             dispatchId = 20;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 21: Ping
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_Ping_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Ping (21)');
+             this.mapOrdinal(header.ordinal, 21);
+             dispatchId = 21;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 22: SetIdleDelay
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetIdleDelay (22)');
+             this.mapOrdinal(header.ordinal, 22);
+             dispatchId = 22;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 23: AddKeepAlive
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddKeepAlive (23)');
+             this.mapOrdinal(header.ordinal, 23);
+             dispatchId = 23;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 24: ClearKeepAlive
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearKeepAlive (24)');
+             this.mapOrdinal(header.ordinal, 24);
+             dispatchId = 24;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 25: AddMessageToConsole
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddMessageToConsole (25)');
+             this.mapOrdinal(header.ordinal, 25);
+             dispatchId = 25;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 26: ExecuteScriptForTest
+        try {
+             decoder.decodeStruct(blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExecuteScriptForTest (26)');
+             this.mapOrdinal(header.ordinal, 26);
+             dispatchId = 26;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.initializeGlobalScope');
           const result = this.impl.initializeGlobalScope(params.service_worker_host, params.associated_interfaces_to_browser, params.associated_interfaces_from_browser, params.registration_info, params.service_worker_info, params.fetch_handler_existence, params.ancestor_frame_type, params.storage_key);
           break;
         }
-        case 1: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchInstallEvent');
           const result = this.impl.dispatchInstallEvent();
           if (header.expectsResponse) {
@@ -1337,9 +1698,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchActivateEvent');
           const result = this.impl.dispatchActivateEvent();
           if (header.expectsResponse) {
@@ -1350,9 +1711,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchBackgroundFetchAbortEvent');
           const result = this.impl.dispatchBackgroundFetchAbortEvent(params.registration);
           if (header.expectsResponse) {
@@ -1363,9 +1724,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchBackgroundFetchClickEvent');
           const result = this.impl.dispatchBackgroundFetchClickEvent(params.registration);
           if (header.expectsResponse) {
@@ -1376,9 +1737,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchBackgroundFetchFailEvent');
           const result = this.impl.dispatchBackgroundFetchFailEvent(params.registration);
           if (header.expectsResponse) {
@@ -1389,9 +1750,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchBackgroundFetchSuccessEvent');
           const result = this.impl.dispatchBackgroundFetchSuccessEvent(params.registration);
           if (header.expectsResponse) {
@@ -1402,9 +1763,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchCookieChangeEvent');
           const result = this.impl.dispatchCookieChangeEvent(params.change);
           if (header.expectsResponse) {
@@ -1415,9 +1776,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchFetchEventForMainResource');
           const result = this.impl.dispatchFetchEventForMainResource(params.params, params.response_callback);
           if (header.expectsResponse) {
@@ -1428,9 +1789,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchNotificationClickEvent');
           const result = this.impl.dispatchNotificationClickEvent(params.notification_id, params.notification_data, params.action_index, params.reply);
           if (header.expectsResponse) {
@@ -1441,9 +1802,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchNotificationCloseEvent');
           const result = this.impl.dispatchNotificationCloseEvent(params.notification_id, params.notification_data);
           if (header.expectsResponse) {
@@ -1454,9 +1815,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchPushEvent');
           const result = this.impl.dispatchPushEvent(params.payload);
           if (header.expectsResponse) {
@@ -1467,9 +1828,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchPushEventRecordingNetworkRequests');
           const result = this.impl.dispatchPushEventRecordingNetworkRequests(params.payload);
           if (header.expectsResponse) {
@@ -1480,9 +1841,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchPushSubscriptionChangeEvent');
           const result = this.impl.dispatchPushSubscriptionChangeEvent(params.old_subscription, params.new_subscription);
           if (header.expectsResponse) {
@@ -1493,9 +1854,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchSyncEvent');
           const result = this.impl.dispatchSyncEvent(params.tag, params.last_chance, params.timeout);
           if (header.expectsResponse) {
@@ -1506,9 +1867,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchPeriodicSyncEvent');
           const result = this.impl.dispatchPeriodicSyncEvent(params.tag, params.timeout);
           if (header.expectsResponse) {
@@ -1519,9 +1880,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 16: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchAbortPaymentEvent');
           const result = this.impl.dispatchAbortPaymentEvent(params.result_of_abort_payment);
           if (header.expectsResponse) {
@@ -1532,9 +1893,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 17: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchCanMakePaymentEvent');
           const result = this.impl.dispatchCanMakePaymentEvent(params.event_data, params.result_of_can_make_payment);
           if (header.expectsResponse) {
@@ -1545,9 +1906,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 18: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchPaymentRequestEvent');
           const result = this.impl.dispatchPaymentRequestEvent(params.request_data, params.response_callback);
           if (header.expectsResponse) {
@@ -1558,9 +1919,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchExtendableMessageEvent');
           const result = this.impl.dispatchExtendableMessageEvent(params.event);
           if (header.expectsResponse) {
@@ -1571,9 +1932,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 20: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchContentDeleteEvent');
           const result = this.impl.dispatchContentDeleteEvent(params.id);
           if (header.expectsResponse) {
@@ -1584,9 +1945,9 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 21: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_Ping_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_Ping_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.ping');
           const result = this.impl.ping();
           if (header.expectsResponse) {
@@ -1597,37 +1958,37 @@ blink.mojom.ServiceWorkerReceiver = class {
           }
           break;
         }
-        case 22: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setIdleDelay');
           const result = this.impl.setIdleDelay(params.delay);
           break;
         }
-        case 23: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addKeepAlive');
           const result = this.impl.addKeepAlive();
           break;
         }
-        case 24: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearKeepAlive');
           const result = this.impl.clearKeepAlive();
           break;
         }
-        case 25: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addMessageToConsole');
           const result = this.impl.addMessageToConsole(params.level, params.message);
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.executeScriptForTest');
           const result = this.impl.executeScriptForTest(params.javascript, params.wants_result);
           if (header.expectsResponse) {

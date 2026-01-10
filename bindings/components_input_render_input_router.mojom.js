@@ -218,60 +218,119 @@ input.mojom.RenderInputRouterDelegateReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: StateOnTouchTransfer
+        try {
+             decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StateOnTouchTransfer (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: ForceEnableZoomStateChanged
+        try {
+             decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceEnableZoomStateChanged (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: StopFlingingOnViz
+        try {
+             decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopFlingingOnViz (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: RestartInputEventAckTimeoutIfNecessary
+        try {
+             decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RestartInputEventAckTimeoutIfNecessary (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: NotifyVisibilityChanged
+        try {
+             decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyVisibilityChanged (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: ResetGestureDetection
+        try {
+             decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetGestureDetection (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.stateOnTouchTransfer');
           const result = this.impl.stateOnTouchTransfer(params.state);
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.forceEnableZoomStateChanged');
           const result = this.impl.forceEnableZoomStateChanged(params.force_enable_zoom, params.frame_sink_id);
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.stopFlingingOnViz');
           const result = this.impl.stopFlingingOnViz(params.frame_sink_id);
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.restartInputEventAckTimeoutIfNecessary');
           const result = this.impl.restartInputEventAckTimeoutIfNecessary(params.frame_sink_id);
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifyVisibilityChanged');
           const result = this.impl.notifyVisibilityChanged(params.frame_sink_id, params.is_hidden);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.resetGestureDetection');
           const result = this.impl.resetGestureDetection(params.root_widget_frame_sink_id);
           break;
@@ -441,53 +500,103 @@ input.mojom.RenderInputRouterDelegateClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: NotifyObserversOfInputEvent
+        try {
+             decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyObserversOfInputEvent (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: NotifyObserversOfInputEventAcks
+        try {
+             decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyObserversOfInputEventAcks (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnInvalidInputEventSource
+        try {
+             decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnInvalidInputEventSource (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: StateOnOverscrollTransfer
+        try {
+             decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StateOnOverscrollTransfer (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: RendererInputResponsivenessChanged
+        try {
+             decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RendererInputResponsivenessChanged (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifyObserversOfInputEvent');
           const result = this.impl.notifyObserversOfInputEvent(params.event, params.dispatched_to_renderer);
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifyObserversOfInputEventAcks');
           const result = this.impl.notifyObserversOfInputEventAcks(params.ack_source, params.ack_result, params.event);
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onInvalidInputEventSource');
           const result = this.impl.onInvalidInputEventSource();
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.stateOnOverscrollTransfer');
           const result = this.impl.stateOnOverscrollTransfer(params.overscroll);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.rendererInputResponsivenessChanged');
           const result = this.impl.rendererInputResponsivenessChanged(params.is_responsive, params.ack_timeout_ts);
           break;

@@ -211,25 +211,75 @@ media.mojom.MediaDrmStorageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Initialize
+        try {
+             decoder.decodeStruct(media.mojom.MediaDrmStorage_Initialize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Initialize (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnProvisioned
+        try {
+             decoder.decodeStruct(media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnProvisioned (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SavePersistentSession
+        try {
+             decoder.decodeStruct(media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SavePersistentSession (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: LoadPersistentSession
+        try {
+             decoder.decodeStruct(media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadPersistentSession (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: RemovePersistentSession
+        try {
+             decoder.decodeStruct(media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RemovePersistentSession (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaDrmStorage_Initialize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.MediaDrmStorage_Initialize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize();
           if (header.expectsResponse) {
@@ -240,9 +290,9 @@ media.mojom.MediaDrmStorageReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onProvisioned');
           const result = this.impl.onProvisioned();
           if (header.expectsResponse) {
@@ -253,9 +303,9 @@ media.mojom.MediaDrmStorageReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.savePersistentSession');
           const result = this.impl.savePersistentSession(params.session_id, params.session_data);
           if (header.expectsResponse) {
@@ -266,9 +316,9 @@ media.mojom.MediaDrmStorageReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadPersistentSession');
           const result = this.impl.loadPersistentSession(params.session_id);
           if (header.expectsResponse) {
@@ -281,7 +331,7 @@ media.mojom.MediaDrmStorageReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.removePersistentSession');
           const result = this.impl.removePersistentSession(params.session_id);
           if (header.expectsResponse) {

@@ -203,25 +203,75 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Read
+        try {
+             decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Read (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: Write
+        try {
+             decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Write (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: Exists
+        try {
+             decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Exists (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GetSize
+        try {
+             decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSize (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: Remove
+        try {
+             decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Remove (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read(params.file_name);
           if (header.expectsResponse) {
@@ -232,9 +282,9 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.write');
           const result = this.impl.write(params.file_name, params.data);
           if (header.expectsResponse) {
@@ -245,9 +295,9 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.exists');
           const result = this.impl.exists(params.file_name);
           if (header.expectsResponse) {
@@ -258,9 +308,9 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSize');
           const result = this.impl.getSize(params.file_name);
           if (header.expectsResponse) {
@@ -273,7 +323,7 @@ chromeos.cdm.mojom.CdmStorageReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.remove');
           const result = this.impl.remove(params.file_name);
           if (header.expectsResponse) {

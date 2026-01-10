@@ -177,32 +177,55 @@ webui_browser.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreatePageHandler
+        try {
+             decoder.decodeStruct(webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetTabStripInset
+        try {
+             decoder.decodeStruct(webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabStripInset (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getTabStripInset');
           const result = this.impl.getTabStripInset();
           if (header.expectsResponse) {
@@ -376,53 +399,103 @@ webui_browser.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SetFocusToLocationBar
+        try {
+             decoder.decodeStruct(webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFocusToLocationBar (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: SetReloadStopState
+        try {
+             decoder.decodeStruct(webui_browser.mojom.Page_SetReloadStopState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetReloadStopState (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ShowSidePanel
+        try {
+             decoder.decodeStruct(webui_browser.mojom.Page_ShowSidePanel_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowSidePanel (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: CloseSidePanel
+        try {
+             decoder.decodeStruct(webui_browser.mojom.Page_CloseSidePanel_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseSidePanel (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: OnFullscreenModeChanged
+        try {
+             decoder.decodeStruct(webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFullscreenModeChanged (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setFocusToLocationBar');
           const result = this.impl.setFocusToLocationBar(params.is_user_initiated);
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.Page_SetReloadStopState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.Page_SetReloadStopState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setReloadStopState');
           const result = this.impl.setReloadStopState(params.is_loading);
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.Page_ShowSidePanel_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.Page_ShowSidePanel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showSidePanel');
           const result = this.impl.showSidePanel(params.guest_contents_id, params.title);
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.Page_CloseSidePanel_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.Page_CloseSidePanel_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeSidePanel');
           const result = this.impl.closeSidePanel();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onFullscreenModeChanged');
           const result = this.impl.onFullscreenModeChanged(params.is_fullscreen, params.context);
           break;
@@ -695,25 +768,129 @@ webui_browser.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetGuestIdForTabId
+        try {
+             decoder.decodeStruct(webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGuestIdForTabId (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: LoadTabSearch
+        try {
+             decoder.decodeStruct(webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadTabSearch (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ShowTabSearchBubble
+        try {
+             decoder.decodeStruct(webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowTabSearchBubble (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OpenAppMenu
+        try {
+             decoder.decodeStruct(webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenAppMenu (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: OpenProfileMenu
+        try {
+             decoder.decodeStruct(webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenProfileMenu (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: LaunchDevToolsForBrowser
+        try {
+             decoder.decodeStruct(webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LaunchDevToolsForBrowser (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: OnSidePanelClosed
+        try {
+             decoder.decodeStruct(webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnSidePanelClosed (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: Minimize
+        try {
+             decoder.decodeStruct(webui_browser.mojom.PageHandler_Minimize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Minimize (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: Maximize
+        try {
+             decoder.decodeStruct(webui_browser.mojom.PageHandler_Maximize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Maximize (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: Restore
+        try {
+             decoder.decodeStruct(webui_browser.mojom.PageHandler_Restore_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Restore (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: Close
+        try {
+             decoder.decodeStruct(webui_browser.mojom.PageHandler_Close_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getGuestIdForTabId');
           const result = this.impl.getGuestIdForTabId(params.tab_id, params.handler);
           if (header.expectsResponse) {
@@ -724,9 +901,9 @@ webui_browser.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadTabSearch');
           const result = this.impl.loadTabSearch();
           if (header.expectsResponse) {
@@ -737,65 +914,65 @@ webui_browser.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showTabSearchBubble');
           const result = this.impl.showTabSearchBubble(params.anchor_name);
           break;
         }
-        case 3: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openAppMenu');
           const result = this.impl.openAppMenu();
           break;
         }
-        case 4: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openProfileMenu');
           const result = this.impl.openProfileMenu();
           break;
         }
-        case 5: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.launchDevToolsForBrowser');
           const result = this.impl.launchDevToolsForBrowser();
           break;
         }
-        case 6: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onSidePanelClosed');
           const result = this.impl.onSidePanelClosed();
           break;
         }
-        case 7: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_Minimize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_Minimize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.minimize');
           const result = this.impl.minimize();
           break;
         }
-        case 8: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_Maximize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_Maximize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.maximize');
           const result = this.impl.maximize();
           break;
         }
-        case 9: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_Restore_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_Restore_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.restore');
           const result = this.impl.restore();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_Close_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.PageHandler_Close_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           break;
@@ -1040,32 +1217,118 @@ webui_browser.mojom.GuestHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Navigate
+        try {
+             decoder.decodeStruct(webui_browser.mojom.GuestHandler_Navigate_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Navigate (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: CanGoBack
+        try {
+             decoder.decodeStruct(webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanGoBack (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: GoBack
+        try {
+             decoder.decodeStruct(webui_browser.mojom.GuestHandler_GoBack_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GoBack (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: CanGoForward
+        try {
+             decoder.decodeStruct(webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanGoForward (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: GoForward
+        try {
+             decoder.decodeStruct(webui_browser.mojom.GuestHandler_GoForward_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GoForward (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: Reload
+        try {
+             decoder.decodeStruct(webui_browser.mojom.GuestHandler_Reload_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reload (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: StopLoading
+        try {
+             decoder.decodeStruct(webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopLoading (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: OpenPageInfoMenu
+        try {
+             decoder.decodeStruct(webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenPageInfoMenu (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: GetSecurityIcon
+        try {
+             decoder.decodeStruct(webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSecurityIcon (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_Navigate_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_Navigate_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.navigate');
           const result = this.impl.navigate(params.src);
           break;
         }
-        case 1: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.canGoBack');
           const result = this.impl.canGoBack();
           if (header.expectsResponse) {
@@ -1076,16 +1339,16 @@ webui_browser.mojom.GuestHandlerReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_GoBack_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_GoBack_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.goBack');
           const result = this.impl.goBack();
           break;
         }
-        case 3: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.canGoForward');
           const result = this.impl.canGoForward();
           if (header.expectsResponse) {
@@ -1096,37 +1359,37 @@ webui_browser.mojom.GuestHandlerReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_GoForward_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_GoForward_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.goForward');
           const result = this.impl.goForward();
           break;
         }
-        case 5: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_Reload_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_Reload_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reload');
           const result = this.impl.reload();
           break;
         }
-        case 6: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.stopLoading');
           const result = this.impl.stopLoading();
           break;
         }
-        case 7: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openPageInfoMenu');
           const result = this.impl.openPageInfoMenu();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSecurityIcon');
           const result = this.impl.getSecurityIcon();
           if (header.expectsResponse) {

@@ -234,25 +234,75 @@ content.mojom.SandboxSupportReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetSystemColors
+        try {
+             decoder.decodeStruct(content.mojom.SandboxSupport_GetSystemColors_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSystemColors (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: LcidAndFirstDayOfWeek
+        try {
+             decoder.decodeStruct(content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LcidAndFirstDayOfWeek (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: DigitsAndSigns
+        try {
+             decoder.decodeStruct(content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DigitsAndSigns (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: LocaleString
+        try {
+             decoder.decodeStruct(content.mojom.SandboxSupport_LocaleString_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LocaleString (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: LocaleStrings
+        try {
+             decoder.decodeStruct(content.mojom.SandboxSupport_LocaleStrings_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LocaleStrings (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.SandboxSupport_GetSystemColors_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.SandboxSupport_GetSystemColors_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSystemColors');
           const result = this.impl.getSystemColors();
           if (header.expectsResponse) {
@@ -263,9 +313,9 @@ content.mojom.SandboxSupportReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.lcidAndFirstDayOfWeek');
           const result = this.impl.lcidAndFirstDayOfWeek(params.locale, params.default_language, params.defaults);
           if (header.expectsResponse) {
@@ -276,9 +326,9 @@ content.mojom.SandboxSupportReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.digitsAndSigns');
           const result = this.impl.digitsAndSigns(params.lcid, params.defaults);
           if (header.expectsResponse) {
@@ -289,9 +339,9 @@ content.mojom.SandboxSupportReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.SandboxSupport_LocaleString_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.SandboxSupport_LocaleString_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.localeString');
           const result = this.impl.localeString(params.lcid, params.defaults, params.type);
           if (header.expectsResponse) {
@@ -304,7 +354,7 @@ content.mojom.SandboxSupportReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(content.mojom.SandboxSupport_LocaleStrings_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(content.mojom.SandboxSupport_LocaleStrings_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.localeStrings');
           const result = this.impl.localeStrings(params.lcid, params.defaults, params.collection);
           if (header.expectsResponse) {

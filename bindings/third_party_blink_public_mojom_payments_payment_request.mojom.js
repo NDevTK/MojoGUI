@@ -511,102 +511,215 @@ payments.mojom.PaymentRequestClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnPaymentMethodChange
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPaymentMethodChange (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnShippingAddressChange
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShippingAddressChange (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnShippingOptionChange
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnShippingOptionChange (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnPayerDetailChange
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPayerDetailChange (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: OnPaymentResponse
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPaymentResponse (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: OnError
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnError_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnError (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: OnComplete
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnComplete (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: OnAbort
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAbort (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: OnCanMakePayment
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCanMakePayment (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: OnHasEnrolledInstrument
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHasEnrolledInstrument (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: WarnNoFavicon
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> WarnNoFavicon (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: AllowConnectToSource
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AllowConnectToSource (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPaymentMethodChange');
           const result = this.impl.onPaymentMethodChange(params.method_name, params.stringified_details);
           break;
         }
-        case 1: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onShippingAddressChange');
           const result = this.impl.onShippingAddressChange(params.address);
           break;
         }
-        case 2: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onShippingOptionChange');
           const result = this.impl.onShippingOptionChange(params.shipping_option_id);
           break;
         }
-        case 3: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPayerDetailChange');
           const result = this.impl.onPayerDetailChange(params.detail);
           break;
         }
-        case 4: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPaymentResponse');
           const result = this.impl.onPaymentResponse(params.response);
           break;
         }
-        case 5: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnError_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnError_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.error_message);
           break;
         }
-        case 6: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete();
           break;
         }
-        case 7: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAbort');
           const result = this.impl.onAbort(params.aborted_successfully);
           break;
         }
-        case 8: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onCanMakePayment');
           const result = this.impl.onCanMakePayment(params.result);
           break;
         }
-        case 9: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onHasEnrolledInstrument');
           const result = this.impl.onHasEnrolledInstrument(params.result);
           break;
         }
-        case 10: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.warnNoFavicon');
           const result = this.impl.warnNoFavicon();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.allowConnectToSource');
           const result = this.impl.allowConnectToSource(params.url, params.url_before_redirects, params.did_follow_redirect);
           if (header.expectsResponse) {
@@ -847,81 +960,167 @@ payments.mojom.PaymentRequestReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Init
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequest_Init_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Init (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: Show
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequest_Show_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Show (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: UpdateWith
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequest_UpdateWith_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateWith (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnPaymentDetailsNotUpdated
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnPaymentDetailsNotUpdated (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: Abort
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequest_Abort_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Abort (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: Complete
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequest_Complete_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Complete (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: Retry
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequest_Retry_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Retry (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: CanMakePayment
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CanMakePayment (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: HasEnrolledInstrument
+        try {
+             decoder.decodeStruct(payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasEnrolledInstrument (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_Init_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_Init_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.client, params.method_data, params.details, params.options);
           break;
         }
-        case 1: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_Show_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_Show_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.show');
           const result = this.impl.show(params.wait_for_updated_details, params.had_user_activation);
           break;
         }
-        case 2: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_UpdateWith_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_UpdateWith_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateWith');
           const result = this.impl.updateWith(params.details);
           break;
         }
-        case 3: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onPaymentDetailsNotUpdated');
           const result = this.impl.onPaymentDetailsNotUpdated();
           break;
         }
-        case 4: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_Abort_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_Abort_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.abort');
           const result = this.impl.abort();
           break;
         }
-        case 5: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_Complete_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_Complete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.complete');
           const result = this.impl.complete(params.result);
           break;
         }
-        case 6: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_Retry_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_Retry_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.retry');
           const result = this.impl.retry(params.errors);
           break;
         }
-        case 7: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.canMakePayment');
           const result = this.impl.canMakePayment();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hasEnrolledInstrument');
           const result = this.impl.hasEnrolledInstrument();
           break;

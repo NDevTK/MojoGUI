@@ -670,25 +670,156 @@ device.mojom.UsbDeviceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Open
+        try {
+             decoder.decodeStruct(device.mojom.UsbDevice_Open_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Open (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: Close
+        try {
+             decoder.decodeStruct(device.mojom.UsbDevice_Close_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SetConfiguration
+        try {
+             decoder.decodeStruct(device.mojom.UsbDevice_SetConfiguration_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetConfiguration (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ClaimInterface
+        try {
+             decoder.decodeStruct(device.mojom.UsbDevice_ClaimInterface_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClaimInterface (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: ReleaseInterface
+        try {
+             decoder.decodeStruct(device.mojom.UsbDevice_ReleaseInterface_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReleaseInterface (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: SetInterfaceAlternateSetting
+        try {
+             decoder.decodeStruct(device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetInterfaceAlternateSetting (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: Reset
+        try {
+             decoder.decodeStruct(device.mojom.UsbDevice_Reset_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Reset (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: ClearHalt
+        try {
+             decoder.decodeStruct(device.mojom.UsbDevice_ClearHalt_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearHalt (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: ControlTransferIn
+        try {
+             decoder.decodeStruct(device.mojom.UsbDevice_ControlTransferIn_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ControlTransferIn (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: ControlTransferOut
+        try {
+             decoder.decodeStruct(device.mojom.UsbDevice_ControlTransferOut_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ControlTransferOut (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: GenericTransferIn
+        try {
+             decoder.decodeStruct(device.mojom.UsbDevice_GenericTransferIn_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenericTransferIn (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: GenericTransferOut
+        try {
+             decoder.decodeStruct(device.mojom.UsbDevice_GenericTransferOut_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GenericTransferOut (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: IsochronousTransferIn
+        try {
+             decoder.decodeStruct(device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsochronousTransferIn (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: IsochronousTransferOut
+        try {
+             decoder.decodeStruct(device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsochronousTransferOut (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDevice_Open_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDevice_Open_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.open');
           const result = this.impl.open();
           if (header.expectsResponse) {
@@ -699,9 +830,9 @@ device.mojom.UsbDeviceReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDevice_Close_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDevice_Close_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           if (header.expectsResponse) {
@@ -712,9 +843,9 @@ device.mojom.UsbDeviceReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDevice_SetConfiguration_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDevice_SetConfiguration_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setConfiguration');
           const result = this.impl.setConfiguration(params.value);
           if (header.expectsResponse) {
@@ -725,9 +856,9 @@ device.mojom.UsbDeviceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDevice_ClaimInterface_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDevice_ClaimInterface_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.claimInterface');
           const result = this.impl.claimInterface(params.interface_number);
           if (header.expectsResponse) {
@@ -738,9 +869,9 @@ device.mojom.UsbDeviceReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDevice_ReleaseInterface_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDevice_ReleaseInterface_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.releaseInterface');
           const result = this.impl.releaseInterface(params.interface_number);
           if (header.expectsResponse) {
@@ -751,9 +882,9 @@ device.mojom.UsbDeviceReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setInterfaceAlternateSetting');
           const result = this.impl.setInterfaceAlternateSetting(params.interface_number, params.alternate_setting);
           if (header.expectsResponse) {
@@ -764,9 +895,9 @@ device.mojom.UsbDeviceReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDevice_Reset_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDevice_Reset_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.reset');
           const result = this.impl.reset();
           if (header.expectsResponse) {
@@ -777,9 +908,9 @@ device.mojom.UsbDeviceReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDevice_ClearHalt_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDevice_ClearHalt_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearHalt');
           const result = this.impl.clearHalt(params.direction, params.endpoint_number);
           if (header.expectsResponse) {
@@ -790,9 +921,9 @@ device.mojom.UsbDeviceReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDevice_ControlTransferIn_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDevice_ControlTransferIn_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.controlTransferIn');
           const result = this.impl.controlTransferIn(params.params, params.length, params.timeout);
           if (header.expectsResponse) {
@@ -803,9 +934,9 @@ device.mojom.UsbDeviceReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDevice_ControlTransferOut_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDevice_ControlTransferOut_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.controlTransferOut');
           const result = this.impl.controlTransferOut(params.params, params.data, params.timeout);
           if (header.expectsResponse) {
@@ -816,9 +947,9 @@ device.mojom.UsbDeviceReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDevice_GenericTransferIn_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDevice_GenericTransferIn_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.genericTransferIn');
           const result = this.impl.genericTransferIn(params.endpoint_number, params.length, params.timeout);
           if (header.expectsResponse) {
@@ -829,9 +960,9 @@ device.mojom.UsbDeviceReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDevice_GenericTransferOut_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDevice_GenericTransferOut_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.genericTransferOut');
           const result = this.impl.genericTransferOut(params.endpoint_number, params.data, params.timeout);
           if (header.expectsResponse) {
@@ -842,9 +973,9 @@ device.mojom.UsbDeviceReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isochronousTransferIn');
           const result = this.impl.isochronousTransferIn(params.endpoint_number, params.packet_lengths, params.timeout);
           if (header.expectsResponse) {
@@ -857,7 +988,7 @@ device.mojom.UsbDeviceReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isochronousTransferOut');
           const result = this.impl.isochronousTransferOut(params.endpoint_number, params.data, params.packet_lengths, params.timeout);
           if (header.expectsResponse) {
@@ -977,32 +1108,55 @@ device.mojom.UsbDeviceClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnDeviceOpened
+        try {
+             decoder.decodeStruct(device.mojom.UsbDeviceClient_OnDeviceOpened_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceOpened (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnDeviceClosed
+        try {
+             decoder.decodeStruct(device.mojom.UsbDeviceClient_OnDeviceClosed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDeviceClosed (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDeviceClient_OnDeviceOpened_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDeviceClient_OnDeviceOpened_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDeviceOpened');
           const result = this.impl.onDeviceOpened();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(device.mojom.UsbDeviceClient_OnDeviceClosed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(device.mojom.UsbDeviceClient_OnDeviceClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDeviceClosed');
           const result = this.impl.onDeviceClosed();
           break;

@@ -204,25 +204,39 @@ data_sharing.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreatePageHandler
+        try {
+             decoder.decodeStruct(data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -495,46 +509,141 @@ data_sharing.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ShowUI
+        try {
+             decoder.decodeStruct(data_sharing.mojom.PageHandler_ShowUI_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowUI (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: CloseUI
+        try {
+             decoder.decodeStruct(data_sharing.mojom.PageHandler_CloseUI_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseUI (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ApiInitComplete
+        try {
+             decoder.decodeStruct(data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApiInitComplete (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: MakeTabGroupShared
+        try {
+             decoder.decodeStruct(data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MakeTabGroupShared (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: GetShareLink
+        try {
+             decoder.decodeStruct(data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetShareLink (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: GetTabGroupPreview
+        try {
+             decoder.decodeStruct(data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTabGroupPreview (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: OpenTabGroup
+        try {
+             decoder.decodeStruct(data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenTabGroup (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: AboutToUnShareTabGroup
+        try {
+             decoder.decodeStruct(data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AboutToUnShareTabGroup (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: OnTabGroupUnShareComplete
+        try {
+             decoder.decodeStruct(data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTabGroupUnShareComplete (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: OnGroupAction
+        try {
+             decoder.decodeStruct(data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnGroupAction (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_ShowUI_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_ShowUI_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
-        case 1: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_CloseUI_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_CloseUI_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI(params.status_code);
           break;
         }
-        case 2: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.apiInitComplete');
           const result = this.impl.apiInitComplete();
           break;
         }
-        case 3: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.makeTabGroupShared');
           const result = this.impl.makeTabGroupShared(params.tab_group_id, params.group_id, params.access_token);
           if (header.expectsResponse) {
@@ -545,9 +654,9 @@ data_sharing.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getShareLink');
           const result = this.impl.getShareLink(params.group_id, params.access_token);
           if (header.expectsResponse) {
@@ -558,9 +667,9 @@ data_sharing.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getTabGroupPreview');
           const result = this.impl.getTabGroupPreview(params.group_id, params.access_token);
           if (header.expectsResponse) {
@@ -571,30 +680,30 @@ data_sharing.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openTabGroup');
           const result = this.impl.openTabGroup(params.group_id);
           break;
         }
-        case 7: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.aboutToUnShareTabGroup');
           const result = this.impl.aboutToUnShareTabGroup(params.tab_group_id);
           break;
         }
-        case 8: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTabGroupUnShareComplete');
           const result = this.impl.onTabGroupUnShareComplete(params.tab_group_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onGroupAction');
           const result = this.impl.onGroupAction(params.action, params.progress);
           break;
@@ -785,32 +894,82 @@ data_sharing.mojom.PageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnAccessTokenFetched
+        try {
+             decoder.decodeStruct(data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnAccessTokenFetched (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: ReadGroups
+        try {
+             decoder.decodeStruct(data_sharing.mojom.Page_ReadGroups_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadGroups (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ReadGroupWithToken
+        try {
+             decoder.decodeStruct(data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ReadGroupWithToken (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: DeleteGroup
+        try {
+             decoder.decodeStruct(data_sharing.mojom.Page_DeleteGroup_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteGroup (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: LeaveGroup
+        try {
+             decoder.decodeStruct(data_sharing.mojom.Page_LeaveGroup_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LeaveGroup (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onAccessTokenFetched');
           const result = this.impl.onAccessTokenFetched(params.access_token);
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.Page_ReadGroups_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.Page_ReadGroups_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readGroups');
           const result = this.impl.readGroups(params.read_groups_params);
           if (header.expectsResponse) {
@@ -821,9 +980,9 @@ data_sharing.mojom.PageReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.readGroupWithToken');
           const result = this.impl.readGroupWithToken(params.param);
           if (header.expectsResponse) {
@@ -834,9 +993,9 @@ data_sharing.mojom.PageReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.Page_DeleteGroup_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.Page_DeleteGroup_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteGroup');
           const result = this.impl.deleteGroup(params.group_id);
           if (header.expectsResponse) {
@@ -849,7 +1008,7 @@ data_sharing.mojom.PageReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(data_sharing.mojom.Page_LeaveGroup_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(data_sharing.mojom.Page_LeaveGroup_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.leaveGroup');
           const result = this.impl.leaveGroup(params.group_id);
           if (header.expectsResponse) {

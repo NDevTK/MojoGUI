@@ -905,25 +905,192 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetResult
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetResult (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetAllResults
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetAllResults (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: RunLanConnectivity
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunLanConnectivity (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: RunSignalStrength
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunSignalStrength (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: RunGatewayCanBePinged
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunGatewayCanBePinged (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: RunHasSecureWiFiConnection
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunHasSecureWiFiConnection (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: RunDnsResolverPresent
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDnsResolverPresent (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: RunDnsLatency
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDnsLatency (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: RunDnsResolution
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunDnsResolution (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: RunCaptivePortal
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunCaptivePortal (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: RunHttpFirewall
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunHttpFirewall (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: RunHttpsFirewall
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunHttpsFirewall (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: RunHttpsLatency
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunHttpsLatency (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: RunVideoConferencing
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunVideoConferencing (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: RunArcHttp
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunArcHttp (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: RunArcPing
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunArcPing (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: RunArcDnsResolution
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunArcDnsResolution (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 17: RunGoogleServicesConnectivity
+        try {
+             decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RunGoogleServicesConnectivity (17)');
+             this.mapOrdinal(header.ordinal, 17);
+             dispatchId = 17;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getResult');
           const result = this.impl.getResult(params.routine);
           if (header.expectsResponse) {
@@ -934,9 +1101,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getAllResults');
           const result = this.impl.getAllResults();
           if (header.expectsResponse) {
@@ -947,9 +1114,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runLanConnectivity');
           const result = this.impl.runLanConnectivity(params.source);
           if (header.expectsResponse) {
@@ -960,9 +1127,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runSignalStrength');
           const result = this.impl.runSignalStrength(params.source);
           if (header.expectsResponse) {
@@ -973,9 +1140,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runGatewayCanBePinged');
           const result = this.impl.runGatewayCanBePinged(params.source);
           if (header.expectsResponse) {
@@ -986,9 +1153,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runHasSecureWiFiConnection');
           const result = this.impl.runHasSecureWiFiConnection(params.source);
           if (header.expectsResponse) {
@@ -999,9 +1166,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runDnsResolverPresent');
           const result = this.impl.runDnsResolverPresent(params.source);
           if (header.expectsResponse) {
@@ -1012,9 +1179,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runDnsLatency');
           const result = this.impl.runDnsLatency(params.source);
           if (header.expectsResponse) {
@@ -1025,9 +1192,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runDnsResolution');
           const result = this.impl.runDnsResolution(params.source);
           if (header.expectsResponse) {
@@ -1038,9 +1205,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runCaptivePortal');
           const result = this.impl.runCaptivePortal(params.source);
           if (header.expectsResponse) {
@@ -1051,9 +1218,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runHttpFirewall');
           const result = this.impl.runHttpFirewall(params.source);
           if (header.expectsResponse) {
@@ -1064,9 +1231,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runHttpsFirewall');
           const result = this.impl.runHttpsFirewall(params.source);
           if (header.expectsResponse) {
@@ -1077,9 +1244,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runHttpsLatency');
           const result = this.impl.runHttpsLatency(params.source);
           if (header.expectsResponse) {
@@ -1090,9 +1257,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runVideoConferencing');
           const result = this.impl.runVideoConferencing(params.stun_server_hostname, params.source);
           if (header.expectsResponse) {
@@ -1103,9 +1270,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runArcHttp');
           const result = this.impl.runArcHttp(params.source);
           if (header.expectsResponse) {
@@ -1116,9 +1283,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runArcPing');
           const result = this.impl.runArcPing(params.source);
           if (header.expectsResponse) {
@@ -1129,9 +1296,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 16: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runArcDnsResolution');
           const result = this.impl.runArcDnsResolution(params.source);
           if (header.expectsResponse) {
@@ -1142,9 +1309,9 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
           }
           break;
         }
-        case 17: {
+        case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.runGoogleServicesConnectivity');
           const result = this.impl.runGoogleServicesConnectivity(params.source);
           if (header.expectsResponse) {

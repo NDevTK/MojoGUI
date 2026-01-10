@@ -232,25 +232,84 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetDiskAvailabilityAndTempPoolSize
+        try {
+             decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDiskAvailabilityAndTempPoolSize (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetStatistics
+        try {
+             decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStatistics (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: SimulateStoragePressure
+        try {
+             decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SimulateStoragePressure (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: RetrieveBucketsTable
+        try {
+             decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RetrieveBucketsTable (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: GetGlobalUsageForInternals
+        try {
+             decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGlobalUsageForInternals (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: IsSimulateStoragePressureAvailable
+        try {
+             decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsSimulateStoragePressureAvailable (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_GetDiskAvailabilityAndTempPoolSize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDiskAvailabilityAndTempPoolSize');
           const result = this.impl.getDiskAvailabilityAndTempPoolSize();
           if (header.expectsResponse) {
@@ -261,9 +320,9 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_GetStatistics_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getStatistics');
           const result = this.impl.getStatistics();
           if (header.expectsResponse) {
@@ -274,16 +333,16 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_SimulateStoragePressure_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.simulateStoragePressure');
           const result = this.impl.simulateStoragePressure(params.origin_url);
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_RetrieveBucketsTable_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.retrieveBucketsTable');
           const result = this.impl.retrieveBucketsTable();
           if (header.expectsResponse) {
@@ -294,9 +353,9 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_GetGlobalUsageForInternals_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getGlobalUsageForInternals');
           const result = this.impl.getGlobalUsageForInternals();
           if (header.expectsResponse) {
@@ -309,7 +368,7 @@ storage.mojom.QuotaInternalsHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.QuotaInternalsHandler_IsSimulateStoragePressureAvailable_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isSimulateStoragePressureAvailable');
           const result = this.impl.isSimulateStoragePressureAvailable();
           if (header.expectsResponse) {

@@ -350,25 +350,120 @@ network.mojom.WebTransportReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SendDatagram
+        try {
+             decoder.decodeStruct(network.mojom.WebTransport_SendDatagram_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendDatagram (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: CreateStream
+        try {
+             decoder.decodeStruct(network.mojom.WebTransport_CreateStream_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateStream (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: AcceptBidirectionalStream
+        try {
+             decoder.decodeStruct(network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcceptBidirectionalStream (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: AcceptUnidirectionalStream
+        try {
+             decoder.decodeStruct(network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcceptUnidirectionalStream (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: SendFin
+        try {
+             decoder.decodeStruct(network.mojom.WebTransport_SendFin_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendFin (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: AbortStream
+        try {
+             decoder.decodeStruct(network.mojom.WebTransport_AbortStream_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AbortStream (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: StopSending
+        try {
+             decoder.decodeStruct(network.mojom.WebTransport_StopSending_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopSending (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: SetOutgoingDatagramExpirationDuration
+        try {
+             decoder.decodeStruct(network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetOutgoingDatagramExpirationDuration (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: GetStats
+        try {
+             decoder.decodeStruct(network.mojom.WebTransport_GetStats_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStats (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: Close
+        try {
+             decoder.decodeStruct(network.mojom.WebTransport_Close_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Close (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransport_SendDatagram_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_SendDatagram_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.sendDatagram');
           const result = this.impl.sendDatagram(params.data);
           if (header.expectsResponse) {
@@ -379,9 +474,9 @@ network.mojom.WebTransportReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransport_CreateStream_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_CreateStream_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createStream');
           const result = this.impl.createStream(params.readable, params.writable);
           if (header.expectsResponse) {
@@ -392,9 +487,9 @@ network.mojom.WebTransportReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.acceptBidirectionalStream');
           const result = this.impl.acceptBidirectionalStream();
           if (header.expectsResponse) {
@@ -405,9 +500,9 @@ network.mojom.WebTransportReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.acceptUnidirectionalStream');
           const result = this.impl.acceptUnidirectionalStream();
           if (header.expectsResponse) {
@@ -418,37 +513,37 @@ network.mojom.WebTransportReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransport_SendFin_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_SendFin_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.sendFin');
           const result = this.impl.sendFin(params.stream_id);
           break;
         }
-        case 5: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransport_AbortStream_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_AbortStream_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.abortStream');
           const result = this.impl.abortStream(params.stream_id, params.code);
           break;
         }
-        case 6: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransport_StopSending_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_StopSending_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.stopSending');
           const result = this.impl.stopSending(params.stream_id, params.code);
           break;
         }
-        case 7: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setOutgoingDatagramExpirationDuration');
           const result = this.impl.setOutgoingDatagramExpirationDuration(params.duration);
           break;
         }
-        case 8: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransport_GetStats_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_GetStats_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getStats');
           const result = this.impl.getStats();
           if (header.expectsResponse) {
@@ -461,7 +556,7 @@ network.mojom.WebTransportReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransport_Close_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransport_Close_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close(params.close_info);
           break;
@@ -649,60 +744,119 @@ network.mojom.WebTransportClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnDatagramReceived
+        try {
+             decoder.decodeStruct(network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnDatagramReceived (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnIncomingStreamClosed
+        try {
+             decoder.decodeStruct(network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnIncomingStreamClosed (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnOutgoingStreamClosed
+        try {
+             decoder.decodeStruct(network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnOutgoingStreamClosed (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OnReceivedStopSending
+        try {
+             decoder.decodeStruct(network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceivedStopSending (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: OnReceivedResetStream
+        try {
+             decoder.decodeStruct(network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnReceivedResetStream (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: OnClosed
+        try {
+             decoder.decodeStruct(network.mojom.WebTransportClient_OnClosed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnClosed (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onDatagramReceived');
           const result = this.impl.onDatagramReceived(params.data);
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onIncomingStreamClosed');
           const result = this.impl.onIncomingStreamClosed(params.stream_id, params.fin_received);
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onOutgoingStreamClosed');
           const result = this.impl.onOutgoingStreamClosed(params.stream_id);
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onReceivedStopSending');
           const result = this.impl.onReceivedStopSending(params.stream_id, params.stream_error_code);
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onReceivedResetStream');
           const result = this.impl.onReceivedResetStream(params.stream_id, params.stream_error_code);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnClosed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransportClient_OnClosed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onClosed');
           const result = this.impl.onClosed(params.close_info, params.final_stats);
           break;
@@ -839,39 +993,71 @@ network.mojom.WebTransportHandshakeClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnBeforeConnect
+        try {
+             decoder.decodeStruct(network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBeforeConnect (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnConnectionEstablished
+        try {
+             decoder.decodeStruct(network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnConnectionEstablished (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: OnHandshakeFailed
+        try {
+             decoder.decodeStruct(network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHandshakeFailed (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBeforeConnect');
           const result = this.impl.onBeforeConnect(params.server_address);
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onConnectionEstablished');
           const result = this.impl.onConnectionEstablished(params.transport, params.client, params.response_headers, params.selected_application_protocol, params.initial_stats);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onHandshakeFailed');
           const result = this.impl.onHandshakeFailed(params.error);
           break;

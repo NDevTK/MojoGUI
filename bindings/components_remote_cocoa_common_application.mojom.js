@@ -91,20 +91,25 @@ remote_cocoa.mojom.StubInterfaceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
       }
@@ -294,60 +299,119 @@ remote_cocoa.mojom.ApplicationReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreateAlert
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.Application_CreateAlert_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateAlert (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: CreateNativeWidgetNSWindow
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNativeWidgetNSWindow (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: CreateRenderWidgetHostNSView
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRenderWidgetHostNSView (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: CreateSystemMediaControlsBridge
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateSystemMediaControlsBridge (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: CreateWebContentsNSView
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWebContentsNSView (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: ForwardCutCopyPaste
+        try {
+             decoder.decodeStruct(remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForwardCutCopyPaste (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.Application_CreateAlert_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.Application_CreateAlert_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createAlert');
           const result = this.impl.createAlert(params.alert_bridge_receiver);
           break;
         }
-        case 1: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createNativeWidgetNSWindow');
           const result = this.impl.createNativeWidgetNSWindow(params.bridge_id, params.window_receiver, params.host, params.text_input_host);
           break;
         }
-        case 2: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createRenderWidgetHostNSView');
           const result = this.impl.createRenderWidgetHostNSView(params.view_id, params.host, params.view_receiver);
           break;
         }
-        case 3: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createSystemMediaControlsBridge');
           const result = this.impl.createSystemMediaControlsBridge(params.receiver, params.host);
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createWebContentsNSView');
           const result = this.impl.createWebContentsNSView(params.view_id, params.host, params.view_receiver);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.forwardCutCopyPaste');
           const result = this.impl.forwardCutCopyPaste(params.command);
           break;

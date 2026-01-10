@@ -235,32 +235,55 @@ ash.device_sync.mojom.DeviceSyncObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnEnrollmentFinished
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnEnrollmentFinished (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnNewDevicesSynced
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnNewDevicesSynced (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onEnrollmentFinished');
           const result = this.impl.onEnrollmentFinished();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onNewDevicesSynced');
           const result = this.impl.onNewDevicesSynced();
           break;
@@ -641,25 +664,147 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: AddObserver
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: ForceEnrollmentNow
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceEnrollmentNow (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ForceSyncNow
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceSyncNow (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GetGroupPrivateKeyStatus
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGroupPrivateKeyStatus (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: GetBetterTogetherMetadataStatus
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBetterTogetherMetadataStatus (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: GetSyncedDevices
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSyncedDevices (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: GetLocalDeviceMetadata
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetLocalDeviceMetadata (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: SetSoftwareFeatureState
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSoftwareFeatureState (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: SetFeatureStatus
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetFeatureStatus (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: FindEligibleDevices
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FindEligibleDevices (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: NotifyDevices
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyDevices (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: GetDevicesActivityStatus
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDevicesActivityStatus (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: GetDebugInfo
+        try {
+             decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDebugInfo (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           if (header.expectsResponse) {
@@ -670,9 +815,9 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.forceEnrollmentNow');
           const result = this.impl.forceEnrollmentNow();
           if (header.expectsResponse) {
@@ -683,9 +828,9 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.forceSyncNow');
           const result = this.impl.forceSyncNow();
           if (header.expectsResponse) {
@@ -696,9 +841,9 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getGroupPrivateKeyStatus');
           const result = this.impl.getGroupPrivateKeyStatus();
           if (header.expectsResponse) {
@@ -709,9 +854,9 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getBetterTogetherMetadataStatus');
           const result = this.impl.getBetterTogetherMetadataStatus();
           if (header.expectsResponse) {
@@ -722,9 +867,9 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSyncedDevices');
           const result = this.impl.getSyncedDevices();
           if (header.expectsResponse) {
@@ -735,9 +880,9 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getLocalDeviceMetadata');
           const result = this.impl.getLocalDeviceMetadata();
           if (header.expectsResponse) {
@@ -748,9 +893,9 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSoftwareFeatureState');
           const result = this.impl.setSoftwareFeatureState(params.device_public_key, params.software_feature, params.enabled, params.is_exclusive);
           if (header.expectsResponse) {
@@ -761,9 +906,9 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setFeatureStatus');
           const result = this.impl.setFeatureStatus(params.device_instance_id, params.feature, params.status_change);
           if (header.expectsResponse) {
@@ -774,9 +919,9 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.findEligibleDevices');
           const result = this.impl.findEligibleDevices(params.software_feature);
           if (header.expectsResponse) {
@@ -787,9 +932,9 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifyDevices');
           const result = this.impl.notifyDevices(params.device_instance_ids, params.cryptauth_service, params.feature);
           if (header.expectsResponse) {
@@ -800,9 +945,9 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDevicesActivityStatus');
           const result = this.impl.getDevicesActivityStatus();
           if (header.expectsResponse) {
@@ -815,7 +960,7 @@ ash.device_sync.mojom.DeviceSyncReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDebugInfo');
           const result = this.impl.getDebugInfo();
           if (header.expectsResponse) {

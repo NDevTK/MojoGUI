@@ -174,25 +174,66 @@ gfx.mojom.TraitsTestServiceReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: EchoSelectionBound
+        try {
+             decoder.decodeStruct(gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoSelectionBound (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: EchoTransform
+        try {
+             decoder.decodeStruct(gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoTransform (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: EchoGpuMemoryBufferHandle
+        try {
+             decoder.decodeStruct(gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoGpuMemoryBufferHandle (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: EchoRRectF
+        try {
+             decoder.decodeStruct(gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EchoRRectF (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.echoSelectionBound');
           const result = this.impl.echoSelectionBound(params.s);
           if (header.expectsResponse) {
@@ -203,9 +244,9 @@ gfx.mojom.TraitsTestServiceReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.echoTransform');
           const result = this.impl.echoTransform(params.t);
           if (header.expectsResponse) {
@@ -216,9 +257,9 @@ gfx.mojom.TraitsTestServiceReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.echoGpuMemoryBufferHandle');
           const result = this.impl.echoGpuMemoryBufferHandle(params.g);
           if (header.expectsResponse) {
@@ -231,7 +272,7 @@ gfx.mojom.TraitsTestServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.echoRRectF');
           const result = this.impl.echoRRectF(params.t);
           if (header.expectsResponse) {

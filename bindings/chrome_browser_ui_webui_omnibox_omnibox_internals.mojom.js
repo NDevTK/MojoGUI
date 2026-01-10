@@ -320,39 +320,80 @@ mojom.OmniboxPageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SetClientPage
+        try {
+             decoder.decodeStruct(mojom.OmniboxPageHandler_SetClientPage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClientPage (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: StartOmniboxQuery
+        try {
+             decoder.decodeStruct(mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartOmniboxQuery (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: GetMlModelVersion
+        try {
+             decoder.decodeStruct(mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMlModelVersion (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: StartMl
+        try {
+             decoder.decodeStruct(mojom.OmniboxPageHandler_StartMl_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartMl (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mojom.OmniboxPageHandler_SetClientPage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mojom.OmniboxPageHandler_SetClientPage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setClientPage');
           const result = this.impl.setClientPage(params.page);
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startOmniboxQuery');
           const result = this.impl.startOmniboxQuery(params.input_string, params.reset_autocomplete_controller, params.cursor_position, params.zero_suggest, params.prevent_inline_autocomplete, params.prefer_keyword, params.current_url, params.page_classification);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getMlModelVersion');
           const result = this.impl.getMlModelVersion();
           if (header.expectsResponse) {
@@ -365,7 +406,7 @@ mojom.OmniboxPageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mojom.OmniboxPageHandler_StartMl_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mojom.OmniboxPageHandler_StartMl_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startMl');
           const result = this.impl.startMl(params.signals);
           if (header.expectsResponse) {
@@ -527,46 +568,87 @@ mojom.OmniboxPageReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: HandleNewAutocompleteQuery
+        try {
+             decoder.decodeStruct(mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleNewAutocompleteQuery (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: HandleNewAutocompleteResponse
+        try {
+             decoder.decodeStruct(mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleNewAutocompleteResponse (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: HandleNewMlResponse
+        try {
+             decoder.decodeStruct(mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleNewMlResponse (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: HandleAnswerIconImageData
+        try {
+             decoder.decodeStruct(mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HandleAnswerIconImageData (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.handleNewAutocompleteQuery');
           const result = this.impl.handleNewAutocompleteQuery(params.autocomplete_controller_type, params.input_text);
           break;
         }
-        case 1: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.handleNewAutocompleteResponse');
           const result = this.impl.handleNewAutocompleteResponse(params.autocomplete_controller_type, params.response);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.handleNewMlResponse');
           const result = this.impl.handleNewMlResponse(params.autocomplete_controller_type, params.input_text, params.matches);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.handleAnswerIconImageData');
           const result = this.impl.handleAnswerIconImageData(params.autocomplete_controller_type, params.image_url, params.image_data);
           break;

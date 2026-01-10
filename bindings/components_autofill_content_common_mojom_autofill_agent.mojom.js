@@ -427,32 +427,181 @@ autofill.mojom.AutofillAgentReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: TriggerFormExtraction
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerFormExtraction (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: TriggerFormExtractionWithResponse
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerFormExtractionWithResponse (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ApplyFieldsAction
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyFieldsAction (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: ApplyFieldAction
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyFieldAction (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: ExtractFormWithField
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractFormWithField (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: ExtractLabeledTextNodeValue
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExtractLabeledTextNodeValue (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: FieldTypePredictionsAvailable
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FieldTypePredictionsAvailable (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: ExposeDomNodeIds
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExposeDomNodeIds (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: ClearPreviewedForm
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearPreviewedForm (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: TriggerSuggestions
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerSuggestions (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: SetSuggestionAvailability
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSuggestionAvailability (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: AcceptDataListSuggestion
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AcceptDataListSuggestion (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: PreviewPasswordSuggestion
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreviewPasswordSuggestion (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: PreviewPasswordGenerationSuggestion
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreviewPasswordGenerationSuggestion (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: GetPotentialLastFourCombinationsForStandaloneCvc
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPotentialLastFourCombinationsForStandaloneCvc (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: DispatchEmailVerifiedEvent
+        try {
+             decoder.decodeStruct(autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DispatchEmailVerifiedEvent (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.triggerFormExtraction');
           const result = this.impl.triggerFormExtraction();
           break;
         }
-        case 1: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.triggerFormExtractionWithResponse');
           const result = this.impl.triggerFormExtractionWithResponse();
           if (header.expectsResponse) {
@@ -463,23 +612,23 @@ autofill.mojom.AutofillAgentReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.applyFieldsAction');
           const result = this.impl.applyFieldsAction(params.action_type, params.action_persistence, params.fields, params.fill_id, params.supports_refill);
           break;
         }
-        case 3: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.applyFieldAction');
           const result = this.impl.applyFieldAction(params.action_type, params.action_persistence, params.field, params.value);
           break;
         }
-        case 4: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.extractFormWithField');
           const result = this.impl.extractFormWithField(params.field_id);
           if (header.expectsResponse) {
@@ -490,9 +639,9 @@ autofill.mojom.AutofillAgentReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.extractLabeledTextNodeValue');
           const result = this.impl.extractLabeledTextNodeValue(params.value_regex, params.label_regex, params.number_of_ancestor_levels_to_search);
           if (header.expectsResponse) {
@@ -503,65 +652,65 @@ autofill.mojom.AutofillAgentReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.fieldTypePredictionsAvailable');
           const result = this.impl.fieldTypePredictionsAvailable(params.forms);
           break;
         }
-        case 7: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.exposeDomNodeIds');
           const result = this.impl.exposeDomNodeIds();
           break;
         }
-        case 8: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearPreviewedForm');
           const result = this.impl.clearPreviewedForm();
           break;
         }
-        case 9: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.triggerSuggestions');
           const result = this.impl.triggerSuggestions(params.field, params.trigger_source);
           break;
         }
-        case 10: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSuggestionAvailability');
           const result = this.impl.setSuggestionAvailability(params.field, params.suggestion_availability);
           break;
         }
-        case 11: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.acceptDataListSuggestion');
           const result = this.impl.acceptDataListSuggestion(params.field, params.value);
           break;
         }
-        case 12: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.previewPasswordSuggestion');
           const result = this.impl.previewPasswordSuggestion(params.username, params.password);
           break;
         }
-        case 13: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.previewPasswordGenerationSuggestion');
           const result = this.impl.previewPasswordGenerationSuggestion(params.password);
           break;
         }
-        case 14: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPotentialLastFourCombinationsForStandaloneCvc');
           const result = this.impl.getPotentialLastFourCombinationsForStandaloneCvc();
           if (header.expectsResponse) {
@@ -574,7 +723,7 @@ autofill.mojom.AutofillAgentReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.dispatchEmailVerifiedEvent');
           const result = this.impl.dispatchEmailVerifiedEvent(params.field_id, params.presentation_token);
           break;
@@ -916,32 +1065,154 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ApplyFillDataOnParsingCompletion
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ApplyFillDataOnParsingCompletion (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: FillPasswordSuggestion
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillPasswordSuggestion (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: FillPasswordSuggestionById
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillPasswordSuggestionById (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: PreviewPasswordSuggestionById
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreviewPasswordSuggestionById (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: InformNoSavedCredentials
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InformNoSavedCredentials (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: FillIntoFocusedField
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillIntoFocusedField (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: PreviewField
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreviewField (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: FillField
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillField (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: FillChangePasswordForm
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FillChangePasswordForm (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: SetLoggingState
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetLoggingState (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: TriggerFormSubmission
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggerFormSubmission (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: AnnotateFieldsWithParsingResult
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AnnotateFieldsWithParsingResult (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: CheckViewAreaVisible
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CheckViewAreaVisible (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.applyFillDataOnParsingCompletion');
           const result = this.impl.applyFillDataOnParsingCompletion(params.form_data);
           break;
         }
-        case 1: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.fillPasswordSuggestion');
           const result = this.impl.fillPasswordSuggestion(params.username, params.password);
           if (header.expectsResponse) {
@@ -952,44 +1223,44 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.fillPasswordSuggestionById');
           const result = this.impl.fillPasswordSuggestionById(params.username_element_id, params.password_element_id, params.username, params.password, params.suggestion_source);
           break;
         }
-        case 3: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.previewPasswordSuggestionById');
           const result = this.impl.previewPasswordSuggestionById(params.username_element_id, params.password_element_id, params.username, params.password);
           break;
         }
-        case 4: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.informNoSavedCredentials');
           const result = this.impl.informNoSavedCredentials(params.should_show_popup_without_passwords);
           break;
         }
-        case 5: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.fillIntoFocusedField');
           const result = this.impl.fillIntoFocusedField(params.is_password, params.credential);
           break;
         }
-        case 6: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.previewField');
           const result = this.impl.previewField(params.field_id, params.value);
           break;
         }
-        case 7: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.fillField');
           const result = this.impl.fillField(params.field_id, params.value, params.field_properties);
           if (header.expectsResponse) {
@@ -1000,9 +1271,9 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.fillChangePasswordForm');
           const result = this.impl.fillChangePasswordForm(params.password_element_id, params.new_password_element_id, params.confirm_password_element_id, params.old_password, params.new_password);
           if (header.expectsResponse) {
@@ -1013,30 +1284,30 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setLoggingState');
           const result = this.impl.setLoggingState(params.active);
           break;
         }
-        case 10: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.triggerFormSubmission');
           const result = this.impl.triggerFormSubmission();
           break;
         }
-        case 11: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.annotateFieldsWithParsingResult');
           const result = this.impl.annotateFieldsWithParsingResult(params.parsing_result);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.checkViewAreaVisible');
           const result = this.impl.checkViewAreaVisible(params.field_id);
           if (header.expectsResponse) {
@@ -1212,39 +1483,89 @@ autofill.mojom.PasswordGenerationAgentReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GeneratedPasswordAccepted
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GeneratedPasswordAccepted (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GeneratedPasswordRejected
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GeneratedPasswordRejected (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: TriggeredGeneratePassword
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> TriggeredGeneratePassword (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: FoundFormEligibleForGeneration
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FoundFormEligibleForGeneration (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: FocusNextFieldAfterPasswords
+        try {
+             decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FocusNextFieldAfterPasswords (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.generatedPasswordAccepted');
           const result = this.impl.generatedPasswordAccepted(params.generated_password);
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.generatedPasswordRejected');
           const result = this.impl.generatedPasswordRejected();
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.triggeredGeneratePassword');
           const result = this.impl.triggeredGeneratePassword();
           if (header.expectsResponse) {
@@ -1255,16 +1576,16 @@ autofill.mojom.PasswordGenerationAgentReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.foundFormEligibleForGeneration');
           const result = this.impl.foundFormEligibleForGeneration(params.form);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.focusNextFieldAfterPasswords');
           const result = this.impl.focusNextFieldAfterPasswords();
           break;

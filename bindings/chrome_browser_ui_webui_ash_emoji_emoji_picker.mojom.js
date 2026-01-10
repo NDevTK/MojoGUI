@@ -158,25 +158,39 @@ emoji_picker.mojom.PageHandlerFactoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: CreatePageHandler
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreatePageHandler (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler);
           break;
@@ -568,46 +582,186 @@ emoji_picker.mojom.PageHandlerReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: ShowUI
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ShowUI (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: InsertEmoji
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InsertEmoji (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: InsertGif
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> InsertGif (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: IsIncognitoTextField
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsIncognitoTextField (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: GetFeatureList
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeatureList (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: GetCategories
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCategories (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: GetFeaturedGifs
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFeaturedGifs (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: SearchGifs
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SearchGifs (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: GetGifsByIds
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetGifsByIds (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: OnUiFullyLoaded
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnUiFullyLoaded (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: GetInitialCategory
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInitialCategory (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: GetInitialQuery
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetInitialQuery (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: UpdateHistoryInPrefs
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdateHistoryInPrefs (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: UpdatePreferredVariantsInPrefs
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> UpdatePreferredVariantsInPrefs (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: GetHistoryFromPrefs
+        try {
+             decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHistoryFromPrefs (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
-        case 1: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.insertEmoji');
           const result = this.impl.insertEmoji(params.emoji, params.is_variant, params.search_length);
           break;
         }
-        case 2: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.insertGif');
           const result = this.impl.insertGif(params.gif);
           break;
         }
-        case 3: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isIncognitoTextField');
           const result = this.impl.isIncognitoTextField();
           if (header.expectsResponse) {
@@ -618,9 +772,9 @@ emoji_picker.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getFeatureList');
           const result = this.impl.getFeatureList();
           if (header.expectsResponse) {
@@ -631,9 +785,9 @@ emoji_picker.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getCategories');
           const result = this.impl.getCategories();
           if (header.expectsResponse) {
@@ -644,9 +798,9 @@ emoji_picker.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getFeaturedGifs');
           const result = this.impl.getFeaturedGifs(params.pos);
           if (header.expectsResponse) {
@@ -657,9 +811,9 @@ emoji_picker.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.searchGifs');
           const result = this.impl.searchGifs(params.query, params.pos);
           if (header.expectsResponse) {
@@ -670,9 +824,9 @@ emoji_picker.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getGifsByIds');
           const result = this.impl.getGifsByIds(params.ids);
           if (header.expectsResponse) {
@@ -683,16 +837,16 @@ emoji_picker.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onUiFullyLoaded');
           const result = this.impl.onUiFullyLoaded();
           break;
         }
-        case 10: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getInitialCategory');
           const result = this.impl.getInitialCategory();
           if (header.expectsResponse) {
@@ -703,9 +857,9 @@ emoji_picker.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getInitialQuery');
           const result = this.impl.getInitialQuery();
           if (header.expectsResponse) {
@@ -716,23 +870,23 @@ emoji_picker.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updateHistoryInPrefs');
           const result = this.impl.updateHistoryInPrefs(params.category, params.history);
           break;
         }
-        case 13: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.updatePreferredVariantsInPrefs');
           const result = this.impl.updatePreferredVariantsInPrefs(params.preferred_variants);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getHistoryFromPrefs');
           const result = this.impl.getHistoryFromPrefs(params.category);
           if (header.expectsResponse) {

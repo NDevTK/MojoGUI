@@ -169,25 +169,39 @@ storage.mojom.FileLockReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Release
+        try {
+             decoder.decodeStruct(storage.mojom.FileLock_Release_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Release (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.FileLock_Release_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.FileLock_Release_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.release');
           const result = this.impl.release();
           if (header.expectsResponse) {
@@ -507,32 +521,127 @@ storage.mojom.DirectoryReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: Clone
+        try {
+             decoder.decodeStruct(storage.mojom.Directory_Clone_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Clone (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: PathExists
+        try {
+             decoder.decodeStruct(storage.mojom.Directory_PathExists_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PathExists (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: GetEntries
+        try {
+             decoder.decodeStruct(storage.mojom.Directory_GetEntries_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetEntries (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: OpenFile
+        try {
+             decoder.decodeStruct(storage.mojom.Directory_OpenFile_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OpenFile (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: CreateDirectory
+        try {
+             decoder.decodeStruct(storage.mojom.Directory_CreateDirectory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateDirectory (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: DeleteFile
+        try {
+             decoder.decodeStruct(storage.mojom.Directory_DeleteFile_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteFile (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: GetFileInfo
+        try {
+             decoder.decodeStruct(storage.mojom.Directory_GetFileInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetFileInfo (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: GetPathAccess
+        try {
+             decoder.decodeStruct(storage.mojom.Directory_GetPathAccess_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPathAccess (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: RenameFile
+        try {
+             decoder.decodeStruct(storage.mojom.Directory_RenameFile_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RenameFile (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: LockFile
+        try {
+             decoder.decodeStruct(storage.mojom.Directory_LockFile_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LockFile (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.Directory_Clone_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.Directory_Clone_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;
         }
-        case 1: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.Directory_PathExists_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.Directory_PathExists_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.pathExists');
           const result = this.impl.pathExists(params.path);
           if (header.expectsResponse) {
@@ -543,9 +652,9 @@ storage.mojom.DirectoryReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.Directory_GetEntries_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.Directory_GetEntries_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getEntries');
           const result = this.impl.getEntries(params.path, params.mode);
           if (header.expectsResponse) {
@@ -556,9 +665,9 @@ storage.mojom.DirectoryReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.Directory_OpenFile_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.Directory_OpenFile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.openFile');
           const result = this.impl.openFile(params.path, params.mode, params.read_access, params.write_access);
           if (header.expectsResponse) {
@@ -569,9 +678,9 @@ storage.mojom.DirectoryReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.Directory_CreateDirectory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.Directory_CreateDirectory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createDirectory');
           const result = this.impl.createDirectory(params.path);
           if (header.expectsResponse) {
@@ -582,9 +691,9 @@ storage.mojom.DirectoryReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.Directory_DeleteFile_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.Directory_DeleteFile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteFile');
           const result = this.impl.deleteFile(params.path);
           if (header.expectsResponse) {
@@ -595,9 +704,9 @@ storage.mojom.DirectoryReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.Directory_GetFileInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.Directory_GetFileInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getFileInfo');
           const result = this.impl.getFileInfo(params.path);
           if (header.expectsResponse) {
@@ -608,9 +717,9 @@ storage.mojom.DirectoryReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.Directory_GetPathAccess_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.Directory_GetPathAccess_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPathAccess');
           const result = this.impl.getPathAccess(params.path);
           if (header.expectsResponse) {
@@ -621,9 +730,9 @@ storage.mojom.DirectoryReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.Directory_RenameFile_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.Directory_RenameFile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.renameFile');
           const result = this.impl.renameFile(params.old_path, params.new_path);
           if (header.expectsResponse) {
@@ -636,7 +745,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(storage.mojom.Directory_LockFile_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(storage.mojom.Directory_LockFile_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.lockFile');
           const result = this.impl.lockFile(params.path);
           if (header.expectsResponse) {

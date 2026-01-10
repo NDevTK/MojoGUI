@@ -555,32 +555,55 @@ network.mojom.CustomProxyConnectionObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnFallback
+        try {
+             decoder.decodeStruct(network.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnFallback (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnTunnelHeadersReceived
+        try {
+             decoder.decodeStruct(network.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnTunnelHeadersReceived (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onFallback');
           const result = this.impl.onFallback(params.bad_chain, params.net_error);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onTunnelHeadersReceived');
           const result = this.impl.onTunnelHeadersReceived(params.proxy_chain, params.chain_index, params.response_headers);
           break;
@@ -684,25 +707,39 @@ network.mojom.CustomProxyConfigClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnCustomProxyConfigUpdated
+        try {
+             decoder.decodeStruct(network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnCustomProxyConfigUpdated (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onCustomProxyConfigUpdated');
           const result = this.impl.onCustomProxyConfigUpdated(params.proxy_config);
           if (header.expectsResponse) {
@@ -841,25 +878,48 @@ network.mojom.TrustedHeaderClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnBeforeSendHeaders
+        try {
+             decoder.decodeStruct(network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnBeforeSendHeaders (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnHeadersReceived
+        try {
+             decoder.decodeStruct(network.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnHeadersReceived (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onBeforeSendHeaders');
           const result = this.impl.onBeforeSendHeaders(params.headers);
           if (header.expectsResponse) {
@@ -872,7 +932,7 @@ network.mojom.TrustedHeaderClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onHeadersReceived');
           const result = this.impl.onHeadersReceived(params.headers, params.remote_endpoint, params.ssl_info);
           if (header.expectsResponse) {
@@ -996,32 +1056,55 @@ network.mojom.TrustedURLLoaderHeaderClientReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: OnLoaderCreated
+        try {
+             decoder.decodeStruct(network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLoaderCreated (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: OnLoaderForCorsPreflightCreated
+        try {
+             decoder.decodeStruct(network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> OnLoaderForCorsPreflightCreated (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onLoaderCreated');
           const result = this.impl.onLoaderCreated(params.request_id, params.header_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.onLoaderForCorsPreflightCreated');
           const result = this.impl.onLoaderForCorsPreflightCreated(params.request, params.header_client);
           break;
@@ -1103,20 +1186,25 @@ network.mojom.PreloadedSharedDictionaryInfoHandleReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
       }
@@ -3158,74 +3246,916 @@ network.mojom.NetworkContextReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: SetClient
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SetClient_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetClient (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: CreateURLLoaderFactory
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateURLLoaderFactory (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: ResetURLLoaderFactories
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ResetURLLoaderFactories_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResetURLLoaderFactories (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: GetViaObliviousHttp
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_GetViaObliviousHttp_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetViaObliviousHttp (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: GetCookieManager
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_GetCookieManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetCookieManager (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: GetRestrictedCookieManager
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetRestrictedCookieManager (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: GetTrustTokenQueryAnswerer
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTrustTokenQueryAnswerer (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: ClearTrustTokenData
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearTrustTokenData_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearTrustTokenData (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: ClearTrustTokenSessionOnlyData
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearTrustTokenSessionOnlyData (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: GetStoredTrustTokenCounts
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetStoredTrustTokenCounts (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: GetPrivateStateTokenRedemptionRecords
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetPrivateStateTokenRedemptionRecords (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: DeleteStoredTrustTokens
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteStoredTrustTokens (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: SetBlockTrustTokens
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SetBlockTrustTokens_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetBlockTrustTokens (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: ClearNetworkingHistoryBetween
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNetworkingHistoryBetween (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: ClearHttpCache
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearHttpCache_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearHttpCache (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: ComputeHttpCacheSize
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ComputeHttpCacheSize (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: NotifyBrowserIdle
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_NotifyBrowserIdle_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyBrowserIdle (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 17: NotifyExternalCacheHit
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_NotifyExternalCacheHit_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NotifyExternalCacheHit (17)');
+             this.mapOrdinal(header.ordinal, 17);
+             dispatchId = 17;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 18: ClearHostCache
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearHostCache_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearHostCache (18)');
+             this.mapOrdinal(header.ordinal, 18);
+             dispatchId = 18;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 19: ClearHttpAuthCache
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearHttpAuthCache_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearHttpAuthCache (19)');
+             this.mapOrdinal(header.ordinal, 19);
+             dispatchId = 19;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 20: ClearCorsPreflightCache
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearCorsPreflightCache_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearCorsPreflightCache (20)');
+             this.mapOrdinal(header.ordinal, 20);
+             dispatchId = 20;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 21: ClearReportingCacheReports
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearReportingCacheReports_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearReportingCacheReports (21)');
+             this.mapOrdinal(header.ordinal, 21);
+             dispatchId = 21;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 22: ClearReportingCacheClients
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearReportingCacheClients_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearReportingCacheClients (22)');
+             this.mapOrdinal(header.ordinal, 22);
+             dispatchId = 22;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 23: ClearNetworkErrorLogging
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearNetworkErrorLogging_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNetworkErrorLogging (23)');
+             this.mapOrdinal(header.ordinal, 23);
+             dispatchId = 23;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 24: ClearDomainReliability
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearDomainReliability_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearDomainReliability (24)');
+             this.mapOrdinal(header.ordinal, 24);
+             dispatchId = 24;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 25: ClearSharedDictionaryCache
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearSharedDictionaryCache_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearSharedDictionaryCache (25)');
+             this.mapOrdinal(header.ordinal, 25);
+             dispatchId = 25;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 26: ClearSharedDictionaryCacheForIsolationKey
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearSharedDictionaryCacheForIsolationKey (26)');
+             this.mapOrdinal(header.ordinal, 26);
+             dispatchId = 26;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 27: SetDocumentReportingEndpoints
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SetDocumentReportingEndpoints_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetDocumentReportingEndpoints (27)');
+             this.mapOrdinal(header.ordinal, 27);
+             dispatchId = 27;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 28: SetEnterpriseReportingEndpoints
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SetEnterpriseReportingEndpoints_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEnterpriseReportingEndpoints (28)');
+             this.mapOrdinal(header.ordinal, 28);
+             dispatchId = 28;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 29: SendReportsAndRemoveSource
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SendReportsAndRemoveSource_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SendReportsAndRemoveSource (29)');
+             this.mapOrdinal(header.ordinal, 29);
+             dispatchId = 29;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 30: QueueReport
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_QueueReport_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueReport (30)');
+             this.mapOrdinal(header.ordinal, 30);
+             dispatchId = 30;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 31: QueueEnterpriseReport
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_QueueEnterpriseReport_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueEnterpriseReport (31)');
+             this.mapOrdinal(header.ordinal, 31);
+             dispatchId = 31;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 32: QueueSignedExchangeReport
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_QueueSignedExchangeReport_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> QueueSignedExchangeReport (32)');
+             this.mapOrdinal(header.ordinal, 32);
+             dispatchId = 32;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 33: CloseAllConnections
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CloseAllConnections_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseAllConnections (33)');
+             this.mapOrdinal(header.ordinal, 33);
+             dispatchId = 33;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 34: CloseIdleConnections
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CloseIdleConnections_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CloseIdleConnections (34)');
+             this.mapOrdinal(header.ordinal, 34);
+             dispatchId = 34;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 35: SetNetworkConditions
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SetNetworkConditions_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetNetworkConditions (35)');
+             this.mapOrdinal(header.ordinal, 35);
+             dispatchId = 35;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 36: SetAcceptLanguage
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAcceptLanguage (36)');
+             this.mapOrdinal(header.ordinal, 36);
+             dispatchId = 36;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 37: SetEnableReferrers
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SetEnableReferrers_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetEnableReferrers (37)');
+             this.mapOrdinal(header.ordinal, 37);
+             dispatchId = 37;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 38: SetCTPolicy
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SetCTPolicy_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCTPolicy (38)');
+             this.mapOrdinal(header.ordinal, 38);
+             dispatchId = 38;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 39: CreateUDPSocket
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CreateUDPSocket_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateUDPSocket (39)');
+             this.mapOrdinal(header.ordinal, 39);
+             dispatchId = 39;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 40: CreateRestrictedUDPSocket
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateRestrictedUDPSocket (40)');
+             this.mapOrdinal(header.ordinal, 40);
+             dispatchId = 40;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 41: CreateTCPServerSocket
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTCPServerSocket (41)');
+             this.mapOrdinal(header.ordinal, 41);
+             dispatchId = 41;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 42: CreateTCPConnectedSocket
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTCPConnectedSocket (42)');
+             this.mapOrdinal(header.ordinal, 42);
+             dispatchId = 42;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 43: CreateTCPBoundSocket
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateTCPBoundSocket (43)');
+             this.mapOrdinal(header.ordinal, 43);
+             dispatchId = 43;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 44: CreateProxyResolvingSocketFactory
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateProxyResolvingSocketFactory (44)');
+             this.mapOrdinal(header.ordinal, 44);
+             dispatchId = 44;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 45: LookUpProxyForURL
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_LookUpProxyForURL_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LookUpProxyForURL (45)');
+             this.mapOrdinal(header.ordinal, 45);
+             dispatchId = 45;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 46: ForceReloadProxyConfig
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ForceReloadProxyConfig_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceReloadProxyConfig (46)');
+             this.mapOrdinal(header.ordinal, 46);
+             dispatchId = 46;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 47: ClearBadProxiesCache
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearBadProxiesCache_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearBadProxiesCache (47)');
+             this.mapOrdinal(header.ordinal, 47);
+             dispatchId = 47;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 48: CreateWebSocket
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CreateWebSocket_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWebSocket (48)');
+             this.mapOrdinal(header.ordinal, 48);
+             dispatchId = 48;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 49: CreateWebTransport
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CreateWebTransport_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateWebTransport (49)');
+             this.mapOrdinal(header.ordinal, 49);
+             dispatchId = 49;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 50: CreateNetLogExporter
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateNetLogExporter (50)');
+             this.mapOrdinal(header.ordinal, 50);
+             dispatchId = 50;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 51: PreconnectSockets
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_PreconnectSockets_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreconnectSockets (51)');
+             this.mapOrdinal(header.ordinal, 51);
+             dispatchId = 51;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 52: CreateP2PSocketManager
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CreateP2PSocketManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateP2PSocketManager (52)');
+             this.mapOrdinal(header.ordinal, 52);
+             dispatchId = 52;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 53: CreateMdnsResponder
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateMdnsResponder (53)');
+             this.mapOrdinal(header.ordinal, 53);
+             dispatchId = 53;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 54: ResolveHost
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ResolveHost_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ResolveHost (54)');
+             this.mapOrdinal(header.ordinal, 54);
+             dispatchId = 54;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 55: CreateHostResolver
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_CreateHostResolver_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> CreateHostResolver (55)');
+             this.mapOrdinal(header.ordinal, 55);
+             dispatchId = 55;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 56: VerifyCert
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_VerifyCert_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VerifyCert (56)');
+             this.mapOrdinal(header.ordinal, 56);
+             dispatchId = 56;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 57: VerifyCertForSignedExchange
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VerifyCertForSignedExchange (57)');
+             this.mapOrdinal(header.ordinal, 57);
+             dispatchId = 57;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 58: Verify2QwacCertBinding
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Verify2QwacCertBinding (58)');
+             this.mapOrdinal(header.ordinal, 58);
+             dispatchId = 58;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 59: AddHSTS
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_AddHSTS_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddHSTS (59)');
+             this.mapOrdinal(header.ordinal, 59);
+             dispatchId = 59;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 60: IsHSTSActiveForHost
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> IsHSTSActiveForHost (60)');
+             this.mapOrdinal(header.ordinal, 60);
+             dispatchId = 60;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 61: GetHSTSState
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_GetHSTSState_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetHSTSState (61)');
+             this.mapOrdinal(header.ordinal, 61);
+             dispatchId = 61;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 62: SetCorsOriginAccessListsForOrigin
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCorsOriginAccessListsForOrigin (62)');
+             this.mapOrdinal(header.ordinal, 62);
+             dispatchId = 62;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 63: DeleteDynamicDataForHost
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> DeleteDynamicDataForHost (63)');
+             this.mapOrdinal(header.ordinal, 63);
+             dispatchId = 63;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 64: SetSplitAuthCacheByNetworkAnonymizationKey
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSplitAuthCacheByNetworkAnonymizationKey (64)');
+             this.mapOrdinal(header.ordinal, 64);
+             dispatchId = 64;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 65: SaveHttpAuthCacheProxyEntries
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SaveHttpAuthCacheProxyEntries (65)');
+             this.mapOrdinal(header.ordinal, 65);
+             dispatchId = 65;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 66: LoadHttpAuthCacheProxyEntries
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LoadHttpAuthCacheProxyEntries (66)');
+             this.mapOrdinal(header.ordinal, 66);
+             dispatchId = 66;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 67: AddAuthCacheEntry
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_AddAuthCacheEntry_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddAuthCacheEntry (67)');
+             this.mapOrdinal(header.ordinal, 67);
+             dispatchId = 67;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 68: SetCorsNonWildcardRequestHeadersSupport
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetCorsNonWildcardRequestHeadersSupport (68)');
+             this.mapOrdinal(header.ordinal, 68);
+             dispatchId = 68;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 69: LookupProxyAuthCredentials
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> LookupProxyAuthCredentials (69)');
+             this.mapOrdinal(header.ordinal, 69);
+             dispatchId = 69;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 70: EnableStaticKeyPinningForTesting
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnableStaticKeyPinningForTesting (70)');
+             this.mapOrdinal(header.ordinal, 70);
+             dispatchId = 70;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 71: VerifyCertificateForTesting
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> VerifyCertificateForTesting (71)');
+             this.mapOrdinal(header.ordinal, 71);
+             dispatchId = 71;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 72: GetTrustAnchorIDsForTesting
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetTrustAnchorIDsForTesting (72)');
+             this.mapOrdinal(header.ordinal, 72);
+             dispatchId = 72;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 73: AddDomainReliabilityContextForTesting
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddDomainReliabilityContextForTesting (73)');
+             this.mapOrdinal(header.ordinal, 73);
+             dispatchId = 73;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 74: ForceDomainReliabilityUploadsForTesting
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ForceDomainReliabilityUploadsForTesting (74)');
+             this.mapOrdinal(header.ordinal, 74);
+             dispatchId = 74;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 75: SetSCTAuditingMode
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SetSCTAuditingMode_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSCTAuditingMode (75)');
+             this.mapOrdinal(header.ordinal, 75);
+             dispatchId = 75;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 76: AddReportingApiObserver
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_AddReportingApiObserver_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddReportingApiObserver (76)');
+             this.mapOrdinal(header.ordinal, 76);
+             dispatchId = 76;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 77: GetSharedDictionaryUsageInfo
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSharedDictionaryUsageInfo (77)');
+             this.mapOrdinal(header.ordinal, 77);
+             dispatchId = 77;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 78: GetSharedDictionaryInfo
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSharedDictionaryInfo (78)');
+             this.mapOrdinal(header.ordinal, 78);
+             dispatchId = 78;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 79: GetSharedDictionaryOriginsBetween
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetSharedDictionaryOriginsBetween (79)');
+             this.mapOrdinal(header.ordinal, 79);
+             dispatchId = 79;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 80: SetSharedDictionaryCacheMaxSize
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetSharedDictionaryCacheMaxSize (80)');
+             this.mapOrdinal(header.ordinal, 80);
+             dispatchId = 80;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 81: PreloadSharedDictionaryInfoForDocument
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreloadSharedDictionaryInfoForDocument (81)');
+             this.mapOrdinal(header.ordinal, 81);
+             dispatchId = 81;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 82: HasPreloadedSharedDictionaryInfoForTesting
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HasPreloadedSharedDictionaryInfoForTesting (82)');
+             this.mapOrdinal(header.ordinal, 82);
+             dispatchId = 82;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 83: FlushCachedClientCertIfNeeded
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_FlushCachedClientCertIfNeeded_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushCachedClientCertIfNeeded (83)');
+             this.mapOrdinal(header.ordinal, 83);
+             dispatchId = 83;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 84: FlushMatchingCachedClientCert
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_FlushMatchingCachedClientCert_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushMatchingCachedClientCert (84)');
+             this.mapOrdinal(header.ordinal, 84);
+             dispatchId = 84;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 85: FlushClientCertCache
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_FlushClientCertCache_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> FlushClientCertCache (85)');
+             this.mapOrdinal(header.ordinal, 85);
+             dispatchId = 85;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 86: RevokeNetworkForNonces
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_RevokeNetworkForNonces_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RevokeNetworkForNonces (86)');
+             this.mapOrdinal(header.ordinal, 86);
+             dispatchId = 86;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 87: ClearNonces
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ClearNonces_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ClearNonces (87)');
+             this.mapOrdinal(header.ordinal, 87);
+             dispatchId = 87;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 88: ExemptUrlFromNetworkRevocationForNonce
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExemptUrlFromNetworkRevocationForNonce (88)');
+             this.mapOrdinal(header.ordinal, 88);
+             dispatchId = 88;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 89: Prefetch
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_Prefetch_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Prefetch (89)');
+             this.mapOrdinal(header.ordinal, 89);
+             dispatchId = 89;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 90: GetBoundNetworkForTesting
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetBoundNetworkForTesting (90)');
+             this.mapOrdinal(header.ordinal, 90);
+             dispatchId = 90;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 91: GetDeviceBoundSessionManager
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDeviceBoundSessionManager (91)');
+             this.mapOrdinal(header.ordinal, 91);
+             dispatchId = 91;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 92: AddQuicHints
+        try {
+             decoder.decodeStruct(network.mojom.NetworkContext_AddQuicHints_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddQuicHints (92)');
+             this.mapOrdinal(header.ordinal, 92);
+             dispatchId = 92;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetClient_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetClient_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
-        case 1: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createURLLoaderFactory');
           const result = this.impl.createURLLoaderFactory(params.url_loader_factory, params.params);
           break;
         }
-        case 2: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ResetURLLoaderFactories_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ResetURLLoaderFactories_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.resetURLLoaderFactories');
           const result = this.impl.resetURLLoaderFactories();
           break;
         }
-        case 3: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetViaObliviousHttp_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetViaObliviousHttp_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getViaObliviousHttp');
           const result = this.impl.getViaObliviousHttp(params.request, params.client);
           break;
         }
-        case 4: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetCookieManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetCookieManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getCookieManager');
           const result = this.impl.getCookieManager(params.cookie_manager);
           break;
         }
-        case 5: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getRestrictedCookieManager');
           const result = this.impl.getRestrictedCookieManager(params.restricted_cookie_manager, params.role, params.origin, params.isolation_info, params.cookie_setting_overrides, params.devtools_cookie_setting_overrides, params.cookie_observer);
           break;
         }
-        case 6: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getTrustTokenQueryAnswerer');
           const result = this.impl.getTrustTokenQueryAnswerer(params.trust_token_query_answerer, params.top_frame_origin);
           break;
         }
-        case 7: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearTrustTokenData_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearTrustTokenData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearTrustTokenData');
           const result = this.impl.clearTrustTokenData(params.filter);
           if (header.expectsResponse) {
@@ -3236,9 +4166,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearTrustTokenSessionOnlyData');
           const result = this.impl.clearTrustTokenSessionOnlyData();
           if (header.expectsResponse) {
@@ -3249,9 +4179,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getStoredTrustTokenCounts');
           const result = this.impl.getStoredTrustTokenCounts();
           if (header.expectsResponse) {
@@ -3262,9 +4192,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getPrivateStateTokenRedemptionRecords');
           const result = this.impl.getPrivateStateTokenRedemptionRecords();
           if (header.expectsResponse) {
@@ -3275,9 +4205,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteStoredTrustTokens');
           const result = this.impl.deleteStoredTrustTokens(params.issuer);
           if (header.expectsResponse) {
@@ -3288,16 +4218,16 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetBlockTrustTokens_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetBlockTrustTokens_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setBlockTrustTokens');
           const result = this.impl.setBlockTrustTokens(params.block);
           break;
         }
-        case 13: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearNetworkingHistoryBetween');
           const result = this.impl.clearNetworkingHistoryBetween(params.start_time, params.end_time);
           if (header.expectsResponse) {
@@ -3308,9 +4238,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearHttpCache_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearHttpCache_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearHttpCache');
           const result = this.impl.clearHttpCache(params.start_time, params.end_time, params.filter);
           if (header.expectsResponse) {
@@ -3321,9 +4251,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.computeHttpCacheSize');
           const result = this.impl.computeHttpCacheSize(params.start_time, params.end_time);
           if (header.expectsResponse) {
@@ -3334,23 +4264,23 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 16: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_NotifyBrowserIdle_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_NotifyBrowserIdle_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifyBrowserIdle');
           const result = this.impl.notifyBrowserIdle();
           break;
         }
-        case 17: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_NotifyExternalCacheHit_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_NotifyExternalCacheHit_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.notifyExternalCacheHit');
           const result = this.impl.notifyExternalCacheHit(params.url, params.http_method, params.key, params.include_credentials);
           break;
         }
-        case 18: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearHostCache_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearHostCache_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearHostCache');
           const result = this.impl.clearHostCache(params.filter);
           if (header.expectsResponse) {
@@ -3361,9 +4291,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearHttpAuthCache_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearHttpAuthCache_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearHttpAuthCache');
           const result = this.impl.clearHttpAuthCache(params.start_time, params.end_time, params.filter);
           if (header.expectsResponse) {
@@ -3374,9 +4304,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 20: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearCorsPreflightCache_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearCorsPreflightCache_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearCorsPreflightCache');
           const result = this.impl.clearCorsPreflightCache(params.filter);
           if (header.expectsResponse) {
@@ -3387,9 +4317,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 21: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearReportingCacheReports_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearReportingCacheReports_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearReportingCacheReports');
           const result = this.impl.clearReportingCacheReports(params.filter);
           if (header.expectsResponse) {
@@ -3400,9 +4330,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 22: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearReportingCacheClients_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearReportingCacheClients_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearReportingCacheClients');
           const result = this.impl.clearReportingCacheClients(params.filter);
           if (header.expectsResponse) {
@@ -3413,9 +4343,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 23: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearNetworkErrorLogging_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearNetworkErrorLogging_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearNetworkErrorLogging');
           const result = this.impl.clearNetworkErrorLogging(params.filter);
           if (header.expectsResponse) {
@@ -3426,9 +4356,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 24: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearDomainReliability_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearDomainReliability_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearDomainReliability');
           const result = this.impl.clearDomainReliability(params.filter, params.mode);
           if (header.expectsResponse) {
@@ -3439,9 +4369,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 25: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearSharedDictionaryCache_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearSharedDictionaryCache_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearSharedDictionaryCache');
           const result = this.impl.clearSharedDictionaryCache(params.start_time, params.end_time, params.filter);
           if (header.expectsResponse) {
@@ -3452,9 +4382,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 26: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearSharedDictionaryCacheForIsolationKey');
           const result = this.impl.clearSharedDictionaryCacheForIsolationKey(params.isolation_key);
           if (header.expectsResponse) {
@@ -3465,51 +4395,51 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 27: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetDocumentReportingEndpoints_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetDocumentReportingEndpoints_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setDocumentReportingEndpoints');
           const result = this.impl.setDocumentReportingEndpoints(params.reporting_source, params.origin, params.isolation_info, params.endpoints);
           break;
         }
-        case 28: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetEnterpriseReportingEndpoints_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetEnterpriseReportingEndpoints_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setEnterpriseReportingEndpoints');
           const result = this.impl.setEnterpriseReportingEndpoints(params.endpoints);
           break;
         }
-        case 29: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SendReportsAndRemoveSource_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SendReportsAndRemoveSource_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.sendReportsAndRemoveSource');
           const result = this.impl.sendReportsAndRemoveSource(params.reporting_source);
           break;
         }
-        case 30: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_QueueReport_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_QueueReport_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.queueReport');
           const result = this.impl.queueReport(params.type, params.group, params.url, params.reporting_source, params.network_anonymization_key, params.body);
           break;
         }
-        case 31: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_QueueEnterpriseReport_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_QueueEnterpriseReport_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.queueEnterpriseReport');
           const result = this.impl.queueEnterpriseReport(params.type, params.group, params.url, params.body);
           break;
         }
-        case 32: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_QueueSignedExchangeReport_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_QueueSignedExchangeReport_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.queueSignedExchangeReport');
           const result = this.impl.queueSignedExchangeReport(params.report, params.network_anonymization_key);
           break;
         }
-        case 33: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CloseAllConnections_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CloseAllConnections_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeAllConnections');
           const result = this.impl.closeAllConnections();
           if (header.expectsResponse) {
@@ -3520,9 +4450,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 34: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CloseIdleConnections_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CloseIdleConnections_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.closeIdleConnections');
           const result = this.impl.closeIdleConnections();
           if (header.expectsResponse) {
@@ -3533,44 +4463,44 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 35: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetNetworkConditions_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetNetworkConditions_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setNetworkConditions');
           const result = this.impl.setNetworkConditions(params.throttling_profile_id, params.conditions);
           break;
         }
-        case 36: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setAcceptLanguage');
           const result = this.impl.setAcceptLanguage(params.new_accept_language);
           break;
         }
-        case 37: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetEnableReferrers_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetEnableReferrers_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setEnableReferrers');
           const result = this.impl.setEnableReferrers(params.enable_referrers);
           break;
         }
-        case 38: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetCTPolicy_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetCTPolicy_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setCTPolicy');
           const result = this.impl.setCTPolicy(params.ct_policy);
           break;
         }
-        case 39: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateUDPSocket_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateUDPSocket_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createUDPSocket');
           const result = this.impl.createUDPSocket(params.receiver, params.listener);
           break;
         }
-        case 40: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createRestrictedUDPSocket');
           const result = this.impl.createRestrictedUDPSocket(params.addr, params.mode, params.traffic_annotation, params.params, params.receiver, params.listener, params.allow_multicast);
           if (header.expectsResponse) {
@@ -3581,9 +4511,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 41: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createTCPServerSocket');
           const result = this.impl.createTCPServerSocket(params.local_addr, params.options, params.traffic_annotation, params.socket);
           if (header.expectsResponse) {
@@ -3594,9 +4524,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 42: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createTCPConnectedSocket');
           const result = this.impl.createTCPConnectedSocket(params.local_addr, params.remote_addr_list, params.tcp_connected_socket_options, params.traffic_annotation, params.socket, params.observer);
           if (header.expectsResponse) {
@@ -3607,9 +4537,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 43: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createTCPBoundSocket');
           const result = this.impl.createTCPBoundSocket(params.local_addr, params.traffic_annotation, params.socket);
           if (header.expectsResponse) {
@@ -3620,23 +4550,23 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 44: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createProxyResolvingSocketFactory');
           const result = this.impl.createProxyResolvingSocketFactory(params.factory);
           break;
         }
-        case 45: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_LookUpProxyForURL_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_LookUpProxyForURL_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.lookUpProxyForURL');
           const result = this.impl.lookUpProxyForURL(params.url, params.network_anonymization_key, params.proxy_lookup_client);
           break;
         }
-        case 46: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ForceReloadProxyConfig_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ForceReloadProxyConfig_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.forceReloadProxyConfig');
           const result = this.impl.forceReloadProxyConfig();
           if (header.expectsResponse) {
@@ -3647,9 +4577,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 47: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearBadProxiesCache_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearBadProxiesCache_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearBadProxiesCache');
           const result = this.impl.clearBadProxiesCache();
           if (header.expectsResponse) {
@@ -3660,65 +4590,65 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 48: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateWebSocket_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateWebSocket_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createWebSocket');
           const result = this.impl.createWebSocket(params.url, params.requested_protocols, params.site_for_cookies, params.storage_access_api_status, params.isolation_info, params.additional_headers, params.process_id, params.origin, params.client_security_state, params.options, params.traffic_annotation, params.handshake_client, params.url_loader_network_observer, params.auth_handler, params.header_client, params.throttling_profile_id);
           break;
         }
-        case 49: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateWebTransport_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateWebTransport_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createWebTransport');
           const result = this.impl.createWebTransport(params.url, params.origin, params.network_anonymization_key, params.fingerprints, params.application_protocols, params.handshake_client, params.url_loader_network_observer, params.client_security_state);
           break;
         }
-        case 50: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createNetLogExporter');
           const result = this.impl.createNetLogExporter(params.receiver);
           break;
         }
-        case 51: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_PreconnectSockets_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_PreconnectSockets_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.preconnectSockets');
           const result = this.impl.preconnectSockets(params.num_streams, params.url, params.credentials_mode, params.network_anonymization_key, params.traffic_annotation, params.keepalive_config, params.observer_client);
           break;
         }
-        case 52: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateP2PSocketManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateP2PSocketManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createP2PSocketManager');
           const result = this.impl.createP2PSocketManager(params.network_anonymization_key, params.client, params.trusted_socket_manager, params.socket_manager);
           break;
         }
-        case 53: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createMdnsResponder');
           const result = this.impl.createMdnsResponder(params.responder_receiver);
           break;
         }
-        case 54: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ResolveHost_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ResolveHost_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.resolveHost');
           const result = this.impl.resolveHost(params.host, params.network_anonymization_key, params.optional_parameters, params.response_client);
           break;
         }
-        case 55: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateHostResolver_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_CreateHostResolver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.createHostResolver');
           const result = this.impl.createHostResolver(params.config_overrides, params.host_resolver);
           break;
         }
-        case 56: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_VerifyCert_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_VerifyCert_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.verifyCert');
           const result = this.impl.verifyCert(params.certificate, params.host_port, params.ocsp_response, params.sct_list);
           if (header.expectsResponse) {
@@ -3729,9 +4659,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 57: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.verifyCertForSignedExchange');
           const result = this.impl.verifyCertForSignedExchange(params.certificate, params.host_port, params.ocsp_response, params.sct_list);
           if (header.expectsResponse) {
@@ -3742,9 +4672,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 58: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.verify2QwacCertBinding');
           const result = this.impl.verify2QwacCertBinding(params.binding, params.hostname, params.tls_certificate);
           if (header.expectsResponse) {
@@ -3755,9 +4685,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 59: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_AddHSTS_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_AddHSTS_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addHSTS');
           const result = this.impl.addHSTS(params.host, params.expiry, params.include_subdomains);
           if (header.expectsResponse) {
@@ -3768,9 +4698,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 60: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.isHSTSActiveForHost');
           const result = this.impl.isHSTSActiveForHost(params.host, params.is_top_level_nav);
           if (header.expectsResponse) {
@@ -3781,9 +4711,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 61: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetHSTSState_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetHSTSState_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getHSTSState');
           const result = this.impl.getHSTSState(params.domain);
           if (header.expectsResponse) {
@@ -3794,9 +4724,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 62: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setCorsOriginAccessListsForOrigin');
           const result = this.impl.setCorsOriginAccessListsForOrigin(params.source_origin, params.allow_patterns, params.block_patterns);
           if (header.expectsResponse) {
@@ -3807,9 +4737,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 63: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.deleteDynamicDataForHost');
           const result = this.impl.deleteDynamicDataForHost(params.host);
           if (header.expectsResponse) {
@@ -3820,16 +4750,16 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 64: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSplitAuthCacheByNetworkAnonymizationKey');
           const result = this.impl.setSplitAuthCacheByNetworkAnonymizationKey(params.split_auth_cache_by_network_anonymization_key);
           break;
         }
-        case 65: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.saveHttpAuthCacheProxyEntries');
           const result = this.impl.saveHttpAuthCacheProxyEntries();
           if (header.expectsResponse) {
@@ -3840,9 +4770,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 66: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.loadHttpAuthCacheProxyEntries');
           const result = this.impl.loadHttpAuthCacheProxyEntries(params.cache_key);
           if (header.expectsResponse) {
@@ -3853,9 +4783,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 67: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_AddAuthCacheEntry_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_AddAuthCacheEntry_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addAuthCacheEntry');
           const result = this.impl.addAuthCacheEntry(params.challenge, params.network_anonymization_key, params.credentials);
           if (header.expectsResponse) {
@@ -3866,16 +4796,16 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 68: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setCorsNonWildcardRequestHeadersSupport');
           const result = this.impl.setCorsNonWildcardRequestHeadersSupport(params.value);
           break;
         }
-        case 69: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.lookupProxyAuthCredentials');
           const result = this.impl.lookupProxyAuthCredentials(params.proxy_server, params.auth_scheme, params.realm);
           if (header.expectsResponse) {
@@ -3886,9 +4816,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 70: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.enableStaticKeyPinningForTesting');
           const result = this.impl.enableStaticKeyPinningForTesting();
           if (header.expectsResponse) {
@@ -3899,9 +4829,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 71: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.verifyCertificateForTesting');
           const result = this.impl.verifyCertificateForTesting(params.certificate, params.hostname, params.ocsp_response, params.sct_list);
           if (header.expectsResponse) {
@@ -3912,9 +4842,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 72: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getTrustAnchorIDsForTesting');
           const result = this.impl.getTrustAnchorIDsForTesting();
           if (header.expectsResponse) {
@@ -3925,9 +4855,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 73: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addDomainReliabilityContextForTesting');
           const result = this.impl.addDomainReliabilityContextForTesting(params.origin, params.upload_url);
           if (header.expectsResponse) {
@@ -3938,9 +4868,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 74: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.forceDomainReliabilityUploadsForTesting');
           const result = this.impl.forceDomainReliabilityUploadsForTesting();
           if (header.expectsResponse) {
@@ -3951,23 +4881,23 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 75: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetSCTAuditingMode_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetSCTAuditingMode_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSCTAuditingMode');
           const result = this.impl.setSCTAuditingMode(params.mode);
           break;
         }
-        case 76: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_AddReportingApiObserver_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_AddReportingApiObserver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addReportingApiObserver');
           const result = this.impl.addReportingApiObserver(params.observer);
           break;
         }
-        case 77: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSharedDictionaryUsageInfo');
           const result = this.impl.getSharedDictionaryUsageInfo();
           if (header.expectsResponse) {
@@ -3978,9 +4908,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 78: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSharedDictionaryInfo');
           const result = this.impl.getSharedDictionaryInfo(params.isolation_key);
           if (header.expectsResponse) {
@@ -3991,9 +4921,9 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 79: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getSharedDictionaryOriginsBetween');
           const result = this.impl.getSharedDictionaryOriginsBetween(params.start_time, params.end_time);
           if (header.expectsResponse) {
@@ -4004,23 +4934,23 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 80: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setSharedDictionaryCacheMaxSize');
           const result = this.impl.setSharedDictionaryCacheMaxSize(params.cache_max_size);
           break;
         }
-        case 81: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.preloadSharedDictionaryInfoForDocument');
           const result = this.impl.preloadSharedDictionaryInfoForDocument(params.urls, params.preload_handle);
           break;
         }
-        case 82: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hasPreloadedSharedDictionaryInfoForTesting');
           const result = this.impl.hasPreloadedSharedDictionaryInfoForTesting();
           if (header.expectsResponse) {
@@ -4031,30 +4961,30 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 83: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_FlushCachedClientCertIfNeeded_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_FlushCachedClientCertIfNeeded_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.flushCachedClientCertIfNeeded');
           const result = this.impl.flushCachedClientCertIfNeeded(params.host, params.certificate);
           break;
         }
-        case 84: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_FlushMatchingCachedClientCert_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_FlushMatchingCachedClientCert_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.flushMatchingCachedClientCert');
           const result = this.impl.flushMatchingCachedClientCert(params.certificate);
           break;
         }
-        case 85: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_FlushClientCertCache_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_FlushClientCertCache_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.flushClientCertCache');
           const result = this.impl.flushClientCertCache();
           break;
         }
-        case 86: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_RevokeNetworkForNonces_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_RevokeNetworkForNonces_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.revokeNetworkForNonces');
           const result = this.impl.revokeNetworkForNonces(params.nonces_to_patterns);
           if (header.expectsResponse) {
@@ -4065,16 +4995,16 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 87: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearNonces_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ClearNonces_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.clearNonces');
           const result = this.impl.clearNonces(params.nonces);
           break;
         }
-        case 88: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.exemptUrlFromNetworkRevocationForNonce');
           const result = this.impl.exemptUrlFromNetworkRevocationForNonce(params.exempted_url, params.nonce);
           if (header.expectsResponse) {
@@ -4085,16 +5015,16 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 89: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_Prefetch_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_Prefetch_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.prefetch');
           const result = this.impl.prefetch(params.request_id, params.options, params.request, params.traffic_annotation);
           break;
         }
-        case 90: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getBoundNetworkForTesting');
           const result = this.impl.getBoundNetworkForTesting();
           if (header.expectsResponse) {
@@ -4105,16 +5035,16 @@ network.mojom.NetworkContextReceiver = class {
           }
           break;
         }
-        case 91: {
+        case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDeviceBoundSessionManager');
           const result = this.impl.getDeviceBoundSessionManager(params.device_bound_session_manager);
           break;
         }
         case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(network.mojom.NetworkContext_AddQuicHints_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(network.mojom.NetworkContext_AddQuicHints_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addQuicHints');
           const result = this.impl.addQuicHints(params.origins, params.network_anonymization_key);
           break;

@@ -384,53 +384,103 @@ media_session.mojom.MediaSessionObserverReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: MediaSessionInfoChanged
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MediaSessionInfoChanged (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: MediaSessionMetadataChanged
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MediaSessionMetadataChanged (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: MediaSessionActionsChanged
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MediaSessionActionsChanged (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: MediaSessionImagesChanged
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MediaSessionImagesChanged (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: MediaSessionPositionChanged
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> MediaSessionPositionChanged (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionInfoChanged');
           const result = this.impl.mediaSessionInfoChanged(params.info);
           break;
         }
-        case 1: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionMetadataChanged');
           const result = this.impl.mediaSessionMetadataChanged(params.metadata);
           break;
         }
-        case 2: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionActionsChanged');
           const result = this.impl.mediaSessionActionsChanged(params.action);
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionImagesChanged');
           const result = this.impl.mediaSessionImagesChanged(params.images);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionPositionChanged');
           const result = this.impl.mediaSessionPositionChanged(params.position);
           break;
@@ -996,25 +1046,282 @@ media_session.mojom.MediaSessionReceiver = class {
       let message = args[0];
       // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
       if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        let payload = args[2];
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload);
-        }
         message = {
           header: args[1],
-          payload: payload,
+          payload: args[2],
           handles: args[3] || []
         };
       }
       const header = message && message.header;
       if (!header) return;
       let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal
+      if (dispatchId === undefined) {
+        // Unknown ordinal (hashed). Attempt to discover mapping by trial-decoding.
+        console.log('[GeneratedReceiver] Unknown ordinal ' + header.ordinal + '. Attempting heuristic discovery...');
+        const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+        
+        // Try Method 0: GetMediaSessionInfo
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaSessionInfo (0)');
+             this.mapOrdinal(header.ordinal, 0);
+             dispatchId = 0;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 1: GetDebugInfo
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetDebugInfo (1)');
+             this.mapOrdinal(header.ordinal, 1);
+             dispatchId = 1;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 2: StartDucking
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_StartDucking_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StartDucking (2)');
+             this.mapOrdinal(header.ordinal, 2);
+             dispatchId = 2;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 3: StopDucking
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_StopDucking_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> StopDucking (3)');
+             this.mapOrdinal(header.ordinal, 3);
+             dispatchId = 3;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 4: Suspend
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_Suspend_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Suspend (4)');
+             this.mapOrdinal(header.ordinal, 4);
+             dispatchId = 4;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 5: Resume
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_Resume_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Resume (5)');
+             this.mapOrdinal(header.ordinal, 5);
+             dispatchId = 5;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 6: AddObserver
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_AddObserver_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> AddObserver (6)');
+             this.mapOrdinal(header.ordinal, 6);
+             dispatchId = 6;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 7: PreviousTrack
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_PreviousTrack_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreviousTrack (7)');
+             this.mapOrdinal(header.ordinal, 7);
+             dispatchId = 7;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 8: NextTrack
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_NextTrack_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NextTrack (8)');
+             this.mapOrdinal(header.ordinal, 8);
+             dispatchId = 8;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 9: Seek
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_Seek_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Seek (9)');
+             this.mapOrdinal(header.ordinal, 9);
+             dispatchId = 9;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 10: Stop
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_Stop_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Stop (10)');
+             this.mapOrdinal(header.ordinal, 10);
+             dispatchId = 10;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 11: SkipAd
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_SkipAd_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SkipAd (11)');
+             this.mapOrdinal(header.ordinal, 11);
+             dispatchId = 11;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 12: GetMediaImageBitmap
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetMediaImageBitmap (12)');
+             this.mapOrdinal(header.ordinal, 12);
+             dispatchId = 12;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 13: SeekTo
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_SeekTo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SeekTo (13)');
+             this.mapOrdinal(header.ordinal, 13);
+             dispatchId = 13;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 14: ScrubTo
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_ScrubTo_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ScrubTo (14)');
+             this.mapOrdinal(header.ordinal, 14);
+             dispatchId = 14;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 15: EnterPictureInPicture
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnterPictureInPicture (15)');
+             this.mapOrdinal(header.ordinal, 15);
+             dispatchId = 15;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 16: ExitPictureInPicture
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ExitPictureInPicture (16)');
+             this.mapOrdinal(header.ordinal, 16);
+             dispatchId = 16;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 17: SetAudioSinkId
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetAudioSinkId (17)');
+             this.mapOrdinal(header.ordinal, 17);
+             dispatchId = 17;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 18: ToggleMicrophone
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleMicrophone (18)');
+             this.mapOrdinal(header.ordinal, 18);
+             dispatchId = 18;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 19: ToggleCamera
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_ToggleCamera_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> ToggleCamera (19)');
+             this.mapOrdinal(header.ordinal, 19);
+             dispatchId = 19;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 20: HangUp
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_HangUp_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> HangUp (20)');
+             this.mapOrdinal(header.ordinal, 20);
+             dispatchId = 20;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 21: Raise
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_Raise_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> Raise (21)');
+             this.mapOrdinal(header.ordinal, 21);
+             dispatchId = 21;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 22: SetMute
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_SetMute_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> SetMute (22)');
+             this.mapOrdinal(header.ordinal, 22);
+             dispatchId = 22;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 23: RequestMediaRemoting
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> RequestMediaRemoting (23)');
+             this.mapOrdinal(header.ordinal, 23);
+             dispatchId = 23;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 24: PreviousSlide
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_PreviousSlide_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> PreviousSlide (24)');
+             this.mapOrdinal(header.ordinal, 24);
+             dispatchId = 24;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 25: NextSlide
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_NextSlide_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> NextSlide (25)');
+             this.mapOrdinal(header.ordinal, 25);
+             dispatchId = 25;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 26: EnterAutoPictureInPicture
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> EnterAutoPictureInPicture (26)');
+             this.mapOrdinal(header.ordinal, 26);
+             dispatchId = 26;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        // Try Method 27: GetVisibility
+        try {
+             decoder.decodeStruct(media_session.mojom.MediaSession_GetVisibility_ParamsSpec.$, message.header.headerSize);
+             console.log('[GeneratedReceiver] Discovery SUCCESS: ' + header.ordinal + ' -> GetVisibility (27)');
+             this.mapOrdinal(header.ordinal, 27);
+             dispatchId = 27;
+        } catch (e) { /* Ignore mismatch */ }
+        if (dispatchId !== undefined) break;
+
+        if (dispatchId === undefined) {
+             console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+             return;
+        }
+      }
       console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
       switch (dispatchId) {
-        case 0: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getMediaSessionInfo');
           const result = this.impl.getMediaSessionInfo();
           if (header.expectsResponse) {
@@ -1025,9 +1332,9 @@ media_session.mojom.MediaSessionReceiver = class {
           }
           break;
         }
-        case 1: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getDebugInfo');
           const result = this.impl.getDebugInfo();
           if (header.expectsResponse) {
@@ -1038,79 +1345,79 @@ media_session.mojom.MediaSessionReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_StartDucking_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_StartDucking_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.startDucking');
           const result = this.impl.startDucking();
           break;
         }
-        case 3: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_StopDucking_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_StopDucking_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.stopDucking');
           const result = this.impl.stopDucking();
           break;
         }
-        case 4: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Suspend_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Suspend_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.suspend');
           const result = this.impl.suspend(params.suspend_type);
           break;
         }
-        case 5: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Resume_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Resume_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume(params.suspend_type);
           break;
         }
-        case 6: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_AddObserver_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_AddObserver_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
-        case 7: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_PreviousTrack_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_PreviousTrack_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.previousTrack');
           const result = this.impl.previousTrack();
           break;
         }
-        case 8: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_NextTrack_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_NextTrack_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.nextTrack');
           const result = this.impl.nextTrack();
           break;
         }
-        case 9: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Seek_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Seek_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.seek');
           const result = this.impl.seek(params.seek_time);
           break;
         }
-        case 10: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Stop_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Stop_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop(params.suspend_type);
           break;
         }
-        case 11: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_SkipAd_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_SkipAd_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.skipAd');
           const result = this.impl.skipAd();
           break;
         }
-        case 12: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getMediaImageBitmap');
           const result = this.impl.getMediaImageBitmap(params.image, params.minimum_size_px, params.desired_size_px);
           if (header.expectsResponse) {
@@ -1121,107 +1428,107 @@ media_session.mojom.MediaSessionReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_SeekTo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_SeekTo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.seekTo');
           const result = this.impl.seekTo(params.seek_time);
           break;
         }
-        case 14: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_ScrubTo_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_ScrubTo_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.scrubTo');
           const result = this.impl.scrubTo(params.seek_time);
           break;
         }
-        case 15: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.enterPictureInPicture');
           const result = this.impl.enterPictureInPicture();
           break;
         }
-        case 16: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.exitPictureInPicture');
           const result = this.impl.exitPictureInPicture();
           break;
         }
-        case 17: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setAudioSinkId');
           const result = this.impl.setAudioSinkId(params.id);
           break;
         }
-        case 18: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.toggleMicrophone');
           const result = this.impl.toggleMicrophone();
           break;
         }
-        case 19: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_ToggleCamera_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_ToggleCamera_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.toggleCamera');
           const result = this.impl.toggleCamera();
           break;
         }
-        case 20: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_HangUp_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_HangUp_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.hangUp');
           const result = this.impl.hangUp();
           break;
         }
-        case 21: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Raise_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_Raise_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.raise');
           const result = this.impl.raise();
           break;
         }
-        case 22: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_SetMute_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_SetMute_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.setMute');
           const result = this.impl.setMute(params.mute);
           break;
         }
-        case 23: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.requestMediaRemoting');
           const result = this.impl.requestMediaRemoting();
           break;
         }
-        case 24: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_PreviousSlide_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_PreviousSlide_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.previousSlide');
           const result = this.impl.previousSlide();
           break;
         }
-        case 25: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_NextSlide_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_NextSlide_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.nextSlide');
           const result = this.impl.nextSlide();
           break;
         }
-        case 26: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.enterAutoPictureInPicture');
           const result = this.impl.enterAutoPictureInPicture();
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStruct(media_session.mojom.MediaSession_GetVisibility_ParamsSpec.$, 0);
+          const params = decoder.decodeStruct(media_session.mojom.MediaSession_GetVisibility_ParamsSpec.$, message.header.headerSize);
           console.log('[GeneratedReceiver] Calling impl.getVisibility');
           const result = this.impl.getVisibility();
           if (header.expectsResponse) {
