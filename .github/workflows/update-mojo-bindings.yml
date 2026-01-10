@@ -1008,8 +1008,15 @@ jobs:
                   js_code += "  constructor(impl) {\n"
                   js_code += "    this.impl = impl;\n"
                   js_code += "    this.endpoint = null;\n"
+                  js_code += "    this.ordinalMap = new Map();\n"
+                  # Populate default map
+                  for idx, method in enumerate(interface.get('methods', [])):
+                      ordinal = method.get('ordinal')
+                      if ordinal is None: ordinal = idx
+                      js_code += f"    this.ordinalMap.set({ordinal}, {idx}); // Default ordinal {ordinal} -> Index {idx}\n"
                   js_code += "    console.log('[GeneratedReceiver] Constructed for ' + this.impl);\n"
                   js_code += "  }\n"
+                  js_code += "  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }\n"
                   js_code += "  bind(handle) {\n"
                   js_code += "    console.log('[GeneratedReceiver] Binding handle...');\n"
                   js_code += "    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);\n"
@@ -1032,25 +1039,27 @@ jobs:
                   js_code += "      }\n"
                   js_code += "      const header = message && message.header;\n"
                   js_code += "      if (!header) return;\n"
-                  js_code += "      switch (header.ordinal) {\n"
+                  js_code += "      let dispatchId = this.ordinalMap.get(header.ordinal);\n"
+                  js_code += "      if (dispatchId === undefined) dispatchId = header.ordinal; // Fallback to raw ordinal\n"
+                  js_code += "      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);\n"
+                  js_code += "      switch (dispatchId) {\n"
                   
                   for idx, method in enumerate(interface.get('methods', [])):
-                      ordinal = method.get('ordinal')
-                      method_name = method['name']
+                      # Use Index as the dispatch ID for internal switch consistency
+                      # ordinal = method.get('ordinal') ... we ignore this for the switch case logic now, using idx
+                      ordinal = idx # Switch matches the Map value we set earlier
                       
-                      # HARDCODED FIX for VibrationManager hashed ordinals
-                      if interface['name'] == 'VibrationManager':
-                          if method_name == 'Vibrate': ordinal = 929088604
-                          if method_name == 'Cancel': ordinal = 436128439
-                          
-                      if ordinal is None: ordinal = idx
+                      method_name = method['name']
                       method_name_camel = to_camel_case(method_name)
                       
                       js_code += f"        case {ordinal}: {{\n"
                       
-                      # Decode params
+                      # Decode params MANUALLY
                       param_struct_name = f"{iface_name}_{method_name}_Params"
-                      js_code += f"          const params = {current_ns}.{param_struct_name}Spec.$.decode(message.payload);\n"
+                      # js_code += f"          const params = {current_ns}.{param_struct_name}Spec.$.decode(message.payload);\n"
+                      # MANUAL DECODE:
+                      js_code += f"          const decoder = new mojo.internal.Decoder(message.payload, message.handles);\n"
+                      js_code += f"          const params = decoder.decodeStruct({current_ns}.{param_struct_name}Spec.$, 0);\n"
                       
                       # Call implementation
                       param_names = [p['name'] for p in method.get('params', []) if p and p.get('name')]
