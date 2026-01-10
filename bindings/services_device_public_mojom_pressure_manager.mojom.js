@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -340,7 +341,7 @@ device.mojom.PressureManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addVirtualPressureSource');
           const result = this.impl.addVirtualPressureSource(params.token, params.source, params.metadata);
           if (header.expectsResponse) {
@@ -353,7 +354,7 @@ device.mojom.PressureManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeVirtualPressureSource');
           const result = this.impl.removeVirtualPressureSource(params.token, params.source);
           if (header.expectsResponse) {
@@ -366,7 +367,7 @@ device.mojom.PressureManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateVirtualPressureSourceData');
           const result = this.impl.updateVirtualPressureSourceData(params.token, params.source, params.state, params.own_contribution_estimate);
           if (header.expectsResponse) {
@@ -379,7 +380,7 @@ device.mojom.PressureManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.PressureManager_AddClient_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.PressureManager_AddClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addClient');
           const result = this.impl.addClient(params.source, params.token, params.client);
           if (header.expectsResponse) {
@@ -533,7 +534,7 @@ device.mojom.PressureClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.PressureClient_OnPressureUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.PressureClient_OnPressureUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPressureUpdated');
           const result = this.impl.onPressureUpdated(params.update);
           break;

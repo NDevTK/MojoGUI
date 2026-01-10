@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -277,7 +278,7 @@ ash.diagnostics.mojom.RoutineRunnerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRoutineResult');
           const result = this.impl.onRoutineResult(params.info);
           break;
@@ -459,7 +460,7 @@ ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSupportedRoutines');
           const result = this.impl.getSupportedRoutines();
           if (header.expectsResponse) {
@@ -472,7 +473,7 @@ ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runRoutine');
           const result = this.impl.runRoutine(params.type, params.runner);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -291,7 +292,7 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fileExists');
           const result = this.impl.fileExists(params.package_index, params.relative_path);
           if (header.expectsResponse) {
@@ -304,7 +305,7 @@ on_device_translation.mojom.FileOperationProxyReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.open');
           const result = this.impl.open(params.package_index, params.relative_path);
           if (header.expectsResponse) {
@@ -529,14 +530,14 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setServiceConfig');
           const result = this.impl.setServiceConfig(params.config);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTranslator');
           const result = this.impl.createTranslator(params.source_lang, params.target_lang, params.receiver);
           if (header.expectsResponse) {
@@ -549,7 +550,7 @@ on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec);
+          const params = decoder.decodeStructInline(on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canTranslate');
           const result = this.impl.canTranslate(params.source_lang, params.target_lang);
           if (header.expectsResponse) {

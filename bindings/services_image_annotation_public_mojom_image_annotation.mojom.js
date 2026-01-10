@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -259,7 +260,7 @@ image_annotation.mojom.ImageProcessorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec);
+          const params = decoder.decodeStructInline(image_annotation.mojom.ImageProcessor_GetJpgImageData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getJpgImageData');
           const result = this.impl.getJpgImageData();
           if (header.expectsResponse) {
@@ -421,7 +422,7 @@ image_annotation.mojom.AnnotatorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec);
+          const params = decoder.decodeStructInline(image_annotation.mojom.Annotator_AnnotateImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.annotateImage');
           const result = this.impl.annotateImage(params.source_id, params.description_language_tag, params.image_processor);
           if (header.expectsResponse) {
@@ -575,7 +576,7 @@ image_annotation.mojom.ImageAnnotationServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec);
+          const params = decoder.decodeStructInline(image_annotation.mojom.ImageAnnotationService_BindAnnotator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAnnotator');
           const result = this.impl.bindAnnotator(params.receiver);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -315,7 +316,7 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SharedStorageWorkletHost_SelectURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectURL');
           const result = this.impl.selectURL(params.name, params.urls_with_metadata, params.serialized_data, params.keep_alive_after_operation, params.private_aggregation_config, params.resolve_to_config, params.saved_query_name, params.start_time);
           if (header.expectsResponse) {
@@ -328,7 +329,7 @@ blink.mojom.SharedStorageWorkletHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SharedStorageWorkletHost_Run_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.run');
           const result = this.impl.run(params.name, params.serialized_data, params.keep_alive_after_operation, params.private_aggregation_config, params.start_time);
           if (header.expectsResponse) {
@@ -600,7 +601,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_CreateWorklet_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWorklet');
           const result = this.impl.createWorklet(params.script_source_url, params.data_origin, params.data_origin_type, params.credentials_mode, params.creation_method, params.origin_trial_features, params.worklet_host);
           if (header.expectsResponse) {
@@ -613,7 +614,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_SharedStorageGet_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageGet');
           const result = this.impl.sharedStorageGet(params.key);
           if (header.expectsResponse) {
@@ -626,7 +627,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_SharedStorageUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageUpdate');
           const result = this.impl.sharedStorageUpdate(params.method_with_options);
           if (header.expectsResponse) {
@@ -639,7 +640,7 @@ blink.mojom.SharedStorageDocumentServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SharedStorageDocumentService_SharedStorageBatchUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageBatchUpdate');
           const result = this.impl.sharedStorageBatchUpdate(params.methods_with_options, params.with_lock);
           if (header.expectsResponse) {

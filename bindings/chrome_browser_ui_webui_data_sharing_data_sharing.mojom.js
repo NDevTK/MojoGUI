@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -313,7 +314,7 @@ data_sharing.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -734,28 +735,28 @@ data_sharing.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_ShowUI_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_ShowUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_CloseUI_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_CloseUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI(params.status_code);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.apiInitComplete');
           const result = this.impl.apiInitComplete();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.makeTabGroupShared');
           const result = this.impl.makeTabGroupShared(params.tab_group_id, params.group_id, params.access_token);
           if (header.expectsResponse) {
@@ -768,7 +769,7 @@ data_sharing.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getShareLink');
           const result = this.impl.getShareLink(params.group_id, params.access_token);
           if (header.expectsResponse) {
@@ -781,7 +782,7 @@ data_sharing.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTabGroupPreview');
           const result = this.impl.getTabGroupPreview(params.group_id, params.access_token);
           if (header.expectsResponse) {
@@ -794,28 +795,28 @@ data_sharing.mojom.PageHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openTabGroup');
           const result = this.impl.openTabGroup(params.group_id);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.aboutToUnShareTabGroup');
           const result = this.impl.aboutToUnShareTabGroup(params.tab_group_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabGroupUnShareComplete');
           const result = this.impl.onTabGroupUnShareComplete(params.tab_group_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGroupAction');
           const result = this.impl.onGroupAction(params.action, params.progress);
           break;
@@ -1099,14 +1100,14 @@ data_sharing.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAccessTokenFetched');
           const result = this.impl.onAccessTokenFetched(params.access_token);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.Page_ReadGroups_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.Page_ReadGroups_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readGroups');
           const result = this.impl.readGroups(params.read_groups_params);
           if (header.expectsResponse) {
@@ -1119,7 +1120,7 @@ data_sharing.mojom.PageReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readGroupWithToken');
           const result = this.impl.readGroupWithToken(params.param);
           if (header.expectsResponse) {
@@ -1132,7 +1133,7 @@ data_sharing.mojom.PageReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.Page_DeleteGroup_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.Page_DeleteGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteGroup');
           const result = this.impl.deleteGroup(params.group_id);
           if (header.expectsResponse) {
@@ -1145,7 +1146,7 @@ data_sharing.mojom.PageReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(data_sharing.mojom.Page_LeaveGroup_ParamsSpec);
+          const params = decoder.decodeStructInline(data_sharing.mojom.Page_LeaveGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.leaveGroup');
           const result = this.impl.leaveGroup(params.group_id);
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -240,7 +241,7 @@ recording.mojom.DriveFsQuotaDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec);
+          const params = decoder.decodeStructInline(recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDriveFsFreeSpaceBytes');
           const result = this.impl.getDriveFsFreeSpaceBytes();
           if (header.expectsResponse) {
@@ -395,7 +396,7 @@ recording.mojom.RecordingServiceClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRecordingEnded');
           const result = this.impl.onRecordingEnded(params.status, params.thumbnail);
           break;
@@ -740,49 +741,49 @@ recording.mojom.RecordingServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(recording.mojom.RecordingService_RecordFullscreen_ParamsSpec);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingService_RecordFullscreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordFullscreen');
           const result = this.impl.recordFullscreen(params.client, params.video_capturer, params.microphone_stream_factory, params.system_audio_stream_factory, params.drive_fs_quota_delegate, params.output_file_path, params.frame_sink_id, params.frame_sink_size_dip, params.device_scale_factor);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(recording.mojom.RecordingService_RecordWindow_ParamsSpec);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingService_RecordWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordWindow');
           const result = this.impl.recordWindow(params.client, params.video_capturer, params.microphone_stream_factory, params.system_audio_stream_factory, params.drive_fs_quota_delegate, params.output_file_path, params.frame_sink_id, params.frame_sink_size_dip, params.device_scale_factor, params.subtree_capture_id, params.window_size_dip);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(recording.mojom.RecordingService_RecordRegion_ParamsSpec);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingService_RecordRegion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordRegion');
           const result = this.impl.recordRegion(params.client, params.video_capturer, params.microphone_stream_factory, params.system_audio_stream_factory, params.drive_fs_quota_delegate, params.output_file_path, params.frame_sink_id, params.frame_sink_size_dip, params.device_scale_factor, params.crop_region_dip);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(recording.mojom.RecordingService_StopRecording_ParamsSpec);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingService_StopRecording_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopRecording');
           const result = this.impl.stopRecording();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRecordedWindowChangingRoot');
           const result = this.impl.onRecordedWindowChangingRoot(params.new_frame_sink_id, params.new_frame_sink_size_dip, params.new_device_scale_factor);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRecordedWindowSizeChanged');
           const result = this.impl.onRecordedWindowSizeChanged(params.new_window_size_dip);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameSinkSizeChanged');
           const result = this.impl.onFrameSinkSizeChanged(params.new_frame_sink_size_dip, params.new_device_scale_factor);
           break;

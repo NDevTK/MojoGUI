@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -230,7 +231,7 @@ ash.local_search_service.mojom.SearchMetricsReporterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSearchPerformed');
           const result = this.impl.onSearchPerformed(params.index_id);
           if (header.expectsResponse) {
@@ -393,7 +394,7 @@ ash.local_search_service.mojom.LocalSearchServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindIndex');
           const result = this.impl.bindIndex(params.index_id, params.backend, params.index_receiver, params.reporter_remote);
           if (header.expectsResponse) {

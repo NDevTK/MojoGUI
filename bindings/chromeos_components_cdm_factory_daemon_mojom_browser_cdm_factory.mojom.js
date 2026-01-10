@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -424,7 +425,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFactory');
           const result = this.impl.createFactory(params.key_system);
           if (header.expectsResponse) {
@@ -437,14 +438,14 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOutputProtection');
           const result = this.impl.getOutputProtection(params.output_protection);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHwConfigData');
           const result = this.impl.getHwConfigData();
           if (header.expectsResponse) {
@@ -457,7 +458,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getScreenResolutions');
           const result = this.impl.getScreenResolutions();
           if (header.expectsResponse) {
@@ -470,7 +471,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAndroidHwKeyData');
           const result = this.impl.getAndroidHwKeyData(params.key_id, params.hw_identifier);
           if (header.expectsResponse) {
@@ -483,7 +484,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allocateSecureBuffer');
           const result = this.impl.allocateSecureBuffer(params.size);
           if (header.expectsResponse) {
@@ -496,7 +497,7 @@ chromeos.cdm.mojom.BrowserCdmFactoryReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseEncryptedSliceHeader');
           const result = this.impl.parseEncryptedSliceHeader(params.secure_handle, params.offset, params.stream_data);
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -248,7 +249,7 @@ password_manager.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -771,14 +772,14 @@ password_manager.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extendAuthValidity');
           const result = this.impl.extendAuthValidity();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteAllPasswordManagerData');
           const result = this.impl.deleteAllPasswordManagerData();
           if (header.expectsResponse) {
@@ -791,7 +792,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copyPlaintextBackupPassword');
           const result = this.impl.copyPlaintextBackupPassword(params.id);
           if (header.expectsResponse) {
@@ -804,14 +805,14 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeBackupPassword');
           const result = this.impl.removeBackupPassword(params.id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getActorLoginPermissions');
           const result = this.impl.getActorLoginPermissions();
           if (header.expectsResponse) {
@@ -824,14 +825,14 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.revokeActorLoginPermission');
           const result = this.impl.revokeActorLoginPermission(params.site);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changePasswordManagerPin');
           const result = this.impl.changePasswordManagerPin();
           if (header.expectsResponse) {
@@ -844,14 +845,14 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showAddShortcutDialog');
           const result = this.impl.showAddShortcutDialog();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isAccountStorageEnabled');
           const result = this.impl.isAccountStorageEnabled();
           if (header.expectsResponse) {
@@ -864,14 +865,14 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAccountStorageEnabled');
           const result = this.impl.setAccountStorageEnabled(params.enabled);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldShowAccountStorageSettingToggle');
           const result = this.impl.shouldShowAccountStorageSettingToggle();
           if (header.expectsResponse) {
@@ -884,7 +885,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isPasswordManagerPinAvailable');
           const result = this.impl.isPasswordManagerPinAvailable();
           if (header.expectsResponse) {
@@ -897,7 +898,7 @@ password_manager.mojom.PageHandlerReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec);
+          const params = decoder.decodeStructInline(password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.switchBiometricAuthBeforeFillingState');
           const result = this.impl.switchBiometricAuthBeforeFillingState();
           if (header.expectsResponse) {

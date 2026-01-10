@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -247,14 +248,14 @@ blink.mojom.BlobReaderClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCalculatedSize');
           const result = this.impl.onCalculatedSize(params.total_size, params.expected_content_size);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BlobReaderClient_OnComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BlobReaderClient_OnComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.status, params.data_length);
           break;
@@ -621,42 +622,42 @@ blink.mojom.BlobReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Blob_Clone_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Blob_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.blob);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Blob_AsDataPipeGetter_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Blob_AsDataPipeGetter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.asDataPipeGetter');
           const result = this.impl.asDataPipeGetter(params.data_pipe_getter);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Blob_ReadAll_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Blob_ReadAll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readAll');
           const result = this.impl.readAll(params.pipe, params.client);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Blob_ReadRange_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Blob_ReadRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readRange');
           const result = this.impl.readRange(params.offset, params.length, params.pipe, params.client);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Blob_Load_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Blob_Load_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.load');
           const result = this.impl.load(params.loader, params.request_method, params.headers, params.client);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Blob_ReadSideData_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Blob_ReadSideData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readSideData');
           const result = this.impl.readSideData();
           if (header.expectsResponse) {
@@ -669,7 +670,7 @@ blink.mojom.BlobReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Blob_CaptureSnapshot_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Blob_CaptureSnapshot_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.captureSnapshot');
           const result = this.impl.captureSnapshot();
           if (header.expectsResponse) {
@@ -682,7 +683,7 @@ blink.mojom.BlobReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Blob_GetInternalUUID_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Blob_GetInternalUUID_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInternalUUID');
           const result = this.impl.getInternalUUID();
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -344,7 +345,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize();
           if (header.expectsResponse) {
@@ -357,7 +358,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decode');
           const result = this.impl.decode(params.input_buffer, params.coded_size, params.output_handle, params.output_buffer_size);
           if (header.expectsResponse) {
@@ -370,7 +371,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeWithDmaBuf');
           const result = this.impl.decodeWithDmaBuf(params.task_id, params.src_dmabuf_fd, params.src_size, params.src_offset, params.dst_frame);
           if (header.expectsResponse) {
@@ -383,7 +384,7 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.uninitialize');
           const result = this.impl.uninitialize();
           break;

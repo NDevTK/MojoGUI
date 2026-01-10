@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -471,28 +472,28 @@ arc.mojom.PowerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAcquireDisplayWakeLock');
           const result = this.impl.onAcquireDisplayWakeLock(params.type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReleaseDisplayWakeLock');
           const result = this.impl.onReleaseDisplayWakeLock(params.type);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWakefulnessChanged');
           const result = this.impl.onWakefulnessChanged(params.mode);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerHost_IsDisplayOn_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_IsDisplayOn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isDisplayOn');
           const result = this.impl.isDisplayOn();
           if (header.expectsResponse) {
@@ -505,28 +506,28 @@ arc.mojom.PowerHostReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreenBrightnessUpdateRequest');
           const result = this.impl.onScreenBrightnessUpdateRequest(params.percent);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnPreAnr_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnPreAnr_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPreAnr');
           const result = this.impl.onPreAnr(params.type);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAnrRecoveryFailed');
           const result = this.impl.onAnrRecoveryFailed(params.type);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBatterySaverModeState');
           const result = this.impl.getBatterySaverModeState();
           if (header.expectsResponse) {
@@ -944,7 +945,7 @@ arc.mojom.PowerInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -957,14 +958,14 @@ arc.mojom.PowerInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInteractiveDeprecated');
           const result = this.impl.setInteractiveDeprecated(params.enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_Suspend_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_Suspend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suspend');
           const result = this.impl.suspend();
           if (header.expectsResponse) {
@@ -977,28 +978,28 @@ arc.mojom.PowerInstanceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_Resume_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_Resume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateScreenBrightnessSettings');
           const result = this.impl.updateScreenBrightnessSettings(params.percent);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.powerSupplyInfoChanged');
           const result = this.impl.powerSupplyInfoChanged();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWakefulnessMode');
           const result = this.impl.getWakefulnessMode();
           if (header.expectsResponse) {
@@ -1011,21 +1012,21 @@ arc.mojom.PowerInstanceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCpuRestrictionChanged');
           const result = this.impl.onCpuRestrictionChanged(params.state);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBatterySaverModeStateChanged');
           const result = this.impl.onBatterySaverModeStateChanged(params.state);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_SetIdleState_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PowerInstance_SetIdleState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIdleState');
           const result = this.impl.setIdleState(params.state);
           break;

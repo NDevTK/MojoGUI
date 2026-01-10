@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -266,7 +267,7 @@ patch.mojom.FilePatcherReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec);
+          const params = decoder.decodeStructInline(patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.patchFilePuffPatch');
           const result = this.impl.patchFilePuffPatch(params.input_file, params.patch_file, params.output_file);
           if (header.expectsResponse) {
@@ -279,7 +280,7 @@ patch.mojom.FilePatcherReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec);
+          const params = decoder.decodeStructInline(patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.patchFileZucchini');
           const result = this.impl.patchFileZucchini(params.input_file, params.patch_file, params.output_file);
           if (header.expectsResponse) {

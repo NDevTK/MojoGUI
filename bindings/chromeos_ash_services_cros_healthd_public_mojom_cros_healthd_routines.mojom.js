@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -1177,14 +1178,14 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRoutine');
           const result = this.impl.createRoutine(params.routine_argument, params.routine_receiver, params.routine_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isRoutineArgumentSupported');
           const result = this.impl.isRoutineArgumentSupported(params.routine_argument);
           if (header.expectsResponse) {
@@ -1398,7 +1399,7 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getState');
           const result = this.impl.getState();
           if (header.expectsResponse) {
@@ -1411,14 +1412,14 @@ ash.cros_healthd.mojom.RoutineControlReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.replyInquiry');
           const result = this.impl.replyInquiry(params.reply);
           break;
@@ -1566,7 +1567,7 @@ ash.cros_healthd.mojom.RoutineObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRoutineStateChange');
           const result = this.impl.onRoutineStateChange(params.state);
           break;

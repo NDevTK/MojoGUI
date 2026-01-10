@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -289,21 +290,21 @@ updater.mojom.PostRequestObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseStarted');
           const result = this.impl.onResponseStarted(params.http_status_code, params.content_length);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.PostRequestObserver_OnProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.PostRequestObserver_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.current);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestComplete');
           const result = this.impl.onRequestComplete(params.response_body, params.net_error, params.header_etag, params.header_x_cup_server_proof, params.header_set_cookie, params.xheader_retry_after_sec);
           break;
@@ -511,21 +512,21 @@ updater.mojom.FileDownloadObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseStarted');
           const result = this.impl.onResponseStarted(params.http_status_code, params.content_length);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.current);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDownloadComplete');
           const result = this.impl.onDownloadComplete(params.net_error, params.content_size);
           break;
@@ -717,7 +718,7 @@ updater.mojom.FetchServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.FetchService_PostRequest_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.FetchService_PostRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postRequest');
           const result = this.impl.postRequest(params.url, params.post_data, params.content_type, params.additional_headers);
           if (header.expectsResponse) {
@@ -730,7 +731,7 @@ updater.mojom.FetchServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(updater.mojom.FetchService_DownloadToFile_ParamsSpec);
+          const params = decoder.decodeStructInline(updater.mojom.FetchService_DownloadToFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadToFile');
           const result = this.impl.downloadToFile(params.url, params.output_file);
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -262,7 +263,7 @@ reading_list.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -700,7 +701,7 @@ reading_list.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getReadLaterEntries');
           const result = this.impl.getReadLaterEntries();
           if (header.expectsResponse) {
@@ -713,70 +714,70 @@ reading_list.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_OpenURL_ParamsSpec);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_OpenURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openURL');
           const result = this.impl.openURL(params.url, params.mark_as_read, params.click_modifiers);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateReadStatus');
           const result = this.impl.updateReadStatus(params.url, params.read);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.markCurrentTabAsRead');
           const result = this.impl.markCurrentTabAsRead();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addCurrentTab');
           const result = this.impl.addCurrentTab();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeEntry');
           const result = this.impl.removeEntry(params.url);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenuForURL');
           const result = this.impl.showContextMenuForURL(params.url, params.x, params.y);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateCurrentPageActionButtonState');
           const result = this.impl.updateCurrentPageActionButtonState();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_ShowUI_ParamsSpec);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_ShowUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_CloseUI_ParamsSpec);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_CloseUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_GetWindowData_ParamsSpec);
+          const params = decoder.decodeStructInline(reading_list.mojom.PageHandler_GetWindowData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWindowData');
           const result = this.impl.getWindowData();
           if (header.expectsResponse) {
@@ -958,14 +959,14 @@ reading_list.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reading_list.mojom.Page_ItemsChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(reading_list.mojom.Page_ItemsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.itemsChanged');
           const result = this.impl.itemsChanged(params.entries);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.currentPageActionButtonStateChanged');
           const result = this.impl.currentPageActionButtonStateChanged(params.state);
           break;

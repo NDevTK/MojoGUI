@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -272,7 +273,7 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTtsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAudioData');
           const result = this.impl.getAudioData(params.request);
           if (header.expectsResponse) {
@@ -426,7 +427,7 @@ ash.enhanced_network_tts.mojom.AudioDataObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAudioDataReceived');
           const result = this.impl.onAudioDataReceived(params.response);
           break;

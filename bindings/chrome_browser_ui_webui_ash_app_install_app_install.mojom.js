@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -308,7 +309,7 @@ ash.app_install.mojom.AppInfoActionsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installApp');
           const result = this.impl.installApp();
           if (header.expectsResponse) {
@@ -321,7 +322,7 @@ ash.app_install.mojom.AppInfoActionsReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchApp');
           const result = this.impl.launchApp();
           break;
@@ -468,7 +469,7 @@ ash.app_install.mojom.ConnectionErrorActionsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.tryAgain');
           const result = this.impl.tryAgain();
           break;
@@ -616,7 +617,7 @@ ash.app_install.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler);
           break;
@@ -796,7 +797,7 @@ ash.app_install.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDialogArgs');
           const result = this.impl.getDialogArgs();
           if (header.expectsResponse) {
@@ -809,7 +810,7 @@ ash.app_install.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeDialog');
           const result = this.impl.closeDialog();
           break;

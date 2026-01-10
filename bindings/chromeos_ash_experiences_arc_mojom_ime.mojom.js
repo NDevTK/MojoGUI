@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -439,42 +440,42 @@ arc.mojom.ImeHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTextInputTypeChanged');
           const result = this.impl.onTextInputTypeChanged(params.type, params.is_personalized_learning_allowed, params.flags);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCursorRectChanged');
           const result = this.impl.onCursorRectChanged(params.rect, params.coordinateSpace);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnCancelComposition_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnCancelComposition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCancelComposition');
           const result = this.impl.onCancelComposition();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showVirtualKeyboardIfEnabled');
           const result = this.impl.showVirtualKeyboardIfEnabled();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCursorRectChangedWithSurroundingText');
           const result = this.impl.onCursorRectChangedWithSurroundingText(params.rect, params.text_range, params.text_in_range, params.selection_range, params.coordinateSpace);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeHost_SendKeyEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ImeHost_SendKeyEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendKeyEvent');
           const result = this.impl.sendKeyEvent(params.key_event_data);
           if (header.expectsResponse) {
@@ -833,7 +834,7 @@ arc.mojom.ImeInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -846,49 +847,49 @@ arc.mojom.ImeInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_SetCompositionText_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_SetCompositionText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCompositionText');
           const result = this.impl.setCompositionText(params.text, params.segments, params.selection_range);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_SetSelectionText_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_SetSelectionText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSelectionText');
           const result = this.impl.setSelectionText(params.selection);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.confirmCompositionText');
           const result = this.impl.confirmCompositionText();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_InsertText_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_InsertText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertText');
           const result = this.impl.insertText(params.text, params.new_cursor_position);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardAppearanceChanging');
           const result = this.impl.onKeyboardAppearanceChanging(params.new_bounds, params.is_available);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extendSelectionAndDelete');
           const result = this.impl.extendSelectionAndDelete(params.before, params.after);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setComposingRegion');
           const result = this.impl.setComposingRegion(params.range);
           break;

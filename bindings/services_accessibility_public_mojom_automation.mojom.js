@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -357,42 +358,42 @@ ax.mojom.AutomationReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchTreeDestroyedEvent');
           const result = this.impl.dispatchTreeDestroyedEvent(params.tree_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchActionResult_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchActionResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchActionResult');
           const result = this.impl.dispatchActionResult(params.data, params.result);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityEvents');
           const result = this.impl.dispatchAccessibilityEvents(params.tree_id, params.updates, params.mouse_location, params.events);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityLocationChange');
           const result = this.impl.dispatchAccessibilityLocationChange(params.tree_id, params.node_id, params.bounds);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityScrollChange');
           const result = this.impl.dispatchAccessibilityScrollChange(params.tree_id, params.node_id, params.scroll_x, params.scroll_y);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchGetTextLocationResult');
           const result = this.impl.dispatchGetTextLocationResult(params.data, params.rect);
           break;

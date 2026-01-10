@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -228,7 +229,7 @@ glic.mojom.FrePageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.receiver);
           break;
@@ -600,35 +601,35 @@ glic.mojom.FrePageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_AcceptFre_ParamsSpec);
+          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_AcceptFre_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acceptFre');
           const result = this.impl.acceptFre();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_RejectFre_ParamsSpec);
+          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_RejectFre_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rejectFre');
           const result = this.impl.rejectFre();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_DismissFre_ParamsSpec);
+          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_DismissFre_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dismissFre');
           const result = this.impl.dismissFre(params.panel);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_FreReloaded_ParamsSpec);
+          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_FreReloaded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.freReloaded');
           const result = this.impl.freReloaded();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec);
+          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prepareForClient');
           const result = this.impl.prepareForClient();
           if (header.expectsResponse) {
@@ -641,28 +642,28 @@ glic.mojom.FrePageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec);
+          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.validateAndOpenLinkInNewTab');
           const result = this.impl.validateAndOpenLinkInNewTab(params.url);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.webUiStateChanged');
           const result = this.impl.webUiStateChanged(params.new_state);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec);
+          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exceededTimeoutError');
           const result = this.impl.exceededTimeoutError();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logWebUiLoadComplete');
           const result = this.impl.logWebUiLoadComplete();
           break;

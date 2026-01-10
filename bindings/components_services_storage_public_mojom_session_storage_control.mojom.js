@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -529,21 +530,21 @@ storage.mojom.SessionStorageControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindNamespace');
           const result = this.impl.bindNamespace(params.namespace_id, params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindStorageArea');
           const result = this.impl.bindStorageArea(params.storage_key, params.namespace_id, params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_GetUsage_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_GetUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUsage');
           const result = this.impl.getUsage();
           if (header.expectsResponse) {
@@ -556,7 +557,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteStorage');
           const result = this.impl.deleteStorage(params.storage_key, params.namespace_id);
           if (header.expectsResponse) {
@@ -569,7 +570,7 @@ storage.mojom.SessionStorageControlReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cleanUpStorage');
           const result = this.impl.cleanUpStorage();
           if (header.expectsResponse) {
@@ -582,42 +583,42 @@ storage.mojom.SessionStorageControlReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scavengeUnusedNamespaces');
           const result = this.impl.scavengeUnusedNamespaces();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_Flush_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_Flush_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.purgeMemory');
           const result = this.impl.purgeMemory();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNamespace');
           const result = this.impl.createNamespace(params.namespace_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cloneNamespace');
           const result = this.impl.cloneNamespace(params.namespace_id_to_clone, params.clone_namespace_id, params.clone_type);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteNamespace');
           const result = this.impl.deleteNamespace(params.namespace_id, params.should_persist);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -342,14 +343,14 @@ blink.mojom.AIManagerCreateLanguageModelClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
           const result = this.impl.onResult(params.language_model_remote, params.info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error, params.quota_error_info);
           break;
@@ -618,35 +619,35 @@ blink.mojom.AILanguageModelReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AILanguageModel_Prompt_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AILanguageModel_Prompt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prompt');
           const result = this.impl.prompt(params.prompts, params.constraint, params.pending_responder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AILanguageModel_Append_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AILanguageModel_Append_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.append');
           const result = this.impl.append(params.prompts, params.client);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AILanguageModel_Fork_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AILanguageModel_Fork_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fork');
           const result = this.impl.fork(params.client);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AILanguageModel_Destroy_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AILanguageModel_Destroy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.destroy');
           const result = this.impl.destroy();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.measureInputUsage');
           const result = this.impl.measureInputUsage(params.input);
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -676,112 +677,112 @@ autofill.mojom.AutofillDriverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.formsSeen');
           const result = this.impl.formsSeen(params.updated_forms, params.removed_forms);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_FormSubmitted_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_FormSubmitted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.formSubmitted');
           const result = this.impl.formSubmitted(params.form, params.source);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_CaretMovedInFormField_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_CaretMovedInFormField_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.caretMovedInFormField');
           const result = this.impl.caretMovedInFormField(params.form, params.field_id, params.caret_bounds);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_TextFieldValueChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_TextFieldValueChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.textFieldValueChanged');
           const result = this.impl.textFieldValueChanged(params.form, params.field_id, params.timestamp);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_DidEndTextFieldEditing_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_DidEndTextFieldEditing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didEndTextFieldEditing');
           const result = this.impl.didEndTextFieldEditing();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_TextFieldDidScroll_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_TextFieldDidScroll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.textFieldDidScroll');
           const result = this.impl.textFieldDidScroll(params.form, params.field_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_SelectControlSelectionChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_SelectControlSelectionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectControlSelectionChanged');
           const result = this.impl.selectControlSelectionChanged(params.form, params.field_id);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectFieldOptionsDidChange');
           const result = this.impl.selectFieldOptionsDidChange(params.form, params.field_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_FocusOnFormField_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_FocusOnFormField_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusOnFormField');
           const result = this.impl.focusOnFormField(params.form, params.field_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_FocusOnNonFormField_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_FocusOnNonFormField_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusOnNonFormField');
           const result = this.impl.focusOnNonFormField();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_AskForValuesToFill_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_AskForValuesToFill_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.askForValuesToFill');
           const result = this.impl.askForValuesToFill(params.form, params.field_id, params.caret_bounds, params.trigger_source, params.password_request);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_HidePopup_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_HidePopup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hidePopup');
           const result = this.impl.hidePopup();
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_DidAutofillForm_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_DidAutofillForm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didAutofillForm');
           const result = this.impl.didAutofillForm(params.form);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_SuppressAutomaticRefills_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_SuppressAutomaticRefills_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suppressAutomaticRefills');
           const result = this.impl.suppressAutomaticRefills(params.fill_id);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestRefill');
           const result = this.impl.requestRefill(params.fill_id);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.javaScriptChangedAutofilledValue');
           const result = this.impl.javaScriptChangedAutofilledValue(params.form, params.field_id, params.old_value);
           break;
@@ -1270,91 +1271,91 @@ autofill.mojom.PasswordManagerDriverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passwordFormsParsed');
           const result = this.impl.passwordFormsParsed(params.forms_data);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passwordFormsRendered');
           const result = this.impl.passwordFormsRendered(params.visible_forms_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passwordFormSubmitted');
           const result = this.impl.passwordFormSubmitted(params.form_data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_InformAboutUserInput_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_InformAboutUserInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.informAboutUserInput');
           const result = this.impl.informAboutUserInput(params.form_data);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dynamicFormSubmission');
           const result = this.impl.dynamicFormSubmission(params.submission_indication_event);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_PasswordFormCleared_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_PasswordFormCleared_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passwordFormCleared');
           const result = this.impl.passwordFormCleared(params.form_data);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordSavePasswordProgress');
           const result = this.impl.recordSavePasswordProgress(params.log);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.userModifiedPasswordField');
           const result = this.impl.userModifiedPasswordField();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.userModifiedNonPasswordField');
           const result = this.impl.userModifiedNonPasswordField(params.renderer_id, params.value, params.autocomplete_attribute_has_username, params.is_likely_otp);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showPasswordSuggestions');
           const result = this.impl.showPasswordSuggestions(params.request);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkSafeBrowsingReputation');
           const result = this.impl.checkSafeBrowsingReputation(params.form_action, params.frame_url);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusedInputChanged');
           const result = this.impl.focusedInputChanged(params.focused_field_id, params.focused_field_type);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logFirstFillingResult');
           const result = this.impl.logFirstFillingResult(params.form_renderer_id, params.result);
           break;
@@ -1671,49 +1672,49 @@ autofill.mojom.PasswordGenerationDriverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.automaticGenerationAvailable');
           const result = this.impl.automaticGenerationAvailable(params.password_generation_ui_data);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.presaveGeneratedPassword');
           const result = this.impl.presaveGeneratedPassword(params.form_data, params.password_value);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passwordNoLongerGenerated');
           const result = this.impl.passwordNoLongerGenerated(params.form_data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showPasswordEditingPopup');
           const result = this.impl.showPasswordEditingPopup(params.bounds, params.form_data, params.field_renderer_id, params.password_value);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passwordGenerationRejectedByTyping');
           const result = this.impl.passwordGenerationRejectedByTyping();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.frameWasScrolled');
           const result = this.impl.frameWasScrolled();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec);
+          const params = decoder.decodeStructInline(autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generationElementLostFocus');
           const result = this.impl.generationElementLostFocus();
           break;

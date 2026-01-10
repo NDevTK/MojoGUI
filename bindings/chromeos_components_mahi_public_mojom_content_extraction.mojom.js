@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -299,7 +300,7 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec);
+          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractContent');
           const result = this.impl.extractContent(params.extraction_request);
           if (header.expectsResponse) {
@@ -312,7 +313,7 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec);
+          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getContentSize');
           const result = this.impl.getContentSize(params.extraction_request);
           if (header.expectsResponse) {
@@ -494,14 +495,14 @@ mahi.mojom.ContentExtractionServiceFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec);
+          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindContentExtractionService');
           const result = this.impl.bindContentExtractionService(params.content_extraction_service);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec);
+          const params = decoder.decodeStructInline(mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreen2xReady');
           const result = this.impl.onScreen2xReady(params.extractor);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -265,7 +266,7 @@ ash.language.mojom.LanguagePacksObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPackStateChanged');
           const result = this.impl.onPackStateChanged(params.info);
           break;
@@ -551,7 +552,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPackInfo');
           const result = this.impl.getPackInfo(params.feature_id, params.language);
           if (header.expectsResponse) {
@@ -564,7 +565,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installPack');
           const result = this.impl.installPack(params.feature_id, params.language);
           if (header.expectsResponse) {
@@ -577,7 +578,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installBasePack');
           const result = this.impl.installBasePack(params.feature_id);
           if (header.expectsResponse) {
@@ -590,7 +591,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.uninstallPack');
           const result = this.impl.uninstallPack(params.feature_id, params.language);
           if (header.expectsResponse) {
@@ -603,7 +604,7 @@ ash.language.mojom.LanguagePacksReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;

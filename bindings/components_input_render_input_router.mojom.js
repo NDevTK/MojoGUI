@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -382,42 +383,42 @@ input.mojom.RenderInputRouterDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec);
+          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stateOnTouchTransfer');
           const result = this.impl.stateOnTouchTransfer(params.state);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceEnableZoomStateChanged');
           const result = this.impl.forceEnableZoomStateChanged(params.force_enable_zoom, params.frame_sink_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec);
+          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopFlingingOnViz');
           const result = this.impl.stopFlingingOnViz(params.frame_sink_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec);
+          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restartInputEventAckTimeoutIfNecessary');
           const result = this.impl.restartInputEventAckTimeoutIfNecessary(params.frame_sink_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyVisibilityChanged');
           const result = this.impl.notifyVisibilityChanged(params.frame_sink_id, params.is_hidden);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec);
+          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetGestureDetection');
           const result = this.impl.resetGestureDetection(params.root_widget_frame_sink_id);
           break;
@@ -680,35 +681,35 @@ input.mojom.RenderInputRouterDelegateClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyObserversOfInputEvent');
           const result = this.impl.notifyObserversOfInputEvent(params.event, params.dispatched_to_renderer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec);
+          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyObserversOfInputEventAcks');
           const result = this.impl.notifyObserversOfInputEventAcks(params.ack_source, params.ack_result, params.event);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec);
+          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInvalidInputEventSource');
           const result = this.impl.onInvalidInputEventSource();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec);
+          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stateOnOverscrollTransfer');
           const result = this.impl.stateOnOverscrollTransfer(params.overscroll);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rendererInputResponsivenessChanged');
           const result = this.impl.rendererInputResponsivenessChanged(params.is_responsive, params.ack_timeout_ts);
           break;

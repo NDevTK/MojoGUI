@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -391,28 +392,28 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setQuietMode');
           const result = this.impl.setQuietMode(params.enabled);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNotificationPermission');
           const result = this.impl.setNotificationPermission(params.app_id, params.permission);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getApps');
           const result = this.impl.getApps();
           if (header.expectsResponse) {
@@ -425,7 +426,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getQuietMode');
           const result = this.impl.getQuietMode();
           if (header.expectsResponse) {
@@ -438,7 +439,7 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openBrowserNotificationSettings');
           const result = this.impl.openBrowserNotificationSettings();
           break;
@@ -614,14 +615,14 @@ ash.settings.app_notification.mojom.AppNotificationsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationAppChanged');
           const result = this.impl.onNotificationAppChanged(params.app);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onQuietModeChanged');
           const result = this.impl.onQuietModeChanged(params.enabled);
           break;

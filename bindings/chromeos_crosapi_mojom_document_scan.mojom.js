@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -772,7 +773,7 @@ crosapi.mojom.DocumentScanReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openScanner');
           const result = this.impl.openScanner(params.client_id, params.scanner_id);
           if (header.expectsResponse) {
@@ -785,7 +786,7 @@ crosapi.mojom.DocumentScanReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeScanner');
           const result = this.impl.closeScanner(params.scanner_handle);
           if (header.expectsResponse) {
@@ -798,7 +799,7 @@ crosapi.mojom.DocumentScanReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startPreparedScan');
           const result = this.impl.startPreparedScan(params.scanner_handle, params.options);
           if (header.expectsResponse) {
@@ -811,7 +812,7 @@ crosapi.mojom.DocumentScanReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readScanData');
           const result = this.impl.readScanData(params.job_handle);
           if (header.expectsResponse) {
@@ -824,7 +825,7 @@ crosapi.mojom.DocumentScanReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.DocumentScan_SetOptions_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.DocumentScan_SetOptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOptions');
           const result = this.impl.setOptions(params.scanner_handle, params.options);
           if (header.expectsResponse) {
@@ -837,7 +838,7 @@ crosapi.mojom.DocumentScanReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionGroups');
           const result = this.impl.getOptionGroups(params.scanner_handle);
           if (header.expectsResponse) {
@@ -850,7 +851,7 @@ crosapi.mojom.DocumentScanReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.DocumentScan_CancelScan_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.DocumentScan_CancelScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelScan');
           const result = this.impl.cancelScan(params.job_handle);
           if (header.expectsResponse) {

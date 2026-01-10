@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -1201,7 +1202,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getResult');
           const result = this.impl.getResult(params.routine);
           if (header.expectsResponse) {
@@ -1214,7 +1215,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllResults');
           const result = this.impl.getAllResults();
           if (header.expectsResponse) {
@@ -1227,7 +1228,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runLanConnectivity');
           const result = this.impl.runLanConnectivity(params.source);
           if (header.expectsResponse) {
@@ -1240,7 +1241,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runSignalStrength');
           const result = this.impl.runSignalStrength(params.source);
           if (header.expectsResponse) {
@@ -1253,7 +1254,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runGatewayCanBePinged');
           const result = this.impl.runGatewayCanBePinged(params.source);
           if (header.expectsResponse) {
@@ -1266,7 +1267,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runHasSecureWiFiConnection');
           const result = this.impl.runHasSecureWiFiConnection(params.source);
           if (header.expectsResponse) {
@@ -1279,7 +1280,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runDnsResolverPresent');
           const result = this.impl.runDnsResolverPresent(params.source);
           if (header.expectsResponse) {
@@ -1292,7 +1293,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runDnsLatency');
           const result = this.impl.runDnsLatency(params.source);
           if (header.expectsResponse) {
@@ -1305,7 +1306,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runDnsResolution');
           const result = this.impl.runDnsResolution(params.source);
           if (header.expectsResponse) {
@@ -1318,7 +1319,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runCaptivePortal');
           const result = this.impl.runCaptivePortal(params.source);
           if (header.expectsResponse) {
@@ -1331,7 +1332,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runHttpFirewall');
           const result = this.impl.runHttpFirewall(params.source);
           if (header.expectsResponse) {
@@ -1344,7 +1345,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runHttpsFirewall');
           const result = this.impl.runHttpsFirewall(params.source);
           if (header.expectsResponse) {
@@ -1357,7 +1358,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runHttpsLatency');
           const result = this.impl.runHttpsLatency(params.source);
           if (header.expectsResponse) {
@@ -1370,7 +1371,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runVideoConferencing');
           const result = this.impl.runVideoConferencing(params.stun_server_hostname, params.source);
           if (header.expectsResponse) {
@@ -1383,7 +1384,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runArcHttp');
           const result = this.impl.runArcHttp(params.source);
           if (header.expectsResponse) {
@@ -1396,7 +1397,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runArcPing');
           const result = this.impl.runArcPing(params.source);
           if (header.expectsResponse) {
@@ -1409,7 +1410,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runArcDnsResolution');
           const result = this.impl.runArcDnsResolution(params.source);
           if (header.expectsResponse) {
@@ -1422,7 +1423,7 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runGoogleServicesConnectivity');
           const result = this.impl.runGoogleServicesConnectivity(params.source);
           if (header.expectsResponse) {

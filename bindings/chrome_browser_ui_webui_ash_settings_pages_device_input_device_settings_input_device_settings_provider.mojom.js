@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -321,14 +322,14 @@ ash.settings.mojom.KeyboardSettingsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardListUpdated');
           const result = this.impl.onKeyboardListUpdated(params.keyboards);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardPoliciesUpdated');
           const result = this.impl.onKeyboardPoliciesUpdated(params.policies);
           break;
@@ -476,7 +477,7 @@ ash.settings.mojom.TouchpadSettingsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTouchpadListUpdated');
           const result = this.impl.onTouchpadListUpdated(params.touchpads);
           break;
@@ -624,7 +625,7 @@ ash.settings.mojom.PointingStickSettingsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPointingStickListUpdated');
           const result = this.impl.onPointingStickListUpdated(params.pointSticks);
           break;
@@ -800,14 +801,14 @@ ash.settings.mojom.MouseSettingsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMouseListUpdated');
           const result = this.impl.onMouseListUpdated(params.mice);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMousePoliciesUpdated');
           const result = this.impl.onMousePoliciesUpdated(params.policies);
           break;
@@ -955,7 +956,7 @@ ash.settings.mojom.ButtonPressObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onButtonPressed');
           const result = this.impl.onButtonPressed(params.button);
           break;
@@ -1103,7 +1104,7 @@ ash.settings.mojom.GraphicsTabletSettingsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGraphicsTabletListUpdated');
           const result = this.impl.onGraphicsTabletListUpdated(params.graphics_tablets);
           break;
@@ -1251,7 +1252,7 @@ ash.settings.mojom.KeyboardBrightnessObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardBrightnessChanged');
           const result = this.impl.onKeyboardBrightnessChanged(params.brightness_percent);
           break;
@@ -1399,7 +1400,7 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onKeyboardAmbientLightSensorEnabledChanged');
           const result = this.impl.onKeyboardAmbientLightSensorEnabledChanged(params.keyboard_ambient_light_sensor_enabled);
           break;
@@ -1547,7 +1548,7 @@ ash.settings.mojom.LidStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLidStateChanged');
           const result = this.impl.onLidStateChanged(params.is_lid_open);
           break;
@@ -2524,63 +2525,63 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeKeyboardSettings');
           const result = this.impl.observeKeyboardSettings(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeTouchpadSettings');
           const result = this.impl.observeTouchpadSettings(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observePointingStickSettings');
           const result = this.impl.observePointingStickSettings(params.observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeMouseSettings');
           const result = this.impl.observeMouseSettings(params.observer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeGraphicsTabletSettings');
           const result = this.impl.observeGraphicsTabletSettings(params.observer);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeButtonPresses');
           const result = this.impl.observeButtonPresses(params.observer);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeKeyboardBrightness');
           const result = this.impl.observeKeyboardBrightness(params.observer);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeKeyboardAmbientLightSensor');
           const result = this.impl.observeKeyboardAmbientLightSensor(params.observer);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeLidState');
           const result = this.impl.observeLidState(params.observer);
           if (header.expectsResponse) {
@@ -2593,77 +2594,77 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restoreDefaultKeyboardRemappings');
           const result = this.impl.restoreDefaultKeyboardRemappings(params.device_id);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setKeyboardSettings');
           const result = this.impl.setKeyboardSettings(params.device_id, params.settings);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPointingStickSettings');
           const result = this.impl.setPointingStickSettings(params.device_id, params.settings);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMouseSettings');
           const result = this.impl.setMouseSettings(params.device_id, params.settings);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTouchpadSettings');
           const result = this.impl.setTouchpadSettings(params.device_id, params.settings);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setGraphicsTabletSettings');
           const result = this.impl.setGraphicsTabletSettings(params.device_id, params.settings);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setKeyboardBrightness');
           const result = this.impl.setKeyboardBrightness(params.percent);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setKeyboardAmbientLightSensorEnabled');
           const result = this.impl.setKeyboardAmbientLightSensorEnabled(params.enabled);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startObserving');
           const result = this.impl.startObserving(params.device_id);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopObserving');
           const result = this.impl.stopObserving();
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getActionsForMouseButtonCustomization');
           const result = this.impl.getActionsForMouseButtonCustomization();
           if (header.expectsResponse) {
@@ -2676,7 +2677,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getActionsForGraphicsTabletButtonCustomization');
           const result = this.impl.getActionsForGraphicsTabletButtonCustomization();
           if (header.expectsResponse) {
@@ -2689,7 +2690,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMetaKeyToDisplay');
           const result = this.impl.getMetaKeyToDisplay();
           if (header.expectsResponse) {
@@ -2702,7 +2703,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasKeyboardBacklight');
           const result = this.impl.hasKeyboardBacklight();
           if (header.expectsResponse) {
@@ -2715,7 +2716,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasAmbientLightSensor');
           const result = this.impl.hasAmbientLightSensor();
           if (header.expectsResponse) {
@@ -2728,7 +2729,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isRgbKeyboardSupported');
           const result = this.impl.isRgbKeyboardSupported();
           if (header.expectsResponse) {
@@ -2741,21 +2742,21 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordKeyboardColorLinkClicked');
           const result = this.impl.recordKeyboardColorLinkClicked();
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordKeyboardBrightnessChangeFromSlider');
           const result = this.impl.recordKeyboardBrightnessChangeFromSlider(params.percent);
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceIconImage');
           const result = this.impl.getDeviceIconImage(params.device_key);
           if (header.expectsResponse) {
@@ -2768,7 +2769,7 @@ ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchCompanionApp');
           const result = this.impl.launchCompanionApp(params.package_id);
           break;

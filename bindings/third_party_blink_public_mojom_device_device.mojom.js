@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -233,7 +234,7 @@ blink.mojom.ManagedConfigurationObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConfigurationChanged');
           const result = this.impl.onConfigurationChanged();
           break;
@@ -518,7 +519,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDirectoryId');
           const result = this.impl.getDirectoryId();
           if (header.expectsResponse) {
@@ -531,7 +532,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetHostname_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetHostname_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHostname');
           const result = this.impl.getHostname();
           if (header.expectsResponse) {
@@ -544,7 +545,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSerialNumber');
           const result = this.impl.getSerialNumber();
           if (header.expectsResponse) {
@@ -557,7 +558,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAnnotatedAssetId');
           const result = this.impl.getAnnotatedAssetId();
           if (header.expectsResponse) {
@@ -570,7 +571,7 @@ blink.mojom.DeviceAPIServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAnnotatedLocation');
           const result = this.impl.getAnnotatedLocation();
           if (header.expectsResponse) {
@@ -758,7 +759,7 @@ blink.mojom.ManagedConfigurationServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getManagedConfiguration');
           const result = this.impl.getManagedConfiguration(params.keys);
           if (header.expectsResponse) {
@@ -771,7 +772,7 @@ blink.mojom.ManagedConfigurationServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToManagedConfiguration');
           const result = this.impl.subscribeToManagedConfiguration(params.observer);
           break;

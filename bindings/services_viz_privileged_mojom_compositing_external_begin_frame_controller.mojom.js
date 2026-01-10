@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -303,7 +304,7 @@ viz.mojom.ExternalBeginFrameControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.issueExternalBeginFrame');
           const result = this.impl.issueExternalBeginFrame(params.args, params.force);
           if (header.expectsResponse) {
@@ -316,21 +317,21 @@ viz.mojom.ExternalBeginFrameControllerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.issueExternalBeginFrameNoAck');
           const result = this.impl.issueExternalBeginFrameNoAck(params.args);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.issueExternalVSync');
           const result = this.impl.issueExternalVSync(params.params);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSupportedDisplayLinkId');
           const result = this.impl.setSupportedDisplayLinkId(params.display_id, params.is_supported);
           break;
@@ -535,21 +536,21 @@ viz.mojom.ExternalBeginFrameControllerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNeedsBeginFrame');
           const result = this.impl.setNeedsBeginFrame(params.needs_begin_frames);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.needsBeginFrameWithId');
           const result = this.impl.needsBeginFrameWithId(params.display_id, params.needs_begin_frames);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPreferredInterval');
           const result = this.impl.setPreferredInterval(params.interval);
           break;

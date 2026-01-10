@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -238,7 +239,7 @@ blink.mojom.WidgetCompositorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.visualStateRequest');
           const result = this.impl.visualStateRequest();
           if (header.expectsResponse) {
@@ -598,56 +599,56 @@ blink.mojom.WidgetHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_SetCursor_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_SetCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCursor');
           const result = this.impl.setCursor(params.cursor);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTooltipUnderCursor');
           const result = this.impl.updateTooltipUnderCursor(params.tooltip_text, params.text_direction_hint);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTooltipFromKeyboard');
           const result = this.impl.updateTooltipFromKeyboard(params.tooltip_text, params.text_direction_hint, params.bounds);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearKeyboardTriggeredTooltip');
           const result = this.impl.clearKeyboardTriggeredTooltip();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.textInputStateChanged');
           const result = this.impl.textInputStateChanged(params.state);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectionBoundsChanged');
           const result = this.impl.selectionBoundsChanged(params.anchor_rect, params.anchor_dir, params.focus_rect, params.focus_dir, params.bounding_box_rect, params.is_anchor_first);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFrameSink');
           const result = this.impl.createFrameSink(params.compositor_frame_sink_receiver, params.compositor_frame_sink_client, params.render_input_router_client);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerRenderFrameMetadataObserver');
           const result = this.impl.registerRenderFrameMetadataObserver(params.render_frame_metadata_observer_client_receiver, params.render_frame_metadata_observer);
           break;
@@ -1000,7 +1001,7 @@ blink.mojom.WidgetReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_ForceRedraw_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_ForceRedraw_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceRedraw');
           const result = this.impl.forceRedraw();
           if (header.expectsResponse) {
@@ -1013,14 +1014,14 @@ blink.mojom.WidgetReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_UpdateVisualProperties_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_UpdateVisualProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateVisualProperties');
           const result = this.impl.updateVisualProperties(params.visual_properties);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_UpdateScreenRects_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_UpdateScreenRects_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateScreenRects');
           const result = this.impl.updateScreenRects(params.widget_screen_rect, params.window_screen_rect);
           if (header.expectsResponse) {
@@ -1033,35 +1034,35 @@ blink.mojom.WidgetReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_WasHidden_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_WasHidden_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.wasHidden');
           const result = this.impl.wasHidden();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_WasShown_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_WasShown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.wasShown');
           const result = this.impl.wasShown(params.was_evicted, params.record_tab_switch_time_request);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSuccessfulPresentationTimeForNextFrame');
           const result = this.impl.requestSuccessfulPresentationTimeForNextFrame(params.visible_time_request);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelSuccessfulPresentationTimeRequest');
           const result = this.impl.cancelSuccessfulPresentationTimeRequest();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setupBrowserRenderInputRouterConnections');
           const result = this.impl.setupBrowserRenderInputRouterConnections(params.browser_client);
           break;
@@ -1268,21 +1269,21 @@ blink.mojom.RenderInputRouterClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWidgetInputHandler');
           const result = this.impl.getWidgetInputHandler(params.request, params.host, params.from_viz);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.source_type, params.location);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInputTargetClient');
           const result = this.impl.bindInputTargetClient(params.host);
           break;

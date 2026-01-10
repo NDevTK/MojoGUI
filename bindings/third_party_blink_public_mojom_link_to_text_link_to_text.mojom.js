@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -399,14 +400,14 @@ blink.mojom.TextFragmentReceiverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSelector');
           const result = this.impl.requestSelector();
           if (header.expectsResponse) {
@@ -419,14 +420,14 @@ blink.mojom.TextFragmentReceiverReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeFragments');
           const result = this.impl.removeFragments();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractTextFragmentsMatches');
           const result = this.impl.extractTextFragmentsMatches();
           if (header.expectsResponse) {
@@ -439,7 +440,7 @@ blink.mojom.TextFragmentReceiverReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getExistingSelectors');
           const result = this.impl.getExistingSelectors();
           if (header.expectsResponse) {
@@ -452,7 +453,7 @@ blink.mojom.TextFragmentReceiverReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractFirstFragmentRect');
           const result = this.impl.extractFirstFragmentRect();
           if (header.expectsResponse) {

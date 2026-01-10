@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -214,7 +215,7 @@ media.mojom.GpuInfoObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGpuInfoUpdate');
           const result = this.impl.onGpuInfoUpdate(params.gpu_info);
           break;
@@ -398,7 +399,7 @@ media.mojom.MediaFoundationServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isKeySystemSupported');
           const result = this.impl.isKeySystemSupported(params.key_system);
           if (header.expectsResponse) {
@@ -411,7 +412,7 @@ media.mojom.MediaFoundationServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createInterfaceFactory');
           const result = this.impl.createInterfaceFactory(params.factory, params.frame_interfaces);
           break;
@@ -594,7 +595,7 @@ media.mojom.MediaFoundationServiceBrokerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateGpuInfo');
           const result = this.impl.updateGpuInfo(params.gpu_info);
           if (header.expectsResponse) {
@@ -607,7 +608,7 @@ media.mojom.MediaFoundationServiceBrokerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getService');
           const result = this.impl.getService(params.cdm_path, params.receiver);
           break;

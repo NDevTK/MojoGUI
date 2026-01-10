@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -260,7 +261,7 @@ blink.mojom.RenderAccessibilityHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleAXEvents');
           const result = this.impl.handleAXEvents(params.events_and_updates, params.location_and_scroll_updates, params.reset_token);
           if (header.expectsResponse) {
@@ -273,7 +274,7 @@ blink.mojom.RenderAccessibilityHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleAXLocationChanges');
           const result = this.impl.handleAXLocationChanges(params.changes, params.reset_token);
           break;
@@ -541,21 +542,21 @@ blink.mojom.RenderAccessibilityReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_SetMode_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMode');
           const result = this.impl.setMode(params.ax_mode, params.reset_token);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_FatalError_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_FatalError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fatalError');
           const result = this.impl.fatalError();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_HitTest_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hitTest');
           const result = this.impl.hitTest(params.point, params.event_to_fire, params.request_id);
           if (header.expectsResponse) {
@@ -568,14 +569,14 @@ blink.mojom.RenderAccessibilityReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_PerformAction_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performAction');
           const result = this.impl.performAction(params.action_data);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_Reset_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.RenderAccessibility_Reset_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reset');
           const result = this.impl.reset(params.reset_token);
           break;

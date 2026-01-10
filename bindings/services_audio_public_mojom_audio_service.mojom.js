@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -377,49 +378,49 @@ audio.mojom.AudioServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.AudioService_BindSystemInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.AudioService_BindSystemInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSystemInfo');
           const result = this.impl.bindSystemInfo(params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.AudioService_BindDebugRecording_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.AudioService_BindDebugRecording_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindDebugRecording');
           const result = this.impl.bindDebugRecording(params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.AudioService_BindStreamFactory_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.AudioService_BindStreamFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindStreamFactory');
           const result = this.impl.bindStreamFactory(params.receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindDeviceNotifier');
           const result = this.impl.bindDeviceNotifier(params.receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindLogFactoryManager');
           const result = this.impl.bindLogFactoryManager(params.receiver);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.AudioService_BindTestingApi_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.AudioService_BindTestingApi_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTestingApi');
           const result = this.impl.bindTestingApi(params.receiver);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(audio.mojom.AudioService_BindMlModelManager_ParamsSpec);
+          const params = decoder.decodeStructInline(audio.mojom.AudioService_BindMlModelManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMlModelManager');
           const result = this.impl.bindMlModelManager(params.receiver);
           break;

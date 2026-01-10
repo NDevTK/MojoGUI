@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -369,42 +370,42 @@ service_manager.mojom.ServiceManagerListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec);
+          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInit');
           const result = this.impl.onInit(params.running_services);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec);
+          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServiceCreated');
           const result = this.impl.onServiceCreated(params.service);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServiceStarted');
           const result = this.impl.onServiceStarted(params.identity, params.pid_deprecated);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServicePIDReceived');
           const result = this.impl.onServicePIDReceived(params.identity, params.pid);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec);
+          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServiceFailedToStart');
           const result = this.impl.onServiceFailedToStart(params.identity);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec);
+          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServiceStopped');
           const result = this.impl.onServiceStopped(params.identity);
           break;
@@ -552,7 +553,7 @@ service_manager.mojom.ServiceManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManager_AddListener_ParamsSpec);
+          const params = decoder.decodeStructInline(service_manager.mojom.ServiceManager_AddListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addListener');
           const result = this.impl.addListener(params.listener);
           break;

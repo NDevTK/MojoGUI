@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -232,7 +233,7 @@ ash.cfm.mojom.DataWatchDogReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotify');
           const result = this.impl.onNotify(params.data);
           break;
@@ -447,7 +448,7 @@ ash.cfm.mojom.DataSourceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cfm.mojom.DataSource_Fetch_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.DataSource_Fetch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetch');
           const result = this.impl.fetch();
           if (header.expectsResponse) {
@@ -460,7 +461,7 @@ ash.cfm.mojom.DataSourceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addWatchDog');
           const result = this.impl.addWatchDog(params.filter, params.watch_dog);
           if (header.expectsResponse) {
@@ -473,7 +474,7 @@ ash.cfm.mojom.DataSourceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cfm.mojom.DataSource_Flush_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.DataSource_Flush_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           break;
@@ -697,7 +698,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDataSourceNames');
           const result = this.impl.getDataSourceNames();
           if (header.expectsResponse) {
@@ -710,7 +711,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDataSource');
           const result = this.impl.addDataSource(params.source_name, params.data_source);
           if (header.expectsResponse) {
@@ -723,7 +724,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addWatchDog');
           const result = this.impl.addWatchDog(params.source_name, params.filter, params.watch_dog);
           if (header.expectsResponse) {

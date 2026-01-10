@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -254,7 +255,7 @@ video_capture.mojom.SharedMemoryVirtualDeviceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestFrameBuffer');
           const result = this.impl.requestFrameBuffer(params.dimension, params.pixel_format, params.strides);
           if (header.expectsResponse) {
@@ -267,7 +268,7 @@ video_capture.mojom.SharedMemoryVirtualDeviceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameReadyInBuffer');
           const result = this.impl.onFrameReadyInBuffer(params.buffer_id, params.frame_info);
           break;
@@ -501,28 +502,28 @@ video_capture.mojom.TextureVirtualDeviceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewSharedImageBufferHandle');
           const result = this.impl.onNewSharedImageBufferHandle(params.buffer_id, params.shared_image_handle);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameAccessHandlerReady');
           const result = this.impl.onFrameAccessHandlerReady(params.frame_access_handler);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameReadyInBuffer');
           const result = this.impl.onFrameReadyInBuffer(params.buffer_id, params.frame_info);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBufferRetired');
           const result = this.impl.onBufferRetired(params.buffer_id);
           break;
@@ -756,28 +757,28 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewGpuMemoryBufferHandle');
           const result = this.impl.onNewGpuMemoryBufferHandle(params.buffer_id, params.gmb_handle);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameAccessHandlerReady');
           const result = this.impl.onFrameAccessHandlerReady(params.frame_access_handler);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameReadyInBuffer');
           const result = this.impl.onFrameReadyInBuffer(params.buffer_id, params.frame_info);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBufferRetired');
           const result = this.impl.onBufferRetired(params.buffer_id);
           break;

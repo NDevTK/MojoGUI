@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -331,35 +332,35 @@ attribution_reporting.mojom.DataHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec);
+          const params = decoder.decodeStructInline(attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sourceDataAvailable');
           const result = this.impl.sourceDataAvailable(params.reporting_origin, params.data, params.was_fetched_via_service_worker);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec);
+          const params = decoder.decodeStructInline(attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerDataAvailable');
           const result = this.impl.triggerDataAvailable(params.reporting_origin, params.data, params.was_fetched_via_service_worker);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec);
+          const params = decoder.decodeStructInline(attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.osSourceDataAvailable');
           const result = this.impl.osSourceDataAvailable(params.registration, params.was_fetched_via_service_worker);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec);
+          const params = decoder.decodeStructInline(attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.osTriggerDataAvailable');
           const result = this.impl.osTriggerDataAvailable(params.registration, params.was_fetched_via_service_worker);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec);
+          const params = decoder.decodeStructInline(attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportRegistrationHeaderError');
           const result = this.impl.reportRegistrationHeaderError(params.reporting_origin, params.error);
           break;

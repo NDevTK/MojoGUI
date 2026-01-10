@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -222,7 +223,7 @@ ash.mojom.sample_swa.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler, params.page);
           break;
@@ -430,7 +431,7 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPreferences');
           const result = this.impl.getPreferences();
           if (header.expectsResponse) {
@@ -443,14 +444,14 @@ ash.mojom.sample_swa.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.sample_swa.PageHandler_Send_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.send');
           const result = this.impl.send(params.message);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doSomething');
           const result = this.impl.doSomething();
           break;
@@ -627,14 +628,14 @@ ash.mojom.sample_swa.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEventOccurred');
           const result = this.impl.onEventOccurred(params.name);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createParentPage');
           const result = this.impl.createParentPage(params.child_untrusted_page, params.parent_trusted_page);
           break;

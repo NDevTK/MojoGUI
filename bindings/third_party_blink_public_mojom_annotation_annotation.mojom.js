@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -256,7 +257,7 @@ blink.mojom.AnnotationAgentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scrollIntoView');
           const result = this.impl.scrollIntoView(params.applies_focus);
           break;
@@ -405,7 +406,7 @@ blink.mojom.AnnotationAgentHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didFinishAttachment');
           const result = this.impl.didFinishAttachment(params.document_relative_rect, params.attachment_result);
           break;
@@ -622,14 +623,14 @@ blink.mojom.AnnotationAgentContainerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAgent');
           const result = this.impl.createAgent(params.host_remote, params.agent_receiver, params.type, params.selector, params.search_range_start_node_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAgentFromSelection');
           const result = this.impl.createAgentFromSelection(params.type);
           if (header.expectsResponse) {
@@ -642,7 +643,7 @@ blink.mojom.AnnotationAgentContainerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeAgentsOfType');
           const result = this.impl.removeAgentsOfType(params.type);
           break;

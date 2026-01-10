@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -318,21 +319,21 @@ ash.heartd.mojom.HeartdControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableNormalRebootAction');
           const result = this.impl.enableNormalRebootAction();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableForceRebootAction');
           const result = this.impl.enableForceRebootAction();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runAction');
           const result = this.impl.runAction(params.action);
           if (header.expectsResponse) {
@@ -494,7 +495,7 @@ ash.heartd.mojom.HeartbeatServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartbeatService_Register_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.heartd.mojom.HeartbeatService_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
           const result = this.impl.register(params.name, params.argument, params.receiver);
           if (header.expectsResponse) {
@@ -685,7 +686,7 @@ ash.heartd.mojom.PacemakerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendHeartbeat');
           const result = this.impl.sendHeartbeat();
           if (header.expectsResponse) {
@@ -698,7 +699,7 @@ ash.heartd.mojom.PacemakerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopMonitor');
           const result = this.impl.stopMonitor();
           if (header.expectsResponse) {

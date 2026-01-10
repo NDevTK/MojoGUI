@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -243,14 +244,14 @@ blink.mojom.PictureInPictureSessionObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowSizeChanged');
           const result = this.impl.onWindowSizeChanged(params.size);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStopped');
           const result = this.impl.onStopped();
           break;
@@ -462,14 +463,14 @@ blink.mojom.PictureInPictureSessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSession_Update_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSession_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
           const result = this.impl.update(params.player_id, params.player_remote, params.surface_id, params.natural_size, params.show_play_pause_button);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSession_Stop_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSession_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           if (header.expectsResponse) {
@@ -482,7 +483,7 @@ blink.mojom.PictureInPictureSessionReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateMediaPosition');
           const result = this.impl.updateMediaPosition(params.media_position);
           break;
@@ -643,7 +644,7 @@ blink.mojom.PictureInPictureServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureService_StartSession_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PictureInPictureService_StartSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startSession');
           const result = this.impl.startSession(params.player_id, params.player_remote, params.surface_id, params.natural_size, params.show_play_pause_button, params.observer, params.source_bounds);
           if (header.expectsResponse) {

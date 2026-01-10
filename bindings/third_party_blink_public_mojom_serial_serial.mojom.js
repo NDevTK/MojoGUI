@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -378,14 +379,14 @@ blink.mojom.SerialServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SerialService_SetClient_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SerialService_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SerialService_GetPorts_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SerialService_GetPorts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPorts');
           const result = this.impl.getPorts();
           if (header.expectsResponse) {
@@ -398,7 +399,7 @@ blink.mojom.SerialServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SerialService_RequestPort_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SerialService_RequestPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPort');
           const result = this.impl.requestPort(params.filters, params.allowed_bluetooth_service_class_ids);
           if (header.expectsResponse) {
@@ -411,7 +412,7 @@ blink.mojom.SerialServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SerialService_OpenPort_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SerialService_OpenPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openPort');
           const result = this.impl.openPort(params.token, params.options, params.client);
           if (header.expectsResponse) {
@@ -424,7 +425,7 @@ blink.mojom.SerialServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SerialService_ForgetPort_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SerialService_ForgetPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forgetPort');
           const result = this.impl.forgetPort(params.token);
           if (header.expectsResponse) {
@@ -578,7 +579,7 @@ blink.mojom.SerialServiceClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPortConnectedStateChanged');
           const result = this.impl.onPortConnectedStateChanged(params.port_info);
           break;

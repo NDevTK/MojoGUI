@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -356,7 +357,7 @@ guest_view.mojom.GuestViewHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attachToEmbedderFrame');
           const result = this.impl.attachToEmbedderFrame(params.element_instance_id, params.guest_instance_id, params.params);
           if (header.expectsResponse) {
@@ -369,7 +370,7 @@ guest_view.mojom.GuestViewHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec);
+          const params = decoder.decodeStructInline(guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.viewCreated');
           const result = this.impl.viewCreated(params.view_instance_id, params.view_type, params.keep_alive_handle_receiver);
           break;

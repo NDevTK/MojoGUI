@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -240,7 +241,7 @@ printing.mojom.UnsandboxedPrintBackendHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.UnsandboxedPrintBackendHost_BindBackend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindBackend');
           const result = this.impl.bindBackend(params.service);
           break;
@@ -388,7 +389,7 @@ printing.mojom.SandboxedPrintBackendHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.SandboxedPrintBackendHost_BindBackend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindBackend');
           const result = this.impl.bindBackend(params.service);
           break;
@@ -1008,49 +1009,49 @@ printing.mojom.PrintBackendServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.locale, params.remote);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_Poke_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_Poke_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.poke');
           const result = this.impl.poke();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_EnumeratePrinters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enumeratePrinters');
           const result = this.impl.enumeratePrinters();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_GetDefaultPrinterName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDefaultPrinterName');
           const result = this.impl.getDefaultPrinterName();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_GetPrinterSemanticCapsAndDefaults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPrinterSemanticCapsAndDefaults');
           const result = this.impl.getPrinterSemanticCapsAndDefaults(params.printer_name);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_FetchCapabilities_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchCapabilities');
           const result = this.impl.fetchCapabilities(params.printer_name);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_GetPaperPrintableArea_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPaperPrintableArea');
           const result = this.impl.getPaperPrintableArea(params.printer_name, params.media);
           if (header.expectsResponse) {
@@ -1063,35 +1064,35 @@ printing.mojom.PrintBackendServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_EstablishPrintingContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishPrintingContext');
           const result = this.impl.establishPrintingContext(params.context_id, params.parent_window_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_UseDefaultSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.useDefaultSettings');
           const result = this.impl.useDefaultSettings(params.context_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_AskUserForSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.askUserForSettings');
           const result = this.impl.askUserForSettings(params.context_id, params.max_pages, params.has_selection, params.is_scripted);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_UpdatePrintSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePrintSettings');
           const result = this.impl.updatePrintSettings(params.context_id, params.job_settings);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_StartPrinting_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_StartPrinting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startPrinting');
           const result = this.impl.startPrinting(params.context_id, params.document_cookie, params.document_name, params.settings);
           if (header.expectsResponse) {
@@ -1104,7 +1105,7 @@ printing.mojom.PrintBackendServiceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_RenderPrintedPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renderPrintedPage');
           const result = this.impl.renderPrintedPage(params.document_cookie, params.page_index, params.page_data_type, params.serialized_page, params.page_size, params.page_content_rect, params.shrink_factor);
           if (header.expectsResponse) {
@@ -1117,7 +1118,7 @@ printing.mojom.PrintBackendServiceReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_RenderPrintedDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renderPrintedDocument');
           const result = this.impl.renderPrintedDocument(params.document_cookie, params.page_count, params.data_type, params.serialized_doc);
           if (header.expectsResponse) {
@@ -1130,7 +1131,7 @@ printing.mojom.PrintBackendServiceReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_DocumentDone_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_DocumentDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.documentDone');
           const result = this.impl.documentDone(params.document_cookie);
           if (header.expectsResponse) {
@@ -1143,7 +1144,7 @@ printing.mojom.PrintBackendServiceReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_Cancel_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PrintBackendService_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel(params.document_cookie);
           if (header.expectsResponse) {

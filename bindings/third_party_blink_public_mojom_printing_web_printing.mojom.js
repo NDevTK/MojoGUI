@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -507,7 +508,7 @@ blink.mojom.WebPrintJobStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWebPrintJobUpdate');
           const result = this.impl.onWebPrintJobUpdate(params.update);
           break;
@@ -654,7 +655,7 @@ blink.mojom.WebPrintJobControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WebPrintJobController_Cancel_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WebPrintJobController_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
           const result = this.impl.cancel();
           break;
@@ -842,7 +843,7 @@ blink.mojom.WebPrinterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WebPrinter_FetchAttributes_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WebPrinter_FetchAttributes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchAttributes');
           const result = this.impl.fetchAttributes();
           if (header.expectsResponse) {
@@ -855,7 +856,7 @@ blink.mojom.WebPrinterReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WebPrinter_Print_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WebPrinter_Print_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.print');
           const result = this.impl.print(params.document, params.attributes);
           if (header.expectsResponse) {
@@ -1014,7 +1015,7 @@ blink.mojom.WebPrintingServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WebPrintingService_GetPrinters_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WebPrintingService_GetPrinters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPrinters');
           const result = this.impl.getPrinters();
           if (header.expectsResponse) {

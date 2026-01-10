@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -235,7 +236,7 @@ bookmark_bar.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -416,7 +417,7 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec);
+          const params = decoder.decodeStructInline(bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBookmarkBar');
           const result = this.impl.getBookmarkBar();
           if (header.expectsResponse) {
@@ -429,7 +430,7 @@ bookmark_bar.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec);
+          const params = decoder.decodeStructInline(bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openInNewTab');
           const result = this.impl.openInNewTab(params.node_id);
           break;
@@ -658,28 +659,28 @@ bookmark_bar.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec);
+          const params = decoder.decodeStructInline(bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bookmarkLoaded');
           const result = this.impl.bookmarkLoaded();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.favIconChanged');
           const result = this.impl.favIconChanged(params.bookmark_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bookmark_bar.mojom.Page_Show_ParamsSpec);
+          const params = decoder.decodeStructInline(bookmark_bar.mojom.Page_Show_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.show');
           const result = this.impl.show();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(bookmark_bar.mojom.Page_Hide_ParamsSpec);
+          const params = decoder.decodeStructInline(bookmark_bar.mojom.Page_Hide_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hide');
           const result = this.impl.hide();
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -566,7 +567,7 @@ network.mojom.CookieChangeListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCookieChange');
           const result = this.impl.onCookieChange(params.change);
           break;
@@ -1285,7 +1286,7 @@ network.mojom.CookieManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_GetAllCookies_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_GetAllCookies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllCookies');
           const result = this.impl.getAllCookies();
           if (header.expectsResponse) {
@@ -1298,7 +1299,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllCookiesWithAccessSemantics');
           const result = this.impl.getAllCookiesWithAccessSemantics();
           if (header.expectsResponse) {
@@ -1311,7 +1312,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_GetCookieList_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_GetCookieList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCookieList');
           const result = this.impl.getCookieList(params.url, params.cookie_options, params.cookie_partition_key_collection);
           if (header.expectsResponse) {
@@ -1324,7 +1325,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCanonicalCookie');
           const result = this.impl.setCanonicalCookie(params.cookie, params.source_url, params.cookie_options);
           if (header.expectsResponse) {
@@ -1337,7 +1338,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteCanonicalCookie');
           const result = this.impl.deleteCanonicalCookie(params.cookie);
           if (header.expectsResponse) {
@@ -1350,7 +1351,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_DeleteCookies_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_DeleteCookies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteCookies');
           const result = this.impl.deleteCookies(params.filter);
           if (header.expectsResponse) {
@@ -1363,7 +1364,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_DeleteSessionOnlyCookies_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_DeleteSessionOnlyCookies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteSessionOnlyCookies');
           const result = this.impl.deleteSessionOnlyCookies();
           if (header.expectsResponse) {
@@ -1376,7 +1377,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteStaleSessionOnlyCookies');
           const result = this.impl.deleteStaleSessionOnlyCookies();
           if (header.expectsResponse) {
@@ -1389,28 +1390,28 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addCookieChangeListener');
           const result = this.impl.addCookieChangeListener(params.url, params.name, params.listener);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addGlobalChangeListener');
           const result = this.impl.addGlobalChangeListener(params.notification_pointer);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_CloneInterface_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_CloneInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cloneInterface');
           const result = this.impl.cloneInterface(params.new_interface);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_FlushCookieStore_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_FlushCookieStore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushCookieStore');
           const result = this.impl.flushCookieStore();
           if (header.expectsResponse) {
@@ -1423,7 +1424,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allowFileSchemeCookies');
           const result = this.impl.allowFileSchemeCookies(params.allow);
           if (header.expectsResponse) {
@@ -1436,7 +1437,7 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_SetContentSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_SetContentSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setContentSettings');
           const result = this.impl.setContentSettings(params.content_settings_type, params.settings);
           if (header.expectsResponse) {
@@ -1449,35 +1450,35 @@ network.mojom.CookieManagerReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_SetForceKeepSessionState_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_SetForceKeepSessionState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setForceKeepSessionState');
           const result = this.impl.setForceKeepSessionState();
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.blockThirdPartyCookies');
           const result = this.impl.blockThirdPartyCookies(params.block);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMitigationsEnabledFor3pcd');
           const result = this.impl.setMitigationsEnabledFor3pcd(params.enable);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTrackingProtectionEnabledFor3pcd');
           const result = this.impl.setTrackingProtectionEnabledFor3pcd(params.enable);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPreCommitCallbackDelayForTesting');
           const result = this.impl.setPreCommitCallbackDelayForTesting(params.delay);
           break;

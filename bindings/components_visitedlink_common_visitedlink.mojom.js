@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -290,28 +291,28 @@ visitedlink.mojom.VisitedLinkNotificationSinkReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec);
+          const params = decoder.decodeStructInline(visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateVisitedLinks');
           const result = this.impl.updateVisitedLinks(params.table_region);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec);
+          const params = decoder.decodeStructInline(visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addVisitedLinks');
           const result = this.impl.addVisitedLinks(params.link_hashes);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec);
+          const params = decoder.decodeStructInline(visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetVisitedLinks');
           const result = this.impl.resetVisitedLinks(params.invalidate_cached_hashes);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec);
+          const params = decoder.decodeStructInline(visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOriginSalts');
           const result = this.impl.updateOriginSalts(params.origin_salts);
           break;

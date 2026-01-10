@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -331,14 +332,14 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startFrameCounting');
           const result = this.impl.startFrameCounting(params.start_time, params.bucket_size);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopFrameCounting');
           const result = this.impl.stopFrameCounting();
           if (header.expectsResponse) {
@@ -351,14 +352,14 @@ viz.mojom.FrameSinksMetricsRecorderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startOverdrawTracking');
           const result = this.impl.startOverdrawTracking(params.root_frame_sink_id, params.bucket_size);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopOverdrawTracking');
           const result = this.impl.stopOverdrawTracking(params.root_frame_sink_id);
           if (header.expectsResponse) {

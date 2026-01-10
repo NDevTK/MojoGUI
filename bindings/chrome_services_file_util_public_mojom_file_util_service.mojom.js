@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -289,28 +290,28 @@ chrome.mojom.FileUtilServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindZipFileCreator');
           const result = this.impl.bindZipFileCreator(params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSafeArchiveAnalyzer');
           const result = this.impl.bindSafeArchiveAnalyzer(params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSingleFileTarFileExtractor');
           const result = this.impl.bindSingleFileTarFileExtractor(params.receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSingleFileTarXzFileExtractor');
           const result = this.impl.bindSingleFileTarXzFileExtractor(params.receiver);
           break;

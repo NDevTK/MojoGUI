@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -440,56 +441,56 @@ blink.mojom.PeerConnectionManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSuspend');
           const result = this.impl.onSuspend();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onThermalStateChange');
           const result = this.impl.onThermalStateChange(params.thermal_state);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startEventLog');
           const result = this.impl.startEventLog(params.peer_connection_local_id, params.output_period_ms);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopEventLog');
           const result = this.impl.stopEventLog(params.peer_connection_local_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDataChannelLog');
           const result = this.impl.startDataChannelLog(params.peer_connection_local_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopDataChannelLog');
           const result = this.impl.stopDataChannelLog(params.peer_connection_local_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStandardStats');
           const result = this.impl.getStandardStats();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCurrentState');
           const result = this.impl.getCurrentState();
           break;
@@ -997,91 +998,91 @@ blink.mojom.PeerConnectionTrackerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPeerConnection');
           const result = this.impl.addPeerConnection(params.info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePeerConnection');
           const result = this.impl.removePeerConnection(params.lid);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePeerConnection');
           const result = this.impl.updatePeerConnection(params.lid, params.type, params.value);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPeerConnectionSessionIdSet');
           const result = this.impl.onPeerConnectionSessionIdSet(params.lid, params.session_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserMedia');
           const result = this.impl.getUserMedia(params.request_id, params.audio, params.video, params.audio_constraints, params.video_constraints);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserMediaSuccess');
           const result = this.impl.getUserMediaSuccess(params.request_id, params.stream_id, params.audio_track_info, params.video_track_info);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserMediaFailure');
           const result = this.impl.getUserMediaFailure(params.request_id, params.error, params.error_message);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDisplayMedia');
           const result = this.impl.getDisplayMedia(params.request_id, params.audio, params.video, params.audio_constraints, params.video_constraints);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDisplayMediaSuccess');
           const result = this.impl.getDisplayMediaSuccess(params.request_id, params.stream_id, params.audio_track_info, params.video_track_info);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDisplayMediaFailure');
           const result = this.impl.getDisplayMediaFailure(params.request_id, params.error, params.error_message);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.webRtcEventLogWrite');
           const result = this.impl.webRtcEventLogWrite(params.lid, params.output);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.webRtcDataChannelLogWrite');
           const result = this.impl.webRtcDataChannelLogWrite(params.lid, params.output);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addStandardStats');
           const result = this.impl.addStandardStats(params.lid, params.value);
           break;

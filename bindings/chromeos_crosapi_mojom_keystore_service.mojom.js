@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -1279,7 +1280,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.challengeAttestationOnlyKeystore');
           const result = this.impl.challengeAttestationOnlyKeystore(params.type, params.challenge, params.migrate, params.algorithm);
           if (header.expectsResponse) {
@@ -1292,7 +1293,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_GetKeyStores_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_GetKeyStores_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getKeyStores');
           const result = this.impl.getKeyStores();
           if (header.expectsResponse) {
@@ -1305,7 +1306,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_SelectClientCertificates_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_SelectClientCertificates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectClientCertificates');
           const result = this.impl.selectClientCertificates(params.certificate_authorities);
           if (header.expectsResponse) {
@@ -1318,7 +1319,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_GetCertificates_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_GetCertificates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCertificates');
           const result = this.impl.getCertificates(params.keystore);
           if (header.expectsResponse) {
@@ -1331,7 +1332,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_AddCertificate_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_AddCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addCertificate');
           const result = this.impl.addCertificate(params.keystore, params.certificate);
           if (header.expectsResponse) {
@@ -1344,7 +1345,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_RemoveCertificate_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_RemoveCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeCertificate');
           const result = this.impl.removeCertificate(params.keystore, params.certificate);
           if (header.expectsResponse) {
@@ -1357,7 +1358,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_GetPublicKey_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_GetPublicKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPublicKey');
           const result = this.impl.getPublicKey(params.certificate, params.algorithm_name);
           if (header.expectsResponse) {
@@ -1370,7 +1371,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_GenerateKey_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_GenerateKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generateKey');
           const result = this.impl.generateKey(params.keystore, params.algorithm);
           if (header.expectsResponse) {
@@ -1383,7 +1384,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_RemoveKey_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_RemoveKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeKey');
           const result = this.impl.removeKey(params.keystore, params.public_key);
           if (header.expectsResponse) {
@@ -1396,7 +1397,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_Sign_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_Sign_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sign');
           const result = this.impl.sign(params.is_keystore_provided, params.keystore, params.public_key, params.scheme, params.data);
           if (header.expectsResponse) {
@@ -1409,7 +1410,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_GetKeyTags_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_GetKeyTags_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getKeyTags');
           const result = this.impl.getKeyTags(params.public_key);
           if (header.expectsResponse) {
@@ -1422,7 +1423,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_AddKeyTags_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_AddKeyTags_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addKeyTags');
           const result = this.impl.addKeyTags(params.public_key, params.tags);
           if (header.expectsResponse) {
@@ -1435,7 +1436,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canUserGrantPermissionForKey');
           const result = this.impl.canUserGrantPermissionForKey(params.public_key);
           if (header.expectsResponse) {
@@ -1448,7 +1449,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_SetAttributeForKey_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_SetAttributeForKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAttributeForKey');
           const result = this.impl.setAttributeForKey(params.keystore, params.public_key, params.attribute_type, params.attribute_value);
           if (header.expectsResponse) {
@@ -1461,7 +1462,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_ExtensionGenerateKey');
           const result = this.impl.dEPRECATED_ExtensionGenerateKey(params.keystore, params.algorithm, params.extension_id);
           if (header.expectsResponse) {
@@ -1474,7 +1475,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_ExtensionSign');
           const result = this.impl.dEPRECATED_ExtensionSign(params.keystore, params.public_key, params.scheme, params.data, params.extension_id);
           if (header.expectsResponse) {
@@ -1487,7 +1488,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_GetPublicKey');
           const result = this.impl.dEPRECATED_GetPublicKey(params.certificate, params.algorithm_name);
           if (header.expectsResponse) {
@@ -1500,7 +1501,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_GetKeyStores');
           const result = this.impl.dEPRECATED_GetKeyStores();
           if (header.expectsResponse) {
@@ -1513,7 +1514,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_GetCertificates');
           const result = this.impl.dEPRECATED_GetCertificates(params.keystore);
           if (header.expectsResponse) {
@@ -1526,7 +1527,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AddCertificate');
           const result = this.impl.dEPRECATED_AddCertificate(params.keystore, params.certificate);
           if (header.expectsResponse) {
@@ -1539,7 +1540,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_RemoveCertificate');
           const result = this.impl.dEPRECATED_RemoveCertificate(params.keystore, params.certificate);
           if (header.expectsResponse) {
@@ -1552,7 +1553,7 @@ crosapi.mojom.KeystoreServiceReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_ChallengeAttestationOnlyKeystore');
           const result = this.impl.dEPRECATED_ChallengeAttestationOnlyKeystore(params.challenge, params.type, params.migrate);
           if (header.expectsResponse) {

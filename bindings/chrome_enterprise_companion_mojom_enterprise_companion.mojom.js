@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -253,7 +254,7 @@ enterprise_companion.mojom.EnterpriseCompanionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec);
+          const params = decoder.decodeStructInline(enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shutdown');
           const result = this.impl.shutdown();
           if (header.expectsResponse) {
@@ -266,7 +267,7 @@ enterprise_companion.mojom.EnterpriseCompanionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec);
+          const params = decoder.decodeStructInline(enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchPolicies');
           const result = this.impl.fetchPolicies(params.reason);
           if (header.expectsResponse) {

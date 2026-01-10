@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -279,14 +280,14 @@ chromeos.tts.mojom.TtsServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGoogleTtsStream');
           const result = this.impl.bindGoogleTtsStream(params.receiver, params.stream_factory);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPlaybackTtsStream');
           const result = this.impl.bindPlaybackTtsStream(params.receiver, params.stream_factory, params.desired_audio_parameters);
           if (header.expectsResponse) {
@@ -625,7 +626,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installVoice');
           const result = this.impl.installVoice(params.voice_name, params.voice_bytes);
           if (header.expectsResponse) {
@@ -638,7 +639,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectVoice');
           const result = this.impl.selectVoice(params.voice_name);
           if (header.expectsResponse) {
@@ -651,7 +652,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.speak');
           const result = this.impl.speak(params.text_jspb, params.speaker_params_jspb);
           if (header.expectsResponse) {
@@ -664,28 +665,28 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVolume');
           const result = this.impl.setVolume(params.volume);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
@@ -977,7 +978,7 @@ chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.play');
           const result = this.impl.play();
           if (header.expectsResponse) {
@@ -990,35 +991,35 @@ chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendAudioBuffer');
           const result = this.impl.sendAudioBuffer(params.frames_buffer, params.char_index, params.last_buffer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVolume');
           const result = this.impl.setVolume(params.volume);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
@@ -1247,28 +1248,28 @@ chromeos.tts.mojom.TtsEventObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStart');
           const result = this.impl.onStart();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTimepoint');
           const result = this.impl.onTimepoint(params.char_index);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEnd');
           const result = this.impl.onEnd();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError();
           break;

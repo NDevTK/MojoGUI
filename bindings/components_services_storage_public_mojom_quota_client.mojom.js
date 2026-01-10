@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -314,7 +315,7 @@ storage.mojom.QuotaClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBucketUsage');
           const result = this.impl.getBucketUsage(params.bucket);
           if (header.expectsResponse) {
@@ -327,7 +328,7 @@ storage.mojom.QuotaClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDefaultStorageKeys');
           const result = this.impl.getDefaultStorageKeys();
           if (header.expectsResponse) {
@@ -340,7 +341,7 @@ storage.mojom.QuotaClientReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteBucketData');
           const result = this.impl.deleteBucketData(params.bucket);
           if (header.expectsResponse) {
@@ -353,7 +354,7 @@ storage.mojom.QuotaClientReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performStorageCleanup');
           const result = this.impl.performStorageCleanup();
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -370,7 +371,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec);
+          const params = decoder.decodeStructInline(add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestClose');
           const result = this.impl.requestClose();
           if (header.expectsResponse) {
@@ -383,7 +384,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec);
+          const params = decoder.decodeStructInline(add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInstalledArcApps');
           const result = this.impl.getInstalledArcApps();
           if (header.expectsResponse) {
@@ -396,7 +397,7 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec);
+          const params = decoder.decodeStructInline(add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOAuthToken');
           const result = this.impl.getOAuthToken();
           if (header.expectsResponse) {
@@ -409,21 +410,21 @@ add_supervision.mojom.AddSupervisionHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec);
+          const params = decoder.decodeStructInline(add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logOut');
           const result = this.impl.logOut();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySupervisionEnabled');
           const result = this.impl.notifySupervisionEnabled();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec);
+          const params = decoder.decodeStructInline(add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCloseOnEscape');
           const result = this.impl.setCloseOnEscape(params.enabled);
           break;

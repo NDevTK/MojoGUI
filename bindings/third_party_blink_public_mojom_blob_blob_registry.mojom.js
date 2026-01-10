@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -208,7 +209,7 @@ blink.mojom.ProgressClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ProgressClient_OnProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ProgressClient_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.delta);
           break;
@@ -403,7 +404,7 @@ blink.mojom.BlobRegistryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BlobRegistry_Register_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BlobRegistry_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
           const result = this.impl.register(params.blob, params.uuid, params.content_type, params.content_disposition, params.elements);
           if (header.expectsResponse) {
@@ -416,7 +417,7 @@ blink.mojom.BlobRegistryReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerFromStream');
           const result = this.impl.registerFromStream(params.content_type, params.content_disposition, params.length_hint, params.data, params.progress_client);
           if (header.expectsResponse) {

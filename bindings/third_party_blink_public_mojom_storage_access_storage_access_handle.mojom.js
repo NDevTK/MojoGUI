@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -420,28 +421,28 @@ blink.mojom.StorageAccessHandleReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindIndexedDB');
           const result = this.impl.bindIndexedDB(params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindLocks');
           const result = this.impl.bindLocks(params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindCaches');
           const result = this.impl.bindCaches(params.receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDirectory');
           const result = this.impl.getDirectory();
           if (header.expectsResponse) {
@@ -454,7 +455,7 @@ blink.mojom.StorageAccessHandleReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_Estimate_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_Estimate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.estimate');
           const result = this.impl.estimate();
           if (header.expectsResponse) {
@@ -467,21 +468,21 @@ blink.mojom.StorageAccessHandleReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindBlobStorage');
           const result = this.impl.bindBlobStorage(params.receiver);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindBroadcastChannel');
           const result = this.impl.bindBroadcastChannel(params.receiver);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSharedWorker');
           const result = this.impl.bindSharedWorker(params.receiver);
           break;

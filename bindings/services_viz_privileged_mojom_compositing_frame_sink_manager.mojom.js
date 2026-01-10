@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -1006,14 +1007,14 @@ viz.mojom.FrameSinkManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerFrameSinkId');
           const result = this.impl.registerFrameSinkId(params.frame_sink_id, params.report_activation);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.invalidateFrameSinkId');
           const result = this.impl.invalidateFrameSinkId(params.frame_sink_id);
           if (header.expectsResponse) {
@@ -1026,42 +1027,42 @@ viz.mojom.FrameSinkManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFrameSinkDebugLabel');
           const result = this.impl.setFrameSinkDebugLabel(params.frame_sink_id, params.debug_label);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRootCompositorFrameSink');
           const result = this.impl.createRootCompositorFrameSink(params.params);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCompositorDisplayLink');
           const result = this.impl.createCompositorDisplayLink(params.params);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFrameSinkBundle');
           const result = this.impl.createFrameSinkBundle(params.bundle_id, params.receiver, params.client);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCompositorFrameSink');
           const result = this.impl.createCompositorFrameSink(params.frame_sink_id, params.bundle_id, params.compositor_frame_sink, params.compositor_frame_sink_client, params.config);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.destroyCompositorFrameSink');
           const result = this.impl.destroyCompositorFrameSink(params.frame_sink_id);
           if (header.expectsResponse) {
@@ -1074,77 +1075,77 @@ viz.mojom.FrameSinkManagerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerFrameSinkHierarchy');
           const result = this.impl.registerFrameSinkHierarchy(params.parent_frame_sink_id, params.child_frame_sink_id);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unregisterFrameSinkHierarchy');
           const result = this.impl.unregisterFrameSinkHierarchy(params.parent_frame_sink_id, params.child_frame_sink_id);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addVideoDetectorObserver');
           const result = this.impl.addVideoDetectorObserver(params.observer);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoCapturer');
           const result = this.impl.createVideoCapturer(params.receiver, params.capture_version_source);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.evictSurfaces');
           const result = this.impl.evictSurfaces(params.surface_ids);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_Throttle_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_Throttle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.throttle');
           const result = this.impl.throttle(params.frame_sink_ids, params.interval);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startThrottlingAllFrameSinks');
           const result = this.impl.startThrottlingAllFrameSinks(params.interval);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopThrottlingAllFrameSinks');
           const result = this.impl.stopThrottlingAllFrameSinks();
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestCopyOfOutput');
           const result = this.impl.requestCopyOfOutput(params.surface_id, params.request, params.capture_exact_surface_id);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cacheBackBuffer');
           const result = this.impl.cacheBackBuffer(params.cache_id, params.root_frame_sink_id);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.evictBackBuffer');
           const result = this.impl.evictBackBuffer(params.cache_id);
           if (header.expectsResponse) {
@@ -1157,49 +1158,49 @@ viz.mojom.FrameSinkManagerReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDebugRendererSettings');
           const result = this.impl.updateDebugRendererSettings(params.debug_settings);
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUnclaimedViewTransitionResources');
           const result = this.impl.clearUnclaimedViewTransitionResources(params.transition_token);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createMetricsRecorderForTest');
           const result = this.impl.createMetricsRecorderForTest(params.receiver);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableFrameSinkManagerTestApi');
           const result = this.impl.enableFrameSinkManagerTestApi(params.receiver);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setupRendererInputRouterDelegateRegistry');
           const result = this.impl.setupRendererInputRouterDelegateRegistry(params.receiver);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyRendererBlockStateChanged');
           const result = this.impl.notifyRendererBlockStateChanged(params.blocked, params.render_input_routers);
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestInputBack');
           const result = this.impl.requestInputBack();
           break;
@@ -1525,28 +1526,28 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFirstSurfaceActivation');
           const result = this.impl.onFirstSurfaceActivation(params.surface_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAggregatedHitTestRegionListUpdated');
           const result = this.impl.onAggregatedHitTestRegionListUpdated(params.frame_sink_id, params.hit_test_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameTokenChanged');
           const result = this.impl.onFrameTokenChanged(params.frame_sink_id, params.frame_token, params.activation_time);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.verifyThreadIdsDoNotBelongToHost');
           const result = this.impl.verifyThreadIdsDoNotBelongToHost(params.thread_ids);
           if (header.expectsResponse) {
@@ -1559,21 +1560,21 @@ viz.mojom.FrameSinkManagerClientReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreenshotCaptured');
           const result = this.impl.onScreenshotCaptured(params.destination_token, params.copy_output_result);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVizTouchStateAvailable');
           const result = this.impl.onVizTouchStateAvailable(params.region);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onViewTransitionResourcesCaptured');
           const result = this.impl.onViewTransitionResourcesCaptured(params.transition_token);
           break;
@@ -1723,7 +1724,7 @@ viz.mojom.RendererInputRouterDelegateRegistryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setupRenderInputRouterDelegateConnection');
           const result = this.impl.setupRenderInputRouterDelegateConnection(params.id, params.rir_delegate_client_remote, params.rir_delegate_receiver);
           break;

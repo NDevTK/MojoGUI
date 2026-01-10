@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -392,7 +393,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec);
+          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchFamilyName');
           const result = this.impl.matchFamilyName(params.family_name, params.style);
           if (header.expectsResponse) {
@@ -405,7 +406,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec);
+          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchFamilyNameCharacter');
           const result = this.impl.matchFamilyNameCharacter(params.family_name, params.style, params.bcp47s, params.character);
           if (header.expectsResponse) {
@@ -418,7 +419,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec);
+          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllFamilyNames');
           const result = this.impl.getAllFamilyNames();
           if (header.expectsResponse) {
@@ -431,7 +432,7 @@ font_data_service.mojom.FontDataServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec);
+          const params = decoder.decodeStructInline(font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.legacyMakeTypeface');
           const result = this.impl.legacyMakeTypeface(params.family_name, params.style);
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -217,7 +218,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryReceiver
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCustomizeColorSchemeModeHandler');
           const result = this.impl.createCustomizeColorSchemeModeHandler(params.pending_client, params.pending_handler);
           break;
@@ -392,14 +393,14 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerReceiver = clas
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec);
+          const params = decoder.decodeStructInline(customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setColorSchemeMode');
           const result = this.impl.setColorSchemeMode(params.colorSchemeMode);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec);
+          const params = decoder.decodeStructInline(customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeColorSchemeMode');
           const result = this.impl.initializeColorSchemeMode();
           break;
@@ -547,7 +548,7 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientReceiver = class
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec);
+          const params = decoder.decodeStructInline(customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setColorSchemeMode');
           const result = this.impl.setColorSchemeMode(params.colorSchemeMode);
           break;

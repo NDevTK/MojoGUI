@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -459,28 +460,28 @@ arc.mojom.InputConnectionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_CommitText_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_CommitText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitText');
           const result = this.impl.commitText(params.text, params.new_cursor_pos);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_DeleteSurroundingText_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_DeleteSurroundingText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteSurroundingText');
           const result = this.impl.deleteSurroundingText(params.before, params.after);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_FinishComposingText_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_FinishComposingText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.finishComposingText');
           const result = this.impl.finishComposingText();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_RequestTextInputState_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_RequestTextInputState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestTextInputState');
           const result = this.impl.requestTextInputState();
           if (header.expectsResponse) {
@@ -493,28 +494,28 @@ arc.mojom.InputConnectionReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SetComposingText_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SetComposingText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setComposingText');
           const result = this.impl.setComposingText(params.text, params.new_cursor_pos, params.new_selection_range);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SetSelection_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SetSelection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSelection');
           const result = this.impl.setSelection(params.new_selection_range);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SendKeyEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SendKeyEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendKeyEvent');
           const result = this.impl.sendKeyEvent(params.key_event_data);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SetCompositionRange_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputConnection_SetCompositionRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCompositionRange');
           const result = this.impl.setCompositionRange(params.new_range);
           break;
@@ -718,21 +719,21 @@ arc.mojom.InputMethodManagerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnActiveImeChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnActiveImeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onActiveImeChanged');
           const result = this.impl.onActiveImeChanged(params.ime_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnImeDisabled_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnImeDisabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onImeDisabled');
           const result = this.impl.onImeDisabled(params.ime_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnImeInfoChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerHost_OnImeInfoChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onImeInfoChanged');
           const result = this.impl.onImeInfoChanged(params.ime_infos);
           break;
@@ -1065,7 +1066,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -1078,7 +1079,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableIme');
           const result = this.impl.enableIme(params.ime_id, params.enable);
           if (header.expectsResponse) {
@@ -1091,7 +1092,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_SwitchImeTo_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_SwitchImeTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.switchImeTo');
           const result = this.impl.switchImeTo(params.ime_id);
           if (header.expectsResponse) {
@@ -1104,28 +1105,28 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focus');
           const result = this.impl.focus(params.connection, params.initial_state);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_UpdateTextInputState_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_UpdateTextInputState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTextInputState');
           const result = this.impl.updateTextInputState(params.state);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showVirtualKeyboard');
           const result = this.impl.showVirtualKeyboard();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hideVirtualKeyboard');
           const result = this.impl.hideVirtualKeyboard();
           break;

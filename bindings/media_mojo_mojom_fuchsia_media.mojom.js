@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -231,7 +232,7 @@ media.mojom.FuchsiaMediaCdmProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdm');
           const result = this.impl.createCdm(params.key_system, params.cdm_request);
           break;
@@ -414,14 +415,14 @@ media.mojom.FuchsiaMediaCodecProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoDecoder');
           const result = this.impl.createVideoDecoder(params.codec, params.secure_mode, params.stream_processor_request);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSupportedVideoDecoderConfigs');
           const result = this.impl.getSupportedVideoDecoderConfigs();
           if (header.expectsResponse) {

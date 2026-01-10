@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -212,7 +213,7 @@ chromecast.media.mojom.VideoGeometryChangeClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVideoGeometryChange');
           const result = this.impl.onVideoGeometryChange(params.rect_f, params.transform);
           break;
@@ -366,7 +367,7 @@ chromecast.media.mojom.VideoGeometryChangeSubscriberReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToVideoGeometryChange');
           const result = this.impl.subscribeToVideoGeometryChange(params.overlay_plane_id, params.client_pending_remote);
           if (header.expectsResponse) {
@@ -522,7 +523,7 @@ chromecast.media.mojom.VideoGeometrySetterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVideoGeometry');
           const result = this.impl.setVideoGeometry(params.rect_f, params.transform, params.overlay_plane_id);
           break;

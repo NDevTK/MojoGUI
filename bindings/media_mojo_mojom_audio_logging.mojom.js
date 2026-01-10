@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -412,56 +413,56 @@ media.mojom.AudioLogReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnCreated_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCreated');
           const result = this.impl.onCreated(params.params, params.device_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStarted');
           const result = this.impl.onStarted();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnStopped_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnStopped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStopped');
           const result = this.impl.onStopped();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClosed');
           const result = this.impl.onClosed();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnSetVolume_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnSetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSetVolume');
           const result = this.impl.onSetVolume(params.volume);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProcessingStateChanged');
           const result = this.impl.onProcessingStateChanged(params.message);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnLogMessage_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioLog_OnLogMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLogMessage');
           const result = this.impl.onLogMessage(params.message);
           break;
@@ -611,7 +612,7 @@ media.mojom.AudioLogFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAudioLog');
           const result = this.impl.createAudioLog(params.component, params.component_id, params.audio_log_receiver);
           break;

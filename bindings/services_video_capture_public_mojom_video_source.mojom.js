@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -459,14 +460,14 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activate');
           const result = this.impl.activate();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suspend');
           const result = this.impl.suspend();
           if (header.expectsResponse) {
@@ -479,14 +480,14 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPhotoState');
           const result = this.impl.getPhotoState();
           if (header.expectsResponse) {
@@ -499,7 +500,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPhotoOptions');
           const result = this.impl.setPhotoOptions(params.settings);
           if (header.expectsResponse) {
@@ -512,7 +513,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.takePhoto');
           const result = this.impl.takePhoto();
           if (header.expectsResponse) {
@@ -525,7 +526,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           if (header.expectsResponse) {
@@ -538,7 +539,7 @@ video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processFeedback');
           const result = this.impl.processFeedback(params.feedback);
           break;
@@ -696,7 +697,7 @@ video_capture.mojom.VideoSourceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec);
+          const params = decoder.decodeStructInline(video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPushSubscription');
           const result = this.impl.createPushSubscription(params.subscriber, params.requested_settings, params.force_reopen_with_new_settings, params.subscription);
           if (header.expectsResponse) {

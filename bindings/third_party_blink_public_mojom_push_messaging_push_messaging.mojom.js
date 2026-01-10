@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -321,7 +322,7 @@ blink.mojom.PushMessagingReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PushMessaging_Subscribe_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PushMessaging_Subscribe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribe');
           const result = this.impl.subscribe(params.service_worker_registration_id, params.options, params.user_gesture);
           if (header.expectsResponse) {
@@ -334,7 +335,7 @@ blink.mojom.PushMessagingReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PushMessaging_Unsubscribe_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PushMessaging_Unsubscribe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unsubscribe');
           const result = this.impl.unsubscribe(params.service_worker_registration_id);
           if (header.expectsResponse) {
@@ -347,7 +348,7 @@ blink.mojom.PushMessagingReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PushMessaging_GetSubscription_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PushMessaging_GetSubscription_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSubscription');
           const result = this.impl.getSubscription(params.service_worker_registration_id);
           if (header.expectsResponse) {

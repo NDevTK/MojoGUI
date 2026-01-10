@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -229,7 +230,7 @@ ash.settings.google_drive.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -468,14 +469,14 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.calculateRequiredSpace');
           const result = this.impl.calculateRequiredSpace();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getContentCacheSize');
           const result = this.impl.getContentCacheSize();
           if (header.expectsResponse) {
@@ -488,7 +489,7 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearPinnedFiles');
           const result = this.impl.clearPinnedFiles();
           if (header.expectsResponse) {
@@ -501,7 +502,7 @@ ash.settings.google_drive.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordBulkPinningEnabledMetric');
           const result = this.impl.recordBulkPinningEnabledMetric();
           break;
@@ -676,14 +677,14 @@ ash.settings.google_drive.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServiceUnavailable');
           const result = this.impl.onServiceUnavailable();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
           const result = this.impl.onProgress(params.status);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -540,84 +541,84 @@ system_media_controls.mojom.SystemMediaControlsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsNextEnabled');
           const result = this.impl.setIsNextEnabled(params.enabled);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsPreviousEnabled');
           const result = this.impl.setIsPreviousEnabled(params.enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsPlayPauseEnabled');
           const result = this.impl.setIsPlayPauseEnabled(params.enabled);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsStopEnabled');
           const result = this.impl.setIsStopEnabled(params.enabled);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsSeekToEnabled');
           const result = this.impl.setIsSeekToEnabled(params.enabled);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPlaybackStatus');
           const result = this.impl.setPlaybackStatus(params.status);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTitle');
           const result = this.impl.setTitle(params.title);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setArtist');
           const result = this.impl.setArtist(params.artist);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAlbum');
           const result = this.impl.setAlbum(params.album);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setThumbnail');
           const result = this.impl.setThumbnail(params.thumbnail);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPosition');
           const result = this.impl.setPosition(params.position);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearMetadata');
           const result = this.impl.clearMetadata();
           break;
@@ -981,63 +982,63 @@ system_media_controls.mojom.SystemMediaControlsObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNext');
           const result = this.impl.onNext();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrevious');
           const result = this.impl.onPrevious();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPause');
           const result = this.impl.onPause();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPlayPause');
           const result = this.impl.onPlayPause();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStop');
           const result = this.impl.onStop();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPlay');
           const result = this.impl.onPlay();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSeekTo');
           const result = this.impl.onSeekTo(params.seek_time);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBridgeCreatedForTesting');
           const result = this.impl.onBridgeCreatedForTesting();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMetadataClearedForTesting');
           const result = this.impl.onMetadataClearedForTesting();
           break;

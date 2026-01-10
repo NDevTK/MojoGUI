@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -415,49 +416,49 @@ midi.mojom.MidiSessionClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addInputPort');
           const result = this.impl.addInputPort(params.info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addOutputPort');
           const result = this.impl.addOutputPort(params.info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInputPortState');
           const result = this.impl.setInputPortState(params.port, params.state);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputPortState');
           const result = this.impl.setOutputPortState(params.port, params.state);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sessionStarted');
           const result = this.impl.sessionStarted(params.result);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acknowledgeSentData');
           const result = this.impl.acknowledgeSentData(params.bytes);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_DataReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionClient_DataReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dataReceived');
           const result = this.impl.dataReceived(params.port, params.data, params.timestamp);
           break;
@@ -606,7 +607,7 @@ midi.mojom.MidiSessionProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(midi.mojom.MidiSessionProvider_StartSession_ParamsSpec);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSessionProvider_StartSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startSession');
           const result = this.impl.startSession(params.receiver, params.client);
           break;
@@ -756,7 +757,7 @@ midi.mojom.MidiSessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(midi.mojom.MidiSession_SendData_ParamsSpec);
+          const params = decoder.decodeStructInline(midi.mojom.MidiSession_SendData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendData');
           const result = this.impl.sendData(params.port, params.data, params.timestamp);
           break;

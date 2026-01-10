@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -285,14 +286,14 @@ content_settings.mojom.ContentSettingsManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec);
+          const params = decoder.decodeStructInline(content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.clone);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec);
+          const params = decoder.decodeStructInline(content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allowStorageAccess');
           const result = this.impl.allowStorageAccess(params.frame_token, params.storage_type, params.origin, params.site_for_cookies, params.top_frame_origin);
           if (header.expectsResponse) {
@@ -305,7 +306,7 @@ content_settings.mojom.ContentSettingsManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec);
+          const params = decoder.decodeStructInline(content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContentBlocked');
           const result = this.impl.onContentBlocked(params.frame_token, params.type);
           break;

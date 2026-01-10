@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -223,7 +224,7 @@ media.mojom.AudioSourceSpeechRecognitionContextReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAudioSourceFetcher');
           const result = this.impl.bindAudioSourceFetcher(params.fetcher_receiver, params.client, params.options);
           if (header.expectsResponse) {
@@ -491,35 +492,35 @@ media.mojom.SpeechRecognitionServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSpeechRecognitionContext');
           const result = this.impl.bindSpeechRecognitionContext(params.context);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAudioSourceSpeechRecognitionContext');
           const result = this.impl.bindAudioSourceSpeechRecognitionContext(params.context);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSodaPaths');
           const result = this.impl.setSodaPaths(params.binary_path, params.config_paths, params.primary_language_name);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSodaParams');
           const result = this.impl.setSodaParams(params.mask_offensive_words);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSodaConfigPaths');
           const result = this.impl.setSodaConfigPaths(params.config_paths);
           break;
@@ -696,14 +697,14 @@ media.mojom.AudioSourceFetcherReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioSourceFetcher_Start_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioSourceFetcher_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.factory, params.device_id, params.audio_parameters);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioSourceFetcher_Stop_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioSourceFetcher_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
           const result = this.impl.stop();
           break;

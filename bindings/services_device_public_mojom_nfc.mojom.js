@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -492,14 +493,14 @@ device.mojom.NFCReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.NFC_SetClient_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.NFC_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.NFC_Push_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.NFC_Push_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.push');
           const result = this.impl.push(params.message, params.options);
           if (header.expectsResponse) {
@@ -512,14 +513,14 @@ device.mojom.NFCReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.NFC_CancelPush_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.NFC_CancelPush_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelPush');
           const result = this.impl.cancelPush();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.NFC_MakeReadOnly_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.NFC_MakeReadOnly_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.makeReadOnly');
           const result = this.impl.makeReadOnly();
           if (header.expectsResponse) {
@@ -532,14 +533,14 @@ device.mojom.NFCReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.NFC_CancelMakeReadOnly_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.NFC_CancelMakeReadOnly_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelMakeReadOnly');
           const result = this.impl.cancelMakeReadOnly();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.NFC_Watch_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.NFC_Watch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.watch');
           const result = this.impl.watch(params.id);
           if (header.expectsResponse) {
@@ -552,7 +553,7 @@ device.mojom.NFCReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.NFC_CancelWatch_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.NFC_CancelWatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelWatch');
           const result = this.impl.cancelWatch(params.id);
           break;
@@ -730,14 +731,14 @@ device.mojom.NFCClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.NFCClient_OnWatch_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.NFCClient_OnWatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWatch');
           const result = this.impl.onWatch(params.watch_ids, params.serial_number, params.message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.NFCClient_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.NFCClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;
@@ -914,14 +915,14 @@ device.mojom.RawNFCClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.RawNFCClient_OnWatch_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.RawNFCClient_OnWatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWatch');
           const result = this.impl.onWatch(params.watch_ids, params.message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.RawNFCClient_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.RawNFCClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;

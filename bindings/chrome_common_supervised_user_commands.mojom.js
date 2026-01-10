@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -304,14 +305,14 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec);
+          const params = decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.goBack');
           const result = this.impl.goBack();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec);
+          const params = decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestUrlAccessRemote');
           const result = this.impl.requestUrlAccessRemote();
           if (header.expectsResponse) {
@@ -324,7 +325,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec);
+          const params = decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestUrlAccessLocal');
           const result = this.impl.requestUrlAccessLocal();
           if (header.expectsResponse) {
@@ -337,7 +338,7 @@ supervised_user.mojom.SupervisedUserCommandsReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec);
+          const params = decoder.decodeStructInline(supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.learnMore');
           const result = this.impl.learnMore();
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -322,7 +323,7 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBuffer');
           const result = this.impl.getBuffer();
           if (header.expectsResponse) {
@@ -335,7 +336,7 @@ cast_streaming.mojom.AudioBufferRequesterReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec);
+          const params = decoder.decodeStructInline(cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableBitstreamConverter');
           const result = this.impl.enableBitstreamConverter();
           if (header.expectsResponse) {
@@ -527,7 +528,7 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBuffer');
           const result = this.impl.getBuffer();
           if (header.expectsResponse) {
@@ -540,7 +541,7 @@ cast_streaming.mojom.VideoBufferRequesterReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec);
+          const params = decoder.decodeStructInline(cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableBitstreamConverter');
           const result = this.impl.enableBitstreamConverter();
           if (header.expectsResponse) {
@@ -727,7 +728,7 @@ cast_streaming.mojom.DemuxerConnectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec);
+          const params = decoder.decodeStructInline(cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableReceiver');
           const result = this.impl.enableReceiver();
           if (header.expectsResponse) {
@@ -740,7 +741,7 @@ cast_streaming.mojom.DemuxerConnectorReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec);
+          const params = decoder.decodeStructInline(cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStreamsInitialized');
           const result = this.impl.onStreamsInitialized(params.audio_buffer_requester, params.video_buffer_requester);
           break;

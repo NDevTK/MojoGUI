@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -228,7 +229,7 @@ aim_eligibility.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEligibilityStateChanged');
           const result = this.impl.onEligibilityStateChanged(params.state);
           break;
@@ -442,7 +443,7 @@ aim_eligibility.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec);
+          const params = decoder.decodeStructInline(aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getEligibilityState');
           const result = this.impl.getEligibilityState();
           if (header.expectsResponse) {
@@ -455,14 +456,14 @@ aim_eligibility.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec);
+          const params = decoder.decodeStructInline(aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestServerEligibilityForDebugging');
           const result = this.impl.requestServerEligibilityForDebugging();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec);
+          const params = decoder.decodeStructInline(aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEligibilityResponseForDebugging');
           const result = this.impl.setEligibilityResponseForDebugging(params.base64_encoded_response);
           if (header.expectsResponse) {
@@ -617,7 +618,7 @@ aim_eligibility.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;

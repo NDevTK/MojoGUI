@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -760,147 +761,147 @@ security_interstitials.mojom.InterstitialCommandsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dontProceed');
           const result = this.impl.dontProceed();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.proceed');
           const result = this.impl.proceed();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showMoreSection');
           const result = this.impl.showMoreSection();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openHelpCenter');
           const result = this.impl.openHelpCenter();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDiagnostic');
           const result = this.impl.openDiagnostic();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reload');
           const result = this.impl.reload();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDateSettings');
           const result = this.impl.openDateSettings();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openLogin');
           const result = this.impl.openLogin();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doReport');
           const result = this.impl.doReport();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dontReport');
           const result = this.impl.dontReport();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openReportingPrivacy');
           const result = this.impl.openReportingPrivacy();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openWhitepaper');
           const result = this.impl.openWhitepaper();
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openHelpCenterInNewTab');
           const result = this.impl.openHelpCenterInNewTab();
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDiagnosticInNewTab');
           const result = this.impl.openDiagnosticInNewTab();
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openReportingPrivacyInNewTab');
           const result = this.impl.openReportingPrivacyInNewTab();
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openWhitepaperInNewTab');
           const result = this.impl.openWhitepaperInNewTab();
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportPhishingErrorInNewTab');
           const result = this.impl.reportPhishingErrorInNewTab();
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportPhishingError');
           const result = this.impl.reportPhishingError();
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openEnhancedProtectionSettings');
           const result = this.impl.openEnhancedProtectionSettings();
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showCertificateViewer');
           const result = this.impl.showCertificateViewer();
           break;
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openAndroidAdvancedProtectionSettings');
           const result = this.impl.openAndroidAdvancedProtectionSettings();
           break;

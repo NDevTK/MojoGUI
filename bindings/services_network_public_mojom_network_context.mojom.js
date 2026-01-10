@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -675,14 +676,14 @@ network.mojom.CustomProxyConnectionObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFallback');
           const result = this.impl.onFallback(params.bad_chain, params.net_error);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTunnelHeadersReceived');
           const result = this.impl.onTunnelHeadersReceived(params.proxy_chain, params.chain_index, params.response_headers);
           break;
@@ -835,7 +836,7 @@ network.mojom.CustomProxyConfigClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCustomProxyConfigUpdated');
           const result = this.impl.onCustomProxyConfigUpdated(params.proxy_config);
           if (header.expectsResponse) {
@@ -1034,7 +1035,7 @@ network.mojom.TrustedHeaderClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBeforeSendHeaders');
           const result = this.impl.onBeforeSendHeaders(params.headers);
           if (header.expectsResponse) {
@@ -1047,7 +1048,7 @@ network.mojom.TrustedHeaderClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHeadersReceived');
           const result = this.impl.onHeadersReceived(params.headers, params.remote_endpoint, params.ssl_info);
           if (header.expectsResponse) {
@@ -1231,14 +1232,14 @@ network.mojom.TrustedURLLoaderHeaderClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLoaderCreated');
           const result = this.impl.onLoaderCreated(params.request_id, params.header_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLoaderForCorsPreflightCreated');
           const result = this.impl.onLoaderForCorsPreflightCreated(params.request, params.header_client);
           break;
@@ -4456,56 +4457,56 @@ network.mojom.NetworkContextReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetClient_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createURLLoaderFactory');
           const result = this.impl.createURLLoaderFactory(params.url_loader_factory, params.params);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ResetURLLoaderFactories_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ResetURLLoaderFactories_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetURLLoaderFactories');
           const result = this.impl.resetURLLoaderFactories();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetViaObliviousHttp_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetViaObliviousHttp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getViaObliviousHttp');
           const result = this.impl.getViaObliviousHttp(params.request, params.client);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetCookieManager_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetCookieManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCookieManager');
           const result = this.impl.getCookieManager(params.cookie_manager);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRestrictedCookieManager');
           const result = this.impl.getRestrictedCookieManager(params.restricted_cookie_manager, params.role, params.origin, params.isolation_info, params.cookie_setting_overrides, params.devtools_cookie_setting_overrides, params.cookie_observer);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTrustTokenQueryAnswerer');
           const result = this.impl.getTrustTokenQueryAnswerer(params.trust_token_query_answerer, params.top_frame_origin);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearTrustTokenData_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearTrustTokenData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearTrustTokenData');
           const result = this.impl.clearTrustTokenData(params.filter);
           if (header.expectsResponse) {
@@ -4518,7 +4519,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearTrustTokenSessionOnlyData');
           const result = this.impl.clearTrustTokenSessionOnlyData();
           if (header.expectsResponse) {
@@ -4531,7 +4532,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStoredTrustTokenCounts');
           const result = this.impl.getStoredTrustTokenCounts();
           if (header.expectsResponse) {
@@ -4544,7 +4545,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPrivateStateTokenRedemptionRecords');
           const result = this.impl.getPrivateStateTokenRedemptionRecords();
           if (header.expectsResponse) {
@@ -4557,7 +4558,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteStoredTrustTokens');
           const result = this.impl.deleteStoredTrustTokens(params.issuer);
           if (header.expectsResponse) {
@@ -4570,14 +4571,14 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetBlockTrustTokens_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetBlockTrustTokens_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBlockTrustTokens');
           const result = this.impl.setBlockTrustTokens(params.block);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearNetworkingHistoryBetween');
           const result = this.impl.clearNetworkingHistoryBetween(params.start_time, params.end_time);
           if (header.expectsResponse) {
@@ -4590,7 +4591,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearHttpCache_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearHttpCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearHttpCache');
           const result = this.impl.clearHttpCache(params.start_time, params.end_time, params.filter);
           if (header.expectsResponse) {
@@ -4603,7 +4604,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.computeHttpCacheSize');
           const result = this.impl.computeHttpCacheSize(params.start_time, params.end_time);
           if (header.expectsResponse) {
@@ -4616,21 +4617,21 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_NotifyBrowserIdle_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_NotifyBrowserIdle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyBrowserIdle');
           const result = this.impl.notifyBrowserIdle();
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_NotifyExternalCacheHit_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_NotifyExternalCacheHit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyExternalCacheHit');
           const result = this.impl.notifyExternalCacheHit(params.url, params.http_method, params.key, params.include_credentials);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearHostCache_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearHostCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearHostCache');
           const result = this.impl.clearHostCache(params.filter);
           if (header.expectsResponse) {
@@ -4643,7 +4644,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearHttpAuthCache_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearHttpAuthCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearHttpAuthCache');
           const result = this.impl.clearHttpAuthCache(params.start_time, params.end_time, params.filter);
           if (header.expectsResponse) {
@@ -4656,7 +4657,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearCorsPreflightCache_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearCorsPreflightCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearCorsPreflightCache');
           const result = this.impl.clearCorsPreflightCache(params.filter);
           if (header.expectsResponse) {
@@ -4669,7 +4670,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearReportingCacheReports_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearReportingCacheReports_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearReportingCacheReports');
           const result = this.impl.clearReportingCacheReports(params.filter);
           if (header.expectsResponse) {
@@ -4682,7 +4683,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearReportingCacheClients_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearReportingCacheClients_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearReportingCacheClients');
           const result = this.impl.clearReportingCacheClients(params.filter);
           if (header.expectsResponse) {
@@ -4695,7 +4696,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearNetworkErrorLogging_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearNetworkErrorLogging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearNetworkErrorLogging');
           const result = this.impl.clearNetworkErrorLogging(params.filter);
           if (header.expectsResponse) {
@@ -4708,7 +4709,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearDomainReliability_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearDomainReliability_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearDomainReliability');
           const result = this.impl.clearDomainReliability(params.filter, params.mode);
           if (header.expectsResponse) {
@@ -4721,7 +4722,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearSharedDictionaryCache_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearSharedDictionaryCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearSharedDictionaryCache');
           const result = this.impl.clearSharedDictionaryCache(params.start_time, params.end_time, params.filter);
           if (header.expectsResponse) {
@@ -4734,7 +4735,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearSharedDictionaryCacheForIsolationKey');
           const result = this.impl.clearSharedDictionaryCacheForIsolationKey(params.isolation_key);
           if (header.expectsResponse) {
@@ -4747,49 +4748,49 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetDocumentReportingEndpoints_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetDocumentReportingEndpoints_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDocumentReportingEndpoints');
           const result = this.impl.setDocumentReportingEndpoints(params.reporting_source, params.origin, params.isolation_info, params.endpoints);
           break;
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetEnterpriseReportingEndpoints_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetEnterpriseReportingEndpoints_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEnterpriseReportingEndpoints');
           const result = this.impl.setEnterpriseReportingEndpoints(params.endpoints);
           break;
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SendReportsAndRemoveSource_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SendReportsAndRemoveSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendReportsAndRemoveSource');
           const result = this.impl.sendReportsAndRemoveSource(params.reporting_source);
           break;
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_QueueReport_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_QueueReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueReport');
           const result = this.impl.queueReport(params.type, params.group, params.url, params.reporting_source, params.network_anonymization_key, params.body);
           break;
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_QueueEnterpriseReport_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_QueueEnterpriseReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueEnterpriseReport');
           const result = this.impl.queueEnterpriseReport(params.type, params.group, params.url, params.body);
           break;
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_QueueSignedExchangeReport_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_QueueSignedExchangeReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueSignedExchangeReport');
           const result = this.impl.queueSignedExchangeReport(params.report, params.network_anonymization_key);
           break;
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CloseAllConnections_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CloseAllConnections_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeAllConnections');
           const result = this.impl.closeAllConnections();
           if (header.expectsResponse) {
@@ -4802,7 +4803,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CloseIdleConnections_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CloseIdleConnections_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeIdleConnections');
           const result = this.impl.closeIdleConnections();
           if (header.expectsResponse) {
@@ -4815,42 +4816,42 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetNetworkConditions_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetNetworkConditions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNetworkConditions');
           const result = this.impl.setNetworkConditions(params.throttling_profile_id, params.conditions);
           break;
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAcceptLanguage');
           const result = this.impl.setAcceptLanguage(params.new_accept_language);
           break;
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetEnableReferrers_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetEnableReferrers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEnableReferrers');
           const result = this.impl.setEnableReferrers(params.enable_referrers);
           break;
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetCTPolicy_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetCTPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCTPolicy');
           const result = this.impl.setCTPolicy(params.ct_policy);
           break;
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateUDPSocket_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateUDPSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createUDPSocket');
           const result = this.impl.createUDPSocket(params.receiver, params.listener);
           break;
         }
         case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRestrictedUDPSocket');
           const result = this.impl.createRestrictedUDPSocket(params.addr, params.mode, params.traffic_annotation, params.params, params.receiver, params.listener, params.allow_multicast);
           if (header.expectsResponse) {
@@ -4863,7 +4864,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTCPServerSocket');
           const result = this.impl.createTCPServerSocket(params.local_addr, params.options, params.traffic_annotation, params.socket);
           if (header.expectsResponse) {
@@ -4876,7 +4877,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTCPConnectedSocket');
           const result = this.impl.createTCPConnectedSocket(params.local_addr, params.remote_addr_list, params.tcp_connected_socket_options, params.traffic_annotation, params.socket, params.observer);
           if (header.expectsResponse) {
@@ -4889,7 +4890,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 43: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTCPBoundSocket');
           const result = this.impl.createTCPBoundSocket(params.local_addr, params.traffic_annotation, params.socket);
           if (header.expectsResponse) {
@@ -4902,21 +4903,21 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 44: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createProxyResolvingSocketFactory');
           const result = this.impl.createProxyResolvingSocketFactory(params.factory);
           break;
         }
         case 45: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_LookUpProxyForURL_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_LookUpProxyForURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.lookUpProxyForURL');
           const result = this.impl.lookUpProxyForURL(params.url, params.network_anonymization_key, params.proxy_lookup_client);
           break;
         }
         case 46: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ForceReloadProxyConfig_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ForceReloadProxyConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceReloadProxyConfig');
           const result = this.impl.forceReloadProxyConfig();
           if (header.expectsResponse) {
@@ -4929,7 +4930,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 47: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearBadProxiesCache_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearBadProxiesCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearBadProxiesCache');
           const result = this.impl.clearBadProxiesCache();
           if (header.expectsResponse) {
@@ -4942,63 +4943,63 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 48: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateWebSocket_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateWebSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWebSocket');
           const result = this.impl.createWebSocket(params.url, params.requested_protocols, params.site_for_cookies, params.storage_access_api_status, params.isolation_info, params.additional_headers, params.process_id, params.origin, params.client_security_state, params.options, params.traffic_annotation, params.handshake_client, params.url_loader_network_observer, params.auth_handler, params.header_client, params.throttling_profile_id);
           break;
         }
         case 49: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateWebTransport_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateWebTransport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWebTransport');
           const result = this.impl.createWebTransport(params.url, params.origin, params.network_anonymization_key, params.fingerprints, params.application_protocols, params.handshake_client, params.url_loader_network_observer, params.client_security_state);
           break;
         }
         case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNetLogExporter');
           const result = this.impl.createNetLogExporter(params.receiver);
           break;
         }
         case 51: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_PreconnectSockets_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_PreconnectSockets_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.preconnectSockets');
           const result = this.impl.preconnectSockets(params.num_streams, params.url, params.credentials_mode, params.network_anonymization_key, params.traffic_annotation, params.keepalive_config, params.observer_client);
           break;
         }
         case 52: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateP2PSocketManager_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateP2PSocketManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createP2PSocketManager');
           const result = this.impl.createP2PSocketManager(params.network_anonymization_key, params.client, params.trusted_socket_manager, params.socket_manager);
           break;
         }
         case 53: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createMdnsResponder');
           const result = this.impl.createMdnsResponder(params.responder_receiver);
           break;
         }
         case 54: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ResolveHost_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ResolveHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveHost');
           const result = this.impl.resolveHost(params.host, params.network_anonymization_key, params.optional_parameters, params.response_client);
           break;
         }
         case 55: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateHostResolver_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_CreateHostResolver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createHostResolver');
           const result = this.impl.createHostResolver(params.config_overrides, params.host_resolver);
           break;
         }
         case 56: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_VerifyCert_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_VerifyCert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.verifyCert');
           const result = this.impl.verifyCert(params.certificate, params.host_port, params.ocsp_response, params.sct_list);
           if (header.expectsResponse) {
@@ -5011,7 +5012,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 57: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.verifyCertForSignedExchange');
           const result = this.impl.verifyCertForSignedExchange(params.certificate, params.host_port, params.ocsp_response, params.sct_list);
           if (header.expectsResponse) {
@@ -5024,7 +5025,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 58: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.verify2QwacCertBinding');
           const result = this.impl.verify2QwacCertBinding(params.binding, params.hostname, params.tls_certificate);
           if (header.expectsResponse) {
@@ -5037,7 +5038,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 59: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_AddHSTS_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_AddHSTS_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addHSTS');
           const result = this.impl.addHSTS(params.host, params.expiry, params.include_subdomains);
           if (header.expectsResponse) {
@@ -5050,7 +5051,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 60: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isHSTSActiveForHost');
           const result = this.impl.isHSTSActiveForHost(params.host, params.is_top_level_nav);
           if (header.expectsResponse) {
@@ -5063,7 +5064,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 61: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetHSTSState_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetHSTSState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHSTSState');
           const result = this.impl.getHSTSState(params.domain);
           if (header.expectsResponse) {
@@ -5076,7 +5077,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 62: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCorsOriginAccessListsForOrigin');
           const result = this.impl.setCorsOriginAccessListsForOrigin(params.source_origin, params.allow_patterns, params.block_patterns);
           if (header.expectsResponse) {
@@ -5089,7 +5090,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 63: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteDynamicDataForHost');
           const result = this.impl.deleteDynamicDataForHost(params.host);
           if (header.expectsResponse) {
@@ -5102,14 +5103,14 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 64: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSplitAuthCacheByNetworkAnonymizationKey');
           const result = this.impl.setSplitAuthCacheByNetworkAnonymizationKey(params.split_auth_cache_by_network_anonymization_key);
           break;
         }
         case 65: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.saveHttpAuthCacheProxyEntries');
           const result = this.impl.saveHttpAuthCacheProxyEntries();
           if (header.expectsResponse) {
@@ -5122,7 +5123,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 66: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadHttpAuthCacheProxyEntries');
           const result = this.impl.loadHttpAuthCacheProxyEntries(params.cache_key);
           if (header.expectsResponse) {
@@ -5135,7 +5136,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 67: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_AddAuthCacheEntry_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_AddAuthCacheEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addAuthCacheEntry');
           const result = this.impl.addAuthCacheEntry(params.challenge, params.network_anonymization_key, params.credentials);
           if (header.expectsResponse) {
@@ -5148,14 +5149,14 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 68: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCorsNonWildcardRequestHeadersSupport');
           const result = this.impl.setCorsNonWildcardRequestHeadersSupport(params.value);
           break;
         }
         case 69: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.lookupProxyAuthCredentials');
           const result = this.impl.lookupProxyAuthCredentials(params.proxy_server, params.auth_scheme, params.realm);
           if (header.expectsResponse) {
@@ -5168,7 +5169,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 70: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableStaticKeyPinningForTesting');
           const result = this.impl.enableStaticKeyPinningForTesting();
           if (header.expectsResponse) {
@@ -5181,7 +5182,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 71: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.verifyCertificateForTesting');
           const result = this.impl.verifyCertificateForTesting(params.certificate, params.hostname, params.ocsp_response, params.sct_list);
           if (header.expectsResponse) {
@@ -5194,7 +5195,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 72: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTrustAnchorIDsForTesting');
           const result = this.impl.getTrustAnchorIDsForTesting();
           if (header.expectsResponse) {
@@ -5207,7 +5208,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 73: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDomainReliabilityContextForTesting');
           const result = this.impl.addDomainReliabilityContextForTesting(params.origin, params.upload_url);
           if (header.expectsResponse) {
@@ -5220,7 +5221,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 74: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceDomainReliabilityUploadsForTesting');
           const result = this.impl.forceDomainReliabilityUploadsForTesting();
           if (header.expectsResponse) {
@@ -5233,21 +5234,21 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 75: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetSCTAuditingMode_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetSCTAuditingMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSCTAuditingMode');
           const result = this.impl.setSCTAuditingMode(params.mode);
           break;
         }
         case 76: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_AddReportingApiObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_AddReportingApiObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addReportingApiObserver');
           const result = this.impl.addReportingApiObserver(params.observer);
           break;
         }
         case 77: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSharedDictionaryUsageInfo');
           const result = this.impl.getSharedDictionaryUsageInfo();
           if (header.expectsResponse) {
@@ -5260,7 +5261,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 78: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSharedDictionaryInfo');
           const result = this.impl.getSharedDictionaryInfo(params.isolation_key);
           if (header.expectsResponse) {
@@ -5273,7 +5274,7 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 79: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSharedDictionaryOriginsBetween');
           const result = this.impl.getSharedDictionaryOriginsBetween(params.start_time, params.end_time);
           if (header.expectsResponse) {
@@ -5286,21 +5287,21 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 80: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSharedDictionaryCacheMaxSize');
           const result = this.impl.setSharedDictionaryCacheMaxSize(params.cache_max_size);
           break;
         }
         case 81: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.preloadSharedDictionaryInfoForDocument');
           const result = this.impl.preloadSharedDictionaryInfoForDocument(params.urls, params.preload_handle);
           break;
         }
         case 82: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasPreloadedSharedDictionaryInfoForTesting');
           const result = this.impl.hasPreloadedSharedDictionaryInfoForTesting();
           if (header.expectsResponse) {
@@ -5313,28 +5314,28 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 83: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_FlushCachedClientCertIfNeeded_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_FlushCachedClientCertIfNeeded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushCachedClientCertIfNeeded');
           const result = this.impl.flushCachedClientCertIfNeeded(params.host, params.certificate);
           break;
         }
         case 84: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_FlushMatchingCachedClientCert_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_FlushMatchingCachedClientCert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushMatchingCachedClientCert');
           const result = this.impl.flushMatchingCachedClientCert(params.certificate);
           break;
         }
         case 85: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_FlushClientCertCache_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_FlushClientCertCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushClientCertCache');
           const result = this.impl.flushClientCertCache();
           break;
         }
         case 86: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_RevokeNetworkForNonces_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_RevokeNetworkForNonces_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.revokeNetworkForNonces');
           const result = this.impl.revokeNetworkForNonces(params.nonces_to_patterns);
           if (header.expectsResponse) {
@@ -5347,14 +5348,14 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 87: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearNonces_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ClearNonces_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearNonces');
           const result = this.impl.clearNonces(params.nonces);
           break;
         }
         case 88: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exemptUrlFromNetworkRevocationForNonce');
           const result = this.impl.exemptUrlFromNetworkRevocationForNonce(params.exempted_url, params.nonce);
           if (header.expectsResponse) {
@@ -5367,14 +5368,14 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 89: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_Prefetch_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_Prefetch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prefetch');
           const result = this.impl.prefetch(params.request_id, params.options, params.request, params.traffic_annotation);
           break;
         }
         case 90: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBoundNetworkForTesting');
           const result = this.impl.getBoundNetworkForTesting();
           if (header.expectsResponse) {
@@ -5387,14 +5388,14 @@ network.mojom.NetworkContextReceiver = class {
         }
         case 91: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceBoundSessionManager');
           const result = this.impl.getDeviceBoundSessionManager(params.device_bound_session_manager);
           break;
         }
         case 92: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.NetworkContext_AddQuicHints_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.NetworkContext_AddQuicHints_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addQuicHints');
           const result = this.impl.addQuicHints(params.origins, params.network_anonymization_key);
           break;

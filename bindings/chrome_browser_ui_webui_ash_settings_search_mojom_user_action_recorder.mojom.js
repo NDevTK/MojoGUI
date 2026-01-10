@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -393,49 +394,49 @@ ash.settings.mojom.UserActionRecorderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordPageFocus');
           const result = this.impl.recordPageFocus();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordPageBlur');
           const result = this.impl.recordPageBlur();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordClick');
           const result = this.impl.recordClick();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordNavigation');
           const result = this.impl.recordNavigation();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordSearch');
           const result = this.impl.recordSearch();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordSettingChange');
           const result = this.impl.recordSettingChange();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordSettingChangeWithDetails');
           const result = this.impl.recordSettingChangeWithDetails(params.setting, params.value);
           break;

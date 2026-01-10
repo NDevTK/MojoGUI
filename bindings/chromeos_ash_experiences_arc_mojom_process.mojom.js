@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -513,14 +514,14 @@ arc.mojom.ProcessInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ProcessInstance_KillProcess_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ProcessInstance_KillProcess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.killProcess');
           const result = this.impl.killProcess(params.pid, params.reason);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestProcessList');
           const result = this.impl.requestProcessList();
           if (header.expectsResponse) {
@@ -533,7 +534,7 @@ arc.mojom.ProcessInstanceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestApplicationProcessMemoryInfo');
           const result = this.impl.requestApplicationProcessMemoryInfo();
           if (header.expectsResponse) {
@@ -546,7 +547,7 @@ arc.mojom.ProcessInstanceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSystemProcessMemoryInfo');
           const result = this.impl.requestSystemProcessMemoryInfo(params.nspids);
           if (header.expectsResponse) {
@@ -559,7 +560,7 @@ arc.mojom.ProcessInstanceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyHostMemoryPressureDeprecated');
           const result = this.impl.applyHostMemoryPressureDeprecated(params.level, params.reclaim_target);
           if (header.expectsResponse) {
@@ -572,7 +573,7 @@ arc.mojom.ProcessInstanceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyHostMemoryPressure');
           const result = this.impl.applyHostMemoryPressure(params.level, params.reclaim_target);
           if (header.expectsResponse) {
@@ -585,7 +586,7 @@ arc.mojom.ProcessInstanceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestLowMemoryKillCounts');
           const result = this.impl.requestLowMemoryKillCounts();
           if (header.expectsResponse) {

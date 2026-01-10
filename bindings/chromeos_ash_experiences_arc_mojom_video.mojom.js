@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -255,7 +256,7 @@ arc.mojom.VideoHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBootstrapVideoAcceleratorFactory');
           const result = this.impl.onBootstrapVideoAcceleratorFactory();
           if (header.expectsResponse) {
@@ -268,7 +269,7 @@ arc.mojom.VideoHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoAcceleratorFactory');
           const result = this.impl.createVideoAcceleratorFactory();
           if (header.expectsResponse) {
@@ -427,7 +428,7 @@ arc.mojom.VideoInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -667,28 +668,28 @@ arc.mojom.VideoAcceleratorFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createEncodeAccelerator');
           const result = this.impl.createEncodeAccelerator(params.video_encoder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDecodeAccelerator');
           const result = this.impl.createDecodeAccelerator(params.video_decoder, params.protected_buffer_manager, params.browser_cdm_factory);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoDecoder');
           const result = this.impl.createVideoDecoder(params.video_decoder);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createProtectedBufferAllocator');
           const result = this.impl.createProtectedBufferAllocator(params.video_protected_buffer_allocator);
           break;

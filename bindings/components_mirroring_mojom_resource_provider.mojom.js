@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -215,7 +216,7 @@ mirroring.mojom.AudioStreamCreatorClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec);
+          const params = decoder.decodeStructInline(mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.streamCreated');
           const result = this.impl.streamCreated(params.stream, params.client_receiver, params.data_pipe);
           break;
@@ -506,42 +507,42 @@ mirroring.mojom.ResourceProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec);
+          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGpu');
           const result = this.impl.bindGpu(params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec);
+          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVideoCaptureHost');
           const result = this.impl.getVideoCaptureHost(params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec);
+          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVideoEncoderMetricsProvider');
           const result = this.impl.getVideoEncoderMetricsProvider(params.receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec);
+          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNetworkContext');
           const result = this.impl.getNetworkContext(params.receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec);
+          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAudioStream');
           const result = this.impl.createAudioStream(params.client, params.param, params.shared_memory_count);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec);
+          const params = decoder.decodeStructInline(mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToRemotingSource');
           const result = this.impl.connectToRemotingSource(params.remoter, params.receiver);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -358,7 +359,7 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCheckerAndCheck');
           const result = this.impl.createCheckerAndCheck(params.frame_token, params.receiver, params.url, params.method, params.headers, params.load_flags, params.has_user_gesture, params.originated_from_service_worker);
           if (header.expectsResponse) {
@@ -371,7 +372,7 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;
@@ -524,7 +525,7 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getThreatDOMDetails');
           const result = this.impl.getThreatDOMDetails();
           if (header.expectsResponse) {
@@ -686,7 +687,7 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startPhishingDetection');
           const result = this.impl.startPhishingDetection(params.url, params.request_type);
           if (header.expectsResponse) {
@@ -959,35 +960,35 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setImageEmbeddingAndPhishingFlatBufferModel');
           const result = this.impl.setImageEmbeddingAndPhishingFlatBufferModel(params.region, params.tflite_model, params.image_embedding_model);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attachImageEmbeddingModel');
           const result = this.impl.attachImageEmbeddingModel(params.image_embedding_model);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPhishingFlatBufferModel');
           const result = this.impl.setPhishingFlatBufferModel(params.region, params.tflite_model);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearScorer');
           const result = this.impl.clearScorer();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTestObserver');
           const result = this.impl.setTestObserver(params.observer);
           if (header.expectsResponse) {
@@ -1140,7 +1141,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.phishingModelUpdated');
           const result = this.impl.phishingModelUpdated();
           break;
@@ -1295,7 +1296,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startImageEmbedding');
           const result = this.impl.startImageEmbedding(params.url);
           if (header.expectsResponse) {
@@ -1480,14 +1481,14 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendWebRequestData');
           const result = this.impl.sendWebRequestData(params.origin_extension_id, params.telemetry_url, params.protocol_type, params.contact_initiator_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec);
+          const params = decoder.decodeStructInline(safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;

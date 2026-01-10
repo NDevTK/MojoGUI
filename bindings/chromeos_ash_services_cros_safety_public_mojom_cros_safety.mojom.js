@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -280,7 +281,7 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
           const result = this.impl.classifyTextSafety(params.rules, params.text);
           if (header.expectsResponse) {
@@ -293,7 +294,7 @@ ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
           const result = this.impl.classifyImageSafety(params.rules, params.prompt, params.image);
           if (header.expectsResponse) {
@@ -489,7 +490,7 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
           const result = this.impl.classifyTextSafety(params.rules, params.text);
           if (header.expectsResponse) {
@@ -502,7 +503,7 @@ ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
           const result = this.impl.classifyImageSafety(params.rules, params.image);
           if (header.expectsResponse) {

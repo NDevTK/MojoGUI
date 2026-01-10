@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -374,14 +375,14 @@ blink.mojom.LockRequestReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.LockRequest_Granted_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.LockRequest_Granted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.granted');
           const result = this.impl.granted(params.lock_handle);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.LockRequest_Failed_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.LockRequest_Failed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.failed');
           const result = this.impl.failed();
           break;
@@ -566,14 +567,14 @@ blink.mojom.LockManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.LockManager_RequestLock_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.LockManager_RequestLock_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestLock');
           const result = this.impl.requestLock(params.name, params.mode, params.wait, params.request);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.LockManager_QueryState_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.LockManager_QueryState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queryState');
           const result = this.impl.queryState();
           if (header.expectsResponse) {

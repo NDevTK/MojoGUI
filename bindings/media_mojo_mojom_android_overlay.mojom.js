@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -226,7 +227,7 @@ media.mojom.AndroidOverlayProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createOverlay');
           const result = this.impl.createOverlay(params.overlay, params.client, params.config);
           break;
@@ -374,7 +375,7 @@ media.mojom.AndroidOverlayReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scheduleLayout');
           const result = this.impl.scheduleLayout(params.rect);
           break;
@@ -609,21 +610,21 @@ media.mojom.AndroidOverlayClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSurfaceReady');
           const result = this.impl.onSurfaceReady(params.surface_key);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDestroyed');
           const result = this.impl.onDestroyed();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSynchronouslyDestroyed');
           const result = this.impl.onSynchronouslyDestroyed();
           if (header.expectsResponse) {
@@ -636,7 +637,7 @@ media.mojom.AndroidOverlayClientReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPowerEfficientState');
           const result = this.impl.onPowerEfficientState(params.is_power_efficient);
           break;

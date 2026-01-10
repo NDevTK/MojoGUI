@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -231,7 +232,7 @@ chromecast.external_mojo.mojom.ExternalServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBindInterface');
           const result = this.impl.onBindInterface(params.interface_name, params.interface_pipe);
           break;
@@ -498,35 +499,35 @@ chromecast.external_mojo.mojom.ExternalConnectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerServiceInstances');
           const result = this.impl.registerServiceInstances(params.instances_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInterface');
           const result = this.impl.bindInterface(params.service_name, params.interface_name, params.interface_pipe);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindChromiumConnector');
           const result = this.impl.bindChromiumConnector(params.interface_pipe);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queryServiceList');
           const result = this.impl.queryServiceList();
           if (header.expectsResponse) {

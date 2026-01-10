@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -470,63 +471,63 @@ media.mojom.WatchTimeRecorderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordWatchTime');
           const result = this.impl.recordWatchTime(params.key, params.watch_time);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.finalizeWatchTime');
           const result = this.impl.finalizeWatchTime(params.watch_time_keys);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.status);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSecondaryProperties');
           const result = this.impl.updateSecondaryProperties(params.secondary_properties);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAutoplayInitiated');
           const result = this.impl.setAutoplayInitiated(params.value);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDurationChanged');
           const result = this.impl.onDurationChanged(params.duration);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateVideoDecodeStats');
           const result = this.impl.updateVideoDecodeStats(params.frames_decoded, params.frames_dropped);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUnderflowCount');
           const result = this.impl.updateUnderflowCount(params.total_count);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUnderflowDuration');
           const result = this.impl.updateUnderflowDuration(params.total_completed_count, params.total_duration);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -520,7 +521,7 @@ media.mojom.AudioStreamFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createInputStream');
           const result = this.impl.createInputStream(params.stream, params.client, params.observer, params.log, params.device_id, params.params, params.group_id, params.shared_memory_count, params.enable_agc, params.processing_config);
           if (header.expectsResponse) {
@@ -533,14 +534,14 @@ media.mojom.AudioStreamFactoryReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.associateInputAndOutputForAec');
           const result = this.impl.associateInputAndOutputForAec(params.input_stream_id, params.output_device_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createOutputStream');
           const result = this.impl.createOutputStream(params.stream, params.observer, params.log, params.device_id, params.params, params.group_id);
           if (header.expectsResponse) {
@@ -553,7 +554,7 @@ media.mojom.AudioStreamFactoryReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSwitchableOutputStream');
           const result = this.impl.createSwitchableOutputStream(params.stream, params.device_switch_receiver, params.observer, params.log, params.device_id, params.params, params.group_id);
           if (header.expectsResponse) {
@@ -566,14 +567,14 @@ media.mojom.AudioStreamFactoryReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioStreamFactory_BindMuter_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioStreamFactory_BindMuter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMuter');
           const result = this.impl.bindMuter(params.receiver, params.group_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createLoopbackStream');
           const result = this.impl.createLoopbackStream(params.receiver, params.client, params.observer, params.params, params.shared_memory_count, params.group_id);
           if (header.expectsResponse) {

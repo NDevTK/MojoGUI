@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -339,7 +340,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWifiDirectGroup');
           const result = this.impl.createWifiDirectGroup(params.credentials);
           if (header.expectsResponse) {
@@ -352,7 +353,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToWifiDirectGroup');
           const result = this.impl.connectToWifiDirectGroup(params.credentials, params.frequency);
           if (header.expectsResponse) {
@@ -365,7 +366,7 @@ ash.wifi_direct.mojom.WifiDirectManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWifiP2PCapabilities');
           const result = this.impl.getWifiP2PCapabilities();
           if (header.expectsResponse) {
@@ -558,7 +559,7 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProperties');
           const result = this.impl.getProperties();
           if (header.expectsResponse) {
@@ -571,7 +572,7 @@ ash.wifi_direct.mojom.WifiDirectConnectionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.associateSocket');
           const result = this.impl.associateSocket(params.socket);
           if (header.expectsResponse) {

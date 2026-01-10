@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -291,7 +292,7 @@ arc.mojom.UsbHostHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.UsbHostHost_OpenDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.UsbHostHost_OpenDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDevice');
           const result = this.impl.openDevice(params.guid, params.pkg_name);
           if (header.expectsResponse) {
@@ -304,7 +305,7 @@ arc.mojom.UsbHostHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceInfo');
           const result = this.impl.getDeviceInfo(params.guid);
           if (header.expectsResponse) {
@@ -317,7 +318,7 @@ arc.mojom.UsbHostHostReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.UsbHostHost_RequestPermission_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.UsbHostHost_RequestPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPermission');
           const result = this.impl.requestPermission(params.guid, params.pkg_name, params.interactive);
           if (header.expectsResponse) {
@@ -534,7 +535,7 @@ arc.mojom.UsbHostInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.UsbHostInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.UsbHostInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -547,14 +548,14 @@ arc.mojom.UsbHostInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
           const result = this.impl.onDeviceAdded(params.guid, params.event_receiver_packages);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
           const result = this.impl.onDeviceRemoved(params.guid, params.event_receiver_packages);
           break;

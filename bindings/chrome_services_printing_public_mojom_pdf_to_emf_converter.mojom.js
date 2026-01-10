@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -273,7 +274,7 @@ printing.mojom.PdfToEmfConverterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.convertPage');
           const result = this.impl.convertPage(params.page_index);
           if (header.expectsResponse) {
@@ -286,14 +287,14 @@ printing.mojom.PdfToEmfConverterReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWebContentsURL');
           const result = this.impl.setWebContentsURL(params.url);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUseSkiaRendererPolicy');
           const result = this.impl.setUseSkiaRendererPolicy(params.use_skia);
           break;
@@ -449,7 +450,7 @@ printing.mojom.PdfToEmfConverterFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec);
+          const params = decoder.decodeStructInline(printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createConverter');
           const result = this.impl.createConverter(params.pdf_region, params.render_settings);
           if (header.expectsResponse) {

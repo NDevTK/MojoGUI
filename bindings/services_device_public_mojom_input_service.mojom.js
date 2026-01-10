@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -272,14 +273,14 @@ device.mojom.InputDeviceManagerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inputDeviceAdded');
           const result = this.impl.inputDeviceAdded(params.device_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inputDeviceRemoved');
           const result = this.impl.inputDeviceRemoved(params.id);
           break;
@@ -466,7 +467,7 @@ device.mojom.InputDeviceManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevicesAndSetClient');
           const result = this.impl.getDevicesAndSetClient(params.client);
           if (header.expectsResponse) {
@@ -479,7 +480,7 @@ device.mojom.InputDeviceManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.InputDeviceManager_GetDevices_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.InputDeviceManager_GetDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices();
           if (header.expectsResponse) {

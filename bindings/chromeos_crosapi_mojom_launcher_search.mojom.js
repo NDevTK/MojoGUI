@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -330,7 +331,7 @@ crosapi.mojom.SearchResultsPublisherReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSearchResultsReceived');
           const result = this.impl.onSearchResultsReceived(params.status, params.result);
           break;
@@ -484,7 +485,7 @@ crosapi.mojom.SearchControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.SearchController_Search_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.SearchController_Search_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.search');
           const result = this.impl.search(params.query);
           if (header.expectsResponse) {
@@ -638,7 +639,7 @@ crosapi.mojom.SearchResultConsumerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFaviconReceived');
           const result = this.impl.onFaviconReceived(params.favicon);
           break;

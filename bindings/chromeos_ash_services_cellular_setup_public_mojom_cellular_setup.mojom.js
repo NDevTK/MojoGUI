@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -241,7 +242,7 @@ ash.cellular_setup.mojom.CarrierPortalHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCarrierPortalStatusChange');
           const result = this.impl.onCarrierPortalStatusChange(params.status);
           break;
@@ -417,14 +418,14 @@ ash.cellular_setup.mojom.ActivationDelegateReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onActivationStarted');
           const result = this.impl.onActivationStarted(params.metadata);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onActivationFinished');
           const result = this.impl.onActivationFinished(params.result);
           break;
@@ -578,7 +579,7 @@ ash.cellular_setup.mojom.CellularSetupReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startActivation');
           const result = this.impl.startActivation(params.delegate);
           if (header.expectsResponse) {

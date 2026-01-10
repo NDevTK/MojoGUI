@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -256,14 +257,14 @@ device.mojom.MtpManagerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.MtpManagerClient_StorageAttached_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.MtpManagerClient_StorageAttached_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storageAttached');
           const result = this.impl.storageAttached(params.storage_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.MtpManagerClient_StorageDetached_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.MtpManagerClient_StorageDetached_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storageDetached');
           const result = this.impl.storageDetached(params.storage_name);
           break;
@@ -810,7 +811,7 @@ device.mojom.MtpManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enumerateStoragesAndSetClient');
           const result = this.impl.enumerateStoragesAndSetClient(params.client);
           if (header.expectsResponse) {
@@ -823,7 +824,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.MtpManager_GetStorageInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.MtpManager_GetStorageInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStorageInfo');
           const result = this.impl.getStorageInfo(params.storage_name);
           if (header.expectsResponse) {
@@ -836,7 +837,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStorageInfoFromDevice');
           const result = this.impl.getStorageInfoFromDevice(params.storage_name);
           if (header.expectsResponse) {
@@ -849,7 +850,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.MtpManager_OpenStorage_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.MtpManager_OpenStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openStorage');
           const result = this.impl.openStorage(params.storage_name, params.mode);
           if (header.expectsResponse) {
@@ -862,7 +863,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.MtpManager_CloseStorage_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.MtpManager_CloseStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeStorage');
           const result = this.impl.closeStorage(params.storage_handle);
           if (header.expectsResponse) {
@@ -875,7 +876,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.MtpManager_CreateDirectory_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.MtpManager_CreateDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDirectory');
           const result = this.impl.createDirectory(params.storage_handle, params.parent_id, params.directory_name);
           if (header.expectsResponse) {
@@ -888,7 +889,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readDirectoryEntryIds');
           const result = this.impl.readDirectoryEntryIds(params.storage_handle, params.file_id);
           if (header.expectsResponse) {
@@ -901,7 +902,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.MtpManager_ReadFileChunk_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.MtpManager_ReadFileChunk_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readFileChunk');
           const result = this.impl.readFileChunk(params.storage_handle, params.file_id, params.offset, params.count);
           if (header.expectsResponse) {
@@ -914,7 +915,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.MtpManager_GetFileInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.MtpManager_GetFileInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileInfo');
           const result = this.impl.getFileInfo(params.storage_handle, params.file_ids);
           if (header.expectsResponse) {
@@ -927,7 +928,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.MtpManager_RenameObject_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.MtpManager_RenameObject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renameObject');
           const result = this.impl.renameObject(params.storage_handle, params.object_id, params.new_name);
           if (header.expectsResponse) {
@@ -940,7 +941,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copyFileFromLocal');
           const result = this.impl.copyFileFromLocal(params.storage_handle, params.source_file_descriptor, params.parent_id, params.file_name);
           if (header.expectsResponse) {
@@ -953,7 +954,7 @@ device.mojom.MtpManagerReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.MtpManager_DeleteObject_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.MtpManager_DeleteObject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteObject');
           const result = this.impl.deleteObject(params.storage_handle, params.object_id);
           if (header.expectsResponse) {

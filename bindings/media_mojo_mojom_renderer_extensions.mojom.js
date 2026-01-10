@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -233,7 +234,7 @@ media.mojom.FlingingRendererClientExtensionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemotePlayStateChange');
           const result = this.impl.onRemotePlayStateChange(params.state);
           break;
@@ -449,7 +450,7 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDCOMPSurface');
           const result = this.impl.getDCOMPSurface();
           if (header.expectsResponse) {
@@ -462,14 +463,14 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVideoStreamEnabled');
           const result = this.impl.setVideoStreamEnabled(params.enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputRect');
           const result = this.impl.setOutputRect(params.rect);
           if (header.expectsResponse) {
@@ -736,7 +737,7 @@ media.mojom.MediaFoundationRendererNotifierReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec);
+          const params = decoder.decodeStructInline(media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaFoundationRendererCreated');
           const result = this.impl.mediaFoundationRendererCreated(params.observer);
           break;

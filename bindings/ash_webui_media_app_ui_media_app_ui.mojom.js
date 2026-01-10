@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -220,7 +221,7 @@ ash.media_app_ui.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler);
           break;
@@ -574,7 +575,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
           const result = this.impl.openFeedbackDialog();
           if (header.expectsResponse) {
@@ -587,7 +588,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleBrowserFullscreenMode');
           const result = this.impl.toggleBrowserFullscreenMode();
           if (header.expectsResponse) {
@@ -600,7 +601,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.maybeTriggerPdfHats');
           const result = this.impl.maybeTriggerPdfHats();
           if (header.expectsResponse) {
@@ -613,7 +614,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isFileArcWritable');
           const result = this.impl.isFileArcWritable(params.token);
           if (header.expectsResponse) {
@@ -626,7 +627,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isFileBrowserWritable');
           const result = this.impl.isFileBrowserWritable(params.token);
           if (header.expectsResponse) {
@@ -639,7 +640,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.editInPhotos');
           const result = this.impl.editInPhotos(params.token, params.mime_type);
           if (header.expectsResponse) {
@@ -652,7 +653,7 @@ ash.media_app_ui.mojom.PageHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitForm');
           const result = this.impl.submitForm(params.url, params.payload, params.header);
           if (header.expectsResponse) {

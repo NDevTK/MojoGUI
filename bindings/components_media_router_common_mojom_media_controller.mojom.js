@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -372,49 +373,49 @@ media_router.mojom.MediaControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media_router.mojom.MediaController_Play_ParamsSpec);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaController_Play_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.play');
           const result = this.impl.play();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media_router.mojom.MediaController_Pause_ParamsSpec);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaController_Pause_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pause');
           const result = this.impl.pause();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media_router.mojom.MediaController_SetMute_ParamsSpec);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaController_SetMute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMute');
           const result = this.impl.setMute(params.mute);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media_router.mojom.MediaController_SetVolume_ParamsSpec);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaController_SetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVolume');
           const result = this.impl.setVolume(params.volume);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media_router.mojom.MediaController_Seek_ParamsSpec);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaController_Seek_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.seek');
           const result = this.impl.seek(params.time);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media_router.mojom.MediaController_NextTrack_ParamsSpec);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaController_NextTrack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.nextTrack');
           const result = this.impl.nextTrack();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(media_router.mojom.MediaController_PreviousTrack_ParamsSpec);
+          const params = decoder.decodeStructInline(media_router.mojom.MediaController_PreviousTrack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.previousTrack');
           const result = this.impl.previousTrack();
           break;

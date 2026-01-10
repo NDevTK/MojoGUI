@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -314,21 +315,21 @@ blink.mojom.DevToolsAgentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attachDevToolsSession');
           const result = this.impl.attachDevToolsSession(params.host, params.session, params.io_session, params.reattach_session_state, params.script_to_evaluate_on_load, params.client_expects_binary_responses, params.client_is_trusted, params.session_id, params.session_waits_for_debugger);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgent_InspectElement_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgent_InspectElement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inspectElement');
           const result = this.impl.inspectElement(params.point);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportChildTargets');
           const result = this.impl.reportChildTargets(params.report, params.wait_for_debugger);
           if (header.expectsResponse) {
@@ -569,28 +570,28 @@ blink.mojom.DevToolsAgentHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.childTargetCreated');
           const result = this.impl.childTargetCreated(params.worker_devtools_agent, params.worker_devtools_agent_host, params.url, params.name, params.devtools_worker_token, params.waiting_for_debugger, params.context_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mainThreadDebuggerPaused');
           const result = this.impl.mainThreadDebuggerPaused();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mainThreadDebuggerResumed');
           const result = this.impl.mainThreadDebuggerResumed();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bringToForeground');
           const result = this.impl.bringToForeground();
           break;
@@ -767,14 +768,14 @@ blink.mojom.DevToolsSessionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchProtocolCommand');
           const result = this.impl.dispatchProtocolCommand(params.call_id, params.method, params.message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unpauseAndTerminate');
           const result = this.impl.unpauseAndTerminate();
           break;
@@ -953,14 +954,14 @@ blink.mojom.DevToolsSessionHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchProtocolResponse');
           const result = this.impl.dispatchProtocolResponse(params.message, params.call_id, params.updates);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchProtocolNotification');
           const result = this.impl.dispatchProtocolNotification(params.message, params.updates);
           break;

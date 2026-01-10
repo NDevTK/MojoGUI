@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -386,42 +387,42 @@ ash.boca_receiver.mojom.UntrustedPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInitReceiverInfo');
           const result = this.impl.onInitReceiverInfo(params.receiver_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInitReceiverError');
           const result = this.impl.onInitReceiverError();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameReceived');
           const result = this.impl.onFrameReceived(params.frame_data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAudioPacket');
           const result = this.impl.onAudioPacket(params.audio_packet);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnecting');
           const result = this.impl.onConnecting(params.initiator, params.presenter);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionClosed');
           const result = this.impl.onConnectionClosed(params.reason);
           break;
@@ -569,7 +570,7 @@ ash.boca_receiver.mojom.UntrustedPageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createUntrustedPageHandler');
           const result = this.impl.createUntrustedPageHandler(params.page);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -444,28 +445,28 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didInitializeServiceWorkerContext');
           const result = this.impl.didInitializeServiceWorkerContext(params.extension_id, params.service_worker_version_id, params.worker_thread_id, params.service_worker_token, params.event_dispatcher);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didStartServiceWorkerContext');
           const result = this.impl.didStartServiceWorkerContext(params.extension_id, params.activation_token, params.service_worker_scope, params.service_worker_version_id, params.worker_thread_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didStopServiceWorkerContext');
           const result = this.impl.didStopServiceWorkerContext(params.extension_id, params.activation_token, params.service_worker_scope, params.service_worker_version_id, params.worker_thread_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestWorker');
           const result = this.impl.requestWorker(params.params);
           if (header.expectsResponse) {
@@ -478,28 +479,28 @@ extensions.mojom.ServiceWorkerHostReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.workerResponseAck');
           const result = this.impl.workerResponseAck(params.request_uuid);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openChannelToExtension');
           const result = this.impl.openChannelToExtension(params.info, params.channel_type, params.channel_name, params.port_id, params.port, params.port_host);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openChannelToNativeApp');
           const result = this.impl.openChannelToNativeApp(params.native_app_name, params.port_id, params.port, params.port_host);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openChannelToTab');
           const result = this.impl.openChannelToTab(params.tab_id, params.frame_id, params.document_id, params.channel_type, params.channel_name, params.port_id, params.port, params.port_host);
           break;

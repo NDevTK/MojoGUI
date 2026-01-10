@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -600,21 +601,21 @@ device.mojom.HidManagerClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceAdded_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceAdded');
           const result = this.impl.deviceAdded(params.device_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceRemoved');
           const result = this.impl.deviceRemoved(params.device_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceChanged');
           const result = this.impl.deviceChanged(params.device_info);
           break;
@@ -867,7 +868,7 @@ device.mojom.HidManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevicesAndSetClient');
           const result = this.impl.getDevicesAndSetClient(params.client);
           if (header.expectsResponse) {
@@ -880,7 +881,7 @@ device.mojom.HidManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidManager_GetDevices_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.HidManager_GetDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevices');
           const result = this.impl.getDevices();
           if (header.expectsResponse) {
@@ -893,7 +894,7 @@ device.mojom.HidManagerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidManager_Connect_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.HidManager_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.device_guid, params.connection_client, params.watcher, params.allow_protected_reports, params.allow_fido_reports);
           if (header.expectsResponse) {
@@ -906,7 +907,7 @@ device.mojom.HidManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidManager_AddReceiver_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.HidManager_AddReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addReceiver');
           const result = this.impl.addReceiver(params.receiver);
           break;
@@ -1166,7 +1167,7 @@ device.mojom.HidConnectionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidConnection_Read_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.HidConnection_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
           const result = this.impl.read();
           if (header.expectsResponse) {
@@ -1179,7 +1180,7 @@ device.mojom.HidConnectionReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidConnection_Write_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.HidConnection_Write_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.write');
           const result = this.impl.write(params.report_id, params.buffer);
           if (header.expectsResponse) {
@@ -1192,7 +1193,7 @@ device.mojom.HidConnectionReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidConnection_GetFeatureReport_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFeatureReport');
           const result = this.impl.getFeatureReport(params.report_id);
           if (header.expectsResponse) {
@@ -1205,7 +1206,7 @@ device.mojom.HidConnectionReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidConnection_SendFeatureReport_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendFeatureReport');
           const result = this.impl.sendFeatureReport(params.report_id, params.buffer);
           if (header.expectsResponse) {
@@ -1360,7 +1361,7 @@ device.mojom.HidConnectionClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.HidConnectionClient_OnInputReport_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInputReport');
           const result = this.impl.onInputReport(params.report_id, params.buffer);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -266,7 +267,7 @@ ash.help_app.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.handler);
           break;
@@ -731,7 +732,7 @@ ash.help_app.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
           const result = this.impl.openFeedbackDialog();
           if (header.expectsResponse) {
@@ -744,28 +745,28 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showOnDeviceAppControls');
           const result = this.impl.showOnDeviceAppControls();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showParentalControls');
           const result = this.impl.showParentalControls();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerWelcomeTipCallToAction');
           const result = this.impl.triggerWelcomeTipCallToAction(params.action_type_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isLauncherSearchEnabled');
           const result = this.impl.isLauncherSearchEnabled();
           if (header.expectsResponse) {
@@ -778,21 +779,21 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchMicrosoft365Setup');
           const result = this.impl.launchMicrosoft365Setup();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.maybeShowReleaseNotesNotification');
           const result = this.impl.maybeShowReleaseNotesNotification();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceInfo');
           const result = this.impl.getDeviceInfo();
           if (header.expectsResponse) {
@@ -805,28 +806,28 @@ ash.help_app.mojom.PageHandlerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlInBrowserAndTriggerInstallDialog');
           const result = this.impl.openUrlInBrowserAndTriggerInstallDialog(params.url);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openSettings');
           const result = this.impl.openSettings(params.component);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHasCompletedNewDeviceChecklist');
           const result = this.impl.setHasCompletedNewDeviceChecklist();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHasVisitedHowToPage');
           const result = this.impl.setHasVisitedHowToPage();
           break;

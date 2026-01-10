@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -228,7 +229,7 @@ blink.mojom.SharedWorkerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.SharedWorkerFactory_CreateSharedWorker_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.SharedWorkerFactory_CreateSharedWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSharedWorker');
           const result = this.impl.createSharedWorker(params.info, params.token, params.constructor_key, params.origin, params.is_constructor_secure_context, params.user_agent, params.ua_metadata, params.pause_on_start, params.devtools_worker_token, params.renderer_preferences, params.preference_watcher_receiver, params.content_settings, params.service_worker_container_info, params.main_script_load_params, params.subresource_loader_factories, params.controller_info, params.policy_container, params.host, params.shared_worker, params.browser_interface_broker, params.ukm_source_id, params.require_cross_site_request_for_cookies, params.coep_reporting_observer_receiver, params.dip_reporting_observer_receiver);
           break;

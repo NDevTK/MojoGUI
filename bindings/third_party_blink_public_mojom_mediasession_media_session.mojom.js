@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -275,7 +276,7 @@ blink.mojom.MediaSessionClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didReceiveAction');
           const result = this.impl.didReceiveAction(params.action, params.details);
           break;
@@ -619,56 +620,56 @@ blink.mojom.MediaSessionServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_SetClient_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPlaybackState');
           const result = this.impl.setPlaybackState(params.state);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_SetPositionState_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_SetPositionState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPositionState');
           const result = this.impl.setPositionState(params.position);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_SetMetadata_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_SetMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMetadata');
           const result = this.impl.setMetadata(params.metadata);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMicrophoneState');
           const result = this.impl.setMicrophoneState(params.microphone_state);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_SetCameraState_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_SetCameraState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCameraState');
           const result = this.impl.setCameraState(params.camera_state);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_EnableAction_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_EnableAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableAction');
           const result = this.impl.enableAction(params.action);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_DisableAction_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.MediaSessionService_DisableAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disableAction');
           const result = this.impl.disableAction(params.action);
           break;

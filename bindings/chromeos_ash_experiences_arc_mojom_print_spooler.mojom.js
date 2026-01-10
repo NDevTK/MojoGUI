@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -360,14 +361,14 @@ arc.mojom.PrintSessionInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrintPreviewClosed');
           const result = this.impl.onPrintPreviewClosed();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPreviewDocument');
           const result = this.impl.createPreviewDocument(params.request);
           if (header.expectsResponse) {
@@ -529,7 +530,7 @@ arc.mojom.PrintSpoolerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startPrintInCustomTab');
           const result = this.impl.startPrintInCustomTab(params.scoped_handle, params.task_id, params.instance);
           if (header.expectsResponse) {
@@ -688,7 +689,7 @@ arc.mojom.PrintSpoolerInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PrintSpoolerInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PrintSpoolerInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {

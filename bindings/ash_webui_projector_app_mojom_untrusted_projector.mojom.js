@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -581,7 +582,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNewScreencastPrecondition');
           const result = this.impl.getNewScreencastPrecondition();
           if (header.expectsResponse) {
@@ -594,7 +595,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldDownloadSoda');
           const result = this.impl.shouldDownloadSoda();
           if (header.expectsResponse) {
@@ -607,7 +608,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installSoda');
           const result = this.impl.installSoda();
           if (header.expectsResponse) {
@@ -620,7 +621,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPendingScreencasts');
           const result = this.impl.getPendingScreencasts();
           if (header.expectsResponse) {
@@ -633,7 +634,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUserPref');
           const result = this.impl.getUserPref(params.pref);
           if (header.expectsResponse) {
@@ -646,7 +647,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserPref');
           const result = this.impl.setUserPref(params.pref, params.value);
           if (header.expectsResponse) {
@@ -659,7 +660,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFeedbackDialog');
           const result = this.impl.openFeedbackDialog();
           if (header.expectsResponse) {
@@ -672,7 +673,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startProjectorSession');
           const result = this.impl.startProjectorSession(params.storage_dir_name);
           if (header.expectsResponse) {
@@ -685,7 +686,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendXhr');
           const result = this.impl.sendXhr(params.url, params.method, params.request_body, params.use_credentials, params.use_api_key, params.headers, params.account_email);
           if (header.expectsResponse) {
@@ -698,7 +699,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAccounts');
           const result = this.impl.getAccounts();
           if (header.expectsResponse) {
@@ -711,7 +712,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVideo');
           const result = this.impl.getVideo(params.video_file_id, params.resource_key);
           if (header.expectsResponse) {
@@ -975,35 +976,35 @@ ash.projector.mojom.UntrustedProjectorPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewScreencastPreconditionChanged');
           const result = this.impl.onNewScreencastPreconditionChanged(params.precondition);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSodaInstallProgressUpdated');
           const result = this.impl.onSodaInstallProgressUpdated(params.progress);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSodaInstalled');
           const result = this.impl.onSodaInstalled();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSodaInstallError');
           const result = this.impl.onSodaInstallError();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreencastsStateChange');
           const result = this.impl.onScreencastsStateChange(params.pending_screencasts);
           break;
@@ -1152,7 +1153,7 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
           const result = this.impl.create(params.handler, params.page);
           break;

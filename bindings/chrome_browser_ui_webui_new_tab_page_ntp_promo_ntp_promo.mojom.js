@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -405,49 +406,49 @@ ntp_promo.mojom.NtpPromoHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPromos');
           const result = this.impl.requestPromos();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPromosShown');
           const result = this.impl.onPromosShown(params.eligible_shown, params.completed_shown);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPromoClicked');
           const result = this.impl.onPromoClicked(params.promo_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.snoozeSetupList');
           const result = this.impl.snoozeSetupList();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unsnoozeSetupList');
           const result = this.impl.unsnoozeSetupList();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disableSetupList');
           const result = this.impl.disableSetupList();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.undisableSetupList');
           const result = this.impl.undisableSetupList();
           break;
@@ -596,7 +597,7 @@ ntp_promo.mojom.NtpPromoClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPromos');
           const result = this.impl.setPromos(params.eligible, params.completed);
           break;
@@ -745,7 +746,7 @@ ntp_promo.mojom.NtpPromoHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNtpPromoHandler');
           const result = this.impl.createNtpPromoHandler(params.client, params.handler);
           break;

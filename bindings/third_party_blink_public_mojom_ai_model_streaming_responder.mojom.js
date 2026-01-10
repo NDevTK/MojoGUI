@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -317,28 +318,28 @@ blink.mojom.ModelStreamingResponderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCompletion');
           const result = this.impl.onCompletion(params.context_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ModelStreamingResponder_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ModelStreamingResponder_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.status, params.quota_error_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStreaming');
           const result = this.impl.onStreaming(params.text);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onQuotaOverflow');
           const result = this.impl.onQuotaOverflow();
           break;

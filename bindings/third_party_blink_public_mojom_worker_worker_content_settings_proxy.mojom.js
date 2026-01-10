@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -312,7 +313,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allowIndexedDB');
           const result = this.impl.allowIndexedDB();
           if (header.expectsResponse) {
@@ -325,7 +326,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allowCacheStorage');
           const result = this.impl.allowCacheStorage();
           if (header.expectsResponse) {
@@ -338,7 +339,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allowWebLocks');
           const result = this.impl.allowWebLocks();
           if (header.expectsResponse) {
@@ -351,7 +352,7 @@ blink.mojom.WorkerContentSettingsProxyReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestFileSystemAccessSync');
           const result = this.impl.requestFileSystemAccessSync();
           if (header.expectsResponse) {

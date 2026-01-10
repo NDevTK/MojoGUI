@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -638,7 +639,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSmbfsEnableVerboseLogging');
           const result = this.impl.getSmbfsEnableVerboseLogging();
           if (header.expectsResponse) {
@@ -651,14 +652,14 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSmbfsEnableVerboseLogging');
           const result = this.impl.setSmbfsEnableVerboseLogging(params.enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOfficeFileHandlers');
           const result = this.impl.getOfficeFileHandlers();
           if (header.expectsResponse) {
@@ -671,14 +672,14 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearOfficeFileHandlers');
           const result = this.impl.clearOfficeFileHandlers();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMoveConfirmationShownForDrive');
           const result = this.impl.getMoveConfirmationShownForDrive();
           if (header.expectsResponse) {
@@ -691,7 +692,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMoveConfirmationShownForOneDrive');
           const result = this.impl.getMoveConfirmationShownForOneDrive();
           if (header.expectsResponse) {
@@ -704,7 +705,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMoveConfirmationShownForLocalToDrive');
           const result = this.impl.getMoveConfirmationShownForLocalToDrive();
           if (header.expectsResponse) {
@@ -717,7 +718,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMoveConfirmationShownForLocalToOneDrive');
           const result = this.impl.getMoveConfirmationShownForLocalToOneDrive();
           if (header.expectsResponse) {
@@ -730,7 +731,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMoveConfirmationShownForCloudToDrive');
           const result = this.impl.getMoveConfirmationShownForCloudToDrive();
           if (header.expectsResponse) {
@@ -743,7 +744,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMoveConfirmationShownForCloudToOneDrive');
           const result = this.impl.getMoveConfirmationShownForCloudToOneDrive();
           if (header.expectsResponse) {
@@ -756,7 +757,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAlwaysMoveOfficeFilesToDrive');
           const result = this.impl.getAlwaysMoveOfficeFilesToDrive();
           if (header.expectsResponse) {
@@ -769,14 +770,14 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAlwaysMoveOfficeFilesToDrive');
           const result = this.impl.setAlwaysMoveOfficeFilesToDrive(params.always_move);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAlwaysMoveOfficeFilesToOneDrive');
           const result = this.impl.getAlwaysMoveOfficeFilesToOneDrive();
           if (header.expectsResponse) {
@@ -789,7 +790,7 @@ ash.mojom.files_internals.PageHandlerReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAlwaysMoveOfficeFilesToOneDrive');
           const result = this.impl.setAlwaysMoveOfficeFilesToOneDrive(params.always_move);
           break;

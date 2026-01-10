@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -263,7 +264,7 @@ file_suggestion.mojom.DriveSuggestionHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec);
+          const params = decoder.decodeStructInline(file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFiles');
           const result = this.impl.getFiles();
           if (header.expectsResponse) {
@@ -276,14 +277,14 @@ file_suggestion.mojom.DriveSuggestionHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec);
+          const params = decoder.decodeStructInline(file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dismissModule');
           const result = this.impl.dismissModule();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec);
+          const params = decoder.decodeStructInline(file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restoreModule');
           const result = this.impl.restoreModule();
           break;

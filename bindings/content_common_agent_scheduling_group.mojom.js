@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -208,7 +209,7 @@ content.mojom.AgentSchedulingGroupHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didUnloadRenderFrame');
           const result = this.impl.didUnloadRenderFrame(params.frame_token);
           break;
@@ -442,28 +443,28 @@ content.mojom.AgentSchedulingGroupReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAssociatedInterfaces');
           const result = this.impl.bindAssociatedInterfaces(params.remote_host, params.route_provider_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createView');
           const result = this.impl.createView(params.params);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFrame');
           const result = this.impl.createFrame(params.params);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSharedStorageWorkletService');
           const result = this.impl.createSharedStorageWorkletService(params.receiver, params.global_scope_creation_params);
           break;

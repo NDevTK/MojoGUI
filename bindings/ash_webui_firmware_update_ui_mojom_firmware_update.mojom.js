@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -298,7 +299,7 @@ ash.firmware_update.mojom.UpdateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUpdateListChanged');
           const result = this.impl.onUpdateListChanged(params.firmware_updates);
           break;
@@ -446,7 +447,7 @@ ash.firmware_update.mojom.DeviceRequestObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRequest');
           const result = this.impl.onDeviceRequest(params.request);
           break;
@@ -594,7 +595,7 @@ ash.firmware_update.mojom.UpdateProgressObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStatusChanged');
           const result = this.impl.onStatusChanged(params.update);
           break;
@@ -809,14 +810,14 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observePeripheralUpdates');
           const result = this.impl.observePeripheralUpdates(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prepareForUpdate');
           const result = this.impl.prepareForUpdate(params.device_id);
           if (header.expectsResponse) {
@@ -829,7 +830,7 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchInProgressUpdate');
           const result = this.impl.fetchInProgressUpdate();
           if (header.expectsResponse) {
@@ -1040,21 +1041,21 @@ ash.firmware_update.mojom.InstallControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.beginUpdate');
           const result = this.impl.beginUpdate(params.device_id, params.filepath);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDeviceRequestObserver');
           const result = this.impl.addDeviceRequestObserver(params.observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addUpdateProgressObserver');
           const result = this.impl.addUpdateProgressObserver(params.observer);
           break;
@@ -1201,7 +1202,7 @@ ash.firmware_update.mojom.SystemUtilsReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restart');
           const result = this.impl.restart();
           break;

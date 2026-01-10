@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -1214,14 +1215,14 @@ device.mojom.VRServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VRService_SetClient_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.VRService_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VRService_RequestSession_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.VRService_RequestSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSession');
           const result = this.impl.requestSession(params.options);
           if (header.expectsResponse) {
@@ -1234,7 +1235,7 @@ device.mojom.VRServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VRService_SupportsSession_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.VRService_SupportsSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.supportsSession');
           const result = this.impl.supportsSession(params.options);
           if (header.expectsResponse) {
@@ -1247,7 +1248,7 @@ device.mojom.VRServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VRService_ExitPresent_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.VRService_ExitPresent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exitPresent');
           const result = this.impl.exitPresent();
           if (header.expectsResponse) {
@@ -1260,14 +1261,14 @@ device.mojom.VRServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VRService_SetFramesThrottled_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.VRService_SetFramesThrottled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFramesThrottled');
           const result = this.impl.setFramesThrottled(params.throttled);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VRService_MakeXrCompatible_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.VRService_MakeXrCompatible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.makeXrCompatible');
           const result = this.impl.makeXrCompatible();
           if (header.expectsResponse) {
@@ -1421,7 +1422,7 @@ device.mojom.XRSessionMetricsRecorderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportFeatureUsed');
           const result = this.impl.reportFeatureUsed(params.feature);
           break;
@@ -1568,7 +1569,7 @@ device.mojom.VRServiceClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceChanged');
           const result = this.impl.onDeviceChanged();
           break;
@@ -1852,7 +1853,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToHitTest');
           const result = this.impl.subscribeToHitTest(params.native_origin_information, params.entity_types, params.ray);
           if (header.expectsResponse) {
@@ -1865,7 +1866,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToHitTestForTransientInput');
           const result = this.impl.subscribeToHitTestForTransientInput(params.profile_name, params.entity_types, params.ray);
           if (header.expectsResponse) {
@@ -1878,14 +1879,14 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unsubscribeFromHitTest');
           const result = this.impl.unsubscribeFromHitTest(params.subscription_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAnchor');
           const result = this.impl.createAnchor(params.native_origin_information, params.native_origin_from_anchor, params.plane_id);
           if (header.expectsResponse) {
@@ -1898,7 +1899,7 @@ device.mojom.XREnvironmentIntegrationProviderReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detachAnchor');
           const result = this.impl.detachAnchor(params.anchor_id);
           break;
@@ -2080,7 +2081,7 @@ device.mojom.XRFrameDataProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFrameData');
           const result = this.impl.getFrameData(params.options);
           if (header.expectsResponse) {
@@ -2093,7 +2094,7 @@ device.mojom.XRFrameDataProviderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getEnvironmentIntegrationProvider');
           const result = this.impl.getEnvironmentIntegrationProvider(params.environment_provider);
           break;
@@ -2363,35 +2364,35 @@ device.mojom.XRPresentationProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLayerBounds');
           const result = this.impl.updateLayerBounds(params.frame_id, params.left_bounds, params.right_bounds, params.source_size);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFrameMissing');
           const result = this.impl.submitFrameMissing(params.frame_id, params.sync_token);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFrame');
           const result = this.impl.submitFrame(params.frame_id, params.time_waited);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFrameWithTextureHandle');
           const result = this.impl.submitFrameWithTextureHandle(params.frame_id, params.texture, params.sync_token);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFrameDrawnIntoTexture');
           const result = this.impl.submitFrameDrawnIntoTexture(params.frame_id, params.layer_ids, params.sync_token, params.time_waited);
           break;
@@ -2594,21 +2595,21 @@ device.mojom.XRPresentationClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSubmitFrameTransferred');
           const result = this.impl.onSubmitFrameTransferred(params.success);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSubmitFrameRendered');
           const result = this.impl.onSubmitFrameRendered();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSubmitFrameGpuFence');
           const result = this.impl.onSubmitFrameGpuFence(params.gpu_fence_handle);
           break;
@@ -2783,14 +2784,14 @@ device.mojom.XRSessionClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRSessionClient_OnExitPresent_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRSessionClient_OnExitPresent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onExitPresent');
           const result = this.impl.onExitPresent();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVisibilityStateChanged');
           const result = this.impl.onVisibilityStateChanged(params.visibility_state);
           break;
@@ -3029,7 +3030,7 @@ device.mojom.XRLayerManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCompositionLayer');
           const result = this.impl.createCompositionLayer(params.create_data);
           if (header.expectsResponse) {
@@ -3042,21 +3043,21 @@ device.mojom.XRLayerManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.destroyCompositionLayer');
           const result = this.impl.destroyCompositionLayer(params.layer_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateCompositionLayer');
           const result = this.impl.updateCompositionLayer(params.layer_id, params.update_data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEnabledCompositionLayers');
           const result = this.impl.setEnabledCompositionLayers(params.layer_ids);
           break;
@@ -3232,14 +3233,14 @@ device.mojom.WebXrInternalsRendererListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameData');
           const result = this.impl.onFrameData(params.xrframe_statistics);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec);
+          const params = decoder.decodeStructInline(device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConsoleLog');
           const result = this.impl.onConsoleLog(params.xrlogging_statistics);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -236,7 +237,7 @@ policy.local_user_files.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -445,7 +446,7 @@ policy.local_user_files.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInitialDialogInfo');
           const result = this.impl.getInitialDialogInfo();
           if (header.expectsResponse) {
@@ -458,14 +459,14 @@ policy.local_user_files.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec);
+          const params = decoder.decodeStructInline(policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.uploadOrDeleteNow');
           const result = this.impl.uploadOrDeleteNow();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(policy.local_user_files.mojom.PageHandler_Close_ParamsSpec);
+          const params = decoder.decodeStructInline(policy.local_user_files.mojom.PageHandler_Close_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
           break;
@@ -613,7 +614,7 @@ policy.local_user_files.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec);
+          const params = decoder.decodeStructInline(policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRemainingTime');
           const result = this.impl.updateRemainingTime(params.remaining_time);
           break;

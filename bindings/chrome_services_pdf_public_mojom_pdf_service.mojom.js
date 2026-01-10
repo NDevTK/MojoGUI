@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -216,7 +217,7 @@ pdf.mojom.OcrReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.Ocr_PerformOcr_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.Ocr_PerformOcr_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performOcr');
           const result = this.impl.performOcr(params.image);
           if (header.expectsResponse) {
@@ -428,21 +429,21 @@ pdf.mojom.PdfServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPdfProgressiveSearchifier');
           const result = this.impl.bindPdfProgressiveSearchifier(params.receiver, params.ocr);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPdfSearchifier');
           const result = this.impl.bindPdfSearchifier(params.receiver, params.ocr);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec);
+          const params = decoder.decodeStructInline(pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPdfThumbnailer');
           const result = this.impl.bindPdfThumbnailer(params.receiver);
           break;

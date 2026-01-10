@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -388,21 +389,21 @@ ax.mojom.UserInterfaceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.UserInterface_DarkenScreen_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.UserInterface_DarkenScreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.darkenScreen');
           const result = this.impl.darkenScreen(params.darken);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openSettingsSubpage');
           const result = this.impl.openSettingsSubpage(params.subpage);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showConfirmationDialog');
           const result = this.impl.showConfirmationDialog(params.title, params.description, params.cancelName);
           if (header.expectsResponse) {
@@ -415,21 +416,21 @@ ax.mojom.UserInterfaceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.UserInterface_SetFocusRings_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.UserInterface_SetFocusRings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFocusRings');
           const result = this.impl.setFocusRings(params.focus_rings, params.at_type);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.UserInterface_SetHighlights_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.UserInterface_SetHighlights_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHighlights');
           const result = this.impl.setHighlights(params.rects, params.color);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec);
+          const params = decoder.decodeStructInline(ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVirtualKeyboardVisible');
           const result = this.impl.setVirtualKeyboardVisible(params.is_visible);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -306,28 +307,28 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeclineCellularClicked');
           const result = this.impl.onDeclineCellularClicked();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAcceptCellularClicked');
           const result = this.impl.onAcceptCellularClicked();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSkipClicked');
           const result = this.impl.onSkipClicked();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBackClicked');
           const result = this.impl.onBackClicked();
           break;
@@ -588,35 +589,35 @@ ash.screens_oobe.mojom.ConsumerUpdatePageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showSkipButton');
           const result = this.impl.showSkipButton();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLowBatteryWarningVisible');
           const result = this.impl.setLowBatteryWarningVisible(params.visible);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScreenStep');
           const result = this.impl.setScreenStep(params.step);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUpdateStatusMessage');
           const result = this.impl.setUpdateStatusMessage(params.percent, params.percent_message, params.time_left_message);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAutoTransition');
           const result = this.impl.setAutoTransition(params.enabled);
           break;
@@ -790,14 +791,14 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDontEnrollClicked');
           const result = this.impl.onDontEnrollClicked();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEnrollClicked');
           const result = this.impl.onEnrollClicked();
           break;

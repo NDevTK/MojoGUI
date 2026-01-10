@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -261,7 +262,7 @@ chrome.mojom.BoundSessionRequestThrottledHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleRequestBlockedOnCookie');
           const result = this.impl.handleRequestBlockedOnCookie(params.untrusted_request_url);
           if (header.expectsResponse) {
@@ -414,7 +415,7 @@ chrome.mojom.ChromeOSListenerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mergeSessionComplete');
           const result = this.impl.mergeSessionComplete();
           break;
@@ -621,21 +622,21 @@ chrome.mojom.RendererConfigurationReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInitialConfiguration');
           const result = this.impl.setInitialConfiguration(params.is_incognito_process, params.chromeos_listener, params.content_settings_manager, params.bound_session_request_throttled_handler);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setConfiguration');
           const result = this.impl.setConfiguration(params.params);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setConfigurationOnProcessLockUpdate');
           const result = this.impl.setConfigurationOnProcessLockUpdate(params.params);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -304,7 +305,7 @@ ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAcceleratorsUpdated');
           const result = this.impl.onAcceleratorsUpdated(params.config);
           break;
@@ -451,7 +452,7 @@ ash.shortcut_customization.mojom.PolicyUpdatedObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCustomizationPolicyUpdated');
           const result = this.impl.onCustomizationPolicyUpdated();
           break;
@@ -1219,7 +1220,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isMutable');
           const result = this.impl.isMutable(params.source);
           if (header.expectsResponse) {
@@ -1232,7 +1233,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isCustomizationAllowedByPolicy');
           const result = this.impl.isCustomizationAllowedByPolicy();
           if (header.expectsResponse) {
@@ -1245,7 +1246,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMetaKeyToDisplay');
           const result = this.impl.getMetaKeyToDisplay();
           if (header.expectsResponse) {
@@ -1258,7 +1259,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getConflictAccelerator');
           const result = this.impl.getConflictAccelerator(params.source, params.action_id, params.accelerator);
           if (header.expectsResponse) {
@@ -1271,7 +1272,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDefaultAcceleratorsForId');
           const result = this.impl.getDefaultAcceleratorsForId(params.action_id);
           if (header.expectsResponse) {
@@ -1284,7 +1285,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAccelerators');
           const result = this.impl.getAccelerators();
           if (header.expectsResponse) {
@@ -1297,21 +1298,21 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
           const result = this.impl.addObserver(params.observer);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPolicyObserver');
           const result = this.impl.addPolicyObserver(params.observer);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAcceleratorLayoutInfos');
           const result = this.impl.getAcceleratorLayoutInfos();
           if (header.expectsResponse) {
@@ -1324,7 +1325,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.preventProcessingAccelerators');
           const result = this.impl.preventProcessingAccelerators(params.prevent_processing_accelerators);
           if (header.expectsResponse) {
@@ -1337,7 +1338,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addAccelerator');
           const result = this.impl.addAccelerator(params.source, params.action_id, params.accelerator);
           if (header.expectsResponse) {
@@ -1350,7 +1351,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeAccelerator');
           const result = this.impl.removeAccelerator(params.source, params.action_id, params.accelerator);
           if (header.expectsResponse) {
@@ -1363,7 +1364,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.replaceAccelerator');
           const result = this.impl.replaceAccelerator(params.source, params.action_id, params.old_accelerator, params.new_accelerator);
           if (header.expectsResponse) {
@@ -1376,7 +1377,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restoreDefault');
           const result = this.impl.restoreDefault(params.source, params.action_id);
           if (header.expectsResponse) {
@@ -1389,7 +1390,7 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restoreAllDefaults');
           const result = this.impl.restoreAllDefaults();
           if (header.expectsResponse) {
@@ -1402,35 +1403,35 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderReceiver = clas
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordUserAction');
           const result = this.impl.recordUserAction(params.user_action);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordMainCategoryNavigation');
           const result = this.impl.recordMainCategoryNavigation(params.category);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordEditDialogCompletedActions');
           const result = this.impl.recordEditDialogCompletedActions(params.completed_actions);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordAddOrEditSubactions');
           const result = this.impl.recordAddOrEditSubactions(params.is_add, params.subactions);
           break;
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasCustomAccelerators');
           const result = this.impl.hasCustomAccelerators();
           if (header.expectsResponse) {

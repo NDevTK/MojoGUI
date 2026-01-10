@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -267,14 +268,14 @@ arc.mojom.MidisClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
           const result = this.impl.onDeviceAdded(params.device);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
           const result = this.impl.onDeviceRemoved(params.device);
           break;
@@ -489,7 +490,7 @@ arc.mojom.MidisServerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MidisServer_ListDevices_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MidisServer_ListDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listDevices');
           const result = this.impl.listDevices();
           if (header.expectsResponse) {
@@ -502,7 +503,7 @@ arc.mojom.MidisServerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MidisServer_RequestPort_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MidisServer_RequestPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPort');
           const result = this.impl.requestPort(params.request);
           if (header.expectsResponse) {
@@ -515,7 +516,7 @@ arc.mojom.MidisServerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MidisServer_CloseDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MidisServer_CloseDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeDevice');
           const result = this.impl.closeDevice(params.request);
           break;
@@ -664,7 +665,7 @@ arc.mojom.MidisHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MidisHost_Connect_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MidisHost_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.server, params.client);
           break;
@@ -817,7 +818,7 @@ arc.mojom.MidisInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.MidisInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.MidisInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {

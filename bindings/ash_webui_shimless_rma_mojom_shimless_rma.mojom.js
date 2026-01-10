@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -770,7 +771,7 @@ ash.shimless_rma.mojom.ErrorObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;
@@ -920,7 +921,7 @@ ash.shimless_rma.mojom.OsUpdateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOsUpdateProgressUpdated');
           const result = this.impl.onOsUpdateProgressUpdated(params.operation, params.progress, params.update_error_code);
           break;
@@ -1096,14 +1097,14 @@ ash.shimless_rma.mojom.CalibrationObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCalibrationUpdated');
           const result = this.impl.onCalibrationUpdated(params.componentStatus);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCalibrationStepComplete');
           const result = this.impl.onCalibrationStepComplete(params.status);
           break;
@@ -1253,7 +1254,7 @@ ash.shimless_rma.mojom.ProvisioningObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProvisioningUpdated');
           const result = this.impl.onProvisioningUpdated(params.status, params.progress, params.error);
           break;
@@ -1401,7 +1402,7 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHardwareWriteProtectionStateChanged');
           const result = this.impl.onHardwareWriteProtectionStateChanged(params.enabled);
           break;
@@ -1549,7 +1550,7 @@ ash.shimless_rma.mojom.PowerCableStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPowerCableStateChanged');
           const result = this.impl.onPowerCableStateChanged(params.plugged_in);
           break;
@@ -1697,7 +1698,7 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onExternalDiskStateChanged');
           const result = this.impl.onExternalDiskStateChanged(params.detected);
           break;
@@ -1845,7 +1846,7 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHardwareVerificationResult');
           const result = this.impl.onHardwareVerificationResult(params.result);
           break;
@@ -1995,7 +1996,7 @@ ash.shimless_rma.mojom.FinalizationObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFinalizationUpdated');
           const result = this.impl.onFinalizationUpdated(params.status, params.progress, params.error);
           break;
@@ -2143,7 +2144,7 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUpdateRoFirmwareStatusChanged');
           const result = this.impl.onUpdateRoFirmwareStatusChanged(params.status);
           break;
@@ -4652,7 +4653,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCurrentState');
           const result = this.impl.getCurrentState();
           if (header.expectsResponse) {
@@ -4665,7 +4666,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStateProperties');
           const result = this.impl.getStateProperties();
           if (header.expectsResponse) {
@@ -4678,7 +4679,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.transitionPreviousState');
           const result = this.impl.transitionPreviousState();
           if (header.expectsResponse) {
@@ -4691,7 +4692,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.abortRma');
           const result = this.impl.abortRma();
           if (header.expectsResponse) {
@@ -4704,7 +4705,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.beginFinalization');
           const result = this.impl.beginFinalization();
           if (header.expectsResponse) {
@@ -4717,14 +4718,14 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.trackConfiguredNetworks');
           const result = this.impl.trackConfiguredNetworks();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.networkSelectionComplete');
           const result = this.impl.networkSelectionComplete();
           if (header.expectsResponse) {
@@ -4737,7 +4738,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCurrentOsVersion');
           const result = this.impl.getCurrentOsVersion();
           if (header.expectsResponse) {
@@ -4750,7 +4751,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkForOsUpdates');
           const result = this.impl.checkForOsUpdates();
           if (header.expectsResponse) {
@@ -4763,7 +4764,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOs');
           const result = this.impl.updateOs();
           if (header.expectsResponse) {
@@ -4776,7 +4777,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOsSkipped');
           const result = this.impl.updateOsSkipped();
           if (header.expectsResponse) {
@@ -4789,7 +4790,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSameOwner');
           const result = this.impl.setSameOwner();
           if (header.expectsResponse) {
@@ -4802,7 +4803,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDifferentOwner');
           const result = this.impl.setDifferentOwner();
           if (header.expectsResponse) {
@@ -4815,7 +4816,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWipeDevice');
           const result = this.impl.setWipeDevice(params.should_wipe_device);
           if (header.expectsResponse) {
@@ -4828,7 +4829,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setManuallyDisableWriteProtect');
           const result = this.impl.setManuallyDisableWriteProtect();
           if (header.expectsResponse) {
@@ -4841,7 +4842,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRsuDisableWriteProtect');
           const result = this.impl.setRsuDisableWriteProtect();
           if (header.expectsResponse) {
@@ -4854,7 +4855,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRsuDisableWriteProtectChallenge');
           const result = this.impl.getRsuDisableWriteProtectChallenge();
           if (header.expectsResponse) {
@@ -4867,7 +4868,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRsuDisableWriteProtectHwid');
           const result = this.impl.getRsuDisableWriteProtectHwid();
           if (header.expectsResponse) {
@@ -4880,7 +4881,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRsuDisableWriteProtectChallengeQrCode');
           const result = this.impl.getRsuDisableWriteProtectChallengeQrCode();
           if (header.expectsResponse) {
@@ -4893,7 +4894,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRsuDisableWriteProtectCode');
           const result = this.impl.setRsuDisableWriteProtectCode(params.code);
           if (header.expectsResponse) {
@@ -4906,7 +4907,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeProtectManuallyDisabled');
           const result = this.impl.writeProtectManuallyDisabled();
           if (header.expectsResponse) {
@@ -4919,7 +4920,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWriteProtectDisableCompleteAction');
           const result = this.impl.getWriteProtectDisableCompleteAction();
           if (header.expectsResponse) {
@@ -4932,7 +4933,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.confirmManualWpDisableComplete');
           const result = this.impl.confirmManualWpDisableComplete();
           if (header.expectsResponse) {
@@ -4945,7 +4946,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getComponentList');
           const result = this.impl.getComponentList();
           if (header.expectsResponse) {
@@ -4958,7 +4959,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setComponentList');
           const result = this.impl.setComponentList(params.components);
           if (header.expectsResponse) {
@@ -4971,7 +4972,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reworkMainboard');
           const result = this.impl.reworkMainboard();
           if (header.expectsResponse) {
@@ -4984,7 +4985,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.roFirmwareUpdateComplete');
           const result = this.impl.roFirmwareUpdateComplete();
           if (header.expectsResponse) {
@@ -4997,7 +4998,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shutdownForRestock');
           const result = this.impl.shutdownForRestock();
           if (header.expectsResponse) {
@@ -5010,7 +5011,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.continueFinalizationAfterRestock');
           const result = this.impl.continueFinalizationAfterRestock();
           if (header.expectsResponse) {
@@ -5023,7 +5024,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRegionList');
           const result = this.impl.getRegionList();
           if (header.expectsResponse) {
@@ -5036,7 +5037,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSkuList');
           const result = this.impl.getSkuList();
           if (header.expectsResponse) {
@@ -5049,7 +5050,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCustomLabelList');
           const result = this.impl.getCustomLabelList();
           if (header.expectsResponse) {
@@ -5062,7 +5063,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSkuDescriptionList');
           const result = this.impl.getSkuDescriptionList();
           if (header.expectsResponse) {
@@ -5075,7 +5076,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 33: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOriginalSerialNumber');
           const result = this.impl.getOriginalSerialNumber();
           if (header.expectsResponse) {
@@ -5088,7 +5089,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOriginalRegion');
           const result = this.impl.getOriginalRegion();
           if (header.expectsResponse) {
@@ -5101,7 +5102,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOriginalSku');
           const result = this.impl.getOriginalSku();
           if (header.expectsResponse) {
@@ -5114,7 +5115,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOriginalCustomLabel');
           const result = this.impl.getOriginalCustomLabel();
           if (header.expectsResponse) {
@@ -5127,7 +5128,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOriginalDramPartNumber');
           const result = this.impl.getOriginalDramPartNumber();
           if (header.expectsResponse) {
@@ -5140,7 +5141,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOriginalFeatureLevel');
           const result = this.impl.getOriginalFeatureLevel();
           if (header.expectsResponse) {
@@ -5153,7 +5154,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDeviceInformation');
           const result = this.impl.setDeviceInformation(params.serial_number, params.region_index, params.sku_index, params.custom_label_index, params.dram_part_number, params.is_chassis_branded, params.hw_compliance_version);
           if (header.expectsResponse) {
@@ -5166,7 +5167,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCalibrationComponentList');
           const result = this.impl.getCalibrationComponentList();
           if (header.expectsResponse) {
@@ -5179,7 +5180,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCalibrationSetupInstructions');
           const result = this.impl.getCalibrationSetupInstructions();
           if (header.expectsResponse) {
@@ -5192,7 +5193,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startCalibration');
           const result = this.impl.startCalibration(params.components);
           if (header.expectsResponse) {
@@ -5205,7 +5206,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 43: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runCalibrationStep');
           const result = this.impl.runCalibrationStep();
           if (header.expectsResponse) {
@@ -5218,7 +5219,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 44: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.continueCalibration');
           const result = this.impl.continueCalibration();
           if (header.expectsResponse) {
@@ -5231,7 +5232,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 45: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.calibrationComplete');
           const result = this.impl.calibrationComplete();
           if (header.expectsResponse) {
@@ -5244,7 +5245,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 46: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.retryProvisioning');
           const result = this.impl.retryProvisioning();
           if (header.expectsResponse) {
@@ -5257,7 +5258,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 47: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.provisioningComplete');
           const result = this.impl.provisioningComplete();
           if (header.expectsResponse) {
@@ -5270,7 +5271,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 48: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.retryFinalization');
           const result = this.impl.retryFinalization();
           if (header.expectsResponse) {
@@ -5283,7 +5284,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 49: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.finalizationComplete');
           const result = this.impl.finalizationComplete();
           if (header.expectsResponse) {
@@ -5296,7 +5297,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeProtectManuallyEnabled');
           const result = this.impl.writeProtectManuallyEnabled();
           if (header.expectsResponse) {
@@ -5309,7 +5310,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 51: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLog');
           const result = this.impl.getLog();
           if (header.expectsResponse) {
@@ -5322,7 +5323,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 52: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.saveLog');
           const result = this.impl.saveLog();
           if (header.expectsResponse) {
@@ -5335,7 +5336,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 53: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPowerwashRequired');
           const result = this.impl.getPowerwashRequired();
           if (header.expectsResponse) {
@@ -5348,14 +5349,14 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 54: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchDiagnostics');
           const result = this.impl.launchDiagnostics();
           break;
         }
         case 55: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.endRma');
           const result = this.impl.endRma(params.shutdown_method);
           if (header.expectsResponse) {
@@ -5368,14 +5369,14 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 56: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shutDownAfterHardwareError');
           const result = this.impl.shutDownAfterHardwareError();
           break;
         }
         case 57: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.criticalErrorExitToLogin');
           const result = this.impl.criticalErrorExitToLogin();
           if (header.expectsResponse) {
@@ -5388,7 +5389,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 58: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.criticalErrorReboot');
           const result = this.impl.criticalErrorReboot();
           if (header.expectsResponse) {
@@ -5401,7 +5402,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 59: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.get3pDiagnosticsProvider');
           const result = this.impl.get3pDiagnosticsProvider();
           if (header.expectsResponse) {
@@ -5414,7 +5415,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 60: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInstallable3pDiagnosticsAppPath');
           const result = this.impl.getInstallable3pDiagnosticsAppPath();
           if (header.expectsResponse) {
@@ -5427,7 +5428,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 61: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installLastFound3pDiagnosticsApp');
           const result = this.impl.installLastFound3pDiagnosticsApp();
           if (header.expectsResponse) {
@@ -5440,7 +5441,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 62: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.completeLast3pDiagnosticsInstallation');
           const result = this.impl.completeLast3pDiagnosticsInstallation(params.is_approved);
           if (header.expectsResponse) {
@@ -5453,7 +5454,7 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 63: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.show3pDiagnosticsApp');
           const result = this.impl.show3pDiagnosticsApp();
           if (header.expectsResponse) {
@@ -5466,70 +5467,70 @@ ash.shimless_rma.mojom.ShimlessRmaServiceReceiver = class {
         }
         case 64: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeError');
           const result = this.impl.observeError(params.observer);
           break;
         }
         case 65: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeOsUpdateProgress');
           const result = this.impl.observeOsUpdateProgress(params.observer);
           break;
         }
         case 66: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeCalibrationProgress');
           const result = this.impl.observeCalibrationProgress(params.observer);
           break;
         }
         case 67: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeProvisioningProgress');
           const result = this.impl.observeProvisioningProgress(params.observer);
           break;
         }
         case 68: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeHardwareWriteProtectionState');
           const result = this.impl.observeHardwareWriteProtectionState(params.observer);
           break;
         }
         case 69: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observePowerCableState');
           const result = this.impl.observePowerCableState(params.observer);
           break;
         }
         case 70: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeExternalDiskState');
           const result = this.impl.observeExternalDiskState(params.observer);
           break;
         }
         case 71: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeHardwareVerificationStatus');
           const result = this.impl.observeHardwareVerificationStatus(params.observer);
           break;
         }
         case 72: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeFinalizationStatus');
           const result = this.impl.observeFinalizationStatus(params.observer);
           break;
         }
         case 73: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeRoFirmwareUpdateProgress');
           const result = this.impl.observeRoFirmwareUpdateProgress(params.observer);
           break;

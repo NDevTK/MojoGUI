@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -598,7 +599,7 @@ device_test.mojom.XRTestHookReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec);
+          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameSubmitted');
           const result = this.impl.onFrameSubmitted(params.frame_data);
           if (header.expectsResponse) {
@@ -611,7 +612,7 @@ device_test.mojom.XRTestHookReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec);
+          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitGetDeviceConfig');
           const result = this.impl.waitGetDeviceConfig();
           if (header.expectsResponse) {
@@ -624,7 +625,7 @@ device_test.mojom.XRTestHookReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec);
+          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitGetPresentingPose');
           const result = this.impl.waitGetPresentingPose();
           if (header.expectsResponse) {
@@ -637,7 +638,7 @@ device_test.mojom.XRTestHookReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec);
+          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitGetMagicWindowPose');
           const result = this.impl.waitGetMagicWindowPose();
           if (header.expectsResponse) {
@@ -650,7 +651,7 @@ device_test.mojom.XRTestHookReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec);
+          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitGetControllerRoleForTrackedDeviceIndex');
           const result = this.impl.waitGetControllerRoleForTrackedDeviceIndex(params.index);
           if (header.expectsResponse) {
@@ -663,7 +664,7 @@ device_test.mojom.XRTestHookReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec);
+          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitGetControllerData');
           const result = this.impl.waitGetControllerData(params.index);
           if (header.expectsResponse) {
@@ -676,7 +677,7 @@ device_test.mojom.XRTestHookReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec);
+          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitGetEventData');
           const result = this.impl.waitGetEventData();
           if (header.expectsResponse) {
@@ -689,7 +690,7 @@ device_test.mojom.XRTestHookReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec);
+          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitGetCanCreateSession');
           const result = this.impl.waitGetCanCreateSession();
           if (header.expectsResponse) {
@@ -702,7 +703,7 @@ device_test.mojom.XRTestHookReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec);
+          const params = decoder.decodeStructInline(device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitGetVisibilityMask');
           const result = this.impl.waitGetVisibilityMask(params.view_index);
           if (header.expectsResponse) {
@@ -893,7 +894,7 @@ device_test.mojom.XRServiceTestHookReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec);
+          const params = decoder.decodeStructInline(device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTestHook');
           const result = this.impl.setTestHook(params.hook);
           if (header.expectsResponse) {
@@ -906,7 +907,7 @@ device_test.mojom.XRServiceTestHookReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.terminateDeviceServiceProcessForTesting');
           const result = this.impl.terminateDeviceServiceProcessForTesting();
           if (header.expectsResponse) {

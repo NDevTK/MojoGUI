@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -246,7 +247,7 @@ storage.mojom.MockFailureInjectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.MockFailureInjector_FailOperation_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.MockFailureInjector_FailOperation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.failOperation');
           const result = this.impl.failOperation(params.failure_class, params.failure_method, params.instance_num, params.call_num);
           break;
@@ -661,7 +662,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBaseDataPathForTesting');
           const result = this.impl.getBaseDataPathForTesting();
           if (header.expectsResponse) {
@@ -674,7 +675,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFilePathForTesting');
           const result = this.impl.getFilePathForTesting(params.bucket_locator, params.for_sqlite);
           if (header.expectsResponse) {
@@ -687,7 +688,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetCachesForTesting');
           const result = this.impl.resetCachesForTesting();
           if (header.expectsResponse) {
@@ -700,7 +701,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPathForBlobForTesting');
           const result = this.impl.getPathForBlobForTesting(params.bucket_locator, params.database_id, params.blob_number);
           if (header.expectsResponse) {
@@ -713,7 +714,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushBackingStoreForTesting');
           const result = this.impl.flushBackingStoreForTesting(params.bucket_locator);
           if (header.expectsResponse) {
@@ -726,7 +727,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushBucketSequenceForTesting');
           const result = this.impl.flushBucketSequenceForTesting(params.bucket_locator);
           if (header.expectsResponse) {
@@ -739,7 +740,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUsageForTesting');
           const result = this.impl.getUsageForTesting();
           if (header.expectsResponse) {
@@ -752,14 +753,14 @@ storage.mojom.IndexedDBControlTestReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMockFailureSingletonForTesting');
           const result = this.impl.bindMockFailureSingletonForTesting(params.receiver);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceInitializeFromFilesForTesting');
           const result = this.impl.forceInitializeFromFilesForTesting();
           if (header.expectsResponse) {

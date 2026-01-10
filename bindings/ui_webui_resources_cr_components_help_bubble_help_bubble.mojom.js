@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -280,7 +281,7 @@ help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createHelpBubbleHandler');
           const result = this.impl.createHelpBubbleHandler(params.client, params.handler);
           break;
@@ -429,7 +430,7 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createHelpBubbleHandler');
           const result = this.impl.createHelpBubbleHandler(params.client, params.handler);
           break;
@@ -635,21 +636,21 @@ help_bubble.mojom.HelpBubbleHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTrackedElementHandler');
           const result = this.impl.bindTrackedElementHandler(params.handler);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.helpBubbleButtonPressed');
           const result = this.impl.helpBubbleButtonPressed(params.native_identifier, params.button_index);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.helpBubbleClosed');
           const result = this.impl.helpBubbleClosed(params.native_identifier, params.reason);
           break;
@@ -882,28 +883,28 @@ help_bubble.mojom.HelpBubbleClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showHelpBubble');
           const result = this.impl.showHelpBubble(params.params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleFocusForAccessibility');
           const result = this.impl.toggleFocusForAccessibility(params.native_identifier);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hideHelpBubble');
           const result = this.impl.hideHelpBubble(params.native_identifier);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.externalHelpBubbleUpdated');
           const result = this.impl.externalHelpBubbleUpdated(params.native_identifier, params.shown);
           break;

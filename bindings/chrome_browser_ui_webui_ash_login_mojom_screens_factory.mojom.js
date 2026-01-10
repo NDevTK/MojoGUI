@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -563,7 +564,7 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishAiIntroScreenPipe');
           const result = this.impl.establishAiIntroScreenPipe(params.handler);
           if (header.expectsResponse) {
@@ -576,14 +577,14 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishAppDownloadingScreenPipe');
           const result = this.impl.establishAppDownloadingScreenPipe(params.handler);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishDrivePinningScreenPipe');
           const result = this.impl.establishDrivePinningScreenPipe(params.handler);
           if (header.expectsResponse) {
@@ -596,14 +597,14 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishFjordStationSetupScreenPipe');
           const result = this.impl.establishFjordStationSetupScreenPipe(params.handler);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishGaiaInfoScreenPipe');
           const result = this.impl.establishGaiaInfoScreenPipe(params.handler);
           if (header.expectsResponse) {
@@ -616,21 +617,21 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishGestureNavigationScreenPipe');
           const result = this.impl.establishGestureNavigationScreenPipe(params.handler);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishGeminiIntroScreenPipe');
           const result = this.impl.establishGeminiIntroScreenPipe(params.handler);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishConsumerUpdateScreenPipe');
           const result = this.impl.establishConsumerUpdateScreenPipe(params.handler);
           if (header.expectsResponse) {
@@ -643,14 +644,14 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishPackagedLicenseScreenPipe');
           const result = this.impl.establishPackagedLicenseScreenPipe(params.handler);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishArcVmDataMigrationScreenPipe');
           const result = this.impl.establishArcVmDataMigrationScreenPipe(params.handler);
           if (header.expectsResponse) {
@@ -663,7 +664,7 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishEncryptionMigrationScreenPipe');
           const result = this.impl.establishEncryptionMigrationScreenPipe(params.handler);
           if (header.expectsResponse) {
@@ -676,7 +677,7 @@ ash.screens_factory.mojom.ScreensFactoryReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishLocalDataLossWarningScreenPipe');
           const result = this.impl.establishLocalDataLossWarningScreenPipe(params.handler);
           break;

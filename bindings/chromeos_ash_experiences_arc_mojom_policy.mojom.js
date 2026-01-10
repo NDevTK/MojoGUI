@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -334,7 +335,7 @@ arc.mojom.PolicyHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PolicyHost_GetPolicies_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PolicyHost_GetPolicies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPolicies');
           const result = this.impl.getPolicies();
           if (header.expectsResponse) {
@@ -347,7 +348,7 @@ arc.mojom.PolicyHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PolicyHost_ReportCompliance_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PolicyHost_ReportCompliance_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportCompliance');
           const result = this.impl.reportCompliance(params.request);
           if (header.expectsResponse) {
@@ -360,14 +361,14 @@ arc.mojom.PolicyHostReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportDPCVersion');
           const result = this.impl.reportDPCVersion(params.version);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportPlayStoreLocalPolicySet');
           const result = this.impl.reportPlayStoreLocalPolicySet(params.time, params.package_names);
           break;
@@ -581,7 +582,7 @@ arc.mojom.PolicyInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PolicyInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PolicyInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -594,14 +595,14 @@ arc.mojom.PolicyInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPolicyUpdated');
           const result = this.impl.onPolicyUpdated();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCommandReceived');
           const result = this.impl.onCommandReceived(params.command);
           if (header.expectsResponse) {

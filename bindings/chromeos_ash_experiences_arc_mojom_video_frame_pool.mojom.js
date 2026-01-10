@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -254,14 +255,14 @@ arc.mojom.VideoFramePoolReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoFramePool_Initialize_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoFramePool_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
           const result = this.impl.initialize(params.client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addVideoFrame');
           const result = this.impl.addVideoFrame(params.video_frame);
           if (header.expectsResponse) {
@@ -423,7 +424,7 @@ arc.mojom.VideoFramePoolClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestVideoFrames');
           const result = this.impl.requestVideoFrames(params.format, params.coded_size, params.visible_rect, params.num_frames);
           if (header.expectsResponse) {

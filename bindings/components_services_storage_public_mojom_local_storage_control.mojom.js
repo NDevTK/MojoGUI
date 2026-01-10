@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -420,14 +421,14 @@ storage.mojom.LocalStorageControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindStorageArea');
           const result = this.impl.bindStorageArea(params.storage_key, params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_GetUsage_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_GetUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUsage');
           const result = this.impl.getUsage();
           if (header.expectsResponse) {
@@ -440,7 +441,7 @@ storage.mojom.LocalStorageControlReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteStorage');
           const result = this.impl.deleteStorage(params.storage_key);
           if (header.expectsResponse) {
@@ -453,7 +454,7 @@ storage.mojom.LocalStorageControlReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cleanUpStorage');
           const result = this.impl.cleanUpStorage();
           if (header.expectsResponse) {
@@ -466,28 +467,28 @@ storage.mojom.LocalStorageControlReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_Flush_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_Flush_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.purgeMemory');
           const result = this.impl.purgeMemory();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
           const result = this.impl.applyPolicyUpdates(params.policy_updates);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceKeepSessionState');
           const result = this.impl.forceKeepSessionState();
           break;

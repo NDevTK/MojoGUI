@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -581,7 +582,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec);
+          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestCandidates');
           const result = this.impl.requestCandidates(params.query, params.num_candidates);
           if (header.expectsResponse) {
@@ -594,7 +595,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec);
+          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadCandidate');
           const result = this.impl.downloadCandidate(params.candidate_id);
           if (header.expectsResponse) {
@@ -607,7 +608,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec);
+          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitAsInsert');
           const result = this.impl.commitAsInsert(params.candidate_id);
           if (header.expectsResponse) {
@@ -620,7 +621,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec);
+          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitAsDownload');
           const result = this.impl.commitAsDownload(params.candidate_id);
           if (header.expectsResponse) {
@@ -633,7 +634,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec);
+          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.previewFeedback');
           const result = this.impl.previewFeedback(params.candidate_id);
           if (header.expectsResponse) {
@@ -646,7 +647,7 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec);
+          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFeedback');
           const result = this.impl.submitFeedback(params.candidate_id, params.description);
           if (header.expectsResponse) {
@@ -659,28 +660,28 @@ lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec);
+          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec);
+          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeUI');
           const result = this.impl.closeUI();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.emitMetricEvent');
           const result = this.impl.emitMetricEvent(params.metric_event);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec);
+          const params = decoder.decodeStructInline(lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlInNewWindow');
           const result = this.impl.openUrlInNewWindow(params.url);
           break;

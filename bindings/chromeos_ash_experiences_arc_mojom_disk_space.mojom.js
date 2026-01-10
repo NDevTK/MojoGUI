@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -423,7 +424,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isQuotaSupported');
           const result = this.impl.isQuotaSupported();
           if (header.expectsResponse) {
@@ -436,7 +437,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getQuotaCurrentSpaceForUid');
           const result = this.impl.getQuotaCurrentSpaceForUid(params.uid);
           if (header.expectsResponse) {
@@ -449,7 +450,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getQuotaCurrentSpaceForGid');
           const result = this.impl.getQuotaCurrentSpaceForGid(params.gid);
           if (header.expectsResponse) {
@@ -462,7 +463,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getQuotaCurrentSpaceForProjectId');
           const result = this.impl.getQuotaCurrentSpaceForProjectId(params.project_id);
           if (header.expectsResponse) {
@@ -475,7 +476,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getQuotaCurrentSpacesForIds');
           const result = this.impl.getQuotaCurrentSpacesForIds(params.uids, params.gids, params.project_ids);
           if (header.expectsResponse) {
@@ -488,7 +489,7 @@ arc.mojom.DiskSpaceHostReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFreeDiskSpace');
           const result = this.impl.getFreeDiskSpace();
           if (header.expectsResponse) {
@@ -709,7 +710,7 @@ arc.mojom.DiskSpaceInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -722,7 +723,7 @@ arc.mojom.DiskSpaceInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getApplicationsSize');
           const result = this.impl.getApplicationsSize();
           if (header.expectsResponse) {
@@ -735,7 +736,7 @@ arc.mojom.DiskSpaceInstanceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resizeStorageBalloon');
           const result = this.impl.resizeStorageBalloon(params.free_space_bytes);
           break;

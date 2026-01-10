@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -323,21 +324,21 @@ viz.mojom.FrameSinkBundleReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNeedsBeginFrame');
           const result = this.impl.setNeedsBeginFrame(params.sink_id, params.needs_begin_frame);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkBundle_Submit_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkBundle_Submit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submit');
           const result = this.impl.submit(params.submissions);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setThreads');
           const result = this.impl.setThreads(params.sink_id, params.threads);
           break;
@@ -545,21 +546,21 @@ viz.mojom.FrameSinkBundleClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushNotifications');
           const result = this.impl.flushNotifications(params.acks, params.begin_frames, params.reclaimed_resources);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBeginFramePausedChanged');
           const result = this.impl.onBeginFramePausedChanged(params.sink_id, params.paused);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCompositorFrameTransitionDirectiveProcessed');
           const result = this.impl.onCompositorFrameTransitionDirectiveProcessed(params.sink_id, params.sequence_id);
           break;

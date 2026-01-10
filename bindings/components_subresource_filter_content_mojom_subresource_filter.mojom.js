@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -211,7 +212,7 @@ subresource_filter.mojom.SubresourceFilterAgentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec);
+          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activateForNextCommittedLoad');
           const result = this.impl.activateForNextCommittedLoad(params.activation_state, params.ad_evidence);
           break;
@@ -496,42 +497,42 @@ subresource_filter.mojom.SubresourceFilterHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec);
+          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didDisallowFirstSubresource');
           const result = this.impl.didDisallowFirstSubresource();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec);
+          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.frameIsAd');
           const result = this.impl.frameIsAd();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec);
+          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.frameWasCreatedByAdScript');
           const result = this.impl.frameWasCreatedByAdScript();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.adScriptDidCreateFencedFrame');
           const result = this.impl.adScriptDidCreateFencedFrame(params.fenced_frame_root_placeholder_token);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec);
+          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDocumentLoadStatistics');
           const result = this.impl.setDocumentLoadStatistics(params.statistics);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec);
+          const params = decoder.decodeStructInline(subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdsViolationTriggered');
           const result = this.impl.onAdsViolationTriggered(params.violation);
           break;

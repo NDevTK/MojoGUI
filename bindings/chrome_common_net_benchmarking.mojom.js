@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -308,7 +309,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeCurrentConnections');
           const result = this.impl.closeCurrentConnections();
           if (header.expectsResponse) {
@@ -321,7 +322,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearCache');
           const result = this.impl.clearCache();
           if (header.expectsResponse) {
@@ -334,7 +335,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearHostResolverCache');
           const result = this.impl.clearHostResolverCache();
           if (header.expectsResponse) {
@@ -347,7 +348,7 @@ chrome.mojom.NetBenchmarkingReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearPredictorCache');
           const result = this.impl.clearPredictorCache();
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -244,7 +245,7 @@ browser_command.mojom.CommandHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createBrowserCommandHandler');
           const result = this.impl.createBrowserCommandHandler(params.handler);
           break;
@@ -433,7 +434,7 @@ browser_command.mojom.CommandHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec);
+          const params = decoder.decodeStructInline(browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canExecuteCommand');
           const result = this.impl.canExecuteCommand(params.command_id);
           if (header.expectsResponse) {
@@ -446,7 +447,7 @@ browser_command.mojom.CommandHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec);
+          const params = decoder.decodeStructInline(browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeCommand');
           const result = this.impl.executeCommand(params.command_id, params.click_info);
           if (header.expectsResponse) {

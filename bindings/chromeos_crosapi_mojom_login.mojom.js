@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -229,7 +230,7 @@ crosapi.mojom.ExternalLogoutRequestObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestExternalLogout');
           const result = this.impl.onRequestExternalLogout();
           break;
@@ -642,21 +643,21 @@ crosapi.mojom.LoginReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addExternalLogoutRequestObserver');
           const result = this.impl.addExternalLogoutRequestObserver(params.observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyOnExternalLogoutDone');
           const result = this.impl.notifyOnExternalLogoutDone();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_0_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_0_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_0');
           const result = this.impl.rEMOVED_0(params.password);
           if (header.expectsResponse) {
@@ -669,7 +670,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_4_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_4_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_4');
           const result = this.impl.rEMOVED_4(params.password);
           if (header.expectsResponse) {
@@ -682,7 +683,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_5_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_5_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_5');
           const result = this.impl.rEMOVED_5(params.password);
           if (header.expectsResponse) {
@@ -695,7 +696,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_6_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_6_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_6');
           const result = this.impl.rEMOVED_6(params.password);
           if (header.expectsResponse) {
@@ -708,7 +709,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_7_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_7_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_7');
           const result = this.impl.rEMOVED_7(params.password);
           if (header.expectsResponse) {
@@ -721,7 +722,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_10_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_10_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_10');
           const result = this.impl.rEMOVED_10(params.properties);
           if (header.expectsResponse) {
@@ -734,7 +735,7 @@ crosapi.mojom.LoginReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_12_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.Login_REMOVED_12_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_12');
           const result = this.impl.rEMOVED_12(params.password);
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -363,21 +364,21 @@ blink.mojom.PresentationConnectionReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationConnection_OnMessage_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationConnection_OnMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
           const result = this.impl.onMessage(params.message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationConnection_DidChangeState_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationConnection_DidChangeState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didChangeState');
           const result = this.impl.didChangeState(params.state);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationConnection_DidClose_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationConnection_DidClose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didClose');
           const result = this.impl.didClose(params.reason);
           break;
@@ -766,42 +767,42 @@ blink.mojom.PresentationServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationService_SetController_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationService_SetController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setController');
           const result = this.impl.setController(params.controller);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationService_SetReceiver_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationService_SetReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReceiver');
           const result = this.impl.setReceiver(params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDefaultPresentationUrls');
           const result = this.impl.setDefaultPresentationUrls(params.presentation_urls);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listenForScreenAvailability');
           const result = this.impl.listenForScreenAvailability(params.availability_url);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopListeningForScreenAvailability');
           const result = this.impl.stopListeningForScreenAvailability(params.availability_url);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationService_StartPresentation_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationService_StartPresentation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startPresentation');
           const result = this.impl.startPresentation(params.presentation_urls);
           if (header.expectsResponse) {
@@ -814,7 +815,7 @@ blink.mojom.PresentationServiceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reconnectPresentation');
           const result = this.impl.reconnectPresentation(params.presentation_urls, params.presentation_id);
           if (header.expectsResponse) {
@@ -827,14 +828,14 @@ blink.mojom.PresentationServiceReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationService_CloseConnection_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationService_CloseConnection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeConnection');
           const result = this.impl.closeConnection(params.presentation_url, params.presentation_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationService_Terminate_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationService_Terminate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.terminate');
           const result = this.impl.terminate(params.presentation_url, params.presentation_id);
           break;
@@ -1070,28 +1071,28 @@ blink.mojom.PresentationControllerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreenAvailabilityUpdated');
           const result = this.impl.onScreenAvailabilityUpdated(params.url, params.availability);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDefaultPresentationStarted');
           const result = this.impl.onDefaultPresentationStarted(params.result);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionStateChanged');
           const result = this.impl.onConnectionStateChanged(params.presentation_info, params.newState);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionClosed');
           const result = this.impl.onConnectionClosed(params.presentation_info, params.reason, params.message);
           break;
@@ -1239,7 +1240,7 @@ blink.mojom.PresentationReceiverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceiverConnectionAvailable');
           const result = this.impl.onReceiverConnectionAvailable(params.result);
           break;

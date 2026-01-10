@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -314,7 +315,7 @@ viz.mojom.FrameSinkManagerTestApiReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasUnclaimedViewTransitionResources');
           const result = this.impl.hasUnclaimedViewTransitionResources();
           if (header.expectsResponse) {
@@ -327,7 +328,7 @@ viz.mojom.FrameSinkManagerTestApiReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSameDocNavigationScreenshotSize');
           const result = this.impl.setSameDocNavigationScreenshotSize(params.result_size);
           if (header.expectsResponse) {
@@ -340,7 +341,7 @@ viz.mojom.FrameSinkManagerTestApiReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getForceEnableZoomState');
           const result = this.impl.getForceEnableZoomState(params.frame_sink_id);
           if (header.expectsResponse) {
@@ -353,7 +354,7 @@ viz.mojom.FrameSinkManagerTestApiReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec);
+          const params = decoder.decodeStructInline(viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitForSurfaceAnimationManager');
           const result = this.impl.waitForSurfaceAnimationManager(params.frame_sink_id);
           if (header.expectsResponse) {

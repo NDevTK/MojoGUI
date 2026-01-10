@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -695,7 +696,7 @@ contextual_tasks.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getThreadUrl');
           const result = this.impl.getThreadUrl();
           if (header.expectsResponse) {
@@ -708,7 +709,7 @@ contextual_tasks.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUrlForTask');
           const result = this.impl.getUrlForTask(params.uuid);
           if (header.expectsResponse) {
@@ -721,14 +722,14 @@ contextual_tasks.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTaskId');
           const result = this.impl.setTaskId(params.uuid);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isZeroState');
           const result = this.impl.isZeroState(params.url);
           if (header.expectsResponse) {
@@ -741,28 +742,28 @@ contextual_tasks.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_SetThreadTitle_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_SetThreadTitle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setThreadTitle');
           const result = this.impl.setThreadTitle(params.title);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_CloseSidePanel_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_CloseSidePanel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeSidePanel');
           const result = this.impl.closeSidePanel();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_ShowThreadHistory_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_ShowThreadHistory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showThreadHistory');
           const result = this.impl.showThreadHistory();
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isShownInTab');
           const result = this.impl.isShownInTab();
           if (header.expectsResponse) {
@@ -775,49 +776,49 @@ contextual_tasks.mojom.PageHandlerReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openMyActivityUi');
           const result = this.impl.openMyActivityUi();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openHelpUi');
           const result = this.impl.openHelpUi();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openOnboardingHelpUi');
           const result = this.impl.openOnboardingHelpUi();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveTaskUiToNewTab');
           const result = this.impl.moveTaskUiToNewTab();
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabClickedFromSourcesMenu');
           const result = this.impl.onTabClickedFromSourcesMenu(params.tab_id, params.url);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_OnWebviewMessage_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_OnWebviewMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWebviewMessage');
           const result = this.impl.onWebviewMessage(params.message);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCommonSearchParams');
           const result = this.impl.getCommonSearchParams(params.is_dark_mode, params.is_side_panel);
           if (header.expectsResponse) {
@@ -830,7 +831,7 @@ contextual_tasks.mojom.PageHandlerReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onboardingTooltipDismissed');
           const result = this.impl.onboardingTooltipDismissed();
           break;
@@ -1338,98 +1339,98 @@ contextual_tasks.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_SetThreadTitle_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_SetThreadTitle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setThreadTitle');
           const result = this.impl.setThreadTitle(params.title);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTaskDetails');
           const result = this.impl.setTaskDetails(params.uuid, params.thread_id, params.turn_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSidePanelStateChanged');
           const result = this.impl.onSidePanelStateChanged();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postMessageToWebview');
           const result = this.impl.postMessageToWebview(params.message);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHandshakeComplete');
           const result = this.impl.onHandshakeComplete();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_SetOAuthToken_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_SetOAuthToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOAuthToken');
           const result = this.impl.setOAuthToken(params.oauth_token);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_OnContextUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_OnContextUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContextUpdated');
           const result = this.impl.onContextUpdated(params.context_tabs);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_HideInput_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_HideInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hideInput');
           const result = this.impl.hideInput();
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_RestoreInput_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_RestoreInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restoreInput');
           const result = this.impl.restoreInput();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onZeroStateChange');
           const result = this.impl.onZeroStateChange(params.is_zero_state);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_OnAiPageStatusChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_OnAiPageStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAiPageStatusChanged');
           const result = this.impl.onAiPageStatusChanged(params.is_ai_page);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_OnLensOverlayStateChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_OnLensOverlayStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLensOverlayStateChanged');
           const result = this.impl.onLensOverlayStateChanged(params.is_showing);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showErrorPage');
           const result = this.impl.showErrorPage();
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hideErrorPage');
           const result = this.impl.hideErrorPage();
           break;
@@ -1578,7 +1579,7 @@ contextual_tasks.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.page_handler);
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -260,7 +261,7 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToImeEngine');
           const result = this.impl.connectToImeEngine(params.ime_spec, params.to_engine_request, params.from_engine, params.extra);
           if (header.expectsResponse) {
@@ -273,7 +274,7 @@ ash.ime.mojom.InputEngineManagerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeConnectionFactory');
           const result = this.impl.initializeConnectionFactory(params.connection_factory);
           if (header.expectsResponse) {
@@ -434,7 +435,7 @@ ash.ime.mojom.PlatformAccessProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadImeFileTo');
           const result = this.impl.downloadImeFileTo(params.url, params.file_path);
           if (header.expectsResponse) {
@@ -644,21 +645,21 @@ ash.ime.mojom.ImeServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPlatformAccessProvider');
           const result = this.impl.setPlatformAccessProvider(params.provider);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInputEngineManager');
           const result = this.impl.bindInputEngineManager(params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInputMethodUserDataService');
           const result = this.impl.bindInputMethodUserDataService(params.receiver);
           break;

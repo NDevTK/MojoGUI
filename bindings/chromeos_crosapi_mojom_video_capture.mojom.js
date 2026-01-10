@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -839,105 +840,105 @@ crosapi.mojom.VideoFrameHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCaptureConfigurationChanged');
           const result = this.impl.onCaptureConfigurationChanged();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewBuffer');
           const result = this.impl.onNewBuffer(params.buffer_id, params.buffer_handle);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_DEPRECATED_OnFrameReadyInBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_DEPRECATED_OnFrameReadyInBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_OnFrameReadyInBuffer');
           const result = this.impl.dEPRECATED_OnFrameReadyInBuffer(params.buffer, params.scaled_buffers);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameReadyInBuffer');
           const result = this.impl.onFrameReadyInBuffer(params.buffer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBufferRetired');
           const result = this.impl.onBufferRetired(params.buffer_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnError_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
           const result = this.impl.onError(params.error);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameDropped');
           const result = this.impl.onFrameDropped(params.reason);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewCropVersion_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewCropVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_OnNewCropVersion');
           const result = this.impl.dEPRECATED_OnNewCropVersion(params.crop_version);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewSubCaptureTargetVersion_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewSubCaptureTargetVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_OnNewSubCaptureTargetVersion');
           const result = this.impl.dEPRECATED_OnNewSubCaptureTargetVersion(params.sub_capture_target_version);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewCaptureVersion');
           const result = this.impl.onNewCaptureVersion(params.capture_version);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameWithEmptyRegionCapture');
           const result = this.impl.onFrameWithEmptyRegionCapture();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnLog_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLog');
           const result = this.impl.onLog(params.message);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnStarted_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStarted');
           const result = this.impl.onStarted();
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStartedUsingGpuDecode');
           const result = this.impl.onStartedUsingGpuDecode();
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnStopped_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoFrameHandler_OnStopped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStopped');
           const result = this.impl.onStopped();
           break;
@@ -1295,28 +1296,28 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_Start_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
           const result = this.impl.start(params.requested_settings, params.handler);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_MaybeSuspend_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_MaybeSuspend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.maybeSuspend');
           const result = this.impl.maybeSuspend();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_Resume_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_Resume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resume');
           const result = this.impl.resume();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_GetPhotoState_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_GetPhotoState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPhotoState');
           const result = this.impl.getPhotoState();
           if (header.expectsResponse) {
@@ -1329,7 +1330,7 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPhotoOptions');
           const result = this.impl.setPhotoOptions(params.settings);
           if (header.expectsResponse) {
@@ -1342,7 +1343,7 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_TakePhoto_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_TakePhoto_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.takePhoto');
           const result = this.impl.takePhoto();
           if (header.expectsResponse) {
@@ -1355,14 +1356,14 @@ crosapi.mojom.VideoCaptureDeviceReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_ProcessFeedback_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_ProcessFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processFeedback');
           const result = this.impl.processFeedback(params.feedback);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_RequestRefreshFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDevice_RequestRefreshFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestRefreshFrame');
           const result = this.impl.requestRefreshFrame();
           break;
@@ -1550,7 +1551,7 @@ crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceInfos');
           const result = this.impl.getDeviceInfos();
           if (header.expectsResponse) {
@@ -1563,7 +1564,7 @@ crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ParamsSpec);
+          const params = decoder.decodeStructInline(crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDevice');
           const result = this.impl.createDevice(params.device_id, params.device_receiver);
           if (header.expectsResponse) {

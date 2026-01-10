@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -238,7 +239,7 @@ lens.mojom.LensSidePanelPageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSidePanelPageHandler');
           const result = this.impl.createSidePanelPageHandler(params.handler, params.page);
           break;
@@ -529,14 +530,14 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.popAndLoadQueryFromHistory');
           const result = this.impl.popAndLoadQueryFromHistory();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getIsContextualSearchbox');
           const result = this.impl.getIsContextualSearchbox();
           if (header.expectsResponse) {
@@ -549,28 +550,28 @@ lens.mojom.LensSidePanelPageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScrollToMessage');
           const result = this.impl.onScrollToMessage(params.text_fragments, params.pdf_page_number);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSendFeedback');
           const result = this.impl.requestSendFeedback();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAimMessage');
           const result = this.impl.onAimMessage(params.message);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onImageQueryWithEmptyText');
           const result = this.impl.onImageQueryWithEmptyText();
           break;
@@ -1079,98 +1080,98 @@ lens.mojom.LensSidePanelPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadResultsInFrame');
           const result = this.impl.loadResultsInFrame(params.results_url);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsLoadingResults');
           const result = this.impl.setIsLoadingResults(params.is_loading);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPageContentUploadProgress');
           const result = this.impl.setPageContentUploadProgress(params.progress);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackArrowVisible');
           const result = this.impl.setBackArrowVisible(params.visible);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setShowErrorPage');
           const result = this.impl.setShowErrorPage(params.should_show_error_page, params.status);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suppressGhostLoader');
           const result = this.impl.suppressGhostLoader();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pageContentTypeChanged');
           const result = this.impl.pageContentTypeChanged(params.new_page_content_type);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showToast');
           const result = this.impl.showToast(params.message);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendClientMessageToAim');
           const result = this.impl.sendClientMessageToAim(params.serialized_message);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.aimHandshakeReceived');
           const result = this.impl.aimHandshakeReceived();
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.aimResultsChanged');
           const result = this.impl.aimResultsChanged(params.on_aim);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusResultsFrame');
           const result = this.impl.focusResultsFrame();
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsOverlayShowing');
           const result = this.impl.setIsOverlayShowing(params.is_showing);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec);
+          const params = decoder.decodeStructInline(lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusSearchbox');
           const result = this.impl.focusSearchbox();
           break;

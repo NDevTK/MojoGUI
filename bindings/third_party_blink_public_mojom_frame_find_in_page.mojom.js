@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -426,35 +427,35 @@ blink.mojom.FindInPageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.FindInPage_Find_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPage_Find_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.find');
           const result = this.impl.find(params.request_id, params.search_text, params.options);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.FindInPage_StopFinding_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPage_StopFinding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopFinding');
           const result = this.impl.stopFinding(params.action);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearActiveFindMatch');
           const result = this.impl.clearActiveFindMatch();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.FindInPage_SetClient_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPage_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
           const result = this.impl.setClient(params.client);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNearestFindResult');
           const result = this.impl.getNearestFindResult(params.point);
           if (header.expectsResponse) {
@@ -467,14 +468,14 @@ blink.mojom.FindInPageReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activateNearestFindResult');
           const result = this.impl.activateNearestFindResult(params.request_id, params.point);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.FindInPage_FindMatchRects_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPage_FindMatchRects_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.findMatchRects');
           const result = this.impl.findMatchRects(params.current_version);
           if (header.expectsResponse) {
@@ -661,14 +662,14 @@ blink.mojom.FindInPageClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNumberOfMatches');
           const result = this.impl.setNumberOfMatches(params.request_id, params.number_of_matches, params.update_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec);
+          const params = decoder.decodeStructInline(blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setActiveMatch');
           const result = this.impl.setActiveMatch(params.request_id, params.active_match_rect, params.active_match_ordinal, params.update_type);
           break;

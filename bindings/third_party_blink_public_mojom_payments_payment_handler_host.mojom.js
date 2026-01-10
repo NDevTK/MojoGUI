@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -311,7 +312,7 @@ payments.mojom.PaymentHandlerHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changePaymentMethod');
           const result = this.impl.changePaymentMethod(params.method_data);
           if (header.expectsResponse) {
@@ -324,7 +325,7 @@ payments.mojom.PaymentHandlerHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changeShippingOption');
           const result = this.impl.changeShippingOption(params.shipping_option_id);
           if (header.expectsResponse) {
@@ -337,7 +338,7 @@ payments.mojom.PaymentHandlerHostReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec);
+          const params = decoder.decodeStructInline(payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changeShippingAddress');
           const result = this.impl.changeShippingAddress(params.shipping_address);
           if (header.expectsResponse) {

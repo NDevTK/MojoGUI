@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -514,70 +515,70 @@ remoting.mojom.SupportHostObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostStateStarting');
           const result = this.impl.onHostStateStarting();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostStateRequestedAccessCode');
           const result = this.impl.onHostStateRequestedAccessCode();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostStateReceivedAccessCode');
           const result = this.impl.onHostStateReceivedAccessCode(params.access_code, params.lifetime);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostStateConnecting');
           const result = this.impl.onHostStateConnecting();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostStateConnected');
           const result = this.impl.onHostStateConnected(params.remote_username);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostStateDisconnected');
           const result = this.impl.onHostStateDisconnected(params.disconnect_reason);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNatPolicyChanged');
           const result = this.impl.onNatPolicyChanged(params.nat_policy_state);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostStateError');
           const result = this.impl.onHostStateError(params.error_code);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPolicyError');
           const result = this.impl.onPolicyError();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec);
+          const params = decoder.decodeStructInline(remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInvalidDomainError');
           const result = this.impl.onInvalidDomainError();
           break;

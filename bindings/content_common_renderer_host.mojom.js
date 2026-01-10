@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -330,7 +331,7 @@ content.mojom.RendererHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBrowserHistogram');
           const result = this.impl.getBrowserHistogram(params.name);
           if (header.expectsResponse) {
@@ -343,28 +344,28 @@ content.mojom.RendererHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suddenTerminationAllowedChanged');
           const result = this.impl.suddenTerminationAllowedChanged(params.allowed);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordUserMetricsAction');
           const result = this.impl.recordUserMetricsAction(params.action);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPrivateMemoryFootprint');
           const result = this.impl.setPrivateMemoryFootprint(params.private_memory_footprint_bytes);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(content.mojom.RendererHost_HasGpuProcess_ParamsSpec);
+          const params = decoder.decodeStructInline(content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasGpuProcess');
           const result = this.impl.hasGpuProcess();
           if (header.expectsResponse) {

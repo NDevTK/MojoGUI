@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -355,7 +356,7 @@ dlp_internals.mojom.ReportingObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportEvent');
           const result = this.impl.onReportEvent(params.event);
           break;
@@ -636,7 +637,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec);
+          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getClipboardDataSource');
           const result = this.impl.getClipboardDataSource();
           if (header.expectsResponse) {
@@ -649,7 +650,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getContentRestrictionsInfo');
           const result = this.impl.getContentRestrictionsInfo();
           if (header.expectsResponse) {
@@ -662,14 +663,14 @@ dlp_internals.mojom.PageHandlerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec);
+          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeReporting');
           const result = this.impl.observeReporting(params.observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec);
+          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFilesDatabaseEntries');
           const result = this.impl.getFilesDatabaseEntries();
           if (header.expectsResponse) {
@@ -682,7 +683,7 @@ dlp_internals.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec);
+          const params = decoder.decodeStructInline(dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileInode');
           const result = this.impl.getFileInode(params.file_name);
           if (header.expectsResponse) {

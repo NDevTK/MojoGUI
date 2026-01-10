@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -256,14 +257,14 @@ network.mojom.URLLoaderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.URLLoader_FollowRedirect_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.URLLoader_FollowRedirect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.followRedirect');
           const result = this.impl.followRedirect(params.removed_headers, params.modified_headers, params.modified_cors_exempt_headers, params.new_url);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.URLLoader_SetPriority_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.URLLoader_SetPriority_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPriority');
           const result = this.impl.setPriority(params.priority, params.intra_priority_value);
           break;
@@ -560,28 +561,28 @@ network.mojom.URLLoaderClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceiveEarlyHints');
           const result = this.impl.onReceiveEarlyHints(params.early_hints);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceiveResponse');
           const result = this.impl.onReceiveResponse(params.head, params.body, params.cached_metadata);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceiveRedirect');
           const result = this.impl.onReceiveRedirect(params.redirect_info, params.head);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUploadProgress');
           const result = this.impl.onUploadProgress(params.current_position, params.total_size);
           if (header.expectsResponse) {
@@ -594,14 +595,14 @@ network.mojom.URLLoaderClientReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTransferSizeUpdated');
           const result = this.impl.onTransferSizeUpdated(params.transfer_size_diff);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.URLLoaderClient_OnComplete_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.URLLoaderClient_OnComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
           const result = this.impl.onComplete(params.status);
           break;

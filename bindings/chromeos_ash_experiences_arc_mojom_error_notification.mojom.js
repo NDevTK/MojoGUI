@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -238,7 +239,7 @@ arc.mojom.ErrorNotificationHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendErrorDetails');
           const result = this.impl.sendErrorDetails(params.details, params.action_handler);
           if (header.expectsResponse) {
@@ -397,7 +398,7 @@ arc.mojom.ErrorNotificationInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationInstance_Init_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
           const result = this.impl.init(params.host_remote);
           if (header.expectsResponse) {
@@ -550,7 +551,7 @@ arc.mojom.ErrorNotificationItemReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeErrorNotification');
           const result = this.impl.closeErrorNotification();
           break;
@@ -725,14 +726,14 @@ arc.mojom.ErrorNotificationActionHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationButtonClicked');
           const result = this.impl.onNotificationButtonClicked(params.buttonIndex);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationClosed');
           const result = this.impl.onNotificationClosed();
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -303,7 +304,7 @@ network.mojom.TCPBoundSocketReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.TCPBoundSocket_Listen_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.TCPBoundSocket_Listen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listen');
           const result = this.impl.listen(params.backlog, params.socket);
           if (header.expectsResponse) {
@@ -316,7 +317,7 @@ network.mojom.TCPBoundSocketReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.TCPBoundSocket_Connect_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.TCPBoundSocket_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.remote_addr_list, params.tcp_connected_socket_options, params.socket, params.observer);
           if (header.expectsResponse) {
@@ -620,7 +621,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.upgradeToTLS');
           const result = this.impl.upgradeToTLS(params.host_port_pair, params.options, params.traffic_annotation, params.receiver, params.observer);
           if (header.expectsResponse) {
@@ -633,7 +634,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSendBufferSize');
           const result = this.impl.setSendBufferSize(params.send_buffer_size);
           if (header.expectsResponse) {
@@ -646,7 +647,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReceiveBufferSize');
           const result = this.impl.setReceiveBufferSize(params.receive_buffer_size);
           if (header.expectsResponse) {
@@ -659,7 +660,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNoDelay');
           const result = this.impl.setNoDelay(params.no_delay);
           if (header.expectsResponse) {
@@ -672,7 +673,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setKeepAlive');
           const result = this.impl.setKeepAlive(params.enable, params.delay_secs);
           if (header.expectsResponse) {
@@ -854,14 +855,14 @@ network.mojom.SocketObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.SocketObserver_OnReadError_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.SocketObserver_OnReadError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadError');
           const result = this.impl.onReadError(params.net_error);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.SocketObserver_OnWriteError_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.SocketObserver_OnWriteError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWriteError');
           const result = this.impl.onWriteError(params.net_error);
           break;
@@ -1019,7 +1020,7 @@ network.mojom.TCPServerSocketReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(network.mojom.TCPServerSocket_Accept_ParamsSpec);
+          const params = decoder.decodeStructInline(network.mojom.TCPServerSocket_Accept_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.accept');
           const result = this.impl.accept(params.observer);
           if (header.expectsResponse) {

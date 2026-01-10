@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -414,7 +415,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.analyzeZipFile');
           const result = this.impl.analyzeZipFile(params.zip_file, params.password, params.temp_file_getter);
           if (header.expectsResponse) {
@@ -427,7 +428,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.analyzeDmgFile');
           const result = this.impl.analyzeDmgFile(params.dmg_file, params.temp_file_getter);
           if (header.expectsResponse) {
@@ -440,7 +441,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.analyzeRarFile');
           const result = this.impl.analyzeRarFile(params.rar_file, params.password, params.temp_file_getter);
           if (header.expectsResponse) {
@@ -453,7 +454,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.analyzeSevenZipFile');
           const result = this.impl.analyzeSevenZipFile(params.seven_zip_file, params.temp_file_getter);
           if (header.expectsResponse) {
@@ -466,7 +467,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.analyzeObfuscatedZipFile');
           const result = this.impl.analyzeObfuscatedZipFile(params.zip_file, params.password, params.header_data, params.temp_file_getter);
           if (header.expectsResponse) {
@@ -479,7 +480,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.analyzeObfuscatedRarFile');
           const result = this.impl.analyzeObfuscatedRarFile(params.rar_file, params.password, params.header_data, params.temp_file_getter);
           if (header.expectsResponse) {
@@ -638,7 +639,7 @@ chrome.mojom.TemporaryFileGetterReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestTemporaryFile');
           const result = this.impl.requestTemporaryFile();
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -550,56 +551,56 @@ chrome.mojom.AppShimReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRemoteCocoaApplication');
           const result = this.impl.createRemoteCocoaApplication(params.application);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCommandDispatcherForWidget');
           const result = this.impl.createCommandDispatcherForWidget(params.widget_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShim_SetUserAttention_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShim_SetUserAttention_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserAttention');
           const result = this.impl.setUserAttention(params.attention_type);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBadgeLabel');
           const result = this.impl.setBadgeLabel(params.badge_label);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateProfileMenu');
           const result = this.impl.updateProfileMenu(params.profile_menu_items);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateApplicationDockMenu');
           const result = this.impl.updateApplicationDockMenu(params.dock_menu_items);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindNotificationProvider');
           const result = this.impl.bindNotificationProvider(params.provider);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestNotificationPermission');
           const result = this.impl.requestNotificationPermission();
           if (header.expectsResponse) {
@@ -612,7 +613,7 @@ chrome.mojom.AppShimReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindChildHistogramFetcherFactory');
           const result = this.impl.bindChildHistogramFetcherFactory(params.receiver);
           break;
@@ -1008,70 +1009,70 @@ chrome.mojom.AppShimHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_FocusApp_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_FocusApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusApp');
           const result = this.impl.focusApp();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_ReopenApp_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_ReopenApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reopenApp');
           const result = this.impl.reopenApp();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_FilesOpened_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_FilesOpened_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.filesOpened');
           const result = this.impl.filesOpened(params.files);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.profileSelectedFromMenu');
           const result = this.impl.profileSelectedFromMenu(params.profile_path);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openAppSettings');
           const result = this.impl.openAppSettings();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.urlsOpened');
           const result = this.impl.urlsOpened(params.urls);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openAppWithOverrideUrl');
           const result = this.impl.openAppWithOverrideUrl(params.override_url);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableAccessibilitySupport');
           const result = this.impl.enableAccessibilitySupport(params.mode);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applicationWillTerminate');
           const result = this.impl.applicationWillTerminate();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notificationPermissionStatusChanged');
           const result = this.impl.notificationPermissionStatusChanged(params.status);
           break;
@@ -1228,7 +1229,7 @@ chrome.mojom.AppShimHostBootstrapReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec);
+          const params = decoder.decodeStructInline(chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShimConnected');
           const result = this.impl.onShimConnected(params.host_receiver, params.app_shim_info);
           if (header.expectsResponse) {

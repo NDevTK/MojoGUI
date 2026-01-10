@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -678,7 +679,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasClient');
           const result = this.impl.hasClient();
           if (header.expectsResponse) {
@@ -691,7 +692,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasInputContext');
           const result = this.impl.hasInputContext();
           if (header.expectsResponse) {
@@ -704,7 +705,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isRTL');
           const result = this.impl.isRTL();
           if (header.expectsResponse) {
@@ -717,7 +718,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSelectionRange');
           const result = this.impl.getSelectionRange();
           if (header.expectsResponse) {
@@ -730,7 +731,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSelectionText');
           const result = this.impl.getSelectionText();
           if (header.expectsResponse) {
@@ -743,35 +744,35 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertText');
           const result = this.impl.insertText(params.text, params.as_character);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteRange');
           const result = this.impl.deleteRange(params.range);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCompositionText');
           const result = this.impl.setCompositionText(params.text, params.selected_range, params.replacement_range);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.confirmCompositionText');
           const result = this.impl.confirmCompositionText();
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasCompositionText');
           const result = this.impl.hasCompositionText();
           if (header.expectsResponse) {
@@ -784,7 +785,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCompositionTextRange');
           const result = this.impl.getCompositionTextRange();
           if (header.expectsResponse) {
@@ -797,7 +798,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAttributedSubstringForRange');
           const result = this.impl.getAttributedSubstringForRange(params.requested_range);
           if (header.expectsResponse) {
@@ -810,7 +811,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFirstRectForRange');
           const result = this.impl.getFirstRectForRange(params.requested_range);
           if (header.expectsResponse) {
@@ -823,7 +824,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isTextEditCommandEnabled');
           const result = this.impl.isTextEditCommandEnabled(params.command);
           if (header.expectsResponse) {
@@ -836,7 +837,7 @@ remote_cocoa.mojom.TextInputHostReceiver = class {
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTextEditCommandForNextKeyEvent');
           const result = this.impl.setTextEditCommandForNextKeyEvent(params.command);
           break;

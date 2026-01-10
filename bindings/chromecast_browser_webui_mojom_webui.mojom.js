@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -214,7 +215,7 @@ chromecast.mojom.MessageCallbackReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.MessageCallback_OnMessage_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
           const result = this.impl.onMessage(params.list);
           break;
@@ -392,14 +393,14 @@ chromecast.mojom.WebUiReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerMessageCallback');
           const result = this.impl.registerMessageCallback(params.message, params.cb);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.callJavascriptFunction');
           const result = this.impl.callJavascriptFunction(params.function, params.args);
           break;
@@ -553,7 +554,7 @@ chromecast.mojom.ResourcesReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestResourceBytes');
           const result = this.impl.requestResourceBytes(params.path);
           if (header.expectsResponse) {
@@ -738,14 +739,14 @@ chromecast.mojom.WebUiClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.WebUiClient_CreateController_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createController');
           const result = this.impl.createController(params.host, params.web_ui, params.resources);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromecast.mojom.WebUiClient_CreateResources_ParamsSpec);
+          const params = decoder.decodeStructInline(chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createResources');
           const result = this.impl.createResources(params.host, params.resources);
           break;

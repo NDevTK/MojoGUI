@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -981,91 +982,91 @@ ash.camera_app.mojom.EventsSenderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendStartSessionEvent');
           const result = this.impl.sendStartSessionEvent(params.params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendCaptureEvent');
           const result = this.impl.sendCaptureEvent(params.params);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendAndroidIntentEvent');
           const result = this.impl.sendAndroidIntentEvent(params.params);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOpenPTZPanelEvent');
           const result = this.impl.sendOpenPTZPanelEvent(params.params);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendDocScanActionEvent');
           const result = this.impl.sendDocScanActionEvent(params.params);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendDocScanResultEvent');
           const result = this.impl.sendDocScanResultEvent(params.params);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOpenCameraEvent');
           const result = this.impl.sendOpenCameraEvent(params.params);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendLowStorageActionEvent');
           const result = this.impl.sendLowStorageActionEvent(params.params);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendBarcodeDetectedEvent');
           const result = this.impl.sendBarcodeDetectedEvent(params.params);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendPerfEvent');
           const result = this.impl.sendPerfEvent(params.params);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendUnsupportedProtocolEvent');
           const result = this.impl.sendUnsupportedProtocolEvent();
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateMemoryUsageEventParams');
           const result = this.impl.updateMemoryUsageEventParams(params.params);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOcrEvent');
           const result = this.impl.sendOcrEvent(params.params);
           break;

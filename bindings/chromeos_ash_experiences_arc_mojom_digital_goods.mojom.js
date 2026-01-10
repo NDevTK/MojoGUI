@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -425,7 +426,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDetails');
           const result = this.impl.getDetails(params.package_name, params.scope, params.item_ids);
           if (header.expectsResponse) {
@@ -438,7 +439,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acknowledge');
           const result = this.impl.acknowledge(params.package_name, params.scope, params.purchase_token, params.make_available_again);
           if (header.expectsResponse) {
@@ -451,7 +452,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deprecatedListPurchases');
           const result = this.impl.deprecatedListPurchases(params.package_name, params.scope);
           if (header.expectsResponse) {
@@ -464,7 +465,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listPurchases');
           const result = this.impl.listPurchases(params.package_name, params.scope);
           if (header.expectsResponse) {
@@ -477,7 +478,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listPurchaseHistory');
           const result = this.impl.listPurchaseHistory(params.package_name, params.scope);
           if (header.expectsResponse) {
@@ -490,7 +491,7 @@ arc.mojom.DigitalGoodsInstanceReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec);
+          const params = decoder.decodeStructInline(arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.consume');
           const result = this.impl.consume(params.package_name, params.scope, params.purchase_token);
           if (header.expectsResponse) {

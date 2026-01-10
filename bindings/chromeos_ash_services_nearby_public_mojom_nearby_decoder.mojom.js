@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -244,7 +245,7 @@ sharing.mojom.NearbySharingDecoderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec);
+          const params = decoder.decodeStructInline(sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeAdvertisement');
           const result = this.impl.decodeAdvertisement(params.data);
           if (header.expectsResponse) {
@@ -257,7 +258,7 @@ sharing.mojom.NearbySharingDecoderReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec);
+          const params = decoder.decodeStructInline(sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeFrame');
           const result = this.impl.decodeFrame(params.data);
           if (header.expectsResponse) {

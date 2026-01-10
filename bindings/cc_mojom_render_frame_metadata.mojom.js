@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -286,14 +287,14 @@ cc.mojom.RenderFrameMetadataObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec);
+          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRootScrollOffsetUpdateFrequency');
           const result = this.impl.updateRootScrollOffsetUpdateFrequency(params.frequency);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAllFrameSubmissionsForTesting');
           const result = this.impl.reportAllFrameSubmissionsForTesting(params.enabled);
           break;
@@ -498,21 +499,21 @@ cc.mojom.RenderFrameMetadataObserverClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRenderFrameMetadataChanged');
           const result = this.impl.onRenderFrameMetadataChanged(params.frame_token, params.metadata);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec);
+          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameSubmissionForTesting');
           const result = this.impl.onFrameSubmissionForTesting(params.frame_token);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRootScrollOffsetChanged');
           const result = this.impl.onRootScrollOffsetChanged(params.root_scroll_offset);
           break;

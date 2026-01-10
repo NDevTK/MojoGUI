@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -247,7 +248,7 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNewTabFooterHandler');
           const result = this.impl.createNewTabFooterHandler(params.document, params.handler);
           break;
@@ -612,63 +613,63 @@ new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateNtpExtensionName');
           const result = this.impl.updateNtpExtensionName();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateManagementNotice');
           const result = this.impl.updateManagementNotice();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAttachedTabState');
           const result = this.impl.updateAttachedTabState();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateBackgroundAttribution');
           const result = this.impl.updateBackgroundAttribution();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openExtensionOptionsPageWithFallback');
           const result = this.impl.openExtensionOptionsPageWithFallback();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openManagementPage');
           const result = this.impl.openManagementPage();
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlInCurrentTab');
           const result = this.impl.openUrlInCurrentTab(params.url);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.point);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyCustomizationButtonVisible');
           const result = this.impl.notifyCustomizationButtonVisible();
           break;
@@ -901,28 +902,28 @@ new_tab_footer.mojom.NewTabFooterDocumentReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNtpExtensionName');
           const result = this.impl.setNtpExtensionName(params.name);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setManagementNotice');
           const result = this.impl.setManagementNotice(params.notice);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attachedTabStateUpdated');
           const result = this.impl.attachedTabStateUpdated(params.ntp_type, params.can_customize_chrome);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec);
+          const params = decoder.decodeStructInline(new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundAttribution');
           const result = this.impl.setBackgroundAttribution(params.background_image_attribution);
           break;

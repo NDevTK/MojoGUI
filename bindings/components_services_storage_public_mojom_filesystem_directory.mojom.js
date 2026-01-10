@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -278,7 +279,7 @@ storage.mojom.FileLockReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.FileLock_Release_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.FileLock_Release_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.release');
           const result = this.impl.release();
           if (header.expectsResponse) {
@@ -746,14 +747,14 @@ storage.mojom.DirectoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.Directory_Clone_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.Directory_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
           const result = this.impl.clone(params.receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.Directory_PathExists_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.Directory_PathExists_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pathExists');
           const result = this.impl.pathExists(params.path);
           if (header.expectsResponse) {
@@ -766,7 +767,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.Directory_GetEntries_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.Directory_GetEntries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getEntries');
           const result = this.impl.getEntries(params.path, params.mode);
           if (header.expectsResponse) {
@@ -779,7 +780,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.Directory_OpenFile_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.Directory_OpenFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFile');
           const result = this.impl.openFile(params.path, params.mode, params.read_access, params.write_access);
           if (header.expectsResponse) {
@@ -792,7 +793,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.Directory_CreateDirectory_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.Directory_CreateDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDirectory');
           const result = this.impl.createDirectory(params.path);
           if (header.expectsResponse) {
@@ -805,7 +806,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.Directory_DeleteFile_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.Directory_DeleteFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteFile');
           const result = this.impl.deleteFile(params.path);
           if (header.expectsResponse) {
@@ -818,7 +819,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.Directory_GetFileInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.Directory_GetFileInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileInfo');
           const result = this.impl.getFileInfo(params.path);
           if (header.expectsResponse) {
@@ -831,7 +832,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.Directory_GetPathAccess_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.Directory_GetPathAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPathAccess');
           const result = this.impl.getPathAccess(params.path);
           if (header.expectsResponse) {
@@ -844,7 +845,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.Directory_RenameFile_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.Directory_RenameFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renameFile');
           const result = this.impl.renameFile(params.old_path, params.new_path);
           if (header.expectsResponse) {
@@ -857,7 +858,7 @@ storage.mojom.DirectoryReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(storage.mojom.Directory_LockFile_ParamsSpec);
+          const params = decoder.decodeStructInline(storage.mojom.Directory_LockFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.lockFile');
           const result = this.impl.lockFile(params.path);
           if (header.expectsResponse) {

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -217,7 +218,7 @@ ash.borealis_installer.mojom.PageHandlerFactoryReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
           const result = this.impl.createPageHandler(params.page, params.handler);
           break;
@@ -499,42 +500,42 @@ ash.borealis_installer.mojom.PageHandlerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.install');
           const result = this.impl.install();
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shutDown');
           const result = this.impl.shutDown();
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launch');
           const result = this.impl.launch();
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelInstall');
           const result = this.impl.cancelInstall();
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPageClosed');
           const result = this.impl.onPageClosed();
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openStoragePage');
           const result = this.impl.openStoragePage();
           break;
@@ -738,21 +739,21 @@ ash.borealis_installer.mojom.PageReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgressUpdate');
           const result = this.impl.onProgressUpdate(params.progress_fraction, params.label);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallFinished');
           const result = this.impl.onInstallFinished(params.error);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec);
+          const params = decoder.decodeStructInline(ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestClose');
           const result = this.impl.requestClose();
           break;

@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -262,7 +263,7 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStreamInfo');
           const result = this.impl.getStreamInfo();
           if (header.expectsResponse) {
@@ -275,7 +276,7 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPdfPluginAttributes');
           const result = this.impl.setPdfPluginAttributes(params.pdf_plugin_attributes);
           break;
@@ -428,7 +429,7 @@ extensions.mime_handler.BeforeUnloadControlReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec);
+          const params = decoder.decodeStructInline(extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setShowBeforeUnloadDialog');
           const result = this.impl.setShowBeforeUnloadDialog(params.show_dialog);
           if (header.expectsResponse) {

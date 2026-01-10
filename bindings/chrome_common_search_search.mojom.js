@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -216,7 +217,7 @@ search.mojom.EmbeddedSearchConnectorReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec);
+          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
           const result = this.impl.connect(params.embedded_search, params.client);
           break;
@@ -451,28 +452,28 @@ search.mojom.EmbeddedSearchReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec);
+          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusOmnibox');
           const result = this.impl.focusOmnibox(params.page_seq_no, params.focus);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec);
+          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteMostVisitedItem');
           const result = this.impl.deleteMostVisitedItem(params.page_seq_no, params.url);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec);
+          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.undoAllMostVisitedDeletions');
           const result = this.impl.undoAllMostVisitedDeletions(params.page_seq_no);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec);
+          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.undoMostVisitedDeletion');
           const result = this.impl.undoMostVisitedDeletion(params.page_seq_no, params.url);
           break;
@@ -733,35 +734,35 @@ search.mojom.EmbeddedSearchClientReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec);
+          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPageSequenceNumber');
           const result = this.impl.setPageSequenceNumber(params.page_seq_no);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusChanged');
           const result = this.impl.focusChanged(params.new_focus_state, params.reason);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mostVisitedInfoChanged');
           const result = this.impl.mostVisitedInfoChanged(params.most_visited_info);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec);
+          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInputInProgress');
           const result = this.impl.setInputInProgress(params.input_in_progress);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec);
+          const params = decoder.decodeStructInline(search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.themeChanged');
           const result = this.impl.themeChanged(params.theme);
           break;

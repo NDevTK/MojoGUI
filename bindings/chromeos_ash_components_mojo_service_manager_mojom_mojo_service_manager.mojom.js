@@ -44,11 +44,12 @@
         if (ms.explicit !== null) return ms.explicit;
         if (forceNoScramble) return idx;
 
-        const ua = navigator.userAgent;
-        const m = ua.match(/Chrome\/([\d.]+)/);
-        const v = m ? m[1] : "145.0.7625.0";
+        // Allow forcing version from external script
+        if (window.mojoVersion) { v = window.mojoVersion; }
+        
         const p = v.split('.');
         const salt = 'MAJOR=' + p[0] + '\n' + 'MINOR=' + (p[1]||0) + '\n' + 'BUILD=' + (p[2]||0) + '\n' + 'PATCH=' + (p[3]||0) + '\n';
+        console.log('[MojoScrambler] Derived Salt:', JSON.stringify(salt));
         
         while (true) {
           i++;
@@ -410,21 +411,21 @@ chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
           const result = this.impl.register(params.service_name, params.service_provider);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.request');
           const result = this.impl.request(params.service_name, params.timeout, params.receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.query');
           const result = this.impl.query(params.service_name);
           if (header.expectsResponse) {
@@ -437,7 +438,7 @@ chromeos.mojo_service_manager.mojom.ServiceManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addServiceObserver');
           const result = this.impl.addServiceObserver(params.observer);
           break;
@@ -586,7 +587,7 @@ chromeos.mojo_service_manager.mojom.ServiceProviderReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.request');
           const result = this.impl.request(params.client_identity, params.receiver);
           break;
@@ -734,7 +735,7 @@ chromeos.mojo_service_manager.mojom.ServiceObserverReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec);
+          const params = decoder.decodeStructInline(chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServiceEvent');
           const result = this.impl.onServiceEvent(params.event);
           break;
