@@ -143,8 +143,10 @@ ash.secure_channel.mojom.NearbyConnectionStateListenerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec.$.decode(message.payload);
@@ -238,8 +240,10 @@ ash.secure_channel.mojom.NearbyMessageSenderReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec.$.decode(message.payload);
@@ -333,8 +337,10 @@ ash.secure_channel.mojom.NearbyMessageReceiverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec.$.decode(message.payload);
@@ -430,8 +436,10 @@ ash.secure_channel.mojom.NearbyFilePayloadHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec.$.decode(message.payload);
@@ -535,8 +543,10 @@ ash.secure_channel.mojom.NearbyConnectorReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec.$.decode(message.payload);

@@ -388,8 +388,10 @@ blink.mojom.WebPrintJobStateObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec.$.decode(message.payload);
@@ -476,8 +478,10 @@ blink.mojom.WebPrintJobControllerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WebPrintJobController_Cancel_ParamsSpec.$.decode(message.payload);
@@ -593,8 +597,10 @@ blink.mojom.WebPrinterReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WebPrinter_FetchAttributes_ParamsSpec.$.decode(message.payload);
@@ -704,8 +710,10 @@ blink.mojom.WebPrintingServiceReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WebPrintingService_GetPrinters_ParamsSpec.$.decode(message.payload);

@@ -230,8 +230,10 @@ ash.cellular_setup.mojom.ESimManagerObserverReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec.$.decode(message.payload);
@@ -355,8 +357,10 @@ ash.cellular_setup.mojom.ESimManagerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec.$.decode(message.payload);
@@ -570,8 +574,10 @@ ash.cellular_setup.mojom.EuiccReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec.$.decode(message.payload);
@@ -790,8 +796,10 @@ ash.cellular_setup.mojom.ESimProfileReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec.$.decode(message.payload);

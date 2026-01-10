@@ -132,8 +132,10 @@ media.mojom.SpeechRecognizerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognizer_Start_ParamsSpec.$.decode(message.payload);
@@ -249,8 +251,10 @@ media.mojom.OnDeviceSpeechRecognitionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec.$.decode(message.payload);
@@ -385,8 +389,10 @@ media.mojom.SpeechRecognitionSessionReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionSession_Abort_ParamsSpec.$.decode(message.payload);
@@ -590,8 +596,10 @@ media.mojom.SpeechRecognitionSessionClientReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.SpeechRecognitionSessionClient_ResultRetrieved_ParamsSpec.$.decode(message.payload);

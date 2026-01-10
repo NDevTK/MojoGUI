@@ -138,8 +138,10 @@ ash.annotator.mojom.UntrustedAnnotatorPageReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec.$.decode(message.payload);
@@ -259,8 +261,10 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$.decode(message.payload);
@@ -354,8 +358,10 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryReceiver = class {
     this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
+      console.log('[GeneratedReceiver] Message received', message);
       const header = message.header;
-      if (!header) return;
+      if (!header) { console.warn('[GeneratedReceiver] No header'); return; }
+      console.log('[GeneratedReceiver] Header ordinal:', header.ordinal);
       switch (header.ordinal) {
         case 0: {
           const params = ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$.decode(message.payload);
