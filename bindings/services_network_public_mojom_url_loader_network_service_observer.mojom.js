@@ -172,7 +172,7 @@ network.mojom.ClientCertificateResponderReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -278,7 +278,7 @@ network.mojom.SSLPrivateKeyReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -372,7 +372,7 @@ network.mojom.AuthChallengeResponderReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -688,7 +688,7 @@ network.mojom.URLLoaderNetworkServiceObserverReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;

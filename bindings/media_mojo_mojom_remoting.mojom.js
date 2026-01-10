@@ -118,7 +118,7 @@ media.mojom.RemoterFactoryReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -226,7 +226,7 @@ media.mojom.RemotingDataStreamSenderReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -411,7 +411,7 @@ media.mojom.RemoterReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -608,7 +608,7 @@ media.mojom.RemotingSourceReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -787,7 +787,7 @@ media.mojom.RemoteeReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -895,7 +895,7 @@ media.mojom.RemotingSinkReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -1016,7 +1016,7 @@ media.mojom.RemotingDataStreamReceiverReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;

@@ -211,7 +211,7 @@ ntp_promo.mojom.NtpPromoHandlerReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -330,7 +330,7 @@ ntp_promo.mojom.NtpPromoClientReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -419,7 +419,7 @@ ntp_promo.mojom.NtpPromoHandlerFactoryReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;

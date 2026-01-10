@@ -148,7 +148,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -316,7 +316,7 @@ ash.screens_oobe.mojom.ConsumerUpdatePageReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -438,7 +438,7 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;

@@ -102,7 +102,7 @@ blink.mojom.AppBannerControllerReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -211,7 +211,7 @@ blink.mojom.AppBannerEventReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
@@ -303,7 +303,7 @@ blink.mojom.AppBannerServiceReceiver = class {
     this.endpoint = null;
   }
   bind(handle) {
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle);
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start((message) => {
       const header = message.header;
