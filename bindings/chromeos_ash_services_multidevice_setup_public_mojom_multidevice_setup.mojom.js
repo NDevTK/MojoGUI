@@ -8,12 +8,6 @@
 var ash = ash || {};
 ash.multidevice_setup = ash.multidevice_setup || {};
 ash.multidevice_setup.mojom = ash.multidevice_setup.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var components = components || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
 
 ash.multidevice_setup.mojom.CameraRollOptInEntryPointSpec = { $: mojo.internal.Enum() };
 ash.multidevice_setup.mojom.EventTypeForDebuggingSpec = { $: mojo.internal.Enum() };
@@ -246,6 +240,48 @@ ash.multidevice_setup.mojom.AccountStatusChangeDelegate.getRemote = function() {
   return remote.$;
 };
 
+ash.multidevice_setup.mojom.AccountStatusChangeDelegateReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnPotentialHostExistsForNewUser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPotentialHostExistsForNewUser();
+          break;
+        }
+        case 1: {
+          const params = ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNoLongerNewUser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNoLongerNewUser();
+          break;
+        }
+        case 2: {
+          const params = ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnConnectedHostSwitchedForExistingUser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnectedHostSwitchedForExistingUser(params.new_host_device_name);
+          break;
+        }
+        case 3: {
+          const params = ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnNewChromebookAddedForExistingUser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewChromebookAddedForExistingUser(params.new_host_device_name);
+          break;
+        }
+        case 4: {
+          const params = ash.multidevice_setup.mojom.AccountStatusChangeDelegate_OnBecameEligibleForWifiSync_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBecameEligibleForWifiSync();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.multidevice_setup.mojom.AccountStatusChangeDelegateReceiver = ash.multidevice_setup.mojom.AccountStatusChangeDelegateReceiver;
+
 ash.multidevice_setup.mojom.AccountStatusChangeDelegatePtr = ash.multidevice_setup.mojom.AccountStatusChangeDelegateRemote;
 ash.multidevice_setup.mojom.AccountStatusChangeDelegateRequest = ash.multidevice_setup.mojom.AccountStatusChangeDelegatePendingReceiver;
 
@@ -312,6 +348,28 @@ ash.multidevice_setup.mojom.HostStatusObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.multidevice_setup.mojom.HostStatusObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.multidevice_setup.mojom.HostStatusObserver_OnHostStatusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHostStatusChanged(params.host_status, params.host_device);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.multidevice_setup.mojom.HostStatusObserverReceiver = ash.multidevice_setup.mojom.HostStatusObserverReceiver;
+
 ash.multidevice_setup.mojom.HostStatusObserverPtr = ash.multidevice_setup.mojom.HostStatusObserverRemote;
 ash.multidevice_setup.mojom.HostStatusObserverRequest = ash.multidevice_setup.mojom.HostStatusObserverPendingReceiver;
 
@@ -376,6 +434,28 @@ ash.multidevice_setup.mojom.FeatureStateObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.multidevice_setup.mojom.FeatureStateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.multidevice_setup.mojom.FeatureStateObserver_OnFeatureStatesChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFeatureStatesChanged(params.feature_states_map);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.multidevice_setup.mojom.FeatureStateObserverReceiver = ash.multidevice_setup.mojom.FeatureStateObserverReceiver;
 
 ash.multidevice_setup.mojom.FeatureStateObserverPtr = ash.multidevice_setup.mojom.FeatureStateObserverRemote;
 ash.multidevice_setup.mojom.FeatureStateObserverRequest = ash.multidevice_setup.mojom.FeatureStateObserverPendingReceiver;
@@ -701,6 +781,156 @@ ash.multidevice_setup.mojom.MultiDeviceSetup.getRemote = function() {
   return remote.$;
 };
 
+ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.multidevice_setup.mojom.MultiDeviceSetup_SetAccountStatusChangeDelegate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAccountStatusChangeDelegate(params.delegate);
+          break;
+        }
+        case 1: {
+          const params = ash.multidevice_setup.mojom.MultiDeviceSetup_AddHostStatusObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addHostStatusObserver(params.observer);
+          break;
+        }
+        case 2: {
+          const params = ash.multidevice_setup.mojom.MultiDeviceSetup_AddFeatureStateObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addFeatureStateObserver(params.observer);
+          break;
+        }
+        case 3: {
+          const params = ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEligibleHostDevices();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleHostDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEligibleActiveHostDevices();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetEligibleActiveHostDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHostDevice(params.instance_id_or_legacy_device_id, params.auth_token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_SetHostDevice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = ash.multidevice_setup.mojom.MultiDeviceSetup_RemoveHostDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeHostDevice();
+          break;
+        }
+        case 7: {
+          const params = ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getHostStatus();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetHostStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFeatureEnabledState(params.feature, params.enabled, params.auth_token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_SetFeatureEnabledState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFeatureStates();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetFeatureStates_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.retrySetHostNow();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_RetrySetHostNow_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.triggerEventForDebugging(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_TriggerEventForDebugging_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = ash.multidevice_setup.mojom.MultiDeviceSetup_SetQuickStartPhoneInstanceID_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setQuickStartPhoneInstanceID(params.qs_phone_instance_id);
+          break;
+        }
+        case 13: {
+          const params = ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getQuickStartPhoneInstanceID();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.multidevice_setup.mojom.MultiDeviceSetup_GetQuickStartPhoneInstanceID_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.multidevice_setup.mojom.MultiDeviceSetupReceiver = ash.multidevice_setup.mojom.MultiDeviceSetupReceiver;
+
 ash.multidevice_setup.mojom.MultiDeviceSetupPtr = ash.multidevice_setup.mojom.MultiDeviceSetupRemote;
 ash.multidevice_setup.mojom.MultiDeviceSetupRequest = ash.multidevice_setup.mojom.MultiDeviceSetupPendingReceiver;
 
@@ -771,6 +1001,35 @@ ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHostDevice(params.instance_id_or_legacy_device_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.multidevice_setup.mojom.PrivilegedHostDeviceSetter_SetHostDevice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterReceiver = ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterReceiver;
 
 ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterPtr = ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRemote;
 ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterRequest = ash.multidevice_setup.mojom.PrivilegedHostDeviceSetterPendingReceiver;

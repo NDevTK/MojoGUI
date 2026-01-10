@@ -7,8 +7,6 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var services = services || {};
-var services = services || {};
 
 device.mojom.WakeLockProvider = {};
 device.mojom.WakeLockProvider.$interfaceName = 'device.mojom.WakeLockProvider';
@@ -141,6 +139,50 @@ device.mojom.WakeLockProvider.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.WakeLockProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.WakeLockProvider_GetWakeLockContextForID_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWakeLockContextForID(params.context_id, params.context);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.WakeLockProvider_GetWakeLockWithoutContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWakeLockWithoutContext(params.type, params.reason, params.description, params.wake_lock);
+          break;
+        }
+        case 2: {
+          const params = device.mojom.WakeLockProvider_NotifyOnWakeLockDeactivation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyOnWakeLockDeactivation(params.type, params.observer);
+          break;
+        }
+        case 3: {
+          const params = device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getActiveWakeLocksForTests(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.WakeLockProvider_GetActiveWakeLocksForTests_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.WakeLockProviderReceiver = device.mojom.WakeLockProviderReceiver;
+
 device.mojom.WakeLockProviderPtr = device.mojom.WakeLockProviderRemote;
 device.mojom.WakeLockProviderRequest = device.mojom.WakeLockProviderPendingReceiver;
 
@@ -205,6 +247,28 @@ device.mojom.WakeLockObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.WakeLockObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.WakeLockObserver_OnWakeLockDeactivated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWakeLockDeactivated(params.type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.WakeLockObserverReceiver = device.mojom.WakeLockObserverReceiver;
 
 device.mojom.WakeLockObserverPtr = device.mojom.WakeLockObserverRemote;
 device.mojom.WakeLockObserverRequest = device.mojom.WakeLockObserverPendingReceiver;

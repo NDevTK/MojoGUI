@@ -7,7 +7,6 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 printing.mojom.ModeSpec = { $: mojo.internal.Enum() };

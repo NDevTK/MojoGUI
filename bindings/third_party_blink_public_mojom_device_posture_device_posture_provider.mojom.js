@@ -123,6 +123,45 @@ blink.mojom.DevicePostureProvider.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.DevicePostureProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addListenerAndGetCurrentPosture(params.client);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.overrideDevicePostureForEmulation(params.posture);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableDevicePostureOverrideForEmulation();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DevicePostureProviderReceiver = blink.mojom.DevicePostureProviderReceiver;
+
 blink.mojom.DevicePostureProviderPtr = blink.mojom.DevicePostureProviderRemote;
 blink.mojom.DevicePostureProviderRequest = blink.mojom.DevicePostureProviderPendingReceiver;
 
@@ -187,6 +226,28 @@ blink.mojom.DevicePostureClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.DevicePostureClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPostureChanged(params.posture);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DevicePostureClientReceiver = blink.mojom.DevicePostureClientReceiver;
 
 blink.mojom.DevicePostureClientPtr = blink.mojom.DevicePostureClientRemote;
 blink.mojom.DevicePostureClientRequest = blink.mojom.DevicePostureClientPendingReceiver;

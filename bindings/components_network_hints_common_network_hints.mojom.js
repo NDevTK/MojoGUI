@@ -92,6 +92,33 @@ network_hints.mojom.NetworkHintsHandler.getRemote = function() {
   return remote.$;
 };
 
+network_hints.mojom.NetworkHintsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.prefetchDNS(params.url_list);
+          break;
+        }
+        case 1: {
+          const params = network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.preconnect(params.url, params.allow_credentials);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network_hints.mojom.NetworkHintsHandlerReceiver = network_hints.mojom.NetworkHintsHandlerReceiver;
+
 network_hints.mojom.NetworkHintsHandlerPtr = network_hints.mojom.NetworkHintsHandlerRemote;
 network_hints.mojom.NetworkHintsHandlerRequest = network_hints.mojom.NetworkHintsHandlerPendingReceiver;
 

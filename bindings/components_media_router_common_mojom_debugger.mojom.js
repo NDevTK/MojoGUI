@@ -7,6 +7,7 @@
 // Module namespace
 var media_router = media_router || {};
 media_router.mojom = media_router.mojom || {};
+var mojo_base = mojo_base || {};
 
 media_router.mojom.Debugger = {};
 media_router.mojom.Debugger.$interfaceName = 'media_router.mojom.Debugger';
@@ -112,6 +113,45 @@ media_router.mojom.Debugger.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media_router.mojom.DebuggerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldFetchMirroringStats();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media_router.mojom.Debugger_OnMirroringStats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMirroringStats(params.json_stats);
+          break;
+        }
+        case 2: {
+          const params = media_router.mojom.Debugger_BindReceiver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindReceiver(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media_router.mojom.DebuggerReceiver = media_router.mojom.DebuggerReceiver;
 
 media_router.mojom.DebuggerPtr = media_router.mojom.DebuggerRemote;
 media_router.mojom.DebuggerRequest = media_router.mojom.DebuggerPendingReceiver;

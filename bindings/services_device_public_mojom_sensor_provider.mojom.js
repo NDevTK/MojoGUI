@@ -7,7 +7,7 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 device.mojom.SensorCreationResultSpec = { $: mojo.internal.Enum() };
 device.mojom.CreateVirtualSensorResultSpec = { $: mojo.internal.Enum() };
@@ -261,6 +261,83 @@ device.mojom.SensorProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.SensorProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.SensorProvider_GetSensor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSensor(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SensorProvider_GetSensor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createVirtualSensor(params.type, params.metadata);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateVirtualSensor(params.type, params.reading);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeVirtualSensor(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVirtualSensorInformation(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.SensorProviderReceiver = device.mojom.SensorProviderReceiver;
 
 device.mojom.SensorProviderPtr = device.mojom.SensorProviderRemote;
 device.mojom.SensorProviderRequest = device.mojom.SensorProviderPendingReceiver;

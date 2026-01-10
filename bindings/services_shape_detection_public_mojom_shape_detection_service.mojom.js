@@ -7,9 +7,7 @@
 // Module namespace
 var shape_detection = shape_detection || {};
 shape_detection.mojom = shape_detection.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var sandbox = sandbox || {};
 
 shape_detection.mojom.ShapeDetectionService = {};
 shape_detection.mojom.ShapeDetectionService.$interfaceName = 'shape_detection.mojom.ShapeDetectionService';
@@ -115,6 +113,38 @@ shape_detection.mojom.ShapeDetectionService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+shape_detection.mojom.ShapeDetectionServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindBarcodeDetectionProvider(params.receiver);
+          break;
+        }
+        case 1: {
+          const params = shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindFaceDetectionProvider(params.receiver);
+          break;
+        }
+        case 2: {
+          const params = shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindTextDetection(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+shape_detection.mojom.ShapeDetectionServiceReceiver = shape_detection.mojom.ShapeDetectionServiceReceiver;
 
 shape_detection.mojom.ShapeDetectionServicePtr = shape_detection.mojom.ShapeDetectionServiceRemote;
 shape_detection.mojom.ShapeDetectionServiceRequest = shape_detection.mojom.ShapeDetectionServicePendingReceiver;

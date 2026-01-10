@@ -8,8 +8,6 @@
 var chromeos = chromeos || {};
 chromeos.network_health = chromeos.network_health || {};
 chromeos.network_health.mojom = chromeos.network_health.mojom || {};
-var chromeos = chromeos || {};
-var services = services || {};
 var url = url || {};
 
 chromeos.network_health.mojom.NetworkStateSpec = { $: mojo.internal.Enum() };

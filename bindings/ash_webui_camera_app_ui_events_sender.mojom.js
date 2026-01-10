@@ -8,7 +8,6 @@
 var ash = ash || {};
 ash.camera_app = ash.camera_app || {};
 ash.camera_app.mojom = ash.camera_app.mojom || {};
-var ash = ash || {};
 
 ash.camera_app.mojom.LaunchTypeSpec = { $: mojo.internal.Enum() };
 ash.camera_app.mojom.ModeSpec = { $: mojo.internal.Enum() };
@@ -709,6 +708,88 @@ ash.camera_app.mojom.EventsSender.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.camera_app.mojom.EventsSenderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendStartSessionEvent(params.params);
+          break;
+        }
+        case 1: {
+          const params = ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendCaptureEvent(params.params);
+          break;
+        }
+        case 2: {
+          const params = ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendAndroidIntentEvent(params.params);
+          break;
+        }
+        case 3: {
+          const params = ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendOpenPTZPanelEvent(params.params);
+          break;
+        }
+        case 4: {
+          const params = ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendDocScanActionEvent(params.params);
+          break;
+        }
+        case 5: {
+          const params = ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendDocScanResultEvent(params.params);
+          break;
+        }
+        case 6: {
+          const params = ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendOpenCameraEvent(params.params);
+          break;
+        }
+        case 7: {
+          const params = ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendLowStorageActionEvent(params.params);
+          break;
+        }
+        case 8: {
+          const params = ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendBarcodeDetectedEvent(params.params);
+          break;
+        }
+        case 9: {
+          const params = ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendPerfEvent(params.params);
+          break;
+        }
+        case 10: {
+          const params = ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendUnsupportedProtocolEvent();
+          break;
+        }
+        case 11: {
+          const params = ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateMemoryUsageEventParams(params.params);
+          break;
+        }
+        case 12: {
+          const params = ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendOcrEvent(params.params);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.camera_app.mojom.EventsSenderReceiver = ash.camera_app.mojom.EventsSenderReceiver;
 
 ash.camera_app.mojom.EventsSenderPtr = ash.camera_app.mojom.EventsSenderRemote;
 ash.camera_app.mojom.EventsSenderRequest = ash.camera_app.mojom.EventsSenderPendingReceiver;

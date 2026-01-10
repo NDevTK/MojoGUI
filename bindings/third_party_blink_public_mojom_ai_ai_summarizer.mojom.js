@@ -7,8 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
 
 blink.mojom.AISummarizerTypeSpec = { $: mojo.internal.Enum() };
 blink.mojom.AISummarizerFormatSpec = { $: mojo.internal.Enum() };
@@ -140,6 +138,40 @@ blink.mojom.AISummarizer.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.AISummarizerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AISummarizer_Summarize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.summarize(params.input, params.context, params.pending_responder);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AISummarizer_MeasureUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.measureUsage(params.input, params.context);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AISummarizerReceiver = blink.mojom.AISummarizerReceiver;
 
 blink.mojom.AISummarizerPtr = blink.mojom.AISummarizerRemote;
 blink.mojom.AISummarizerRequest = blink.mojom.AISummarizerPendingReceiver;

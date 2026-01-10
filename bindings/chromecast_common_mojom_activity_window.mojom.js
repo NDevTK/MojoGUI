@@ -88,6 +88,33 @@ chromecast.mojom.ActivityWindow.getRemote = function() {
   return remote.$;
 };
 
+chromecast.mojom.ActivityWindowReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.ActivityWindow_Show_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.show();
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.ActivityWindow_Hide_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hide();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.ActivityWindowReceiver = chromecast.mojom.ActivityWindowReceiver;
+
 chromecast.mojom.ActivityWindowPtr = chromecast.mojom.ActivityWindowRemote;
 chromecast.mojom.ActivityWindowRequest = chromecast.mojom.ActivityWindowPendingReceiver;
 

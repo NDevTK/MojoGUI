@@ -8,8 +8,7 @@
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
 var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 arc.mojom.GetArcSafetySessionResultSpec = { $: mojo.internal.Enum() };
 arc.mojom.OnDeviceSafetyHost = {};
@@ -97,6 +96,35 @@ arc.mojom.OnDeviceSafetyHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.OnDeviceSafetyHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isCrosSafetyServiceEnabled();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.OnDeviceSafetyHostReceiver = arc.mojom.OnDeviceSafetyHostReceiver;
 
 arc.mojom.OnDeviceSafetyHostPtr = arc.mojom.OnDeviceSafetyHostRemote;
 arc.mojom.OnDeviceSafetyHostRequest = arc.mojom.OnDeviceSafetyHostPendingReceiver;
@@ -189,6 +217,47 @@ arc.mojom.OnDeviceSafetyInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.OnDeviceSafetyInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getArcSafetySession(params.session);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.OnDeviceSafetyInstanceReceiver = arc.mojom.OnDeviceSafetyInstanceReceiver;
 
 arc.mojom.OnDeviceSafetyInstancePtr = arc.mojom.OnDeviceSafetyInstanceRemote;
 arc.mojom.OnDeviceSafetyInstanceRequest = arc.mojom.OnDeviceSafetyInstancePendingReceiver;

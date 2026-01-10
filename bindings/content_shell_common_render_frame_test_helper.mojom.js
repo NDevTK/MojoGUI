@@ -8,7 +8,6 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 var blink = blink || {};
-var blink = blink || {};
 
 content.mojom.RenderFrameTestHelper = {};
 content.mojom.RenderFrameTestHelper.$interfaceName = 'content.mojom.RenderFrameTestHelper';
@@ -80,6 +79,35 @@ content.mojom.RenderFrameTestHelper.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.RenderFrameTestHelperReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDocumentToken();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.RenderFrameTestHelperReceiver = content.mojom.RenderFrameTestHelperReceiver;
 
 content.mojom.RenderFrameTestHelperPtr = content.mojom.RenderFrameTestHelperRemote;
 content.mojom.RenderFrameTestHelperRequest = content.mojom.RenderFrameTestHelperPendingReceiver;

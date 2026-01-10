@@ -90,6 +90,28 @@ reload_button.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+reload_button.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+reload_button.mojom.PageHandlerFactoryReceiver = reload_button.mojom.PageHandlerFactoryReceiver;
+
 reload_button.mojom.PageHandlerFactoryPtr = reload_button.mojom.PageHandlerFactoryRemote;
 reload_button.mojom.PageHandlerFactoryRequest = reload_button.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -188,6 +210,38 @@ reload_button.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+reload_button.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = reload_button.mojom.PageHandler_Reload_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reload(params.ignore_cache, params.flags);
+          break;
+        }
+        case 1: {
+          const params = reload_button.mojom.PageHandler_StopReload_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopReload();
+          break;
+        }
+        case 2: {
+          const params = reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showContextMenu(params.offset_x, params.offset_y);
+          break;
+        }
+      }
+    });
+  }
+};
+
+reload_button.mojom.PageHandlerReceiver = reload_button.mojom.PageHandlerReceiver;
+
 reload_button.mojom.PageHandlerPtr = reload_button.mojom.PageHandlerRemote;
 reload_button.mojom.PageHandlerRequest = reload_button.mojom.PageHandlerPendingReceiver;
 
@@ -253,6 +307,28 @@ reload_button.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+reload_button.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = reload_button.mojom.Page_SetReloadButtonState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setReloadButtonState(params.is_loading, params.is_menu_enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+reload_button.mojom.PageReceiver = reload_button.mojom.PageReceiver;
 
 reload_button.mojom.PagePtr = reload_button.mojom.PageRemote;
 reload_button.mojom.PageRequest = reload_button.mojom.PagePendingReceiver;

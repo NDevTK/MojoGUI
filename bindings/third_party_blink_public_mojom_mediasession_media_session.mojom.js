@@ -7,7 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var media_session = media_session || {};
 
 blink.mojom.MediaSessionPlaybackStateSpec = { $: mojo.internal.Enum() };
 blink.mojom.MediaSessionEnterPictureInPictureReasonSpec = { $: mojo.internal.Enum() };
@@ -145,6 +146,28 @@ blink.mojom.MediaSessionClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.MediaSessionClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didReceiveAction(params.action, params.details);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.MediaSessionClientReceiver = blink.mojom.MediaSessionClientReceiver;
 
 blink.mojom.MediaSessionClientPtr = blink.mojom.MediaSessionClientRemote;
 blink.mojom.MediaSessionClientRequest = blink.mojom.MediaSessionClientPendingReceiver;
@@ -322,6 +345,63 @@ blink.mojom.MediaSessionService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.MediaSessionServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.MediaSessionService_SetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setClient(params.client);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPlaybackState(params.state);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.MediaSessionService_SetPositionState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPositionState(params.position);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.MediaSessionService_SetMetadata_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMetadata(params.metadata);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMicrophoneState(params.microphone_state);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.MediaSessionService_SetCameraState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCameraState(params.camera_state);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.MediaSessionService_EnableAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableAction(params.action);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.MediaSessionService_DisableAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableAction(params.action);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.MediaSessionServiceReceiver = blink.mojom.MediaSessionServiceReceiver;
 
 blink.mojom.MediaSessionServicePtr = blink.mojom.MediaSessionServiceRemote;
 blink.mojom.MediaSessionServiceRequest = blink.mojom.MediaSessionServicePendingReceiver;

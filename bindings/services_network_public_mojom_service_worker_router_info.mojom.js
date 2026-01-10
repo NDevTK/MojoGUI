@@ -7,6 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var mojo_base = mojo_base || {};
 
 network.mojom.ServiceWorkerRouterSourceTypeSpec = { $: mojo.internal.Enum() };
 network.mojom.ServiceWorkerStatusSpec = { $: mojo.internal.Enum() };

@@ -8,7 +8,7 @@
 var ash = ash || {};
 ash.orca = ash.orca || {};
 ash.orca.mojom = ash.orca.mojom || {};
-var ui = ui || {};
+var sandbox = sandbox || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -514,6 +514,138 @@ ash.orca.mojom.EditorClient.getRemote = function() {
   return remote.$;
 };
 
+ash.orca.mojom.EditorClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPresetTextQueries();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPresetRewrite(params.text_query_id, params.text_override);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestFreeformRewrite(params.input, params.text_override);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestFreeformWrite(params.input);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.orca.mojom.EditorClient_InsertText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.insertText(params.text);
+          break;
+        }
+        case 5: {
+          const params = ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.approveConsent();
+          break;
+        }
+        case 6: {
+          const params = ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.declineConsent();
+          break;
+        }
+        case 7: {
+          const params = ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dismissConsent();
+          break;
+        }
+        case 8: {
+          const params = ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openUrlInNewWindow(params.url);
+          break;
+        }
+        case 9: {
+          const params = ash.orca.mojom.EditorClient_ShowUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showUI();
+          break;
+        }
+        case 10: {
+          const params = ash.orca.mojom.EditorClient_CloseUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeUI();
+          break;
+        }
+        case 11: {
+          const params = ash.orca.mojom.EditorClient_AppendText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.appendText(params.text);
+          break;
+        }
+        case 12: {
+          const params = ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.previewFeedback(params.result_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.submitFeedback(params.result_id, params.user_description);
+          break;
+        }
+        case 14: {
+          const params = ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTrigger(params.trigger_context);
+          break;
+        }
+        case 15: {
+          const params = ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.emitMetricEvent(params.metric_event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.orca.mojom.EditorClientReceiver = ash.orca.mojom.EditorClientReceiver;
+
 ash.orca.mojom.EditorClientPtr = ash.orca.mojom.EditorClientRemote;
 ash.orca.mojom.EditorClientRequest = ash.orca.mojom.EditorClientPendingReceiver;
 
@@ -579,6 +711,28 @@ ash.orca.mojom.EditorClientConnector.getRemote = function() {
   return remote.$;
 };
 
+ash.orca.mojom.EditorClientConnectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindEditorClient(params.editor_client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.orca.mojom.EditorClientConnectorReceiver = ash.orca.mojom.EditorClientConnectorReceiver;
+
 ash.orca.mojom.EditorClientConnectorPtr = ash.orca.mojom.EditorClientConnectorRemote;
 ash.orca.mojom.EditorClientConnectorRequest = ash.orca.mojom.EditorClientConnectorPendingReceiver;
 
@@ -643,6 +797,28 @@ ash.orca.mojom.EditorEventSink.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.orca.mojom.EditorEventSinkReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onContextUpdated(params.context);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.orca.mojom.EditorEventSinkReceiver = ash.orca.mojom.EditorEventSinkReceiver;
 
 ash.orca.mojom.EditorEventSinkPtr = ash.orca.mojom.EditorEventSinkRemote;
 ash.orca.mojom.EditorEventSinkRequest = ash.orca.mojom.EditorEventSinkPendingReceiver;
@@ -833,6 +1009,68 @@ ash.orca.mojom.SystemActuator.getRemote = function() {
   return remote.$;
 };
 
+ash.orca.mojom.SystemActuatorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.orca.mojom.SystemActuator_InsertText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.insertText(params.text);
+          break;
+        }
+        case 1: {
+          const params = ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.approveConsent();
+          break;
+        }
+        case 2: {
+          const params = ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.declineConsent();
+          break;
+        }
+        case 3: {
+          const params = ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openUrlInNewWindow(params.url);
+          break;
+        }
+        case 4: {
+          const params = ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showUI();
+          break;
+        }
+        case 5: {
+          const params = ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeUI();
+          break;
+        }
+        case 6: {
+          const params = ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.submitFeedback(params.description);
+          break;
+        }
+        case 7: {
+          const params = ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTrigger(params.trigger_context);
+          break;
+        }
+        case 8: {
+          const params = ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.emitMetricEvent(params.metric_event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.orca.mojom.SystemActuatorReceiver = ash.orca.mojom.SystemActuatorReceiver;
+
 ash.orca.mojom.SystemActuatorPtr = ash.orca.mojom.SystemActuatorRemote;
 ash.orca.mojom.SystemActuatorRequest = ash.orca.mojom.SystemActuatorPendingReceiver;
 
@@ -904,6 +1142,35 @@ ash.orca.mojom.TextQueryProvider.getRemote = function() {
   return remote.$;
 };
 
+ash.orca.mojom.TextQueryProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.orca.mojom.TextQueryProvider_Process_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.process(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.orca.mojom.TextQueryProviderReceiver = ash.orca.mojom.TextQueryProviderReceiver;
+
 ash.orca.mojom.TextQueryProviderPtr = ash.orca.mojom.TextQueryProviderRemote;
 ash.orca.mojom.TextQueryProviderRequest = ash.orca.mojom.TextQueryProviderPendingReceiver;
 
@@ -911,10 +1178,10 @@ ash.orca.mojom.TextQueryProviderRequest = ash.orca.mojom.TextQueryProviderPendin
 // Interface: OrcaService
 mojo.internal.Struct(
     ash.orca.mojom.OrcaService_BindEditor_ParamsSpec, 'ash.orca.mojom.OrcaService_BindEditor_Params', [
-      mojo.internal.StructField('system_actuator', 0, 0, mojo.internal.AssociatedInterfaceProxy(ash.orca.mojom.SystemActuatorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('text_query_provider', 8, 0, mojo.internal.AssociatedInterfaceProxy(ash.orca.mojom.TextQueryProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client_connector', 16, 0, mojo.internal.AssociatedInterfaceRequest(ash.orca.mojom.EditorClientConnectorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('event_sink', 24, 0, mojo.internal.AssociatedInterfaceRequest(ash.orca.mojom.EditorEventSinkRemote), null, false, 0, undefined),
+      mojo.internal.StructField('system_actuator', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('text_query_provider', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('client_connector', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('event_sink', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('editor_config', 32, 0, ash.orca.mojom.EditorConfigSpec.$, null, true, 9, undefined),
     ],
     [[0, 40], [9, 48]]);
@@ -972,6 +1239,28 @@ ash.orca.mojom.OrcaService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.orca.mojom.OrcaServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.orca.mojom.OrcaService_BindEditor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindEditor(params.system_actuator, params.text_query_provider, params.client_connector, params.event_sink, params.editor_config);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.orca.mojom.OrcaServiceReceiver = ash.orca.mojom.OrcaServiceReceiver;
 
 ash.orca.mojom.OrcaServicePtr = ash.orca.mojom.OrcaServiceRemote;
 ash.orca.mojom.OrcaServiceRequest = ash.orca.mojom.OrcaServicePendingReceiver;

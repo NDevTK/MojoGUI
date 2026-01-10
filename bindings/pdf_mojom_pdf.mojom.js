@@ -7,8 +7,8 @@
 // Module namespace
 var pdf = pdf || {};
 pdf.mojom = pdf.mojom || {};
-var services = services || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -132,6 +132,35 @@ pdf.mojom.SaveDataBufferHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+pdf.mojom.SaveDataBufferHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.read(params.offset, params.block_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+pdf.mojom.SaveDataBufferHandlerReceiver = pdf.mojom.SaveDataBufferHandlerReceiver;
 
 pdf.mojom.SaveDataBufferHandlerPtr = pdf.mojom.SaveDataBufferHandlerRemote;
 pdf.mojom.SaveDataBufferHandlerRequest = pdf.mojom.SaveDataBufferHandlerPendingReceiver;
@@ -321,6 +350,86 @@ pdf.mojom.PdfListener.getRemote = function() {
   return remote.$;
 };
 
+pdf.mojom.PdfListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCaretPosition(params.position);
+          break;
+        }
+        case 1: {
+          const params = pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.moveRangeSelectionExtent(params.extent);
+          break;
+        }
+        case 2: {
+          const params = pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSelectionBounds(params.base, params.extent);
+          break;
+        }
+        case 3: {
+          const params = pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPdfBytes(params.size_limit);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = pdf.mojom.PdfListener_GetPageText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPageText(params.page_index);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMostVisiblePageIndex();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSaveDataBufferHandlerForDrive(params.request_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+pdf.mojom.PdfListenerReceiver = pdf.mojom.PdfListenerReceiver;
+
 pdf.mojom.PdfListenerPtr = pdf.mojom.PdfListenerRemote;
 pdf.mojom.PdfListenerRequest = pdf.mojom.PdfListenerPendingReceiver;
 
@@ -483,6 +592,58 @@ pdf.mojom.PdfHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+pdf.mojom.PdfHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = pdf.mojom.PdfHost_SetListener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setListener(params.client);
+          break;
+        }
+        case 1: {
+          const params = pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDocumentLoadComplete();
+          break;
+        }
+        case 2: {
+          const params = pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateContentRestrictions(params.restrictions);
+          break;
+        }
+        case 3: {
+          const params = pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.saveUrlAs(params.url, params.policy);
+          break;
+        }
+        case 4: {
+          const params = pdf.mojom.PdfHost_SelectionChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectionChanged(params.left, params.left_height, params.right, params.right_height);
+          break;
+        }
+        case 5: {
+          const params = pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPluginCanSave(params.can_save);
+          break;
+        }
+        case 6: {
+          const params = pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSearchifyStarted();
+          break;
+        }
+      }
+    });
+  }
+};
+
+pdf.mojom.PdfHostReceiver = pdf.mojom.PdfHostReceiver;
 
 pdf.mojom.PdfHostPtr = pdf.mojom.PdfHostRemote;
 pdf.mojom.PdfHostRequest = pdf.mojom.PdfHostPendingReceiver;

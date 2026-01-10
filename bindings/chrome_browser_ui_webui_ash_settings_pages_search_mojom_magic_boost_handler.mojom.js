@@ -78,6 +78,28 @@ ash.settings.magic_boost_handler.mojom.PageHandlerFactory.getRemote = function()
   return remote.$;
 };
 
+ash.settings.magic_boost_handler.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.magic_boost_handler.mojom.PageHandlerFactoryReceiver = ash.settings.magic_boost_handler.mojom.PageHandlerFactoryReceiver;
+
 ash.settings.magic_boost_handler.mojom.PageHandlerFactoryPtr = ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemote;
 ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRequest = ash.settings.magic_boost_handler.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -141,6 +163,28 @@ ash.settings.magic_boost_handler.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.magic_boost_handler.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showNotice();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.magic_boost_handler.mojom.PageHandlerReceiver = ash.settings.magic_boost_handler.mojom.PageHandlerReceiver;
 
 ash.settings.magic_boost_handler.mojom.PageHandlerPtr = ash.settings.magic_boost_handler.mojom.PageHandlerRemote;
 ash.settings.magic_boost_handler.mojom.PageHandlerRequest = ash.settings.magic_boost_handler.mojom.PageHandlerPendingReceiver;

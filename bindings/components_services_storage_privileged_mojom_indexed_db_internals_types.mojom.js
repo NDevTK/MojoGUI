@@ -7,11 +7,8 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var url = url || {};
 
 storage.mojom.IdbTransactionModeSpec = { $: mojo.internal.Enum() };

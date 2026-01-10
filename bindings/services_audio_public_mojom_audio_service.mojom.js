@@ -7,12 +7,8 @@
 // Module namespace
 var audio = audio || {};
 audio.mojom = audio.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var media = media || {};
+var sandbox = sandbox || {};
 
 audio.mojom.AudioService = {};
 audio.mojom.AudioService.$interfaceName = 'audio.mojom.AudioService';
@@ -180,6 +176,58 @@ audio.mojom.AudioService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+audio.mojom.AudioServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = audio.mojom.AudioService_BindSystemInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSystemInfo(params.receiver);
+          break;
+        }
+        case 1: {
+          const params = audio.mojom.AudioService_BindDebugRecording_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindDebugRecording(params.receiver);
+          break;
+        }
+        case 2: {
+          const params = audio.mojom.AudioService_BindStreamFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindStreamFactory(params.receiver);
+          break;
+        }
+        case 3: {
+          const params = audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindDeviceNotifier(params.receiver);
+          break;
+        }
+        case 4: {
+          const params = audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindLogFactoryManager(params.receiver);
+          break;
+        }
+        case 5: {
+          const params = audio.mojom.AudioService_BindTestingApi_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindTestingApi(params.receiver);
+          break;
+        }
+        case 6: {
+          const params = audio.mojom.AudioService_BindMlModelManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindMlModelManager(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+audio.mojom.AudioServiceReceiver = audio.mojom.AudioServiceReceiver;
 
 audio.mojom.AudioServicePtr = audio.mojom.AudioServiceRemote;
 audio.mojom.AudioServiceRequest = audio.mojom.AudioServicePendingReceiver;

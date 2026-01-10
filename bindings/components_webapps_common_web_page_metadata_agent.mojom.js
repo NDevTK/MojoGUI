@@ -7,7 +7,6 @@
 // Module namespace
 var webapps = webapps || {};
 webapps.mojom = webapps.mojom || {};
-var components = components || {};
 
 webapps.mojom.WebPageMetadataAgent = {};
 webapps.mojom.WebPageMetadataAgent.$interfaceName = 'webapps.mojom.WebPageMetadataAgent';
@@ -79,6 +78,35 @@ webapps.mojom.WebPageMetadataAgent.getRemote = function() {
     'context');
   return remote.$;
 };
+
+webapps.mojom.WebPageMetadataAgentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWebPageMetadata();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+webapps.mojom.WebPageMetadataAgentReceiver = webapps.mojom.WebPageMetadataAgentReceiver;
 
 webapps.mojom.WebPageMetadataAgentPtr = webapps.mojom.WebPageMetadataAgentRemote;
 webapps.mojom.WebPageMetadataAgentRequest = webapps.mojom.WebPageMetadataAgentPendingReceiver;

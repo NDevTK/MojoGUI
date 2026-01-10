@@ -8,12 +8,7 @@
 var ash = ash || {};
 ash.local_search_service = ash.local_search_service || {};
 ash.local_search_service.mojom = ash.local_search_service.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var components = components || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var components = components || {};
+var sandbox = sandbox || {};
 
 ash.local_search_service.mojom.IndexIdSpec = { $: mojo.internal.Enum() };
 ash.local_search_service.mojom.BackendSpec = { $: mojo.internal.Enum() };
@@ -107,6 +102,35 @@ ash.local_search_service.mojom.SearchMetricsReporter.getRemote = function() {
   return remote.$;
 };
 
+ash.local_search_service.mojom.SearchMetricsReporterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSearchPerformed(params.index_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.local_search_service.mojom.SearchMetricsReporterReceiver = ash.local_search_service.mojom.SearchMetricsReporterReceiver;
+
 ash.local_search_service.mojom.SearchMetricsReporterPtr = ash.local_search_service.mojom.SearchMetricsReporterRemote;
 ash.local_search_service.mojom.SearchMetricsReporterRequest = ash.local_search_service.mojom.SearchMetricsReporterPendingReceiver;
 
@@ -180,6 +204,35 @@ ash.local_search_service.mojom.LocalSearchService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.local_search_service.mojom.LocalSearchServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindIndex(params.index_id, params.backend, params.index_receiver, params.reporter_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.local_search_service.mojom.LocalSearchServiceReceiver = ash.local_search_service.mojom.LocalSearchServiceReceiver;
 
 ash.local_search_service.mojom.LocalSearchServicePtr = ash.local_search_service.mojom.LocalSearchServiceRemote;
 ash.local_search_service.mojom.LocalSearchServiceRequest = ash.local_search_service.mojom.LocalSearchServicePendingReceiver;

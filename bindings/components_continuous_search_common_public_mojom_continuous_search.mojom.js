@@ -7,6 +7,7 @@
 // Module namespace
 var continuous_search = continuous_search || {};
 continuous_search.mojom = continuous_search.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 continuous_search.mojom.ResultTypeSpec = { $: mojo.internal.Enum() };
@@ -130,6 +131,35 @@ continuous_search.mojom.SearchResultExtractor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+continuous_search.mojom.SearchResultExtractorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.extractCurrentSearchResults(params.result_types);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+continuous_search.mojom.SearchResultExtractorReceiver = continuous_search.mojom.SearchResultExtractorReceiver;
 
 continuous_search.mojom.SearchResultExtractorPtr = continuous_search.mojom.SearchResultExtractorRemote;
 continuous_search.mojom.SearchResultExtractorRequest = continuous_search.mojom.SearchResultExtractorPendingReceiver;

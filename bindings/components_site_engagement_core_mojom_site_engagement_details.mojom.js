@@ -109,6 +109,40 @@ site_engagement.mojom.SiteEngagementDetailsProvider.getRemote = function() {
   return remote.$;
 };
 
+site_engagement.mojom.SiteEngagementDetailsProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSiteEngagementDetails();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSiteEngagementBaseScoreForUrl(params.url, params.score);
+          break;
+        }
+      }
+    });
+  }
+};
+
+site_engagement.mojom.SiteEngagementDetailsProviderReceiver = site_engagement.mojom.SiteEngagementDetailsProviderReceiver;
+
 site_engagement.mojom.SiteEngagementDetailsProviderPtr = site_engagement.mojom.SiteEngagementDetailsProviderRemote;
 site_engagement.mojom.SiteEngagementDetailsProviderRequest = site_engagement.mojom.SiteEngagementDetailsProviderPendingReceiver;
 

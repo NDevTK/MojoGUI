@@ -7,11 +7,9 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var components = components || {};
-var components = components || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var content_settings = content_settings || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 var url = url || {};
 
 network.mojom.CookieAccessDelegateTypeSpec = { $: mojo.internal.Enum() };
@@ -440,6 +438,28 @@ network.mojom.CookieChangeListener.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.CookieChangeListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCookieChange(params.change);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.CookieChangeListenerReceiver = network.mojom.CookieChangeListenerReceiver;
+
 network.mojom.CookieChangeListenerPtr = network.mojom.CookieChangeListenerRemote;
 network.mojom.CookieChangeListenerRequest = network.mojom.CookieChangeListenerPendingReceiver;
 
@@ -859,6 +879,195 @@ network.mojom.CookieManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.CookieManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.CookieManager_GetAllCookies_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllCookies();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllCookiesWithAccessSemantics();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = network.mojom.CookieManager_GetCookieList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCookieList(params.url, params.cookie_options, params.cookie_partition_key_collection);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.CookieManager_GetCookieList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCanonicalCookie(params.cookie, params.source_url, params.cookie_options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteCanonicalCookie(params.cookie);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = network.mojom.CookieManager_DeleteCookies_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteCookies(params.filter);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = network.mojom.CookieManager_DeleteSessionOnlyCookies_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteSessionOnlyCookies();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteStaleSessionOnlyCookies();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addCookieChangeListener(params.url, params.name, params.listener);
+          break;
+        }
+        case 9: {
+          const params = network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addGlobalChangeListener(params.notification_pointer);
+          break;
+        }
+        case 10: {
+          const params = network.mojom.CookieManager_CloneInterface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cloneInterface(params.new_interface);
+          break;
+        }
+        case 11: {
+          const params = network.mojom.CookieManager_FlushCookieStore_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flushCookieStore();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.CookieManager_FlushCookieStore_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.allowFileSchemeCookies(params.allow);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = network.mojom.CookieManager_SetContentSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setContentSettings(params.content_settings_type, params.settings);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.CookieManager_SetContentSettings_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = network.mojom.CookieManager_SetForceKeepSessionState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setForceKeepSessionState();
+          break;
+        }
+        case 15: {
+          const params = network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.blockThirdPartyCookies(params.block);
+          break;
+        }
+        case 16: {
+          const params = network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMitigationsEnabledFor3pcd(params.enable);
+          break;
+        }
+        case 17: {
+          const params = network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTrackingProtectionEnabledFor3pcd(params.enable);
+          break;
+        }
+        case 18: {
+          const params = network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPreCommitCallbackDelayForTesting(params.delay);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.CookieManagerReceiver = network.mojom.CookieManagerReceiver;
 
 network.mojom.CookieManagerPtr = network.mojom.CookieManagerRemote;
 network.mojom.CookieManagerRequest = network.mojom.CookieManagerPendingReceiver;

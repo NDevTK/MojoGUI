@@ -7,10 +7,7 @@
 // Module namespace
 var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var media = media || {};
 
 video_capture.mojom.GetSourceInfosResultSpec = { $: mojo.internal.Enum() };
 video_capture.mojom.VideoSourceProvider = {};
@@ -202,6 +199,72 @@ video_capture.mojom.VideoSourceProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+video_capture.mojom.VideoSourceProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSourceInfos();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVideoSource(params.source_id, params.stream);
+          break;
+        }
+        case 2: {
+          const params = video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addSharedMemoryVirtualDevice(params.device_info, params.producer, params.virtual_device_receiver);
+          break;
+        }
+        case 3: {
+          const params = video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addTextureVirtualDevice(params.device_info, params.virtual_device_receiver);
+          break;
+        }
+        case 4: {
+          const params = video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerVirtualDevicesChangedObserver(params.observer, params.raise_event_if_virtual_devices_already_present);
+          break;
+        }
+        case 5: {
+          const params = video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerDevicesChangedObserver(params.observer);
+          break;
+        }
+        case 6: {
+          const params = video_capture.mojom.VideoSourceProvider_Close_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.close();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+video_capture.mojom.VideoSourceProviderReceiver = video_capture.mojom.VideoSourceProviderReceiver;
 
 video_capture.mojom.VideoSourceProviderPtr = video_capture.mojom.VideoSourceProviderRemote;
 video_capture.mojom.VideoSourceProviderRequest = video_capture.mojom.VideoSourceProviderPendingReceiver;

@@ -82,6 +82,35 @@ ash.mall.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.mall.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMallEmbedUrl(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.mall.mojom.PageHandlerReceiver = ash.mall.mojom.PageHandlerReceiver;
+
 ash.mall.mojom.PageHandlerPtr = ash.mall.mojom.PageHandlerRemote;
 ash.mall.mojom.PageHandlerRequest = ash.mall.mojom.PageHandlerPendingReceiver;
 

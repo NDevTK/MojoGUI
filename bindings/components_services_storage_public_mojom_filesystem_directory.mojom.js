@@ -7,6 +7,7 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var mojo_base = mojo_base || {};
 
 storage.mojom.GetEntriesModeSpec = { $: mojo.internal.Enum() };
 storage.mojom.FileOpenModeSpec = { $: mojo.internal.Enum() };
@@ -148,6 +149,35 @@ storage.mojom.FileLock.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.FileLockReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.FileLock_Release_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.release();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.FileLock_Release_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.FileLockReceiver = storage.mojom.FileLockReceiver;
 
 storage.mojom.FileLockPtr = storage.mojom.FileLockRemote;
 storage.mojom.FileLockRequest = storage.mojom.FileLockPendingReceiver;
@@ -419,6 +449,136 @@ storage.mojom.Directory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.DirectoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.Directory_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.receiver);
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.Directory_PathExists_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pathExists(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.Directory_PathExists_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = storage.mojom.Directory_GetEntries_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEntries(params.path, params.mode);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.Directory_GetEntries_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = storage.mojom.Directory_OpenFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFile(params.path, params.mode, params.read_access, params.write_access);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.Directory_OpenFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = storage.mojom.Directory_CreateDirectory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createDirectory(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.Directory_CreateDirectory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = storage.mojom.Directory_DeleteFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteFile(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.Directory_DeleteFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = storage.mojom.Directory_GetFileInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFileInfo(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.Directory_GetFileInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = storage.mojom.Directory_GetPathAccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPathAccess(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.Directory_GetPathAccess_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = storage.mojom.Directory_RenameFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.renameFile(params.old_path, params.new_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.Directory_RenameFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = storage.mojom.Directory_LockFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.lockFile(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.Directory_LockFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.DirectoryReceiver = storage.mojom.DirectoryReceiver;
 
 storage.mojom.DirectoryPtr = storage.mojom.DirectoryRemote;
 storage.mojom.DirectoryRequest = storage.mojom.DirectoryPendingReceiver;

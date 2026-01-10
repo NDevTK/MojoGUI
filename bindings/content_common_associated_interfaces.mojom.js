@@ -8,7 +8,6 @@
 var content = content || {};
 content.mojom = content.mojom || {};
 var blink = blink || {};
-var blink = blink || {};
 
 content.mojom.RouteProvider = {};
 content.mojom.RouteProvider.$interfaceName = 'content.mojom.RouteProvider';
@@ -18,7 +17,7 @@ content.mojom.RouteProvider_GetRoute_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     content.mojom.RouteProvider_GetRoute_ParamsSpec, 'content.mojom.RouteProvider_GetRoute_Params', [
       mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, pending_associated_receiver<blink.mojom.AssociatedInterfaceProvider>Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -75,6 +74,28 @@ content.mojom.RouteProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.RouteProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.RouteProvider_GetRoute_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRoute(params.frame_token, params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.RouteProviderReceiver = content.mojom.RouteProviderReceiver;
 
 content.mojom.RouteProviderPtr = content.mojom.RouteProviderRemote;
 content.mojom.RouteProviderRequest = content.mojom.RouteProviderPendingReceiver;

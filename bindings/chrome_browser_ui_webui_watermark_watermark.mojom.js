@@ -87,6 +87,28 @@ watermark.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+watermark.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+watermark.mojom.PageHandlerFactoryReceiver = watermark.mojom.PageHandlerFactoryReceiver;
+
 watermark.mojom.PageHandlerFactoryPtr = watermark.mojom.PageHandlerFactoryRemote;
 watermark.mojom.PageHandlerFactoryRequest = watermark.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -166,6 +188,33 @@ watermark.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+watermark.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWatermarkStyle(params.style);
+          break;
+        }
+        case 1: {
+          const params = watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showNotificationToast();
+          break;
+        }
+      }
+    });
+  }
+};
+
+watermark.mojom.PageHandlerReceiver = watermark.mojom.PageHandlerReceiver;
 
 watermark.mojom.PageHandlerPtr = watermark.mojom.PageHandlerRemote;
 watermark.mojom.PageHandlerRequest = watermark.mojom.PageHandlerPendingReceiver;

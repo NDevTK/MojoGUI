@@ -8,11 +8,6 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var skia = skia || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 blink.mojom.BackgroundFetchErrorSpec = { $: mojo.internal.Enum() };
@@ -222,6 +217,38 @@ blink.mojom.BackgroundFetchRegistrationObserver.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.BackgroundFetchRegistrationObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProgress(params.upload_total, params.uploaded, params.download_total, params.downloaded, params.result, params.failure_reason);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRecordsUnavailable();
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRequestCompleted(params.request, params.response);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.BackgroundFetchRegistrationObserverReceiver = blink.mojom.BackgroundFetchRegistrationObserverReceiver;
+
 blink.mojom.BackgroundFetchRegistrationObserverPtr = blink.mojom.BackgroundFetchRegistrationObserverRemote;
 blink.mojom.BackgroundFetchRegistrationObserverRequest = blink.mojom.BackgroundFetchRegistrationObserverPendingReceiver;
 
@@ -367,6 +394,71 @@ blink.mojom.BackgroundFetchService.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.BackgroundFetchServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.BackgroundFetchService_Fetch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fetch(params.service_worker_registration_id, params.developer_id, params.requests, params.options, params.icon, params.ukm_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRegistration(params.service_worker_registration_id, params.developer_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeveloperIds(params.service_worker_registration_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getIconDisplaySize();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.BackgroundFetchServiceReceiver = blink.mojom.BackgroundFetchServiceReceiver;
+
 blink.mojom.BackgroundFetchServicePtr = blink.mojom.BackgroundFetchServiceRemote;
 blink.mojom.BackgroundFetchServiceRequest = blink.mojom.BackgroundFetchServicePendingReceiver;
 
@@ -499,6 +591,64 @@ blink.mojom.BackgroundFetchRegistrationService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.BackgroundFetchRegistrationServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateUI(params.title, params.icon);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.abort();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.matchRequests(params.request_to_match, params.cache_query_options, params.match_all);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addRegistrationObserver(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.BackgroundFetchRegistrationServiceReceiver = blink.mojom.BackgroundFetchRegistrationServiceReceiver;
 
 blink.mojom.BackgroundFetchRegistrationServicePtr = blink.mojom.BackgroundFetchRegistrationServiceRemote;
 blink.mojom.BackgroundFetchRegistrationServiceRequest = blink.mojom.BackgroundFetchRegistrationServicePendingReceiver;

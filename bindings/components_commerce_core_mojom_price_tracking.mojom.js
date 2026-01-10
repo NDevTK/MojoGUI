@@ -8,7 +8,7 @@
 var commerce = commerce || {};
 commerce.price_tracking = commerce.price_tracking || {};
 commerce.price_tracking.mojom = commerce.price_tracking.mojom || {};
-var components = components || {};
+var mojo_base = mojo_base || {};
 
 commerce.price_tracking.mojom.PriceTrackingHandler = {};
 commerce.price_tracking.mojom.PriceTrackingHandler.$interfaceName = 'commerce.price_tracking.mojom.PriceTrackingHandler';
@@ -226,6 +226,91 @@ commerce.price_tracking.mojom.PriceTrackingHandler.getRemote = function() {
   return remote.$;
 };
 
+commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = commerce.price_tracking.mojom.PriceTrackingHandler_TrackPriceForBookmark_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.trackPriceForBookmark(params.bookmark_id);
+          break;
+        }
+        case 1: {
+          const params = commerce.price_tracking.mojom.PriceTrackingHandler_UntrackPriceForBookmark_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.untrackPriceForBookmark(params.bookmark_id);
+          break;
+        }
+        case 2: {
+          const params = commerce.price_tracking.mojom.PriceTrackingHandler_SetPriceTrackingStatusForCurrentUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPriceTrackingStatusForCurrentUrl(params.track);
+          break;
+        }
+        case 3: {
+          const params = commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllShoppingBookmarkProductInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, commerce.price_tracking.mojom.PriceTrackingHandler_GetAllShoppingBookmarkProductInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllPriceTrackedBookmarkProductInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, commerce.price_tracking.mojom.PriceTrackingHandler_GetAllPriceTrackedBookmarkProductInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getShoppingCollectionBookmarkFolderId();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, commerce.price_tracking.mojom.PriceTrackingHandler_GetShoppingCollectionBookmarkFolderId_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getParentBookmarkFolderNameForCurrentUrl();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, commerce.price_tracking.mojom.PriceTrackingHandler_GetParentBookmarkFolderNameForCurrentUrl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = commerce.price_tracking.mojom.PriceTrackingHandler_ShowBookmarkEditorForCurrentUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showBookmarkEditorForCurrentUrl();
+          break;
+        }
+      }
+    });
+  }
+};
+
+commerce.price_tracking.mojom.PriceTrackingHandlerReceiver = commerce.price_tracking.mojom.PriceTrackingHandlerReceiver;
+
 commerce.price_tracking.mojom.PriceTrackingHandlerPtr = commerce.price_tracking.mojom.PriceTrackingHandlerRemote;
 commerce.price_tracking.mojom.PriceTrackingHandlerRequest = commerce.price_tracking.mojom.PriceTrackingHandlerPendingReceiver;
 
@@ -340,6 +425,43 @@ commerce.price_tracking.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
+commerce.price_tracking.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = commerce.price_tracking.mojom.Page_PriceTrackedForBookmark_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.priceTrackedForBookmark(params.bookmark_product);
+          break;
+        }
+        case 1: {
+          const params = commerce.price_tracking.mojom.Page_PriceUntrackedForBookmark_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.priceUntrackedForBookmark(params.bookmark_product);
+          break;
+        }
+        case 2: {
+          const params = commerce.price_tracking.mojom.Page_OperationFailedForBookmark_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.operationFailedForBookmark(params.bookmark_product, params.attempted_track);
+          break;
+        }
+        case 3: {
+          const params = commerce.price_tracking.mojom.Page_OnProductBookmarkMoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProductBookmarkMoved(params.bookmark_product);
+          break;
+        }
+      }
+    });
+  }
+};
+
+commerce.price_tracking.mojom.PageReceiver = commerce.price_tracking.mojom.PageReceiver;
+
 commerce.price_tracking.mojom.PagePtr = commerce.price_tracking.mojom.PageRemote;
 commerce.price_tracking.mojom.PageRequest = commerce.price_tracking.mojom.PagePendingReceiver;
 
@@ -405,6 +527,28 @@ commerce.price_tracking.mojom.PriceTrackingHandlerFactory.getRemote = function()
     'context');
   return remote.$;
 };
+
+commerce.price_tracking.mojom.PriceTrackingHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = commerce.price_tracking.mojom.PriceTrackingHandlerFactory_CreatePriceTrackingHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPriceTrackingHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+commerce.price_tracking.mojom.PriceTrackingHandlerFactoryReceiver = commerce.price_tracking.mojom.PriceTrackingHandlerFactoryReceiver;
 
 commerce.price_tracking.mojom.PriceTrackingHandlerFactoryPtr = commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRemote;
 commerce.price_tracking.mojom.PriceTrackingHandlerFactoryRequest = commerce.price_tracking.mojom.PriceTrackingHandlerFactoryPendingReceiver;

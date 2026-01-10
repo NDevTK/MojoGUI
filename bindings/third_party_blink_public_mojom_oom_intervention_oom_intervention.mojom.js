@@ -83,6 +83,28 @@ blink.mojom.OomInterventionHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.OomInterventionHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHighMemoryUsage();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.OomInterventionHostReceiver = blink.mojom.OomInterventionHostReceiver;
+
 blink.mojom.OomInterventionHostPtr = blink.mojom.OomInterventionHostRemote;
 blink.mojom.OomInterventionHostRequest = blink.mojom.OomInterventionHostPendingReceiver;
 
@@ -151,6 +173,28 @@ blink.mojom.OomIntervention.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.OomInterventionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.OomIntervention_StartDetection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startDetection(params.host, params.detection_args, params.renderer_pause_enabled, params.navigate_ads_enabled, params.purge_v8_memory_enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.OomInterventionReceiver = blink.mojom.OomInterventionReceiver;
 
 blink.mojom.OomInterventionPtr = blink.mojom.OomInterventionRemote;
 blink.mojom.OomInterventionRequest = blink.mojom.OomInterventionPendingReceiver;

@@ -72,6 +72,28 @@ device.mojom.GeolocationControl.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.GeolocationControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.userDidOptIntoLocationServices();
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.GeolocationControlReceiver = device.mojom.GeolocationControlReceiver;
+
 device.mojom.GeolocationControlPtr = device.mojom.GeolocationControlRemote;
 device.mojom.GeolocationControlRequest = device.mojom.GeolocationControlPendingReceiver;
 

@@ -157,6 +157,53 @@ blink.mojom.TextSuggestionBackend.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.TextSuggestionBackendReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applySpellCheckSuggestion(params.suggestion);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applyTextSuggestion(params.marker_tag, params.suggestion_index);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteActiveSuggestionRange();
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewWordAddedToDictionary(params.suggestion);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSuggestionMenuClosed();
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suggestionMenuTimeoutCallback(params.max_number_of_suggestions);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.TextSuggestionBackendReceiver = blink.mojom.TextSuggestionBackendReceiver;
+
 blink.mojom.TextSuggestionBackendPtr = blink.mojom.TextSuggestionBackendRemote;
 blink.mojom.TextSuggestionBackendRequest = blink.mojom.TextSuggestionBackendPendingReceiver;
 

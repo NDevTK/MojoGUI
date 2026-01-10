@@ -7,7 +7,7 @@
 // Module namespace
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
-var services = services || {};
+var network = network || {};
 var url = url || {};
 
 auction_worklet.mojom.InProgressAuctionDownloadSpec = { $: {} };

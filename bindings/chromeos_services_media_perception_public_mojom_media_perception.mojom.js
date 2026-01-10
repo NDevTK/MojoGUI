@@ -57,6 +57,23 @@ chromeos.media_perception.mojom.MediaPerception.getRemote = function() {
   return remote.$;
 };
 
+chromeos.media_perception.mojom.MediaPerceptionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+chromeos.media_perception.mojom.MediaPerceptionReceiver = chromeos.media_perception.mojom.MediaPerceptionReceiver;
+
 chromeos.media_perception.mojom.MediaPerceptionPtr = chromeos.media_perception.mojom.MediaPerceptionRemote;
 chromeos.media_perception.mojom.MediaPerceptionRequest = chromeos.media_perception.mojom.MediaPerceptionPendingReceiver;
 

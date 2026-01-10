@@ -7,8 +7,6 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 viz.mojom.InputTargetClient = {};
@@ -84,6 +82,35 @@ viz.mojom.InputTargetClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.InputTargetClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.frameSinkIdAt(params.point, params.trace_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.InputTargetClientReceiver = viz.mojom.InputTargetClientReceiver;
 
 viz.mojom.InputTargetClientPtr = viz.mojom.InputTargetClientRemote;
 viz.mojom.InputTargetClientRequest = viz.mojom.InputTargetClientPendingReceiver;

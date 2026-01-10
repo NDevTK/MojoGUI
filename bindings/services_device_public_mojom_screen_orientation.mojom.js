@@ -7,7 +7,6 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var services = services || {};
 
 device.mojom.ScreenOrientation = {};
 device.mojom.ScreenOrientation.$interfaceName = 'device.mojom.ScreenOrientation';
@@ -101,6 +100,40 @@ device.mojom.ScreenOrientation.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.ScreenOrientationReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.ScreenOrientation_LockOrientation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.lockOrientation(params.orientation);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unlockOrientation();
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.ScreenOrientationReceiver = device.mojom.ScreenOrientationReceiver;
+
 device.mojom.ScreenOrientationPtr = device.mojom.ScreenOrientationRemote;
 device.mojom.ScreenOrientationRequest = device.mojom.ScreenOrientationPendingReceiver;
 
@@ -170,6 +203,35 @@ device.mojom.ScreenOrientationListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.ScreenOrientationListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isAutoRotateEnabledByUser();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.ScreenOrientationListenerReceiver = device.mojom.ScreenOrientationListenerReceiver;
 
 device.mojom.ScreenOrientationListenerPtr = device.mojom.ScreenOrientationListenerRemote;
 device.mojom.ScreenOrientationListenerRequest = device.mojom.ScreenOrientationListenerPendingReceiver;

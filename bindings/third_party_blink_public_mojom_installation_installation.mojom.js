@@ -72,6 +72,28 @@ blink.mojom.InstallationService.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.InstallationServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.InstallationService_OnInstall_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onInstall();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.InstallationServiceReceiver = blink.mojom.InstallationServiceReceiver;
+
 blink.mojom.InstallationServicePtr = blink.mojom.InstallationServiceRemote;
 blink.mojom.InstallationServiceRequest = blink.mojom.InstallationServicePendingReceiver;
 

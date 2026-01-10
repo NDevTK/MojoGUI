@@ -7,11 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 network.mojom.RestrictedUDPSocketModeSpec = { $: mojo.internal.Enum() };
 network.mojom.RestrictedUDPSocketParamsSpec = { $: {} };
@@ -191,6 +187,76 @@ network.mojom.RestrictedUDPSocket.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.RestrictedUDPSocketReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.joinGroup(params.group_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.leaveGroup(params.group_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.receiveMore(params.num_additional_datagrams);
+          break;
+        }
+        case 3: {
+          const params = network.mojom.RestrictedUDPSocket_Send_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.send(params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendTo(params.data, params.dest_addr, params.dns_query_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.RestrictedUDPSocketReceiver = network.mojom.RestrictedUDPSocketReceiver;
 
 network.mojom.RestrictedUDPSocketPtr = network.mojom.RestrictedUDPSocketRemote;
 network.mojom.RestrictedUDPSocketRequest = network.mojom.RestrictedUDPSocketPendingReceiver;

@@ -8,8 +8,6 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 var url = url || {};
-var services = services || {};
-var services = services || {};
 
 network.mojom.WebSocketMessageTypeSpec = { $: mojo.internal.Enum() };
 network.mojom.HttpHeaderSpec = { $: {} };
@@ -144,6 +142,35 @@ network.mojom.WebSocketAuthenticationHandler.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.WebSocketAuthenticationHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAuthRequired(params.info, params.headers, params.remote_endpoint);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.WebSocketAuthenticationHandlerReceiver = network.mojom.WebSocketAuthenticationHandlerReceiver;
+
 network.mojom.WebSocketAuthenticationHandlerPtr = network.mojom.WebSocketAuthenticationHandlerRemote;
 network.mojom.WebSocketAuthenticationHandlerRequest = network.mojom.WebSocketAuthenticationHandlerPendingReceiver;
 
@@ -247,6 +274,38 @@ network.mojom.WebSocketHandshakeClient.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.WebSocketHandshakeClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOpeningHandshakeStarted(params.request);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFailure(params.message, params.net_error, params.response_code);
+          break;
+        }
+        case 2: {
+          const params = network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnectionEstablished(params.socket, params.client_receiver, params.response, params.readable, params.writable);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.WebSocketHandshakeClientReceiver = network.mojom.WebSocketHandshakeClientReceiver;
+
 network.mojom.WebSocketHandshakeClientPtr = network.mojom.WebSocketHandshakeClientRemote;
 network.mojom.WebSocketHandshakeClientRequest = network.mojom.WebSocketHandshakeClientPendingReceiver;
 
@@ -347,6 +406,38 @@ network.mojom.WebSocketClient.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.WebSocketClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.WebSocketClient_OnDataFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDataFrame(params.fin, params.type, params.data_length);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.WebSocketClient_OnDropChannel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDropChannel(params.was_clean, params.code, params.reason);
+          break;
+        }
+        case 2: {
+          const params = network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClosingHandshake();
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.WebSocketClientReceiver = network.mojom.WebSocketClientReceiver;
+
 network.mojom.WebSocketClientPtr = network.mojom.WebSocketClientRemote;
 network.mojom.WebSocketClientRequest = network.mojom.WebSocketClientPendingReceiver;
 
@@ -444,6 +535,38 @@ network.mojom.WebSocket.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.WebSocketReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.WebSocket_SendMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendMessage(params.type, params.data_length);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.WebSocket_StartReceiving_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startReceiving();
+          break;
+        }
+        case 2: {
+          const params = network.mojom.WebSocket_StartClosingHandshake_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startClosingHandshake(params.code, params.reason);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.WebSocketReceiver = network.mojom.WebSocketReceiver;
 
 network.mojom.WebSocketPtr = network.mojom.WebSocketRemote;
 network.mojom.WebSocketRequest = network.mojom.WebSocketPendingReceiver;

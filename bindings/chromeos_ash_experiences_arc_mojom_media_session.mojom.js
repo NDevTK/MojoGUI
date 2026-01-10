@@ -7,7 +7,7 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var services = services || {};
+var media_session = media_session || {};
 
 arc.mojom.MediaSessionInstance = {};
 arc.mojom.MediaSessionInstance.$interfaceName = 'arc.mojom.MediaSessionInstance';
@@ -89,6 +89,33 @@ arc.mojom.MediaSessionInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.MediaSessionInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableAudioFocus(params.service);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableAudioFocus();
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.MediaSessionInstanceReceiver = arc.mojom.MediaSessionInstanceReceiver;
 
 arc.mojom.MediaSessionInstancePtr = arc.mojom.MediaSessionInstanceRemote;
 arc.mojom.MediaSessionInstanceRequest = arc.mojom.MediaSessionInstancePendingReceiver;

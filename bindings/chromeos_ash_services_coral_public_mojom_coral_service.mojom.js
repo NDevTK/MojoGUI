@@ -8,8 +8,8 @@
 var coral = coral || {};
 coral.mojom = coral.mojom || {};
 var chromeos = chromeos || {};
-var services = services || {};
 var url = url || {};
+var mojo_base = mojo_base || {};
 
 coral.mojom.CoralErrorSpec = { $: mojo.internal.Enum() };
 coral.mojom.EntitySpec = { $: {} };
@@ -246,6 +246,28 @@ coral.mojom.TitleObserver.getRemote = function() {
   return remote.$;
 };
 
+coral.mojom.TitleObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.titleUpdated(params.group_id, params.title);
+          break;
+        }
+      }
+    });
+  }
+};
+
+coral.mojom.TitleObserverReceiver = coral.mojom.TitleObserverReceiver;
+
 coral.mojom.TitleObserverPtr = coral.mojom.TitleObserverRemote;
 coral.mojom.TitleObserverRequest = coral.mojom.TitleObserverPendingReceiver;
 
@@ -339,6 +361,47 @@ coral.mojom.CoralProcessor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+coral.mojom.CoralProcessorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = coral.mojom.CoralProcessor_Group_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.group(params.request, params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, coral.mojom.CoralProcessor_Group_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cacheEmbeddings(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+coral.mojom.CoralProcessorReceiver = coral.mojom.CoralProcessorReceiver;
 
 coral.mojom.CoralProcessorPtr = coral.mojom.CoralProcessorRemote;
 coral.mojom.CoralProcessorRequest = coral.mojom.CoralProcessorPendingReceiver;
@@ -466,6 +529,57 @@ coral.mojom.CoralService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+coral.mojom.CoralServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.groupDeprecated(params.request, params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cacheEmbeddingsDeprecated(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = coral.mojom.CoralService_PrepareResource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.prepareResource();
+          break;
+        }
+        case 3: {
+          const params = coral.mojom.CoralService_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.ml_service, params.processor, params.language_code);
+          break;
+        }
+      }
+    });
+  }
+};
+
+coral.mojom.CoralServiceReceiver = coral.mojom.CoralServiceReceiver;
 
 coral.mojom.CoralServicePtr = coral.mojom.CoralServiceRemote;
 coral.mojom.CoralServiceRequest = coral.mojom.CoralServicePendingReceiver;

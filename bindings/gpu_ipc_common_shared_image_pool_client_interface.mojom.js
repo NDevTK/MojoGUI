@@ -72,6 +72,28 @@ gpu.mojom.SharedImagePoolClientInterface.getRemote = function() {
   return remote.$;
 };
 
+gpu.mojom.SharedImagePoolClientInterfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClearPool();
+          break;
+        }
+      }
+    });
+  }
+};
+
+gpu.mojom.SharedImagePoolClientInterfaceReceiver = gpu.mojom.SharedImagePoolClientInterfaceReceiver;
+
 gpu.mojom.SharedImagePoolClientInterfacePtr = gpu.mojom.SharedImagePoolClientInterfaceRemote;
 gpu.mojom.SharedImagePoolClientInterfaceRequest = gpu.mojom.SharedImagePoolClientInterfacePendingReceiver;
 

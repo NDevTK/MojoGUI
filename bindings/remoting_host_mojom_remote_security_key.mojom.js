@@ -7,6 +7,7 @@
 // Module namespace
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
+var mojo_base = mojo_base || {};
 
 remoting.mojom.SecurityKeyForwarder = {};
 remoting.mojom.SecurityKeyForwarder.$interfaceName = 'remoting.mojom.SecurityKeyForwarder';
@@ -79,6 +80,35 @@ remoting.mojom.SecurityKeyForwarder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remoting.mojom.SecurityKeyForwarderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSecurityKeyRequest(params.request_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.SecurityKeyForwarderReceiver = remoting.mojom.SecurityKeyForwarderReceiver;
 
 remoting.mojom.SecurityKeyForwarderPtr = remoting.mojom.SecurityKeyForwarderRemote;
 remoting.mojom.SecurityKeyForwarderRequest = remoting.mojom.SecurityKeyForwarderPendingReceiver;

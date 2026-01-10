@@ -7,6 +7,9 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var gpu = gpu || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 media.mojom.GpuInfoObserver = {};
 media.mojom.GpuInfoObserver.$interfaceName = 'media.mojom.GpuInfoObserver';
@@ -82,6 +85,28 @@ media.mojom.GpuInfoObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.GpuInfoObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onGpuInfoUpdate(params.gpu_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.GpuInfoObserverReceiver = media.mojom.GpuInfoObserverReceiver;
 
 media.mojom.GpuInfoObserverPtr = media.mojom.GpuInfoObserverRemote;
 media.mojom.GpuInfoObserverRequest = media.mojom.GpuInfoObserverPendingReceiver;
@@ -172,6 +197,40 @@ media.mojom.MediaFoundationService.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.MediaFoundationServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isKeySystemSupported(params.key_system);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createInterfaceFactory(params.factory, params.frame_interfaces);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.MediaFoundationServiceReceiver = media.mojom.MediaFoundationServiceReceiver;
+
 media.mojom.MediaFoundationServicePtr = media.mojom.MediaFoundationServiceRemote;
 media.mojom.MediaFoundationServiceRequest = media.mojom.MediaFoundationServicePendingReceiver;
 
@@ -259,6 +318,40 @@ media.mojom.MediaFoundationServiceBroker.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.MediaFoundationServiceBrokerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateGpuInfo(params.gpu_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getService(params.cdm_path, params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.MediaFoundationServiceBrokerReceiver = media.mojom.MediaFoundationServiceBrokerReceiver;
 
 media.mojom.MediaFoundationServiceBrokerPtr = media.mojom.MediaFoundationServiceBrokerRemote;
 media.mojom.MediaFoundationServiceBrokerRequest = media.mojom.MediaFoundationServiceBrokerPendingReceiver;

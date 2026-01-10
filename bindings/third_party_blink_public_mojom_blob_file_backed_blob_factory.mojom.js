@@ -7,8 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
 
 blink.mojom.FileBackedBlobFactory = {};
 blink.mojom.FileBackedBlobFactory.$interfaceName = 'blink.mojom.FileBackedBlobFactory';
@@ -103,6 +101,40 @@ blink.mojom.FileBackedBlobFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.FileBackedBlobFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerBlob(params.blob, params.uuid, params.content_type, params.file);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerBlobSync(params.blob, params.uuid, params.content_type, params.file);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FileBackedBlobFactoryReceiver = blink.mojom.FileBackedBlobFactoryReceiver;
 
 blink.mojom.FileBackedBlobFactoryPtr = blink.mojom.FileBackedBlobFactoryRemote;
 blink.mojom.FileBackedBlobFactoryRequest = blink.mojom.FileBackedBlobFactoryPendingReceiver;

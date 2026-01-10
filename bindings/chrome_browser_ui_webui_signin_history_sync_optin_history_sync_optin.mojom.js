@@ -109,6 +109,28 @@ history_sync_optin.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+history_sync_optin.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createHistorySyncOptinHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+history_sync_optin.mojom.PageHandlerFactoryReceiver = history_sync_optin.mojom.PageHandlerFactoryReceiver;
+
 history_sync_optin.mojom.PageHandlerFactoryPtr = history_sync_optin.mojom.PageHandlerFactoryRemote;
 history_sync_optin.mojom.PageHandlerFactoryRequest = history_sync_optin.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -219,6 +241,43 @@ history_sync_optin.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+history_sync_optin.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = history_sync_optin.mojom.PageHandler_Accept_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.accept();
+          break;
+        }
+        case 1: {
+          const params = history_sync_optin.mojom.PageHandler_Reject_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reject();
+          break;
+        }
+        case 2: {
+          const params = history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestAccountInfo();
+          break;
+        }
+        case 3: {
+          const params = history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateDialogHeight(params.height);
+          break;
+        }
+      }
+    });
+  }
+};
+
+history_sync_optin.mojom.PageHandlerReceiver = history_sync_optin.mojom.PageHandlerReceiver;
+
 history_sync_optin.mojom.PageHandlerPtr = history_sync_optin.mojom.PageHandlerRemote;
 history_sync_optin.mojom.PageHandlerRequest = history_sync_optin.mojom.PageHandlerPendingReceiver;
 
@@ -299,6 +358,33 @@ history_sync_optin.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+history_sync_optin.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendAccountInfo(params.account_info);
+          break;
+        }
+        case 1: {
+          const params = history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendScreenMode(params.screen_mode);
+          break;
+        }
+      }
+    });
+  }
+};
+
+history_sync_optin.mojom.PageReceiver = history_sync_optin.mojom.PageReceiver;
 
 history_sync_optin.mojom.PagePtr = history_sync_optin.mojom.PageRemote;
 history_sync_optin.mojom.PageRequest = history_sync_optin.mojom.PagePendingReceiver;

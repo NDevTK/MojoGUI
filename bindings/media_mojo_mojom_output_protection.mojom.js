@@ -125,6 +125,47 @@ media.mojom.OutputProtection.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.OutputProtectionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.OutputProtection_QueryStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queryStatus();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.OutputProtection_EnableProtection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableProtection(params.desired_protection_mask);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.OutputProtectionReceiver = media.mojom.OutputProtectionReceiver;
+
 media.mojom.OutputProtectionPtr = media.mojom.OutputProtectionRemote;
 media.mojom.OutputProtectionRequest = media.mojom.OutputProtectionPendingReceiver;
 

@@ -7,15 +7,7 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var blink = blink || {};
+var network = network || {};
 var blink = blink || {};
 
 storage.mojom.CacheStorageOwnerSpec = { $: mojo.internal.Enum() };
@@ -112,6 +104,33 @@ storage.mojom.CacheStorageObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.CacheStorageObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCacheListChanged(params.bucket_locator);
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCacheContentChanged(params.bucket_locator, params.cache_name);
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.CacheStorageObserverReceiver = storage.mojom.CacheStorageObserverReceiver;
 
 storage.mojom.CacheStorageObserverPtr = storage.mojom.CacheStorageObserverRemote;
 storage.mojom.CacheStorageObserverRequest = storage.mojom.CacheStorageObserverPendingReceiver;
@@ -215,6 +234,38 @@ storage.mojom.CacheStorageControl.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.CacheStorageControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addReceiver(params.cross_origin_embedder_policy, params.coep_reporter, params.document_isolation_policy, params.dip_reporter, params.bucket_locator, params.owner, params.receiver);
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.CacheStorageControl_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 2: {
+          const params = storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applyPolicyUpdates(params.policy_updates);
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.CacheStorageControlReceiver = storage.mojom.CacheStorageControlReceiver;
 
 storage.mojom.CacheStorageControlPtr = storage.mojom.CacheStorageControlRemote;
 storage.mojom.CacheStorageControlRequest = storage.mojom.CacheStorageControlPendingReceiver;

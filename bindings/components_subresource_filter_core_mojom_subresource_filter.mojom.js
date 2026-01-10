@@ -7,6 +7,7 @@
 // Module namespace
 var subresource_filter = subresource_filter || {};
 subresource_filter.mojom = subresource_filter.mojom || {};
+var mojo_base = mojo_base || {};
 
 subresource_filter.mojom.ActivationLevelSpec = { $: mojo.internal.Enum() };
 subresource_filter.mojom.AdsViolationSpec = { $: mojo.internal.Enum() };
@@ -129,6 +130,28 @@ subresource_filter.mojom.SubresourceFilterRulesetObserver.getRemote = function()
     'context');
   return remote.$;
 };
+
+subresource_filter.mojom.SubresourceFilterRulesetObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRulesetForProcess(params.ruleset_file);
+          break;
+        }
+      }
+    });
+  }
+};
+
+subresource_filter.mojom.SubresourceFilterRulesetObserverReceiver = subresource_filter.mojom.SubresourceFilterRulesetObserverReceiver;
 
 subresource_filter.mojom.SubresourceFilterRulesetObserverPtr = subresource_filter.mojom.SubresourceFilterRulesetObserverRemote;
 subresource_filter.mojom.SubresourceFilterRulesetObserverRequest = subresource_filter.mojom.SubresourceFilterRulesetObserverPendingReceiver;

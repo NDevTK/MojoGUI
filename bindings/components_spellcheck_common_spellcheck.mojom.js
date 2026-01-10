@@ -7,7 +7,7 @@
 // Module namespace
 var spellcheck = spellcheck || {};
 spellcheck.mojom = spellcheck.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 spellcheck.mojom.DecorationSpec = { $: mojo.internal.Enum() };
@@ -140,6 +140,33 @@ spellcheck.mojom.SpellChecker.getRemote = function() {
   return remote.$;
 };
 
+spellcheck.mojom.SpellCheckerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = spellcheck.mojom.SpellChecker_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.dictionaries, params.custom_words, params.enable);
+          break;
+        }
+        case 1: {
+          const params = spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.customDictionaryChanged(params.words_added, params.words_removed);
+          break;
+        }
+      }
+    });
+  }
+};
+
+spellcheck.mojom.SpellCheckerReceiver = spellcheck.mojom.SpellCheckerReceiver;
+
 spellcheck.mojom.SpellCheckerPtr = spellcheck.mojom.SpellCheckerRemote;
 spellcheck.mojom.SpellCheckerRequest = spellcheck.mojom.SpellCheckerPendingReceiver;
 
@@ -203,6 +230,28 @@ spellcheck.mojom.SpellCheckInitializationHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+spellcheck.mojom.SpellCheckInitializationHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestDictionary();
+          break;
+        }
+      }
+    });
+  }
+};
+
+spellcheck.mojom.SpellCheckInitializationHostReceiver = spellcheck.mojom.SpellCheckInitializationHostReceiver;
 
 spellcheck.mojom.SpellCheckInitializationHostPtr = spellcheck.mojom.SpellCheckInitializationHostRemote;
 spellcheck.mojom.SpellCheckInitializationHostRequest = spellcheck.mojom.SpellCheckInitializationHostPendingReceiver;
@@ -397,6 +446,93 @@ spellcheck.mojom.SpellCheckHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+spellcheck.mojom.SpellCheckHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyChecked(params.word, params.misspelled);
+          break;
+        }
+        case 1: {
+          const params = spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.callSpellingService(params.text);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestTextCheck(params.text, params.spelling_markers);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disconnectSessionBridge();
+          break;
+        }
+        case 4: {
+          const params = spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkSpelling(params.word);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fillSuggestionList(params.word);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initializeDictionaries();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+spellcheck.mojom.SpellCheckHostReceiver = spellcheck.mojom.SpellCheckHostReceiver;
 
 spellcheck.mojom.SpellCheckHostPtr = spellcheck.mojom.SpellCheckHostRemote;
 spellcheck.mojom.SpellCheckHostRequest = spellcheck.mojom.SpellCheckHostPendingReceiver;

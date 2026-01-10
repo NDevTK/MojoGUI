@@ -8,15 +8,7 @@
 var ash = ash || {};
 ash.secure_channel = ash.secure_channel || {};
 ash.secure_channel.mojom = ash.secure_channel.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var components = components || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 ash.secure_channel.mojom.ConnectionAttemptFailureReasonSpec = { $: mojo.internal.Enum() };
 ash.secure_channel.mojom.ConnectionCreationDetailSpec = { $: mojo.internal.Enum() };
@@ -260,6 +252,59 @@ ash.secure_channel.mojom.Channel.getRemote = function() {
   return remote.$;
 };
 
+ash.secure_channel.mojom.ChannelReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendMessage(params.message);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerPayloadFile(params.payload_id, params.payload_files, params.listener);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getConnectionMetadata();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.secure_channel.mojom.ChannelReceiver = ash.secure_channel.mojom.ChannelReceiver;
+
 ash.secure_channel.mojom.ChannelPtr = ash.secure_channel.mojom.ChannelRemote;
 ash.secure_channel.mojom.ChannelRequest = ash.secure_channel.mojom.ChannelPendingReceiver;
 
@@ -324,6 +369,28 @@ ash.secure_channel.mojom.MessageReceiver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.secure_channel.mojom.MessageReceiverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMessageReceived(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.secure_channel.mojom.MessageReceiverReceiver = ash.secure_channel.mojom.MessageReceiverReceiver;
 
 ash.secure_channel.mojom.MessageReceiverPtr = ash.secure_channel.mojom.MessageReceiverRemote;
 ash.secure_channel.mojom.MessageReceiverRequest = ash.secure_channel.mojom.MessageReceiverPendingReceiver;
@@ -407,6 +474,33 @@ ash.secure_channel.mojom.ConnectionDelegate.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.secure_channel.mojom.ConnectionDelegateReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnectionAttemptFailure(params.reason);
+          break;
+        }
+        case 1: {
+          const params = ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnection(params.channel, params.message_receiver_receiver, params.nearby_connection_state_listener_receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.secure_channel.mojom.ConnectionDelegateReceiver = ash.secure_channel.mojom.ConnectionDelegateReceiver;
 
 ash.secure_channel.mojom.ConnectionDelegatePtr = ash.secure_channel.mojom.ConnectionDelegateRemote;
 ash.secure_channel.mojom.ConnectionDelegateRequest = ash.secure_channel.mojom.ConnectionDelegatePendingReceiver;
@@ -506,6 +600,38 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger.getRemote = functi
     'context');
   return remote.$;
 };
+
+ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logDiscoveryAttempt(params.result, params.error_code);
+          break;
+        }
+        case 1: {
+          const params = ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logNearbyConnectionState(params.step, params.status);
+          break;
+        }
+        case 2: {
+          const params = ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logSecureChannelState(params.state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver = ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerReceiver;
 
 ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerPtr = ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote;
 ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRequest = ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerPendingReceiver;
@@ -636,6 +762,50 @@ ash.secure_channel.mojom.SecureChannel.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.secure_channel.mojom.SecureChannelReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listenForConnectionFromDevice(params.device_to_connect, params.local_device, params.feature, params.connection_medium, params.connection_priority, params.delegate);
+          break;
+        }
+        case 1: {
+          const params = ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initiateConnectionToDevice(params.device_to_connect, params.local_device, params.feature, params.connection_medium, params.connection_priority, params.delegate, params.secure_channel_structured_metrics_logger);
+          break;
+        }
+        case 2: {
+          const params = ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNearbyConnector(params.nearby_connector);
+          break;
+        }
+        case 3: {
+          const params = ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLastSeenTimestamp(params.remote_device_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.secure_channel.mojom.SecureChannelReceiver = ash.secure_channel.mojom.SecureChannelReceiver;
 
 ash.secure_channel.mojom.SecureChannelPtr = ash.secure_channel.mojom.SecureChannelRemote;
 ash.secure_channel.mojom.SecureChannelRequest = ash.secure_channel.mojom.SecureChannelPendingReceiver;

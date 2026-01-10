@@ -8,7 +8,6 @@
 var display = display || {};
 display.mojom = display.mojom || {};
 var skia = skia || {};
-var ui = ui || {};
 
 display.mojom.GammaCurveSpec = { $: {} };
 display.mojom.ColorCalibrationSpec = { $: {} };

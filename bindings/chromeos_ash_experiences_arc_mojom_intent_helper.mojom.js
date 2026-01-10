@@ -7,16 +7,7 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 arc.mojom.PatternTypeSpec = { $: mojo.internal.Enum() };
@@ -412,6 +403,28 @@ arc.mojom.CustomTabSession.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.CustomTabSessionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOpenInChromeClicked();
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.CustomTabSessionReceiver = arc.mojom.CustomTabSessionReceiver;
+
 arc.mojom.CustomTabSessionPtr = arc.mojom.CustomTabSessionRemote;
 arc.mojom.CustomTabSessionRequest = arc.mojom.CustomTabSessionPendingReceiver;
 
@@ -798,6 +811,137 @@ arc.mojom.IntentHelperHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.IntentHelperHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onIconInvalidated(params.package_name);
+          break;
+        }
+        case 5: {
+          const params = arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onIntentFiltersUpdated(params.intent_filters);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOpenDownloads();
+          break;
+        }
+        case 0: {
+          const params = arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOpenUrl(params.url);
+          break;
+        }
+        case 17: {
+          const params = arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOpenCustomTab(params.url, params.task_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openWallpaperPicker();
+          break;
+        }
+        case 6: {
+          const params = arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openVolumeControl();
+          break;
+        }
+        case 7: {
+          const params = arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOpenChromePage(params.page);
+          break;
+        }
+        case 8: {
+          const params = arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOpenWebApp(params.url);
+          break;
+        }
+        case 11: {
+          const params = arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.factoryResetArc();
+          break;
+        }
+        case 12: {
+          const params = arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launchCameraApp(params.intent_id, params.mode, params.should_handle_result, params.should_down_scale, params.is_secure, params.task_id);
+          break;
+        }
+        case 13: {
+          const params = arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onIntentFiltersUpdatedForPackage(params.package_name, params.intent_filters);
+          break;
+        }
+        case 14: {
+          const params = arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeCameraApp();
+          break;
+        }
+        case 15: {
+          const params = arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isChromeAppEnabled(params.app);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 20: {
+          const params = arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSupportedLinksChanged(params.added_packages, params.removed_packages, params.source);
+          break;
+        }
+        case 18: {
+          const params = arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDownloadAddedDeprecated(params.relative_path, params.owner_package_name);
+          break;
+        }
+        case 19: {
+          const params = arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOpenAppWithIntent(params.start_url, params.intent);
+          break;
+        }
+        case 21: {
+          const params = arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOpenGlobalActions();
+          break;
+        }
+        case 22: {
+          const params = arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCloseSystemDialogs();
+          break;
+        }
+        case 23: {
+          const params = arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAndroidSettingChange(params.setting, params.is_enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.IntentHelperHostReceiver = arc.mojom.IntentHelperHostReceiver;
+
 arc.mojom.IntentHelperHostPtr = arc.mojom.IntentHelperHostRemote;
 arc.mojom.IntentHelperHostRequest = arc.mojom.IntentHelperHostPendingReceiver;
 
@@ -1154,6 +1298,152 @@ arc.mojom.IntentHelperInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.IntentHelperInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 8: {
+          const params = arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addPreferredPackage(params.package_name);
+          break;
+        }
+        case 21: {
+          const params = arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVerifiedLinks(params.package_names, params.always_open);
+          break;
+        }
+        case 10: {
+          const params = arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleIntent(params.intent, params.activity);
+          break;
+        }
+        case 20: {
+          const params = arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleIntentWithWindowInfo(params.intent, params.activity, params.window_info);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleUrl(params.url, params.package_name);
+          break;
+        }
+        case 13: {
+          const params = arc.mojom.IntentHelperInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestActivityIcons(params.activities, params.scale_factor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestIntentHandlerList(params.intent);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestUrlHandlerList(params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestUrlListHandlerList(params.urls);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendBroadcast(params.action, params.package_name, params.cls, params.extras);
+          break;
+        }
+        case 15: {
+          const params = arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestTextSelectionActions(params.text, params.scale_factor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleCameraResult(params.intent_id, params.action, params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 19: {
+          const params = arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestDomainVerificationStatusUpdate();
+          break;
+        }
+        case 22: {
+          const params = arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCaptionStyle(params.style);
+          break;
+        }
+        case 23: {
+          const params = arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableAccessibilityFeatures(params.features);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.IntentHelperInstanceReceiver = arc.mojom.IntentHelperInstanceReceiver;
 
 arc.mojom.IntentHelperInstancePtr = arc.mojom.IntentHelperInstanceRemote;
 arc.mojom.IntentHelperInstanceRequest = arc.mojom.IntentHelperInstancePendingReceiver;

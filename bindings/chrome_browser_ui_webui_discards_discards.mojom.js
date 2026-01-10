@@ -7,6 +7,8 @@
 // Module namespace
 var discards = discards || {};
 discards.mojom = discards.mojom || {};
+var mojom = mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 discards.mojom.LifecycleUnitVisibilitySpec = { $: mojo.internal.Enum() };
@@ -333,6 +335,91 @@ discards.mojom.DetailsProvider.getRemote = function() {
   return remote.$;
 };
 
+discards.mojom.DetailsProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTabDiscardsInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAutoDiscardable(params.tab_id, params.is_auto_discardable);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = discards.mojom.DetailsProvider_DiscardById_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.discardById(params.tab_id, params.reason);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = discards.mojom.DetailsProvider_FreezeById_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.freezeById(params.tab_id);
+          break;
+        }
+        case 4: {
+          const params = discards.mojom.DetailsProvider_LoadById_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadById(params.tab_id);
+          break;
+        }
+        case 5: {
+          const params = discards.mojom.DetailsProvider_Discard_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.discard();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, discards.mojom.DetailsProvider_Discard_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleBatterySaverMode();
+          break;
+        }
+        case 7: {
+          const params = discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.refreshPerformanceTabCpuMeasurements();
+          break;
+        }
+      }
+    });
+  }
+};
+
+discards.mojom.DetailsProviderReceiver = discards.mojom.DetailsProviderReceiver;
+
 discards.mojom.DetailsProviderPtr = discards.mojom.DetailsProviderRemote;
 discards.mojom.DetailsProviderRequest = discards.mojom.DetailsProviderPendingReceiver;
 
@@ -542,6 +629,73 @@ discards.mojom.GraphChangeStream.getRemote = function() {
   return remote.$;
 };
 
+discards.mojom.GraphChangeStreamReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.frameCreated(params.frame);
+          break;
+        }
+        case 1: {
+          const params = discards.mojom.GraphChangeStream_PageCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pageCreated(params.pages);
+          break;
+        }
+        case 2: {
+          const params = discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.processCreated(params.process);
+          break;
+        }
+        case 3: {
+          const params = discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.workerCreated(params.worker);
+          break;
+        }
+        case 4: {
+          const params = discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.frameChanged(params.frame);
+          break;
+        }
+        case 5: {
+          const params = discards.mojom.GraphChangeStream_PageChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pageChanged(params.page);
+          break;
+        }
+        case 6: {
+          const params = discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.processChanged(params.process);
+          break;
+        }
+        case 7: {
+          const params = discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.workerChanged(params.worker);
+          break;
+        }
+        case 8: {
+          const params = discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.favIconDataAvailable(params.favicon);
+          break;
+        }
+        case 9: {
+          const params = discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.nodeDeleted(params.node_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+discards.mojom.GraphChangeStreamReceiver = discards.mojom.GraphChangeStreamReceiver;
+
 discards.mojom.GraphChangeStreamPtr = discards.mojom.GraphChangeStreamRemote;
 discards.mojom.GraphChangeStreamRequest = discards.mojom.GraphChangeStreamPendingReceiver;
 
@@ -628,6 +782,40 @@ discards.mojom.GraphDump.getRemote = function() {
     'context');
   return remote.$;
 };
+
+discards.mojom.GraphDumpReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.subscribeToChanges(params.change_subscriber);
+          break;
+        }
+        case 1: {
+          const params = discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestNodeDescriptions(params.node_ids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+discards.mojom.GraphDumpReceiver = discards.mojom.GraphDumpReceiver;
 
 discards.mojom.GraphDumpPtr = discards.mojom.GraphDumpRemote;
 discards.mojom.GraphDumpRequest = discards.mojom.GraphDumpPendingReceiver;

@@ -7,7 +7,7 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var services = services || {};
+var device = device || {};
 
 arc.mojom.UsbHostHost = {};
 arc.mojom.UsbHostHost.$interfaceName = 'arc.mojom.UsbHostHost';
@@ -139,6 +139,59 @@ arc.mojom.UsbHostHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.UsbHostHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 3: {
+          const params = arc.mojom.UsbHostHost_OpenDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openDevice(params.guid, params.pkg_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceInfo(params.guid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.UsbHostHost_RequestPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPermission(params.guid, params.pkg_name, params.interactive);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.UsbHostHostReceiver = arc.mojom.UsbHostHostReceiver;
+
 arc.mojom.UsbHostHostPtr = arc.mojom.UsbHostHostRemote;
 arc.mojom.UsbHostHostRequest = arc.mojom.UsbHostHostPendingReceiver;
 
@@ -242,6 +295,45 @@ arc.mojom.UsbHostInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.UsbHostInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.UsbHostInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.UsbHostInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceAdded(params.guid, params.event_receiver_packages);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceRemoved(params.guid, params.event_receiver_packages);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.UsbHostInstanceReceiver = arc.mojom.UsbHostInstanceReceiver;
 
 arc.mojom.UsbHostInstancePtr = arc.mojom.UsbHostInstanceRemote;
 arc.mojom.UsbHostInstanceRequest = arc.mojom.UsbHostInstancePendingReceiver;

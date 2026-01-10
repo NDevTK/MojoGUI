@@ -7,7 +7,6 @@
 // Module namespace
 var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
-var services = services || {};
 var blink = blink || {};
 
 webnn.mojom.DataTypeSpec = { $: mojo.internal.Enum() };
@@ -1181,6 +1180,28 @@ webnn.mojom.WebNNGraph.getRemote = function() {
     'context');
   return remote.$;
 };
+
+webnn.mojom.WebNNGraphReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = webnn.mojom.WebNNGraph_Dispatch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatch(params.named_inputs, params.named_outputs);
+          break;
+        }
+      }
+    });
+  }
+};
+
+webnn.mojom.WebNNGraphReceiver = webnn.mojom.WebNNGraphReceiver;
 
 webnn.mojom.WebNNGraphPtr = webnn.mojom.WebNNGraphRemote;
 webnn.mojom.WebNNGraphRequest = webnn.mojom.WebNNGraphPendingReceiver;

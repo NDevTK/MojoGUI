@@ -174,6 +174,48 @@ blink.mojom.StorageAreaObserver.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.StorageAreaObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.keyChanged(params.key, params.new_value, params.old_value, params.source);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.keyChangeFailed(params.key, params.source);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.keyDeleted(params.key, params.old_value, params.source);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.allDeleted(params.was_nonempty, params.source);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldSendOldValueOnMutations(params.value);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.StorageAreaObserverReceiver = blink.mojom.StorageAreaObserverReceiver;
+
 blink.mojom.StorageAreaObserverPtr = blink.mojom.StorageAreaObserverRemote;
 blink.mojom.StorageAreaObserverRequest = blink.mojom.StorageAreaObserverPendingReceiver;
 
@@ -355,6 +397,88 @@ blink.mojom.StorageArea.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.StorageAreaReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.StorageArea_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.StorageArea_Put_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.put(params.key, params.value, params.client_old_value, params.source);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.StorageArea_Put_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.StorageArea_Delete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.delete(params.key, params.client_old_value, params.source);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.StorageArea_Delete_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.StorageArea_DeleteAll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteAll(params.source, params.new_observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.StorageArea_Get_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.get(params.key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.StorageArea_Get_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.StorageArea_GetAll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAll(params.new_observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.StorageArea_GetAll_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.StorageAreaReceiver = blink.mojom.StorageAreaReceiver;
 
 blink.mojom.StorageAreaPtr = blink.mojom.StorageAreaRemote;
 blink.mojom.StorageAreaRequest = blink.mojom.StorageAreaPendingReceiver;

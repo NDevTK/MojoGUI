@@ -7,6 +7,7 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
+var mojo_base = mojo_base || {};
 
 crosapi.mojom.ClipboardHistoryControllerShowSourceSpec = { $: mojo.internal.Enum() };
 crosapi.mojom.ClipboardHistoryDisplayFormatSpec = { $: mojo.internal.Enum() };

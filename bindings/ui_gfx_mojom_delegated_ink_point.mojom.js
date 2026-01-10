@@ -7,8 +7,7 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
+var mojo_base = mojo_base || {};
 
 gfx.mojom.DelegatedInkPointSpec = { $: {} };
 

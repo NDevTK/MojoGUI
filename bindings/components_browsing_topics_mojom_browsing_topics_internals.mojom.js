@@ -7,6 +7,7 @@
 // Module namespace
 var browsing_topics = browsing_topics || {};
 browsing_topics.mojom = browsing_topics.mojom || {};
+var mojo_base = mojo_base || {};
 
 browsing_topics.mojom.WebUIGetBrowsingTopicsStateResultSpec = { $: {} };
 browsing_topics.mojom.WebUIGetModelInfoResultSpec = { $: {} };
@@ -246,6 +247,71 @@ browsing_topics.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+browsing_topics.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBrowsingTopicsConfiguration();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBrowsingTopicsState(params.calculate_now);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getModelInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.classifyHosts(params.hosts);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+browsing_topics.mojom.PageHandlerReceiver = browsing_topics.mojom.PageHandlerReceiver;
 
 browsing_topics.mojom.PageHandlerPtr = browsing_topics.mojom.PageHandlerRemote;
 browsing_topics.mojom.PageHandlerRequest = browsing_topics.mojom.PageHandlerPendingReceiver;

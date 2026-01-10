@@ -7,6 +7,8 @@
 // Module namespace
 var passage_embeddings = passage_embeddings || {};
 passage_embeddings.mojom = passage_embeddings.mojom || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 passage_embeddings.mojom.PassagePrioritySpec = { $: mojo.internal.Enum() };
 passage_embeddings.mojom.PassageEmbeddingsResultSpec = { $: {} };
@@ -124,6 +126,35 @@ passage_embeddings.mojom.PassageEmbedder.getRemote = function() {
   return remote.$;
 };
 
+passage_embeddings.mojom.PassageEmbedderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generateEmbeddings(params.passages, params.priority);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+passage_embeddings.mojom.PassageEmbedderReceiver = passage_embeddings.mojom.PassageEmbedderReceiver;
+
 passage_embeddings.mojom.PassageEmbedderPtr = passage_embeddings.mojom.PassageEmbedderRemote;
 passage_embeddings.mojom.PassageEmbedderRequest = passage_embeddings.mojom.PassageEmbedderPendingReceiver;
 
@@ -196,6 +227,35 @@ passage_embeddings.mojom.PassageEmbeddingsService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+passage_embeddings.mojom.PassageEmbeddingsServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadModels(params.model_params, params.params, params.model);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+passage_embeddings.mojom.PassageEmbeddingsServiceReceiver = passage_embeddings.mojom.PassageEmbeddingsServiceReceiver;
 
 passage_embeddings.mojom.PassageEmbeddingsServicePtr = passage_embeddings.mojom.PassageEmbeddingsServiceRemote;
 passage_embeddings.mojom.PassageEmbeddingsServiceRequest = passage_embeddings.mojom.PassageEmbeddingsServicePendingReceiver;

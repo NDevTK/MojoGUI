@@ -7,8 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 blink.mojom.CloneableMessageSpec = { $: {} };

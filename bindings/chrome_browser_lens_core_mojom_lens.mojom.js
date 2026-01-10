@@ -7,9 +7,8 @@
 // Module namespace
 var lens = lens || {};
 lens.mojom = lens.mojom || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
-var skia = skia || {};
-var ui = ui || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
@@ -179,6 +178,28 @@ lens.mojom.LensPageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+lens.mojom.LensPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler, params.page);
+          break;
+        }
+      }
+    });
+  }
+};
+
+lens.mojom.LensPageHandlerFactoryReceiver = lens.mojom.LensPageHandlerFactoryReceiver;
 
 lens.mojom.LensPageHandlerFactoryPtr = lens.mojom.LensPageHandlerFactoryRemote;
 lens.mojom.LensPageHandlerFactoryRequest = lens.mojom.LensPageHandlerFactoryPendingReceiver;
@@ -690,6 +711,177 @@ lens.mojom.LensPageHandler.getRemote = function() {
   return remote.$;
 };
 
+lens.mojom.LensPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.activityRequestedByOverlay(params.click_modifiers);
+          break;
+        }
+        case 1: {
+          const params = lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeRequestedByOverlayCloseButton();
+          break;
+        }
+        case 2: {
+          const params = lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeRequestedByOverlayBackgroundClick();
+          break;
+        }
+        case 3: {
+          const params = lens.mojom.LensPageHandler_NotifyOverlayInitialized_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyOverlayInitialized();
+          break;
+        }
+        case 4: {
+          const params = lens.mojom.LensPageHandler_AddBackgroundBlur_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addBackgroundBlur();
+          break;
+        }
+        case 5: {
+          const params = lens.mojom.LensPageHandler_SetLiveBlur_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLiveBlur(params.enabled);
+          break;
+        }
+        case 6: {
+          const params = lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.feedbackRequestedByOverlay();
+          break;
+        }
+        case 7: {
+          const params = lens.mojom.LensPageHandler_GetOverlayInvocationSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOverlayInvocationSource();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.infoRequestedByOverlay(params.click_modifiers);
+          break;
+        }
+        case 9: {
+          const params = lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.issueLensRegionRequest(params.region, params.is_click);
+          break;
+        }
+        case 10: {
+          const params = lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.issueLensObjectRequest(params.region, params.is_mask_click);
+          break;
+        }
+        case 11: {
+          const params = lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.issueTextSelectionRequest(params.query, params.selection_start_index, params.selection_end_index, params.is_translate);
+          break;
+        }
+        case 12: {
+          const params = lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.issueTranslateSelectionRequest(params.query, params.content_language, params.selection_start_index, params.selection_end_index);
+          break;
+        }
+        case 13: {
+          const params = lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.issueMathSelectionRequest(params.query, params.formula, params.selection_start_index, params.selection_end_index);
+          break;
+        }
+        case 14: {
+          const params = lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.issueTranslateFullPageRequest(params.source_language, params.target_language);
+          break;
+        }
+        case 15: {
+          const params = lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.issueEndTranslateModeRequest();
+          break;
+        }
+        case 16: {
+          const params = lens.mojom.LensPageHandler_CopyText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.copyText(params.text);
+          break;
+        }
+        case 17: {
+          const params = lens.mojom.LensPageHandler_CopyImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.copyImage(params.region);
+          break;
+        }
+        case 18: {
+          const params = lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.saveAsImage(params.region);
+          break;
+        }
+        case 19: {
+          const params = lens.mojom.LensPageHandler_ClosePreselectionBubble_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closePreselectionBubble();
+          break;
+        }
+        case 20: {
+          const params = lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordUkmAndTaskCompletionForLensOverlayInteraction(params.user_action);
+          break;
+        }
+        case 21: {
+          const params = lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordLensOverlaySemanticEvent(params.event);
+          break;
+        }
+        case 22: {
+          const params = lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.maybeShowTranslateFeaturePromo();
+          break;
+        }
+        case 23: {
+          const params = lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.maybeCloseTranslateFeaturePromo(params.feature_engaged);
+          break;
+        }
+        case 24: {
+          const params = lens.mojom.LensPageHandler_FetchSupportedLanguages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fetchSupportedLanguages();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 25: {
+          const params = lens.mojom.LensPageHandler_FinishReshowOverlay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.finishReshowOverlay();
+          break;
+        }
+        case 26: {
+          const params = lens.mojom.LensPageHandler_AcceptPrivacyNotice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acceptPrivacyNotice();
+          break;
+        }
+        case 27: {
+          const params = lens.mojom.LensPageHandler_DismissPrivacyNotice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dismissPrivacyNotice();
+          break;
+        }
+      }
+    });
+  }
+};
+
+lens.mojom.LensPageHandlerReceiver = lens.mojom.LensPageHandlerReceiver;
+
 lens.mojom.LensPageHandlerPtr = lens.mojom.LensPageHandlerRemote;
 lens.mojom.LensPageHandlerRequest = lens.mojom.LensPageHandlerPendingReceiver;
 
@@ -1038,6 +1230,118 @@ lens.mojom.LensPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+lens.mojom.LensPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.screenshotDataReceived(params.screenshot_data, params.is_side_panel_open);
+          break;
+        }
+        case 1: {
+          const params = lens.mojom.LensPage_NotifyHandshakeComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyHandshakeComplete();
+          break;
+        }
+        case 2: {
+          const params = lens.mojom.LensPage_NotifyResultsPanelOpened_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyResultsPanelOpened();
+          break;
+        }
+        case 3: {
+          const params = lens.mojom.LensPage_NotifyOverlayClosing_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyOverlayClosing();
+          break;
+        }
+        case 4: {
+          const params = lens.mojom.LensPage_ObjectsReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.objectsReceived(params.objects);
+          break;
+        }
+        case 5: {
+          const params = lens.mojom.LensPage_TextReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.textReceived(params.text);
+          break;
+        }
+        case 6: {
+          const params = lens.mojom.LensPage_RegionTextReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.regionTextReceived(params.text, params.is_injected_image);
+          break;
+        }
+        case 7: {
+          const params = lens.mojom.LensPage_ThemeReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.themeReceived(params.theme);
+          break;
+        }
+        case 8: {
+          const params = lens.mojom.LensPage_ShouldShowContextualSearchBox_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldShowContextualSearchBox(params.should_show);
+          break;
+        }
+        case 9: {
+          const params = lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pageContentTypeChanged(params.new_page_content_type);
+          break;
+        }
+        case 10: {
+          const params = lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPostRegionSelection(params.region);
+          break;
+        }
+        case 11: {
+          const params = lens.mojom.LensPage_SetTextSelection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTextSelection(params.selection_start_index, params.selection_end_index);
+          break;
+        }
+        case 12: {
+          const params = lens.mojom.LensPage_SetTranslateMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTranslateMode(params.source_language, params.target_language);
+          break;
+        }
+        case 13: {
+          const params = lens.mojom.LensPage_ClearRegionSelection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearRegionSelection();
+          break;
+        }
+        case 14: {
+          const params = lens.mojom.LensPage_ClearTextSelection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearTextSelection();
+          break;
+        }
+        case 15: {
+          const params = lens.mojom.LensPage_ClearAllSelections_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearAllSelections();
+          break;
+        }
+        case 16: {
+          const params = lens.mojom.LensPage_OnCopyCommand_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCopyCommand();
+          break;
+        }
+        case 17: {
+          const params = lens.mojom.LensPage_SuppressGhostLoader_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suppressGhostLoader();
+          break;
+        }
+        case 18: {
+          const params = lens.mojom.LensPage_OnOverlayReshown_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOverlayReshown(params.screenshot_data);
+          break;
+        }
+      }
+    });
+  }
+};
+
+lens.mojom.LensPageReceiver = lens.mojom.LensPageReceiver;
 
 lens.mojom.LensPagePtr = lens.mojom.LensPageRemote;
 lens.mojom.LensPageRequest = lens.mojom.LensPagePendingReceiver;

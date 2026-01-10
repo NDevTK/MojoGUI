@@ -7,6 +7,8 @@
 // Module namespace
 var updater = updater || {};
 updater.mojom = updater.mojom || {};
+var mojo_base = mojo_base || {};
+var enterprise_companion = enterprise_companion || {};
 
 updater.mojom.StateSpec = { $: mojo.internal.Enum() };
 updater.mojom.PolicySourceSpec = { $: mojo.internal.Enum() };
@@ -546,6 +548,184 @@ updater.mojom.UpdateService.getRemote = function() {
   return remote.$;
 };
 
+updater.mojom.UpdateServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = updater.mojom.UpdateService_GetVersion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVersion();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateService_GetVersion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = updater.mojom.UpdateService_FetchPolicies_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fetchPolicies(params.reason);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = updater.mojom.UpdateService_RegisterApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerApp(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = updater.mojom.UpdateService_GetAppStates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAppStates();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runPeriodicTasks();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = updater.mojom.UpdateService_UpdateAll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateAll();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = updater.mojom.UpdateService_Update_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.update(params.app_id, params.install_data_index, params.priority, params.policy_same_version_update, params.do_update_check_only, params.language);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateService_Update_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = updater.mojom.UpdateService_Install_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.install(params.registration, params.client_install_data, params.install_data_index, params.priority, params.language);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateService_Install_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = updater.mojom.UpdateService_CancelInstalls_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelInstalls(params.app_id);
+          break;
+        }
+        case 9: {
+          const params = updater.mojom.UpdateService_RunInstaller_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runInstaller(params.app_id, params.installer_path, params.install_args, params.install_data, params.install_settings, params.language);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = updater.mojom.UpdateService_CheckForUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkForUpdate(params.app_id, params.priority, params.policy_same_version_update, params.language);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = updater.mojom.UpdateService_GetUpdaterState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUpdaterState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUpdaterPolicies();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = updater.mojom.UpdateService_GetAppPolicies_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAppPolicies();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+updater.mojom.UpdateServiceReceiver = updater.mojom.UpdateServiceReceiver;
+
 updater.mojom.UpdateServicePtr = updater.mojom.UpdateServiceRemote;
 updater.mojom.UpdateServiceRequest = updater.mojom.UpdateServicePendingReceiver;
 
@@ -626,6 +806,33 @@ updater.mojom.StateChangeObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+updater.mojom.StateChangeObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStateChange(params.state);
+          break;
+        }
+        case 1: {
+          const params = updater.mojom.StateChangeObserver_OnComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onComplete(params.result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+updater.mojom.StateChangeObserverReceiver = updater.mojom.StateChangeObserverReceiver;
 
 updater.mojom.StateChangeObserverPtr = updater.mojom.StateChangeObserverRemote;
 updater.mojom.StateChangeObserverRequest = updater.mojom.StateChangeObserverPendingReceiver;

@@ -7,7 +7,7 @@
 // Module namespace
 var media_session = media_session || {};
 media_session.mojom = media_session.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 media_session.mojom.MediaControllerManager = {};
 media_session.mojom.MediaControllerManager.$interfaceName = 'media_session.mojom.MediaControllerManager';
@@ -142,6 +142,38 @@ media_session.mojom.MediaControllerManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media_session.mojom.MediaControllerManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media_session.mojom.MediaControllerManager_CreateMediaControllerForSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createMediaControllerForSession(params.receiver, params.request_id);
+          break;
+        }
+        case 1: {
+          const params = media_session.mojom.MediaControllerManager_CreateActiveMediaController_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createActiveMediaController(params.receiver);
+          break;
+        }
+        case 2: {
+          const params = media_session.mojom.MediaControllerManager_SuspendAllSessions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suspendAllSessions();
+          break;
+        }
+      }
+    });
+  }
+};
+
+media_session.mojom.MediaControllerManagerReceiver = media_session.mojom.MediaControllerManagerReceiver;
 
 media_session.mojom.MediaControllerManagerPtr = media_session.mojom.MediaControllerManagerRemote;
 media_session.mojom.MediaControllerManagerRequest = media_session.mojom.MediaControllerManagerPendingReceiver;
@@ -532,6 +564,133 @@ media_session.mojom.MediaController.getRemote = function() {
   return remote.$;
 };
 
+media_session.mojom.MediaControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media_session.mojom.MediaController_Suspend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suspend();
+          break;
+        }
+        case 1: {
+          const params = media_session.mojom.MediaController_Resume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resume();
+          break;
+        }
+        case 2: {
+          const params = media_session.mojom.MediaController_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop();
+          break;
+        }
+        case 3: {
+          const params = media_session.mojom.MediaController_ToggleSuspendResume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleSuspendResume();
+          break;
+        }
+        case 4: {
+          const params = media_session.mojom.MediaController_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 5: {
+          const params = media_session.mojom.MediaController_PreviousTrack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.previousTrack();
+          break;
+        }
+        case 6: {
+          const params = media_session.mojom.MediaController_NextTrack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.nextTrack();
+          break;
+        }
+        case 7: {
+          const params = media_session.mojom.MediaController_Seek_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.seek(params.seek_time);
+          break;
+        }
+        case 8: {
+          const params = media_session.mojom.MediaController_ObserveImages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeImages(params.type, params.minimum_size_px, params.desired_size_px, params.observer);
+          break;
+        }
+        case 9: {
+          const params = media_session.mojom.MediaController_SeekTo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.seekTo(params.seek_time);
+          break;
+        }
+        case 10: {
+          const params = media_session.mojom.MediaController_ScrubTo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.scrubTo(params.seek_time);
+          break;
+        }
+        case 11: {
+          const params = media_session.mojom.MediaController_EnterPictureInPicture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enterPictureInPicture();
+          break;
+        }
+        case 12: {
+          const params = media_session.mojom.MediaController_ExitPictureInPicture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.exitPictureInPicture();
+          break;
+        }
+        case 13: {
+          const params = media_session.mojom.MediaController_SetAudioSinkId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAudioSinkId(params.id);
+          break;
+        }
+        case 14: {
+          const params = media_session.mojom.MediaController_ToggleMicrophone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleMicrophone();
+          break;
+        }
+        case 15: {
+          const params = media_session.mojom.MediaController_ToggleCamera_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleCamera();
+          break;
+        }
+        case 16: {
+          const params = media_session.mojom.MediaController_HangUp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hangUp();
+          break;
+        }
+        case 17: {
+          const params = media_session.mojom.MediaController_Raise_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.raise();
+          break;
+        }
+        case 18: {
+          const params = media_session.mojom.MediaController_SetMute_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMute(params.mute);
+          break;
+        }
+        case 19: {
+          const params = media_session.mojom.MediaController_RequestMediaRemoting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestMediaRemoting();
+          break;
+        }
+        case 20: {
+          const params = media_session.mojom.MediaController_EnterAutoPictureInPicture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enterAutoPictureInPicture();
+          break;
+        }
+        case 21: {
+          const params = media_session.mojom.MediaController_SkipAd_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.skipAd();
+          break;
+        }
+      }
+    });
+  }
+};
+
+media_session.mojom.MediaControllerReceiver = media_session.mojom.MediaControllerReceiver;
+
 media_session.mojom.MediaControllerPtr = media_session.mojom.MediaControllerRemote;
 media_session.mojom.MediaControllerRequest = media_session.mojom.MediaControllerPendingReceiver;
 
@@ -661,6 +820,48 @@ media_session.mojom.MediaControllerObserver.getRemote = function() {
   return remote.$;
 };
 
+media_session.mojom.MediaControllerObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media_session.mojom.MediaControllerObserver_MediaSessionInfoChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mediaSessionInfoChanged(params.info);
+          break;
+        }
+        case 1: {
+          const params = media_session.mojom.MediaControllerObserver_MediaSessionMetadataChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mediaSessionMetadataChanged(params.metadata);
+          break;
+        }
+        case 2: {
+          const params = media_session.mojom.MediaControllerObserver_MediaSessionActionsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mediaSessionActionsChanged(params.action);
+          break;
+        }
+        case 3: {
+          const params = media_session.mojom.MediaControllerObserver_MediaSessionChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mediaSessionChanged(params.request_id);
+          break;
+        }
+        case 4: {
+          const params = media_session.mojom.MediaControllerObserver_MediaSessionPositionChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mediaSessionPositionChanged(params.position);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media_session.mojom.MediaControllerObserverReceiver = media_session.mojom.MediaControllerObserverReceiver;
+
 media_session.mojom.MediaControllerObserverPtr = media_session.mojom.MediaControllerObserverRemote;
 media_session.mojom.MediaControllerObserverRequest = media_session.mojom.MediaControllerObserverPendingReceiver;
 
@@ -743,6 +944,33 @@ media_session.mojom.MediaControllerImageObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media_session.mojom.MediaControllerImageObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media_session.mojom.MediaControllerImageObserver_MediaControllerImageChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mediaControllerImageChanged(params.type, params.bitmap);
+          break;
+        }
+        case 1: {
+          const params = media_session.mojom.MediaControllerImageObserver_MediaControllerChapterImageChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mediaControllerChapterImageChanged(params.index, params.bitmap);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media_session.mojom.MediaControllerImageObserverReceiver = media_session.mojom.MediaControllerImageObserverReceiver;
 
 media_session.mojom.MediaControllerImageObserverPtr = media_session.mojom.MediaControllerImageObserverRemote;
 media_session.mojom.MediaControllerImageObserverRequest = media_session.mojom.MediaControllerImageObserverPendingReceiver;

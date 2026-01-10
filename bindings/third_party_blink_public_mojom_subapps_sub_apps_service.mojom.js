@@ -179,6 +179,59 @@ blink.mojom.SubAppsService.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.SubAppsServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SubAppsService_Add_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.add(params.sub_apps_to_add);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SubAppsService_Add_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.SubAppsService_List_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.list();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SubAppsService_List_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.SubAppsService_Remove_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.remove(params.manifest_id_paths);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SubAppsService_Remove_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SubAppsServiceReceiver = blink.mojom.SubAppsServiceReceiver;
+
 blink.mojom.SubAppsServicePtr = blink.mojom.SubAppsServiceRemote;
 blink.mojom.SubAppsServiceRequest = blink.mojom.SubAppsServicePendingReceiver;
 

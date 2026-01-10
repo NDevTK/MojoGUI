@@ -9,8 +9,8 @@ var ash = ash || {};
 ash.boca = ash.boca || {};
 ash.boca.mojom = ash.boca.mojom || {};
 var chromeos = chromeos || {};
-var services = services || {};
 var url = url || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
 
 ash.boca.mojom.MaterialTypeSpec = { $: mojo.internal.Enum() };
@@ -1167,6 +1167,395 @@ ash.boca.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.boca.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.authenticateWebview();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWindowsTabsList();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.boca.mojom.PageHandler_ListCourses_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listCourses();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.boca.mojom.PageHandler_ListStudents_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listStudents(params.course_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listAssignments(params.course_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.boca.mojom.PageHandler_CreateSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createSession(params.config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = ash.boca.mojom.PageHandler_GetSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSession();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = ash.boca.mojom.PageHandler_EndSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.endSession();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.extendSessionDuration(params.extended_duration);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeStudent(params.student_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.renotifyStudent(params.student_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = ash.boca.mojom.PageHandler_AddStudents_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addStudents(params.students);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateOnTaskConfig(params.on_task_config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateCaptionConfig(params.caption_config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFloatMode(params.is_float_mode);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.submitAccessCode(params.access_code);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.viewStudentScreen(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 17: {
+          const params = ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.endViewScreenSession(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 18: {
+          const params = ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setViewScreenSessionActive(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 19: {
+          const params = ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUserPref(params.pref);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 20: {
+          const params = ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUserPref(params.pref, params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetUserPref_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 21: {
+          const params = ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSitePermission(params.url, params.permission, params.setting);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 22: {
+          const params = ash.boca.mojom.PageHandler_CloseTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeTab(params.tab_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 23: {
+          const params = ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFeedbackDialog();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 24: {
+          const params = ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.refreshWorkbook();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_RefreshWorkbook_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 25: {
+          const params = ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSpeechRecognitionInstallationStatus();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 26: {
+          const params = ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startSpotlight(params.crd_connection_code);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_StartSpotlight_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 27: {
+          const params = ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.presentStudentScreen(params.student, params.receiver_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 28: {
+          const params = ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopPresentingStudentScreen();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 29: {
+          const params = ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.presentOwnScreen(params.receiver_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 30: {
+          const params = ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopPresentingOwnScreen();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.boca.mojom.PageHandlerReceiver = ash.boca.mojom.PageHandlerReceiver;
+
 ash.boca.mojom.PageHandlerPtr = ash.boca.mojom.PageHandlerRemote;
 ash.boca.mojom.PageHandlerRequest = ash.boca.mojom.PageHandlerPendingReceiver;
 
@@ -1373,6 +1762,73 @@ ash.boca.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
+ash.boca.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStudentActivityUpdated(params.activities);
+          break;
+        }
+        case 1: {
+          const params = ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSessionConfigUpdated(params.config);
+          break;
+        }
+        case 2: {
+          const params = ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onActiveNetworkStateChanged(params.active_networks);
+          break;
+        }
+        case 3: {
+          const params = ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLocalCaptionDisabled();
+          break;
+        }
+        case 4: {
+          const params = ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSpeechRecognitionInstallStateUpdated(params.state);
+          break;
+        }
+        case 5: {
+          const params = ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSessionCaptionDisabled(params.is_error);
+          break;
+        }
+        case 6: {
+          const params = ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameDataReceived(params.frame_data);
+          break;
+        }
+        case 7: {
+          const params = ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSpotlightCrdSessionStatusUpdated(params.state);
+          break;
+        }
+        case 8: {
+          const params = ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPresentStudentScreenEnded();
+          break;
+        }
+        case 9: {
+          const params = ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPresentOwnScreenEnded();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.boca.mojom.PageReceiver = ash.boca.mojom.PageReceiver;
+
 ash.boca.mojom.PagePtr = ash.boca.mojom.PageRemote;
 ash.boca.mojom.PageRequest = ash.boca.mojom.PagePendingReceiver;
 
@@ -1438,6 +1894,28 @@ ash.boca.mojom.BocaPageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.boca.mojom.BocaPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.create(params.handler, params.page);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.boca.mojom.BocaPageHandlerFactoryReceiver = ash.boca.mojom.BocaPageHandlerFactoryReceiver;
 
 ash.boca.mojom.BocaPageHandlerFactoryPtr = ash.boca.mojom.BocaPageHandlerFactoryRemote;
 ash.boca.mojom.BocaPageHandlerFactoryRequest = ash.boca.mojom.BocaPageHandlerFactoryPendingReceiver;

@@ -7,6 +7,7 @@
 // Module namespace
 var autofill_ml_internals = autofill_ml_internals || {};
 autofill_ml_internals.mojom = autofill_ml_internals.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 autofill_ml_internals.mojom.OptimizationTargetSpec = { $: mojo.internal.Enum() };
@@ -125,6 +126,28 @@ autofill_ml_internals.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
+autofill_ml_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLogAdded(params.log);
+          break;
+        }
+      }
+    });
+  }
+};
+
+autofill_ml_internals.mojom.PageReceiver = autofill_ml_internals.mojom.PageReceiver;
+
 autofill_ml_internals.mojom.PagePtr = autofill_ml_internals.mojom.PageRemote;
 autofill_ml_internals.mojom.PageRequest = autofill_ml_internals.mojom.PagePendingReceiver;
 
@@ -189,6 +212,28 @@ autofill_ml_internals.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+autofill_ml_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPage(params.page);
+          break;
+        }
+      }
+    });
+  }
+};
+
+autofill_ml_internals.mojom.PageHandlerReceiver = autofill_ml_internals.mojom.PageHandlerReceiver;
 
 autofill_ml_internals.mojom.PageHandlerPtr = autofill_ml_internals.mojom.PageHandlerRemote;
 autofill_ml_internals.mojom.PageHandlerRequest = autofill_ml_internals.mojom.PageHandlerPendingReceiver;

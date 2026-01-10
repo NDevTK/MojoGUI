@@ -7,7 +7,7 @@
 // Module namespace
 var media_router = media_router || {};
 media_router.mojom = media_router.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -100,6 +100,28 @@ media_router.mojom.MediaStatusObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media_router.mojom.MediaStatusObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMediaStatusUpdated(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media_router.mojom.MediaStatusObserverReceiver = media_router.mojom.MediaStatusObserverReceiver;
 
 media_router.mojom.MediaStatusObserverPtr = media_router.mojom.MediaStatusObserverRemote;
 media_router.mojom.MediaStatusObserverRequest = media_router.mojom.MediaStatusObserverPendingReceiver;

@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.cros_safety = ash.cros_safety || {};
 ash.cros_safety.mojom = ash.cros_safety.mojom || {};
+var mojo_base = mojo_base || {};
 
 ash.cros_safety.mojom.SafetyClassifierVerdictSpec = { $: mojo.internal.Enum() };
 ash.cros_safety.mojom.SafetyRulesetSpec = { $: mojo.internal.Enum() };
@@ -139,6 +140,47 @@ ash.cros_safety.mojom.CloudSafetySession.getRemote = function() {
   return remote.$;
 };
 
+ash.cros_safety.mojom.CloudSafetySessionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.classifyTextSafety(params.rules, params.text);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.classifyImageSafety(params.rules, params.prompt, params.image);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_safety.mojom.CloudSafetySessionReceiver = ash.cros_safety.mojom.CloudSafetySessionReceiver;
+
 ash.cros_safety.mojom.CloudSafetySessionPtr = ash.cros_safety.mojom.CloudSafetySessionRemote;
 ash.cros_safety.mojom.CloudSafetySessionRequest = ash.cros_safety.mojom.CloudSafetySessionPendingReceiver;
 
@@ -233,6 +275,47 @@ ash.cros_safety.mojom.OnDeviceSafetySession.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.classifyTextSafety(params.rules, params.text);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.classifyImageSafety(params.rules, params.image);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = ash.cros_safety.mojom.OnDeviceSafetySessionReceiver;
 
 ash.cros_safety.mojom.OnDeviceSafetySessionPtr = ash.cros_safety.mojom.OnDeviceSafetySessionRemote;
 ash.cros_safety.mojom.OnDeviceSafetySessionRequest = ash.cros_safety.mojom.OnDeviceSafetySessionPendingReceiver;

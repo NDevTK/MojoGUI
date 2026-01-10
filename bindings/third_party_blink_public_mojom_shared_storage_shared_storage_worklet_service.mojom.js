@@ -7,15 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var services = services || {};
-var services = services || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var url = url || {};
 
 blink.mojom.GetInterestGroupsResultSpec = { $: {} };
@@ -158,6 +151,28 @@ blink.mojom.SharedStorageEntriesListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.SharedStorageEntriesListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SharedStorageEntriesListener_DidReadEntries_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didReadEntries(params.success, params.error_message, params.entries, params.has_more_entries, params.total_queued_to_send);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SharedStorageEntriesListenerReceiver = blink.mojom.SharedStorageEntriesListenerReceiver;
 
 blink.mojom.SharedStorageEntriesListenerPtr = blink.mojom.SharedStorageEntriesListenerRemote;
 blink.mojom.SharedStorageEntriesListenerRequest = blink.mojom.SharedStorageEntriesListenerPendingReceiver;
@@ -410,6 +425,115 @@ blink.mojom.SharedStorageWorkletServiceClient.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.SharedStorageWorkletServiceClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sharedStorageUpdate(params.method_with_options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SharedStorageWorkletServiceClient_SharedStorageUpdate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sharedStorageBatchUpdate(params.methods_with_options, params.with_lock);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SharedStorageWorkletServiceClient_SharedStorageBatchUpdate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sharedStorageGet(params.key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SharedStorageWorkletServiceClient_SharedStorageGet_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.SharedStorageWorkletServiceClient_SharedStorageKeys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sharedStorageKeys(params.listener);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.SharedStorageWorkletServiceClient_SharedStorageEntries_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sharedStorageEntries(params.listener, params.values_only);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sharedStorageLength();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SharedStorageWorkletServiceClient_SharedStorageLength_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sharedStorageRemainingBudget();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SharedStorageWorkletServiceClient_SharedStorageRemainingBudget_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getInterestGroups();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SharedStorageWorkletServiceClient_GetInterestGroups_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.SharedStorageWorkletServiceClient_DidAddMessageToConsole_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didAddMessageToConsole(params.log_level, params.message);
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.SharedStorageWorkletServiceClient_RecordUseCounters_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordUseCounters(params.features);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SharedStorageWorkletServiceClientReceiver = blink.mojom.SharedStorageWorkletServiceClientReceiver;
+
 blink.mojom.SharedStorageWorkletServiceClientPtr = blink.mojom.SharedStorageWorkletServiceClientRemote;
 blink.mojom.SharedStorageWorkletServiceClientRequest = blink.mojom.SharedStorageWorkletServiceClientPendingReceiver;
 
@@ -417,7 +541,7 @@ blink.mojom.SharedStorageWorkletServiceClientRequest = blink.mojom.SharedStorage
 // Interface: SharedStorageWorkletService
 mojo.internal.Struct(
     blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec, 'blink.mojom.SharedStorageWorkletService_Initialize_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.SharedStorageWorkletServiceClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('permissions_policy_state', 8, 0, blink.mojom.SharedStorageWorkletPermissionsPolicyStateSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('embedder_context', 16, 0, mojo_base.mojom.String16Spec.$, null, true, 0, undefined),
     ],
@@ -558,6 +682,71 @@ blink.mojom.SharedStorageWorkletService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.SharedStorageWorkletServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SharedStorageWorkletService_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.client, params.permissions_policy_state, params.embedder_context);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SharedStorageWorkletService_Initialize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.SharedStorageWorkletService_AddModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addModule(params.url_loader_factory, params.script_source_url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SharedStorageWorkletService_AddModule_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runURLSelectionOperation(params.name, params.urls, params.serialized_data, params.pa_operation_details);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SharedStorageWorkletService_RunURLSelectionOperation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.SharedStorageWorkletService_RunOperation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runOperation(params.name, params.serialized_data, params.pa_operation_details);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.SharedStorageWorkletService_RunOperation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SharedStorageWorkletServiceReceiver = blink.mojom.SharedStorageWorkletServiceReceiver;
 
 blink.mojom.SharedStorageWorkletServicePtr = blink.mojom.SharedStorageWorkletServiceRemote;
 blink.mojom.SharedStorageWorkletServiceRequest = blink.mojom.SharedStorageWorkletServicePendingReceiver;

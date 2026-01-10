@@ -8,15 +8,6 @@
 var ash = ash || {};
 ash.ime = ash.ime || {};
 ash.ime.mojom = ash.ime.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
 
 ash.ime.mojom.ConnectionFactory = {};
 ash.ime.mojom.ConnectionFactory.$interfaceName = 'ash.ime.mojom.ConnectionFactory';
@@ -29,8 +20,8 @@ ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec = { $: {} };
 mojo.internal.Struct(
     ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec, 'ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_Params', [
       mojo.internal.StructField('ime_spec', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('input_method', 8, 0, mojo.internal.AssociatedInterfaceRequest(ash.ime.mojom.InputMethodRemote), null, false, 0, undefined),
-      mojo.internal.StructField('input_method_host', 16, 0, mojo.internal.AssociatedInterfaceProxy(ash.ime.mojom.InputMethodHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('input_method', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('input_method_host', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('settings', 24, 0, ash.ime.mojom.InputMethodSettingsSpec.$, null, true, 2, undefined),
     ],
     [[0, 32], [2, 40]]);
@@ -43,7 +34,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec, 'ash.ime.mojom.ConnectionFactory_Unused_Params', [
-      mojo.internal.StructField('unused', 0, 0, mojo.internal.AssociatedInterfaceRequest(ash.ime.mojom.JpUnusedRemote), null, false, 0, undefined),
+      mojo.internal.StructField('unused', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -116,6 +107,47 @@ ash.ime.mojom.ConnectionFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.ime.mojom.ConnectionFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectToInputMethod(params.ime_spec, params.input_method, params.input_method_host, params.settings);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unused(params.unused);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.ime.mojom.ConnectionFactoryReceiver = ash.ime.mojom.ConnectionFactoryReceiver;
 
 ash.ime.mojom.ConnectionFactoryPtr = ash.ime.mojom.ConnectionFactoryRemote;
 ash.ime.mojom.ConnectionFactoryRequest = ash.ime.mojom.ConnectionFactoryPendingReceiver;

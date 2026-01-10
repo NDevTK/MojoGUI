@@ -7,8 +7,6 @@
 // Module namespace
 var subresource_filter = subresource_filter || {};
 subresource_filter.mojom = subresource_filter.mojom || {};
-var components = components || {};
-var blink = blink || {};
 var blink = blink || {};
 
 subresource_filter.mojom.SubresourceFilterAgent = {};
@@ -84,6 +82,28 @@ subresource_filter.mojom.SubresourceFilterAgent.getRemote = function() {
     'context');
   return remote.$;
 };
+
+subresource_filter.mojom.SubresourceFilterAgentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.activateForNextCommittedLoad(params.activation_state, params.ad_evidence);
+          break;
+        }
+      }
+    });
+  }
+};
+
+subresource_filter.mojom.SubresourceFilterAgentReceiver = subresource_filter.mojom.SubresourceFilterAgentReceiver;
 
 subresource_filter.mojom.SubresourceFilterAgentPtr = subresource_filter.mojom.SubresourceFilterAgentRemote;
 subresource_filter.mojom.SubresourceFilterAgentRequest = subresource_filter.mojom.SubresourceFilterAgentPendingReceiver;
@@ -226,6 +246,53 @@ subresource_filter.mojom.SubresourceFilterHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+subresource_filter.mojom.SubresourceFilterHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didDisallowFirstSubresource();
+          break;
+        }
+        case 1: {
+          const params = subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.frameIsAd();
+          break;
+        }
+        case 2: {
+          const params = subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.frameWasCreatedByAdScript();
+          break;
+        }
+        case 3: {
+          const params = subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.adScriptDidCreateFencedFrame(params.fenced_frame_root_placeholder_token);
+          break;
+        }
+        case 4: {
+          const params = subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDocumentLoadStatistics(params.statistics);
+          break;
+        }
+        case 5: {
+          const params = subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAdsViolationTriggered(params.violation);
+          break;
+        }
+      }
+    });
+  }
+};
+
+subresource_filter.mojom.SubresourceFilterHostReceiver = subresource_filter.mojom.SubresourceFilterHostReceiver;
 
 subresource_filter.mojom.SubresourceFilterHostPtr = subresource_filter.mojom.SubresourceFilterHostRemote;
 subresource_filter.mojom.SubresourceFilterHostRequest = subresource_filter.mojom.SubresourceFilterHostPendingReceiver;

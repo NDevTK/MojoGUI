@@ -198,6 +198,71 @@ ui.ozone.mojom.GesturePropertiesService.getRemote = function() {
   return remote.$;
 };
 
+ui.ozone.mojom.GesturePropertiesServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listDevices();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listProperties(params.device_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getProperty(params.device_id, params.name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setProperty(params.device_id, params.name, params.value);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ui.ozone.mojom.GesturePropertiesServiceReceiver = ui.ozone.mojom.GesturePropertiesServiceReceiver;
+
 ui.ozone.mojom.GesturePropertiesServicePtr = ui.ozone.mojom.GesturePropertiesServiceRemote;
 ui.ozone.mojom.GesturePropertiesServiceRequest = ui.ozone.mojom.GesturePropertiesServicePendingReceiver;
 

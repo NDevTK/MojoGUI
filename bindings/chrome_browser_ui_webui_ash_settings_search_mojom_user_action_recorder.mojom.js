@@ -8,7 +8,7 @@
 var ash = ash || {};
 ash.settings = ash.settings || {};
 ash.settings.mojom = ash.settings.mojom || {};
-var ash = ash || {};
+var chromeos = chromeos || {};
 
 ash.settings.mojom.SettingChangeValueSpec = { $: {} };
 ash.settings.mojom.UserActionRecorder = {};
@@ -192,6 +192,58 @@ ash.settings.mojom.UserActionRecorder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.mojom.UserActionRecorderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordPageFocus();
+          break;
+        }
+        case 1: {
+          const params = ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordPageBlur();
+          break;
+        }
+        case 2: {
+          const params = ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordClick();
+          break;
+        }
+        case 3: {
+          const params = ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordNavigation();
+          break;
+        }
+        case 4: {
+          const params = ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordSearch();
+          break;
+        }
+        case 5: {
+          const params = ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordSettingChange();
+          break;
+        }
+        case 6: {
+          const params = ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordSettingChangeWithDetails(params.setting, params.value);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.UserActionRecorderReceiver = ash.settings.mojom.UserActionRecorderReceiver;
 
 ash.settings.mojom.UserActionRecorderPtr = ash.settings.mojom.UserActionRecorderRemote;
 ash.settings.mojom.UserActionRecorderRequest = ash.settings.mojom.UserActionRecorderPendingReceiver;

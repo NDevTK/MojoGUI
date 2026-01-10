@@ -7,8 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 blink.mojom.WebPrintingMultipleDocumentHandlingSpec = { $: mojo.internal.Enum() };
@@ -381,6 +379,28 @@ blink.mojom.WebPrintJobStateObserver.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.WebPrintJobStateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWebPrintJobUpdate(params.update);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WebPrintJobStateObserverReceiver = blink.mojom.WebPrintJobStateObserverReceiver;
+
 blink.mojom.WebPrintJobStateObserverPtr = blink.mojom.WebPrintJobStateObserverRemote;
 blink.mojom.WebPrintJobStateObserverRequest = blink.mojom.WebPrintJobStateObserverPendingReceiver;
 
@@ -444,6 +464,28 @@ blink.mojom.WebPrintJobController.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.WebPrintJobControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WebPrintJobController_Cancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancel();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WebPrintJobControllerReceiver = blink.mojom.WebPrintJobControllerReceiver;
 
 blink.mojom.WebPrintJobControllerPtr = blink.mojom.WebPrintJobControllerRemote;
 blink.mojom.WebPrintJobControllerRequest = blink.mojom.WebPrintJobControllerPendingReceiver;
@@ -538,6 +580,47 @@ blink.mojom.WebPrinter.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.WebPrinterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WebPrinter_FetchAttributes_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fetchAttributes();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.WebPrinter_Print_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.print(params.document, params.attributes);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.WebPrinter_Print_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WebPrinterReceiver = blink.mojom.WebPrinterReceiver;
+
 blink.mojom.WebPrinterPtr = blink.mojom.WebPrinterRemote;
 blink.mojom.WebPrinterRequest = blink.mojom.WebPrinterPendingReceiver;
 
@@ -607,6 +690,35 @@ blink.mojom.WebPrintingService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.WebPrintingServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WebPrintingService_GetPrinters_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPrinters();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WebPrintingServiceReceiver = blink.mojom.WebPrintingServiceReceiver;
 
 blink.mojom.WebPrintingServicePtr = blink.mojom.WebPrintingServiceRemote;
 blink.mojom.WebPrintingServiceRequest = blink.mojom.WebPrintingServicePendingReceiver;

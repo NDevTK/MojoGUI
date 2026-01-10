@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 blink.mojom.ViewportFitSpec = { $: mojo.internal.Enum() };
@@ -104,6 +103,33 @@ blink.mojom.DisplayCutoutHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.DisplayCutoutHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyViewportFitChanged(params.value);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyComplexSafeAreaConstraintChanged(params.value);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DisplayCutoutHostReceiver = blink.mojom.DisplayCutoutHostReceiver;
+
 blink.mojom.DisplayCutoutHostPtr = blink.mojom.DisplayCutoutHostRemote;
 blink.mojom.DisplayCutoutHostRequest = blink.mojom.DisplayCutoutHostPendingReceiver;
 
@@ -168,6 +194,28 @@ blink.mojom.DisplayCutoutClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.DisplayCutoutClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSafeArea(params.safe_area);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DisplayCutoutClientReceiver = blink.mojom.DisplayCutoutClientReceiver;
 
 blink.mojom.DisplayCutoutClientPtr = blink.mojom.DisplayCutoutClientRemote;
 blink.mojom.DisplayCutoutClientRequest = blink.mojom.DisplayCutoutClientPendingReceiver;

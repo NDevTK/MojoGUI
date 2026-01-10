@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.eche_app = ash.eche_app || {};
 ash.eche_app.mojom = ash.eche_app.mojom || {};
+var mojo_base = mojo_base || {};
 
 ash.eche_app.mojom.ScreenBacklightStateSpec = { $: mojo.internal.Enum() };
 ash.eche_app.mojom.WebNotificationTypeSpec = { $: mojo.internal.Enum() };
@@ -223,6 +224,38 @@ ash.eche_app.mojom.SignalingMessageExchanger.getRemote = function() {
   return remote.$;
 };
 
+ash.eche_app.mojom.SignalingMessageExchangerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendSignalingMessage(params.signal);
+          break;
+        }
+        case 1: {
+          const params = ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSignalingMessageObserver(params.observer);
+          break;
+        }
+        case 2: {
+          const params = ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.tearDownSignaling();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.eche_app.mojom.SignalingMessageExchangerReceiver = ash.eche_app.mojom.SignalingMessageExchangerReceiver;
+
 ash.eche_app.mojom.SignalingMessageExchangerPtr = ash.eche_app.mojom.SignalingMessageExchangerRemote;
 ash.eche_app.mojom.SignalingMessageExchangerRequest = ash.eche_app.mojom.SignalingMessageExchangerPendingReceiver;
 
@@ -287,6 +320,28 @@ ash.eche_app.mojom.SignalingMessageObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.eche_app.mojom.SignalingMessageObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReceivedSignalingMessage(params.signal);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.eche_app.mojom.SignalingMessageObserverReceiver = ash.eche_app.mojom.SignalingMessageObserverReceiver;
 
 ash.eche_app.mojom.SignalingMessageObserverPtr = ash.eche_app.mojom.SignalingMessageObserverRemote;
 ash.eche_app.mojom.SignalingMessageObserverRequest = ash.eche_app.mojom.SignalingMessageObserverPendingReceiver;
@@ -373,6 +428,40 @@ ash.eche_app.mojom.SystemInfoProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.eche_app.mojom.SystemInfoProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSystemInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSystemInfoObserver(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.eche_app.mojom.SystemInfoProviderReceiver = ash.eche_app.mojom.SystemInfoProviderReceiver;
 
 ash.eche_app.mojom.SystemInfoProviderPtr = ash.eche_app.mojom.SystemInfoProviderRemote;
 ash.eche_app.mojom.SystemInfoProviderRequest = ash.eche_app.mojom.SystemInfoProviderPendingReceiver;
@@ -471,6 +560,38 @@ ash.eche_app.mojom.SystemInfoObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.eche_app.mojom.SystemInfoObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScreenBacklightStateChanged(params.state);
+          break;
+        }
+        case 1: {
+          const params = ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReceivedTabletModeChanged(params.is_tablet_mode);
+          break;
+        }
+        case 2: {
+          const params = ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAndroidDeviceNetworkInfoChanged(params.is_different_network, params.android_device_on_cellular);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.eche_app.mojom.SystemInfoObserverReceiver = ash.eche_app.mojom.SystemInfoObserverReceiver;
 
 ash.eche_app.mojom.SystemInfoObserverPtr = ash.eche_app.mojom.SystemInfoObserverRemote;
 ash.eche_app.mojom.SystemInfoObserverRequest = ash.eche_app.mojom.SystemInfoObserverPendingReceiver;
@@ -573,6 +694,45 @@ ash.eche_app.mojom.AccessibilityProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.eche_app.mojom.AccessibilityProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleAccessibilityEventReceived(params.serialized_proto);
+          break;
+        }
+        case 1: {
+          const params = ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAccessibilityObserver(params.observer);
+          break;
+        }
+        case 2: {
+          const params = ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isAccessibilityEnabled();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.eche_app.mojom.AccessibilityProviderReceiver = ash.eche_app.mojom.AccessibilityProviderReceiver;
 
 ash.eche_app.mojom.AccessibilityProviderPtr = ash.eche_app.mojom.AccessibilityProviderRemote;
 ash.eche_app.mojom.AccessibilityProviderRequest = ash.eche_app.mojom.AccessibilityProviderPendingReceiver;
@@ -699,6 +859,57 @@ ash.eche_app.mojom.AccessibilityObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.eche_app.mojom.AccessibilityObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableAccessibilityTreeStreaming(params.enable);
+          break;
+        }
+        case 1: {
+          const params = ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableExploreByTouch(params.enable);
+          break;
+        }
+        case 2: {
+          const params = ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.performAction(params.serialized_proto);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.refreshWithExtraData(params.refresh_data_proto);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.eche_app.mojom.AccessibilityObserverReceiver = ash.eche_app.mojom.AccessibilityObserverReceiver;
+
 ash.eche_app.mojom.AccessibilityObserverPtr = ash.eche_app.mojom.AccessibilityObserverRemote;
 ash.eche_app.mojom.AccessibilityObserverRequest = ash.eche_app.mojom.AccessibilityObserverPendingReceiver;
 
@@ -768,6 +979,35 @@ ash.eche_app.mojom.UidGenerator.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.eche_app.mojom.UidGeneratorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUid();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.eche_app.mojom.UidGeneratorReceiver = ash.eche_app.mojom.UidGeneratorReceiver;
 
 ash.eche_app.mojom.UidGeneratorPtr = ash.eche_app.mojom.UidGeneratorRemote;
 ash.eche_app.mojom.UidGeneratorRequest = ash.eche_app.mojom.UidGeneratorPendingReceiver;
@@ -851,6 +1091,33 @@ ash.eche_app.mojom.NotificationGenerator.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.eche_app.mojom.NotificationGeneratorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showNotification(params.title, params.message, params.type);
+          break;
+        }
+        case 1: {
+          const params = ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showToast(params.text);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.eche_app.mojom.NotificationGeneratorReceiver = ash.eche_app.mojom.NotificationGeneratorReceiver;
 
 ash.eche_app.mojom.NotificationGeneratorPtr = ash.eche_app.mojom.NotificationGeneratorRemote;
 ash.eche_app.mojom.NotificationGeneratorRequest = ash.eche_app.mojom.NotificationGeneratorPendingReceiver;
@@ -948,6 +1215,38 @@ ash.eche_app.mojom.DisplayStreamHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.eche_app.mojom.DisplayStreamHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startStreaming();
+          break;
+        }
+        case 1: {
+          const params = ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStreamStatusChanged(params.status);
+          break;
+        }
+        case 2: {
+          const params = ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setStreamActionObserver(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.eche_app.mojom.DisplayStreamHandlerReceiver = ash.eche_app.mojom.DisplayStreamHandlerReceiver;
+
 ash.eche_app.mojom.DisplayStreamHandlerPtr = ash.eche_app.mojom.DisplayStreamHandlerRemote;
 ash.eche_app.mojom.DisplayStreamHandlerRequest = ash.eche_app.mojom.DisplayStreamHandlerPendingReceiver;
 
@@ -1012,6 +1311,28 @@ ash.eche_app.mojom.StreamActionObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.eche_app.mojom.StreamActionObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStreamAction(params.action);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.eche_app.mojom.StreamActionObserverReceiver = ash.eche_app.mojom.StreamActionObserverReceiver;
 
 ash.eche_app.mojom.StreamActionObserverPtr = ash.eche_app.mojom.StreamActionObserverRemote;
 ash.eche_app.mojom.StreamActionObserverRequest = ash.eche_app.mojom.StreamActionObserverPendingReceiver;
@@ -1078,6 +1399,28 @@ ash.eche_app.mojom.StreamOrientationObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.eche_app.mojom.StreamOrientationObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStreamOrientationChanged(params.isLandscape);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.eche_app.mojom.StreamOrientationObserverReceiver = ash.eche_app.mojom.StreamOrientationObserverReceiver;
+
 ash.eche_app.mojom.StreamOrientationObserverPtr = ash.eche_app.mojom.StreamOrientationObserverRemote;
 ash.eche_app.mojom.StreamOrientationObserverRequest = ash.eche_app.mojom.StreamOrientationObserverPendingReceiver;
 
@@ -1142,6 +1485,28 @@ ash.eche_app.mojom.ConnectionStatusObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.eche_app.mojom.ConnectionStatusObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnectionStatusChanged(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.eche_app.mojom.ConnectionStatusObserverReceiver = ash.eche_app.mojom.ConnectionStatusObserverReceiver;
 
 ash.eche_app.mojom.ConnectionStatusObserverPtr = ash.eche_app.mojom.ConnectionStatusObserverRemote;
 ash.eche_app.mojom.ConnectionStatusObserverRequest = ash.eche_app.mojom.ConnectionStatusObserverPendingReceiver;
@@ -1223,6 +1588,33 @@ ash.eche_app.mojom.KeyboardLayoutHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.eche_app.mojom.KeyboardLayoutHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestCurrentKeyboardLayout();
+          break;
+        }
+        case 1: {
+          const params = ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setKeyboardLayoutObserver(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.eche_app.mojom.KeyboardLayoutHandlerReceiver = ash.eche_app.mojom.KeyboardLayoutHandlerReceiver;
+
 ash.eche_app.mojom.KeyboardLayoutHandlerPtr = ash.eche_app.mojom.KeyboardLayoutHandlerRemote;
 ash.eche_app.mojom.KeyboardLayoutHandlerRequest = ash.eche_app.mojom.KeyboardLayoutHandlerPendingReceiver;
 
@@ -1290,6 +1682,28 @@ ash.eche_app.mojom.KeyboardLayoutObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.eche_app.mojom.KeyboardLayoutObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onKeyboardLayoutChanged(params.id, params.longName, params.shortName, params.layoutTag);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.eche_app.mojom.KeyboardLayoutObserverReceiver = ash.eche_app.mojom.KeyboardLayoutObserverReceiver;
 
 ash.eche_app.mojom.KeyboardLayoutObserverPtr = ash.eche_app.mojom.KeyboardLayoutObserverRemote;
 ash.eche_app.mojom.KeyboardLayoutObserverRequest = ash.eche_app.mojom.KeyboardLayoutObserverPendingReceiver;

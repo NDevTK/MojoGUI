@@ -7,8 +7,6 @@
 // Module namespace
 var media_session = media_session || {};
 media_session.mojom = media_session.mojom || {};
-var services = services || {};
-var services = services || {};
 
 media_session.mojom.MediaSessionService = {};
 media_session.mojom.MediaSessionService.$interfaceName = 'media_session.mojom.MediaSessionService';
@@ -125,6 +123,43 @@ media_session.mojom.MediaSessionService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media_session.mojom.MediaSessionServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindAudioFocusManager(params.receiver);
+          break;
+        }
+        case 1: {
+          const params = media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindAudioFocusManagerDebug(params.receiver);
+          break;
+        }
+        case 2: {
+          const params = media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindMediaControllerManager(params.receiver);
+          break;
+        }
+        case 3: {
+          const params = media_session.mojom.MediaSessionService_Bind_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bind(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media_session.mojom.MediaSessionServiceReceiver = media_session.mojom.MediaSessionServiceReceiver;
 
 media_session.mojom.MediaSessionServicePtr = media_session.mojom.MediaSessionServiceRemote;
 media_session.mojom.MediaSessionServiceRequest = media_session.mojom.MediaSessionServicePendingReceiver;

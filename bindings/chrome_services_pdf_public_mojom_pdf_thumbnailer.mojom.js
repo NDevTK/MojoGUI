@@ -7,8 +7,8 @@
 // Module namespace
 var pdf = pdf || {};
 pdf.mojom = pdf.mojom || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 pdf.mojom.ThumbParamsSpec = { $: {} };
@@ -115,6 +115,40 @@ pdf.mojom.PdfThumbnailer.getRemote = function() {
     'context');
   return remote.$;
 };
+
+pdf.mojom.PdfThumbnailerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getThumbnail(params.params, params.pdf_region);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUseSkiaRendererPolicy(params.use_skia);
+          break;
+        }
+      }
+    });
+  }
+};
+
+pdf.mojom.PdfThumbnailerReceiver = pdf.mojom.PdfThumbnailerReceiver;
 
 pdf.mojom.PdfThumbnailerPtr = pdf.mojom.PdfThumbnailerRemote;
 pdf.mojom.PdfThumbnailerRequest = pdf.mojom.PdfThumbnailerPendingReceiver;

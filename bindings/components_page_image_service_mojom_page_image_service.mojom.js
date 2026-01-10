@@ -112,6 +112,35 @@ page_image_service.mojom.PageImageServiceHandler.getRemote = function() {
   return remote.$;
 };
 
+page_image_service.mojom.PageImageServiceHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPageImageUrl(params.client_id, params.page_url, params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+page_image_service.mojom.PageImageServiceHandlerReceiver = page_image_service.mojom.PageImageServiceHandlerReceiver;
+
 page_image_service.mojom.PageImageServiceHandlerPtr = page_image_service.mojom.PageImageServiceHandlerRemote;
 page_image_service.mojom.PageImageServiceHandlerRequest = page_image_service.mojom.PageImageServiceHandlerPendingReceiver;
 

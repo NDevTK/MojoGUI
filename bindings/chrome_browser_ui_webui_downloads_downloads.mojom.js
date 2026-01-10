@@ -7,6 +7,7 @@
 // Module namespace
 var downloads = downloads || {};
 downloads.mojom = downloads.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 downloads.mojom.DangerTypeSpec = { $: mojo.internal.Enum() };
@@ -197,6 +198,28 @@ downloads.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+downloads.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+downloads.mojom.PageHandlerFactoryReceiver = downloads.mojom.PageHandlerFactoryReceiver;
 
 downloads.mojom.PageHandlerFactoryPtr = downloads.mojom.PageHandlerFactoryRemote;
 downloads.mojom.PageHandlerFactoryRequest = downloads.mojom.PageHandlerFactoryPendingReceiver;
@@ -631,6 +654,150 @@ downloads.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+downloads.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = downloads.mojom.PageHandler_GetDownloads_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDownloads(params.search_terms);
+          break;
+        }
+        case 1: {
+          const params = downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFileRequiringGesture(params.id);
+          break;
+        }
+        case 2: {
+          const params = downloads.mojom.PageHandler_Drag_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.drag(params.id);
+          break;
+        }
+        case 3: {
+          const params = downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.saveSuspiciousRequiringGesture(params.id);
+          break;
+        }
+        case 4: {
+          const params = downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordOpenBypassWarningDialog(params.id);
+          break;
+        }
+        case 5: {
+          const params = downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.saveDangerousFromDialogRequiringGesture(params.id);
+          break;
+        }
+        case 6: {
+          const params = downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordCancelBypassWarningDialog(params.id);
+          break;
+        }
+        case 7: {
+          const params = downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.discardDangerous(params.id);
+          break;
+        }
+        case 8: {
+          const params = downloads.mojom.PageHandler_RetryDownload_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.retryDownload(params.id);
+          break;
+        }
+        case 9: {
+          const params = downloads.mojom.PageHandler_Show_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.show(params.id);
+          break;
+        }
+        case 10: {
+          const params = downloads.mojom.PageHandler_Pause_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pause(params.id);
+          break;
+        }
+        case 11: {
+          const params = downloads.mojom.PageHandler_Resume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resume(params.id);
+          break;
+        }
+        case 12: {
+          const params = downloads.mojom.PageHandler_Remove_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.remove(params.id);
+          break;
+        }
+        case 13: {
+          const params = downloads.mojom.PageHandler_Undo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.undo();
+          break;
+        }
+        case 14: {
+          const params = downloads.mojom.PageHandler_Cancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancel(params.id);
+          break;
+        }
+        case 15: {
+          const params = downloads.mojom.PageHandler_ClearAll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearAll();
+          break;
+        }
+        case 16: {
+          const params = downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openDownloadsFolderRequiringGesture();
+          break;
+        }
+        case 17: {
+          const params = downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openEsbSettings();
+          break;
+        }
+        case 18: {
+          const params = downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.logEsbPromotionRowViewed();
+          break;
+        }
+        case 19: {
+          const params = downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openDuringScanningRequiringGesture(params.id);
+          break;
+        }
+        case 20: {
+          const params = downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reviewDangerousRequiringGesture(params.id);
+          break;
+        }
+        case 21: {
+          const params = downloads.mojom.PageHandler_DeepScan_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deepScan(params.id);
+          break;
+        }
+        case 22: {
+          const params = downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bypassDeepScanRequiringGesture(params.id);
+          break;
+        }
+        case 23: {
+          const params = downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isEligibleForEsbPromo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+downloads.mojom.PageHandlerReceiver = downloads.mojom.PageHandlerReceiver;
+
 downloads.mojom.PageHandlerPtr = downloads.mojom.PageHandlerRemote;
 downloads.mojom.PageHandlerRequest = downloads.mojom.PageHandlerPendingReceiver;
 
@@ -744,6 +911,43 @@ downloads.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+downloads.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = downloads.mojom.Page_RemoveItem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeItem(params.index);
+          break;
+        }
+        case 1: {
+          const params = downloads.mojom.Page_UpdateItem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateItem(params.index, params.data);
+          break;
+        }
+        case 2: {
+          const params = downloads.mojom.Page_InsertItems_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.insertItems(params.index, params.items);
+          break;
+        }
+        case 3: {
+          const params = downloads.mojom.Page_ClearAll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearAll();
+          break;
+        }
+      }
+    });
+  }
+};
+
+downloads.mojom.PageReceiver = downloads.mojom.PageReceiver;
 
 downloads.mojom.PagePtr = downloads.mojom.PageRemote;
 downloads.mojom.PageRequest = downloads.mojom.PagePendingReceiver;

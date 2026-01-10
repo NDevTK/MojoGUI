@@ -8,6 +8,7 @@
 var side_panel = side_panel || {};
 side_panel.customize_chrome = side_panel.customize_chrome || {};
 side_panel.customize_chrome.mojom = side_panel.customize_chrome.mojom || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
 var url = url || {};
 
@@ -230,6 +231,28 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory.getRemote = func
     'context');
   return remote.$;
 };
+
+side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createWallpaperSearchHandler(params.client, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver = side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver;
 
 side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPtr = side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemote;
 side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRequest = side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryPendingReceiver;
@@ -475,6 +498,99 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandler.getRemote = function() 
   return remote.$;
 };
 
+side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDescriptors();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getInspirations();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWallpaperSearchResults(params.result_descriptors);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setResultRenderTime(params.result_ids, params.time);
+          break;
+        }
+        case 4: {
+          const params = side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBackgroundToHistoryImage(params.result_id, params.descriptors);
+          break;
+        }
+        case 5: {
+          const params = side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBackgroundToInspirationImage(params.id, params.background_url);
+          break;
+        }
+        case 6: {
+          const params = side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBackgroundToWallpaperSearchResult(params.result_id, params.time, params.descriptors);
+          break;
+        }
+        case 7: {
+          const params = side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateHistory();
+          break;
+        }
+        case 8: {
+          const params = side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUserFeedback(params.selected_option);
+          break;
+        }
+        case 9: {
+          const params = side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openHelpArticle();
+          break;
+        }
+        case 10: {
+          const params = side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launchHatsSurvey();
+          break;
+        }
+      }
+    });
+  }
+};
+
+side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver;
+
 side_panel.customize_chrome.mojom.WallpaperSearchHandlerPtr = side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemote;
 side_panel.customize_chrome.mojom.WallpaperSearchHandlerRequest = side_panel.customize_chrome.mojom.WallpaperSearchHandlerPendingReceiver;
 
@@ -539,6 +655,28 @@ side_panel.customize_chrome.mojom.WallpaperSearchClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHistory(params.history);
+          break;
+        }
+      }
+    });
+  }
+};
+
+side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver = side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver;
 
 side_panel.customize_chrome.mojom.WallpaperSearchClientPtr = side_panel.customize_chrome.mojom.WallpaperSearchClientRemote;
 side_panel.customize_chrome.mojom.WallpaperSearchClientRequest = side_panel.customize_chrome.mojom.WallpaperSearchClientPendingReceiver;

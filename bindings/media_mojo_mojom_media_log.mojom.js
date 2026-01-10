@@ -73,6 +73,28 @@ media.mojom.MediaLog.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.MediaLogReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.MediaLog_AddLogRecord_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addLogRecord(params.event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.MediaLogReceiver = media.mojom.MediaLogReceiver;
+
 media.mojom.MediaLogPtr = media.mojom.MediaLogRemote;
 media.mojom.MediaLogRequest = media.mojom.MediaLogPendingReceiver;
 

@@ -7,6 +7,7 @@
 // Module namespace
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 extensions.mojom.RendererHost = {};
@@ -142,6 +143,50 @@ extensions.mojom.RendererHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+extensions.mojom.RendererHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addAPIActionToActivityLog(params.extension_id, params.call_name, params.args, params.extra);
+          break;
+        }
+        case 1: {
+          const params = extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addEventToActivityLog(params.extension_id, params.call_name, params.args, params.extra);
+          break;
+        }
+        case 2: {
+          const params = extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addDOMActionToActivityLog(params.extension_id, params.call_name, params.args, params.url, params.url_title, params.call_type);
+          break;
+        }
+        case 3: {
+          const params = extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMessageBundle(params.extension_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions.mojom.RendererHostReceiver = extensions.mojom.RendererHostReceiver;
 
 extensions.mojom.RendererHostPtr = extensions.mojom.RendererHostRemote;
 extensions.mojom.RendererHostRequest = extensions.mojom.RendererHostPendingReceiver;

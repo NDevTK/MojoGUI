@@ -154,6 +154,62 @@ content.mojom.RendererHost.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.RendererHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBrowserHistogram(params.name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suddenTerminationAllowedChanged(params.allowed);
+          break;
+        }
+        case 2: {
+          const params = content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordUserMetricsAction(params.action);
+          break;
+        }
+        case 3: {
+          const params = content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPrivateMemoryFootprint(params.private_memory_footprint_bytes);
+          break;
+        }
+        case 4: {
+          const params = content.mojom.RendererHost_HasGpuProcess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasGpuProcess();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.RendererHostReceiver = content.mojom.RendererHostReceiver;
+
 content.mojom.RendererHostPtr = content.mojom.RendererHostRemote;
 content.mojom.RendererHostRequest = content.mojom.RendererHostPendingReceiver;
 

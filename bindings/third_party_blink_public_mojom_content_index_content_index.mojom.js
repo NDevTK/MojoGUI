@@ -8,9 +8,7 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var skia = skia || {};
-var blink = blink || {};
 var url = url || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 blink.mojom.ContentIndexErrorSpec = { $: mojo.internal.Enum() };
@@ -205,6 +203,71 @@ blink.mojom.ContentIndexService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ContentIndexServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getIconSizes(params.category);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ContentIndexService_Add_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.add(params.service_worker_registration_id, params.description, params.icon, params.launchUrl);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ContentIndexService_Add_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.ContentIndexService_Delete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.delete(params.service_worker_registration_id, params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ContentIndexService_Delete_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDescriptions(params.service_worker_registration_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ContentIndexServiceReceiver = blink.mojom.ContentIndexServiceReceiver;
 
 blink.mojom.ContentIndexServicePtr = blink.mojom.ContentIndexServiceRemote;
 blink.mojom.ContentIndexServiceRequest = blink.mojom.ContentIndexServicePendingReceiver;

@@ -7,12 +7,6 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 ax.mojom.Automation = {};
@@ -174,6 +168,53 @@ ax.mojom.Automation.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ax.mojom.AutomationReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchTreeDestroyedEvent(params.tree_id);
+          break;
+        }
+        case 1: {
+          const params = ax.mojom.Automation_DispatchActionResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchActionResult(params.data, params.result);
+          break;
+        }
+        case 2: {
+          const params = ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchAccessibilityEvents(params.tree_id, params.updates, params.mouse_location, params.events);
+          break;
+        }
+        case 3: {
+          const params = ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchAccessibilityLocationChange(params.tree_id, params.node_id, params.bounds);
+          break;
+        }
+        case 4: {
+          const params = ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchAccessibilityScrollChange(params.tree_id, params.node_id, params.scroll_x, params.scroll_y);
+          break;
+        }
+        case 5: {
+          const params = ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchGetTextLocationResult(params.data, params.rect);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.mojom.AutomationReceiver = ax.mojom.AutomationReceiver;
 
 ax.mojom.AutomationPtr = ax.mojom.AutomationRemote;
 ax.mojom.AutomationRequest = ax.mojom.AutomationPendingReceiver;

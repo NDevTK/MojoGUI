@@ -7,18 +7,8 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var ash = ash || {};
 var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var chromeos = chromeos || {};
-var components = components || {};
+var sandbox = sandbox || {};
 
 arc.mojom.VideoHost = {};
 arc.mojom.VideoHost.$interfaceName = 'arc.mojom.VideoHost';
@@ -125,6 +115,47 @@ arc.mojom.VideoHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.VideoHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBootstrapVideoAcceleratorFactory();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createVideoAcceleratorFactory();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.VideoHostReceiver = arc.mojom.VideoHostReceiver;
+
 arc.mojom.VideoHostPtr = arc.mojom.VideoHostRemote;
 arc.mojom.VideoHostRequest = arc.mojom.VideoHostPendingReceiver;
 
@@ -194,6 +225,35 @@ arc.mojom.VideoInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.VideoInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.VideoInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.VideoInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.VideoInstanceReceiver = arc.mojom.VideoInstanceReceiver;
 
 arc.mojom.VideoInstancePtr = arc.mojom.VideoInstanceRemote;
 arc.mojom.VideoInstanceRequest = arc.mojom.VideoInstancePendingReceiver;
@@ -309,6 +369,43 @@ arc.mojom.VideoAcceleratorFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.VideoAcceleratorFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createEncodeAccelerator(params.video_encoder);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createDecodeAccelerator(params.video_decoder, params.protected_buffer_manager, params.browser_cdm_factory);
+          break;
+        }
+        case 4: {
+          const params = arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createVideoDecoder(params.video_decoder);
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createProtectedBufferAllocator(params.video_protected_buffer_allocator);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.VideoAcceleratorFactoryReceiver = arc.mojom.VideoAcceleratorFactoryReceiver;
 
 arc.mojom.VideoAcceleratorFactoryPtr = arc.mojom.VideoAcceleratorFactoryRemote;
 arc.mojom.VideoAcceleratorFactoryRequest = arc.mojom.VideoAcceleratorFactoryPendingReceiver;

@@ -7,6 +7,8 @@
 // Module namespace
 var user_data_importer = user_data_importer || {};
 user_data_importer.mojom = user_data_importer.mojom || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 var url = url || {};
 
 user_data_importer.mojom.ImportedBookmarkEntrySpec = { $: {} };
@@ -125,6 +127,35 @@ user_data_importer.mojom.BookmarkHtmlParser.getRemote = function() {
     'context');
   return remote.$;
 };
+
+user_data_importer.mojom.BookmarkHtmlParserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parse(params.raw_html);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+user_data_importer.mojom.BookmarkHtmlParserReceiver = user_data_importer.mojom.BookmarkHtmlParserReceiver;
 
 user_data_importer.mojom.BookmarkHtmlParserPtr = user_data_importer.mojom.BookmarkHtmlParserRemote;
 user_data_importer.mojom.BookmarkHtmlParserRequest = user_data_importer.mojom.BookmarkHtmlParserPendingReceiver;

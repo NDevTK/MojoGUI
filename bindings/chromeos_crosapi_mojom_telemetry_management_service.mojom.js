@@ -107,6 +107,47 @@ crosapi.mojom.TelemetryManagementService.getRemote = function() {
   return remote.$;
 };
 
+crosapi.mojom.TelemetryManagementServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAudioGain(params.node_id, params.gain);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAudioVolume(params.node_id, params.volume, params.is_muted);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.TelemetryManagementServiceReceiver = crosapi.mojom.TelemetryManagementServiceReceiver;
+
 crosapi.mojom.TelemetryManagementServicePtr = crosapi.mojom.TelemetryManagementServiceRemote;
 crosapi.mojom.TelemetryManagementServiceRequest = crosapi.mojom.TelemetryManagementServicePendingReceiver;
 

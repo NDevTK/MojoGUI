@@ -180,6 +180,83 @@ chromeos.cdm.mojom.CdmStorage.getRemote = function() {
   return remote.$;
 };
 
+chromeos.cdm.mojom.CdmStorageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.read(params.file_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.write(params.file_name, params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.exists(params.file_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSize(params.file_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.remove(params.file_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.cdm.mojom.CdmStorageReceiver = chromeos.cdm.mojom.CdmStorageReceiver;
+
 chromeos.cdm.mojom.CdmStoragePtr = chromeos.cdm.mojom.CdmStorageRemote;
 chromeos.cdm.mojom.CdmStorageRequest = chromeos.cdm.mojom.CdmStoragePendingReceiver;
 

@@ -7,7 +7,7 @@
 // Module namespace
 var cc = cc || {};
 cc.mojom = cc.mojom || {};
-var services = services || {};
+var viz = viz || {};
 
 cc.mojom.BrowserControlsOffsetTagsSpec = { $: {} };
 

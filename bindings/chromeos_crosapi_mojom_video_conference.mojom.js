@@ -7,6 +7,7 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 crosapi.mojom.VideoConferenceAppUpdateSpec = { $: mojo.internal.Enum() };
@@ -224,6 +225,64 @@ crosapi.mojom.VideoConferenceManagerClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.VideoConferenceManagerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMediaApps();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.returnToApp(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSystemMediaDeviceStatus(params.device, params.enabled);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopAllScreenShare();
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.VideoConferenceManagerClientReceiver = crosapi.mojom.VideoConferenceManagerClientReceiver;
 
 crosapi.mojom.VideoConferenceManagerClientPtr = crosapi.mojom.VideoConferenceManagerClientRemote;
 crosapi.mojom.VideoConferenceManagerClientRequest = crosapi.mojom.VideoConferenceManagerClientPendingReceiver;

@@ -7,6 +7,7 @@
 // Module namespace
 var visitedlink = visitedlink || {};
 visitedlink.mojom = visitedlink.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 visitedlink.mojom.VisitedLinkNotificationSink = {};
@@ -124,6 +125,43 @@ visitedlink.mojom.VisitedLinkNotificationSink.getRemote = function() {
     'context');
   return remote.$;
 };
+
+visitedlink.mojom.VisitedLinkNotificationSinkReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateVisitedLinks(params.table_region);
+          break;
+        }
+        case 1: {
+          const params = visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addVisitedLinks(params.link_hashes);
+          break;
+        }
+        case 2: {
+          const params = visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetVisitedLinks(params.invalidate_cached_hashes);
+          break;
+        }
+        case 3: {
+          const params = visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateOriginSalts(params.origin_salts);
+          break;
+        }
+      }
+    });
+  }
+};
+
+visitedlink.mojom.VisitedLinkNotificationSinkReceiver = visitedlink.mojom.VisitedLinkNotificationSinkReceiver;
 
 visitedlink.mojom.VisitedLinkNotificationSinkPtr = visitedlink.mojom.VisitedLinkNotificationSinkRemote;
 visitedlink.mojom.VisitedLinkNotificationSinkRequest = visitedlink.mojom.VisitedLinkNotificationSinkPendingReceiver;

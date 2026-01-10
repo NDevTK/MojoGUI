@@ -7,11 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 blink.mojom.WorkletGlobalScopeCreationParamsSpec = { $: {} };
@@ -94,6 +90,28 @@ blink.mojom.WorkletDevToolsHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.WorkletDevToolsHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReadyForInspection(params.agent, params.agent_host);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WorkletDevToolsHostReceiver = blink.mojom.WorkletDevToolsHostReceiver;
 
 blink.mojom.WorkletDevToolsHostPtr = blink.mojom.WorkletDevToolsHostRemote;
 blink.mojom.WorkletDevToolsHostRequest = blink.mojom.WorkletDevToolsHostPendingReceiver;

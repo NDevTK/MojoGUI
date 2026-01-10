@@ -9,11 +9,7 @@ var nearby = nearby || {};
 nearby.connections = nearby.connections || {};
 nearby.connections.mojom = nearby.connections.mojom || {};
 var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 nearby.connections.mojom.EndpointDiscoveryListener = {};
 nearby.connections.mojom.EndpointDiscoveryListener.$interfaceName = 'nearby.connections.mojom.EndpointDiscoveryListener';
@@ -158,6 +154,33 @@ nearby.connections.mojom.EndpointDiscoveryListener.getRemote = function() {
   return remote.$;
 };
 
+nearby.connections.mojom.EndpointDiscoveryListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEndpointFound(params.endpoint_id, params.info);
+          break;
+        }
+        case 1: {
+          const params = nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEndpointLost(params.endpoint_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby.connections.mojom.EndpointDiscoveryListenerReceiver = nearby.connections.mojom.EndpointDiscoveryListenerReceiver;
+
 nearby.connections.mojom.EndpointDiscoveryListenerPtr = nearby.connections.mojom.EndpointDiscoveryListenerRemote;
 nearby.connections.mojom.EndpointDiscoveryListenerRequest = nearby.connections.mojom.EndpointDiscoveryListenerPendingReceiver;
 
@@ -290,6 +313,48 @@ nearby.connections.mojom.ConnectionLifecycleListener.getRemote = function() {
   return remote.$;
 };
 
+nearby.connections.mojom.ConnectionLifecycleListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnectionInitiated(params.endpoint_id, params.info);
+          break;
+        }
+        case 1: {
+          const params = nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnectionAccepted(params.endpoint_id);
+          break;
+        }
+        case 2: {
+          const params = nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnectionRejected(params.endpoint_id, params.status);
+          break;
+        }
+        case 3: {
+          const params = nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDisconnected(params.endpoint_id);
+          break;
+        }
+        case 4: {
+          const params = nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBandwidthChanged(params.endpoint_id, params.medium);
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby.connections.mojom.ConnectionLifecycleListenerReceiver = nearby.connections.mojom.ConnectionLifecycleListenerReceiver;
+
 nearby.connections.mojom.ConnectionLifecycleListenerPtr = nearby.connections.mojom.ConnectionLifecycleListenerRemote;
 nearby.connections.mojom.ConnectionLifecycleListenerRequest = nearby.connections.mojom.ConnectionLifecycleListenerPendingReceiver;
 
@@ -372,6 +437,33 @@ nearby.connections.mojom.PayloadListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+nearby.connections.mojom.PayloadListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPayloadReceived(params.endpoint_id, params.payload);
+          break;
+        }
+        case 1: {
+          const params = nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPayloadTransferUpdate(params.endpoint_id, params.update);
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby.connections.mojom.PayloadListenerReceiver = nearby.connections.mojom.PayloadListenerReceiver;
 
 nearby.connections.mojom.PayloadListenerPtr = nearby.connections.mojom.PayloadListenerRemote;
 nearby.connections.mojom.PayloadListenerRequest = nearby.connections.mojom.PayloadListenerPendingReceiver;
@@ -489,6 +581,43 @@ nearby.connections.mojom.ConnectionListenerV3.getRemote = function() {
   return remote.$;
 };
 
+nearby.connections.mojom.ConnectionListenerV3Receiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnectionInitiatedV3(params.endpoint_id, params.info);
+          break;
+        }
+        case 1: {
+          const params = nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnectionResultV3(params.endpoint_id, params.resolution);
+          break;
+        }
+        case 2: {
+          const params = nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDisconnectedV3(params.endpoint_id);
+          break;
+        }
+        case 3: {
+          const params = nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBandwidthChangedV3(params.endpoint_id, params.bandwidth_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby.connections.mojom.ConnectionListenerV3Receiver = nearby.connections.mojom.ConnectionListenerV3Receiver;
+
 nearby.connections.mojom.ConnectionListenerV3Ptr = nearby.connections.mojom.ConnectionListenerV3Remote;
 nearby.connections.mojom.ConnectionListenerV3Request = nearby.connections.mojom.ConnectionListenerV3PendingReceiver;
 
@@ -571,6 +700,33 @@ nearby.connections.mojom.PayloadListenerV3.getRemote = function() {
     'context');
   return remote.$;
 };
+
+nearby.connections.mojom.PayloadListenerV3Receiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPayloadReceivedV3(params.endpoint_id, params.payload);
+          break;
+        }
+        case 1: {
+          const params = nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPayloadTransferUpdateV3(params.endpoint_id, params.update);
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby.connections.mojom.PayloadListenerV3Receiver = nearby.connections.mojom.PayloadListenerV3Receiver;
 
 nearby.connections.mojom.PayloadListenerV3Ptr = nearby.connections.mojom.PayloadListenerV3Remote;
 nearby.connections.mojom.PayloadListenerV3Request = nearby.connections.mojom.PayloadListenerV3PendingReceiver;
@@ -1062,6 +1218,244 @@ nearby.connections.mojom.NearbyConnections.getRemote = function() {
     'context');
   return remote.$;
 };
+
+nearby.connections.mojom.NearbyConnectionsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startAdvertising(params.service_id, params.endpoint_info, params.options, params.listener);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopAdvertising(params.service_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startDiscovery(params.service_id, params.options, params.listener);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopDiscovery(params.service_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.injectBluetoothEndpoint(params.service_id, params.endpoint_id, params.endpoint_info, params.remote_bluetooth_mac_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestConnection(params.service_id, params.endpoint_info, params.endpoint_id, params.options, params.listener);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acceptConnection(params.service_id, params.endpoint_id, params.listener);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rejectConnection(params.service_id, params.endpoint_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disconnectFromEndpoint(params.service_id, params.endpoint_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendPayload(params.service_id, params.endpoint_ids, params.payload);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelPayload(params.service_id, params.payload_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopAllEndpoints(params.service_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initiateBandwidthUpgrade(params.service_id, params.endpoint_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerPayloadFile(params.service_id, params.payload_id, params.input_file, params.output_file);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestConnectionV3(params.service_id, params.remote_device, params.connection_options, params.listener);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acceptConnectionV3(params.service_id, params.remote_device, params.listener);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rejectConnectionV3(params.service_id, params.remote_device);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 17: {
+          const params = nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disconnectFromDeviceV3(params.service_id, params.remote_device);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 18: {
+          const params = nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerServiceWithPresenceDeviceProvider(params.service_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby.connections.mojom.NearbyConnectionsReceiver = nearby.connections.mojom.NearbyConnectionsReceiver;
 
 nearby.connections.mojom.NearbyConnectionsPtr = nearby.connections.mojom.NearbyConnectionsRemote;
 nearby.connections.mojom.NearbyConnectionsRequest = nearby.connections.mojom.NearbyConnectionsPendingReceiver;

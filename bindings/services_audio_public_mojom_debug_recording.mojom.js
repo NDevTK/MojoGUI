@@ -7,6 +7,8 @@
 // Module namespace
 var audio = audio || {};
 audio.mojom = audio.mojom || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 audio.mojom.DebugRecordingStreamTypeSpec = { $: mojo.internal.Enum() };
 audio.mojom.DebugRecordingFileProvider = {};
@@ -116,6 +118,47 @@ audio.mojom.DebugRecordingFileProvider.getRemote = function() {
   return remote.$;
 };
 
+audio.mojom.DebugRecordingFileProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createWavFile(params.stream_type, params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createAecdumpFile(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+audio.mojom.DebugRecordingFileProviderReceiver = audio.mojom.DebugRecordingFileProviderReceiver;
+
 audio.mojom.DebugRecordingFileProviderPtr = audio.mojom.DebugRecordingFileProviderRemote;
 audio.mojom.DebugRecordingFileProviderRequest = audio.mojom.DebugRecordingFileProviderPendingReceiver;
 
@@ -180,6 +223,28 @@ audio.mojom.DebugRecording.getRemote = function() {
     'context');
   return remote.$;
 };
+
+audio.mojom.DebugRecordingReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = audio.mojom.DebugRecording_Enable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enable(params.file_provider);
+          break;
+        }
+      }
+    });
+  }
+};
+
+audio.mojom.DebugRecordingReceiver = audio.mojom.DebugRecordingReceiver;
 
 audio.mojom.DebugRecordingPtr = audio.mojom.DebugRecordingRemote;
 audio.mojom.DebugRecordingRequest = audio.mojom.DebugRecordingPendingReceiver;

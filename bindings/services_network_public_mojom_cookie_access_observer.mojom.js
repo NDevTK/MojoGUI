@@ -8,10 +8,6 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 var url = url || {};
-var url = url || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
 
 network.mojom.TypeSpec = { $: mojo.internal.Enum() };
 network.mojom.CookieAccessDetailsSpec = { $: {} };
@@ -109,6 +105,33 @@ network.mojom.CookieAccessObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.CookieAccessObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCookiesAccessed(params.details);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.CookieAccessObserver_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.listener);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.CookieAccessObserverReceiver = network.mojom.CookieAccessObserverReceiver;
 
 network.mojom.CookieAccessObserverPtr = network.mojom.CookieAccessObserverRemote;
 network.mojom.CookieAccessObserverRequest = network.mojom.CookieAccessObserverPendingReceiver;

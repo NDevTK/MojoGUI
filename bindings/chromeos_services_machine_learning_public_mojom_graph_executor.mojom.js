@@ -8,8 +8,6 @@
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
 chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
-var chromeos = chromeos || {};
-var services = services || {};
 
 chromeos.machine_learning.mojom.ExecuteResultSpec = { $: mojo.internal.Enum() };
 chromeos.machine_learning.mojom.GraphExecutor = {};
@@ -99,6 +97,35 @@ chromeos.machine_learning.mojom.GraphExecutor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.machine_learning.mojom.GraphExecutorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.execute(params.inputs, params.output_names);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.machine_learning.mojom.GraphExecutorReceiver = chromeos.machine_learning.mojom.GraphExecutorReceiver;
 
 chromeos.machine_learning.mojom.GraphExecutorPtr = chromeos.machine_learning.mojom.GraphExecutorRemote;
 chromeos.machine_learning.mojom.GraphExecutorRequest = chromeos.machine_learning.mojom.GraphExecutorPendingReceiver;

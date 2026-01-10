@@ -77,6 +77,28 @@ chromecast.mojom.BluetoothDeviceAccessProvider.getRemote = function() {
   return remote.$;
 };
 
+chromecast.mojom.BluetoothDeviceAccessProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestDeviceAccess(params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.BluetoothDeviceAccessProviderReceiver = chromecast.mojom.BluetoothDeviceAccessProviderReceiver;
+
 chromecast.mojom.BluetoothDeviceAccessProviderPtr = chromecast.mojom.BluetoothDeviceAccessProviderRemote;
 chromecast.mojom.BluetoothDeviceAccessProviderRequest = chromecast.mojom.BluetoothDeviceAccessProviderPendingReceiver;
 
@@ -156,6 +178,33 @@ chromecast.mojom.BluetoothDeviceAccessProviderClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.BluetoothDeviceAccessProviderClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.grantAccess(params.address);
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.grantAccessToAllDevices();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.BluetoothDeviceAccessProviderClientReceiver = chromecast.mojom.BluetoothDeviceAccessProviderClientReceiver;
 
 chromecast.mojom.BluetoothDeviceAccessProviderClientPtr = chromecast.mojom.BluetoothDeviceAccessProviderClientRemote;
 chromecast.mojom.BluetoothDeviceAccessProviderClientRequest = chromecast.mojom.BluetoothDeviceAccessProviderClientPendingReceiver;

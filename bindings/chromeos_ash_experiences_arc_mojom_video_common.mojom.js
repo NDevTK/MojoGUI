@@ -7,8 +7,6 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
 
 arc.mojom.VideoCodecProfileSpec = { $: mojo.internal.Enum() };
 arc.mojom.HalPixelFormatSpec = { $: mojo.internal.Enum() };

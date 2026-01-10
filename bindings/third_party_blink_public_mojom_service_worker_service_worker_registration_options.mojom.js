@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 var url = url || {};
 
 blink.mojom.ServiceWorkerUpdateViaCacheSpec = { $: mojo.internal.Enum() };

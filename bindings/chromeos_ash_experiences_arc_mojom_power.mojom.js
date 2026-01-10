@@ -7,8 +7,6 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
 
 arc.mojom.CpuRestrictionStateSpec = { $: mojo.internal.Enum() };
 arc.mojom.DisplayWakeLockTypeSpec = { $: mojo.internal.Enum() };
@@ -261,6 +259,77 @@ arc.mojom.PowerHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.PowerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAcquireDisplayWakeLock(params.type);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReleaseDisplayWakeLock(params.type);
+          break;
+        }
+        case 5: {
+          const params = arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWakefulnessChanged(params.mode);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.PowerHost_IsDisplayOn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isDisplayOn();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScreenBrightnessUpdateRequest(params.percent);
+          break;
+        }
+        case 6: {
+          const params = arc.mojom.PowerHost_OnPreAnr_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPreAnr(params.type);
+          break;
+        }
+        case 7: {
+          const params = arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAnrRecoveryFailed(params.type);
+          break;
+        }
+        case 8: {
+          const params = arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBatterySaverModeState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.PowerHostReceiver = arc.mojom.PowerHostReceiver;
+
 arc.mojom.PowerHostPtr = arc.mojom.PowerHostRemote;
 arc.mojom.PowerHostRequest = arc.mojom.PowerHostPendingReceiver;
 
@@ -481,6 +550,94 @@ arc.mojom.PowerInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.PowerInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 5: {
+          const params = arc.mojom.PowerInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.PowerInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setInteractiveDeprecated(params.enabled);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.PowerInstance_Suspend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suspend();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.PowerInstance_Suspend_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.PowerInstance_Resume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resume();
+          break;
+        }
+        case 4: {
+          const params = arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateScreenBrightnessSettings(params.percent);
+          break;
+        }
+        case 6: {
+          const params = arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.powerSupplyInfoChanged();
+          break;
+        }
+        case 7: {
+          const params = arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWakefulnessMode();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCpuRestrictionChanged(params.state);
+          break;
+        }
+        case 9: {
+          const params = arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBatterySaverModeStateChanged(params.state);
+          break;
+        }
+        case 10: {
+          const params = arc.mojom.PowerInstance_SetIdleState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIdleState(params.state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.PowerInstanceReceiver = arc.mojom.PowerInstanceReceiver;
 
 arc.mojom.PowerInstancePtr = arc.mojom.PowerInstanceRemote;
 arc.mojom.PowerInstanceRequest = arc.mojom.PowerInstancePendingReceiver;

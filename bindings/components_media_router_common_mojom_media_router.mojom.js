@@ -7,16 +7,9 @@
 // Module namespace
 var media_router = media_router || {};
 media_router.mojom = media_router.mojom || {};
-var components = components || {};
-var components = components || {};
-var components = components || {};
-var components = components || {};
-var components = components || {};
-var components = components || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var blink = blink || {};
-var url = url || {};
 var url = url || {};
 
 media_router.mojom.SinkIconTypeSpec = { $: mojo.internal.Enum() };
@@ -492,6 +485,118 @@ media_router.mojom.MediaRouteProvider.getRemote = function() {
   return remote.$;
 };
 
+media_router.mojom.MediaRouteProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createRoute(params.media_source, params.sink_id, params.original_presentation_id, params.origin, params.frame_tree_node_id, params.timeout);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.joinRoute(params.media_source, params.presentation_id, params.origin, params.frame_tree_node_id, params.timeout);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.terminateRoute(params.route_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendRouteMessage(params.media_route_id, params.message);
+          break;
+        }
+        case 4: {
+          const params = media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendRouteBinaryMessage(params.media_route_id, params.data);
+          break;
+        }
+        case 5: {
+          const params = media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startObservingMediaSinks(params.media_source);
+          break;
+        }
+        case 6: {
+          const params = media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopObservingMediaSinks(params.media_source);
+          break;
+        }
+        case 7: {
+          const params = media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startObservingMediaRoutes();
+          break;
+        }
+        case 8: {
+          const params = media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.detachRoute(params.route_id);
+          break;
+        }
+        case 9: {
+          const params = media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.discoverSinksNow();
+          break;
+        }
+        case 10: {
+          const params = media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindMediaController(params.route_id, params.media_controller, params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = media_router.mojom.MediaRouteProvider_GetState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media_router.mojom.MediaRouteProviderReceiver = media_router.mojom.MediaRouteProviderReceiver;
+
 media_router.mojom.MediaRouteProviderPtr = media_router.mojom.MediaRouteProviderRemote;
 media_router.mojom.MediaRouteProviderRequest = media_router.mojom.MediaRouteProviderPendingReceiver;
 
@@ -751,6 +856,97 @@ media_router.mojom.MediaRouter.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media_router.mojom.MediaRouterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerMediaRouteProvider(params.provider_id, params.media_router_provider);
+          break;
+        }
+        case 1: {
+          const params = media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSinksReceived(params.provider_id, params.media_source, params.sinks, params.origins);
+          break;
+        }
+        case 2: {
+          const params = media_router.mojom.MediaRouter_OnIssue_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onIssue(params.issue);
+          break;
+        }
+        case 3: {
+          const params = media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearTopIssueForSink(params.sink_id);
+          break;
+        }
+        case 4: {
+          const params = media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRoutesUpdated(params.provider_id, params.routes);
+          break;
+        }
+        case 5: {
+          const params = media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPresentationConnectionStateChanged(params.route_id, params.state);
+          break;
+        }
+        case 6: {
+          const params = media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPresentationConnectionClosed(params.route_id, params.reason, params.message);
+          break;
+        }
+        case 7: {
+          const params = media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRouteMessagesReceived(params.route_id, params.messages);
+          break;
+        }
+        case 8: {
+          const params = media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMediaSinkServiceStatus();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = media_router.mojom.MediaRouter_GetLogger_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLogger(params.receiver);
+          break;
+        }
+        case 10: {
+          const params = media_router.mojom.MediaRouter_GetDebugger_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDebugger(params.receiver);
+          break;
+        }
+        case 11: {
+          const params = media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLogsAsString();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media_router.mojom.MediaRouterReceiver = media_router.mojom.MediaRouterReceiver;
 
 media_router.mojom.MediaRouterPtr = media_router.mojom.MediaRouterRemote;
 media_router.mojom.MediaRouterRequest = media_router.mojom.MediaRouterPendingReceiver;

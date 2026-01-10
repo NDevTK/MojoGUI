@@ -125,6 +125,52 @@ media.mojom.DemuxerStream.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.DemuxerStreamReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.DemuxerStream_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.DemuxerStream_Initialize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.DemuxerStream_Read_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.read(params.count);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.DemuxerStream_Read_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableBitstreamConverter();
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.DemuxerStreamReceiver = media.mojom.DemuxerStreamReceiver;
+
 media.mojom.DemuxerStreamPtr = media.mojom.DemuxerStreamRemote;
 media.mojom.DemuxerStreamRequest = media.mojom.DemuxerStreamPendingReceiver;
 

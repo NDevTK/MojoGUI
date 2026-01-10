@@ -8,6 +8,7 @@
 var schema_org = schema_org || {};
 schema_org.improved = schema_org.improved || {};
 schema_org.improved.mojom = schema_org.improved.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 schema_org.improved.mojom.ValuesSpec = { $: {} };

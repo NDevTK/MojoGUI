@@ -101,6 +101,28 @@ arc.mojom.EnterpriseReportingHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.EnterpriseReportingHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportCloudDpcOperationTime(params.time_ms, params.op, params.success);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.EnterpriseReportingHostReceiver = arc.mojom.EnterpriseReportingHostReceiver;
+
 arc.mojom.EnterpriseReportingHostPtr = arc.mojom.EnterpriseReportingHostRemote;
 arc.mojom.EnterpriseReportingHostRequest = arc.mojom.EnterpriseReportingHostPendingReceiver;
 
@@ -192,6 +214,47 @@ arc.mojom.EnterpriseReportingInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.EnterpriseReportingInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 2: {
+          const params = arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getStatus();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.EnterpriseReportingInstanceReceiver = arc.mojom.EnterpriseReportingInstanceReceiver;
 
 arc.mojom.EnterpriseReportingInstancePtr = arc.mojom.EnterpriseReportingInstanceRemote;
 arc.mojom.EnterpriseReportingInstanceRequest = arc.mojom.EnterpriseReportingInstancePendingReceiver;

@@ -7,7 +7,7 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 device.mojom.PressureManagerAddClientResultSpec = { $: mojo.internal.Enum() };
 device.mojom.VirtualPressureSourceMetadataSpec = { $: {} };
@@ -82,7 +82,7 @@ mojo.internal.Struct(
     device.mojom.PressureManager_AddClient_ParamsSpec, 'device.mojom.PressureManager_AddClient_Params', [
       mojo.internal.StructField('source', 0, 0, device.mojom.PressureSourceSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('token', 8, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('client', 16, 0, mojo.internal.AssociatedInterfaceProxy(device.mojom.PressureClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 16, 0, pending_associated_remote<device.mojom.PressureClient>Spec.$, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -176,6 +176,71 @@ device.mojom.PressureManager.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.PressureManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addVirtualPressureSource(params.token, params.source, params.metadata);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeVirtualPressureSource(params.token, params.source);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateVirtualPressureSourceData(params.token, params.source, params.state, params.own_contribution_estimate);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = device.mojom.PressureManager_AddClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addClient(params.source, params.token, params.client);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.PressureManager_AddClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.PressureManagerReceiver = device.mojom.PressureManagerReceiver;
+
 device.mojom.PressureManagerPtr = device.mojom.PressureManagerRemote;
 device.mojom.PressureManagerRequest = device.mojom.PressureManagerPendingReceiver;
 
@@ -240,6 +305,28 @@ device.mojom.PressureClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.PressureClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.PressureClient_OnPressureUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPressureUpdated(params.update);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.PressureClientReceiver = device.mojom.PressureClientReceiver;
 
 device.mojom.PressureClientPtr = device.mojom.PressureClientRemote;
 device.mojom.PressureClientRequest = device.mojom.PressureClientPendingReceiver;

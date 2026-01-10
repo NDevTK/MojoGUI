@@ -75,6 +75,28 @@ payments.facilitated.mojom.PaymentLinkHandler.getRemote = function() {
   return remote.$;
 };
 
+payments.facilitated.mojom.PaymentLinkHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handlePaymentLink(params.url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+payments.facilitated.mojom.PaymentLinkHandlerReceiver = payments.facilitated.mojom.PaymentLinkHandlerReceiver;
+
 payments.facilitated.mojom.PaymentLinkHandlerPtr = payments.facilitated.mojom.PaymentLinkHandlerRemote;
 payments.facilitated.mojom.PaymentLinkHandlerRequest = payments.facilitated.mojom.PaymentLinkHandlerPendingReceiver;
 

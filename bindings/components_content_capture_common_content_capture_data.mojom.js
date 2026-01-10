@@ -7,7 +7,7 @@
 // Module namespace
 var content_capture = content_capture || {};
 content_capture.mojom = content_capture.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 content_capture.mojom.ContentCaptureDataSpec = { $: {} };

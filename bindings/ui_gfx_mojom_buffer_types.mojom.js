@@ -7,8 +7,6 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
 
 gfx.mojom.BufferFormatSpec = { $: mojo.internal.Enum() };
 gfx.mojom.BufferUsageSpec = { $: mojo.internal.Enum() };

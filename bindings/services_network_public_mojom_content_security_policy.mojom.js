@@ -8,11 +8,6 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 var url = url || {};
-var url = url || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
 
 network.mojom.ContentSecurityPolicyTypeSpec = { $: mojo.internal.Enum() };
 network.mojom.ContentSecurityPolicySourceSpec = { $: mojo.internal.Enum() };

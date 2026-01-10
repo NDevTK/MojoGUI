@@ -79,6 +79,35 @@ content.mojom.WebTestBluetoothFakeAdapterSetter.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.WebTestBluetoothFakeAdapterSetterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.set(params.adapter_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.WebTestBluetoothFakeAdapterSetterReceiver = content.mojom.WebTestBluetoothFakeAdapterSetterReceiver;
+
 content.mojom.WebTestBluetoothFakeAdapterSetterPtr = content.mojom.WebTestBluetoothFakeAdapterSetterRemote;
 content.mojom.WebTestBluetoothFakeAdapterSetterRequest = content.mojom.WebTestBluetoothFakeAdapterSetterPendingReceiver;
 

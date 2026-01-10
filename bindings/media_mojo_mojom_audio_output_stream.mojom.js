@@ -145,6 +145,43 @@ media.mojom.AudioOutputStream.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.AudioOutputStreamReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioOutputStream_Play_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.play();
+          break;
+        }
+        case 1: {
+          const params = media.mojom.AudioOutputStream_Pause_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pause();
+          break;
+        }
+        case 2: {
+          const params = media.mojom.AudioOutputStream_Flush_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flush();
+          break;
+        }
+        case 3: {
+          const params = media.mojom.AudioOutputStream_SetVolume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVolume(params.volume);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioOutputStreamReceiver = media.mojom.AudioOutputStreamReceiver;
+
 media.mojom.AudioOutputStreamPtr = media.mojom.AudioOutputStreamRemote;
 media.mojom.AudioOutputStreamRequest = media.mojom.AudioOutputStreamPendingReceiver;
 
@@ -240,6 +277,38 @@ media.mojom.AudioOutputStreamObserver.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.AudioOutputStreamObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didStartPlaying();
+          break;
+        }
+        case 1: {
+          const params = media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didStopPlaying();
+          break;
+        }
+        case 2: {
+          const params = media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didChangeAudibleState(params.is_audible);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioOutputStreamObserverReceiver = media.mojom.AudioOutputStreamObserverReceiver;
+
 media.mojom.AudioOutputStreamObserverPtr = media.mojom.AudioOutputStreamObserverRemote;
 media.mojom.AudioOutputStreamObserverRequest = media.mojom.AudioOutputStreamObserverPendingReceiver;
 
@@ -305,6 +374,28 @@ media.mojom.AudioOutputStreamProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.AudioOutputStreamProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acquire(params.params, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioOutputStreamProviderReceiver = media.mojom.AudioOutputStreamProviderReceiver;
 
 media.mojom.AudioOutputStreamProviderPtr = media.mojom.AudioOutputStreamProviderRemote;
 media.mojom.AudioOutputStreamProviderRequest = media.mojom.AudioOutputStreamProviderPendingReceiver;
@@ -372,6 +463,28 @@ media.mojom.AudioOutputStreamProviderClient.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.AudioOutputStreamProviderClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.created(params.stream, params.data_pipe);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioOutputStreamProviderClientReceiver = media.mojom.AudioOutputStreamProviderClientReceiver;
+
 media.mojom.AudioOutputStreamProviderClientPtr = media.mojom.AudioOutputStreamProviderClientRemote;
 media.mojom.AudioOutputStreamProviderClientRequest = media.mojom.AudioOutputStreamProviderClientPendingReceiver;
 
@@ -436,6 +549,28 @@ media.mojom.DeviceSwitchInterface.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.DeviceSwitchInterfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.switchAudioOutputDeviceId(params.output_device_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.DeviceSwitchInterfaceReceiver = media.mojom.DeviceSwitchInterfaceReceiver;
 
 media.mojom.DeviceSwitchInterfacePtr = media.mojom.DeviceSwitchInterfaceRemote;
 media.mojom.DeviceSwitchInterfaceRequest = media.mojom.DeviceSwitchInterfacePendingReceiver;

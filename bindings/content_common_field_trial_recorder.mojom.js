@@ -73,6 +73,28 @@ content.mojom.FieldTrialRecorder.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.FieldTrialRecorderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fieldTrialActivated(params.trial_name);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.FieldTrialRecorderReceiver = content.mojom.FieldTrialRecorderReceiver;
+
 content.mojom.FieldTrialRecorderPtr = content.mojom.FieldTrialRecorderRemote;
 content.mojom.FieldTrialRecorderRequest = content.mojom.FieldTrialRecorderPendingReceiver;
 

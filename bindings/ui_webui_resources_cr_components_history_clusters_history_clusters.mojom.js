@@ -7,11 +7,10 @@
 // Module namespace
 var history_clusters = history_clusters || {};
 history_clusters.mojom = history_clusters.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
-var components = components || {};
 
 history_clusters.mojom.ClusterActionSpec = { $: mojo.internal.Enum() };
 history_clusters.mojom.RelatedSearchActionSpec = { $: mojo.internal.Enum() };
@@ -420,6 +419,131 @@ history_clusters.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+history_clusters.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openHistoryUrl(params.url, params.click_modifiers);
+          break;
+        }
+        case 1: {
+          const params = history_clusters.mojom.PageHandler_SetPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPage(params.page);
+          break;
+        }
+        case 2: {
+          const params = history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showContextMenuForSearchbox(params.query, params.point);
+          break;
+        }
+        case 3: {
+          const params = history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showContextMenuForURL(params.url, params.point);
+          break;
+        }
+        case 4: {
+          const params = history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showSidePanelUI();
+          break;
+        }
+        case 5: {
+          const params = history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.toggleVisibility(params.visible);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startQueryClusters(params.query, params.begin_time, params.recluster);
+          break;
+        }
+        case 7: {
+          const params = history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadMoreClusters(params.query);
+          break;
+        }
+        case 8: {
+          const params = history_clusters.mojom.PageHandler_HideVisits_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hideVisits(params.visits);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeVisits(params.visits);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeVisitByUrlAndTime(params.url, params.timestamp);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openVisitUrlsInTabGroup(params.visits, params.tab_group_name);
+          break;
+        }
+        case 12: {
+          const params = history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordVisitAction(params.visit_action, params.visit_index, params.visit_type);
+          break;
+        }
+        case 13: {
+          const params = history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordRelatedSearchAction(params.action, params.visit_index);
+          break;
+        }
+        case 14: {
+          const params = history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordClusterAction(params.cluster_action, params.cluster_index);
+          break;
+        }
+        case 15: {
+          const params = history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordToggledVisibility(params.visible);
+          break;
+        }
+      }
+    });
+  }
+};
+
+history_clusters.mojom.PageHandlerReceiver = history_clusters.mojom.PageHandlerReceiver;
+
 history_clusters.mojom.PageHandlerPtr = history_clusters.mojom.PageHandlerRemote;
 history_clusters.mojom.PageHandlerRequest = history_clusters.mojom.PageHandlerPendingReceiver;
 
@@ -564,6 +688,53 @@ history_clusters.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+history_clusters.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClustersQueryResult(params.result);
+          break;
+        }
+        case 1: {
+          const params = history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClusterImageUpdated(params.cluster_index, params.image_url);
+          break;
+        }
+        case 2: {
+          const params = history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVisitsHidden(params.hidden_visits);
+          break;
+        }
+        case 3: {
+          const params = history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVisitsRemoved(params.removed_visits);
+          break;
+        }
+        case 4: {
+          const params = history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHistoryDeleted();
+          break;
+        }
+        case 5: {
+          const params = history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onQueryChangedByUser(params.query);
+          break;
+        }
+      }
+    });
+  }
+};
+
+history_clusters.mojom.PageReceiver = history_clusters.mojom.PageReceiver;
 
 history_clusters.mojom.PagePtr = history_clusters.mojom.PageRemote;
 history_clusters.mojom.PageRequest = history_clusters.mojom.PagePendingReceiver;

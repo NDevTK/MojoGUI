@@ -56,6 +56,23 @@ network.mojom.SocketConnectionTracker.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.SocketConnectionTrackerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+network.mojom.SocketConnectionTrackerReceiver = network.mojom.SocketConnectionTrackerReceiver;
+
 network.mojom.SocketConnectionTrackerPtr = network.mojom.SocketConnectionTrackerRemote;
 network.mojom.SocketConnectionTrackerRequest = network.mojom.SocketConnectionTrackerPendingReceiver;
 

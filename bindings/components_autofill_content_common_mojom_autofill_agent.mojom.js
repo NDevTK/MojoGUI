@@ -7,7 +7,7 @@
 // Module namespace
 var autofill = autofill || {};
 autofill.mojom = autofill.mojom || {};
-var components = components || {};
+var mojo_base = mojo_base || {};
 
 autofill.mojom.AutofillAgent = {};
 autofill.mojom.AutofillAgent.$interfaceName = 'autofill.mojom.AutofillAgent';
@@ -393,6 +393,131 @@ autofill.mojom.AutofillAgent.getRemote = function() {
   return remote.$;
 };
 
+autofill.mojom.AutofillAgentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.triggerFormExtraction();
+          break;
+        }
+        case 1: {
+          const params = autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.triggerFormExtractionWithResponse();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.AutofillAgent_TriggerFormExtractionWithResponse_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = autofill.mojom.AutofillAgent_ApplyFieldsAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applyFieldsAction(params.action_type, params.action_persistence, params.fields, params.fill_id, params.supports_refill);
+          break;
+        }
+        case 3: {
+          const params = autofill.mojom.AutofillAgent_ApplyFieldAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applyFieldAction(params.action_type, params.action_persistence, params.field, params.value);
+          break;
+        }
+        case 4: {
+          const params = autofill.mojom.AutofillAgent_ExtractFormWithField_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.extractFormWithField(params.field_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.AutofillAgent_ExtractFormWithField_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.extractLabeledTextNodeValue(params.value_regex, params.label_regex, params.number_of_ancestor_levels_to_search);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.AutofillAgent_ExtractLabeledTextNodeValue_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = autofill.mojom.AutofillAgent_FieldTypePredictionsAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fieldTypePredictionsAvailable(params.forms);
+          break;
+        }
+        case 7: {
+          const params = autofill.mojom.AutofillAgent_ExposeDomNodeIds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.exposeDomNodeIds();
+          break;
+        }
+        case 8: {
+          const params = autofill.mojom.AutofillAgent_ClearPreviewedForm_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearPreviewedForm();
+          break;
+        }
+        case 9: {
+          const params = autofill.mojom.AutofillAgent_TriggerSuggestions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.triggerSuggestions(params.field, params.trigger_source);
+          break;
+        }
+        case 10: {
+          const params = autofill.mojom.AutofillAgent_SetSuggestionAvailability_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSuggestionAvailability(params.field, params.suggestion_availability);
+          break;
+        }
+        case 11: {
+          const params = autofill.mojom.AutofillAgent_AcceptDataListSuggestion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acceptDataListSuggestion(params.field, params.value);
+          break;
+        }
+        case 12: {
+          const params = autofill.mojom.AutofillAgent_PreviewPasswordSuggestion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.previewPasswordSuggestion(params.username, params.password);
+          break;
+        }
+        case 13: {
+          const params = autofill.mojom.AutofillAgent_PreviewPasswordGenerationSuggestion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.previewPasswordGenerationSuggestion(params.password);
+          break;
+        }
+        case 14: {
+          const params = autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPotentialLastFourCombinationsForStandaloneCvc();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.AutofillAgent_GetPotentialLastFourCombinationsForStandaloneCvc_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = autofill.mojom.AutofillAgent_DispatchEmailVerifiedEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchEmailVerifiedEvent(params.field_id, params.presentation_token);
+          break;
+        }
+      }
+    });
+  }
+};
+
+autofill.mojom.AutofillAgentReceiver = autofill.mojom.AutofillAgentReceiver;
+
 autofill.mojom.AutofillAgentPtr = autofill.mojom.AutofillAgentRemote;
 autofill.mojom.AutofillAgentRequest = autofill.mojom.AutofillAgentPendingReceiver;
 
@@ -689,6 +814,116 @@ autofill.mojom.PasswordAutofillAgent.getRemote = function() {
   return remote.$;
 };
 
+autofill.mojom.PasswordAutofillAgentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applyFillDataOnParsingCompletion(params.form_data);
+          break;
+        }
+        case 1: {
+          const params = autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fillPasswordSuggestion(params.username, params.password);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = autofill.mojom.PasswordAutofillAgent_FillPasswordSuggestionById_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fillPasswordSuggestionById(params.username_element_id, params.password_element_id, params.username, params.password, params.suggestion_source);
+          break;
+        }
+        case 3: {
+          const params = autofill.mojom.PasswordAutofillAgent_PreviewPasswordSuggestionById_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.previewPasswordSuggestionById(params.username_element_id, params.password_element_id, params.username, params.password);
+          break;
+        }
+        case 4: {
+          const params = autofill.mojom.PasswordAutofillAgent_InformNoSavedCredentials_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.informNoSavedCredentials(params.should_show_popup_without_passwords);
+          break;
+        }
+        case 5: {
+          const params = autofill.mojom.PasswordAutofillAgent_FillIntoFocusedField_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fillIntoFocusedField(params.is_password, params.credential);
+          break;
+        }
+        case 6: {
+          const params = autofill.mojom.PasswordAutofillAgent_PreviewField_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.previewField(params.field_id, params.value);
+          break;
+        }
+        case 7: {
+          const params = autofill.mojom.PasswordAutofillAgent_FillField_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fillField(params.field_id, params.value, params.field_properties);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_FillField_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fillChangePasswordForm(params.password_element_id, params.new_password_element_id, params.confirm_password_element_id, params.old_password, params.new_password);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_FillChangePasswordForm_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = autofill.mojom.PasswordAutofillAgent_SetLoggingState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLoggingState(params.active);
+          break;
+        }
+        case 10: {
+          const params = autofill.mojom.PasswordAutofillAgent_TriggerFormSubmission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.triggerFormSubmission();
+          break;
+        }
+        case 11: {
+          const params = autofill.mojom.PasswordAutofillAgent_AnnotateFieldsWithParsingResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.annotateFieldsWithParsingResult(params.parsing_result);
+          break;
+        }
+        case 12: {
+          const params = autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkViewAreaVisible(params.field_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.PasswordAutofillAgent_CheckViewAreaVisible_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+autofill.mojom.PasswordAutofillAgentReceiver = autofill.mojom.PasswordAutofillAgentReceiver;
+
 autofill.mojom.PasswordAutofillAgentPtr = autofill.mojom.PasswordAutofillAgentRemote;
 autofill.mojom.PasswordAutofillAgentRequest = autofill.mojom.PasswordAutofillAgentPendingReceiver;
 
@@ -820,6 +1055,55 @@ autofill.mojom.PasswordGenerationAgent.getRemote = function() {
     'context');
   return remote.$;
 };
+
+autofill.mojom.PasswordGenerationAgentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generatedPasswordAccepted(params.generated_password);
+          break;
+        }
+        case 1: {
+          const params = autofill.mojom.PasswordGenerationAgent_GeneratedPasswordRejected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generatedPasswordRejected();
+          break;
+        }
+        case 2: {
+          const params = autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.triggeredGeneratePassword();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.PasswordGenerationAgent_TriggeredGeneratePassword_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = autofill.mojom.PasswordGenerationAgent_FoundFormEligibleForGeneration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.foundFormEligibleForGeneration(params.form);
+          break;
+        }
+        case 4: {
+          const params = autofill.mojom.PasswordGenerationAgent_FocusNextFieldAfterPasswords_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focusNextFieldAfterPasswords();
+          break;
+        }
+      }
+    });
+  }
+};
+
+autofill.mojom.PasswordGenerationAgentReceiver = autofill.mojom.PasswordGenerationAgentReceiver;
 
 autofill.mojom.PasswordGenerationAgentPtr = autofill.mojom.PasswordGenerationAgentRemote;
 autofill.mojom.PasswordGenerationAgentRequest = autofill.mojom.PasswordGenerationAgentPendingReceiver;

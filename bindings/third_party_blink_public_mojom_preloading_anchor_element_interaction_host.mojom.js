@@ -154,6 +154,48 @@ blink.mojom.AnchorElementInteractionHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.AnchorElementInteractionHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPointerDown(params.target);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPointerHoverEager(params.target, params.mouse_data);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPointerHoverModerate(params.target, params.mouse_data);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onModerateViewportHeuristicTriggered(params.target);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEagerViewportHeuristicTriggered(params.targets);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AnchorElementInteractionHostReceiver = blink.mojom.AnchorElementInteractionHostReceiver;
+
 blink.mojom.AnchorElementInteractionHostPtr = blink.mojom.AnchorElementInteractionHostRemote;
 blink.mojom.AnchorElementInteractionHostRequest = blink.mojom.AnchorElementInteractionHostPendingReceiver;
 

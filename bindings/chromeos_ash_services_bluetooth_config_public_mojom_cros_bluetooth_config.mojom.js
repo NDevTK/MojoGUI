@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.bluetooth_config = ash.bluetooth_config || {};
 ash.bluetooth_config.mojom = ash.bluetooth_config.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 ash.bluetooth_config.mojom.BluetoothSystemStateSpec = { $: mojo.internal.Enum() };
@@ -255,6 +256,28 @@ ash.bluetooth_config.mojom.SystemPropertiesObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.bluetooth_config.mojom.SystemPropertiesObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.bluetooth_config.mojom.SystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPropertiesUpdated(params.properties);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.bluetooth_config.mojom.SystemPropertiesObserverReceiver = ash.bluetooth_config.mojom.SystemPropertiesObserverReceiver;
+
 ash.bluetooth_config.mojom.SystemPropertiesObserverPtr = ash.bluetooth_config.mojom.SystemPropertiesObserverRemote;
 ash.bluetooth_config.mojom.SystemPropertiesObserverRequest = ash.bluetooth_config.mojom.SystemPropertiesObserverPendingReceiver;
 
@@ -352,6 +375,38 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver.getRemote = function() 
   return remote.$;
 };
 
+ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDevicePaired_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDevicePaired(params.device);
+          break;
+        }
+        case 1: {
+          const params = ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceConnected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceConnected(params.device);
+          break;
+        }
+        case 2: {
+          const params = ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceDisconnected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceDisconnected(params.device);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverReceiver = ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverReceiver;
+
 ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverPtr = ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemote;
 ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRequest = ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverPendingReceiver;
 
@@ -417,6 +472,28 @@ ash.bluetooth_config.mojom.DiscoverySessionStatusObserver.getRemote = function()
   return remote.$;
 };
 
+ash.bluetooth_config.mojom.DiscoverySessionStatusObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.bluetooth_config.mojom.DiscoverySessionStatusObserver_OnHasAtLeastOneDiscoverySessionChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHasAtLeastOneDiscoverySessionChanged(params.has_at_least_one_discovery_session);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.bluetooth_config.mojom.DiscoverySessionStatusObserverReceiver = ash.bluetooth_config.mojom.DiscoverySessionStatusObserverReceiver;
+
 ash.bluetooth_config.mojom.DiscoverySessionStatusObserverPtr = ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemote;
 ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRequest = ash.bluetooth_config.mojom.DiscoverySessionStatusObserverPendingReceiver;
 
@@ -481,6 +558,28 @@ ash.bluetooth_config.mojom.KeyEnteredHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.bluetooth_config.mojom.KeyEnteredHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.bluetooth_config.mojom.KeyEnteredHandler_HandleKeyEntered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleKeyEntered(params.num_keys_entered);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.bluetooth_config.mojom.KeyEnteredHandlerReceiver = ash.bluetooth_config.mojom.KeyEnteredHandlerReceiver;
 
 ash.bluetooth_config.mojom.KeyEnteredHandlerPtr = ash.bluetooth_config.mojom.KeyEnteredHandlerRemote;
 ash.bluetooth_config.mojom.KeyEnteredHandlerRequest = ash.bluetooth_config.mojom.KeyEnteredHandlerPendingReceiver;
@@ -650,6 +749,81 @@ ash.bluetooth_config.mojom.DevicePairingDelegate.getRemote = function() {
   return remote.$;
 };
 
+ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPinCode();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPasskey();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.displayPinCode(params.pin_code, params.handler);
+          break;
+        }
+        case 3: {
+          const params = ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.displayPasskey(params.passkey, params.handler);
+          break;
+        }
+        case 4: {
+          const params = ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.confirmPasskey(params.passkey);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.authorizePairing();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.bluetooth_config.mojom.DevicePairingDelegateReceiver = ash.bluetooth_config.mojom.DevicePairingDelegateReceiver;
+
 ash.bluetooth_config.mojom.DevicePairingDelegatePtr = ash.bluetooth_config.mojom.DevicePairingDelegateRemote;
 ash.bluetooth_config.mojom.DevicePairingDelegateRequest = ash.bluetooth_config.mojom.DevicePairingDelegatePendingReceiver;
 
@@ -743,6 +917,47 @@ ash.bluetooth_config.mojom.DevicePairingHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.bluetooth_config.mojom.DevicePairingHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pairDevice(params.device_id, params.delegate);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fetchDevice(params.device_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.bluetooth_config.mojom.DevicePairingHandlerReceiver = ash.bluetooth_config.mojom.DevicePairingHandlerReceiver;
 
 ash.bluetooth_config.mojom.DevicePairingHandlerPtr = ash.bluetooth_config.mojom.DevicePairingHandlerRemote;
 ash.bluetooth_config.mojom.DevicePairingHandlerRequest = ash.bluetooth_config.mojom.DevicePairingHandlerPendingReceiver;
@@ -839,6 +1054,38 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBluetoothDiscoveryStarted(params.handler);
+          break;
+        }
+        case 1: {
+          const params = ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBluetoothDiscoveryStopped();
+          break;
+        }
+        case 2: {
+          const params = ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDiscoveredDevicesListChanged(params.discovered_devices);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateReceiver = ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateReceiver;
 
 ash.bluetooth_config.mojom.BluetoothDiscoveryDelegatePtr = ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemote;
 ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRequest = ash.bluetooth_config.mojom.BluetoothDiscoveryDelegatePendingReceiver;
@@ -1082,6 +1329,99 @@ ash.bluetooth_config.mojom.CrosBluetoothConfig.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeSystemProperties(params.observer);
+          break;
+        }
+        case 1: {
+          const params = ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeDeviceStatusChanges(params.observer);
+          break;
+        }
+        case 2: {
+          const params = ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeDiscoverySessionStatusChanges(params.observer);
+          break;
+        }
+        case 3: {
+          const params = ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBluetoothEnabledState(params.enabled);
+          break;
+        }
+        case 4: {
+          const params = ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersistence_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBluetoothEnabledWithoutPersistence();
+          break;
+        }
+        case 5: {
+          const params = ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBluetoothHidDetectionInactive(params.is_using_bluetooth);
+          break;
+        }
+        case 6: {
+          const params = ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startDiscovery(params.delegate);
+          break;
+        }
+        case 7: {
+          const params = ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.device_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disconnect(params.device_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forget(params.device_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = ash.bluetooth_config.mojom.CrosBluetoothConfig_SetDeviceNickname_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDeviceNickname(params.device_id, params.nickname);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver = ash.bluetooth_config.mojom.CrosBluetoothConfigReceiver;
 
 ash.bluetooth_config.mojom.CrosBluetoothConfigPtr = ash.bluetooth_config.mojom.CrosBluetoothConfigRemote;
 ash.bluetooth_config.mojom.CrosBluetoothConfigRequest = ash.bluetooth_config.mojom.CrosBluetoothConfigPendingReceiver;

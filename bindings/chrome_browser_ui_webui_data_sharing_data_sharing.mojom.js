@@ -7,7 +7,7 @@
 // Module namespace
 var data_sharing = data_sharing || {};
 data_sharing.mojom = data_sharing.mojom || {};
-var components = components || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 data_sharing.mojom.GroupActionSpec = { $: mojo.internal.Enum() };
@@ -184,6 +184,28 @@ data_sharing.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+data_sharing.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+data_sharing.mojom.PageHandlerFactoryReceiver = data_sharing.mojom.PageHandlerFactoryReceiver;
 
 data_sharing.mojom.PageHandlerFactoryPtr = data_sharing.mojom.PageHandlerFactoryRemote;
 data_sharing.mojom.PageHandlerFactoryRequest = data_sharing.mojom.PageHandlerFactoryPendingReceiver;
@@ -415,6 +437,94 @@ data_sharing.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+data_sharing.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = data_sharing.mojom.PageHandler_ShowUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showUI();
+          break;
+        }
+        case 1: {
+          const params = data_sharing.mojom.PageHandler_CloseUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeUI(params.status_code);
+          break;
+        }
+        case 2: {
+          const params = data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.apiInitComplete();
+          break;
+        }
+        case 3: {
+          const params = data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.makeTabGroupShared(params.tab_group_id, params.group_id, params.access_token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getShareLink(params.group_id, params.access_token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTabGroupPreview(params.group_id, params.access_token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openTabGroup(params.group_id);
+          break;
+        }
+        case 7: {
+          const params = data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.aboutToUnShareTabGroup(params.tab_group_id);
+          break;
+        }
+        case 8: {
+          const params = data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTabGroupUnShareComplete(params.tab_group_id);
+          break;
+        }
+        case 9: {
+          const params = data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onGroupAction(params.action, params.progress);
+          break;
+        }
+      }
+    });
+  }
+};
+
+data_sharing.mojom.PageHandlerReceiver = data_sharing.mojom.PageHandlerReceiver;
+
 data_sharing.mojom.PageHandlerPtr = data_sharing.mojom.PageHandlerRemote;
 data_sharing.mojom.PageHandlerRequest = data_sharing.mojom.PageHandlerPendingReceiver;
 
@@ -567,6 +677,76 @@ data_sharing.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+data_sharing.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAccessTokenFetched(params.access_token);
+          break;
+        }
+        case 1: {
+          const params = data_sharing.mojom.Page_ReadGroups_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readGroups(params.read_groups_params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readGroupWithToken(params.param);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = data_sharing.mojom.Page_DeleteGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteGroup(params.group_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = data_sharing.mojom.Page_LeaveGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.leaveGroup(params.group_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+data_sharing.mojom.PageReceiver = data_sharing.mojom.PageReceiver;
 
 data_sharing.mojom.PagePtr = data_sharing.mojom.PageRemote;
 data_sharing.mojom.PageRequest = data_sharing.mojom.PagePendingReceiver;

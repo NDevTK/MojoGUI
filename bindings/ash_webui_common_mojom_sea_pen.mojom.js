@@ -8,7 +8,7 @@
 var ash = ash || {};
 ash.personalization_app = ash.personalization_app || {};
 ash.personalization_app.mojom = ash.personalization_app.mojom || {};
-var ash = ash || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 ash.personalization_app.mojom.MantaStatusCodeSpec = { $: mojo.internal.Enum() };
@@ -220,6 +220,33 @@ ash.personalization_app.mojom.SeaPenObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.personalization_app.mojom.SeaPenObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSelectedSeaPenImageChanged(params.id);
+          break;
+        }
+        case 1: {
+          const params = ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTextQueryHistoryChanged(params.entries);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.personalization_app.mojom.SeaPenObserverReceiver = ash.personalization_app.mojom.SeaPenObserverReceiver;
 
 ash.personalization_app.mojom.SeaPenObserverPtr = ash.personalization_app.mojom.SeaPenObserverRemote;
 ash.personalization_app.mojom.SeaPenObserverRequest = ash.personalization_app.mojom.SeaPenObserverPendingReceiver;
@@ -543,6 +570,156 @@ ash.personalization_app.mojom.SeaPenProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.personalization_app.mojom.SeaPenProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSeaPenObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSeaPenThumbnails(params.query);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectSeaPenThumbnail(params.id, params.preview_mode);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRecentSeaPenImageIds();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectRecentSeaPenImage(params.id, params.preview_mode);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRecentSeaPenImageThumbnail(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteRecentSeaPenImage(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFeedbackDialog(params.metadata);
+          break;
+        }
+        case 8: {
+          const params = ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldShowSeaPenIntroductionDialog();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleSeaPenIntroductionDialogClosed();
+          break;
+        }
+        case 10: {
+          const params = ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldShowSeaPenFreeformIntroductionDialog();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleSeaPenFreeformIntroductionDialogClosed();
+          break;
+        }
+        case 12: {
+          const params = ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isInTabletMode();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.makeTransparent();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.personalization_app.mojom.SeaPenProviderReceiver = ash.personalization_app.mojom.SeaPenProviderReceiver;
 
 ash.personalization_app.mojom.SeaPenProviderPtr = ash.personalization_app.mojom.SeaPenProviderRemote;
 ash.personalization_app.mojom.SeaPenProviderRequest = ash.personalization_app.mojom.SeaPenProviderPendingReceiver;

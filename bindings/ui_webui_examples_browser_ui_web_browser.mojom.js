@@ -7,6 +7,7 @@
 // Module namespace
 var webui_examples = webui_examples || {};
 webui_examples.mojom = webui_examples.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 webui_examples.mojom.PageHandlerFactory = {};
@@ -78,6 +79,28 @@ webui_examples.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+webui_examples.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+webui_examples.mojom.PageHandlerFactoryReceiver = webui_examples.mojom.PageHandlerFactoryReceiver;
 
 webui_examples.mojom.PageHandlerFactoryPtr = webui_examples.mojom.PageHandlerFactoryRemote;
 webui_examples.mojom.PageHandlerFactoryRequest = webui_examples.mojom.PageHandlerFactoryPendingReceiver;
@@ -176,6 +199,38 @@ webui_examples.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+webui_examples.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = webui_examples.mojom.PageHandler_Navigate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.navigate(params.guest_contents_id, params.src);
+          break;
+        }
+        case 1: {
+          const params = webui_examples.mojom.PageHandler_GoBack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.goBack(params.guest_contents_id);
+          break;
+        }
+        case 2: {
+          const params = webui_examples.mojom.PageHandler_GoForward_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.goForward(params.guest_contents_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+webui_examples.mojom.PageHandlerReceiver = webui_examples.mojom.PageHandlerReceiver;
 
 webui_examples.mojom.PageHandlerPtr = webui_examples.mojom.PageHandlerRemote;
 webui_examples.mojom.PageHandlerRequest = webui_examples.mojom.PageHandlerPendingReceiver;

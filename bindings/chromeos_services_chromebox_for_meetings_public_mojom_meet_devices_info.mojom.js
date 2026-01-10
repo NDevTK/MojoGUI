@@ -183,6 +183,64 @@ chromeos.cfm.mojom.MeetDevicesInfo.getRemote = function() {
   return remote.$;
 };
 
+chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addDeviceSettingsObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPolicyInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSysInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMachineStatisticsInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.cfm.mojom.MeetDevicesInfoReceiver = chromeos.cfm.mojom.MeetDevicesInfoReceiver;
+
 chromeos.cfm.mojom.MeetDevicesInfoPtr = chromeos.cfm.mojom.MeetDevicesInfoRemote;
 chromeos.cfm.mojom.MeetDevicesInfoRequest = chromeos.cfm.mojom.MeetDevicesInfoPendingReceiver;
 
@@ -247,6 +305,28 @@ chromeos.cfm.mojom.PolicyInfoObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.cfm.mojom.PolicyInfoObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPolicyInfoChange(params.info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.cfm.mojom.PolicyInfoObserverReceiver = chromeos.cfm.mojom.PolicyInfoObserverReceiver;
 
 chromeos.cfm.mojom.PolicyInfoObserverPtr = chromeos.cfm.mojom.PolicyInfoObserverRemote;
 chromeos.cfm.mojom.PolicyInfoObserverRequest = chromeos.cfm.mojom.PolicyInfoObserverPendingReceiver;

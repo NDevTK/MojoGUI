@@ -7,7 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 blink.mojom.StylusWritingGestureActionSpec = { $: mojo.internal.Enum() };

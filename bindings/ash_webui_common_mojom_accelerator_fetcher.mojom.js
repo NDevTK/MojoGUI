@@ -8,10 +8,7 @@
 var ash = ash || {};
 ash.common = ash.common || {};
 ash.common.mojom = ash.common.mojom || {};
-var ash = ash || {};
-var ash = ash || {};
 var ui = ui || {};
-var ash = ash || {};
 
 ash.common.mojom.AcceleratorFetcherObserver = {};
 ash.common.mojom.AcceleratorFetcherObserver.$interfaceName = 'ash.common.mojom.AcceleratorFetcherObserver';
@@ -83,6 +80,28 @@ ash.common.mojom.AcceleratorFetcherObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.common.mojom.AcceleratorFetcherObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAcceleratorsUpdated(params.actionId, params.accelerators);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.common.mojom.AcceleratorFetcherObserverReceiver = ash.common.mojom.AcceleratorFetcherObserverReceiver;
 
 ash.common.mojom.AcceleratorFetcherObserverPtr = ash.common.mojom.AcceleratorFetcherObserverRemote;
 ash.common.mojom.AcceleratorFetcherObserverRequest = ash.common.mojom.AcceleratorFetcherObserverPendingReceiver;
@@ -170,6 +189,40 @@ ash.common.mojom.AcceleratorFetcher.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.common.mojom.AcceleratorFetcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeAcceleratorChanges(params.actionIds, params.observer);
+          break;
+        }
+        case 1: {
+          const params = ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMetaKeyToDisplay();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.common.mojom.AcceleratorFetcherReceiver = ash.common.mojom.AcceleratorFetcherReceiver;
 
 ash.common.mojom.AcceleratorFetcherPtr = ash.common.mojom.AcceleratorFetcherRemote;
 ash.common.mojom.AcceleratorFetcherRequest = ash.common.mojom.AcceleratorFetcherPendingReceiver;

@@ -220,6 +220,48 @@ device.mojom.FingerprintObserver.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.FingerprintObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.FingerprintObserver_OnRestarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRestarted();
+          break;
+        }
+        case 1: {
+          const params = device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStatusChanged(params.status);
+          break;
+        }
+        case 2: {
+          const params = device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEnrollScanDone(params.scan_result, params.is_complete, params.percent_complete);
+          break;
+        }
+        case 3: {
+          const params = device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAuthScanDone(params.msg, params.matches);
+          break;
+        }
+        case 4: {
+          const params = device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSessionFailed();
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.FingerprintObserverReceiver = device.mojom.FingerprintObserverReceiver;
+
 device.mojom.FingerprintObserverPtr = device.mojom.FingerprintObserverRemote;
 device.mojom.FingerprintObserverRequest = device.mojom.FingerprintObserverPendingReceiver;
 
@@ -490,6 +532,134 @@ device.mojom.Fingerprint.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.FingerprintReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRecordsForUser(params.user_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.Fingerprint_StartEnrollSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startEnrollSession(params.user_id, params.label);
+          break;
+        }
+        case 2: {
+          const params = device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelCurrentEnrollSession();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestRecordLabel(params.record_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = device.mojom.Fingerprint_SetRecordLabel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRecordLabel(params.record_path, params.new_label);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = device.mojom.Fingerprint_RemoveRecord_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeRecord(params.record_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = device.mojom.Fingerprint_StartAuthSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startAuthSession();
+          break;
+        }
+        case 7: {
+          const params = device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.endCurrentAuthSession();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.destroyAllRecords();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addFingerprintObserver(params.observer);
+          break;
+        }
+        case 10: {
+          const params = device.mojom.Fingerprint_RequestType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestType();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.Fingerprint_RequestType_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.FingerprintReceiver = device.mojom.FingerprintReceiver;
 
 device.mojom.FingerprintPtr = device.mojom.FingerprintRemote;
 device.mojom.FingerprintRequest = device.mojom.FingerprintPendingReceiver;

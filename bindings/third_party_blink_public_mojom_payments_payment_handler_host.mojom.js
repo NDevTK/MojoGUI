@@ -7,8 +7,6 @@
 // Module namespace
 var payments = payments || {};
 payments.mojom = payments.mojom || {};
-var components = components || {};
-var blink = blink || {};
 
 payments.mojom.PaymentHandlerMethodDataSpec = { $: {} };
 payments.mojom.PaymentHandlerModifierSpec = { $: {} };
@@ -160,6 +158,59 @@ payments.mojom.PaymentHandlerHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+payments.mojom.PaymentHandlerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.changePaymentMethod(params.method_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.changeShippingOption(params.shipping_option_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.changeShippingAddress(params.shipping_address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+payments.mojom.PaymentHandlerHostReceiver = payments.mojom.PaymentHandlerHostReceiver;
 
 payments.mojom.PaymentHandlerHostPtr = payments.mojom.PaymentHandlerHostRemote;
 payments.mojom.PaymentHandlerHostRequest = payments.mojom.PaymentHandlerHostPendingReceiver;

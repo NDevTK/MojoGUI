@@ -8,9 +8,7 @@
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
 ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 ash.cros_healthd.mojom.ButtonTypeSpec = { $: mojo.internal.Enum() };
 ash.cros_healthd.mojom.TypeSpec = { $: mojo.internal.Enum() };
@@ -1039,6 +1037,40 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesService.getRemote = function() {
   return remote.$;
 };
 
+ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createRoutine(params.routine_argument, params.routine_receiver, params.routine_observer);
+          break;
+        }
+        case 1: {
+          const params = ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isRoutineArgumentSupported(params.routine_argument);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver;
+
 ash.cros_healthd.mojom.CrosHealthdRoutinesServicePtr = ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote;
 ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRequest = ash.cros_healthd.mojom.CrosHealthdRoutinesServicePendingReceiver;
 
@@ -1140,6 +1172,45 @@ ash.cros_healthd.mojom.RoutineControl.getRemote = function() {
   return remote.$;
 };
 
+ash.cros_healthd.mojom.RoutineControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start();
+          break;
+        }
+        case 2: {
+          const params = ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.replyInquiry(params.reply);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.mojom.RoutineControlReceiver = ash.cros_healthd.mojom.RoutineControlReceiver;
+
 ash.cros_healthd.mojom.RoutineControlPtr = ash.cros_healthd.mojom.RoutineControlRemote;
 ash.cros_healthd.mojom.RoutineControlRequest = ash.cros_healthd.mojom.RoutineControlPendingReceiver;
 
@@ -1204,6 +1275,28 @@ ash.cros_healthd.mojom.RoutineObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.cros_healthd.mojom.RoutineObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRoutineStateChange(params.state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.mojom.RoutineObserverReceiver = ash.cros_healthd.mojom.RoutineObserverReceiver;
 
 ash.cros_healthd.mojom.RoutineObserverPtr = ash.cros_healthd.mojom.RoutineObserverRemote;
 ash.cros_healthd.mojom.RoutineObserverRequest = ash.cros_healthd.mojom.RoutineObserverPendingReceiver;

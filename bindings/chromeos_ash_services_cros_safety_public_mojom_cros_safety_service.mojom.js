@@ -8,9 +8,6 @@
 var ash = ash || {};
 ash.cros_safety = ash.cros_safety || {};
 ash.cros_safety.mojom = ash.cros_safety.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
 
 ash.cros_safety.mojom.GetCloudSafetySessionResultSpec = { $: mojo.internal.Enum() };
 ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec = { $: mojo.internal.Enum() };
@@ -130,6 +127,47 @@ ash.cros_safety.mojom.CrosSafetyService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.cros_safety.mojom.CrosSafetyServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createOnDeviceSafetySession(params.session);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCloudSafetySession(params.session);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_safety.mojom.CrosSafetyServiceReceiver = ash.cros_safety.mojom.CrosSafetyServiceReceiver;
 
 ash.cros_safety.mojom.CrosSafetyServicePtr = ash.cros_safety.mojom.CrosSafetyServiceRemote;
 ash.cros_safety.mojom.CrosSafetyServiceRequest = ash.cros_safety.mojom.CrosSafetyServicePendingReceiver;

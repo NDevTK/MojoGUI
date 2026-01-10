@@ -7,7 +7,7 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 viz.mojom.LayeredWindowUpdater = {};
@@ -97,6 +97,40 @@ viz.mojom.LayeredWindowUpdater.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.LayeredWindowUpdaterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAllocatedSharedMemory(params.pixel_size, params.region);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.draw();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.LayeredWindowUpdaterReceiver = viz.mojom.LayeredWindowUpdaterReceiver;
 
 viz.mojom.LayeredWindowUpdaterPtr = viz.mojom.LayeredWindowUpdaterRemote;
 viz.mojom.LayeredWindowUpdaterRequest = viz.mojom.LayeredWindowUpdaterPendingReceiver;

@@ -7,11 +7,7 @@
 // Module namespace
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
-var components = components || {};
-var components = components || {};
-var components = components || {};
-var components = components || {};
-var components = components || {};
+var system_media_controls = system_media_controls || {};
 
 remote_cocoa.mojom.CutCopyPasteCommandSpec = { $: mojo.internal.Enum() };
 remote_cocoa.mojom.StubInterface = {};
@@ -77,6 +73,23 @@ remote_cocoa.mojom.StubInterface.getRemote = function() {
   return remote.$;
 };
 
+remote_cocoa.mojom.StubInterfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+remote_cocoa.mojom.StubInterfaceReceiver = remote_cocoa.mojom.StubInterfaceReceiver;
+
 remote_cocoa.mojom.StubInterfacePtr = remote_cocoa.mojom.StubInterfaceRemote;
 remote_cocoa.mojom.StubInterfaceRequest = remote_cocoa.mojom.StubInterfacePendingReceiver;
 
@@ -91,17 +104,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec, 'remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_Params', [
       mojo.internal.StructField('bridge_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('window_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(remote_cocoa.mojom.NativeWidgetNSWindowRemote), null, false, 0, undefined),
-      mojo.internal.StructField('host', 16, 0, mojo.internal.AssociatedInterfaceProxy(remote_cocoa.mojom.NativeWidgetNSWindowHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('text_input_host', 24, 0, mojo.internal.AssociatedInterfaceProxy(remote_cocoa.mojom.TextInputHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('window_receiver', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('host', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('text_input_host', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
 mojo.internal.Struct(
     remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec, 'remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_Params', [
       mojo.internal.StructField('view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('host', 8, 0, mojo.internal.AssociatedInterfaceProxy(remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('view_receiver', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -115,8 +128,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec, 'remote_cocoa.mojom.Application_CreateWebContentsNSView_Params', [
       mojo.internal.StructField('view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('host', 8, 0, mojo.internal.AssociatedInterfaceProxy(remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('view_receiver', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -229,6 +242,53 @@ remote_cocoa.mojom.Application.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remote_cocoa.mojom.ApplicationReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remote_cocoa.mojom.Application_CreateAlert_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createAlert(params.alert_bridge_receiver);
+          break;
+        }
+        case 1: {
+          const params = remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createNativeWidgetNSWindow(params.bridge_id, params.window_receiver, params.host, params.text_input_host);
+          break;
+        }
+        case 2: {
+          const params = remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createRenderWidgetHostNSView(params.view_id, params.host, params.view_receiver);
+          break;
+        }
+        case 3: {
+          const params = remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createSystemMediaControlsBridge(params.receiver, params.host);
+          break;
+        }
+        case 4: {
+          const params = remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createWebContentsNSView(params.view_id, params.host, params.view_receiver);
+          break;
+        }
+        case 5: {
+          const params = remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forwardCutCopyPaste(params.command);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remote_cocoa.mojom.ApplicationReceiver = remote_cocoa.mojom.ApplicationReceiver;
 
 remote_cocoa.mojom.ApplicationPtr = remote_cocoa.mojom.ApplicationRemote;
 remote_cocoa.mojom.ApplicationRequest = remote_cocoa.mojom.ApplicationPendingReceiver;

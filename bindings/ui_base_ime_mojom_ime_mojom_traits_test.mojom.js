@@ -7,7 +7,6 @@
 // Module namespace
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
-var ui = ui || {};
 
 ui.mojom.IMEStructTraitsTest = {};
 ui.mojom.IMEStructTraitsTest.$interfaceName = 'ui.mojom.IMEStructTraitsTest';
@@ -80,6 +79,35 @@ ui.mojom.IMEStructTraitsTest.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ui.mojom.IMEStructTraitsTestReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoTextInputType(params.in);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ui.mojom.IMEStructTraitsTestReceiver = ui.mojom.IMEStructTraitsTestReceiver;
 
 ui.mojom.IMEStructTraitsTestPtr = ui.mojom.IMEStructTraitsTestRemote;
 ui.mojom.IMEStructTraitsTestRequest = ui.mojom.IMEStructTraitsTestPendingReceiver;

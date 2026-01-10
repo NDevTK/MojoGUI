@@ -6,8 +6,7 @@
 
 // Module namespace
 var mojom = mojom || {};
-var services = services || {};
-var services = services || {};
+var device = device || {};
 
 mojom.UsbInternalsPageHandler = {};
 mojom.UsbInternalsPageHandler.$interfaceName = 'mojom.UsbInternalsPageHandler';
@@ -90,6 +89,33 @@ mojom.UsbInternalsPageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+mojom.UsbInternalsPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindUsbDeviceManagerInterface(params.receiver);
+          break;
+        }
+        case 1: {
+          const params = mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindTestInterface(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mojom.UsbInternalsPageHandlerReceiver = mojom.UsbInternalsPageHandlerReceiver;
 
 mojom.UsbInternalsPageHandlerPtr = mojom.UsbInternalsPageHandlerRemote;
 mojom.UsbInternalsPageHandlerRequest = mojom.UsbInternalsPageHandlerPendingReceiver;

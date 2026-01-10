@@ -7,10 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 
 blink.mojom.ServiceWorkerFetchEventTimingSpec = { $: {} };
 blink.mojom.ServiceWorkerFetchResponseCallback = {};
@@ -123,6 +121,38 @@ blink.mojom.ServiceWorkerFetchResponseCallback.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ServiceWorkerFetchResponseCallbackReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResponse(params.response, params.timing);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResponseStream(params.response, params.body_as_stream, params.timing);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFallback(params.request_body, params.timing);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ServiceWorkerFetchResponseCallbackReceiver = blink.mojom.ServiceWorkerFetchResponseCallbackReceiver;
 
 blink.mojom.ServiceWorkerFetchResponseCallbackPtr = blink.mojom.ServiceWorkerFetchResponseCallbackRemote;
 blink.mojom.ServiceWorkerFetchResponseCallbackRequest = blink.mojom.ServiceWorkerFetchResponseCallbackPendingReceiver;

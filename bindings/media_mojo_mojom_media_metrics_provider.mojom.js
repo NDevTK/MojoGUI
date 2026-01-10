@@ -7,6 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var mojo_base = mojo_base || {};
 
 media.mojom.MediaURLSchemeSpec = { $: mojo.internal.Enum() };
 media.mojom.MediaMetricsProvider = {};
@@ -479,6 +480,143 @@ media.mojom.MediaMetricsProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.MediaMetricsProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.MediaMetricsProvider_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.is_mse, params.url_scheme, params.stream_type);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStarted(params.status);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.MediaMetricsProvider_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.status);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFallback(params.status);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHasPlayed();
+          break;
+        }
+        case 5: {
+          const params = media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHaveEnough();
+          break;
+        }
+        case 6: {
+          const params = media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsEME();
+          break;
+        }
+        case 7: {
+          const params = media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTimeToMetadata(params.elapsed);
+          break;
+        }
+        case 8: {
+          const params = media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTimeToFirstFrame(params.elapsed);
+          break;
+        }
+        case 9: {
+          const params = media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTimeToPlayReady(params.elapsed);
+          break;
+        }
+        case 10: {
+          const params = media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRendererType(params.renderer_type);
+          break;
+        }
+        case 11: {
+          const params = media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDemuxerType(params.demuxer_type);
+          break;
+        }
+        case 12: {
+          const params = media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setKeySystem(params.key_system);
+          break;
+        }
+        case 13: {
+          const params = media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHasWaitingForKey();
+          break;
+        }
+        case 14: {
+          const params = media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsHardwareSecure();
+          break;
+        }
+        case 15: {
+          const params = media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHasTrackChange();
+          break;
+        }
+        case 16: {
+          const params = media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setContainerName(params.container_name);
+          break;
+        }
+        case 17: {
+          const params = media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acquireWatchTimeRecorder(params.properties, params.recorder);
+          break;
+        }
+        case 18: {
+          const params = media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acquireVideoDecodeStatsRecorder(params.recorder);
+          break;
+        }
+        case 19: {
+          const params = media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acquirePlaybackEventsRecorder(params.receiver);
+          break;
+        }
+        case 20: {
+          const params = media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHasAudio(params.codec);
+          break;
+        }
+        case 21: {
+          const params = media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHasVideo(params.codec);
+          break;
+        }
+        case 22: {
+          const params = media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVideoPipelineInfo(params.info);
+          break;
+        }
+        case 23: {
+          const params = media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAudioPipelineInfo(params.info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.MediaMetricsProviderReceiver = media.mojom.MediaMetricsProviderReceiver;
 
 media.mojom.MediaMetricsProviderPtr = media.mojom.MediaMetricsProviderRemote;
 media.mojom.MediaMetricsProviderRequest = media.mojom.MediaMetricsProviderPendingReceiver;

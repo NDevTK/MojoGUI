@@ -7,6 +7,7 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
+var mojo_base = mojo_base || {};
 
 chromecast.mojom.ServiceConnector = {};
 chromecast.mojom.ServiceConnector.$interfaceName = 'chromecast.mojom.ServiceConnector';
@@ -73,6 +74,28 @@ chromecast.mojom.ServiceConnector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.ServiceConnectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.ServiceConnector_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.service_name, params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.ServiceConnectorReceiver = chromecast.mojom.ServiceConnectorReceiver;
 
 chromecast.mojom.ServiceConnectorPtr = chromecast.mojom.ServiceConnectorRemote;
 chromecast.mojom.ServiceConnectorRequest = chromecast.mojom.ServiceConnectorPendingReceiver;

@@ -151,6 +151,28 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory.getRemote = fun
   return remote.$;
 };
 
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCustomizeToolbarHandler(params.client, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryReceiver = side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryReceiver;
+
 side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryPtr = side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemote;
 side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRequest = side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryPendingReceiver;
 
@@ -295,6 +317,69 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandler.getRemote = function()
   return remote.$;
 };
 
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listActions();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listCategories();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pinAction(params.action_id, params.pinned);
+          break;
+        }
+        case 3: {
+          const params = side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getIsCustomized();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetToDefault();
+          break;
+        }
+      }
+    });
+  }
+};
+
+side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver = side_panel.customize_chrome.mojom.CustomizeToolbarHandlerReceiver;
+
 side_panel.customize_chrome.mojom.CustomizeToolbarHandlerPtr = side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemote;
 side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRequest = side_panel.customize_chrome.mojom.CustomizeToolbarHandlerPendingReceiver;
 
@@ -375,6 +460,33 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClient.getRemote = function() 
     'context');
   return remote.$;
 };
+
+side_panel.customize_chrome.mojom.CustomizeToolbarClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setActionPinned(params.action_id, params.pinned);
+          break;
+        }
+        case 1: {
+          const params = side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyActionsUpdated();
+          break;
+        }
+      }
+    });
+  }
+};
+
+side_panel.customize_chrome.mojom.CustomizeToolbarClientReceiver = side_panel.customize_chrome.mojom.CustomizeToolbarClientReceiver;
 
 side_panel.customize_chrome.mojom.CustomizeToolbarClientPtr = side_panel.customize_chrome.mojom.CustomizeToolbarClientRemote;
 side_panel.customize_chrome.mojom.CustomizeToolbarClientRequest = side_panel.customize_chrome.mojom.CustomizeToolbarClientPendingReceiver;

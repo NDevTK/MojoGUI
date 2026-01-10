@@ -7,9 +7,7 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var sandbox = sandbox || {};
 
 chrome.mojom.FileUtilService = {};
 chrome.mojom.FileUtilService.$interfaceName = 'chrome.mojom.FileUtilService';
@@ -126,6 +124,43 @@ chrome.mojom.FileUtilService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.FileUtilServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindZipFileCreator(params.receiver);
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSafeArchiveAnalyzer(params.receiver);
+          break;
+        }
+        case 2: {
+          const params = chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSingleFileTarFileExtractor(params.receiver);
+          break;
+        }
+        case 3: {
+          const params = chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSingleFileTarXzFileExtractor(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.FileUtilServiceReceiver = chrome.mojom.FileUtilServiceReceiver;
 
 chrome.mojom.FileUtilServicePtr = chrome.mojom.FileUtilServiceRemote;
 chrome.mojom.FileUtilServiceRequest = chrome.mojom.FileUtilServicePendingReceiver;

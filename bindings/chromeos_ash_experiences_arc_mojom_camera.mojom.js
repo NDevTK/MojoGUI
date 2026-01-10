@@ -7,7 +7,7 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var chromeos = chromeos || {};
+var cros = cros || {};
 
 arc.mojom.CameraDeviceInfoSpec = { $: {} };
 arc.mojom.CameraSupportedFormatSpec = { $: {} };
@@ -293,6 +293,119 @@ arc.mojom.CameraService.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.CameraServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.CameraService_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.device_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.CameraService_Connect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.CameraService_Disconnect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disconnect();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.CameraService_Disconnect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.CameraService_StreamOn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.streamOn(params.width, params.height, params.pixel_format, params.frame_rate);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.CameraService_StreamOn_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.CameraService_StreamOff_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.streamOff();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.CameraService_StreamOff_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNextFrameBuffer();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reuseFrameBuffer(params.buffer_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceSupportedFormats(params.device_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCameraDeviceInfos();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.CameraServiceReceiver = arc.mojom.CameraServiceReceiver;
+
 arc.mojom.CameraServicePtr = arc.mojom.CameraServiceRemote;
 arc.mojom.CameraServiceRequest = arc.mojom.CameraServicePendingReceiver;
 
@@ -401,6 +514,52 @@ arc.mojom.CameraHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.CameraHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.CameraHost_StartCameraService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startCameraService();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerCameraHalClientLegacy(params.client);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerCameraHalClient(params.client);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.CameraHostReceiver = arc.mojom.CameraHostReceiver;
+
 arc.mojom.CameraHostPtr = arc.mojom.CameraHostRemote;
 arc.mojom.CameraHostRequest = arc.mojom.CameraHostPendingReceiver;
 
@@ -470,6 +629,35 @@ arc.mojom.CameraInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.CameraInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.CameraInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.CameraInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.CameraInstanceReceiver = arc.mojom.CameraInstanceReceiver;
 
 arc.mojom.CameraInstancePtr = arc.mojom.CameraInstanceRemote;
 arc.mojom.CameraInstanceRequest = arc.mojom.CameraInstancePendingReceiver;

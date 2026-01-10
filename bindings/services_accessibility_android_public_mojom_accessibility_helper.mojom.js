@@ -609,6 +609,38 @@ ax.android.mojom.AccessibilityHelperHost.getRemote = function() {
   return remote.$;
 };
 
+ax.android.mojom.AccessibilityHelperHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = ax.android.mojom.AccessibilityHelperHost_OnAccessibilityEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAccessibilityEvent(params.event_data);
+          break;
+        }
+        case 2: {
+          const params = ax.android.mojom.AccessibilityHelperHost_OnNotificationStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNotificationStateChanged(params.notification_key, params.state);
+          break;
+        }
+        case 3: {
+          const params = ax.android.mojom.AccessibilityHelperHost_OnToggleNativeChromeVoxArcSupport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onToggleNativeChromeVoxArcSupport(params.enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.android.mojom.AccessibilityHelperHostReceiver = ax.android.mojom.AccessibilityHelperHostReceiver;
+
 ax.android.mojom.AccessibilityHelperHostPtr = ax.android.mojom.AccessibilityHelperHostRemote;
 ax.android.mojom.AccessibilityHelperHostRequest = ax.android.mojom.AccessibilityHelperHostPendingReceiver;
 
@@ -792,6 +824,86 @@ ax.android.mojom.AccessibilityHelperInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ax.android.mojom.AccessibilityHelperInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 7: {
+          const params = ax.android.mojom.AccessibilityHelperInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ax.android.mojom.AccessibilityHelperInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ax.android.mojom.AccessibilityHelperInstance_SetFilter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFilter(params.filter_type);
+          break;
+        }
+        case 4: {
+          const params = ax.android.mojom.AccessibilityHelperInstance_PerformAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.performAction(params.action_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ax.android.mojom.AccessibilityHelperInstance_PerformAction_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = ax.android.mojom.AccessibilityHelperInstance_SetExploreByTouchEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setExploreByTouchEnabled(params.enabled);
+          break;
+        }
+        case 9: {
+          const params = ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.refreshWithExtraData(params.refresh_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = ax.android.mojom.AccessibilityHelperInstance_RequestSendAccessibilityTree_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestSendAccessibilityTree(params.window);
+          break;
+        }
+        case 12: {
+          const params = ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNativeChromeVoxArcSupportForFocusedWindow(params.enabled);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.android.mojom.AccessibilityHelperInstanceReceiver = ax.android.mojom.AccessibilityHelperInstanceReceiver;
 
 ax.android.mojom.AccessibilityHelperInstancePtr = ax.android.mojom.AccessibilityHelperInstanceRemote;
 ax.android.mojom.AccessibilityHelperInstanceRequest = ax.android.mojom.AccessibilityHelperInstancePendingReceiver;

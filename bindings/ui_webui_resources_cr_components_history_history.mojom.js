@@ -407,6 +407,123 @@ history.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+history.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = history.mojom.PageHandler_SetPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPage(params.page);
+          break;
+        }
+        case 1: {
+          const params = history.mojom.PageHandler_QueryHistory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queryHistory(params.query, params.max_results, params.begin_time);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, history.mojom.PageHandler_QueryHistory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queryHistoryContinuation();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = history.mojom.PageHandler_RemoveVisits_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeVisits(params.items);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = history.mojom.PageHandler_OpenClearBrowsingDataDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openClearBrowsingDataDialog();
+          break;
+        }
+        case 5: {
+          const params = history.mojom.PageHandler_RemoveBookmark_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeBookmark(params.url);
+          break;
+        }
+        case 6: {
+          const params = history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLastSelectedTab(params.last_tab);
+          break;
+        }
+        case 7: {
+          const params = history.mojom.PageHandler_ShowSidePanelUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showSidePanelUI();
+          break;
+        }
+        case 8: {
+          const params = history.mojom.PageHandler_RequestAccountInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestAccountInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.turnOnHistorySync();
+          break;
+        }
+        case 10: {
+          const params = history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldShowHistoryPageHistorySyncPromo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordHistoryPageHistorySyncPromoDismissed();
+          break;
+        }
+        case 12: {
+          const params = history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.incrementHistoryPageHistorySyncPromoShownCount();
+          break;
+        }
+      }
+    });
+  }
+};
+
+history.mojom.PageHandlerReceiver = history.mojom.PageHandlerReceiver;
+
 history.mojom.PageHandlerPtr = history.mojom.PageHandlerRemote;
 history.mojom.PageHandlerRequest = history.mojom.PageHandlerPendingReceiver;
 
@@ -502,6 +619,38 @@ history.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+history.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = history.mojom.Page_OnHistoryDeleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHistoryDeleted();
+          break;
+        }
+        case 1: {
+          const params = history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHasOtherFormsChanged(params.has_other_forms);
+          break;
+        }
+        case 2: {
+          const params = history.mojom.Page_SendAccountInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendAccountInfo(params.account_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+history.mojom.PageReceiver = history.mojom.PageReceiver;
 
 history.mojom.PagePtr = history.mojom.PageRemote;
 history.mojom.PageRequest = history.mojom.PagePendingReceiver;

@@ -7,12 +7,8 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
-var services = services || {};
+var viz = viz || {};
 var skia = skia || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
 
 gfx.mojom.ContentColorUsageSpec = { $: mojo.internal.Enum() };
 gfx.mojom.DisplayColorSpacesSpec = { $: {} };

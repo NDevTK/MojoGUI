@@ -101,6 +101,28 @@ blink.mojom.ReportingObserver.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.ReportingObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ReportingObserver_Notify_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notify(params.report);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ReportingObserverReceiver = blink.mojom.ReportingObserverReceiver;
+
 blink.mojom.ReportingObserverPtr = blink.mojom.ReportingObserverRemote;
 blink.mojom.ReportingObserverRequest = blink.mojom.ReportingObserverPendingReceiver;
 

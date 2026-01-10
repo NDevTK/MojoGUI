@@ -7,13 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
 
 blink.mojom.ModelAvailabilityCheckResultSpec = { $: mojo.internal.Enum() };
 blink.mojom.AIManagerCreateWriterClient = {};
@@ -156,6 +149,33 @@ blink.mojom.AIManagerCreateWriterClient.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.AIManagerCreateWriterClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResult(params.writer);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error, params.quota_error_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AIManagerCreateWriterClientReceiver = blink.mojom.AIManagerCreateWriterClientReceiver;
+
 blink.mojom.AIManagerCreateWriterClientPtr = blink.mojom.AIManagerCreateWriterClientRemote;
 blink.mojom.AIManagerCreateWriterClientRequest = blink.mojom.AIManagerCreateWriterClientPendingReceiver;
 
@@ -237,6 +257,33 @@ blink.mojom.AIManagerCreateRewriterClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.AIManagerCreateRewriterClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResult(params.rewriter);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error, params.quota_error_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AIManagerCreateRewriterClientReceiver = blink.mojom.AIManagerCreateRewriterClientReceiver;
 
 blink.mojom.AIManagerCreateRewriterClientPtr = blink.mojom.AIManagerCreateRewriterClientRemote;
 blink.mojom.AIManagerCreateRewriterClientRequest = blink.mojom.AIManagerCreateRewriterClientPendingReceiver;
@@ -320,6 +367,33 @@ blink.mojom.AIManagerCreateSummarizerClient.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.AIManagerCreateSummarizerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResult(params.summarizer);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error, params.quota_error_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AIManagerCreateSummarizerClientReceiver = blink.mojom.AIManagerCreateSummarizerClientReceiver;
+
 blink.mojom.AIManagerCreateSummarizerClientPtr = blink.mojom.AIManagerCreateSummarizerClientRemote;
 blink.mojom.AIManagerCreateSummarizerClientRequest = blink.mojom.AIManagerCreateSummarizerClientPendingReceiver;
 
@@ -401,6 +475,33 @@ blink.mojom.AIManagerCreateProofreaderClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.AIManagerCreateProofreaderClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResult(params.proofreader);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error, params.quota_error_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AIManagerCreateProofreaderClientReceiver = blink.mojom.AIManagerCreateProofreaderClientReceiver;
 
 blink.mojom.AIManagerCreateProofreaderClientPtr = blink.mojom.AIManagerCreateProofreaderClientRemote;
 blink.mojom.AIManagerCreateProofreaderClientRequest = blink.mojom.AIManagerCreateProofreaderClientPendingReceiver;
@@ -682,6 +783,125 @@ blink.mojom.AIManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.AIManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AIManager_CanCreateLanguageModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.canCreateLanguageModel(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AIManager_CanCreateLanguageModel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AIManager_CreateLanguageModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createLanguageModel(params.client, params.options);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.AIManager_CanCreateSummarizer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.canCreateSummarizer(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AIManager_CanCreateSummarizer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.AIManager_CreateSummarizer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createSummarizer(params.client, params.options);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.AIManager_GetLanguageModelParams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLanguageModelParams();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AIManager_GetLanguageModelParams_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.AIManager_CanCreateWriter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.canCreateWriter(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AIManager_CanCreateWriter_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.AIManager_CreateWriter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createWriter(params.client, params.options);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.AIManager_CanCreateRewriter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.canCreateRewriter(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AIManager_CanCreateRewriter_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.AIManager_CreateRewriter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createRewriter(params.client, params.options);
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.AIManager_CanCreateProofreader_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.canCreateProofreader(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AIManager_CanCreateProofreader_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.AIManager_CreateProofreader_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createProofreader(params.client, params.options);
+          break;
+        }
+        case 11: {
+          const params = blink.mojom.AIManager_AddModelDownloadProgressObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addModelDownloadProgressObserver(params.observer_remote);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AIManagerReceiver = blink.mojom.AIManagerReceiver;
 
 blink.mojom.AIManagerPtr = blink.mojom.AIManagerRemote;
 blink.mojom.AIManagerRequest = blink.mojom.AIManagerPendingReceiver;

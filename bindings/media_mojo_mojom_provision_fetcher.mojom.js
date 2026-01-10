@@ -83,6 +83,35 @@ media.mojom.ProvisionFetcher.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.ProvisionFetcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.ProvisionFetcher_Retrieve_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.retrieve(params.default_url, params.request_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.ProvisionFetcherReceiver = media.mojom.ProvisionFetcherReceiver;
+
 media.mojom.ProvisionFetcherPtr = media.mojom.ProvisionFetcherRemote;
 media.mojom.ProvisionFetcherRequest = media.mojom.ProvisionFetcherPendingReceiver;
 

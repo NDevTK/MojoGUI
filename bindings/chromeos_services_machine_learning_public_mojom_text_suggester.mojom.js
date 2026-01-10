@@ -163,6 +163,35 @@ chromeos.machine_learning.mojom.TextSuggester.getRemote = function() {
   return remote.$;
 };
 
+chromeos.machine_learning.mojom.TextSuggesterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suggest(params.query);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.machine_learning.mojom.TextSuggesterReceiver = chromeos.machine_learning.mojom.TextSuggesterReceiver;
+
 chromeos.machine_learning.mojom.TextSuggesterPtr = chromeos.machine_learning.mojom.TextSuggesterRemote;
 chromeos.machine_learning.mojom.TextSuggesterRequest = chromeos.machine_learning.mojom.TextSuggesterPendingReceiver;
 

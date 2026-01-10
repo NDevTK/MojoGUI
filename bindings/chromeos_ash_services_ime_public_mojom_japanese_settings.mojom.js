@@ -161,6 +161,35 @@ ash.ime.mojom.JpUnused.getRemote = function() {
   return remote.$;
 };
 
+ash.ime.mojom.JpUnusedReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.ime.mojom.JpUnused_Unused_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unused();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.ime.mojom.JpUnusedReceiver = ash.ime.mojom.JpUnusedReceiver;
+
 ash.ime.mojom.JpUnusedPtr = ash.ime.mojom.JpUnusedRemote;
 ash.ime.mojom.JpUnusedRequest = ash.ime.mojom.JpUnusedPendingReceiver;
 

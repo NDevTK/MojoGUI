@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.camera_app = ash.camera_app || {};
 ash.camera_app.mojom = ash.camera_app.mojom || {};
+var mojo_base = mojo_base || {};
 
 ash.camera_app.mojom.PdfBuilder = {};
 ash.camera_app.mojom.PdfBuilder.$interfaceName = 'ash.camera_app.mojom.PdfBuilder';
@@ -155,6 +156,62 @@ ash.camera_app.mojom.PdfBuilder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.camera_app.mojom.PdfBuilderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addPage(params.jpeg, params.page_index);
+          break;
+        }
+        case 1: {
+          const params = ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addPageInline(params.jpeg, params.page_index);
+          break;
+        }
+        case 2: {
+          const params = ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deletePage(params.page_index);
+          break;
+        }
+        case 3: {
+          const params = ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.save();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.saveInline();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.camera_app.mojom.PdfBuilderReceiver = ash.camera_app.mojom.PdfBuilderReceiver;
 
 ash.camera_app.mojom.PdfBuilderPtr = ash.camera_app.mojom.PdfBuilderRemote;
 ash.camera_app.mojom.PdfBuilderRequest = ash.camera_app.mojom.PdfBuilderPendingReceiver;

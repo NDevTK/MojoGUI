@@ -7,6 +7,7 @@
 // Module namespace
 var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
+var media = media || {};
 
 video_capture.mojom.ReadyFrameInBufferSpec = { $: {} };
 video_capture.mojom.VideoFrameAccessHandler = {};
@@ -97,6 +98,28 @@ video_capture.mojom.VideoFrameAccessHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+video_capture.mojom.VideoFrameAccessHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = video_capture.mojom.VideoFrameAccessHandler_OnFinishedConsumingBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFinishedConsumingBuffer(params.buffer_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+video_capture.mojom.VideoFrameAccessHandlerReceiver = video_capture.mojom.VideoFrameAccessHandlerReceiver;
 
 video_capture.mojom.VideoFrameAccessHandlerPtr = video_capture.mojom.VideoFrameAccessHandlerRemote;
 video_capture.mojom.VideoFrameAccessHandlerRequest = video_capture.mojom.VideoFrameAccessHandlerPendingReceiver;
@@ -350,6 +373,88 @@ video_capture.mojom.VideoFrameHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+video_capture.mojom.VideoFrameHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = video_capture.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCaptureConfigurationChanged();
+          break;
+        }
+        case 1: {
+          const params = video_capture.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewBuffer(params.buffer_id, params.buffer_handle);
+          break;
+        }
+        case 2: {
+          const params = video_capture.mojom.VideoFrameHandler_OnFrameAccessHandlerReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameAccessHandlerReady(params.frame_access_handler);
+          break;
+        }
+        case 3: {
+          const params = video_capture.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameReadyInBuffer(params.buffer);
+          break;
+        }
+        case 4: {
+          const params = video_capture.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBufferRetired(params.buffer_id);
+          break;
+        }
+        case 5: {
+          const params = video_capture.mojom.VideoFrameHandler_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error);
+          break;
+        }
+        case 6: {
+          const params = video_capture.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameDropped(params.reason);
+          break;
+        }
+        case 7: {
+          const params = video_capture.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewCaptureVersion(params.capture_version);
+          break;
+        }
+        case 8: {
+          const params = video_capture.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameWithEmptyRegionCapture();
+          break;
+        }
+        case 9: {
+          const params = video_capture.mojom.VideoFrameHandler_OnLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLog(params.message);
+          break;
+        }
+        case 10: {
+          const params = video_capture.mojom.VideoFrameHandler_OnStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStarted();
+          break;
+        }
+        case 11: {
+          const params = video_capture.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStartedUsingGpuDecode();
+          break;
+        }
+        case 12: {
+          const params = video_capture.mojom.VideoFrameHandler_OnStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStopped();
+          break;
+        }
+      }
+    });
+  }
+};
+
+video_capture.mojom.VideoFrameHandlerReceiver = video_capture.mojom.VideoFrameHandlerReceiver;
 
 video_capture.mojom.VideoFrameHandlerPtr = video_capture.mojom.VideoFrameHandlerRemote;
 video_capture.mojom.VideoFrameHandlerRequest = video_capture.mojom.VideoFrameHandlerPendingReceiver;

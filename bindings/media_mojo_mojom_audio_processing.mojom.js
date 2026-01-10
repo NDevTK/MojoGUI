@@ -128,6 +128,40 @@ media.mojom.AudioProcessorControls.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.AudioProcessorControlsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioProcessorControls_GetStats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getStats();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPreferredNumCaptureChannels(params.num_preferred_channels);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioProcessorControlsReceiver = media.mojom.AudioProcessorControlsReceiver;
+
 media.mojom.AudioProcessorControlsPtr = media.mojom.AudioProcessorControlsRemote;
 media.mojom.AudioProcessorControlsRequest = media.mojom.AudioProcessorControlsPendingReceiver;
 

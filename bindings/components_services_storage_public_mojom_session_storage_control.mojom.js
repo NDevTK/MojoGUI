@@ -8,8 +8,6 @@
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
 var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
 
 storage.mojom.SessionStorageCloneTypeSpec = { $: mojo.internal.Enum() };
 storage.mojom.SessionStorageUsageInfoSpec = { $: {} };
@@ -282,6 +280,99 @@ storage.mojom.SessionStorageControl.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.SessionStorageControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindNamespace(params.namespace_id, params.receiver);
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindStorageArea(params.storage_key, params.namespace_id, params.receiver);
+          break;
+        }
+        case 2: {
+          const params = storage.mojom.SessionStorageControl_GetUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUsage();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteStorage(params.storage_key, params.namespace_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cleanUpStorage();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.scavengeUnusedNamespaces();
+          break;
+        }
+        case 6: {
+          const params = storage.mojom.SessionStorageControl_Flush_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flush();
+          break;
+        }
+        case 7: {
+          const params = storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.purgeMemory();
+          break;
+        }
+        case 8: {
+          const params = storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createNamespace(params.namespace_id);
+          break;
+        }
+        case 9: {
+          const params = storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cloneNamespace(params.namespace_id_to_clone, params.clone_namespace_id, params.clone_type);
+          break;
+        }
+        case 10: {
+          const params = storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteNamespace(params.namespace_id, params.should_persist);
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.SessionStorageControlReceiver = storage.mojom.SessionStorageControlReceiver;
 
 storage.mojom.SessionStorageControlPtr = storage.mojom.SessionStorageControlRemote;
 storage.mojom.SessionStorageControlRequest = storage.mojom.SessionStorageControlPendingReceiver;

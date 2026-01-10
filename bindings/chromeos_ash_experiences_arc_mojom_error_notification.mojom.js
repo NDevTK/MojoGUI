@@ -110,6 +110,35 @@ arc.mojom.ErrorNotificationHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.ErrorNotificationHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendErrorDetails(params.details, params.action_handler);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ErrorNotificationHostReceiver = arc.mojom.ErrorNotificationHostReceiver;
+
 arc.mojom.ErrorNotificationHostPtr = arc.mojom.ErrorNotificationHostRemote;
 arc.mojom.ErrorNotificationHostRequest = arc.mojom.ErrorNotificationHostPendingReceiver;
 
@@ -180,6 +209,35 @@ arc.mojom.ErrorNotificationInstance.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.ErrorNotificationInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.ErrorNotificationInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ErrorNotificationInstanceReceiver = arc.mojom.ErrorNotificationInstanceReceiver;
+
 arc.mojom.ErrorNotificationInstancePtr = arc.mojom.ErrorNotificationInstanceRemote;
 arc.mojom.ErrorNotificationInstanceRequest = arc.mojom.ErrorNotificationInstancePendingReceiver;
 
@@ -243,6 +301,28 @@ arc.mojom.ErrorNotificationItem.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.ErrorNotificationItemReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeErrorNotification();
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ErrorNotificationItemReceiver = arc.mojom.ErrorNotificationItemReceiver;
 
 arc.mojom.ErrorNotificationItemPtr = arc.mojom.ErrorNotificationItemRemote;
 arc.mojom.ErrorNotificationItemRequest = arc.mojom.ErrorNotificationItemPendingReceiver;
@@ -323,6 +403,33 @@ arc.mojom.ErrorNotificationActionHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.ErrorNotificationActionHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNotificationButtonClicked(params.buttonIndex);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNotificationClosed();
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ErrorNotificationActionHandlerReceiver = arc.mojom.ErrorNotificationActionHandlerReceiver;
 
 arc.mojom.ErrorNotificationActionHandlerPtr = arc.mojom.ErrorNotificationActionHandlerRemote;
 arc.mojom.ErrorNotificationActionHandlerRequest = arc.mojom.ErrorNotificationActionHandlerPendingReceiver;

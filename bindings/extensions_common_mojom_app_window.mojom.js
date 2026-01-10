@@ -73,6 +73,28 @@ extensions.mojom.AppWindow.getRemote = function() {
   return remote.$;
 };
 
+extensions.mojom.AppWindowReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVisuallyDeemphasized(params.deemphasized);
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions.mojom.AppWindowReceiver = extensions.mojom.AppWindowReceiver;
+
 extensions.mojom.AppWindowPtr = extensions.mojom.AppWindowRemote;
 extensions.mojom.AppWindowRequest = extensions.mojom.AppWindowPendingReceiver;
 

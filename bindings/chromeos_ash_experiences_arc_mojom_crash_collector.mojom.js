@@ -7,6 +7,7 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
+var mojo_base = mojo_base || {};
 
 arc.mojom.CrashCollectorHost = {};
 arc.mojom.CrashCollectorHost.$interfaceName = 'arc.mojom.CrashCollectorHost';
@@ -136,6 +137,43 @@ arc.mojom.CrashCollectorHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.CrashCollectorHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dumpCrash(params.type, params.pipe, params.uptime);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBuildProperties(params.device, params.board, params.cpu_abi, params.fingerprint);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dumpNativeCrash(params.exec_name, params.pid, params.timestamp, params.minidump_fd);
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dumpKernelCrash(params.ramoops_handle);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.CrashCollectorHostReceiver = arc.mojom.CrashCollectorHostReceiver;
+
 arc.mojom.CrashCollectorHostPtr = arc.mojom.CrashCollectorHostRemote;
 arc.mojom.CrashCollectorHostRequest = arc.mojom.CrashCollectorHostPendingReceiver;
 
@@ -205,6 +243,35 @@ arc.mojom.CrashCollectorInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.CrashCollectorInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.CrashCollectorInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.CrashCollectorInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.CrashCollectorInstanceReceiver = arc.mojom.CrashCollectorInstanceReceiver;
 
 arc.mojom.CrashCollectorInstancePtr = arc.mojom.CrashCollectorInstanceRemote;
 arc.mojom.CrashCollectorInstanceRequest = arc.mojom.CrashCollectorInstancePendingReceiver;

@@ -141,6 +141,33 @@ network.mojom.TrustTokenAccessObserver.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.TrustTokenAccessObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTrustTokensAccessed(params.details);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.listener);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.TrustTokenAccessObserverReceiver = network.mojom.TrustTokenAccessObserverReceiver;
+
 network.mojom.TrustTokenAccessObserverPtr = network.mojom.TrustTokenAccessObserverRemote;
 network.mojom.TrustTokenAccessObserverRequest = network.mojom.TrustTokenAccessObserverPendingReceiver;
 

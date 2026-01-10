@@ -7,9 +7,6 @@
 // Module namespace
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
-var components = components || {};
-var components = components || {};
-var components = components || {};
 
 attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec = { $: {} };
 attribution_reporting.mojom.RegistrationHeaderErrorSpec = { $: {} };

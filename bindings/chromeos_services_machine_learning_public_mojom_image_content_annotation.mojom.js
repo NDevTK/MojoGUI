@@ -8,8 +8,8 @@
 var chromeos = chromeos || {};
 chromeos.machine_learning = chromeos.machine_learning || {};
 chromeos.machine_learning.mojom = chromeos.machine_learning.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
+var mojo_base = mojo_base || {};
 
 chromeos.machine_learning.mojom.StatusSpec = { $: mojo.internal.Enum() };
 chromeos.machine_learning.mojom.ImageAnnotatorConfigSpec = { $: {} };
@@ -145,6 +145,47 @@ chromeos.machine_learning.mojom.ImageContentAnnotator.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.machine_learning.mojom.ImageContentAnnotatorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.annotateRawImage(params.rgb_bytes, params.width, params.height, params.line_stride);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.annotateEncodedImage(params.encoded_image);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.machine_learning.mojom.ImageContentAnnotatorReceiver = chromeos.machine_learning.mojom.ImageContentAnnotatorReceiver;
 
 chromeos.machine_learning.mojom.ImageContentAnnotatorPtr = chromeos.machine_learning.mojom.ImageContentAnnotatorRemote;
 chromeos.machine_learning.mojom.ImageContentAnnotatorRequest = chromeos.machine_learning.mojom.ImageContentAnnotatorPendingReceiver;

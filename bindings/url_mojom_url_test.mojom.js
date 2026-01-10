@@ -7,8 +7,6 @@
 // Module namespace
 var url = url || {};
 url.mojom = url.mojom || {};
-var url = url || {};
-var url = url || {};
 
 url.mojom.UrlTest = {};
 url.mojom.UrlTest.$interfaceName = 'url.mojom.UrlTest';
@@ -105,6 +103,47 @@ url.mojom.UrlTest.getRemote = function() {
     'context');
   return remote.$;
 };
+
+url.mojom.UrlTestReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = url.mojom.UrlTest_BounceUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bounceUrl(params.in);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, url.mojom.UrlTest_BounceUrl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = url.mojom.UrlTest_BounceOrigin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bounceOrigin(params.in);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+url.mojom.UrlTestReceiver = url.mojom.UrlTestReceiver;
 
 url.mojom.UrlTestPtr = url.mojom.UrlTestRemote;
 url.mojom.UrlTestRequest = url.mojom.UrlTestPendingReceiver;

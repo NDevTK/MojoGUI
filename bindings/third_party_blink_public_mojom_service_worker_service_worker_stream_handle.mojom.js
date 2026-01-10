@@ -97,6 +97,33 @@ blink.mojom.ServiceWorkerStreamCallback.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.ServiceWorkerStreamCallbackReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCompleted();
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAborted();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ServiceWorkerStreamCallbackReceiver = blink.mojom.ServiceWorkerStreamCallbackReceiver;
+
 blink.mojom.ServiceWorkerStreamCallbackPtr = blink.mojom.ServiceWorkerStreamCallbackRemote;
 blink.mojom.ServiceWorkerStreamCallbackRequest = blink.mojom.ServiceWorkerStreamCallbackPendingReceiver;
 

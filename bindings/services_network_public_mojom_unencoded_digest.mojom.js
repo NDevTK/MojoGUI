@@ -7,7 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
 
 network.mojom.UnencodedDigestIssueSpec = { $: mojo.internal.Enum() };
 network.mojom.UnencodedDigestsSpec = { $: {} };

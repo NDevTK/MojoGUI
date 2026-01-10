@@ -123,6 +123,52 @@ ash.cros_healthd.connectivity.mojom.State.getRemote = function() {
   return remote.$;
 };
 
+ash.cros_healthd.connectivity.mojom.StateReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.lastCallHasNext();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.waitLastCall();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fulfillLastCallCallback();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.connectivity.mojom.StateReceiver = ash.cros_healthd.connectivity.mojom.StateReceiver;
+
 ash.cros_healthd.connectivity.mojom.StatePtr = ash.cros_healthd.connectivity.mojom.StateRemote;
 ash.cros_healthd.connectivity.mojom.StateRequest = ash.cros_healthd.connectivity.mojom.StatePendingReceiver;
 
@@ -205,6 +251,33 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider.getRemote = functio
     'context');
   return remote.$;
 };
+
+ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindContext(params.remote, params.receiver);
+          break;
+        }
+        case 1: {
+          const params = ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindTestProvider(params.interface_name, params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderReceiver = ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderReceiver;
 
 ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderPtr = ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemote;
 ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRequest = ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderPendingReceiver;

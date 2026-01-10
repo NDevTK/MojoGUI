@@ -7,7 +7,7 @@
 // Module namespace
 var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
-var services = services || {};
+var media = media || {};
 
 video_capture.mojom.CreatePushSubscriptionSuccessCodeSpec = { $: mojo.internal.Enum() };
 video_capture.mojom.CreatePushSubscriptionResultCodeSpec = { $: {} };
@@ -247,6 +247,98 @@ video_capture.mojom.PushVideoStreamSubscription.getRemote = function() {
   return remote.$;
 };
 
+video_capture.mojom.PushVideoStreamSubscriptionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.activate();
+          break;
+        }
+        case 1: {
+          const params = video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suspend();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resume();
+          break;
+        }
+        case 3: {
+          const params = video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPhotoState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPhotoOptions(params.settings);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.takePhoto();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.close();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.processFeedback(params.feedback);
+          break;
+        }
+      }
+    });
+  }
+};
+
+video_capture.mojom.PushVideoStreamSubscriptionReceiver = video_capture.mojom.PushVideoStreamSubscriptionReceiver;
+
 video_capture.mojom.PushVideoStreamSubscriptionPtr = video_capture.mojom.PushVideoStreamSubscriptionRemote;
 video_capture.mojom.PushVideoStreamSubscriptionRequest = video_capture.mojom.PushVideoStreamSubscriptionPendingReceiver;
 
@@ -321,6 +413,35 @@ video_capture.mojom.VideoSource.getRemote = function() {
     'context');
   return remote.$;
 };
+
+video_capture.mojom.VideoSourceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPushSubscription(params.subscriber, params.requested_settings, params.force_reopen_with_new_settings, params.subscription);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+video_capture.mojom.VideoSourceReceiver = video_capture.mojom.VideoSourceReceiver;
 
 video_capture.mojom.VideoSourcePtr = video_capture.mojom.VideoSourceRemote;
 video_capture.mojom.VideoSourceRequest = video_capture.mojom.VideoSourcePendingReceiver;

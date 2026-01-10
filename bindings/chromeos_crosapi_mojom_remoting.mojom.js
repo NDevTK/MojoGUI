@@ -7,6 +7,7 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
+var remoting = remoting || {};
 
 crosapi.mojom.Remoting = {};
 crosapi.mojom.Remoting.$interfaceName = 'crosapi.mojom.Remoting';
@@ -102,6 +103,47 @@ crosapi.mojom.Remoting.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.RemotingReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSupportHostDetails();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.Remoting_StartSupportSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startSupportSession(params.params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.RemotingReceiver = crosapi.mojom.RemotingReceiver;
 
 crosapi.mojom.RemotingPtr = crosapi.mojom.RemotingRemote;
 crosapi.mojom.RemotingRequest = crosapi.mojom.RemotingPendingReceiver;

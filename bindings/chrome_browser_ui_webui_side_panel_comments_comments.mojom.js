@@ -79,6 +79,28 @@ comments.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+comments.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+comments.mojom.PageHandlerFactoryReceiver = comments.mojom.PageHandlerFactoryReceiver;
+
 comments.mojom.PageHandlerFactoryPtr = comments.mojom.PageHandlerFactoryRemote;
 comments.mojom.PageHandlerFactoryRequest = comments.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -143,6 +165,28 @@ comments.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+comments.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = comments.mojom.PageHandler_ShowUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showUI();
+          break;
+        }
+      }
+    });
+  }
+};
+
+comments.mojom.PageHandlerReceiver = comments.mojom.PageHandlerReceiver;
+
 comments.mojom.PageHandlerPtr = comments.mojom.PageHandlerRemote;
 comments.mojom.PageHandlerRequest = comments.mojom.PageHandlerPendingReceiver;
 
@@ -191,6 +235,23 @@ comments.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+comments.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+comments.mojom.PageReceiver = comments.mojom.PageReceiver;
 
 comments.mojom.PagePtr = comments.mojom.PageRemote;
 comments.mojom.PageRequest = comments.mojom.PagePendingReceiver;

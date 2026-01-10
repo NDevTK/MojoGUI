@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 
 blink.mojom.SharedWorker = {};
 blink.mojom.SharedWorker.$interfaceName = 'blink.mojom.SharedWorker';
@@ -90,6 +89,33 @@ blink.mojom.SharedWorker.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.SharedWorkerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SharedWorker_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.connection_id, params.message_port);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.SharedWorker_Terminate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.terminate();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SharedWorkerReceiver = blink.mojom.SharedWorkerReceiver;
 
 blink.mojom.SharedWorkerPtr = blink.mojom.SharedWorkerRemote;
 blink.mojom.SharedWorkerRequest = blink.mojom.SharedWorkerPendingReceiver;

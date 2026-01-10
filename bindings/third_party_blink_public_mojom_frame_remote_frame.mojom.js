@@ -7,43 +7,12 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var services = services || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var ui = ui || {};
-var ui = ui || {};
+var cc = cc || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
+var viz = viz || {};
 var ui = ui || {};
 var gfx = gfx || {};
-var url = url || {};
 var url = url || {};
 
 blink.mojom.RemoteMainFrameInterfacesSpec = { $: {} };
@@ -120,24 +89,24 @@ blink.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpec = { $: {} };
 // Struct: RemoteMainFrameInterfaces
 mojo.internal.Struct(
     blink.mojom.RemoteMainFrameInterfacesSpec, 'blink.mojom.RemoteMainFrameInterfaces', [
-      mojo.internal.StructField('main_frame_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.RemoteMainFrameHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('main_frame', 8, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.RemoteMainFrameRemote), null, false, 0, undefined),
+      mojo.internal.StructField('main_frame_host', 0, 0, pending_associated_remote<blink.mojom.RemoteMainFrameHost>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('main_frame', 8, 0, pending_associated_receiver<blink.mojom.RemoteMainFrame>Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: RemoteFrameInterfacesFromRenderer
 mojo.internal.Struct(
     blink.mojom.RemoteFrameInterfacesFromRendererSpec, 'blink.mojom.RemoteFrameInterfacesFromRenderer', [
-      mojo.internal.StructField('frame', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.RemoteFrameRemote), null, false, 0, undefined),
-      mojo.internal.StructField('frame_host_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.RemoteFrameHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('frame', 0, 0, pending_associated_remote<blink.mojom.RemoteFrame>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_host_receiver', 8, 0, pending_associated_receiver<blink.mojom.RemoteFrameHost>Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: RemoteFrameInterfacesFromBrowser
 mojo.internal.Struct(
     blink.mojom.RemoteFrameInterfacesFromBrowserSpec, 'blink.mojom.RemoteFrameInterfacesFromBrowser', [
-      mojo.internal.StructField('frame_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.RemoteFrameRemote), null, false, 0, undefined),
-      mojo.internal.StructField('frame_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.RemoteFrameHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('frame_receiver', 0, 0, pending_associated_receiver<blink.mojom.RemoteFrame>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_host', 8, 0, pending_associated_remote<blink.mojom.RemoteFrameHost>Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -230,6 +199,23 @@ blink.mojom.NavigationStateKeepAliveHandle.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.NavigationStateKeepAliveHandleReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+blink.mojom.NavigationStateKeepAliveHandleReceiver = blink.mojom.NavigationStateKeepAliveHandleReceiver;
 
 blink.mojom.NavigationStateKeepAliveHandlePtr = blink.mojom.NavigationStateKeepAliveHandleRemote;
 blink.mojom.NavigationStateKeepAliveHandleRequest = blink.mojom.NavigationStateKeepAliveHandlePendingReceiver;
@@ -525,6 +511,98 @@ blink.mojom.RemoteFrameHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.RemoteFrameHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setInheritedEffectiveTouchAction(params.touch_action);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.RemoteFrameHost_UpdateRenderThrottlingStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateRenderThrottlingStatus(params.is_throttled, params.subtree_throttled, params.display_locked);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.RemoteFrameHost_VisibilityChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.visibilityChanged(params.visibility);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.RemoteFrameHost_DidFocusFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didFocusFrame();
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.RemoteFrameHost_CheckCompleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkCompleted();
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.capturePaintPreviewOfCrossProcessSubframe(params.clip_rect, params.guid);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.RemoteFrameHost_SetIsInert_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsInert(params.inert);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.RemoteFrameHost_DidChangeOpener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didChangeOpener(params.opener_frame);
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.RemoteFrameHost_AdvanceFocus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.advanceFocus(params.focus_type, params.source_frame_token);
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.RemoteFrameHost_RouteMessageEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.routeMessageEvent(params.source_frame_token, params.source_origin, params.target_origin, params.message);
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.RemoteFrameHost_PrintCrossProcessSubframe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.printCrossProcessSubframe(params.frame_content_rect, params.document_cookie);
+          break;
+        }
+        case 11: {
+          const params = blink.mojom.RemoteFrameHost_Detach_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.detach();
+          break;
+        }
+        case 12: {
+          const params = blink.mojom.RemoteFrameHost_UpdateViewportIntersection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateViewportIntersection(params.intersection_state, params.visual_properties);
+          break;
+        }
+        case 13: {
+          const params = blink.mojom.RemoteFrameHost_SynchronizeVisualProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.synchronizeVisualProperties(params.properties);
+          break;
+        }
+        case 14: {
+          const params = blink.mojom.RemoteFrameHost_OpenURL_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openURL(params.params);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.RemoteFrameHostReceiver = blink.mojom.RemoteFrameHostReceiver;
 
 blink.mojom.RemoteFrameHostPtr = blink.mojom.RemoteFrameHostRemote;
 blink.mojom.RemoteFrameHostRequest = blink.mojom.RemoteFrameHostPendingReceiver;
@@ -1127,6 +1205,193 @@ blink.mojom.RemoteFrame.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.RemoteFrameReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.RemoteFrame_WillEnterFullscreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.willEnterFullscreen(params.options);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.RemoteFrame_EnforceInsecureNavigationsSet_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enforceInsecureNavigationsSet(params.set);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.RemoteFrame_SetFrameOwnerProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFrameOwnerProperties(params.properties);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.RemoteFrame_EnforceInsecureRequestPolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enforceInsecureRequestPolicy(params.policy);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.RemoteFrame_SetReplicatedOrigin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setReplicatedOrigin(params.origin, params.is_potentially_trustworthy_unique_origin);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.RemoteFrame_SetReplicatedIsAdFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setReplicatedIsAdFrame(params.is_ad_frame);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.RemoteFrame_SetReplicatedName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setReplicatedName(params.name, params.unique_name);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.RemoteFrame_DispatchLoadEventForFrameOwner_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchLoadEventForFrameOwner();
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.RemoteFrame_SetNeedsOcclusionTracking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNeedsOcclusionTracking(params.needs_tracking);
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.RemoteFrame_Collapse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.collapse(params.collapsed);
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.RemoteFrame_Focus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focus();
+          break;
+        }
+        case 11: {
+          const params = blink.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHadStickyUserActivationBeforeNavigation(params.has_gesture);
+          break;
+        }
+        case 12: {
+          const params = blink.mojom.RemoteFrame_BubbleLogicalScroll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bubbleLogicalScroll(params.direction, params.granularity);
+          break;
+        }
+        case 13: {
+          const params = blink.mojom.RemoteFrame_UpdateUserActivationState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateUserActivationState(params.state_update_type, params.notification_type);
+          break;
+        }
+        case 14: {
+          const params = blink.mojom.RemoteFrame_SetEmbeddingToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setEmbeddingToken(params.embedding_token);
+          break;
+        }
+        case 15: {
+          const params = blink.mojom.RemoteFrame_SetPageFocus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPageFocus(params.is_focused);
+          break;
+        }
+        case 16: {
+          const params = blink.mojom.RemoteFrame_RenderFallbackContent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.renderFallbackContent();
+          break;
+        }
+        case 17: {
+          const params = blink.mojom.RemoteFrame_AddResourceTimingFromChild_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addResourceTimingFromChild(params.timing);
+          break;
+        }
+        case 18: {
+          const params = blink.mojom.RemoteFrame_ScrollRectToVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.scrollRectToVisible(params.rect, params.params);
+          break;
+        }
+        case 19: {
+          const params = blink.mojom.RemoteFrame_DidStartLoading_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didStartLoading();
+          break;
+        }
+        case 20: {
+          const params = blink.mojom.RemoteFrame_DidStopLoading_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didStopLoading();
+          break;
+        }
+        case 21: {
+          const params = blink.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.intrinsicSizingInfoOfChildChanged(params.sizing_info);
+          break;
+        }
+        case 22: {
+          const params = blink.mojom.RemoteFrame_DidSetFramePolicyHeaders_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didSetFramePolicyHeaders(params.sandbox_flags, params.parsed_permissions_policy);
+          break;
+        }
+        case 23: {
+          const params = blink.mojom.RemoteFrame_DidUpdateFramePolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didUpdateFramePolicy(params.frame_policy);
+          break;
+        }
+        case 24: {
+          const params = blink.mojom.RemoteFrame_UpdateOpener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateOpener(params.opener_frame_token);
+          break;
+        }
+        case 25: {
+          const params = blink.mojom.RemoteFrame_DetachAndDispose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.detachAndDispose();
+          break;
+        }
+        case 26: {
+          const params = blink.mojom.RemoteFrame_EnableAutoResize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableAutoResize(params.min_size, params.max_size);
+          break;
+        }
+        case 27: {
+          const params = blink.mojom.RemoteFrame_DisableAutoResize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableAutoResize();
+          break;
+        }
+        case 28: {
+          const params = blink.mojom.RemoteFrame_DidUpdateVisualProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didUpdateVisualProperties(params.metadata);
+          break;
+        }
+        case 29: {
+          const params = blink.mojom.RemoteFrame_SetFrameSinkId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFrameSinkId(params.frame_sink_id, params.allow_paint_holding);
+          break;
+        }
+        case 30: {
+          const params = blink.mojom.RemoteFrame_ChildProcessGone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.childProcessGone();
+          break;
+        }
+        case 31: {
+          const params = blink.mojom.RemoteFrame_CreateRemoteChild_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createRemoteChild(params.token, params.opener_frame_token, params.tree_scope_type, params.replication_state, params.owner_properties, params.is_loading, params.devtools_frame_token, params.remote_frame_interfaces);
+          break;
+        }
+        case 32: {
+          const params = blink.mojom.RemoteFrame_CreateRemoteChildren_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createRemoteChildren(params.params, params.navigation_metrics_token);
+          break;
+        }
+        case 33: {
+          const params = blink.mojom.RemoteFrame_ForwardFencedFrameEventToEmbedder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forwardFencedFrameEventToEmbedder(params.event_type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.RemoteFrameReceiver = blink.mojom.RemoteFrameReceiver;
+
 blink.mojom.RemoteFramePtr = blink.mojom.RemoteFrameRemote;
 blink.mojom.RemoteFrameRequest = blink.mojom.RemoteFramePendingReceiver;
 
@@ -1191,6 +1456,28 @@ blink.mojom.RemoteMainFrame.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.RemoteMainFrameReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.RemoteMainFrame_UpdateTextAutosizerPageInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateTextAutosizerPageInfo(params.page_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.RemoteMainFrameReceiver = blink.mojom.RemoteMainFrameReceiver;
 
 blink.mojom.RemoteMainFramePtr = blink.mojom.RemoteMainFrameRemote;
 blink.mojom.RemoteMainFrameRequest = blink.mojom.RemoteMainFramePendingReceiver;
@@ -1307,6 +1594,50 @@ blink.mojom.RemoteMainFrameHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.RemoteMainFrameHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.RemoteMainFrameHost_FocusPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focusPage();
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.RemoteMainFrameHost_TakeFocus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.takeFocus(params.reverse);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateTargetURL(params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.routeCloseEvent();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.RemoteMainFrameHostReceiver = blink.mojom.RemoteMainFrameHostReceiver;
 
 blink.mojom.RemoteMainFrameHostPtr = blink.mojom.RemoteMainFrameHostRemote;
 blink.mojom.RemoteMainFrameHostRequest = blink.mojom.RemoteMainFrameHostPendingReceiver;

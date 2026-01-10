@@ -88,6 +88,28 @@ search_engine_choice.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+search_engine_choice.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+search_engine_choice.mojom.PageHandlerFactoryReceiver = search_engine_choice.mojom.PageHandlerFactoryReceiver;
+
 search_engine_choice.mojom.PageHandlerFactoryPtr = search_engine_choice.mojom.PageHandlerFactoryRemote;
 search_engine_choice.mojom.PageHandlerFactoryRequest = search_engine_choice.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -214,6 +236,48 @@ search_engine_choice.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+search_engine_choice.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.displayDialog();
+          break;
+        }
+        case 1: {
+          const params = search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleSearchEngineChoiceSelected(params.prepopulate_id, params.save_guest_mode_selection);
+          break;
+        }
+        case 2: {
+          const params = search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleLearnMoreLinkClicked();
+          break;
+        }
+        case 3: {
+          const params = search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleMoreButtonClicked();
+          break;
+        }
+        case 4: {
+          const params = search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordScrollState(params.scroll_state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+search_engine_choice.mojom.PageHandlerReceiver = search_engine_choice.mojom.PageHandlerReceiver;
 
 search_engine_choice.mojom.PageHandlerPtr = search_engine_choice.mojom.PageHandlerRemote;
 search_engine_choice.mojom.PageHandlerRequest = search_engine_choice.mojom.PageHandlerPendingReceiver;

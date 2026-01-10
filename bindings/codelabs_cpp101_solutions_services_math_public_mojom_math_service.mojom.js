@@ -81,6 +81,35 @@ math.mojom.MathService.getRemote = function() {
   return remote.$;
 };
 
+math.mojom.MathServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = math.mojom.MathService_Divide_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.divide(params.dividend, params.divisor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, math.mojom.MathService_Divide_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+math.mojom.MathServiceReceiver = math.mojom.MathServiceReceiver;
+
 math.mojom.MathServicePtr = math.mojom.MathServiceRemote;
 math.mojom.MathServiceRequest = math.mojom.MathServicePendingReceiver;
 

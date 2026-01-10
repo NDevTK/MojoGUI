@@ -7,6 +7,7 @@
 // Module namespace
 var font_data_service = font_data_service || {};
 font_data_service.mojom = font_data_service.mojom || {};
+var mojo_base = mojo_base || {};
 
 font_data_service.mojom.TypefaceSlantSpec = { $: mojo.internal.Enum() };
 font_data_service.mojom.TypefaceDataSpec = { $: {} };
@@ -226,6 +227,71 @@ font_data_service.mojom.FontDataService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+font_data_service.mojom.FontDataServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.matchFamilyName(params.family_name, params.style);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.matchFamilyNameCharacter(params.family_name, params.style, params.bcp47s, params.character);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllFamilyNames();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.legacyMakeTypeface(params.family_name, params.style);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+font_data_service.mojom.FontDataServiceReceiver = font_data_service.mojom.FontDataServiceReceiver;
 
 font_data_service.mojom.FontDataServicePtr = font_data_service.mojom.FontDataServiceRemote;
 font_data_service.mojom.FontDataServiceRequest = font_data_service.mojom.FontDataServicePendingReceiver;

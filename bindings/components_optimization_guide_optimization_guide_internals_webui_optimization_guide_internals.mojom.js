@@ -7,7 +7,8 @@
 // Module namespace
 var optimization_guide_internals = optimization_guide_internals || {};
 optimization_guide_internals.mojom = optimization_guide_internals.mojom || {};
-var components = components || {};
+var optimization_guide_common = optimization_guide_common || {};
+var mojo_base = mojo_base || {};
 
 optimization_guide_internals.mojom.DownloadedModelInfoSpec = { $: {} };
 optimization_guide_internals.mojom.LoggedClientIdsSpec = { $: {} };
@@ -174,6 +175,64 @@ optimization_guide_internals.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+optimization_guide_internals.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page);
+          break;
+        }
+        case 1: {
+          const params = optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestDownloadedModelsInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestLoggedModelQualityClientIds();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestMqlsLogs();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+optimization_guide_internals.mojom.PageHandlerFactoryReceiver = optimization_guide_internals.mojom.PageHandlerFactoryReceiver;
+
 optimization_guide_internals.mojom.PageHandlerFactoryPtr = optimization_guide_internals.mojom.PageHandlerFactoryRemote;
 optimization_guide_internals.mojom.PageHandlerFactoryRequest = optimization_guide_internals.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -242,6 +301,28 @@ optimization_guide_internals.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+optimization_guide_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLogMessageAdded(params.event_time, params.log_source, params.source_file, params.source_line, params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+optimization_guide_internals.mojom.PageReceiver = optimization_guide_internals.mojom.PageReceiver;
 
 optimization_guide_internals.mojom.PagePtr = optimization_guide_internals.mojom.PageRemote;
 optimization_guide_internals.mojom.PageRequest = optimization_guide_internals.mojom.PagePendingReceiver;

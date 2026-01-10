@@ -7,6 +7,7 @@
 // Module namespace
 var metrics = metrics || {};
 metrics.mojom = metrics.mojom || {};
+var mojo_base = mojo_base || {};
 
 metrics.mojom.ProfileTypeSpec = { $: mojo.internal.Enum() };
 metrics.mojom.SampledProfileSpec = { $: {} };
@@ -89,6 +90,28 @@ metrics.mojom.CallStackProfileCollector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+metrics.mojom.CallStackProfileCollectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.collect(params.start_timestamp, params.profile_type, params.profile);
+          break;
+        }
+      }
+    });
+  }
+};
+
+metrics.mojom.CallStackProfileCollectorReceiver = metrics.mojom.CallStackProfileCollectorReceiver;
 
 metrics.mojom.CallStackProfileCollectorPtr = metrics.mojom.CallStackProfileCollectorRemote;
 metrics.mojom.CallStackProfileCollectorRequest = metrics.mojom.CallStackProfileCollectorPendingReceiver;

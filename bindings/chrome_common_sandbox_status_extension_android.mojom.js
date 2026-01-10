@@ -72,6 +72,28 @@ chrome.mojom.SandboxStatusExtension.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.SandboxStatusExtensionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addSandboxStatusExtension();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.SandboxStatusExtensionReceiver = chrome.mojom.SandboxStatusExtensionReceiver;
+
 chrome.mojom.SandboxStatusExtensionPtr = chrome.mojom.SandboxStatusExtensionRemote;
 chrome.mojom.SandboxStatusExtensionRequest = chrome.mojom.SandboxStatusExtensionPendingReceiver;
 

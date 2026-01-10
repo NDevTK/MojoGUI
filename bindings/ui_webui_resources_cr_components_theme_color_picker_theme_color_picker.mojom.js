@@ -122,6 +122,28 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+theme_color_picker.mojom.ThemeColorPickerHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createThemeColorPickerHandler(params.handler, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+theme_color_picker.mojom.ThemeColorPickerHandlerFactoryReceiver = theme_color_picker.mojom.ThemeColorPickerHandlerFactoryReceiver;
+
 theme_color_picker.mojom.ThemeColorPickerHandlerFactoryPtr = theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemote;
 theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRequest = theme_color_picker.mojom.ThemeColorPickerHandlerFactoryPendingReceiver;
 
@@ -286,6 +308,65 @@ theme_color_picker.mojom.ThemeColorPickerHandler.getRemote = function() {
   return remote.$;
 };
 
+theme_color_picker.mojom.ThemeColorPickerHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getChromeColors(params.is_dark_mode);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateTheme();
+          break;
+        }
+        case 2: {
+          const params = theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDefaultColor();
+          break;
+        }
+        case 3: {
+          const params = theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setGreyDefaultColor();
+          break;
+        }
+        case 4: {
+          const params = theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSeedColor(params.seed_color, params.variant);
+          break;
+        }
+        case 5: {
+          const params = theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSeedColorFromHue(params.hue);
+          break;
+        }
+        case 6: {
+          const params = theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeBackgroundImage();
+          break;
+        }
+      }
+    });
+  }
+};
+
+theme_color_picker.mojom.ThemeColorPickerHandlerReceiver = theme_color_picker.mojom.ThemeColorPickerHandlerReceiver;
+
 theme_color_picker.mojom.ThemeColorPickerHandlerPtr = theme_color_picker.mojom.ThemeColorPickerHandlerRemote;
 theme_color_picker.mojom.ThemeColorPickerHandlerRequest = theme_color_picker.mojom.ThemeColorPickerHandlerPendingReceiver;
 
@@ -350,6 +431,28 @@ theme_color_picker.mojom.ThemeColorPickerClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+theme_color_picker.mojom.ThemeColorPickerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTheme(params.theme);
+          break;
+        }
+      }
+    });
+  }
+};
+
+theme_color_picker.mojom.ThemeColorPickerClientReceiver = theme_color_picker.mojom.ThemeColorPickerClientReceiver;
 
 theme_color_picker.mojom.ThemeColorPickerClientPtr = theme_color_picker.mojom.ThemeColorPickerClientRemote;
 theme_color_picker.mojom.ThemeColorPickerClientRequest = theme_color_picker.mojom.ThemeColorPickerClientPendingReceiver;

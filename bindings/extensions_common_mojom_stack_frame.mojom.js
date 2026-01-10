@@ -7,6 +7,7 @@
 // Module namespace
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
+var mojo_base = mojo_base || {};
 
 extensions.mojom.StackFrameSpec = { $: {} };
 

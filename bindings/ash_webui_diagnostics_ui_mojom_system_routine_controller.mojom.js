@@ -149,6 +149,28 @@ ash.diagnostics.mojom.RoutineRunner.getRemote = function() {
   return remote.$;
 };
 
+ash.diagnostics.mojom.RoutineRunnerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRoutineResult(params.info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.RoutineRunnerReceiver = ash.diagnostics.mojom.RoutineRunnerReceiver;
+
 ash.diagnostics.mojom.RoutineRunnerPtr = ash.diagnostics.mojom.RoutineRunnerRemote;
 ash.diagnostics.mojom.RoutineRunnerRequest = ash.diagnostics.mojom.RoutineRunnerPendingReceiver;
 
@@ -235,6 +257,40 @@ ash.diagnostics.mojom.SystemRoutineController.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.diagnostics.mojom.SystemRoutineControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSupportedRoutines();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.runRoutine(params.type, params.runner);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.SystemRoutineControllerReceiver = ash.diagnostics.mojom.SystemRoutineControllerReceiver;
 
 ash.diagnostics.mojom.SystemRoutineControllerPtr = ash.diagnostics.mojom.SystemRoutineControllerRemote;
 ash.diagnostics.mojom.SystemRoutineControllerRequest = ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver;

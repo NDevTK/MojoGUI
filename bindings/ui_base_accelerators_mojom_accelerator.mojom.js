@@ -7,8 +7,7 @@
 // Module namespace
 var ui = ui || {};
 ui.mojom = ui.mojom || {};
-var ui = ui || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 
 ui.mojom.AcceleratorKeyStateSpec = { $: mojo.internal.Enum() };
 ui.mojom.AcceleratorSpec = { $: {} };

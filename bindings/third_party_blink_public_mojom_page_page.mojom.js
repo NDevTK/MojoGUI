@@ -7,17 +7,10 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var skia = skia || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var ui = ui || {};
+var color = color || {};
 
 blink.mojom.PagehideDispatchSpec = { $: mojo.internal.Enum() };
 blink.mojom.PageLifecycleStateSpec = { $: {} };
@@ -342,6 +335,97 @@ blink.mojom.PageBroadcast.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.PageBroadcastReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPageLifecycleState(params.state, params.page_restore_params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.audioStateChanged(params.is_audio_playing);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.activatePrerenderedPage(params.prerender_page_activation_params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateWebPreferences(params.preferences);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateRendererPreferences(params.preferences);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHistoryIndexAndLength(params.index, params.length);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPageBaseBackgroundColor(params.color);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createRemoteMainFrame(params.token, params.opener_frame_token, params.replication_state, params.is_loading, params.devtools_frame_token, params.navigation_metrics_token, params.remote_frame_interfaces, params.remote_main_frame_interfaces);
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updatePageBrowsingContextGroup(params.browsing_context_group_token);
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPageAttributionSupport(params.support);
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateColorProviders(params.color_provider_colors);
+          break;
+        }
+        case 11: {
+          const params = blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSupportsDraggableRegions(params.supports_draggable_regions);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PageBroadcastReceiver = blink.mojom.PageBroadcastReceiver;
 
 blink.mojom.PageBroadcastPtr = blink.mojom.PageBroadcastRemote;
 blink.mojom.PageBroadcastRequest = blink.mojom.PageBroadcastPendingReceiver;

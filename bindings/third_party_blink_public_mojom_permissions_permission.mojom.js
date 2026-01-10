@@ -7,9 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 var url = url || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 blink.mojom.PermissionNameSpec = { $: mojo.internal.Enum() };
@@ -247,6 +245,28 @@ blink.mojom.PermissionObserver.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.PermissionObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPermissionStatusChange(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PermissionObserverReceiver = blink.mojom.PermissionObserverReceiver;
+
 blink.mojom.PermissionObserverPtr = blink.mojom.PermissionObserverRemote;
 blink.mojom.PermissionObserverRequest = blink.mojom.PermissionObserverPendingReceiver;
 
@@ -312,6 +332,28 @@ blink.mojom.EmbeddedPermissionControlClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.EmbeddedPermissionControlClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEmbeddedPermissionControlRegistered(params.allow, params.statuses);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.EmbeddedPermissionControlClientReceiver = blink.mojom.EmbeddedPermissionControlClientReceiver;
 
 blink.mojom.EmbeddedPermissionControlClientPtr = blink.mojom.EmbeddedPermissionControlClientRemote;
 blink.mojom.EmbeddedPermissionControlClientRequest = blink.mojom.EmbeddedPermissionControlClientPendingReceiver;
@@ -546,6 +588,103 @@ blink.mojom.PermissionService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.PermissionServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PermissionService_HasPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasPermission(params.permission);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PermissionService_HasPermission_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerPageEmbeddedPermissionControl(params.permissions, params.descriptor, params.client);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPageEmbeddedPermission(params.permissions, params.descriptor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.PermissionService_RequestPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPermission(params.permission, params.user_gesture);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.PermissionService_RequestPermissions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPermissions(params.permission, params.user_gesture);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.PermissionService_RevokePermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.revokePermission(params.permission);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addPermissionObserver(params.permission, params.last_known_status, params.observer);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addPageEmbeddedPermissionObserver(params.permission, params.last_known_status, params.observer);
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.PermissionService_NotifyEventListener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyEventListener(params.permission, params.event_type, params.is_added);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PermissionServiceReceiver = blink.mojom.PermissionServiceReceiver;
 
 blink.mojom.PermissionServicePtr = blink.mojom.PermissionServiceRemote;
 blink.mojom.PermissionServiceRequest = blink.mojom.PermissionServicePendingReceiver;

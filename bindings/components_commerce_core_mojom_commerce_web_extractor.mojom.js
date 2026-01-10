@@ -7,6 +7,7 @@
 // Module namespace
 var commerce_web_extractor = commerce_web_extractor || {};
 commerce_web_extractor.mojom = commerce_web_extractor.mojom || {};
+var mojo_base = mojo_base || {};
 
 commerce_web_extractor.mojom.CommerceWebExtractor = {};
 commerce_web_extractor.mojom.CommerceWebExtractor.$interfaceName = 'commerce_web_extractor.mojom.CommerceWebExtractor';
@@ -78,6 +79,35 @@ commerce_web_extractor.mojom.CommerceWebExtractor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+commerce_web_extractor.mojom.CommerceWebExtractorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.extractMetaInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+commerce_web_extractor.mojom.CommerceWebExtractorReceiver = commerce_web_extractor.mojom.CommerceWebExtractorReceiver;
 
 commerce_web_extractor.mojom.CommerceWebExtractorPtr = commerce_web_extractor.mojom.CommerceWebExtractorRemote;
 commerce_web_extractor.mojom.CommerceWebExtractorRequest = commerce_web_extractor.mojom.CommerceWebExtractorPendingReceiver;

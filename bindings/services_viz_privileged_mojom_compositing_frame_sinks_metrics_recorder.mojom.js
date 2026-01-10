@@ -7,8 +7,7 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 viz.mojom.FrameCountingPerSinkDataSpec = { $: {} };
 viz.mojom.FrameCountingDataSpec = { $: {} };
@@ -167,6 +166,57 @@ viz.mojom.FrameSinksMetricsRecorder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.FrameSinksMetricsRecorderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startFrameCounting(params.start_time, params.bucket_size);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopFrameCounting();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startOverdrawTracking(params.root_frame_sink_id, params.bucket_size);
+          break;
+        }
+        case 3: {
+          const params = viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopOverdrawTracking(params.root_frame_sink_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.FrameSinksMetricsRecorderReceiver = viz.mojom.FrameSinksMetricsRecorderReceiver;
 
 viz.mojom.FrameSinksMetricsRecorderPtr = viz.mojom.FrameSinksMetricsRecorderRemote;
 viz.mojom.FrameSinksMetricsRecorderRequest = viz.mojom.FrameSinksMetricsRecorderPendingReceiver;

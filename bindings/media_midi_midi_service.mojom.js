@@ -7,6 +7,7 @@
 // Module namespace
 var midi = midi || {};
 midi.mojom = midi.mojom || {};
+var mojo_base = mojo_base || {};
 
 midi.mojom.ResultSpec = { $: mojo.internal.Enum() };
 midi.mojom.PortStateSpec = { $: mojo.internal.Enum() };
@@ -214,6 +215,58 @@ midi.mojom.MidiSessionClient.getRemote = function() {
   return remote.$;
 };
 
+midi.mojom.MidiSessionClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addInputPort(params.info);
+          break;
+        }
+        case 1: {
+          const params = midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addOutputPort(params.info);
+          break;
+        }
+        case 2: {
+          const params = midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setInputPortState(params.port, params.state);
+          break;
+        }
+        case 3: {
+          const params = midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOutputPortState(params.port, params.state);
+          break;
+        }
+        case 4: {
+          const params = midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sessionStarted(params.result);
+          break;
+        }
+        case 5: {
+          const params = midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acknowledgeSentData(params.bytes);
+          break;
+        }
+        case 6: {
+          const params = midi.mojom.MidiSessionClient_DataReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dataReceived(params.port, params.data, params.timestamp);
+          break;
+        }
+      }
+    });
+  }
+};
+
+midi.mojom.MidiSessionClientReceiver = midi.mojom.MidiSessionClientReceiver;
+
 midi.mojom.MidiSessionClientPtr = midi.mojom.MidiSessionClientRemote;
 midi.mojom.MidiSessionClientRequest = midi.mojom.MidiSessionClientPendingReceiver;
 
@@ -279,6 +332,28 @@ midi.mojom.MidiSessionProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+midi.mojom.MidiSessionProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = midi.mojom.MidiSessionProvider_StartSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startSession(params.receiver, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+midi.mojom.MidiSessionProviderReceiver = midi.mojom.MidiSessionProviderReceiver;
 
 midi.mojom.MidiSessionProviderPtr = midi.mojom.MidiSessionProviderRemote;
 midi.mojom.MidiSessionProviderRequest = midi.mojom.MidiSessionProviderPendingReceiver;
@@ -346,6 +421,28 @@ midi.mojom.MidiSession.getRemote = function() {
     'context');
   return remote.$;
 };
+
+midi.mojom.MidiSessionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = midi.mojom.MidiSession_SendData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendData(params.port, params.data, params.timestamp);
+          break;
+        }
+      }
+    });
+  }
+};
+
+midi.mojom.MidiSessionReceiver = midi.mojom.MidiSessionReceiver;
 
 midi.mojom.MidiSessionPtr = midi.mojom.MidiSessionRemote;
 midi.mojom.MidiSessionRequest = midi.mojom.MidiSessionPendingReceiver;

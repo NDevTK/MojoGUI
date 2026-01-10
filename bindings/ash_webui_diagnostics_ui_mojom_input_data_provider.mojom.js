@@ -8,7 +8,6 @@
 var ash = ash || {};
 ash.diagnostics = ash.diagnostics || {};
 ash.diagnostics.mojom = ash.diagnostics.mojom || {};
-var ash = ash || {};
 
 ash.diagnostics.mojom.KeyEventTypeSpec = { $: mojo.internal.Enum() };
 ash.diagnostics.mojom.TouchDeviceTypeSpec = { $: mojo.internal.Enum() };
@@ -183,6 +182,38 @@ ash.diagnostics.mojom.KeyboardObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.diagnostics.mojom.KeyboardObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onKeyEvent(params.event);
+          break;
+        }
+        case 1: {
+          const params = ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onKeyEventsPaused();
+          break;
+        }
+        case 2: {
+          const params = ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onKeyEventsResumed();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.KeyboardObserverReceiver = ash.diagnostics.mojom.KeyboardObserverReceiver;
+
 ash.diagnostics.mojom.KeyboardObserverPtr = ash.diagnostics.mojom.KeyboardObserverRemote;
 ash.diagnostics.mojom.KeyboardObserverRequest = ash.diagnostics.mojom.KeyboardObserverPendingReceiver;
 
@@ -247,6 +278,28 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.diagnostics.mojom.InternalDisplayPowerStateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onInternalDisplayPowerStateChanged(params.is_display_on);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.InternalDisplayPowerStateObserverReceiver = ash.diagnostics.mojom.InternalDisplayPowerStateObserverReceiver;
 
 ash.diagnostics.mojom.InternalDisplayPowerStateObserverPtr = ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemote;
 ash.diagnostics.mojom.InternalDisplayPowerStateObserverRequest = ash.diagnostics.mojom.InternalDisplayPowerStateObserverPendingReceiver;
@@ -313,6 +366,28 @@ ash.diagnostics.mojom.TabletModeObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.diagnostics.mojom.TabletModeObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTabletModeChanged(params.is_tablet_mode);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.TabletModeObserverReceiver = ash.diagnostics.mojom.TabletModeObserverReceiver;
+
 ash.diagnostics.mojom.TabletModeObserverPtr = ash.diagnostics.mojom.TabletModeObserverRemote;
 ash.diagnostics.mojom.TabletModeObserverRequest = ash.diagnostics.mojom.TabletModeObserverPendingReceiver;
 
@@ -377,6 +452,28 @@ ash.diagnostics.mojom.LidStateObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.diagnostics.mojom.LidStateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLidStateChanged(params.is_lid_open);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.LidStateObserverReceiver = ash.diagnostics.mojom.LidStateObserverReceiver;
 
 ash.diagnostics.mojom.LidStateObserverPtr = ash.diagnostics.mojom.LidStateObserverRemote;
 ash.diagnostics.mojom.LidStateObserverRequest = ash.diagnostics.mojom.LidStateObserverPendingReceiver;
@@ -490,6 +587,43 @@ ash.diagnostics.mojom.ConnectedDevicesObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onKeyboardConnected(params.new_keyboard);
+          break;
+        }
+        case 1: {
+          const params = ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onKeyboardDisconnected(params.id);
+          break;
+        }
+        case 2: {
+          const params = ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTouchDeviceConnected(params.new_touch_device);
+          break;
+        }
+        case 3: {
+          const params = ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTouchDeviceDisconnected(params.id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.ConnectedDevicesObserverReceiver = ash.diagnostics.mojom.ConnectedDevicesObserverReceiver;
 
 ash.diagnostics.mojom.ConnectedDevicesObserverPtr = ash.diagnostics.mojom.ConnectedDevicesObserverRemote;
 ash.diagnostics.mojom.ConnectedDevicesObserverRequest = ash.diagnostics.mojom.ConnectedDevicesObserverPendingReceiver;
@@ -700,6 +834,89 @@ ash.diagnostics.mojom.InputDataProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.diagnostics.mojom.InputDataProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getConnectedDevices();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeConnectedDevices(params.observer);
+          break;
+        }
+        case 2: {
+          const params = ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeKeyEvents(params.id, params.observer);
+          break;
+        }
+        case 3: {
+          const params = ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeTabletMode(params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeLidState(params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeInternalDisplayPowerState(params.observer);
+          break;
+        }
+        case 6: {
+          const params = ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.moveAppToTestingScreen(params.evdev_id);
+          break;
+        }
+        case 7: {
+          const params = ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.moveAppBackToPreviousScreen();
+          break;
+        }
+        case 8: {
+          const params = ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setA11yTouchPassthrough(params.enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.InputDataProviderReceiver = ash.diagnostics.mojom.InputDataProviderReceiver;
 
 ash.diagnostics.mojom.InputDataProviderPtr = ash.diagnostics.mojom.InputDataProviderRemote;
 ash.diagnostics.mojom.InputDataProviderRequest = ash.diagnostics.mojom.InputDataProviderPendingReceiver;

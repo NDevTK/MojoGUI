@@ -7,10 +7,8 @@
 // Module namespace
 var webnn = webnn || {};
 webnn.mojom = webnn.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var gpu = gpu || {};
+var mojo_base = mojo_base || {};
 var blink = blink || {};
 
 webnn.mojom.CreateTensorResultSpec = { $: {} };
@@ -33,7 +31,7 @@ mojo.internal.Union(
       },
       'error': {
         'ordinal': 1,
-        'type': webnn.mojom.ErrorSpec.$,
+        'type': mojo_base.mojom.ErrorSpec.$,
         'nullable': false,
       },
     });
@@ -41,7 +39,7 @@ mojo.internal.Union(
 // Struct: CreateTensorSuccess
 mojo.internal.Struct(
     webnn.mojom.CreateTensorSuccessSpec, 'webnn.mojom.CreateTensorSuccess', [
-      mojo.internal.StructField('tensor_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(webnn.mojom.WebNNTensorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('tensor_remote', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('tensor_handle', 8, 0, blink.mojom.WebNNTensorTokenSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -49,7 +47,7 @@ mojo.internal.Struct(
 // Interface: WebNNContext
 mojo.internal.Struct(
     webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec, 'webnn.mojom.WebNNContext_CreateGraphBuilder_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(webnn.mojom.WebNNGraphBuilderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -153,6 +151,52 @@ webnn.mojom.WebNNContext.getRemote = function() {
     'context');
   return remote.$;
 };
+
+webnn.mojom.WebNNContextReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createGraphBuilder(params.receiver);
+          break;
+        }
+        case 1: {
+          const params = webnn.mojom.WebNNContext_CreateTensor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createTensor(params.tensor_info, params.tensor_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createTensorFromMailbox(params.tensor_info, params.mailbox, params.fence);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+webnn.mojom.WebNNContextReceiver = webnn.mojom.WebNNContextReceiver;
 
 webnn.mojom.WebNNContextPtr = webnn.mojom.WebNNContextRemote;
 webnn.mojom.WebNNContextRequest = webnn.mojom.WebNNContextPendingReceiver;

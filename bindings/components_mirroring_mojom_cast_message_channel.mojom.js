@@ -86,6 +86,28 @@ mirroring.mojom.CastMessageChannel.getRemote = function() {
   return remote.$;
 };
 
+mirroring.mojom.CastMessageChannelReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMessage(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mirroring.mojom.CastMessageChannelReceiver = mirroring.mojom.CastMessageChannelReceiver;
+
 mirroring.mojom.CastMessageChannelPtr = mirroring.mojom.CastMessageChannelRemote;
 mirroring.mojom.CastMessageChannelRequest = mirroring.mojom.CastMessageChannelPendingReceiver;
 

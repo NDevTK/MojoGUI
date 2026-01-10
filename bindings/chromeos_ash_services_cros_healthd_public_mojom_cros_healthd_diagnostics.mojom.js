@@ -272,6 +272,35 @@ ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier.getRemote = function() 
   return remote.$;
 };
 
+ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getColorMatched();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierReceiver = ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierReceiver;
+
 ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPtr = ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote;
 ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRequest = ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPendingReceiver;
 

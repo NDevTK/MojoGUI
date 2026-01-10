@@ -7,6 +7,7 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var mojo_base = mojo_base || {};
 
 device.mojom.SmartCardSuccessSpec = { $: mojo.internal.Enum() };
 device.mojom.SmartCardErrorSpec = { $: mojo.internal.Enum() };
@@ -250,7 +251,7 @@ mojo.internal.Union(
     device.mojom.SmartCardTransactionResultSpec, 'device.mojom.SmartCardTransactionResult', {
       'transaction': {
         'ordinal': 0,
-        'type': mojo.internal.AssociatedInterfaceProxy(device.mojom.SmartCardTransactionRemote),
+        'type': mojo.internal.Pointer,
         'nullable': false,
       },
       'error': {
@@ -389,6 +390,35 @@ device.mojom.SmartCardTransaction.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.SmartCardTransactionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.endTransaction(params.disposition);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.SmartCardTransactionReceiver = device.mojom.SmartCardTransactionReceiver;
 
 device.mojom.SmartCardTransactionPtr = device.mojom.SmartCardTransactionRemote;
 device.mojom.SmartCardTransactionRequest = device.mojom.SmartCardTransactionPendingReceiver;
@@ -594,6 +624,107 @@ device.mojom.SmartCardConnection.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.SmartCardConnectionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.SmartCardConnection_Disconnect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disconnect(params.disposition);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.SmartCardConnection_Transmit_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.transmit(params.protocol, params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.SmartCardConnection_Control_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.control(params.control_code, params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SmartCardConnection_Control_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = device.mojom.SmartCardConnection_GetAttrib_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAttrib(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = device.mojom.SmartCardConnection_SetAttrib_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAttrib(params.id, params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = device.mojom.SmartCardConnection_Status_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.status();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SmartCardConnection_Status_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.beginTransaction();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.SmartCardConnectionReceiver = device.mojom.SmartCardConnectionReceiver;
+
 device.mojom.SmartCardConnectionPtr = device.mojom.SmartCardConnectionRemote;
 device.mojom.SmartCardConnectionRequest = device.mojom.SmartCardConnectionPendingReceiver;
 
@@ -657,6 +788,28 @@ device.mojom.SmartCardConnectionWatcher.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.SmartCardConnectionWatcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyConnectionUsed();
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.SmartCardConnectionWatcherReceiver = device.mojom.SmartCardConnectionWatcherReceiver;
 
 device.mojom.SmartCardConnectionWatcherPtr = device.mojom.SmartCardConnectionWatcherRemote;
 device.mojom.SmartCardConnectionWatcherRequest = device.mojom.SmartCardConnectionWatcherPendingReceiver;
@@ -797,6 +950,71 @@ device.mojom.SmartCardContext.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.SmartCardContextReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.SmartCardContext_ListReaders_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listReaders();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.SmartCardContext_GetStatusChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getStatusChange(params.timeout, params.reader_states);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.SmartCardContext_Cancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancel();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SmartCardContext_Cancel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = device.mojom.SmartCardContext_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.reader, params.share_mode, params.preferred_protocols, params.connection_watcher);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SmartCardContext_Connect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.SmartCardContextReceiver = device.mojom.SmartCardContextReceiver;
+
 device.mojom.SmartCardContextPtr = device.mojom.SmartCardContextRemote;
 device.mojom.SmartCardContextRequest = device.mojom.SmartCardContextPendingReceiver;
 
@@ -866,6 +1084,35 @@ device.mojom.SmartCardContextFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.SmartCardContextFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createContext();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.SmartCardContextFactoryReceiver = device.mojom.SmartCardContextFactoryReceiver;
 
 device.mojom.SmartCardContextFactoryPtr = device.mojom.SmartCardContextFactoryRemote;
 device.mojom.SmartCardContextFactoryRequest = device.mojom.SmartCardContextFactoryPendingReceiver;

@@ -157,6 +157,47 @@ arc.mojom.WebApkInstance.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.WebApkInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installWebApk(params.package_name, params.version, params.app_name, params.token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWebApkInfo(params.package_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.WebApkInstanceReceiver = arc.mojom.WebApkInstanceReceiver;
+
 arc.mojom.WebApkInstancePtr = arc.mojom.WebApkInstanceRemote;
 arc.mojom.WebApkInstanceRequest = arc.mojom.WebApkInstancePendingReceiver;
 

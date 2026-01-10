@@ -8,24 +8,11 @@
 var ui = ui || {};
 ui.ozone = ui.ozone || {};
 ui.ozone.mojom = ui.ozone.mojom || {};
-var services = services || {};
+var viz = viz || {};
 var skia = skia || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var ui = ui || {};
+var wl = wl || {};
 
 ui.ozone.mojom.WaylandBufferManagerHost = {};
 ui.ozone.mojom.WaylandBufferManagerHost.$interfaceName = 'ui.ozone.mojom.WaylandBufferManagerHost';
@@ -44,7 +31,7 @@ ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec = { $: {} };
 // Interface: WaylandBufferManagerHost
 mojo.internal.Struct(
     ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_Params', [
-      mojo.internal.StructField('buffer_manager_gpu_associated', 0, 0, mojo.internal.AssociatedInterfaceProxy(ui.ozone.mojom.WaylandBufferManagerGpuRemote), null, false, 0, undefined),
+      mojo.internal.StructField('buffer_manager_gpu_associated', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -198,6 +185,53 @@ ui.ozone.mojom.WaylandBufferManagerHost.getRemote = function() {
   return remote.$;
 };
 
+ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWaylandBufferManagerGpu(params.buffer_manager_gpu_associated);
+          break;
+        }
+        case 1: {
+          const params = ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createDmabufBasedBuffer(params.dmabuf_fd, params.size, params.strides, params.offsets, params.modifiers, params.format, params.planes_count, params.color_space, params.hdr_metadata, params.buffer_id);
+          break;
+        }
+        case 2: {
+          const params = ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createShmBasedBuffer(params.shm_fd, params.length, params.size, params.buffer_id);
+          break;
+        }
+        case 3: {
+          const params = ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createSinglePixelBuffer(params.color, params.buffer_id);
+          break;
+        }
+        case 4: {
+          const params = ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.destroyBuffer(params.buffer_id);
+          break;
+        }
+        case 5: {
+          const params = ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.commitOverlays(params.widget, params.frame_id, params.data, params.overlays);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ui.ozone.mojom.WaylandBufferManagerHostReceiver = ui.ozone.mojom.WaylandBufferManagerHostReceiver;
+
 ui.ozone.mojom.WaylandBufferManagerHostPtr = ui.ozone.mojom.WaylandBufferManagerHostRemote;
 ui.ozone.mojom.WaylandBufferManagerHostRequest = ui.ozone.mojom.WaylandBufferManagerHostPendingReceiver;
 
@@ -305,6 +339,38 @@ ui.ozone.mojom.WaylandBufferManagerGpu.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.remote_host, params.shared_image_formats_with_modifiers, params.supports_dma_buf, params.supports_viewporter, params.supports_acquire_fence, params.supports_overlays, params.supports_single_pixel_buffer);
+          break;
+        }
+        case 1: {
+          const params = ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSubmission(params.widget, params.frame_id, params.swap_result, params.release_fence_handle, params.presentation_infos);
+          break;
+        }
+        case 2: {
+          const params = ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPresentation(params.widget, params.presentation_infos);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ui.ozone.mojom.WaylandBufferManagerGpuReceiver = ui.ozone.mojom.WaylandBufferManagerGpuReceiver;
 
 ui.ozone.mojom.WaylandBufferManagerGpuPtr = ui.ozone.mojom.WaylandBufferManagerGpuRemote;
 ui.ozone.mojom.WaylandBufferManagerGpuRequest = ui.ozone.mojom.WaylandBufferManagerGpuPendingReceiver;

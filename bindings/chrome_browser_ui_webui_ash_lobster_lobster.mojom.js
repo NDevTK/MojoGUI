@@ -8,7 +8,6 @@
 var lobster = lobster || {};
 lobster.mojom = lobster.mojom || {};
 var url = url || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 lobster.mojom.StatusCodeSpec = { $: mojo.internal.Enum() };
@@ -345,6 +344,115 @@ lobster.mojom.UntrustedLobsterPageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+lobster.mojom.UntrustedLobsterPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestCandidates(params.query, params.num_candidates);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.downloadCandidate(params.candidate_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.commitAsInsert(params.candidate_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.commitAsDownload(params.candidate_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.previewFeedback(params.candidate_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.submitFeedback(params.candidate_id, params.description);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showUI();
+          break;
+        }
+        case 7: {
+          const params = lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeUI();
+          break;
+        }
+        case 8: {
+          const params = lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.emitMetricEvent(params.metric_event);
+          break;
+        }
+        case 9: {
+          const params = lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openUrlInNewWindow(params.url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+lobster.mojom.UntrustedLobsterPageHandlerReceiver = lobster.mojom.UntrustedLobsterPageHandlerReceiver;
 
 lobster.mojom.UntrustedLobsterPageHandlerPtr = lobster.mojom.UntrustedLobsterPageHandlerRemote;
 lobster.mojom.UntrustedLobsterPageHandlerRequest = lobster.mojom.UntrustedLobsterPageHandlerPendingReceiver;

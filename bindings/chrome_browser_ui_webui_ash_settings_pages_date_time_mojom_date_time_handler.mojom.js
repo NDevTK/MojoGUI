@@ -86,6 +86,28 @@ ash.settings.date_time.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.date_time.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.date_time.mojom.PageHandlerFactoryReceiver = ash.settings.date_time.mojom.PageHandlerFactoryReceiver;
+
 ash.settings.date_time.mojom.PageHandlerFactoryPtr = ash.settings.date_time.mojom.PageHandlerFactoryRemote;
 ash.settings.date_time.mojom.PageHandlerFactoryRequest = ash.settings.date_time.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -186,6 +208,45 @@ ash.settings.date_time.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.date_time.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showParentAccessForTimezone();
+          break;
+        }
+        case 1: {
+          const params = ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTimezones();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showSetDateTimeUI();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.date_time.mojom.PageHandlerReceiver = ash.settings.date_time.mojom.PageHandlerReceiver;
+
 ash.settings.date_time.mojom.PageHandlerPtr = ash.settings.date_time.mojom.PageHandlerRemote;
 ash.settings.date_time.mojom.PageHandlerRequest = ash.settings.date_time.mojom.PageHandlerPendingReceiver;
 
@@ -266,6 +327,33 @@ ash.settings.date_time.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.date_time.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSystemClockCanSetTimeChanged(params.is_allowed);
+          break;
+        }
+        case 1: {
+          const params = ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onParentAccessValidationComplete(params.success);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.date_time.mojom.PageReceiver = ash.settings.date_time.mojom.PageReceiver;
 
 ash.settings.date_time.mojom.PagePtr = ash.settings.date_time.mojom.PageRemote;
 ash.settings.date_time.mojom.PageRequest = ash.settings.date_time.mojom.PagePendingReceiver;

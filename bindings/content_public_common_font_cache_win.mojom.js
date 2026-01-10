@@ -7,6 +7,7 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var mojo_base = mojo_base || {};
 
 content.mojom.FontCacheWin = {};
 content.mojom.FontCacheWin.$interfaceName = 'content.mojom.FontCacheWin';
@@ -94,6 +95,40 @@ content.mojom.FontCacheWin.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.FontCacheWinReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.FontCacheWin_PreCacheFont_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.preCacheFont(params.log_font);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.FontCacheWin_PreCacheFont_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.releaseCachedFonts();
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.FontCacheWinReceiver = content.mojom.FontCacheWinReceiver;
 
 content.mojom.FontCacheWinPtr = content.mojom.FontCacheWinRemote;
 content.mojom.FontCacheWinRequest = content.mojom.FontCacheWinPendingReceiver;

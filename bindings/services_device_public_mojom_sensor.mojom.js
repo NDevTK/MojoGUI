@@ -212,6 +212,67 @@ device.mojom.Sensor.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.SensorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDefaultConfiguration();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.Sensor_AddConfiguration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addConfiguration(params.configuration);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.Sensor_AddConfiguration_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.Sensor_RemoveConfiguration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeConfiguration(params.configuration);
+          break;
+        }
+        case 3: {
+          const params = device.mojom.Sensor_Suspend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suspend();
+          break;
+        }
+        case 4: {
+          const params = device.mojom.Sensor_Resume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resume();
+          break;
+        }
+        case 5: {
+          const params = device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.configureReadingChangeNotifications(params.enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.SensorReceiver = device.mojom.SensorReceiver;
+
 device.mojom.SensorPtr = device.mojom.SensorRemote;
 device.mojom.SensorRequest = device.mojom.SensorPendingReceiver;
 
@@ -290,6 +351,33 @@ device.mojom.SensorClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.SensorClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.SensorClient_RaiseError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.raiseError();
+          break;
+        }
+        case 1: {
+          const params = device.mojom.SensorClient_SensorReadingChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sensorReadingChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.SensorClientReceiver = device.mojom.SensorClientReceiver;
 
 device.mojom.SensorClientPtr = device.mojom.SensorClientRemote;
 device.mojom.SensorClientRequest = device.mojom.SensorClientPendingReceiver;

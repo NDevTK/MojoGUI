@@ -7,10 +7,6 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
 
 storage.mojom.QuotaManagerObserver = {};
 storage.mojom.QuotaManagerObserver.$interfaceName = 'storage.mojom.QuotaManagerObserver';
@@ -93,6 +89,33 @@ storage.mojom.QuotaManagerObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.QuotaManagerObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCreateOrUpdateBucket(params.bucket_info);
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeleteBucket(params.bucket_locator);
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.QuotaManagerObserverReceiver = storage.mojom.QuotaManagerObserverReceiver;
 
 storage.mojom.QuotaManagerObserverPtr = storage.mojom.QuotaManagerObserverRemote;
 storage.mojom.QuotaManagerObserverRequest = storage.mojom.QuotaManagerObserverPendingReceiver;

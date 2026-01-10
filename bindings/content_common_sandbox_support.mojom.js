@@ -7,6 +7,7 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
+var mojo_base = mojo_base || {};
 
 content.mojom.LcTypeStringSpec = { $: mojo.internal.Enum() };
 content.mojom.LcTypeStringsSpec = { $: mojo.internal.Enum() };
@@ -209,6 +210,83 @@ content.mojom.SandboxSupport.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.SandboxSupportReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.SandboxSupport_GetSystemColors_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSystemColors();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.lcidAndFirstDayOfWeek(params.locale, params.default_language, params.defaults);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.digitsAndSigns(params.lcid, params.defaults);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = content.mojom.SandboxSupport_LocaleString_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.localeString(params.lcid, params.defaults, params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = content.mojom.SandboxSupport_LocaleStrings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.localeStrings(params.lcid, params.defaults, params.collection);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.SandboxSupportReceiver = content.mojom.SandboxSupportReceiver;
 
 content.mojom.SandboxSupportPtr = content.mojom.SandboxSupportRemote;
 content.mojom.SandboxSupportRequest = content.mojom.SandboxSupportPendingReceiver;

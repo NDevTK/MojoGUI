@@ -7,6 +7,7 @@
 // Module namespace
 var metrics_reporter = metrics_reporter || {};
 metrics_reporter.mojom = metrics_reporter.mojom || {};
+var mojo_base = mojo_base || {};
 
 metrics_reporter.mojom.PageMetricsHost = {};
 metrics_reporter.mojom.PageMetricsHost.$interfaceName = 'metrics_reporter.mojom.PageMetricsHost';
@@ -137,6 +138,50 @@ metrics_reporter.mojom.PageMetricsHost.getRemote = function() {
   return remote.$;
 };
 
+metrics_reporter.mojom.PageMetricsHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPageRemoteCreated(params.page);
+          break;
+        }
+        case 1: {
+          const params = metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onGetMark(params.name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClearMark(params.name);
+          break;
+        }
+        case 3: {
+          const params = metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onUmaReportTime(params.name, params.time);
+          break;
+        }
+      }
+    });
+  }
+};
+
+metrics_reporter.mojom.PageMetricsHostReceiver = metrics_reporter.mojom.PageMetricsHostReceiver;
+
 metrics_reporter.mojom.PageMetricsHostPtr = metrics_reporter.mojom.PageMetricsHostRemote;
 metrics_reporter.mojom.PageMetricsHostRequest = metrics_reporter.mojom.PageMetricsHostPendingReceiver;
 
@@ -223,6 +268,40 @@ metrics_reporter.mojom.PageMetrics.getRemote = function() {
     'context');
   return remote.$;
 };
+
+metrics_reporter.mojom.PageMetricsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onGetMark(params.name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClearMark(params.name);
+          break;
+        }
+      }
+    });
+  }
+};
+
+metrics_reporter.mojom.PageMetricsReceiver = metrics_reporter.mojom.PageMetricsReceiver;
 
 metrics_reporter.mojom.PageMetricsPtr = metrics_reporter.mojom.PageMetricsRemote;
 metrics_reporter.mojom.PageMetricsRequest = metrics_reporter.mojom.PageMetricsPendingReceiver;

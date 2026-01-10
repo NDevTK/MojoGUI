@@ -7,16 +7,8 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var components = components || {};
-var components = components || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var ui = ui || {};
+var discardable_memory = discardable_memory || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 viz.mojom.FrameSinkManagerParamsSpec = { $: {} };
@@ -245,6 +237,68 @@ viz.mojom.VizMain.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.VizMainReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createFrameSinkManager(params.params);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.VizMain_CreateGpuService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createGpuService(params.gpu_service, params.gpu_host, params.gpu_logging, params.discardable_memory_manager, params.use_shader_cache_shm_count, params.params);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.VizMain_SetRenderParams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRenderParams(params.subpixel_rendering, params.text_contrast, params.text_gamma);
+          break;
+        }
+        case 3: {
+          const params = viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createInfoCollectionGpuService(params.info_collection_gpu_service);
+          break;
+        }
+        case 4: {
+          const params = viz.mojom.VizMain_SetHostProcessId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHostProcessId(params.pid);
+          break;
+        }
+        case 5: {
+          const params = viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyWorkloadIncrease();
+          break;
+        }
+        case 6: {
+          const params = viz.mojom.VizMain_StartDebugStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startDebugStream(params.viz_debug);
+          break;
+        }
+        case 7: {
+          const params = viz.mojom.VizMain_FilterDebugStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.filterDebugStream(params.filterData);
+          break;
+        }
+        case 8: {
+          const params = viz.mojom.VizMain_StopDebugStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopDebugStream();
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.VizMainReceiver = viz.mojom.VizMainReceiver;
 
 viz.mojom.VizMainPtr = viz.mojom.VizMainRemote;
 viz.mojom.VizMainRequest = viz.mojom.VizMainPendingReceiver;

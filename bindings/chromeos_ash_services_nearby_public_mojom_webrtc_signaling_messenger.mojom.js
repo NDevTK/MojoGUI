@@ -115,6 +115,33 @@ sharing.mojom.IncomingMessagesListener.getRemote = function() {
   return remote.$;
 };
 
+sharing.mojom.IncomingMessagesListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMessage(params.message);
+          break;
+        }
+        case 1: {
+          const params = sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onComplete(params.success);
+          break;
+        }
+      }
+    });
+  }
+};
+
+sharing.mojom.IncomingMessagesListenerReceiver = sharing.mojom.IncomingMessagesListenerReceiver;
+
 sharing.mojom.IncomingMessagesListenerPtr = sharing.mojom.IncomingMessagesListenerRemote;
 sharing.mojom.IncomingMessagesListenerRequest = sharing.mojom.IncomingMessagesListenerPendingReceiver;
 
@@ -178,6 +205,28 @@ sharing.mojom.ReceiveMessagesSession.getRemote = function() {
     'context');
   return remote.$;
 };
+
+sharing.mojom.ReceiveMessagesSessionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopReceivingMessages();
+          break;
+        }
+      }
+    });
+  }
+};
+
+sharing.mojom.ReceiveMessagesSessionReceiver = sharing.mojom.ReceiveMessagesSessionReceiver;
 
 sharing.mojom.ReceiveMessagesSessionPtr = sharing.mojom.ReceiveMessagesSessionRemote;
 sharing.mojom.ReceiveMessagesSessionRequest = sharing.mojom.ReceiveMessagesSessionPendingReceiver;
@@ -277,6 +326,47 @@ sharing.mojom.WebRtcSignalingMessenger.getRemote = function() {
     'context');
   return remote.$;
 };
+
+sharing.mojom.WebRtcSignalingMessengerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendMessage(params.self_id, params.peer_id, params.location_hint, params.message);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startReceivingMessages(params.self_id, params.location_hint, params.listener);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+sharing.mojom.WebRtcSignalingMessengerReceiver = sharing.mojom.WebRtcSignalingMessengerReceiver;
 
 sharing.mojom.WebRtcSignalingMessengerPtr = sharing.mojom.WebRtcSignalingMessengerRemote;
 sharing.mojom.WebRtcSignalingMessengerRequest = sharing.mojom.WebRtcSignalingMessengerPendingReceiver;

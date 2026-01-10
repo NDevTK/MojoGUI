@@ -90,6 +90,23 @@ blink.mojom.LockHandle.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.LockHandleReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+blink.mojom.LockHandleReceiver = blink.mojom.LockHandleReceiver;
+
 blink.mojom.LockHandlePtr = blink.mojom.LockHandleRemote;
 blink.mojom.LockHandleRequest = blink.mojom.LockHandlePendingReceiver;
 
@@ -97,7 +114,7 @@ blink.mojom.LockHandleRequest = blink.mojom.LockHandlePendingReceiver;
 // Interface: LockRequest
 mojo.internal.Struct(
     blink.mojom.LockRequest_Granted_ParamsSpec, 'blink.mojom.LockRequest_Granted_Params', [
-      mojo.internal.StructField('lock_handle', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockHandleRemote), null, false, 0, undefined),
+      mojo.internal.StructField('lock_handle', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -170,6 +187,33 @@ blink.mojom.LockRequest.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.LockRequestReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.LockRequest_Granted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.granted(params.lock_handle);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.LockRequest_Failed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.failed();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.LockRequestReceiver = blink.mojom.LockRequestReceiver;
+
 blink.mojom.LockRequestPtr = blink.mojom.LockRequestRemote;
 blink.mojom.LockRequestRequest = blink.mojom.LockRequestPendingReceiver;
 
@@ -180,7 +224,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('mode', 8, 0, blink.mojom.LockModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('wait', 16, 0, blink.mojom.WaitModeSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('request', 24, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.LockRequestRemote), null, false, 0, undefined),
+      mojo.internal.StructField('request', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -259,6 +303,40 @@ blink.mojom.LockManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.LockManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.LockManager_RequestLock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestLock(params.name, params.mode, params.wait, params.request);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.LockManager_QueryState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queryState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.LockManager_QueryState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.LockManagerReceiver = blink.mojom.LockManagerReceiver;
 
 blink.mojom.LockManagerPtr = blink.mojom.LockManagerRemote;
 blink.mojom.LockManagerRequest = blink.mojom.LockManagerPendingReceiver;

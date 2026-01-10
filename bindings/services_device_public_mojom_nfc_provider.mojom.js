@@ -7,7 +7,6 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var services = services || {};
 
 device.mojom.NFCProvider = {};
 device.mojom.NFCProvider.$interfaceName = 'device.mojom.NFCProvider';
@@ -106,6 +105,38 @@ device.mojom.NFCProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.NFCProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.NFCProvider_GetNFCForHost_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNFCForHost(params.host_id, params.receiver);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suspendNFCOperations();
+          break;
+        }
+        case 2: {
+          const params = device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resumeNFCOperations();
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.NFCProviderReceiver = device.mojom.NFCProviderReceiver;
 
 device.mojom.NFCProviderPtr = device.mojom.NFCProviderRemote;
 device.mojom.NFCProviderRequest = device.mojom.NFCProviderPendingReceiver;

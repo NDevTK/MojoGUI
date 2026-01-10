@@ -7,9 +7,11 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
+var ax = ax || {};
 var url = url || {};
-var components = components || {};
+var watermark = watermark || {};
 
 printing.mojom.StatusSpec = { $: mojo.internal.Enum() };
 printing.mojom.DocumentTypeSpec = { $: mojo.internal.Enum() };
@@ -316,6 +318,111 @@ printing.mojom.PrintCompositor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+printing.mojom.PrintCompositorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyUnavailableSubframe(params.frame_guid);
+          break;
+        }
+        case 1: {
+          const params = printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addSubframeContent(params.frame_guid, params.serialized_content, params.subframe_content_info);
+          break;
+        }
+        case 2: {
+          const params = printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAccessibilityTree(params.accessibility_tree);
+          break;
+        }
+        case 3: {
+          const params = printing.mojom.PrintCompositor_CompositePage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.compositePage(params.frame_guid, params.sk_region, params.subframe_content_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.compositeDocument(params.frame_guid, params.sk_region, params.subframe_content_info, params.document_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.prepareToCompositeDocument(params.document_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.finishDocumentComposition(params.pages_count);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWebContentsURL(params.url);
+          break;
+        }
+        case 8: {
+          const params = printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUserAgent(params.user_agent);
+          break;
+        }
+        case 9: {
+          const params = printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setGenerateDocumentOutline(params.generate_document_outline);
+          break;
+        }
+        case 10: {
+          const params = printing.mojom.PrintCompositor_SetTitle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTitle(params.title);
+          break;
+        }
+        case 11: {
+          const params = printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWatermarkBlock(params.watermark_block);
+          break;
+        }
+      }
+    });
+  }
+};
+
+printing.mojom.PrintCompositorReceiver = printing.mojom.PrintCompositorReceiver;
 
 printing.mojom.PrintCompositorPtr = printing.mojom.PrintCompositorRemote;
 printing.mojom.PrintCompositorRequest = printing.mojom.PrintCompositorPendingReceiver;

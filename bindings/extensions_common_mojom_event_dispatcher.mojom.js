@@ -7,6 +7,7 @@
 // Module namespace
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 extensions.mojom.EventFilteringInfoSpec = { $: {} };
@@ -108,6 +109,35 @@ extensions.mojom.EventDispatcher.getRemote = function() {
     'context');
   return remote.$;
 };
+
+extensions.mojom.EventDispatcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchEvent(params.params, params.event_args);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions.mojom.EventDispatcherReceiver = extensions.mojom.EventDispatcherReceiver;
 
 extensions.mojom.EventDispatcherPtr = extensions.mojom.EventDispatcherRemote;
 extensions.mojom.EventDispatcherRequest = extensions.mojom.EventDispatcherPendingReceiver;

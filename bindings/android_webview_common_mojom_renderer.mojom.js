@@ -89,6 +89,33 @@ android_webview.mojom.Renderer.getRemote = function() {
   return remote.$;
 };
 
+android_webview.mojom.RendererReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = android_webview.mojom.Renderer_ClearCache_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearCache();
+          break;
+        }
+        case 1: {
+          const params = android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setJsOnlineProperty(params.network_up);
+          break;
+        }
+      }
+    });
+  }
+};
+
+android_webview.mojom.RendererReceiver = android_webview.mojom.RendererReceiver;
+
 android_webview.mojom.RendererPtr = android_webview.mojom.RendererRemote;
 android_webview.mojom.RendererRequest = android_webview.mojom.RendererPendingReceiver;
 

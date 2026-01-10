@@ -79,6 +79,35 @@ web.mojom.WebUsageController.getRemote = function() {
   return remote.$;
 };
 
+web.mojom.WebUsageControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWebUsageEnabled(params.enabled);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+web.mojom.WebUsageControllerReceiver = web.mojom.WebUsageControllerReceiver;
+
 web.mojom.WebUsageControllerPtr = web.mojom.WebUsageControllerRemote;
 web.mojom.WebUsageControllerRequest = web.mojom.WebUsageControllerPendingReceiver;
 

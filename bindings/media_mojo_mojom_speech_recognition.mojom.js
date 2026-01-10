@@ -7,7 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 media.mojom.ConfidenceLevelSpec = { $: mojo.internal.Enum() };
@@ -243,6 +243,40 @@ media.mojom.SpeechRecognitionContext.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.SpeechRecognitionContextReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindRecognizer(params.receiver, params.client, params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindWebSpeechRecognizer(params.session_receiver, params.session_client, params.audio_forwarder, params.channel_count, params.sample_rate, params.options, params.continuous);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.SpeechRecognitionContextReceiver = media.mojom.SpeechRecognitionContextReceiver;
+
 media.mojom.SpeechRecognitionContextPtr = media.mojom.SpeechRecognitionContextRemote;
 media.mojom.SpeechRecognitionContextRequest = media.mojom.SpeechRecognitionContextPendingReceiver;
 
@@ -372,6 +406,48 @@ media.mojom.SpeechRecognitionRecognizer.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.SpeechRecognitionRecognizerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.SpeechRecognitionRecognizer_SendAudioToSpeechRecognitionService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendAudioToSpeechRecognitionService(params.buffer, params.media_start_pts);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.SpeechRecognitionRecognizer_MarkDone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.markDone();
+          break;
+        }
+        case 2: {
+          const params = media.mojom.SpeechRecognitionRecognizer_OnLanguageChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLanguageChanged(params.language);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.SpeechRecognitionRecognizer_OnMaskOffensiveWordsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMaskOffensiveWordsChanged(params.mask_offensive_words);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.SpeechRecognitionRecognizer_UpdateRecognitionContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateRecognitionContext(params.recognition_context);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.SpeechRecognitionRecognizerReceiver = media.mojom.SpeechRecognitionRecognizerReceiver;
+
 media.mojom.SpeechRecognitionRecognizerPtr = media.mojom.SpeechRecognitionRecognizerRemote;
 media.mojom.SpeechRecognitionRecognizerRequest = media.mojom.SpeechRecognitionRecognizerPendingReceiver;
 
@@ -489,6 +565,50 @@ media.mojom.SpeechRecognitionRecognizerClient.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.SpeechRecognitionRecognizerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSpeechRecognitionRecognitionEvent(params.result);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSpeechRecognitionStopped();
+          break;
+        }
+        case 2: {
+          const params = media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSpeechRecognitionError();
+          break;
+        }
+        case 3: {
+          const params = media.mojom.SpeechRecognitionRecognizerClient_OnLanguageIdentificationEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLanguageIdentificationEvent(params.event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.SpeechRecognitionRecognizerClientReceiver = media.mojom.SpeechRecognitionRecognizerClientReceiver;
+
 media.mojom.SpeechRecognitionRecognizerClientPtr = media.mojom.SpeechRecognitionRecognizerClientRemote;
 media.mojom.SpeechRecognitionRecognizerClientRequest = media.mojom.SpeechRecognitionRecognizerClientPendingReceiver;
 
@@ -586,6 +706,38 @@ media.mojom.SpeechRecognitionBrowserObserver.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.SpeechRecognitionBrowserObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionAvailabilityChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.speechRecognitionAvailabilityChanged(params.is_speech_recognition_available);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionLanguageChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.speechRecognitionLanguageChanged(params.language);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionMaskOffensiveWordsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.speechRecognitionMaskOffensiveWordsChanged(params.mask_offensive_words);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.SpeechRecognitionBrowserObserverReceiver = media.mojom.SpeechRecognitionBrowserObserverReceiver;
+
 media.mojom.SpeechRecognitionBrowserObserverPtr = media.mojom.SpeechRecognitionBrowserObserverRemote;
 media.mojom.SpeechRecognitionBrowserObserverRequest = media.mojom.SpeechRecognitionBrowserObserverPendingReceiver;
 
@@ -671,6 +823,40 @@ media.mojom.SpeechRecognitionSurface.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.SpeechRecognitionSurfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.SpeechRecognitionSurface_Activate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.activate();
+          break;
+        }
+        case 1: {
+          const params = media.mojom.SpeechRecognitionSurface_GetBounds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBounds();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.SpeechRecognitionSurfaceReceiver = media.mojom.SpeechRecognitionSurfaceReceiver;
+
 media.mojom.SpeechRecognitionSurfacePtr = media.mojom.SpeechRecognitionSurfaceRemote;
 media.mojom.SpeechRecognitionSurfaceRequest = media.mojom.SpeechRecognitionSurfacePendingReceiver;
 
@@ -749,6 +935,33 @@ media.mojom.SpeechRecognitionSurfaceClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.SpeechRecognitionSurfaceClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.SpeechRecognitionSurfaceClient_OnSessionEnded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSessionEnded();
+          break;
+        }
+        case 1: {
+          const params = media.mojom.SpeechRecognitionSurfaceClient_OnFullscreenToggled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFullscreenToggled();
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.SpeechRecognitionSurfaceClientReceiver = media.mojom.SpeechRecognitionSurfaceClientReceiver;
 
 media.mojom.SpeechRecognitionSurfaceClientPtr = media.mojom.SpeechRecognitionSurfaceClientRemote;
 media.mojom.SpeechRecognitionSurfaceClientRequest = media.mojom.SpeechRecognitionSurfaceClientPendingReceiver;
@@ -845,6 +1058,38 @@ media.mojom.SpeechRecognitionClientBrowserInterface.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.SpeechRecognitionClientBrowserInterfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSpeechRecognitionBrowserObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rEMOVED_1();
+          break;
+        }
+        case 2: {
+          const params = media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rEMOVED_2(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.SpeechRecognitionClientBrowserInterfaceReceiver = media.mojom.SpeechRecognitionClientBrowserInterfaceReceiver;
 
 media.mojom.SpeechRecognitionClientBrowserInterfacePtr = media.mojom.SpeechRecognitionClientBrowserInterfaceRemote;
 media.mojom.SpeechRecognitionClientBrowserInterfaceRequest = media.mojom.SpeechRecognitionClientBrowserInterfacePendingReceiver;

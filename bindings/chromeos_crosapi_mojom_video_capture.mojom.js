@@ -7,9 +7,8 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var media = media || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 crosapi.mojom.DeviceAccessResultCodeSpec = { $: mojo.internal.Enum() };
@@ -120,7 +119,7 @@ mojo.internal.Struct(
 // Struct: GpuMemoryBufferHandle
 mojo.internal.Struct(
     crosapi.mojom.GpuMemoryBufferHandleSpec, 'crosapi.mojom.GpuMemoryBufferHandle', [
-      mojo.internal.StructField('platform_handle', 0, 0, crosapi.mojom.GpuMemoryBufferPlatformHandleSpec.$, null, true, 0, undefined),
+      mojo.internal.StructField('platform_handle', 0, 0, gfx.mojom.GpuMemoryBufferPlatformHandleSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('offset', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('stride', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -194,6 +193,23 @@ crosapi.mojom.ScopedAccessPermission.getRemote = function() {
   return remote.$;
 };
 
+crosapi.mojom.ScopedAccessPermissionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+crosapi.mojom.ScopedAccessPermissionReceiver = crosapi.mojom.ScopedAccessPermissionReceiver;
+
 crosapi.mojom.ScopedAccessPermissionPtr = crosapi.mojom.ScopedAccessPermissionRemote;
 crosapi.mojom.ScopedAccessPermissionRequest = crosapi.mojom.ScopedAccessPermissionPendingReceiver;
 
@@ -206,7 +222,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec, 'crosapi.mojom.VideoFrameHandler_OnNewBuffer_Params', [
-      mojo.internal.StructField('buffer_handle', 0, 0, crosapi.mojom.VideoBufferHandleSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('buffer_handle', 0, 0, media.mojom.VideoBufferHandleSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('buffer_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -480,6 +496,98 @@ crosapi.mojom.VideoFrameHandler.getRemote = function() {
   return remote.$;
 };
 
+crosapi.mojom.VideoFrameHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 11: {
+          const params = crosapi.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCaptureConfigurationChanged();
+          break;
+        }
+        case 0: {
+          const params = crosapi.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewBuffer(params.buffer_id, params.buffer_handle);
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.VideoFrameHandler_DEPRECATED_OnFrameReadyInBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dEPRECATED_OnFrameReadyInBuffer(params.buffer, params.scaled_buffers);
+          break;
+        }
+        case 13: {
+          const params = crosapi.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameReadyInBuffer(params.buffer);
+          break;
+        }
+        case 2: {
+          const params = crosapi.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBufferRetired(params.buffer_id);
+          break;
+        }
+        case 3: {
+          const params = crosapi.mojom.VideoFrameHandler_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error);
+          break;
+        }
+        case 4: {
+          const params = crosapi.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameDropped(params.reason);
+          break;
+        }
+        case 10: {
+          const params = crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewCropVersion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dEPRECATED_OnNewCropVersion(params.crop_version);
+          break;
+        }
+        case 12: {
+          const params = crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewSubCaptureTargetVersion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dEPRECATED_OnNewSubCaptureTargetVersion(params.sub_capture_target_version);
+          break;
+        }
+        case 14: {
+          const params = crosapi.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewCaptureVersion(params.capture_version);
+          break;
+        }
+        case 9: {
+          const params = crosapi.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameWithEmptyRegionCapture();
+          break;
+        }
+        case 5: {
+          const params = crosapi.mojom.VideoFrameHandler_OnLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLog(params.message);
+          break;
+        }
+        case 6: {
+          const params = crosapi.mojom.VideoFrameHandler_OnStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStarted();
+          break;
+        }
+        case 7: {
+          const params = crosapi.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStartedUsingGpuDecode();
+          break;
+        }
+        case 8: {
+          const params = crosapi.mojom.VideoFrameHandler_OnStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStopped();
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.VideoFrameHandlerReceiver = crosapi.mojom.VideoFrameHandlerReceiver;
+
 crosapi.mojom.VideoFrameHandlerPtr = crosapi.mojom.VideoFrameHandlerRemote;
 crosapi.mojom.VideoFrameHandlerRequest = crosapi.mojom.VideoFrameHandlerPendingReceiver;
 
@@ -671,6 +779,84 @@ crosapi.mojom.VideoCaptureDevice.getRemote = function() {
   return remote.$;
 };
 
+crosapi.mojom.VideoCaptureDeviceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.VideoCaptureDevice_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start(params.requested_settings, params.handler);
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.VideoCaptureDevice_MaybeSuspend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.maybeSuspend();
+          break;
+        }
+        case 2: {
+          const params = crosapi.mojom.VideoCaptureDevice_Resume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resume();
+          break;
+        }
+        case 3: {
+          const params = crosapi.mojom.VideoCaptureDevice_GetPhotoState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPhotoState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPhotoOptions(params.settings);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = crosapi.mojom.VideoCaptureDevice_TakePhoto_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.takePhoto();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = crosapi.mojom.VideoCaptureDevice_ProcessFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.processFeedback(params.feedback);
+          break;
+        }
+        case 7: {
+          const params = crosapi.mojom.VideoCaptureDevice_RequestRefreshFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestRefreshFrame();
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.VideoCaptureDeviceReceiver = crosapi.mojom.VideoCaptureDeviceReceiver;
+
 crosapi.mojom.VideoCaptureDevicePtr = crosapi.mojom.VideoCaptureDeviceRemote;
 crosapi.mojom.VideoCaptureDeviceRequest = crosapi.mojom.VideoCaptureDevicePendingReceiver;
 
@@ -763,6 +949,47 @@ crosapi.mojom.VideoCaptureDeviceFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.VideoCaptureDeviceFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceInfos();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createDevice(params.device_id, params.device_receiver);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.VideoCaptureDeviceFactoryReceiver = crosapi.mojom.VideoCaptureDeviceFactoryReceiver;
 
 crosapi.mojom.VideoCaptureDeviceFactoryPtr = crosapi.mojom.VideoCaptureDeviceFactoryRemote;
 crosapi.mojom.VideoCaptureDeviceFactoryRequest = crosapi.mojom.VideoCaptureDeviceFactoryPendingReceiver;

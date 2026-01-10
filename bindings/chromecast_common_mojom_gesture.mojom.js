@@ -7,7 +7,6 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 chromecast.mojom.GestureHandler = {};
@@ -218,6 +217,75 @@ chromecast.mojom.GestureHandler.getRemote = function() {
   return remote.$;
 };
 
+chromecast.mojom.GestureHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBackGesture();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBackGestureProgress(params.touch_location);
+          break;
+        }
+        case 2: {
+          const params = chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTopDragGestureProgress(params.touch_location);
+          break;
+        }
+        case 3: {
+          const params = chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTopDragGestureDone();
+          break;
+        }
+        case 4: {
+          const params = chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRightDragGestureProgress(params.touch_location);
+          break;
+        }
+        case 5: {
+          const params = chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRightDragGestureDone();
+          break;
+        }
+        case 6: {
+          const params = chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBackGestureCancel();
+          break;
+        }
+        case 7: {
+          const params = chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTapGesture();
+          break;
+        }
+        case 8: {
+          const params = chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTapDownGesture();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.GestureHandlerReceiver = chromecast.mojom.GestureHandlerReceiver;
+
 chromecast.mojom.GestureHandlerPtr = chromecast.mojom.GestureHandlerRemote;
 chromecast.mojom.GestureHandlerRequest = chromecast.mojom.GestureHandlerPendingReceiver;
 
@@ -330,6 +398,43 @@ chromecast.mojom.GestureSource.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.GestureSourceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.GestureSource_Subscribe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.subscribe(params.handler);
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCanGoBack(params.can_go_back);
+          break;
+        }
+        case 2: {
+          const params = chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCanTopDrag(params.can_top_drag);
+          break;
+        }
+        case 3: {
+          const params = chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCanRightDrag(params.can_top_drag);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.GestureSourceReceiver = chromecast.mojom.GestureSourceReceiver;
 
 chromecast.mojom.GestureSourcePtr = chromecast.mojom.GestureSourceRemote;
 chromecast.mojom.GestureSourceRequest = chromecast.mojom.GestureSourcePendingReceiver;

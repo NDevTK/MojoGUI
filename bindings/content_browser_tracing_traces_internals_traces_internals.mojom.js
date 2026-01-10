@@ -7,6 +7,7 @@
 // Module namespace
 var traces_internals = traces_internals || {};
 traces_internals.mojom = traces_internals.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 traces_internals.mojom.ReportUploadStateSpec = { $: mojo.internal.Enum() };
@@ -192,6 +193,28 @@ traces_internals.mojom.TracesInternalsHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+traces_internals.mojom.TracesInternalsHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+traces_internals.mojom.TracesInternalsHandlerFactoryReceiver = traces_internals.mojom.TracesInternalsHandlerFactoryReceiver;
 
 traces_internals.mojom.TracesInternalsHandlerFactoryPtr = traces_internals.mojom.TracesInternalsHandlerFactoryRemote;
 traces_internals.mojom.TracesInternalsHandlerFactoryRequest = traces_internals.mojom.TracesInternalsHandlerFactoryPendingReceiver;
@@ -669,6 +692,256 @@ traces_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+traces_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startTraceSession(params.config_pb, params.enable_privacy_filters);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cloneTraceSession();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopTraceSession();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTrackEventCategories();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBufferUsage();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllTraceReports();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteSingleTrace(params.uuid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteAllTraces();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.userUploadSingleTrace(params.uuid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.downloadTrace(params.uuid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllScenarios();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setEnabledScenarios(params.new_config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setScenariosConfigFromString(params.config_string);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setScenariosConfigFromBuffer(params.config_pb);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPrivacyFilterEnabled();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPrivacyFilterEnabled(params.enable);
+          break;
+        }
+        case 16: {
+          const params = traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSystemTracingState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 17: {
+          const params = traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSecurityShieldIconUrl();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 18: {
+          const params = traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableSystemTracing();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 19: {
+          const params = traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableSystemTracing();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+traces_internals.mojom.PageHandlerReceiver = traces_internals.mojom.PageHandlerReceiver;
+
 traces_internals.mojom.PageHandlerPtr = traces_internals.mojom.PageHandlerRemote;
 traces_internals.mojom.PageHandlerRequest = traces_internals.mojom.PageHandlerPendingReceiver;
 
@@ -734,6 +1007,28 @@ traces_internals.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+traces_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = traces_internals.mojom.Page_OnTraceComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTraceComplete(params.trace, params.uuid);
+          break;
+        }
+      }
+    });
+  }
+};
+
+traces_internals.mojom.PageReceiver = traces_internals.mojom.PageReceiver;
 
 traces_internals.mojom.PagePtr = traces_internals.mojom.PageRemote;
 traces_internals.mojom.PageRequest = traces_internals.mojom.PagePendingReceiver;

@@ -76,6 +76,28 @@ device.mojom.TimeZoneMonitor.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.TimeZoneMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.TimeZoneMonitor_AddClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addClient(params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.TimeZoneMonitorReceiver = device.mojom.TimeZoneMonitorReceiver;
+
 device.mojom.TimeZoneMonitorPtr = device.mojom.TimeZoneMonitorRemote;
 device.mojom.TimeZoneMonitorRequest = device.mojom.TimeZoneMonitorPendingReceiver;
 
@@ -140,6 +162,28 @@ device.mojom.TimeZoneMonitorClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.TimeZoneMonitorClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTimeZoneChange(params.tz_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.TimeZoneMonitorClientReceiver = device.mojom.TimeZoneMonitorClientReceiver;
 
 device.mojom.TimeZoneMonitorClientPtr = device.mojom.TimeZoneMonitorClientRemote;
 device.mojom.TimeZoneMonitorClientRequest = device.mojom.TimeZoneMonitorClientPendingReceiver;

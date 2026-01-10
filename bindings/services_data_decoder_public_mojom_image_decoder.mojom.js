@@ -7,8 +7,8 @@
 // Module namespace
 var data_decoder = data_decoder || {};
 data_decoder.mojom = data_decoder.mojom || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 data_decoder.mojom.ImageCodecSpec = { $: mojo.internal.Enum() };
@@ -129,6 +129,47 @@ data_decoder.mojom.ImageDecoder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+data_decoder.mojom.ImageDecoderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decodeImage(params.encoded_data, params.codec, params.shrink_to_fit, params.max_size_in_bytes, params.desired_image_frame_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decodeAnimation(params.encoded_data, params.shrink_to_fit, params.max_size_in_bytes);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+data_decoder.mojom.ImageDecoderReceiver = data_decoder.mojom.ImageDecoderReceiver;
 
 data_decoder.mojom.ImageDecoderPtr = data_decoder.mojom.ImageDecoderRemote;
 data_decoder.mojom.ImageDecoderRequest = data_decoder.mojom.ImageDecoderPendingReceiver;

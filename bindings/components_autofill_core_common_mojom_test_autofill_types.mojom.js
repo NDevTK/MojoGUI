@@ -7,7 +7,6 @@
 // Module namespace
 var autofill = autofill || {};
 autofill.mojom = autofill.mojom || {};
-var components = components || {};
 
 autofill.mojom.TypeTraitsTest = {};
 autofill.mojom.TypeTraitsTest.$interfaceName = 'autofill.mojom.TypeTraitsTest';
@@ -248,6 +247,119 @@ autofill.mojom.TypeTraitsTest.getRemote = function() {
     'context');
   return remote.$;
 };
+
+autofill.mojom.TypeTraitsTestReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.passFormData(params.s);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.passFormFieldData(params.s);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.passFormDataPredictions(params.s);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.passFormFieldDataPredictions(params.s);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.passPasswordFormFillData(params.s);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.passPasswordFormGenerationData(params.s);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.passPasswordGenerationUIData(params.s);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.passPasswordSuggestionRequest(params.s);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+autofill.mojom.TypeTraitsTestReceiver = autofill.mojom.TypeTraitsTestReceiver;
 
 autofill.mojom.TypeTraitsTestPtr = autofill.mojom.TypeTraitsTestRemote;
 autofill.mojom.TypeTraitsTestRequest = autofill.mojom.TypeTraitsTestPendingReceiver;

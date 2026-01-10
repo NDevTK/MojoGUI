@@ -7,6 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var mojo_base = mojo_base || {};
 
 media.mojom.CdmKeyStatusSpec = { $: mojo.internal.Enum() };
 media.mojom.CdmConfigSpec = { $: {} };
@@ -95,7 +96,7 @@ mojo.internal.Struct(
 // Interface: ContentDecryptionModule
 mojo.internal.Struct(
     media.mojom.ContentDecryptionModule_SetClient_ParamsSpec, 'media.mojom.ContentDecryptionModule_SetClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.ContentDecryptionModuleClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -314,6 +315,112 @@ media.mojom.ContentDecryptionModule.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.ContentDecryptionModuleReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.ContentDecryptionModule_SetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setClient(params.client);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setServerCertificate(params.certificate_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getStatusForPolicy(params.min_hdcp_version);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createSessionAndGenerateRequest(params.session_type, params.init_data_type, params.init_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadSession(params.session_type, params.session_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateSession(params.session_id, params.response);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeSession(params.session_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeSession(params.session_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.ContentDecryptionModuleReceiver = media.mojom.ContentDecryptionModuleReceiver;
+
 media.mojom.ContentDecryptionModulePtr = media.mojom.ContentDecryptionModuleRemote;
 media.mojom.ContentDecryptionModuleRequest = media.mojom.ContentDecryptionModulePendingReceiver;
 
@@ -433,6 +540,43 @@ media.mojom.ContentDecryptionModuleClient.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.ContentDecryptionModuleClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSessionMessage(params.session_id, params.message_type, params.message);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSessionClosed(params.session_id, params.reason);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSessionKeysChange(params.session_id, params.has_additional_usable_key, params.keys_info);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSessionExpirationUpdate(params.session_id, params.new_expiry_time_sec);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.ContentDecryptionModuleClientReceiver = media.mojom.ContentDecryptionModuleClientReceiver;
+
 media.mojom.ContentDecryptionModuleClientPtr = media.mojom.ContentDecryptionModuleClientRemote;
 media.mojom.ContentDecryptionModuleClientRequest = media.mojom.ContentDecryptionModuleClientPendingReceiver;
 
@@ -505,6 +649,35 @@ media.mojom.CdmFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.CdmFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.CdmFactory_CreateCdm_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCdm(params.cdm_config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.CdmFactoryReceiver = media.mojom.CdmFactoryReceiver;
 
 media.mojom.CdmFactoryPtr = media.mojom.CdmFactoryRemote;
 media.mojom.CdmFactoryRequest = media.mojom.CdmFactoryPendingReceiver;

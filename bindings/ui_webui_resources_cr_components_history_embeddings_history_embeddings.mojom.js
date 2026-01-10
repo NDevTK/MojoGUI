@@ -7,6 +7,7 @@
 // Module namespace
 var history_embeddings = history_embeddings || {};
 history_embeddings.mojom = history_embeddings.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 history_embeddings.mojom.AnswerStatusSpec = { $: mojo.internal.Enum() };
@@ -248,6 +249,58 @@ history_embeddings.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+history_embeddings.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = history_embeddings.mojom.PageHandler_SetPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPage(params.page);
+          break;
+        }
+        case 1: {
+          const params = history_embeddings.mojom.PageHandler_Search_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.search(params.query);
+          break;
+        }
+        case 2: {
+          const params = history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendQualityLog(params.selected_indices, params.num_entered_chars);
+          break;
+        }
+        case 3: {
+          const params = history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordSearchResultsMetrics(params.nonEmptyResults, params.userClickedResult, params.answerShown, params.answerCitationClicked, params.otherHistoryResultClicked, params.queryWordCount);
+          break;
+        }
+        case 4: {
+          const params = history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUserFeedback(params.feedback);
+          break;
+        }
+        case 5: {
+          const params = history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.maybeShowFeaturePromo();
+          break;
+        }
+        case 6: {
+          const params = history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openSettingsPage();
+          break;
+        }
+      }
+    });
+  }
+};
+
+history_embeddings.mojom.PageHandlerReceiver = history_embeddings.mojom.PageHandlerReceiver;
+
 history_embeddings.mojom.PageHandlerPtr = history_embeddings.mojom.PageHandlerRemote;
 history_embeddings.mojom.PageHandlerRequest = history_embeddings.mojom.PageHandlerPendingReceiver;
 
@@ -312,6 +365,28 @@ history_embeddings.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+history_embeddings.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.searchResultChanged(params.result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+history_embeddings.mojom.PageReceiver = history_embeddings.mojom.PageReceiver;
 
 history_embeddings.mojom.PagePtr = history_embeddings.mojom.PageRemote;
 history_embeddings.mojom.PageRequest = history_embeddings.mojom.PagePendingReceiver;

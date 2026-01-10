@@ -100,6 +100,47 @@ updater.mojom.UpdateServiceInternal.getRemote = function() {
   return remote.$;
 };
 
+updater.mojom.UpdateServiceInternalReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = updater.mojom.UpdateServiceInternal_Run_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.run();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = updater.mojom.UpdateServiceInternal_Hello_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hello();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+updater.mojom.UpdateServiceInternalReceiver = updater.mojom.UpdateServiceInternalReceiver;
+
 updater.mojom.UpdateServiceInternalPtr = updater.mojom.UpdateServiceInternalRemote;
 updater.mojom.UpdateServiceInternalRequest = updater.mojom.UpdateServiceInternalPendingReceiver;
 

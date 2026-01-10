@@ -7,25 +7,8 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var cc = cc || {};
 var skia = skia || {};
-var skia = skia || {};
-var services = services || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 viz.mojom.LayerExtraSpec = { $: {} };

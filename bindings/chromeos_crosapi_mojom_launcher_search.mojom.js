@@ -7,7 +7,7 @@
 // Module namespace
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -202,6 +202,28 @@ crosapi.mojom.SearchResultsPublisher.getRemote = function() {
   return remote.$;
 };
 
+crosapi.mojom.SearchResultsPublisherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSearchResultsReceived(params.status, params.result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.SearchResultsPublisherReceiver = crosapi.mojom.SearchResultsPublisherReceiver;
+
 crosapi.mojom.SearchResultsPublisherPtr = crosapi.mojom.SearchResultsPublisherRemote;
 crosapi.mojom.SearchResultsPublisherRequest = crosapi.mojom.SearchResultsPublisherPendingReceiver;
 
@@ -215,7 +237,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     crosapi.mojom.SearchController_Search_ResponseParamsSpec, 'crosapi.mojom.SearchController_Search_ResponseParams', [
-      mojo.internal.StructField('publisher', 0, 0, mojo.internal.AssociatedInterfaceRequest(crosapi.mojom.SearchResultsPublisherRemote), null, false, 0, undefined),
+      mojo.internal.StructField('publisher', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -272,6 +294,35 @@ crosapi.mojom.SearchController.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.SearchControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.SearchController_Search_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.search(params.query);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.SearchController_Search_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.SearchControllerReceiver = crosapi.mojom.SearchControllerReceiver;
 
 crosapi.mojom.SearchControllerPtr = crosapi.mojom.SearchControllerRemote;
 crosapi.mojom.SearchControllerRequest = crosapi.mojom.SearchControllerPendingReceiver;
@@ -337,6 +388,28 @@ crosapi.mojom.SearchResultConsumer.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.SearchResultConsumerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFaviconReceived(params.favicon);
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.SearchResultConsumerReceiver = crosapi.mojom.SearchResultConsumerReceiver;
 
 crosapi.mojom.SearchResultConsumerPtr = crosapi.mojom.SearchResultConsumerRemote;
 crosapi.mojom.SearchResultConsumerRequest = crosapi.mojom.SearchResultConsumerPendingReceiver;

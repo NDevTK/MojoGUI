@@ -7,10 +7,9 @@
 // Module namespace
 var page_load_metrics = page_load_metrics || {};
 page_load_metrics.mojom = page_load_metrics.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var blink = blink || {};
-var blink = blink || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 page_load_metrics.mojom.CacheTypeSpec = { $: mojo.internal.Enum() };
@@ -404,6 +403,38 @@ page_load_metrics.mojom.PageLoadMetrics.getRemote = function() {
     'context');
   return remote.$;
 };
+
+page_load_metrics.mojom.PageLoadMetricsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateTiming(params.page_load_timing, params.frame_metadata, params.new_features, params.resources, params.render_data, params.cpu_load_timing, params.input_timing_delta, params.subresource_load_metrics, params.soft_navigation_metrics);
+          break;
+        }
+        case 1: {
+          const params = page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUpSharedMemoryForDroppedFrames(params.dropped_frames_memory);
+          break;
+        }
+        case 2: {
+          const params = page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addCustomUserTiming(params.custom_user_timing);
+          break;
+        }
+      }
+    });
+  }
+};
+
+page_load_metrics.mojom.PageLoadMetricsReceiver = page_load_metrics.mojom.PageLoadMetricsReceiver;
 
 page_load_metrics.mojom.PageLoadMetricsPtr = page_load_metrics.mojom.PageLoadMetricsRemote;
 page_load_metrics.mojom.PageLoadMetricsRequest = page_load_metrics.mojom.PageLoadMetricsPendingReceiver;

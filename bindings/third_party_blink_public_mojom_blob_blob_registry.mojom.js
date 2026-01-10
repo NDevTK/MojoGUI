@@ -7,10 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
 var url = url || {};
 
 blink.mojom.ProgressClient = {};
@@ -84,6 +80,28 @@ blink.mojom.ProgressClient.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.ProgressClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ProgressClient_OnProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProgress(params.delta);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ProgressClientReceiver = blink.mojom.ProgressClientReceiver;
+
 blink.mojom.ProgressClientPtr = blink.mojom.ProgressClientRemote;
 blink.mojom.ProgressClientRequest = blink.mojom.ProgressClientPendingReceiver;
 
@@ -110,7 +128,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('content_disposition', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('length_hint', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('data', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('progress_client', 32, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.ProgressClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('progress_client', 32, 0, mojo.internal.Pointer, null, true, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -183,6 +201,47 @@ blink.mojom.BlobRegistry.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.BlobRegistryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.BlobRegistry_Register_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.register(params.blob, params.uuid, params.content_type, params.content_disposition, params.elements);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BlobRegistry_Register_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerFromStream(params.content_type, params.content_disposition, params.length_hint, params.data, params.progress_client);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.BlobRegistryReceiver = blink.mojom.BlobRegistryReceiver;
 
 blink.mojom.BlobRegistryPtr = blink.mojom.BlobRegistryRemote;
 blink.mojom.BlobRegistryRequest = blink.mojom.BlobRegistryPendingReceiver;

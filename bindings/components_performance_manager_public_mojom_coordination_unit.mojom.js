@@ -7,9 +7,7 @@
 // Module namespace
 var performance_manager = performance_manager || {};
 performance_manager.mojom = performance_manager.mojom || {};
-var components = components || {};
-var components = components || {};
-var components = components || {};
+var mojo_base = mojo_base || {};
 var blink = blink || {};
 
 performance_manager.mojom.CoordinationUnitTypeSpec = { $: mojo.internal.Enum() };
@@ -285,6 +283,90 @@ performance_manager.mojom.DocumentCoordinationUnit.getRemote = function() {
   return remote.$;
 };
 
+performance_manager.mojom.DocumentCoordinationUnitReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = performance_manager.mojom.DocumentCoordinationUnit_SetNetworkAlmostIdle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNetworkAlmostIdle();
+          break;
+        }
+        case 1: {
+          const params = performance_manager.mojom.DocumentCoordinationUnit_SetLifecycleState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLifecycleState(params.state);
+          break;
+        }
+        case 2: {
+          const params = performance_manager.mojom.DocumentCoordinationUnit_SetHasNonEmptyBeforeUnload_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHasNonEmptyBeforeUnload(params.has_nonempty_beforeunload);
+          break;
+        }
+        case 3: {
+          const params = performance_manager.mojom.DocumentCoordinationUnit_SetHadFormInteraction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHadFormInteraction();
+          break;
+        }
+        case 4: {
+          const params = performance_manager.mojom.DocumentCoordinationUnit_SetHadUserEdits_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHadUserEdits();
+          break;
+        }
+        case 5: {
+          const params = performance_manager.mojom.DocumentCoordinationUnit_OnStartedUsingWebRTC_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStartedUsingWebRTC();
+          break;
+        }
+        case 6: {
+          const params = performance_manager.mojom.DocumentCoordinationUnit_OnStoppedUsingWebRTC_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStoppedUsingWebRTC();
+          break;
+        }
+        case 7: {
+          const params = performance_manager.mojom.DocumentCoordinationUnit_SetIsAdFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsAdFrame(params.is_ad_frame);
+          break;
+        }
+        case 8: {
+          const params = performance_manager.mojom.DocumentCoordinationUnit_OnNonPersistentNotificationCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNonPersistentNotificationCreated();
+          break;
+        }
+        case 9: {
+          const params = performance_manager.mojom.DocumentCoordinationUnit_OnFirstContentfulPaint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFirstContentfulPaint(params.time_since_navigation_start);
+          break;
+        }
+        case 10: {
+          const params = performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWebMemoryMeasurementRequested(params.mode);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, performance_manager.mojom.DocumentCoordinationUnit_OnWebMemoryMeasurementRequested_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = performance_manager.mojom.DocumentCoordinationUnit_OnFreezingOriginTrialOptOut_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFreezingOriginTrialOptOut();
+          break;
+        }
+      }
+    });
+  }
+};
+
+performance_manager.mojom.DocumentCoordinationUnitReceiver = performance_manager.mojom.DocumentCoordinationUnitReceiver;
+
 performance_manager.mojom.DocumentCoordinationUnitPtr = performance_manager.mojom.DocumentCoordinationUnitRemote;
 performance_manager.mojom.DocumentCoordinationUnitRequest = performance_manager.mojom.DocumentCoordinationUnitPendingReceiver;
 
@@ -434,6 +516,53 @@ performance_manager.mojom.ProcessCoordinationUnit.getRemote = function() {
   return remote.$;
 };
 
+performance_manager.mojom.ProcessCoordinationUnitReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = performance_manager.mojom.ProcessCoordinationUnit_SetMainThreadTaskLoadIsLow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMainThreadTaskLoadIsLow(params.main_thread_task_load_is_low);
+          break;
+        }
+        case 1: {
+          const params = performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onV8ContextCreated(params.description, params.iframe_attribution_data);
+          break;
+        }
+        case 2: {
+          const params = performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDetached_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onV8ContextDetached(params.v8_context_token);
+          break;
+        }
+        case 3: {
+          const params = performance_manager.mojom.ProcessCoordinationUnit_OnV8ContextDestroyed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onV8ContextDestroyed(params.v8_context_token);
+          break;
+        }
+        case 4: {
+          const params = performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeAttached_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRemoteIframeAttached(params.parent_frame_token, params.remote_frame_token, params.iframe_attribution_data);
+          break;
+        }
+        case 5: {
+          const params = performance_manager.mojom.ProcessCoordinationUnit_OnRemoteIframeDetached_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRemoteIframeDetached(params.parent_frame_token, params.remote_frame_token);
+          break;
+        }
+      }
+    });
+  }
+};
+
+performance_manager.mojom.ProcessCoordinationUnitReceiver = performance_manager.mojom.ProcessCoordinationUnitReceiver;
+
 performance_manager.mojom.ProcessCoordinationUnitPtr = performance_manager.mojom.ProcessCoordinationUnitRemote;
 performance_manager.mojom.ProcessCoordinationUnitRequest = performance_manager.mojom.ProcessCoordinationUnitPendingReceiver;
 
@@ -504,6 +633,35 @@ performance_manager.mojom.ChildProcessCoordinationUnit.getRemote = function() {
     'context');
   return remote.$;
 };
+
+performance_manager.mojom.ChildProcessCoordinationUnitReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initializeChildProcessCoordination();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, performance_manager.mojom.ChildProcessCoordinationUnit_InitializeChildProcessCoordination_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+performance_manager.mojom.ChildProcessCoordinationUnitReceiver = performance_manager.mojom.ChildProcessCoordinationUnitReceiver;
 
 performance_manager.mojom.ChildProcessCoordinationUnitPtr = performance_manager.mojom.ChildProcessCoordinationUnitRemote;
 performance_manager.mojom.ChildProcessCoordinationUnitRequest = performance_manager.mojom.ChildProcessCoordinationUnitPendingReceiver;

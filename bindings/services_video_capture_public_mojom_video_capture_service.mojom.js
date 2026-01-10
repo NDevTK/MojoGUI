@@ -7,11 +7,11 @@
 // Module namespace
 var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
-var services = services || {};
-var services = services || {};
-var components = components || {};
-var chromeos = chromeos || {};
-var chromeos = chromeos || {};
+var sandbox = sandbox || {};
+var chromeos_camera = chromeos_camera || {};
+var cros = cros || {};
+var crosapi = crosapi || {};
+var gpu = gpu || {};
 
 video_capture.mojom.AcceleratorFactory = {};
 video_capture.mojom.AcceleratorFactory.$interfaceName = 'video_capture.mojom.AcceleratorFactory';
@@ -89,6 +89,28 @@ video_capture.mojom.AcceleratorFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+video_capture.mojom.AcceleratorFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createJpegDecodeAccelerator(params.jda);
+          break;
+        }
+      }
+    });
+  }
+};
+
+video_capture.mojom.AcceleratorFactoryReceiver = video_capture.mojom.AcceleratorFactoryReceiver;
 
 video_capture.mojom.AcceleratorFactoryPtr = video_capture.mojom.AcceleratorFactoryRemote;
 video_capture.mojom.AcceleratorFactoryRequest = video_capture.mojom.AcceleratorFactoryPendingReceiver;
@@ -234,6 +256,53 @@ video_capture.mojom.VideoCaptureService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+video_capture.mojom.VideoCaptureServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.injectGpuDependencies(params.accelerator_factory);
+          break;
+        }
+        case 1: {
+          const params = video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectToCameraAppDeviceBridge(params.receiver);
+          break;
+        }
+        case 2: {
+          const params = video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindVideoCaptureDeviceFactory(params.receiver);
+          break;
+        }
+        case 3: {
+          const params = video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectToVideoSourceProvider(params.receiver);
+          break;
+        }
+        case 4: {
+          const params = video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindControlsForTesting(params.receiver);
+          break;
+        }
+        case 5: {
+          const params = video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onGpuInfoUpdate(params.luid);
+          break;
+        }
+      }
+    });
+  }
+};
+
+video_capture.mojom.VideoCaptureServiceReceiver = video_capture.mojom.VideoCaptureServiceReceiver;
 
 video_capture.mojom.VideoCaptureServicePtr = video_capture.mojom.VideoCaptureServiceRemote;
 video_capture.mojom.VideoCaptureServiceRequest = video_capture.mojom.VideoCaptureServicePendingReceiver;

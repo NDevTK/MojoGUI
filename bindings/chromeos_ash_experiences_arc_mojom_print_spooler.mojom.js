@@ -7,8 +7,6 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
 
 arc.mojom.PrintSessionHost = {};
 arc.mojom.PrintSessionHost.$interfaceName = 'arc.mojom.PrintSessionHost';
@@ -70,6 +68,23 @@ arc.mojom.PrintSessionHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.PrintSessionHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+arc.mojom.PrintSessionHostReceiver = arc.mojom.PrintSessionHostReceiver;
 
 arc.mojom.PrintSessionHostPtr = arc.mojom.PrintSessionHostRemote;
 arc.mojom.PrintSessionHostRequest = arc.mojom.PrintSessionHostPendingReceiver;
@@ -158,6 +173,40 @@ arc.mojom.PrintSessionInstance.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.PrintSessionInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPrintPreviewClosed();
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPreviewDocument(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.PrintSessionInstanceReceiver = arc.mojom.PrintSessionInstanceReceiver;
+
 arc.mojom.PrintSessionInstancePtr = arc.mojom.PrintSessionInstanceRemote;
 arc.mojom.PrintSessionInstanceRequest = arc.mojom.PrintSessionInstancePendingReceiver;
 
@@ -231,6 +280,35 @@ arc.mojom.PrintSpoolerHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.PrintSpoolerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startPrintInCustomTab(params.scoped_handle, params.task_id, params.instance);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.PrintSpoolerHostReceiver = arc.mojom.PrintSpoolerHostReceiver;
+
 arc.mojom.PrintSpoolerHostPtr = arc.mojom.PrintSpoolerHostRemote;
 arc.mojom.PrintSpoolerHostRequest = arc.mojom.PrintSpoolerHostPendingReceiver;
 
@@ -300,6 +378,35 @@ arc.mojom.PrintSpoolerInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.PrintSpoolerInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.PrintSpoolerInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.PrintSpoolerInstanceReceiver = arc.mojom.PrintSpoolerInstanceReceiver;
 
 arc.mojom.PrintSpoolerInstancePtr = arc.mojom.PrintSpoolerInstanceRemote;
 arc.mojom.PrintSpoolerInstanceRequest = arc.mojom.PrintSpoolerInstancePendingReceiver;

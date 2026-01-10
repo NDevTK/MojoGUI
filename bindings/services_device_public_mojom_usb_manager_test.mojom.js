@@ -141,6 +141,59 @@ device.mojom.UsbDeviceManagerTest.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.UsbDeviceManagerTestReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addDeviceForTesting(params.name, params.serial_number, params.landing_page);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeDeviceForTesting(params.guid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTestDevices();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.UsbDeviceManagerTestReceiver = device.mojom.UsbDeviceManagerTestReceiver;
+
 device.mojom.UsbDeviceManagerTestPtr = device.mojom.UsbDeviceManagerTestRemote;
 device.mojom.UsbDeviceManagerTestRequest = device.mojom.UsbDeviceManagerTestPendingReceiver;
 

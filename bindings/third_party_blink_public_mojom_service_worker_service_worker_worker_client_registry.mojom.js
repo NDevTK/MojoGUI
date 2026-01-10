@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 
 blink.mojom.ServiceWorkerWorkerClientRegistry = {};
 blink.mojom.ServiceWorkerWorkerClientRegistry.$interfaceName = 'blink.mojom.ServiceWorkerWorkerClientRegistry';
@@ -90,6 +89,33 @@ blink.mojom.ServiceWorkerWorkerClientRegistry.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ServiceWorkerWorkerClientRegistryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerWorkerClient(params.client);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cloneWorkerClientRegistry(params.host);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ServiceWorkerWorkerClientRegistryReceiver = blink.mojom.ServiceWorkerWorkerClientRegistryReceiver;
 
 blink.mojom.ServiceWorkerWorkerClientRegistryPtr = blink.mojom.ServiceWorkerWorkerClientRegistryRemote;
 blink.mojom.ServiceWorkerWorkerClientRegistryRequest = blink.mojom.ServiceWorkerWorkerClientRegistryPendingReceiver;

@@ -137,6 +137,28 @@ ash.language.mojom.LanguagePacksObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.language.mojom.LanguagePacksObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPackStateChanged(params.info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.language.mojom.LanguagePacksObserverReceiver = ash.language.mojom.LanguagePacksObserverReceiver;
+
 ash.language.mojom.LanguagePacksObserverPtr = ash.language.mojom.LanguagePacksObserverRemote;
 ash.language.mojom.LanguagePacksObserverRequest = ash.language.mojom.LanguagePacksObserverPendingReceiver;
 
@@ -194,7 +216,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec, 'ash.language.mojom.LanguagePacks_AddObserver_Params', [
-      mojo.internal.StructField('observer', 0, 0, mojo.internal.AssociatedInterfaceProxy(ash.language.mojom.LanguagePacksObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('observer', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -291,6 +313,76 @@ ash.language.mojom.LanguagePacks.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.language.mojom.LanguagePacksReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPackInfo(params.feature_id, params.language);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installPack(params.feature_id, params.language);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installBasePack(params.feature_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.uninstallPack(params.feature_id, params.language);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.language.mojom.LanguagePacksReceiver = ash.language.mojom.LanguagePacksReceiver;
 
 ash.language.mojom.LanguagePacksPtr = ash.language.mojom.LanguagePacksRemote;
 ash.language.mojom.LanguagePacksRequest = ash.language.mojom.LanguagePacksPendingReceiver;

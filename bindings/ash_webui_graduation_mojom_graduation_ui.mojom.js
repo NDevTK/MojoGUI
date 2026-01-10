@@ -160,6 +160,57 @@ ash.graduation_ui.mojom.GraduationUiHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.graduation_ui.mojom.GraduationUiHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.authenticateWebview();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getProfileInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScreenSwitched(params.screen);
+          break;
+        }
+        case 3: {
+          const params = ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTransferComplete();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.graduation_ui.mojom.GraduationUiHandlerReceiver = ash.graduation_ui.mojom.GraduationUiHandlerReceiver;
+
 ash.graduation_ui.mojom.GraduationUiHandlerPtr = ash.graduation_ui.mojom.GraduationUiHandlerRemote;
 ash.graduation_ui.mojom.GraduationUiHandlerRequest = ash.graduation_ui.mojom.GraduationUiHandlerPendingReceiver;
 

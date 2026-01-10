@@ -7,6 +7,7 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
+var mojo_base = mojo_base || {};
 
 chromecast.mojom.MessageCallback = {};
 chromecast.mojom.MessageCallback.$interfaceName = 'chromecast.mojom.MessageCallback';
@@ -84,6 +85,28 @@ chromecast.mojom.MessageCallback.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.MessageCallbackReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMessage(params.list);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.MessageCallbackReceiver = chromecast.mojom.MessageCallbackReceiver;
 
 chromecast.mojom.MessageCallbackPtr = chromecast.mojom.MessageCallbackRemote;
 chromecast.mojom.MessageCallbackRequest = chromecast.mojom.MessageCallbackPendingReceiver;
@@ -168,6 +191,33 @@ chromecast.mojom.WebUi.getRemote = function() {
   return remote.$;
 };
 
+chromecast.mojom.WebUiReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerMessageCallback(params.message, params.cb);
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.callJavascriptFunction(params.function, params.args);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.WebUiReceiver = chromecast.mojom.WebUiReceiver;
+
 chromecast.mojom.WebUiPtr = chromecast.mojom.WebUiRemote;
 chromecast.mojom.WebUiRequest = chromecast.mojom.WebUiPendingReceiver;
 
@@ -238,6 +288,35 @@ chromecast.mojom.Resources.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.ResourcesReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestResourceBytes(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.ResourcesReceiver = chromecast.mojom.ResourcesReceiver;
 
 chromecast.mojom.ResourcesPtr = chromecast.mojom.ResourcesRemote;
 chromecast.mojom.ResourcesRequest = chromecast.mojom.ResourcesPendingReceiver;
@@ -322,6 +401,33 @@ chromecast.mojom.WebUiClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.WebUiClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createController(params.host, params.web_ui, params.resources);
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createResources(params.host, params.resources);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.WebUiClientReceiver = chromecast.mojom.WebUiClientReceiver;
 
 chromecast.mojom.WebUiClientPtr = chromecast.mojom.WebUiClientRemote;
 chromecast.mojom.WebUiClientRequest = chromecast.mojom.WebUiClientPendingReceiver;

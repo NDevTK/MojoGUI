@@ -110,6 +110,40 @@ storage.mojom.IndexedDBClientStateChecker.getRemote = function() {
   return remote.$;
 };
 
+storage.mojom.IndexedDBClientStateCheckerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disallowInactiveClient(params.connection_id, params.reason, params.keep_active);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.makeClone(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.IndexedDBClientStateCheckerReceiver = storage.mojom.IndexedDBClientStateCheckerReceiver;
+
 storage.mojom.IndexedDBClientStateCheckerPtr = storage.mojom.IndexedDBClientStateCheckerRemote;
 storage.mojom.IndexedDBClientStateCheckerRequest = storage.mojom.IndexedDBClientStateCheckerPendingReceiver;
 
@@ -158,6 +192,23 @@ storage.mojom.IndexedDBClientKeepActive.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.IndexedDBClientKeepActiveReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+storage.mojom.IndexedDBClientKeepActiveReceiver = storage.mojom.IndexedDBClientKeepActiveReceiver;
 
 storage.mojom.IndexedDBClientKeepActivePtr = storage.mojom.IndexedDBClientKeepActiveRemote;
 storage.mojom.IndexedDBClientKeepActiveRequest = storage.mojom.IndexedDBClientKeepActivePendingReceiver;

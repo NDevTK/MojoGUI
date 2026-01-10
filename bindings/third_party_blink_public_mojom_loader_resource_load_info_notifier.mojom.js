@@ -7,12 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var blink = blink || {};
+var network = network || {};
 var url = url || {};
 
 blink.mojom.ResourceLoadInfoNotifier = {};
@@ -187,6 +182,58 @@ blink.mojom.ResourceLoadInfoNotifier.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ResourceLoadInfoNotifierReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyUpdateUserGestureCarryoverInfo();
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyResourceRedirectReceived(params.redirect_info, params.redirect_response);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyResourceResponseReceived(params.request_id, params.final_response_url, params.head, params.request_destination, params.is_ad_resource);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyResourceTransferSizeUpdated(params.request_id, params.transfer_size_diff);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyResourceLoadCompleted(params.resource_load_info, params.status);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyResourceLoadCanceled(params.request_id);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.pending_resource_load_info_notifier);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ResourceLoadInfoNotifierReceiver = blink.mojom.ResourceLoadInfoNotifierReceiver;
 
 blink.mojom.ResourceLoadInfoNotifierPtr = blink.mojom.ResourceLoadInfoNotifierRemote;
 blink.mojom.ResourceLoadInfoNotifierRequest = blink.mojom.ResourceLoadInfoNotifierPendingReceiver;

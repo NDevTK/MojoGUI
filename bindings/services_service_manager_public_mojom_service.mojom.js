@@ -7,10 +7,6 @@
 // Module namespace
 var service_manager = service_manager || {};
 service_manager.mojom = service_manager.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
 
 service_manager.mojom.BindSourceInfoSpec = { $: {} };
 service_manager.mojom.Service = {};
@@ -39,7 +35,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     service_manager.mojom.Service_OnStart_ResponseParamsSpec, 'service_manager.mojom.Service_OnStart_ResponseParams', [
       mojo.internal.StructField('connector_receiver', 0, 0, mojo.internal.InterfaceRequest(service_manager.mojom.ConnectorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('control_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(service_manager.mojom.ServiceControlRemote), null, false, 0, undefined),
+      mojo.internal.StructField('control_receiver', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -137,6 +133,52 @@ service_manager.mojom.Service.getRemote = function() {
     'context');
   return remote.$;
 };
+
+service_manager.mojom.ServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = service_manager.mojom.Service_OnStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStart(params.identity);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, service_manager.mojom.Service_OnStart_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = service_manager.mojom.Service_OnBindInterface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBindInterface(params.source, params.interface_name, params.interface_pipe);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPackagedServiceInstance(params.identity, params.receiver, params.metadata);
+          break;
+        }
+      }
+    });
+  }
+};
+
+service_manager.mojom.ServiceReceiver = service_manager.mojom.ServiceReceiver;
 
 service_manager.mojom.ServicePtr = service_manager.mojom.ServiceRemote;
 service_manager.mojom.ServiceRequest = service_manager.mojom.ServicePendingReceiver;

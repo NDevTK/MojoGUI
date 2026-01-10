@@ -107,6 +107,28 @@ signout_confirmation.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+signout_confirmation.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createSignoutConfirmationHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+signout_confirmation.mojom.PageHandlerFactoryReceiver = signout_confirmation.mojom.PageHandlerFactoryReceiver;
+
 signout_confirmation.mojom.PageHandlerFactoryPtr = signout_confirmation.mojom.PageHandlerFactoryRemote;
 signout_confirmation.mojom.PageHandlerFactoryRequest = signout_confirmation.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -234,6 +256,48 @@ signout_confirmation.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+signout_confirmation.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateViewHeight(params.height);
+          break;
+        }
+        case 1: {
+          const params = signout_confirmation.mojom.PageHandler_Accept_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.accept(params.uninstall_account_extensions);
+          break;
+        }
+        case 2: {
+          const params = signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancel(params.uninstall_account_extensions);
+          break;
+        }
+        case 3: {
+          const params = signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.performReauth();
+          break;
+        }
+        case 4: {
+          const params = signout_confirmation.mojom.PageHandler_Close_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.close();
+          break;
+        }
+      }
+    });
+  }
+};
+
+signout_confirmation.mojom.PageHandlerReceiver = signout_confirmation.mojom.PageHandlerReceiver;
+
 signout_confirmation.mojom.PageHandlerPtr = signout_confirmation.mojom.PageHandlerRemote;
 signout_confirmation.mojom.PageHandlerRequest = signout_confirmation.mojom.PageHandlerPendingReceiver;
 
@@ -298,6 +362,28 @@ signout_confirmation.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+signout_confirmation.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendSignoutConfirmationData(params.data);
+          break;
+        }
+      }
+    });
+  }
+};
+
+signout_confirmation.mojom.PageReceiver = signout_confirmation.mojom.PageReceiver;
 
 signout_confirmation.mojom.PagePtr = signout_confirmation.mojom.PageRemote;
 signout_confirmation.mojom.PageRequest = signout_confirmation.mojom.PagePendingReceiver;

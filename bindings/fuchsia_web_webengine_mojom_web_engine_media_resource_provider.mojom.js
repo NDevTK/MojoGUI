@@ -103,6 +103,40 @@ mojom.WebEngineMediaResourceProvider.getRemote = function() {
   return remote.$;
 };
 
+mojom.WebEngineMediaResourceProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldUseAudioConsumer();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createAudioConsumer(params.request);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mojom.WebEngineMediaResourceProviderReceiver = mojom.WebEngineMediaResourceProviderReceiver;
+
 mojom.WebEngineMediaResourceProviderPtr = mojom.WebEngineMediaResourceProviderRemote;
 mojom.WebEngineMediaResourceProviderRequest = mojom.WebEngineMediaResourceProviderPendingReceiver;
 

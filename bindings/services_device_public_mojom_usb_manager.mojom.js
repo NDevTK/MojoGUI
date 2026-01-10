@@ -7,9 +7,7 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 device.mojom.UsbDeviceManager = {};
 device.mojom.UsbDeviceManager.$interfaceName = 'device.mojom.UsbDeviceManager';
@@ -30,7 +28,7 @@ device.mojom.UsbDeviceManager_SetClient_ParamsSpec = { $: {} };
 // Interface: UsbDeviceManager
 mojo.internal.Struct(
     device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec, 'device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(device.mojom.UsbDeviceManagerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -109,7 +107,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     device.mojom.UsbDeviceManager_SetClient_ParamsSpec, 'device.mojom.UsbDeviceManager_SetClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(device.mojom.UsbDeviceManagerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -236,6 +234,98 @@ device.mojom.UsbDeviceManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.UsbDeviceManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enumerateDevicesAndSetClient(params.client);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.UsbDeviceManager_GetDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDevices(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.UsbDeviceManager_GetDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDevice(params.guid, params.blocked_interface_classes, params.device_receiver, params.device_client);
+          break;
+        }
+        case 3: {
+          const params = device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSecurityKeyDevice(params.guid, params.device_receiver, params.device_client);
+          break;
+        }
+        case 4: {
+          const params = device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.refreshDeviceInfo(params.guid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkAccess(params.guid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFileDescriptor(params.guid, params.allowed_interfaces_mask, params.lifeline_fd);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = device.mojom.UsbDeviceManager_SetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setClient(params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.UsbDeviceManagerReceiver = device.mojom.UsbDeviceManagerReceiver;
 
 device.mojom.UsbDeviceManagerPtr = device.mojom.UsbDeviceManagerRemote;
 device.mojom.UsbDeviceManagerRequest = device.mojom.UsbDeviceManagerPendingReceiver;

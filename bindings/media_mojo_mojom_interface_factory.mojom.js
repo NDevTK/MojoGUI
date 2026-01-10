@@ -7,6 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var mojo_base = mojo_base || {};
 
 media.mojom.VideoDecoderTracker = {};
 media.mojom.VideoDecoderTracker.$interfaceName = 'media.mojom.VideoDecoderTracker';
@@ -67,6 +68,23 @@ media.mojom.VideoDecoderTracker.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.VideoDecoderTrackerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+media.mojom.VideoDecoderTrackerReceiver = media.mojom.VideoDecoderTrackerReceiver;
 
 media.mojom.VideoDecoderTrackerPtr = media.mojom.VideoDecoderTrackerRemote;
 media.mojom.VideoDecoderTrackerRequest = media.mojom.VideoDecoderTrackerPendingReceiver;
@@ -276,6 +294,75 @@ media.mojom.InterfaceFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.InterfaceFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createAudioDecoder(params.audio_decoder);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createVideoDecoder(params.video_decoder, params.dst_video_decoder);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createVideoDecoderWithTracker(params.receiver, params.tracker);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createAudioEncoder(params.audio_encoder);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createDefaultRenderer(params.audio_device_id, params.renderer);
+          break;
+        }
+        case 5: {
+          const params = media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCastRenderer(params.overlay_plane_id, params.renderer);
+          break;
+        }
+        case 6: {
+          const params = media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createMediaFoundationRenderer(params.media_log, params.renderer, params.renderer_extension);
+          break;
+        }
+        case 7: {
+          const params = media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createFlingingRenderer(params.presentation_id, params.client_extension, params.renderer);
+          break;
+        }
+        case 8: {
+          const params = media.mojom.InterfaceFactory_CreateCdm_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCdm(params.cdm_config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.InterfaceFactoryReceiver = media.mojom.InterfaceFactoryReceiver;
 
 media.mojom.InterfaceFactoryPtr = media.mojom.InterfaceFactoryRemote;
 media.mojom.InterfaceFactoryRequest = media.mojom.InterfaceFactoryPendingReceiver;

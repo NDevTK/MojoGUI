@@ -7,26 +7,6 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
 
 device.mojom.DeviceService = {};
 device.mojom.DeviceService.$interfaceName = 'device.mojom.DeviceService';
@@ -416,6 +396,123 @@ device.mojom.DeviceService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.DeviceServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.DeviceService_BindFingerprint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindFingerprint(params.receiver);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.DeviceService_BindGeolocationContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindGeolocationContext(params.receiver);
+          break;
+        }
+        case 2: {
+          const params = device.mojom.DeviceService_BindGeolocationControl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindGeolocationControl(params.receiver);
+          break;
+        }
+        case 3: {
+          const params = device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindGeolocationInternals(params.receiver);
+          break;
+        }
+        case 4: {
+          const params = device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindInputDeviceManager(params.receiver);
+          break;
+        }
+        case 5: {
+          const params = device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindBatteryMonitor(params.receiver);
+          break;
+        }
+        case 6: {
+          const params = device.mojom.DeviceService_BindPressureManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindPressureManager(params.receiver);
+          break;
+        }
+        case 7: {
+          const params = device.mojom.DeviceService_BindNFCProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindNFCProvider(params.receiver);
+          break;
+        }
+        case 8: {
+          const params = device.mojom.DeviceService_BindVibrationManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindVibrationManager(params.receiver, params.listener);
+          break;
+        }
+        case 9: {
+          const params = device.mojom.DeviceService_BindHidManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindHidManager(params.receiver);
+          break;
+        }
+        case 10: {
+          const params = device.mojom.DeviceService_BindMtpManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindMtpManager(params.receiver);
+          break;
+        }
+        case 11: {
+          const params = device.mojom.DeviceService_BindPowerMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindPowerMonitor(params.receiver);
+          break;
+        }
+        case 12: {
+          const params = device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindPublicIpAddressGeolocationProvider(params.receiver);
+          break;
+        }
+        case 13: {
+          const params = device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindScreenOrientationListener(params.receiver);
+          break;
+        }
+        case 14: {
+          const params = device.mojom.DeviceService_BindSensorProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSensorProvider(params.receiver);
+          break;
+        }
+        case 15: {
+          const params = device.mojom.DeviceService_BindSerialPortManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSerialPortManager(params.receiver);
+          break;
+        }
+        case 16: {
+          const params = device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindTimeZoneMonitor(params.receiver);
+          break;
+        }
+        case 17: {
+          const params = device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindWakeLockProvider(params.receiver);
+          break;
+        }
+        case 18: {
+          const params = device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindUsbDeviceManager(params.receiver);
+          break;
+        }
+        case 19: {
+          const params = device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindUsbDeviceManagerTest(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.DeviceServiceReceiver = device.mojom.DeviceServiceReceiver;
 
 device.mojom.DeviceServicePtr = device.mojom.DeviceServiceRemote;
 device.mojom.DeviceServiceRequest = device.mojom.DeviceServicePendingReceiver;

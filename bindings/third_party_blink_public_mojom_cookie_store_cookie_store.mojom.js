@@ -7,7 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
+var network = network || {};
 var url = url || {};
 
 blink.mojom.CookieChangeSubscriptionSpec = { $: {} };
@@ -142,6 +142,59 @@ blink.mojom.CookieStore.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.CookieStoreReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.CookieStore_AddSubscriptions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addSubscriptions(params.service_worker_registration_id, params.subscription);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeSubscriptions(params.service_worker_registration_id, params.subscription);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.CookieStore_GetSubscriptions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSubscriptions(params.service_worker_registration_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.CookieStoreReceiver = blink.mojom.CookieStoreReceiver;
 
 blink.mojom.CookieStorePtr = blink.mojom.CookieStoreRemote;
 blink.mojom.CookieStoreRequest = blink.mojom.CookieStorePendingReceiver;

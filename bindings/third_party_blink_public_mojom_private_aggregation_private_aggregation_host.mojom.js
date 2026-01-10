@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 
 blink.mojom.PrivateAggregationErrorEventSpec = { $: mojo.internal.Enum() };
 blink.mojom.DebugKeySpec = { $: {} };
@@ -137,6 +136,38 @@ blink.mojom.PrivateAggregationHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.PrivateAggregationHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.contributeToHistogram(params.contributions);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.contributeToHistogramOnEvent(params.error_event, params.contributions);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableDebugMode(params.debug_key);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PrivateAggregationHostReceiver = blink.mojom.PrivateAggregationHostReceiver;
 
 blink.mojom.PrivateAggregationHostPtr = blink.mojom.PrivateAggregationHostRemote;
 blink.mojom.PrivateAggregationHostRequest = blink.mojom.PrivateAggregationHostPendingReceiver;

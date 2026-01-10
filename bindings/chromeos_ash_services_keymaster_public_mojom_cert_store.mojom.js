@@ -8,9 +8,6 @@
 var arc = arc || {};
 arc.keymaster = arc.keymaster || {};
 arc.keymaster.mojom = arc.keymaster.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
 
 arc.keymaster.mojom.KeyDataSpec = { $: {} };
 arc.keymaster.mojom.ChapsKeyDataSpec = { $: {} };
@@ -113,6 +110,35 @@ arc.keymaster.mojom.CertStoreInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.keymaster.mojom.CertStoreInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updatePlaceholderKeys(params.keys);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.keymaster.mojom.CertStoreInstanceReceiver = arc.keymaster.mojom.CertStoreInstanceReceiver;
 
 arc.keymaster.mojom.CertStoreInstancePtr = arc.keymaster.mojom.CertStoreInstanceRemote;
 arc.keymaster.mojom.CertStoreInstanceRequest = arc.keymaster.mojom.CertStoreInstancePendingReceiver;

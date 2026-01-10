@@ -9,6 +9,7 @@ var ash = ash || {};
 ash.focus_mode = ash.focus_mode || {};
 ash.focus_mode.mojom = ash.focus_mode.mojom || {};
 var url = url || {};
+var mojo_base = mojo_base || {};
 
 ash.focus_mode.mojom.PlaybackStateSpec = { $: mojo.internal.Enum() };
 ash.focus_mode.mojom.TrackDefinitionSpec = { $: {} };
@@ -120,6 +121,28 @@ ash.focus_mode.mojom.MediaClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.focus_mode.mojom.MediaClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startPlay(params.track);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.focus_mode.mojom.MediaClientReceiver = ash.focus_mode.mojom.MediaClientReceiver;
 
 ash.focus_mode.mojom.MediaClientPtr = ash.focus_mode.mojom.MediaClientRemote;
 ash.focus_mode.mojom.MediaClientRequest = ash.focus_mode.mojom.MediaClientPendingReceiver;
@@ -237,6 +260,50 @@ ash.focus_mode.mojom.TrackProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.focus_mode.mojom.TrackProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTrack();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMediaClient(params.client);
+          break;
+        }
+        case 2: {
+          const params = ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportPlayback(params.data);
+          break;
+        }
+        case 3: {
+          const params = ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportPlayerError();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.focus_mode.mojom.TrackProviderReceiver = ash.focus_mode.mojom.TrackProviderReceiver;
 
 ash.focus_mode.mojom.TrackProviderPtr = ash.focus_mode.mojom.TrackProviderRemote;
 ash.focus_mode.mojom.TrackProviderRequest = ash.focus_mode.mojom.TrackProviderPendingReceiver;

@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.CrashMemoryMetricsReporter = {};
 blink.mojom.CrashMemoryMetricsReporter.$interfaceName = 'blink.mojom.CrashMemoryMetricsReporter';
@@ -72,6 +73,28 @@ blink.mojom.CrashMemoryMetricsReporter.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.CrashMemoryMetricsReporterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSharedMemory(params.shared_metrics_buffer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.CrashMemoryMetricsReporterReceiver = blink.mojom.CrashMemoryMetricsReporterReceiver;
 
 blink.mojom.CrashMemoryMetricsReporterPtr = blink.mojom.CrashMemoryMetricsReporterRemote;
 blink.mojom.CrashMemoryMetricsReporterRequest = blink.mojom.CrashMemoryMetricsReporterPendingReceiver;

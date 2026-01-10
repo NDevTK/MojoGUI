@@ -7,10 +7,7 @@
 // Module namespace
 var nearby_share = nearby_share || {};
 nearby_share.mojom = nearby_share.mojom || {};
-var ui = ui || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 nearby_share.mojom.SelectShareTargetResultSpec = { $: mojo.internal.Enum() };
@@ -233,6 +230,33 @@ nearby_share.mojom.ShareTargetListener.getRemote = function() {
   return remote.$;
 };
 
+nearby_share.mojom.ShareTargetListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onShareTargetDiscovered(params.share_target);
+          break;
+        }
+        case 1: {
+          const params = nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onShareTargetLost(params.share_target);
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby_share.mojom.ShareTargetListenerReceiver = nearby_share.mojom.ShareTargetListenerReceiver;
+
 nearby_share.mojom.ShareTargetListenerPtr = nearby_share.mojom.ShareTargetListenerRemote;
 nearby_share.mojom.ShareTargetListenerRequest = nearby_share.mojom.ShareTargetListenerPendingReceiver;
 
@@ -298,6 +322,28 @@ nearby_share.mojom.TransferUpdateListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+nearby_share.mojom.TransferUpdateListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTransferUpdate(params.status, params.token);
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby_share.mojom.TransferUpdateListenerReceiver = nearby_share.mojom.TransferUpdateListenerReceiver;
 
 nearby_share.mojom.TransferUpdateListenerPtr = nearby_share.mojom.TransferUpdateListenerRemote;
 nearby_share.mojom.TransferUpdateListenerRequest = nearby_share.mojom.TransferUpdateListenerPendingReceiver;
@@ -378,6 +424,33 @@ nearby_share.mojom.DiscoveryObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+nearby_share.mojom.DiscoveryObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNearbyProcessStopped();
+          break;
+        }
+        case 1: {
+          const params = nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStartDiscoveryResult(params.success);
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby_share.mojom.DiscoveryObserverReceiver = nearby_share.mojom.DiscoveryObserverReceiver;
 
 nearby_share.mojom.DiscoveryObserverPtr = nearby_share.mojom.DiscoveryObserverRemote;
 nearby_share.mojom.DiscoveryObserverRequest = nearby_share.mojom.DiscoveryObserverPendingReceiver;
@@ -531,6 +604,76 @@ nearby_share.mojom.DiscoveryManager.getRemote = function() {
   return remote.$;
 };
 
+nearby_share.mojom.DiscoveryManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addDiscoveryObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startDiscovery(params.listener);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopDiscovery();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectShareTarget(params.share_target_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPayloadPreview();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby_share.mojom.DiscoveryManagerReceiver = nearby_share.mojom.DiscoveryManagerReceiver;
+
 nearby_share.mojom.DiscoveryManagerPtr = nearby_share.mojom.DiscoveryManagerRemote;
 nearby_share.mojom.DiscoveryManagerRequest = nearby_share.mojom.DiscoveryManagerPendingReceiver;
 
@@ -643,6 +786,59 @@ nearby_share.mojom.ConfirmationManager.getRemote = function() {
   return remote.$;
 };
 
+nearby_share.mojom.ConfirmationManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.accept();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reject();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancel();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby_share.mojom.ConfirmationManagerReceiver = nearby_share.mojom.ConfirmationManagerReceiver;
+
 nearby_share.mojom.ConfirmationManagerPtr = nearby_share.mojom.ConfirmationManagerRemote;
 nearby_share.mojom.ConfirmationManagerRequest = nearby_share.mojom.ConfirmationManagerPendingReceiver;
 
@@ -754,6 +950,43 @@ nearby_share.mojom.ReceiveObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+nearby_share.mojom.ReceiveObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHighVisibilityChanged(params.in_high_visibility);
+          break;
+        }
+        case 1: {
+          const params = nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTransferUpdate(params.share_target, params.metadata);
+          break;
+        }
+        case 2: {
+          const params = nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNearbyProcessStopped();
+          break;
+        }
+        case 3: {
+          const params = nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStartAdvertisingFailure();
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby_share.mojom.ReceiveObserverReceiver = nearby_share.mojom.ReceiveObserverReceiver;
 
 nearby_share.mojom.ReceiveObserverPtr = nearby_share.mojom.ReceiveObserverRemote;
 nearby_share.mojom.ReceiveObserverRequest = nearby_share.mojom.ReceiveObserverPendingReceiver;
@@ -942,6 +1175,93 @@ nearby_share.mojom.ReceiveManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+nearby_share.mojom.ReceiveManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addReceiveObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isInHighVisibility();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerForegroundReceiveSurface();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unregisterForegroundReceiveSurface();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = nearby_share.mojom.ReceiveManager_Accept_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.accept(params.share_target_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = nearby_share.mojom.ReceiveManager_Reject_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reject(params.share_target_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordFastInitiationNotificationUsage(params.success);
+          break;
+        }
+      }
+    });
+  }
+};
+
+nearby_share.mojom.ReceiveManagerReceiver = nearby_share.mojom.ReceiveManagerReceiver;
 
 nearby_share.mojom.ReceiveManagerPtr = nearby_share.mojom.ReceiveManagerRemote;
 nearby_share.mojom.ReceiveManagerRequest = nearby_share.mojom.ReceiveManagerPendingReceiver;

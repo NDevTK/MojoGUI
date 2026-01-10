@@ -8,10 +8,8 @@
 var ash = ash || {};
 ash.settings = ash.settings || {};
 ash.settings.mojom = ash.settings.mojom || {};
-var ash = ash || {};
-var ash = ash || {};
-var ui = ui || {};
-var ash = ash || {};
+var chromeos = chromeos || {};
+var mojo_base = mojo_base || {};
 
 ash.settings.mojom.SearchResultTypeSpec = { $: mojo.internal.Enum() };
 ash.settings.mojom.SearchResultDefaultRankSpec = { $: mojo.internal.Enum() };
@@ -143,6 +141,28 @@ ash.settings.mojom.SearchResultsObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.mojom.SearchResultsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSearchResultsChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.SearchResultsObserverReceiver = ash.settings.mojom.SearchResultsObserverReceiver;
+
 ash.settings.mojom.SearchResultsObserverPtr = ash.settings.mojom.SearchResultsObserverRemote;
 ash.settings.mojom.SearchResultsObserverRequest = ash.settings.mojom.SearchResultsObserverPendingReceiver;
 
@@ -231,6 +251,40 @@ ash.settings.mojom.SearchHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.mojom.SearchHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.SearchHandler_Search_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.search(params.query, params.max_num_results, params.parent_result_behavior);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.settings.mojom.SearchHandler_Observe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observe(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.SearchHandlerReceiver = ash.settings.mojom.SearchHandlerReceiver;
 
 ash.settings.mojom.SearchHandlerPtr = ash.settings.mojom.SearchHandlerRemote;
 ash.settings.mojom.SearchHandlerRequest = ash.settings.mojom.SearchHandlerPendingReceiver;

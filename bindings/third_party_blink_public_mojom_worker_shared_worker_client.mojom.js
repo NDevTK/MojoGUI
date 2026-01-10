@@ -7,9 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
 
 blink.mojom.SharedWorkerClient = {};
 blink.mojom.SharedWorkerClient.$interfaceName = 'blink.mojom.SharedWorkerClient';
@@ -143,6 +140,48 @@ blink.mojom.SharedWorkerClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.SharedWorkerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCreated(params.creation_context_type);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnected(params.features_used);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScriptLoadFailed(params.error_message);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReportException(params.details);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFeatureUsed(params.feature);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SharedWorkerClientReceiver = blink.mojom.SharedWorkerClientReceiver;
 
 blink.mojom.SharedWorkerClientPtr = blink.mojom.SharedWorkerClientRemote;
 blink.mojom.SharedWorkerClientRequest = blink.mojom.SharedWorkerClientPendingReceiver;

@@ -7,8 +7,8 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
-var components = components || {};
-var components = components || {};
+var content_settings = content_settings || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 chrome.mojom.ResumeBlockedRequestsTriggerSpec = { $: mojo.internal.Enum() };
@@ -133,6 +133,35 @@ chrome.mojom.BoundSessionRequestThrottledHandler.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.BoundSessionRequestThrottledHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleRequestBlockedOnCookie(params.untrusted_request_url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.BoundSessionRequestThrottledHandlerReceiver = chrome.mojom.BoundSessionRequestThrottledHandlerReceiver;
+
 chrome.mojom.BoundSessionRequestThrottledHandlerPtr = chrome.mojom.BoundSessionRequestThrottledHandlerRemote;
 chrome.mojom.BoundSessionRequestThrottledHandlerRequest = chrome.mojom.BoundSessionRequestThrottledHandlerPendingReceiver;
 
@@ -196,6 +225,28 @@ chrome.mojom.ChromeOSListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.ChromeOSListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mergeSessionComplete();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.ChromeOSListenerReceiver = chrome.mojom.ChromeOSListenerReceiver;
 
 chrome.mojom.ChromeOSListenerPtr = chrome.mojom.ChromeOSListenerRemote;
 chrome.mojom.ChromeOSListenerRequest = chrome.mojom.ChromeOSListenerPendingReceiver;
@@ -296,6 +347,38 @@ chrome.mojom.RendererConfiguration.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.RendererConfigurationReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setInitialConfiguration(params.is_incognito_process, params.chromeos_listener, params.content_settings_manager, params.bound_session_request_throttled_handler);
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setConfiguration(params.params);
+          break;
+        }
+        case 2: {
+          const params = chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setConfigurationOnProcessLockUpdate(params.params);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.RendererConfigurationReceiver = chrome.mojom.RendererConfigurationReceiver;
 
 chrome.mojom.RendererConfigurationPtr = chrome.mojom.RendererConfigurationRemote;
 chrome.mojom.RendererConfigurationRequest = chrome.mojom.RendererConfigurationPendingReceiver;

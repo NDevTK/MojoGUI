@@ -78,6 +78,28 @@ ash.mojom.sample_swa.ChildUntrustedPage.getRemote = function() {
   return remote.$;
 };
 
+ash.mojom.sample_swa.ChildUntrustedPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.doSomethingForParent(params.task);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.mojom.sample_swa.ChildUntrustedPageReceiver = ash.mojom.sample_swa.ChildUntrustedPageReceiver;
+
 ash.mojom.sample_swa.ChildUntrustedPagePtr = ash.mojom.sample_swa.ChildUntrustedPageRemote;
 ash.mojom.sample_swa.ChildUntrustedPageRequest = ash.mojom.sample_swa.ChildUntrustedPagePendingReceiver;
 
@@ -148,6 +170,35 @@ ash.mojom.sample_swa.ParentTrustedPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.mojom.sample_swa.ParentTrustedPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.doSomethingForChild(params.task);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.mojom.sample_swa.ParentTrustedPageReceiver = ash.mojom.sample_swa.ParentTrustedPageReceiver;
 
 ash.mojom.sample_swa.ParentTrustedPagePtr = ash.mojom.sample_swa.ParentTrustedPageRemote;
 ash.mojom.sample_swa.ParentTrustedPageRequest = ash.mojom.sample_swa.ParentTrustedPagePendingReceiver;

@@ -7,9 +7,7 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
-var services = services || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 viz.mojom.CopyOutputRequestSpec = { $: {} };
@@ -93,6 +91,28 @@ viz.mojom.CopyOutputResultSender.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.CopyOutputResultSenderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendResult(params.result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.CopyOutputResultSenderReceiver = viz.mojom.CopyOutputResultSenderReceiver;
 
 viz.mojom.CopyOutputResultSenderPtr = viz.mojom.CopyOutputResultSenderRemote;
 viz.mojom.CopyOutputResultSenderRequest = viz.mojom.CopyOutputResultSenderPendingReceiver;

@@ -303,6 +303,81 @@ ash.hotspot_config.mojom.CrosHotspotConfig.getRemote = function() {
   return remote.$;
 };
 
+ash.hotspot_config.mojom.CrosHotspotConfigReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.hotspot_config.mojom.CrosHotspotConfig_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = ash.hotspot_config.mojom.CrosHotspotConfig_ObserveEnabledStateChanges_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeEnabledStateChanges(params.observer);
+          break;
+        }
+        case 2: {
+          const params = ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getHotspotInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_GetHotspotInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHotspotConfig(params.config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_SetHotspotConfig_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableHotspot();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_EnableHotspot_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableHotspot();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.hotspot_config.mojom.CrosHotspotConfig_DisableHotspot_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.hotspot_config.mojom.CrosHotspotConfigReceiver = ash.hotspot_config.mojom.CrosHotspotConfigReceiver;
+
 ash.hotspot_config.mojom.CrosHotspotConfigPtr = ash.hotspot_config.mojom.CrosHotspotConfigRemote;
 ash.hotspot_config.mojom.CrosHotspotConfigRequest = ash.hotspot_config.mojom.CrosHotspotConfigPendingReceiver;
 
@@ -366,6 +441,28 @@ ash.hotspot_config.mojom.CrosHotspotConfigObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.hotspot_config.mojom.CrosHotspotConfigObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.hotspot_config.mojom.CrosHotspotConfigObserver_OnHotspotInfoChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHotspotInfoChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.hotspot_config.mojom.CrosHotspotConfigObserverReceiver = ash.hotspot_config.mojom.CrosHotspotConfigObserverReceiver;
 
 ash.hotspot_config.mojom.CrosHotspotConfigObserverPtr = ash.hotspot_config.mojom.CrosHotspotConfigObserverRemote;
 ash.hotspot_config.mojom.CrosHotspotConfigObserverRequest = ash.hotspot_config.mojom.CrosHotspotConfigObserverPendingReceiver;
@@ -446,6 +543,33 @@ ash.hotspot_config.mojom.HotspotEnabledStateObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.hotspot_config.mojom.HotspotEnabledStateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHotspotTurnedOn();
+          break;
+        }
+        case 1: {
+          const params = ash.hotspot_config.mojom.HotspotEnabledStateObserver_OnHotspotTurnedOff_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHotspotTurnedOff(params.reason);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.hotspot_config.mojom.HotspotEnabledStateObserverReceiver = ash.hotspot_config.mojom.HotspotEnabledStateObserverReceiver;
 
 ash.hotspot_config.mojom.HotspotEnabledStateObserverPtr = ash.hotspot_config.mojom.HotspotEnabledStateObserverRemote;
 ash.hotspot_config.mojom.HotspotEnabledStateObserverRequest = ash.hotspot_config.mojom.HotspotEnabledStateObserverPendingReceiver;

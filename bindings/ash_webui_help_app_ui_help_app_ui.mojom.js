@@ -138,6 +138,28 @@ ash.help_app.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+ash.help_app.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.help_app.mojom.PageHandlerFactoryReceiver = ash.help_app.mojom.PageHandlerFactoryReceiver;
+
 ash.help_app.mojom.PageHandlerFactoryPtr = ash.help_app.mojom.PageHandlerFactoryRemote;
 ash.help_app.mojom.PageHandlerFactoryRequest = ash.help_app.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -387,6 +409,104 @@ ash.help_app.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.help_app.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFeedbackDialog();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showOnDeviceAppControls();
+          break;
+        }
+        case 2: {
+          const params = ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showParentalControls();
+          break;
+        }
+        case 3: {
+          const params = ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.triggerWelcomeTipCallToAction(params.action_type_id);
+          break;
+        }
+        case 4: {
+          const params = ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isLauncherSearchEnabled();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launchMicrosoft365Setup();
+          break;
+        }
+        case 6: {
+          const params = ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.maybeShowReleaseNotesNotification();
+          break;
+        }
+        case 7: {
+          const params = ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openUrlInBrowserAndTriggerInstallDialog(params.url);
+          break;
+        }
+        case 9: {
+          const params = ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openSettings(params.component);
+          break;
+        }
+        case 10: {
+          const params = ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHasCompletedNewDeviceChecklist();
+          break;
+        }
+        case 11: {
+          const params = ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHasVisitedHowToPage();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.help_app.mojom.PageHandlerReceiver = ash.help_app.mojom.PageHandlerReceiver;
 
 ash.help_app.mojom.PageHandlerPtr = ash.help_app.mojom.PageHandlerRemote;
 ash.help_app.mojom.PageHandlerRequest = ash.help_app.mojom.PageHandlerPendingReceiver;

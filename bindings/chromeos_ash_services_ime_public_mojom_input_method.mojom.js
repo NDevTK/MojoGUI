@@ -8,9 +8,6 @@
 var ash = ash || {};
 ash.ime = ash.ime || {};
 ash.ime.mojom = ash.ime.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
 
 ash.ime.mojom.KeyEventTypeSpec = { $: mojo.internal.Enum() };
 ash.ime.mojom.NamedDomKeySpec = { $: mojo.internal.Enum() };
@@ -867,6 +864,94 @@ ash.ime.mojom.InputMethod.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.ime.mojom.InputMethodReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFocusDeprecated(params.input_field_info, params.settings);
+          break;
+        }
+        case 6: {
+          const params = ash.ime.mojom.InputMethod_OnFocus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFocus(params.input_field_info, params.deprecated_settings);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.ime.mojom.InputMethod_OnBlur_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBlur();
+          break;
+        }
+        case 2: {
+          const params = ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.processKeyEvent(params.event);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSurroundingTextChanged(params.text, params.offset, params.selection_range);
+          break;
+        }
+        case 4: {
+          const params = ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCompositionCanceledBySystem();
+          break;
+        }
+        case 5: {
+          const params = ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCandidateSelected(params.selected_candidate_index);
+          break;
+        }
+        case 7: {
+          const params = ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onQuickSettingsUpdated(params.settings);
+          break;
+        }
+        case 8: {
+          const params = ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isReadyForTesting();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAssistiveWindowChanged(params.window);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.ime.mojom.InputMethodReceiver = ash.ime.mojom.InputMethodReceiver;
 
 ash.ime.mojom.InputMethodPtr = ash.ime.mojom.InputMethodRemote;
 ash.ime.mojom.InputMethodRequest = ash.ime.mojom.InputMethodPendingReceiver;

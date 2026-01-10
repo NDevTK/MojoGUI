@@ -7,7 +7,8 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
-var components = components || {};
+var url_rewrite = url_rewrite || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 chromecast.mojom.PageStateSpec = { $: mojo.internal.Enum() };
@@ -271,6 +272,78 @@ chromecast.mojom.CastWebContentsObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.CastWebContentsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pageStateChanged(params.state);
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pageStopped(params.state, params.error_code);
+          break;
+        }
+        case 2: {
+          const params = chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.renderFrameCreated(params.render_process_id, params.render_frame_id);
+          break;
+        }
+        case 3: {
+          const params = chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mainFrameFinishedNavigation();
+          break;
+        }
+        case 4: {
+          const params = chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateTitle(params.title);
+          break;
+        }
+        case 5: {
+          const params = chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateFaviconURL(params.url);
+          break;
+        }
+        case 6: {
+          const params = chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didFirstVisuallyNonEmptyPaint();
+          break;
+        }
+        case 7: {
+          const params = chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resourceLoadFailed();
+          break;
+        }
+        case 8: {
+          const params = chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRenderProcessReady(params.pid);
+          break;
+        }
+        case 9: {
+          const params = chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mediaPlaybackChanged(params.media_playing);
+          break;
+        }
+        case 10: {
+          const params = chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.innerContentsCreated(params.web_contents);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.CastWebContentsObserverReceiver = chromecast.mojom.CastWebContentsObserverReceiver;
 
 chromecast.mojom.CastWebContentsObserverPtr = chromecast.mojom.CastWebContentsObserverRemote;
 chromecast.mojom.CastWebContentsObserverRequest = chromecast.mojom.CastWebContentsObserverPendingReceiver;
@@ -555,6 +628,100 @@ chromecast.mojom.CastWebContents.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.CastWebContentsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAppProperties(params.app_id, params.session_id, params.is_audio_app, params.app_web_url, params.enforce_feature_permissions, params.feature_permissions, params.additional_feature_permission_origins);
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setGroupInfo(params.session_id, params.is_multizone_launch);
+          break;
+        }
+        case 2: {
+          const params = chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addRendererFeatures(params.features);
+          break;
+        }
+        case 3: {
+          const params = chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setInterfacesForRenderer(params.remote_interfaces);
+          break;
+        }
+        case 4: {
+          const params = chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadUrl(params.url);
+          break;
+        }
+        case 5: {
+          const params = chromecast.mojom.CastWebContents_ClosePage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closePage();
+          break;
+        }
+        case 6: {
+          const params = chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWebVisibilityAndPaint(params.visible);
+          break;
+        }
+        case 7: {
+          const params = chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.blockMediaLoading(params.blocked);
+          break;
+        }
+        case 8: {
+          const params = chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.blockMediaStarting(params.blocked);
+          break;
+        }
+        case 9: {
+          const params = chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableBackgroundVideoPlayback(params.enabled);
+          break;
+        }
+        case 10: {
+          const params = chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectToBindingsService(params.api_bindings_remote);
+          break;
+        }
+        case 11: {
+          const params = chromecast.mojom.CastWebContents_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 12: {
+          const params = chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setEnabledForRemoteDebugging(params.enabled);
+          break;
+        }
+        case 13: {
+          const params = chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMainFramePid();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.CastWebContentsReceiver = chromecast.mojom.CastWebContentsReceiver;
 
 chromecast.mojom.CastWebContentsPtr = chromecast.mojom.CastWebContentsRemote;
 chromecast.mojom.CastWebContentsRequest = chromecast.mojom.CastWebContentsPendingReceiver;

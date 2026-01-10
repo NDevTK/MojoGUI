@@ -8,6 +8,7 @@
 var ntp = ntp || {};
 ntp.calendar = ntp.calendar || {};
 ntp.calendar.mojom = ntp.calendar.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 ntp.calendar.mojom.AttachmentSpec = { $: {} };

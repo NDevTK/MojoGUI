@@ -7,6 +7,8 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 media.mojom.AudioSourceSpeechRecognitionContext = {};
 media.mojom.AudioSourceSpeechRecognitionContext.$interfaceName = 'media.mojom.AudioSourceSpeechRecognitionContext';
@@ -92,6 +94,35 @@ media.mojom.AudioSourceSpeechRecognitionContext.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.AudioSourceSpeechRecognitionContextReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindAudioSourceFetcher(params.fetcher_receiver, params.client, params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioSourceSpeechRecognitionContextReceiver = media.mojom.AudioSourceSpeechRecognitionContextReceiver;
 
 media.mojom.AudioSourceSpeechRecognitionContextPtr = media.mojom.AudioSourceSpeechRecognitionContextRemote;
 media.mojom.AudioSourceSpeechRecognitionContextRequest = media.mojom.AudioSourceSpeechRecognitionContextPendingReceiver;
@@ -224,6 +255,48 @@ media.mojom.SpeechRecognitionService.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.SpeechRecognitionServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSpeechRecognitionContext(params.context);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindAudioSourceSpeechRecognitionContext(params.context);
+          break;
+        }
+        case 2: {
+          const params = media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSodaPaths(params.binary_path, params.config_paths, params.primary_language_name);
+          break;
+        }
+        case 3: {
+          const params = media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSodaParams(params.mask_offensive_words);
+          break;
+        }
+        case 4: {
+          const params = media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSodaConfigPaths(params.config_paths);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.SpeechRecognitionServiceReceiver = media.mojom.SpeechRecognitionServiceReceiver;
+
 media.mojom.SpeechRecognitionServicePtr = media.mojom.SpeechRecognitionServiceRemote;
 media.mojom.SpeechRecognitionServiceRequest = media.mojom.SpeechRecognitionServicePendingReceiver;
 
@@ -305,6 +378,33 @@ media.mojom.AudioSourceFetcher.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.AudioSourceFetcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioSourceFetcher_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start(params.factory, params.device_id, params.audio_parameters);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.AudioSourceFetcher_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop();
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioSourceFetcherReceiver = media.mojom.AudioSourceFetcherReceiver;
 
 media.mojom.AudioSourceFetcherPtr = media.mojom.AudioSourceFetcherRemote;
 media.mojom.AudioSourceFetcherRequest = media.mojom.AudioSourceFetcherPendingReceiver;

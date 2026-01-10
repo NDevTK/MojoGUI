@@ -7,6 +7,7 @@
 // Module namespace
 var ai = ai || {};
 ai.mojom = ai.mojom || {};
+var mojo_base = mojo_base || {};
 
 ai.mojom.ZeroStateSuggestionsResponseResultSpec = { $: {} };
 ai.mojom.ZeroStateSuggestionsService = {};
@@ -94,6 +95,35 @@ ai.mojom.ZeroStateSuggestionsService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ai.mojom.ZeroStateSuggestionsServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fetchZeroStateSuggestions();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ai.mojom.ZeroStateSuggestionsServiceReceiver = ai.mojom.ZeroStateSuggestionsServiceReceiver;
 
 ai.mojom.ZeroStateSuggestionsServicePtr = ai.mojom.ZeroStateSuggestionsServiceRemote;
 ai.mojom.ZeroStateSuggestionsServiceRequest = ai.mojom.ZeroStateSuggestionsServicePendingReceiver;

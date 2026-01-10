@@ -9,6 +9,7 @@ var chromeos = chromeos || {};
 chromeos.printing = chromeos.printing || {};
 chromeos.printing.printing_manager = chromeos.printing.printing_manager || {};
 chromeos.printing.printing_manager.mojom = chromeos.printing.printing_manager.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 chromeos.printing.printing_manager.mojom.PrintJobCompletionStatusSpec = { $: mojo.internal.Enum() };
@@ -183,6 +184,33 @@ chromeos.printing.printing_manager.mojom.PrintJobsObserver.getRemote = function(
     'context');
   return remote.$;
 };
+
+chromeos.printing.printing_manager.mojom.PrintJobsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnAllPrintJobsDeleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAllPrintJobsDeleted();
+          break;
+        }
+        case 1: {
+          const params = chromeos.printing.printing_manager.mojom.PrintJobsObserver_OnPrintJobUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPrintJobUpdate(params.print_job);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.printing.printing_manager.mojom.PrintJobsObserverReceiver = chromeos.printing.printing_manager.mojom.PrintJobsObserverReceiver;
 
 chromeos.printing.printing_manager.mojom.PrintJobsObserverPtr = chromeos.printing.printing_manager.mojom.PrintJobsObserverRemote;
 chromeos.printing.printing_manager.mojom.PrintJobsObserverRequest = chromeos.printing.printing_manager.mojom.PrintJobsObserverPendingReceiver;
@@ -361,6 +389,95 @@ chromeos.printing.printing_manager.mojom.PrintingMetadataProvider.getRemote = fu
   return remote.$;
 };
 
+chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observePrintJobs(params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_ObservePrintJobs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPrintJobs();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteAllPrintJobs();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_DeleteAllPrintJobs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelPrintJob(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_CancelPrintJob_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeletePrintJobHistoryAllowedByPolicy();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetDeletePrintJobHistoryAllowedByPolicy_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPrintJobHistoryExpirationPeriod();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.printing.printing_manager.mojom.PrintingMetadataProvider_GetPrintJobHistoryExpirationPeriod_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver = chromeos.printing.printing_manager.mojom.PrintingMetadataProviderReceiver;
+
 chromeos.printing.printing_manager.mojom.PrintingMetadataProviderPtr = chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRemote;
 chromeos.printing.printing_manager.mojom.PrintingMetadataProviderRequest = chromeos.printing.printing_manager.mojom.PrintingMetadataProviderPendingReceiver;
 
@@ -441,6 +558,33 @@ chromeos.printing.printing_manager.mojom.PrintManagementHandler.getRemote = func
     'context');
   return remote.$;
 };
+
+chromeos.printing.printing_manager.mojom.PrintManagementHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.printing.printing_manager.mojom.PrintManagementHandler_LaunchPrinterSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launchPrinterSettings(params.source);
+          break;
+        }
+        case 1: {
+          const params = chromeos.printing.printing_manager.mojom.PrintManagementHandler_RecordGetPrintJobsRequestDuration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordGetPrintJobsRequestDuration(params.duration);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.printing.printing_manager.mojom.PrintManagementHandlerReceiver = chromeos.printing.printing_manager.mojom.PrintManagementHandlerReceiver;
 
 chromeos.printing.printing_manager.mojom.PrintManagementHandlerPtr = chromeos.printing.printing_manager.mojom.PrintManagementHandlerRemote;
 chromeos.printing.printing_manager.mojom.PrintManagementHandlerRequest = chromeos.printing.printing_manager.mojom.PrintManagementHandlerPendingReceiver;

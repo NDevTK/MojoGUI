@@ -73,6 +73,28 @@ prerender.mojom.NoStatePrefetchMessages.getRemote = function() {
   return remote.$;
 };
 
+prerender.mojom.NoStatePrefetchMessagesReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsNoStatePrefetching(params.histogram_prefix);
+          break;
+        }
+      }
+    });
+  }
+};
+
+prerender.mojom.NoStatePrefetchMessagesReceiver = prerender.mojom.NoStatePrefetchMessagesReceiver;
+
 prerender.mojom.NoStatePrefetchMessagesPtr = prerender.mojom.NoStatePrefetchMessagesRemote;
 prerender.mojom.NoStatePrefetchMessagesRequest = prerender.mojom.NoStatePrefetchMessagesPendingReceiver;
 

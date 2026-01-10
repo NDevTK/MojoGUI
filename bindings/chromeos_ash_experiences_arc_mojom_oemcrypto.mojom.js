@@ -2303,6 +2303,947 @@ arc.mojom.OemCryptoService.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.OemCryptoServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.OemCryptoService_InitializeDeprecated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initializeDeprecated();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 36: {
+          const params = arc.mojom.OemCryptoService_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.oemcrypto_version);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_Initialize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.OemCryptoService_Terminate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.terminate();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_Terminate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.OemCryptoService_OpenSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openSession();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_OpenSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.OemCryptoService_CloseSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeSession(params.session);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_CloseSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = arc.mojom.OemCryptoService_GenerateDerivedKeys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generateDerivedKeys(params.session, params.mac_key_context, params.enc_key_context);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = arc.mojom.OemCryptoService_GenerateNonce_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generateNonce(params.session);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = arc.mojom.OemCryptoService_GenerateSignature_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generateSignature(params.session, params.message);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = arc.mojom.OemCryptoService_LoadKeysV11OrV12_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadKeysV11OrV12(params.session, params.message, params.signature, params.has_enc_mac_keys, params.enc_mac_keys_iv_offset, params.enc_mac_keys_offset, params.key_array, params.pst_offset, params.pst_length);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = arc.mojom.OemCryptoService_RefreshKeysV14_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.refreshKeysV14(params.session, params.message, params.signature, params.key_array);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = arc.mojom.OemCryptoService_QueryKeyControl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.queryKeyControl(params.session, params.key_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = arc.mojom.OemCryptoService_SelectKeyV13_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectKeyV13(params.session, params.key_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = arc.mojom.OemCryptoService_DecryptCencV15_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decryptCencV15(params.session, params.data, params.is_encrypted, params.iv, params.block_offset, params.secure_buffer, params.pattern);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = arc.mojom.OemCryptoService_GenericEncrypt_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.genericEncrypt(params.session, params.data, params.iv, params.algorithm);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = arc.mojom.OemCryptoService_GenericDecrypt_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.genericDecrypt(params.session, params.data, params.iv, params.algorithm);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = arc.mojom.OemCryptoService_GenericSign_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.genericSign(params.session, params.data, params.algorithm);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericSign_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = arc.mojom.OemCryptoService_GenericVerify_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.genericVerify(params.session, params.data, params.algorithm, params.signature);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = arc.mojom.OemCryptoService_CopyBufferV14_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.copyBufferV14(params.data, params.out_buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 17: {
+          const params = arc.mojom.OemCryptoService_LoadTestKeyboxV13_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadTestKeyboxV13();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 18: {
+          const params = arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isRootKeyCertificateValid();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 19: {
+          const params = arc.mojom.OemCryptoService_GetDeviceId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceId();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 20: {
+          const params = arc.mojom.OemCryptoService_GetKeyData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getKeyData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 21: {
+          const params = arc.mojom.OemCryptoService_GetRandom_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRandom(params.length);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetRandom_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 22: {
+          const params = arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNumberOfOpenSessions();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 23: {
+          const params = arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMaxNumberOfSessions();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 24: {
+          const params = arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rewrapDeviceRsaKey(params.session, params.message, params.signature, params.nonce_offset, params.enc_rsa_key_offset, params.enc_rsa_key_length, params.enc_rsa_key_iv_offset);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 25: {
+          const params = arc.mojom.OemCryptoService_LoadDeviceRsaKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadDeviceRsaKey(params.session, params.wrapped_rsa_key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 26: {
+          const params = arc.mojom.OemCryptoService_GenerateRsaSignature_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generateRsaSignature(params.session, params.message, params.padding_scheme);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 27: {
+          const params = arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deriveKeysFromSessionKey(params.session, params.enc_session_key, params.mac_key_context, params.enc_key_context);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 28: {
+          const params = arc.mojom.OemCryptoService_SecurityPatchLevel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.securityPatchLevel();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_SecurityPatchLevel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 29: {
+          const params = arc.mojom.OemCryptoService_GetHdcpCapability_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getHdcpCapability();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 30: {
+          const params = arc.mojom.OemCryptoService_UpdateUsageTable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateUsageTable();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 31: {
+          const params = arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deactivateUsageEntryV12(params.pst);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 32: {
+          const params = arc.mojom.OemCryptoService_ReportUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportUsage(params.session, params.pst);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 33: {
+          const params = arc.mojom.OemCryptoService_DeleteUsageEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteUsageEntry(params.session, params.pst_offset, params.pst_length, params.message, params.signature);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 34: {
+          const params = arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forceDeleteUsageEntry(params.pst);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 35: {
+          const params = arc.mojom.OemCryptoService_DeleteOldUsageTable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteOldUsageTable();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 37: {
+          const params = arc.mojom.OemCryptoService_GetProvisioningMethod_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getProvisioningMethod();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 38: {
+          const params = arc.mojom.OemCryptoService_SupportedCertificates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.supportedCertificates();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_SupportedCertificates_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 39: {
+          const params = arc.mojom.OemCryptoService_IsSrmUpdateSupported_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isSrmUpdateSupported();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_IsSrmUpdateSupported_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 40: {
+          const params = arc.mojom.OemCryptoService_GetCurrentSrmVersion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCurrentSrmVersion();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 41: {
+          const params = arc.mojom.OemCryptoService_LoadSrm_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadSrm(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 42: {
+          const params = arc.mojom.OemCryptoService_RemoveSrm_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeSrm();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 43: {
+          const params = arc.mojom.OemCryptoService_CreateUsageTableHeader_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createUsageTableHeader(params.avail_header_length);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 44: {
+          const params = arc.mojom.OemCryptoService_LoadUsageTableHeader_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadUsageTableHeader(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 45: {
+          const params = arc.mojom.OemCryptoService_CreateNewUsageEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createNewUsageEntry(params.session);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 46: {
+          const params = arc.mojom.OemCryptoService_LoadUsageEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadUsageEntry(params.session, params.index, params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 47: {
+          const params = arc.mojom.OemCryptoService_UpdateUsageEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateUsageEntry(params.session, params.avail_header_length, params.avail_entry_length);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 48: {
+          const params = arc.mojom.OemCryptoService_DeactivateUsageEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deactivateUsageEntry(params.session, params.pst);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 49: {
+          const params = arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shrinkUsageTableHeader(params.new_entry_count, params.avail_header_length);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 50: {
+          const params = arc.mojom.OemCryptoService_MoveEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.moveEntry(params.session, params.new_index);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 51: {
+          const params = arc.mojom.OemCryptoService_CopyOldUsageEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.copyOldUsageEntry(params.session, params.pst);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 52: {
+          const params = arc.mojom.OemCryptoService_CreateOldUsageEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createOldUsageEntry(params.time_since_license_received, params.time_since_first_decrypt, params.time_since_last_decrypt, params.status, params.server_mac_key, params.client_mac_key, params.pst);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 53: {
+          const params = arc.mojom.OemCryptoService_GetAnalogOutputFlags_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAnalogOutputFlags();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetAnalogOutputFlags_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 54: {
+          const params = arc.mojom.OemCryptoService_LoadTestKeybox_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadTestKeybox(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 55: {
+          const params = arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadEntitledContentKeysV14(params.session, params.key_array);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 56: {
+          const params = arc.mojom.OemCryptoService_SelectKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectKey(params.session, params.content_key_id, params.cipher_mode);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_SelectKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 57: {
+          const params = arc.mojom.OemCryptoService_LoadKeysV14_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadKeysV14(params.session, params.message, params.signature, params.has_enc_mac_keys, params.enc_mac_keys_iv_offset, params.enc_mac_keys_offset, params.key_array, params.pst_offset, params.pst_length, params.srm_requirement, params.license_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 58: {
+          const params = arc.mojom.OemCryptoService_LoadKeys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadKeys(params.session, params.message, params.signature, params.enc_mac_keys_iv, params.enc_mac_keys, params.key_array, params.pst, params.srm_restriction_data, params.license_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 59: {
+          const params = arc.mojom.OemCryptoService_ResourceRatingTier_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resourceRatingTier();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_ResourceRatingTier_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 60: {
+          const params = arc.mojom.OemCryptoService_BuildInformation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.buildInformation();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_BuildInformation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 61: {
+          const params = arc.mojom.OemCryptoService_RefreshKeys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.refreshKeys(params.session, params.message, params.signature, params.key_array);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 62: {
+          const params = arc.mojom.OemCryptoService_LoadEntitledContentKeys_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadEntitledContentKeys(params.session, params.message, params.key_array);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 63: {
+          const params = arc.mojom.OemCryptoService_GetOemPublicCertificate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOemPublicCertificate();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 64: {
+          const params = arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.maximumUsageTableHeaderSize();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 65: {
+          const params = arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isAntiRollbackHwPresent();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 66: {
+          const params = arc.mojom.OemCryptoService_MinorApiVersion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.minorApiVersion();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_MinorApiVersion_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 67: {
+          const params = arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.prepAndSignLicenseRequest(params.session, params.message, params.core_message_size, params.avail_signature_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 68: {
+          const params = arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.prepAndSignRenewalRequest(params.session, params.message, params.core_message_size, params.avail_signature_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 69: {
+          const params = arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.prepAndSignProvisioningRequest(params.session, params.message, params.core_message_size, params.avail_signature_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 70: {
+          const params = arc.mojom.OemCryptoService_LoadLicense_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadLicense(params.session, params.message, params.core_message_length, params.signature);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 71: {
+          const params = arc.mojom.OemCryptoService_LoadRenewal_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadRenewal(params.session, params.message, params.core_message_length, params.signature);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 72: {
+          const params = arc.mojom.OemCryptoService_LoadProvisioning_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadProvisioning(params.session, params.message, params.core_message_length, params.signature, params.avail_wrapped_private_key_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 73: {
+          const params = arc.mojom.OemCryptoService_LoadOemPrivateKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadOemPrivateKey(params.session);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 74: {
+          const params = arc.mojom.OemCryptoService_LoadDrmPrivateKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadDrmPrivateKey(params.session, params.key_type, params.wrapped_private_key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 75: {
+          const params = arc.mojom.OemCryptoService_DecryptCenc_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decryptCenc(params.session, params.data, params.iv, params.sub_samples, params.pattern, params.secure_buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 76: {
+          const params = arc.mojom.OemCryptoService_CopyBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.copyBuffer(params.session, params.data, params.out_buffer, params.subsample_flags);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.OemCryptoServiceReceiver = arc.mojom.OemCryptoServiceReceiver;
+
 arc.mojom.OemCryptoServicePtr = arc.mojom.OemCryptoServiceRemote;
 arc.mojom.OemCryptoServiceRequest = arc.mojom.OemCryptoServicePendingReceiver;
 
@@ -2367,6 +3308,28 @@ arc.mojom.OemCryptoHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.OemCryptoHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.OemCryptoHost_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.oemcryptor);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.OemCryptoHostReceiver = arc.mojom.OemCryptoHostReceiver;
 
 arc.mojom.OemCryptoHostPtr = arc.mojom.OemCryptoHostRemote;
 arc.mojom.OemCryptoHostRequest = arc.mojom.OemCryptoHostPendingReceiver;
@@ -2437,6 +3400,35 @@ arc.mojom.OemCryptoInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.OemCryptoInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.OemCryptoInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.OemCryptoInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.OemCryptoInstanceReceiver = arc.mojom.OemCryptoInstanceReceiver;
 
 arc.mojom.OemCryptoInstancePtr = arc.mojom.OemCryptoInstanceRemote;
 arc.mojom.OemCryptoInstanceRequest = arc.mojom.OemCryptoInstancePendingReceiver;

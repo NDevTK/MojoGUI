@@ -7,9 +7,7 @@
 // Module namespace
 var device_test = device_test || {};
 device_test.mojom = device_test.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var device = device || {};
 var gfx = gfx || {};
 
 device_test.mojom.EyeSpec = { $: mojo.internal.Enum() };
@@ -376,6 +374,131 @@ device_test.mojom.XRTestHook.getRemote = function() {
   return remote.$;
 };
 
+device_test.mojom.XRTestHookReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameSubmitted(params.frame_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.waitGetDeviceConfig();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.waitGetPresentingPose();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.waitGetMagicWindowPose();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.waitGetControllerRoleForTrackedDeviceIndex(params.index);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.waitGetControllerData(params.index);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.waitGetEventData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.waitGetCanCreateSession();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.waitGetVisibilityMask(params.view_index);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device_test.mojom.XRTestHookReceiver = device_test.mojom.XRTestHookReceiver;
+
 device_test.mojom.XRTestHookPtr = device_test.mojom.XRTestHookRemote;
 device_test.mojom.XRTestHookRequest = device_test.mojom.XRTestHookPendingReceiver;
 
@@ -465,6 +588,47 @@ device_test.mojom.XRServiceTestHook.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device_test.mojom.XRServiceTestHookReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTestHook(params.hook);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.terminateDeviceServiceProcessForTesting();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device_test.mojom.XRServiceTestHookReceiver = device_test.mojom.XRServiceTestHookReceiver;
 
 device_test.mojom.XRServiceTestHookPtr = device_test.mojom.XRServiceTestHookRemote;
 device_test.mojom.XRServiceTestHookRequest = device_test.mojom.XRServiceTestHookPendingReceiver;

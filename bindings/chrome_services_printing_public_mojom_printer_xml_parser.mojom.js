@@ -7,6 +7,7 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
+var mojo_base = mojo_base || {};
 
 printing.mojom.PrinterXmlParser = {};
 printing.mojom.PrinterXmlParser.$interfaceName = 'printing.mojom.PrinterXmlParser';
@@ -72,6 +73,28 @@ printing.mojom.PrinterXmlParser.getRemote = function() {
     'context');
   return remote.$;
 };
+
+printing.mojom.PrinterXmlParserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseXmlForPrinterCapabilities(params.capabilities_xml);
+          break;
+        }
+      }
+    });
+  }
+};
+
+printing.mojom.PrinterXmlParserReceiver = printing.mojom.PrinterXmlParserReceiver;
 
 printing.mojom.PrinterXmlParserPtr = printing.mojom.PrinterXmlParserRemote;
 printing.mojom.PrinterXmlParserRequest = printing.mojom.PrinterXmlParserPendingReceiver;

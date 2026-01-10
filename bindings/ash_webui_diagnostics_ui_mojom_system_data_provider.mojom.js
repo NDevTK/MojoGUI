@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.diagnostics = ash.diagnostics || {};
 ash.diagnostics.mojom = ash.diagnostics.mojom || {};
+var mojo_base = mojo_base || {};
 
 ash.diagnostics.mojom.ExternalPowerSourceSpec = { $: mojo.internal.Enum() };
 ash.diagnostics.mojom.BatteryStateSpec = { $: mojo.internal.Enum() };
@@ -195,6 +196,28 @@ ash.diagnostics.mojom.BatteryChargeStatusObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBatteryChargeStatusUpdated(params.battery_charge_status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver = ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver;
+
 ash.diagnostics.mojom.BatteryChargeStatusObserverPtr = ash.diagnostics.mojom.BatteryChargeStatusObserverRemote;
 ash.diagnostics.mojom.BatteryChargeStatusObserverRequest = ash.diagnostics.mojom.BatteryChargeStatusObserverPendingReceiver;
 
@@ -259,6 +282,28 @@ ash.diagnostics.mojom.BatteryHealthObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.diagnostics.mojom.BatteryHealthObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBatteryHealthUpdated(params.battery_health);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.BatteryHealthObserverReceiver = ash.diagnostics.mojom.BatteryHealthObserverReceiver;
 
 ash.diagnostics.mojom.BatteryHealthObserverPtr = ash.diagnostics.mojom.BatteryHealthObserverRemote;
 ash.diagnostics.mojom.BatteryHealthObserverRequest = ash.diagnostics.mojom.BatteryHealthObserverPendingReceiver;
@@ -325,6 +370,28 @@ ash.diagnostics.mojom.MemoryUsageObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.diagnostics.mojom.MemoryUsageObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMemoryUsageUpdated(params.memory_usage);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.MemoryUsageObserverReceiver = ash.diagnostics.mojom.MemoryUsageObserverReceiver;
+
 ash.diagnostics.mojom.MemoryUsageObserverPtr = ash.diagnostics.mojom.MemoryUsageObserverRemote;
 ash.diagnostics.mojom.MemoryUsageObserverRequest = ash.diagnostics.mojom.MemoryUsageObserverPendingReceiver;
 
@@ -389,6 +456,28 @@ ash.diagnostics.mojom.CpuUsageObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.diagnostics.mojom.CpuUsageObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCpuUsageUpdated(params.cpu_usage);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.CpuUsageObserverReceiver = ash.diagnostics.mojom.CpuUsageObserverReceiver;
 
 ash.diagnostics.mojom.CpuUsageObserverPtr = ash.diagnostics.mojom.CpuUsageObserverRemote;
 ash.diagnostics.mojom.CpuUsageObserverRequest = ash.diagnostics.mojom.CpuUsageObserverPendingReceiver;
@@ -544,6 +633,67 @@ ash.diagnostics.mojom.SystemDataProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.diagnostics.mojom.SystemDataProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSystemInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBatteryInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeBatteryChargeStatus(params.observer);
+          break;
+        }
+        case 3: {
+          const params = ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeBatteryHealth(params.observer);
+          break;
+        }
+        case 4: {
+          const params = ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeMemoryUsage(params.observer);
+          break;
+        }
+        case 5: {
+          const params = ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeCpuUsage(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.SystemDataProviderReceiver = ash.diagnostics.mojom.SystemDataProviderReceiver;
 
 ash.diagnostics.mojom.SystemDataProviderPtr = ash.diagnostics.mojom.SystemDataProviderRemote;
 ash.diagnostics.mojom.SystemDataProviderRequest = ash.diagnostics.mojom.SystemDataProviderPendingReceiver;

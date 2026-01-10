@@ -122,6 +122,28 @@ batch_upload.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+batch_upload.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createBatchUploadHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+batch_upload.mojom.PageHandlerFactoryReceiver = batch_upload.mojom.PageHandlerFactoryReceiver;
+
 batch_upload.mojom.PageHandlerFactoryPtr = batch_upload.mojom.PageHandlerFactoryRemote;
 batch_upload.mojom.PageHandlerFactoryRequest = batch_upload.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -218,6 +240,38 @@ batch_upload.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+batch_upload.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateViewHeight(params.height);
+          break;
+        }
+        case 1: {
+          const params = batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.saveToAccount(params.idsToMove);
+          break;
+        }
+        case 2: {
+          const params = batch_upload.mojom.PageHandler_Close_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.close();
+          break;
+        }
+      }
+    });
+  }
+};
+
+batch_upload.mojom.PageHandlerReceiver = batch_upload.mojom.PageHandlerReceiver;
+
 batch_upload.mojom.PageHandlerPtr = batch_upload.mojom.PageHandlerRemote;
 batch_upload.mojom.PageHandlerRequest = batch_upload.mojom.PageHandlerPendingReceiver;
 
@@ -282,6 +336,28 @@ batch_upload.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+batch_upload.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendBatchUploadData(params.data);
+          break;
+        }
+      }
+    });
+  }
+};
+
+batch_upload.mojom.PageReceiver = batch_upload.mojom.PageReceiver;
 
 batch_upload.mojom.PagePtr = batch_upload.mojom.PageRemote;
 batch_upload.mojom.PageRequest = batch_upload.mojom.PagePendingReceiver;

@@ -7,7 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 blink.mojom.FencedFrameOwnerHost = {};
@@ -93,6 +93,33 @@ blink.mojom.FencedFrameOwnerHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.FencedFrameOwnerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.navigate(params.url, params.navigation_start_time, params.embedder_shared_storage_context);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didChangeFramePolicy(params.frame_policy);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FencedFrameOwnerHostReceiver = blink.mojom.FencedFrameOwnerHostReceiver;
 
 blink.mojom.FencedFrameOwnerHostPtr = blink.mojom.FencedFrameOwnerHostRemote;
 blink.mojom.FencedFrameOwnerHostRequest = blink.mojom.FencedFrameOwnerHostPendingReceiver;

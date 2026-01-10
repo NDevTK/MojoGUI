@@ -7,7 +7,7 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
-var components = components || {};
+var variations = variations || {};
 
 content.mojom.RendererVariationsConfiguration = {};
 content.mojom.RendererVariationsConfiguration.$interfaceName = 'content.mojom.RendererVariationsConfiguration';
@@ -91,6 +91,33 @@ content.mojom.RendererVariationsConfiguration.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.RendererVariationsConfigurationReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVariationsHeaders(params.variations_headers);
+          break;
+        }
+        case 1: {
+          const params = content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFieldTrialGroup(params.trial_name, params.group_name);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.RendererVariationsConfigurationReceiver = content.mojom.RendererVariationsConfigurationReceiver;
 
 content.mojom.RendererVariationsConfigurationPtr = content.mojom.RendererVariationsConfigurationRemote;
 content.mojom.RendererVariationsConfigurationRequest = content.mojom.RendererVariationsConfigurationPendingReceiver;

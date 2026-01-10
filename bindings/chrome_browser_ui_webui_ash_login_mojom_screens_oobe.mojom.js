@@ -142,6 +142,43 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.screens_oobe.mojom.ConsumerUpdatePageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeclineCellularClicked();
+          break;
+        }
+        case 1: {
+          const params = ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAcceptCellularClicked();
+          break;
+        }
+        case 2: {
+          const params = ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSkipClicked();
+          break;
+        }
+        case 3: {
+          const params = ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBackClicked();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_oobe.mojom.ConsumerUpdatePageHandlerReceiver = ash.screens_oobe.mojom.ConsumerUpdatePageHandlerReceiver;
+
 ash.screens_oobe.mojom.ConsumerUpdatePageHandlerPtr = ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemote;
 ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRequest = ash.screens_oobe.mojom.ConsumerUpdatePageHandlerPendingReceiver;
 
@@ -272,6 +309,48 @@ ash.screens_oobe.mojom.ConsumerUpdatePage.getRemote = function() {
   return remote.$;
 };
 
+ash.screens_oobe.mojom.ConsumerUpdatePageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showSkipButton();
+          break;
+        }
+        case 1: {
+          const params = ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLowBatteryWarningVisible(params.visible);
+          break;
+        }
+        case 2: {
+          const params = ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setScreenStep(params.step);
+          break;
+        }
+        case 3: {
+          const params = ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUpdateStatusMessage(params.percent, params.percent_message, params.time_left_message);
+          break;
+        }
+        case 4: {
+          const params = ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAutoTransition(params.enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_oobe.mojom.ConsumerUpdatePageReceiver = ash.screens_oobe.mojom.ConsumerUpdatePageReceiver;
+
 ash.screens_oobe.mojom.ConsumerUpdatePagePtr = ash.screens_oobe.mojom.ConsumerUpdatePageRemote;
 ash.screens_oobe.mojom.ConsumerUpdatePageRequest = ash.screens_oobe.mojom.ConsumerUpdatePagePendingReceiver;
 
@@ -350,6 +429,33 @@ ash.screens_oobe.mojom.PackagedLicensePageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.screens_oobe.mojom.PackagedLicensePageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDontEnrollClicked();
+          break;
+        }
+        case 1: {
+          const params = ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEnrollClicked();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_oobe.mojom.PackagedLicensePageHandlerReceiver = ash.screens_oobe.mojom.PackagedLicensePageHandlerReceiver;
 
 ash.screens_oobe.mojom.PackagedLicensePageHandlerPtr = ash.screens_oobe.mojom.PackagedLicensePageHandlerRemote;
 ash.screens_oobe.mojom.PackagedLicensePageHandlerRequest = ash.screens_oobe.mojom.PackagedLicensePageHandlerPendingReceiver;

@@ -7,7 +7,7 @@
 // Module namespace
 var access_code_cast = access_code_cast || {};
 access_code_cast.mojom = access_code_cast.mojom || {};
-var components = components || {};
+var media_router = media_router || {};
 
 access_code_cast.mojom.AddSinkResultCodeSpec = { $: mojo.internal.Enum() };
 access_code_cast.mojom.CastDiscoveryMethodSpec = { $: mojo.internal.Enum() };
@@ -110,6 +110,28 @@ access_code_cast.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+access_code_cast.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+access_code_cast.mojom.PageHandlerFactoryReceiver = access_code_cast.mojom.PageHandlerFactoryReceiver;
+
 access_code_cast.mojom.PageHandlerFactoryPtr = access_code_cast.mojom.PageHandlerFactoryRemote;
 access_code_cast.mojom.PageHandlerFactoryRequest = access_code_cast.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -203,6 +225,47 @@ access_code_cast.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+access_code_cast.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = access_code_cast.mojom.PageHandler_AddSink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addSink(params.access_code, params.discovery_method);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.castToSink();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+access_code_cast.mojom.PageHandlerReceiver = access_code_cast.mojom.PageHandlerReceiver;
+
 access_code_cast.mojom.PageHandlerPtr = access_code_cast.mojom.PageHandlerRemote;
 access_code_cast.mojom.PageHandlerRequest = access_code_cast.mojom.PageHandlerPendingReceiver;
 
@@ -251,6 +314,23 @@ access_code_cast.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+access_code_cast.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+access_code_cast.mojom.PageReceiver = access_code_cast.mojom.PageReceiver;
 
 access_code_cast.mojom.PagePtr = access_code_cast.mojom.PageRemote;
 access_code_cast.mojom.PageRequest = access_code_cast.mojom.PagePendingReceiver;

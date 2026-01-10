@@ -7,7 +7,7 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 
 chromecast.mojom.VisibilityTypeSpec = { $: mojo.internal.Enum() };
 chromecast.mojom.VisibilityPrioritySpec = { $: mojo.internal.Enum() };
@@ -121,6 +121,33 @@ chromecast.mojom.CastContentWindowObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.CastContentWindowObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVisibilityChange(params.visibility_type);
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWindowDestroyed();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.CastContentWindowObserverReceiver = chromecast.mojom.CastContentWindowObserverReceiver;
 
 chromecast.mojom.CastContentWindowObserverPtr = chromecast.mojom.CastContentWindowObserverRemote;
 chromecast.mojom.CastContentWindowObserverRequest = chromecast.mojom.CastContentWindowObserverPendingReceiver;
@@ -265,6 +292,53 @@ chromecast.mojom.CastContentWindow.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.CastContentWindowReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createWindow(params.z_order, params.priority);
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 2: {
+          const params = chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.grantScreenAccess();
+          break;
+        }
+        case 3: {
+          const params = chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.revokeScreenAccess();
+          break;
+        }
+        case 4: {
+          const params = chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestVisibility(params.priority);
+          break;
+        }
+        case 5: {
+          const params = chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableTouchInput(params.enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.CastContentWindowReceiver = chromecast.mojom.CastContentWindowReceiver;
 
 chromecast.mojom.CastContentWindowPtr = chromecast.mojom.CastContentWindowRemote;
 chromecast.mojom.CastContentWindowRequest = chromecast.mojom.CastContentWindowPendingReceiver;

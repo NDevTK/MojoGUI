@@ -8,14 +8,9 @@
 var ash = ash || {};
 ash.media_app_ui = ash.media_app_ui || {};
 ash.media_app_ui.mojom = ash.media_app_ui.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var components = components || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var components = components || {};
+var mantis = mantis || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 ash.media_app_ui.mojom.MantisUntrustedServiceResultSpec = { $: {} };
@@ -215,6 +210,57 @@ ash.media_app_ui.mojom.UntrustedServiceFactory.getRemote = function() {
   return remote.$;
 };
 
+ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createOcrUntrustedService(params.receiver, params.page);
+          break;
+        }
+        case 1: {
+          const params = ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createMahiUntrustedService(params.receiver, params.page, params.file_name);
+          break;
+        }
+        case 2: {
+          const params = ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isMantisAvailable();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createMantisUntrustedService(params.page, params.dlc_uuid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver;
+
 ash.media_app_ui.mojom.UntrustedServiceFactoryPtr = ash.media_app_ui.mojom.UntrustedServiceFactoryRemote;
 ash.media_app_ui.mojom.UntrustedServiceFactoryRequest = ash.media_app_ui.mojom.UntrustedServiceFactoryPendingReceiver;
 
@@ -312,6 +358,38 @@ ash.media_app_ui.mojom.OcrUntrustedService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.media_app_ui.mojom.OcrUntrustedServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pageMetadataUpdated(params.page_metadata);
+          break;
+        }
+        case 1: {
+          const params = ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pageContentsUpdated(params.dirty_page_id);
+          break;
+        }
+        case 2: {
+          const params = ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.viewportUpdated(params.viewport_box, params.scale_factor);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.media_app_ui.mojom.OcrUntrustedServiceReceiver = ash.media_app_ui.mojom.OcrUntrustedServiceReceiver;
 
 ash.media_app_ui.mojom.OcrUntrustedServicePtr = ash.media_app_ui.mojom.OcrUntrustedServiceRemote;
 ash.media_app_ui.mojom.OcrUntrustedServiceRequest = ash.media_app_ui.mojom.OcrUntrustedServicePendingReceiver;
@@ -415,6 +493,45 @@ ash.media_app_ui.mojom.OcrUntrustedPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestBitmap(params.requestedPageId);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setViewport(params.viewport_box);
+          break;
+        }
+        case 2: {
+          const params = ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPdfOcrEnabled(params.enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.media_app_ui.mojom.OcrUntrustedPageReceiver = ash.media_app_ui.mojom.OcrUntrustedPageReceiver;
 
 ash.media_app_ui.mojom.OcrUntrustedPagePtr = ash.media_app_ui.mojom.OcrUntrustedPageRemote;
 ash.media_app_ui.mojom.OcrUntrustedPageRequest = ash.media_app_ui.mojom.OcrUntrustedPagePendingReceiver;
@@ -528,6 +645,43 @@ ash.media_app_ui.mojom.MahiUntrustedService.getRemote = function() {
   return remote.$;
 };
 
+ash.media_app_ui.mojom.MahiUntrustedServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPdfLoaded();
+          break;
+        }
+        case 1: {
+          const params = ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPdfFileNameUpdated(params.new_name);
+          break;
+        }
+        case 2: {
+          const params = ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPdfContextMenuShow(params.anchor, params.selected_text);
+          break;
+        }
+        case 3: {
+          const params = ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPdfContextMenuHide();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.media_app_ui.mojom.MahiUntrustedServiceReceiver = ash.media_app_ui.mojom.MahiUntrustedServiceReceiver;
+
 ash.media_app_ui.mojom.MahiUntrustedServicePtr = ash.media_app_ui.mojom.MahiUntrustedServiceRemote;
 ash.media_app_ui.mojom.MahiUntrustedServiceRequest = ash.media_app_ui.mojom.MahiUntrustedServicePendingReceiver;
 
@@ -613,6 +767,40 @@ ash.media_app_ui.mojom.MahiUntrustedPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.media_app_ui.mojom.MahiUntrustedPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hidePdfContextMenu();
+          break;
+        }
+        case 1: {
+          const params = ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPdfContent(params.limit);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.media_app_ui.mojom.MahiUntrustedPageReceiver = ash.media_app_ui.mojom.MahiUntrustedPageReceiver;
 
 ash.media_app_ui.mojom.MahiUntrustedPagePtr = ash.media_app_ui.mojom.MahiUntrustedPageRemote;
 ash.media_app_ui.mojom.MahiUntrustedPageRequest = ash.media_app_ui.mojom.MahiUntrustedPagePendingReceiver;
@@ -803,6 +991,95 @@ ash.media_app_ui.mojom.MantisUntrustedService.getRemote = function() {
   return remote.$;
 };
 
+ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.segmentImage(params.image, params.selection);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.generativeFillImage(params.image, params.mask, params.text, params.seed);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.inpaintImage(params.image, params.mask, params.seed);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.outpaintImage(params.image, params.mask, params.seed);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.classifyImageSafety(params.image);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.inferSegmentationMode(params.gesture);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = ash.media_app_ui.mojom.MantisUntrustedServiceReceiver;
+
 ash.media_app_ui.mojom.MantisUntrustedServicePtr = ash.media_app_ui.mojom.MantisUntrustedServiceRemote;
 ash.media_app_ui.mojom.MantisUntrustedServiceRequest = ash.media_app_ui.mojom.MantisUntrustedServicePendingReceiver;
 
@@ -867,6 +1144,28 @@ ash.media_app_ui.mojom.MantisUntrustedPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.media_app_ui.mojom.MantisUntrustedPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportMantisProgress(params.progress);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.media_app_ui.mojom.MantisUntrustedPageReceiver = ash.media_app_ui.mojom.MantisUntrustedPageReceiver;
 
 ash.media_app_ui.mojom.MantisUntrustedPagePtr = ash.media_app_ui.mojom.MantisUntrustedPageRemote;
 ash.media_app_ui.mojom.MantisUntrustedPageRequest = ash.media_app_ui.mojom.MantisUntrustedPagePendingReceiver;

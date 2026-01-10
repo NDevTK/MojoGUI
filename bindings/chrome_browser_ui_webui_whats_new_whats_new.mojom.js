@@ -7,6 +7,7 @@
 // Module namespace
 var whats_new = whats_new || {};
 whats_new.mojom = whats_new.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 whats_new.mojom.ScrollDepthSpec = { $: mojo.internal.Enum() };
@@ -127,6 +128,28 @@ whats_new.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+whats_new.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+whats_new.mojom.PageHandlerFactoryReceiver = whats_new.mojom.PageHandlerFactoryReceiver;
 
 whats_new.mojom.PageHandlerFactoryPtr = whats_new.mojom.PageHandlerFactoryRemote;
 whats_new.mojom.PageHandlerFactoryRequest = whats_new.mojom.PageHandlerFactoryPendingReceiver;
@@ -538,6 +561,140 @@ whats_new.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+whats_new.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getServerUrl(params.is_staging);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordTimeToLoadContent(params.time);
+          break;
+        }
+        case 2: {
+          const params = whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordVersionPageLoaded(params.is_auto_open);
+          break;
+        }
+        case 3: {
+          const params = whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordEditionPageLoaded(params.page_uid, params.is_auto_open);
+          break;
+        }
+        case 4: {
+          const params = whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordModuleImpression(params.module_name, params.position);
+          break;
+        }
+        case 5: {
+          const params = whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordExploreMoreToggled(params.expanded);
+          break;
+        }
+        case 6: {
+          const params = whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordScrollDepth(params.depth);
+          break;
+        }
+        case 7: {
+          const params = whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordTimeOnPage(params.time);
+          break;
+        }
+        case 8: {
+          const params = whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordModuleLinkClicked(params.module_name, params.position);
+          break;
+        }
+        case 9: {
+          const params = whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordModuleVideoStarted(params.module_name, params.position);
+          break;
+        }
+        case 10: {
+          const params = whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordModuleVideoEnded(params.module_name, params.position);
+          break;
+        }
+        case 11: {
+          const params = whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordModulePlayClicked(params.module_name, params.position);
+          break;
+        }
+        case 12: {
+          const params = whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordModulePauseClicked(params.module_name, params.position);
+          break;
+        }
+        case 13: {
+          const params = whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordModuleRestartClicked(params.module_name, params.position);
+          break;
+        }
+        case 14: {
+          const params = whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordBrowserCommandExecuted();
+          break;
+        }
+        case 15: {
+          const params = whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordQrCodeToggled(params.expanded);
+          break;
+        }
+        case 16: {
+          const params = whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordNavClick();
+          break;
+        }
+        case 17: {
+          const params = whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordFeatureTileNavigation();
+          break;
+        }
+        case 18: {
+          const params = whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordCarouselScrollButtonClick();
+          break;
+        }
+        case 19: {
+          const params = whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordExpandMediaToggled(params.module_name, params.expanded);
+          break;
+        }
+        case 20: {
+          const params = whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordCtaClick();
+          break;
+        }
+        case 21: {
+          const params = whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordNextButtonClick();
+          break;
+        }
+      }
+    });
+  }
+};
+
+whats_new.mojom.PageHandlerReceiver = whats_new.mojom.PageHandlerReceiver;
+
 whats_new.mojom.PageHandlerPtr = whats_new.mojom.PageHandlerRemote;
 whats_new.mojom.PageHandlerRequest = whats_new.mojom.PageHandlerPendingReceiver;
 
@@ -586,6 +743,23 @@ whats_new.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+whats_new.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+whats_new.mojom.PageReceiver = whats_new.mojom.PageReceiver;
 
 whats_new.mojom.PagePtr = whats_new.mojom.PageRemote;
 whats_new.mojom.PageRequest = whats_new.mojom.PagePendingReceiver;

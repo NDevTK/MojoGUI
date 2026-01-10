@@ -8,7 +8,6 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var skia = skia || {};
-var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -118,6 +117,47 @@ blink.mojom.ImageDownloader.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ImageDownloaderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ImageDownloader_DownloadImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.downloadImage(params.url, params.is_favicon, params.preferred_size, params.max_bitmap_size, params.bypass_cache);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.downloadImageFromAxNode(params.ax_node_id, params.preferred_size, params.max_bitmap_size, params.bypass_cache);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ImageDownloaderReceiver = blink.mojom.ImageDownloaderReceiver;
 
 blink.mojom.ImageDownloaderPtr = blink.mojom.ImageDownloaderRemote;
 blink.mojom.ImageDownloaderRequest = blink.mojom.ImageDownloaderPendingReceiver;

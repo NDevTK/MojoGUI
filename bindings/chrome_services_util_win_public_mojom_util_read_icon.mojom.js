@@ -7,7 +7,8 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 var gfx = gfx || {};
 
 chrome.mojom.IconSizeSpec = { $: mojo.internal.Enum() };
@@ -91,6 +92,35 @@ chrome.mojom.UtilReadIcon.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.UtilReadIconReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readIcon(params.file, params.size, params.scale);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.UtilReadIconReceiver = chrome.mojom.UtilReadIconReceiver;
 
 chrome.mojom.UtilReadIconPtr = chrome.mojom.UtilReadIconRemote;
 chrome.mojom.UtilReadIconRequest = chrome.mojom.UtilReadIconPendingReceiver;

@@ -7,7 +7,7 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 printing.mojom.PageMarginsSpec = { $: {} };

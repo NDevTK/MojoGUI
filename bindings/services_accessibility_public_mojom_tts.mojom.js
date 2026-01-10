@@ -161,6 +161,28 @@ ax.mojom.TtsUtteranceClient.getRemote = function() {
   return remote.$;
 };
 
+ax.mojom.TtsUtteranceClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEvent(params.event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.mojom.TtsUtteranceClientReceiver = ax.mojom.TtsUtteranceClientReceiver;
+
 ax.mojom.TtsUtteranceClientPtr = ax.mojom.TtsUtteranceClientRemote;
 ax.mojom.TtsUtteranceClientRequest = ax.mojom.TtsUtteranceClientPendingReceiver;
 
@@ -319,6 +341,74 @@ ax.mojom.Tts.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ax.mojom.TtsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ax.mojom.Tts_Speak_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.speak(params.utterance, params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ax.mojom.Tts_Speak_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ax.mojom.Tts_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop();
+          break;
+        }
+        case 2: {
+          const params = ax.mojom.Tts_Pause_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pause();
+          break;
+        }
+        case 3: {
+          const params = ax.mojom.Tts_Resume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resume();
+          break;
+        }
+        case 4: {
+          const params = ax.mojom.Tts_IsSpeaking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isSpeaking();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ax.mojom.Tts_IsSpeaking_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ax.mojom.Tts_GetVoices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getVoices();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ax.mojom.Tts_GetVoices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ax.mojom.TtsReceiver = ax.mojom.TtsReceiver;
 
 ax.mojom.TtsPtr = ax.mojom.TtsRemote;
 ax.mojom.TtsRequest = ax.mojom.TtsPendingReceiver;

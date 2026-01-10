@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.RequestDigitalIdentityStatusSpec = { $: mojo.internal.Enum() };
 blink.mojom.DigitalCredentialGetRequestSpec = { $: {} };
@@ -153,6 +154,52 @@ blink.mojom.DigitalIdentityRequest.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.DigitalIdentityRequestReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DigitalIdentityRequest_Get_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.get(params.digital_credential_requests);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.DigitalIdentityRequest_Create_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.create(params.digital_credential_requests);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.abort();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DigitalIdentityRequestReceiver = blink.mojom.DigitalIdentityRequestReceiver;
 
 blink.mojom.DigitalIdentityRequestPtr = blink.mojom.DigitalIdentityRequestRemote;
 blink.mojom.DigitalIdentityRequestRequest = blink.mojom.DigitalIdentityRequestPendingReceiver;

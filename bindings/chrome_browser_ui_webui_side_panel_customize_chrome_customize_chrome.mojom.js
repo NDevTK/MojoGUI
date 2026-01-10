@@ -7,7 +7,8 @@
 // Module namespace
 var side_panel = side_panel || {};
 side_panel.mojom = side_panel.mojom || {};
-var components = components || {};
+var ntp_tiles = ntp_tiles || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
 var url = url || {};
 
@@ -241,6 +242,28 @@ side_panel.mojom.CustomizeChromePageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+side_panel.mojom.CustomizeChromePageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = side_panel.mojom.CustomizeChromePageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandlerFactoryReceiver = side_panel.mojom.CustomizeChromePageHandlerFactoryReceiver;
 
 side_panel.mojom.CustomizeChromePageHandlerFactoryPtr = side_panel.mojom.CustomizeChromePageHandlerFactoryRemote;
 side_panel.mojom.CustomizeChromePageHandlerFactoryRequest = side_panel.mojom.CustomizeChromePageHandlerFactoryPendingReceiver;
@@ -772,6 +795,196 @@ side_panel.mojom.CustomizeChromePageHandler.getRemote = function() {
   return remote.$;
 };
 
+side_panel.mojom.CustomizeChromePageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_SetMostVisitedSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMostVisitedSettings(params.shortcuts_types, params.shortcuts_visible, params.personal_shortcuts_visible);
+          break;
+        }
+        case 1: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateMostVisitedSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateMostVisitedSettings();
+          break;
+        }
+        case 2: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBackgroundCollections();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, side_panel.mojom.CustomizeChromePageHandler_GetBackgroundCollections_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getReplacementCollectionPreviewImage(params.collection_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, side_panel.mojom.CustomizeChromePageHandler_GetReplacementCollectionPreviewImage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBackgroundImages(params.collection_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, side_panel.mojom.CustomizeChromePageHandler_GetBackgroundImages_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateModulesSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateModulesSettings();
+          break;
+        }
+        case 6: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateTheme_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateTheme();
+          break;
+        }
+        case 7: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateThemeEditable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateThemeEditable(params.is_theme_editable);
+          break;
+        }
+        case 8: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_SetDefaultColor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDefaultColor();
+          break;
+        }
+        case 9: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_SetFollowDeviceTheme_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFollowDeviceTheme(params.follow);
+          break;
+        }
+        case 10: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_RemoveBackgroundImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeBackgroundImage();
+          break;
+        }
+        case 11: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.chooseLocalCustomBackground();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, side_panel.mojom.CustomizeChromePageHandler_ChooseLocalCustomBackground_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_SetBackgroundImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBackgroundImage(params.attribution_1, params.attribution_2, params.attribution_url, params.image_url, params.thumbnail_url, params.collection_id);
+          break;
+        }
+        case 13: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_SetDailyRefreshCollectionId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDailyRefreshCollectionId(params.collection_id);
+          break;
+        }
+        case 14: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStore_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openChromeWebStore();
+          break;
+        }
+        case 15: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreHomePage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openChromeWebStoreHomePage();
+          break;
+        }
+        case 16: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_OpenThirdPartyThemePage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openThirdPartyThemePage(params.theme_id);
+          break;
+        }
+        case 17: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCategoryPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openChromeWebStoreCategoryPage(params.category);
+          break;
+        }
+        case 18: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_OpenChromeWebStoreCollectionPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openChromeWebStoreCollectionPage(params.collection);
+          break;
+        }
+        case 19: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_OpenNtpManagedByPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openNtpManagedByPage();
+          break;
+        }
+        case 20: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_SetModulesVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setModulesVisible(params.visible);
+          break;
+        }
+        case 21: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_SetModuleDisabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setModuleDisabled(params.module_id, params.disabled);
+          break;
+        }
+        case 22: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_SetToolChipsVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setToolChipsVisible(params.visible);
+          break;
+        }
+        case 23: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateToolChipsSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateToolChipsSettings();
+          break;
+        }
+        case 24: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateScrollToSection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateScrollToSection();
+          break;
+        }
+        case 25: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateAttachedTabState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateAttachedTabState();
+          break;
+        }
+        case 26: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateNtpManagedByName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateNtpManagedByName();
+          break;
+        }
+        case 27: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_SetFooterVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFooterVisible(params.visible);
+          break;
+        }
+        case 28: {
+          const params = side_panel.mojom.CustomizeChromePageHandler_UpdateFooterSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateFooterSettings();
+          break;
+        }
+      }
+    });
+  }
+};
+
+side_panel.mojom.CustomizeChromePageHandlerReceiver = side_panel.mojom.CustomizeChromePageHandlerReceiver;
+
 side_panel.mojom.CustomizeChromePageHandlerPtr = side_panel.mojom.CustomizeChromePageHandlerRemote;
 side_panel.mojom.CustomizeChromePageHandlerRequest = side_panel.mojom.CustomizeChromePageHandlerPendingReceiver;
 
@@ -972,6 +1185,68 @@ side_panel.mojom.CustomizeChromePage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+side_panel.mojom.CustomizeChromePageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = side_panel.mojom.CustomizeChromePage_SetModulesSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setModulesSettings(params.modules_settings, params.managed, params.visible);
+          break;
+        }
+        case 1: {
+          const params = side_panel.mojom.CustomizeChromePage_SetMostVisitedSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMostVisitedSettings(params.shortcuts_types, params.visible, params.personal_shortcuts_visible, params.disabled_shortcuts);
+          break;
+        }
+        case 2: {
+          const params = side_panel.mojom.CustomizeChromePage_SetToolsSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setToolsSettings(params.visible);
+          break;
+        }
+        case 3: {
+          const params = side_panel.mojom.CustomizeChromePage_SetFooterSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFooterSettings(params.visible, params.extension_policy_enabled, params.management_notice_state);
+          break;
+        }
+        case 4: {
+          const params = side_panel.mojom.CustomizeChromePage_SetTheme_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTheme(params.theme);
+          break;
+        }
+        case 5: {
+          const params = side_panel.mojom.CustomizeChromePage_SetThemeEditable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setThemeEditable(params.is_theme_editable);
+          break;
+        }
+        case 6: {
+          const params = side_panel.mojom.CustomizeChromePage_ScrollToSection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.scrollToSection(params.section);
+          break;
+        }
+        case 7: {
+          const params = side_panel.mojom.CustomizeChromePage_AttachedTabStateUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.attachedTabStateUpdated(params.ntp_type);
+          break;
+        }
+        case 8: {
+          const params = side_panel.mojom.CustomizeChromePage_NtpManagedByNameUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.ntpManagedByNameUpdated(params.name, params.description);
+          break;
+        }
+      }
+    });
+  }
+};
+
+side_panel.mojom.CustomizeChromePageReceiver = side_panel.mojom.CustomizeChromePageReceiver;
 
 side_panel.mojom.CustomizeChromePagePtr = side_panel.mojom.CustomizeChromePageRemote;
 side_panel.mojom.CustomizeChromePageRequest = side_panel.mojom.CustomizeChromePagePendingReceiver;

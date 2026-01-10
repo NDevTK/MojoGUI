@@ -7,8 +7,6 @@
 // Module namespace
 var tabs_api = tabs_api || {};
 tabs_api.mojom = tabs_api.mojom || {};
-var components = components || {};
-var components = components || {};
 
 tabs_api.mojom.OnTabsCreatedEventSpec = { $: {} };
 tabs_api.mojom.OnTabsClosedEventSpec = { $: {} };

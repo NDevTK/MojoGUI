@@ -8,6 +8,8 @@
 var chromeos = chromeos || {};
 chromeos.tts = chromeos.tts || {};
 chromeos.tts.mojom = chromeos.tts.mojom || {};
+var media = media || {};
+var sandbox = sandbox || {};
 
 chromeos.tts.mojom.AudioParametersSpec = { $: {} };
 chromeos.tts.mojom.TtsService = {};
@@ -136,6 +138,40 @@ chromeos.tts.mojom.TtsService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.tts.mojom.TtsServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindGoogleTtsStream(params.receiver, params.stream_factory);
+          break;
+        }
+        case 1: {
+          const params = chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindPlaybackTtsStream(params.receiver, params.stream_factory, params.desired_audio_parameters);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.tts.mojom.TtsService_BindPlaybackTtsStream_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.tts.mojom.TtsServiceReceiver = chromeos.tts.mojom.TtsServiceReceiver;
 
 chromeos.tts.mojom.TtsServicePtr = chromeos.tts.mojom.TtsServiceRemote;
 chromeos.tts.mojom.TtsServiceRequest = chromeos.tts.mojom.TtsServicePendingReceiver;
@@ -315,6 +351,79 @@ chromeos.tts.mojom.GoogleTtsStream.getRemote = function() {
   return remote.$;
 };
 
+chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installVoice(params.voice_name, params.voice_bytes);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectVoice(params.voice_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.tts.mojom.GoogleTtsStream_SelectVoice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chromeos.tts.mojom.GoogleTtsStream_Speak_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.speak(params.text_jspb, params.speaker_params_jspb);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.tts.mojom.GoogleTtsStream_Speak_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chromeos.tts.mojom.GoogleTtsStream_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop();
+          break;
+        }
+        case 4: {
+          const params = chromeos.tts.mojom.GoogleTtsStream_SetVolume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVolume(params.volume);
+          break;
+        }
+        case 5: {
+          const params = chromeos.tts.mojom.GoogleTtsStream_Pause_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pause();
+          break;
+        }
+        case 6: {
+          const params = chromeos.tts.mojom.GoogleTtsStream_Resume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resume();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.tts.mojom.GoogleTtsStreamReceiver = chromeos.tts.mojom.GoogleTtsStreamReceiver;
+
 chromeos.tts.mojom.GoogleTtsStreamPtr = chromeos.tts.mojom.GoogleTtsStreamRemote;
 chromeos.tts.mojom.GoogleTtsStreamRequest = chromeos.tts.mojom.GoogleTtsStreamPendingReceiver;
 
@@ -464,6 +573,60 @@ chromeos.tts.mojom.PlaybackTtsStream.getRemote = function() {
   return remote.$;
 };
 
+chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.play();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.tts.mojom.PlaybackTtsStream_Play_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.tts.mojom.PlaybackTtsStream_SendAudioBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendAudioBuffer(params.frames_buffer, params.char_index, params.last_buffer);
+          break;
+        }
+        case 2: {
+          const params = chromeos.tts.mojom.PlaybackTtsStream_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop();
+          break;
+        }
+        case 3: {
+          const params = chromeos.tts.mojom.PlaybackTtsStream_SetVolume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVolume(params.volume);
+          break;
+        }
+        case 4: {
+          const params = chromeos.tts.mojom.PlaybackTtsStream_Pause_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pause();
+          break;
+        }
+        case 5: {
+          const params = chromeos.tts.mojom.PlaybackTtsStream_Resume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resume();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.tts.mojom.PlaybackTtsStreamReceiver = chromeos.tts.mojom.PlaybackTtsStreamReceiver;
+
 chromeos.tts.mojom.PlaybackTtsStreamPtr = chromeos.tts.mojom.PlaybackTtsStreamRemote;
 chromeos.tts.mojom.PlaybackTtsStreamRequest = chromeos.tts.mojom.PlaybackTtsStreamPendingReceiver;
 
@@ -573,6 +736,43 @@ chromeos.tts.mojom.TtsEventObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.tts.mojom.TtsEventObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStart();
+          break;
+        }
+        case 1: {
+          const params = chromeos.tts.mojom.TtsEventObserver_OnTimepoint_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTimepoint(params.char_index);
+          break;
+        }
+        case 2: {
+          const params = chromeos.tts.mojom.TtsEventObserver_OnEnd_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEnd();
+          break;
+        }
+        case 3: {
+          const params = chromeos.tts.mojom.TtsEventObserver_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.tts.mojom.TtsEventObserverReceiver = chromeos.tts.mojom.TtsEventObserverReceiver;
 
 chromeos.tts.mojom.TtsEventObserverPtr = chromeos.tts.mojom.TtsEventObserverRemote;
 chromeos.tts.mojom.TtsEventObserverRequest = chromeos.tts.mojom.TtsEventObserverPendingReceiver;

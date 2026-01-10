@@ -7,8 +7,6 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
 
 gfx.mojom.ImageTraitsTestService = {};
 gfx.mojom.ImageTraitsTestService.$interfaceName = 'gfx.mojom.ImageTraitsTestService';
@@ -105,6 +103,47 @@ gfx.mojom.ImageTraitsTestService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+gfx.mojom.ImageTraitsTestServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoImageSkiaRep(params.in);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoImageSkia(params.in);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+gfx.mojom.ImageTraitsTestServiceReceiver = gfx.mojom.ImageTraitsTestServiceReceiver;
 
 gfx.mojom.ImageTraitsTestServicePtr = gfx.mojom.ImageTraitsTestServiceRemote;
 gfx.mojom.ImageTraitsTestServiceRequest = gfx.mojom.ImageTraitsTestServicePendingReceiver;

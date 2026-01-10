@@ -7,6 +7,7 @@
 // Module namespace
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
+var mojo_base = mojo_base || {};
 
 remote_cocoa.mojom.AlertDispositionSpec = { $: mojo.internal.Enum() };
 remote_cocoa.mojom.AlertBridgeInitParamsSpec = { $: {} };
@@ -118,6 +119,40 @@ remote_cocoa.mojom.AlertBridge.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remote_cocoa.mojom.AlertBridgeReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remote_cocoa.mojom.AlertBridge_Show_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.show(params.params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dismiss();
+          break;
+        }
+      }
+    });
+  }
+};
+
+remote_cocoa.mojom.AlertBridgeReceiver = remote_cocoa.mojom.AlertBridgeReceiver;
 
 remote_cocoa.mojom.AlertBridgePtr = remote_cocoa.mojom.AlertBridgeRemote;
 remote_cocoa.mojom.AlertBridgeRequest = remote_cocoa.mojom.AlertBridgePendingReceiver;

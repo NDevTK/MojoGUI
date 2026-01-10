@@ -7,18 +7,8 @@
 // Module namespace
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
-var ash = ash || {};
-var ash = ash || {};
+var mojo_base = mojo_base || {};
 var ui = ui || {};
-var ash = ash || {};
-var ui = ui || {};
-var ash = ash || {};
-var ui = ui || {};
-var ash = ash || {};
-var ui = ui || {};
-var ash = ash || {};
-var ui = ui || {};
-var ash = ash || {};
 
 ash.mojom.PolicyStatusSpec = { $: mojo.internal.Enum() };
 ash.mojom.TopRowActionKeySpec = { $: mojo.internal.Enum() };

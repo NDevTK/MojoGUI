@@ -7,6 +7,8 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 var url = url || {};
 
 chrome.mojom.SchemeSpec = { $: mojo.internal.Enum() };
@@ -335,6 +337,98 @@ chrome.mojom.ProfileImportObserver.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.ProfileImportObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onImportStart();
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onImportFinished(params.succeeded, params.error_msg);
+          break;
+        }
+        case 2: {
+          const params = chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onImportItemStart(params.item);
+          break;
+        }
+        case 3: {
+          const params = chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onImportItemFinished(params.item);
+          break;
+        }
+        case 4: {
+          const params = chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHistoryImportStart(params.total_history_rows_count);
+          break;
+        }
+        case 5: {
+          const params = chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHistoryImportGroup(params.history_rows_group, params.visit_source);
+          break;
+        }
+        case 6: {
+          const params = chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onHomePageImportReady(params.home_page);
+          break;
+        }
+        case 7: {
+          const params = chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBookmarksImportStart(params.first_folder_name, params.total_bookmarks_count);
+          break;
+        }
+        case 8: {
+          const params = chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBookmarksImportGroup(params.bookmarks_group);
+          break;
+        }
+        case 9: {
+          const params = chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFaviconsImportStart(params.total_favicons_count);
+          break;
+        }
+        case 10: {
+          const params = chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFaviconsImportGroup(params.favicons_group);
+          break;
+        }
+        case 11: {
+          const params = chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPasswordFormImportReady(params.form);
+          break;
+        }
+        case 12: {
+          const params = chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onKeywordsImportReady(params.search_engines, params.unique_on_host_and_path);
+          break;
+        }
+        case 13: {
+          const params = chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAutofillFormDataImportStart(params.total_autofill_form_data_entry_count);
+          break;
+        }
+        case 14: {
+          const params = chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAutofillFormDataImportGroup(params.autofill_form_data_entry_group);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.ProfileImportObserverReceiver = chrome.mojom.ProfileImportObserverReceiver;
+
 chrome.mojom.ProfileImportObserverPtr = chrome.mojom.ProfileImportObserverRemote;
 chrome.mojom.ProfileImportObserverRequest = chrome.mojom.ProfileImportObserverPendingReceiver;
 
@@ -433,6 +527,38 @@ chrome.mojom.ProfileImport.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.ProfileImportReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.ProfileImport_StartImport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startImport(params.source_profile, params.items, params.localized_strings, params.observer);
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.ProfileImport_CancelImport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelImport();
+          break;
+        }
+        case 2: {
+          const params = chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportImportItemFinished(params.item);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.ProfileImportReceiver = chrome.mojom.ProfileImportReceiver;
 
 chrome.mojom.ProfileImportPtr = chrome.mojom.ProfileImportRemote;
 chrome.mojom.ProfileImportRequest = chrome.mojom.ProfileImportPendingReceiver;

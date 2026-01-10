@@ -83,6 +83,23 @@ infobar_internals.mojom.Page.getRemote = function() {
   return remote.$;
 };
 
+infobar_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+infobar_internals.mojom.PageReceiver = infobar_internals.mojom.PageReceiver;
+
 infobar_internals.mojom.PagePtr = infobar_internals.mojom.PageRemote;
 infobar_internals.mojom.PageRequest = infobar_internals.mojom.PagePendingReceiver;
 
@@ -175,6 +192,47 @@ infobar_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+infobar_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getInfoBars();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.triggerInfoBar(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+infobar_internals.mojom.PageHandlerReceiver = infobar_internals.mojom.PageHandlerReceiver;
+
 infobar_internals.mojom.PageHandlerPtr = infobar_internals.mojom.PageHandlerRemote;
 infobar_internals.mojom.PageHandlerRequest = infobar_internals.mojom.PageHandlerPendingReceiver;
 
@@ -240,6 +298,28 @@ infobar_internals.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+infobar_internals.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+infobar_internals.mojom.PageHandlerFactoryReceiver = infobar_internals.mojom.PageHandlerFactoryReceiver;
 
 infobar_internals.mojom.PageHandlerFactoryPtr = infobar_internals.mojom.PageHandlerFactoryRemote;
 infobar_internals.mojom.PageHandlerFactoryRequest = infobar_internals.mojom.PageHandlerFactoryPendingReceiver;

@@ -7,7 +7,7 @@
 // Module namespace
 var remoting = remoting || {};
 remoting.mojom = remoting.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 remoting.mojom.EncodingSpec = { $: mojo.internal.Enum() };
@@ -402,7 +402,7 @@ mojo.internal.Struct(
 // Struct: BeginFileReadSuccess
 mojo.internal.Struct(
     remoting.mojom.BeginFileReadSuccessSpec, 'remoting.mojom.BeginFileReadSuccess', [
-      mojo.internal.StructField('file_reader', 0, 0, mojo.internal.AssociatedInterfaceProxy(remoting.mojom.FileReaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('file_reader', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('filename', 8, 0, mojo_base.mojom.FilePathSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
@@ -411,7 +411,7 @@ mojo.internal.Struct(
 // Struct: BeginFileWriteSuccess
 mojo.internal.Struct(
     remoting.mojom.BeginFileWriteSuccessSpec, 'remoting.mojom.BeginFileWriteSuccess', [
-      mojo.internal.StructField('file_writer', 0, 0, mojo.internal.AssociatedInterfaceProxy(remoting.mojom.FileWriterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('file_writer', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -544,6 +544,38 @@ remoting.mojom.DesktopSessionRequestHandler.getRemote = function() {
   return remote.$;
 };
 
+remoting.mojom.DesktopSessionRequestHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.DesktopSessionRequestHandler_ConnectDesktopChannel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectDesktopChannel(params.desktop_pipe);
+          break;
+        }
+        case 1: {
+          const params = remoting.mojom.DesktopSessionRequestHandler_InjectSecureAttentionSequence_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.injectSecureAttentionSequence();
+          break;
+        }
+        case 2: {
+          const params = remoting.mojom.DesktopSessionRequestHandler_CrashNetworkProcess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.crashNetworkProcess();
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.DesktopSessionRequestHandlerReceiver = remoting.mojom.DesktopSessionRequestHandlerReceiver;
+
 remoting.mojom.DesktopSessionRequestHandlerPtr = remoting.mojom.DesktopSessionRequestHandlerRemote;
 remoting.mojom.DesktopSessionRequestHandlerRequest = remoting.mojom.DesktopSessionRequestHandlerPendingReceiver;
 
@@ -644,6 +676,38 @@ remoting.mojom.DesktopSessionManager.getRemote = function() {
   return remote.$;
 };
 
+remoting.mojom.DesktopSessionManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.DesktopSessionManager_CreateDesktopSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createDesktopSession(params.terminal_id, params.screen_resolution, params.is_virtual_terminal);
+          break;
+        }
+        case 1: {
+          const params = remoting.mojom.DesktopSessionManager_CloseDesktopSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeDesktopSession(params.terminal_id);
+          break;
+        }
+        case 2: {
+          const params = remoting.mojom.DesktopSessionManager_SetScreenResolution_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setScreenResolution(params.terminal_id, params.screen_resolution);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.DesktopSessionManagerReceiver = remoting.mojom.DesktopSessionManagerReceiver;
+
 remoting.mojom.DesktopSessionManagerPtr = remoting.mojom.DesktopSessionManagerRemote;
 remoting.mojom.DesktopSessionManagerRequest = remoting.mojom.DesktopSessionManagerPendingReceiver;
 
@@ -659,7 +723,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec, 'remoting.mojom.DesktopSessionAgent_Start_ResponseParams', [
-      mojo.internal.StructField('desktop_session_control', 0, 0, mojo.internal.AssociatedInterfaceProxy(remoting.mojom.DesktopSessionControlRemote), null, false, 0, undefined),
+      mojo.internal.StructField('desktop_session_control', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -716,6 +780,35 @@ remoting.mojom.DesktopSessionAgent.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remoting.mojom.DesktopSessionAgentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.DesktopSessionAgent_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start(params.authenticated_jid, params.resolution, params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remoting.mojom.DesktopSessionAgent_Start_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.DesktopSessionAgentReceiver = remoting.mojom.DesktopSessionAgentReceiver;
 
 remoting.mojom.DesktopSessionAgentPtr = remoting.mojom.DesktopSessionAgentRemote;
 remoting.mojom.DesktopSessionAgentRequest = remoting.mojom.DesktopSessionAgentPendingReceiver;
@@ -809,6 +902,47 @@ remoting.mojom.FileWriter.getRemote = function() {
   return remote.$;
 };
 
+remoting.mojom.FileWriterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.FileWriter_WriteChunk_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeChunk(params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remoting.mojom.FileWriter_WriteChunk_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = remoting.mojom.FileWriter_CloseFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeFile();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remoting.mojom.FileWriter_CloseFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.FileWriterReceiver = remoting.mojom.FileWriterReceiver;
+
 remoting.mojom.FileWriterPtr = remoting.mojom.FileWriterRemote;
 remoting.mojom.FileWriterRequest = remoting.mojom.FileWriterPendingReceiver;
 
@@ -879,6 +1013,35 @@ remoting.mojom.FileReader.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remoting.mojom.FileReaderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.FileReader_ReadChunk_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readChunk(params.bytes_to_read);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remoting.mojom.FileReader_ReadChunk_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.FileReaderReceiver = remoting.mojom.FileReaderReceiver;
 
 remoting.mojom.FileReaderPtr = remoting.mojom.FileReaderRemote;
 remoting.mojom.FileReaderRequest = remoting.mojom.FileReaderPendingReceiver;
@@ -1165,6 +1328,114 @@ remoting.mojom.DesktopSessionControl.getRemote = function() {
   return remote.$;
 };
 
+remoting.mojom.DesktopSessionControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createVideoCapturer(params.desktop_display_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remoting.mojom.DesktopSessionControl_CreateVideoCapturer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = remoting.mojom.DesktopSessionControl_SetScreenResolution_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setScreenResolution(params.new_resolution);
+          break;
+        }
+        case 2: {
+          const params = remoting.mojom.DesktopSessionControl_LockWorkstation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.lockWorkstation();
+          break;
+        }
+        case 3: {
+          const params = remoting.mojom.DesktopSessionControl_InjectSendAttentionSequence_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.injectSendAttentionSequence();
+          break;
+        }
+        case 4: {
+          const params = remoting.mojom.DesktopSessionControl_InjectClipboardEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.injectClipboardEvent(params.event);
+          break;
+        }
+        case 5: {
+          const params = remoting.mojom.DesktopSessionControl_InjectKeyEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.injectKeyEvent(params.event);
+          break;
+        }
+        case 6: {
+          const params = remoting.mojom.DesktopSessionControl_InjectMouseEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.injectMouseEvent(params.event);
+          break;
+        }
+        case 7: {
+          const params = remoting.mojom.DesktopSessionControl_InjectTextEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.injectTextEvent(params.event);
+          break;
+        }
+        case 8: {
+          const params = remoting.mojom.DesktopSessionControl_InjectTouchEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.injectTouchEvent(params.event);
+          break;
+        }
+        case 9: {
+          const params = remoting.mojom.DesktopSessionControl_SetUpUrlForwarder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUpUrlForwarder();
+          break;
+        }
+        case 10: {
+          const params = remoting.mojom.DesktopSessionControl_SignalWebAuthnExtension_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.signalWebAuthnExtension();
+          break;
+        }
+        case 11: {
+          const params = remoting.mojom.DesktopSessionControl_BeginFileRead_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.beginFileRead();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remoting.mojom.DesktopSessionControl_BeginFileRead_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = remoting.mojom.DesktopSessionControl_BeginFileWrite_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.beginFileWrite(params.file_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remoting.mojom.DesktopSessionControl_BeginFileWrite_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = remoting.mojom.DesktopSessionControl_SetHostCursorRenderedByClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHostCursorRenderedByClient();
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.DesktopSessionControlReceiver = remoting.mojom.DesktopSessionControlReceiver;
+
 remoting.mojom.DesktopSessionControlPtr = remoting.mojom.DesktopSessionControlRemote;
 remoting.mojom.DesktopSessionControlRequest = remoting.mojom.DesktopSessionControlPendingReceiver;
 
@@ -1244,6 +1515,33 @@ remoting.mojom.VideoCapturer.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remoting.mojom.VideoCapturerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.VideoCapturer_CaptureFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.captureFrame();
+          break;
+        }
+        case 1: {
+          const params = remoting.mojom.VideoCapturer_SetComposeEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setComposeEnabled(params.enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.VideoCapturerReceiver = remoting.mojom.VideoCapturerReceiver;
 
 remoting.mojom.VideoCapturerPtr = remoting.mojom.VideoCapturerRemote;
 remoting.mojom.VideoCapturerRequest = remoting.mojom.VideoCapturerPendingReceiver;
@@ -1343,6 +1641,38 @@ remoting.mojom.VideoCapturerEventHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remoting.mojom.VideoCapturerEventHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSharedMemoryRegionCreated(params.id, params.region, params.size);
+          break;
+        }
+        case 1: {
+          const params = remoting.mojom.VideoCapturerEventHandler_OnSharedMemoryRegionReleased_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSharedMemoryRegionReleased(params.id);
+          break;
+        }
+        case 2: {
+          const params = remoting.mojom.VideoCapturerEventHandler_OnCaptureResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCaptureResult(params.result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.VideoCapturerEventHandlerReceiver = remoting.mojom.VideoCapturerEventHandlerReceiver;
 
 remoting.mojom.VideoCapturerEventHandlerPtr = remoting.mojom.VideoCapturerEventHandlerRemote;
 remoting.mojom.VideoCapturerEventHandlerRequest = remoting.mojom.VideoCapturerEventHandlerPendingReceiver;
@@ -1537,6 +1867,68 @@ remoting.mojom.DesktopSessionEventHandler.getRemote = function() {
   return remote.$;
 };
 
+remoting.mojom.DesktopSessionEventHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.DesktopSessionEventHandler_OnClipboardEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClipboardEvent(params.event);
+          break;
+        }
+        case 1: {
+          const params = remoting.mojom.DesktopSessionEventHandler_OnUrlForwarderStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onUrlForwarderStateChange(params.state);
+          break;
+        }
+        case 2: {
+          const params = remoting.mojom.DesktopSessionEventHandler_OnAudioPacket_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAudioPacket(params.audio_packet);
+          break;
+        }
+        case 3: {
+          const params = remoting.mojom.DesktopSessionEventHandler_OnDesktopDisplayChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDesktopDisplayChanged(params.layout);
+          break;
+        }
+        case 4: {
+          const params = remoting.mojom.DesktopSessionEventHandler_OnMouseCursorChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMouseCursorChanged(params.mouse_cursor);
+          break;
+        }
+        case 5: {
+          const params = remoting.mojom.DesktopSessionEventHandler_OnMouseCursorFractionalPositionChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMouseCursorFractionalPositionChanged(params.position);
+          break;
+        }
+        case 6: {
+          const params = remoting.mojom.DesktopSessionEventHandler_OnKeyboardLayoutChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onKeyboardLayoutChanged(params.keyboard_layout);
+          break;
+        }
+        case 7: {
+          const params = remoting.mojom.DesktopSessionEventHandler_OnLocalMouseMoveDetected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLocalMouseMoveDetected(params.new_position);
+          break;
+        }
+        case 8: {
+          const params = remoting.mojom.DesktopSessionEventHandler_OnLocalKeyboardInputDetected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLocalKeyboardInputDetected(params.usb_keycode);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.DesktopSessionEventHandlerReceiver = remoting.mojom.DesktopSessionEventHandlerReceiver;
+
 remoting.mojom.DesktopSessionEventHandlerPtr = remoting.mojom.DesktopSessionEventHandlerRemote;
 remoting.mojom.DesktopSessionEventHandlerRequest = remoting.mojom.DesktopSessionEventHandlerPendingReceiver;
 
@@ -1604,6 +1996,28 @@ remoting.mojom.DesktopSessionStateHandler.getRemote = function() {
   return remote.$;
 };
 
+remoting.mojom.DesktopSessionStateHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.DesktopSessionStateHandler_DisconnectSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disconnectSession(params.error_code, params.error_details, params.error_location);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.DesktopSessionStateHandlerReceiver = remoting.mojom.DesktopSessionStateHandlerReceiver;
+
 remoting.mojom.DesktopSessionStateHandlerPtr = remoting.mojom.DesktopSessionStateHandlerRemote;
 remoting.mojom.DesktopSessionStateHandlerRequest = remoting.mojom.DesktopSessionStateHandlerPendingReceiver;
 
@@ -1670,6 +2084,28 @@ remoting.mojom.WorkerProcessControl.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remoting.mojom.WorkerProcessControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remoting.mojom.WorkerProcessControl_CrashProcess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.crashProcess(params.function_name, params.file_name, params.line_number);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remoting.mojom.WorkerProcessControlReceiver = remoting.mojom.WorkerProcessControlReceiver;
 
 remoting.mojom.WorkerProcessControlPtr = remoting.mojom.WorkerProcessControlRemote;
 remoting.mojom.WorkerProcessControlRequest = remoting.mojom.WorkerProcessControlPendingReceiver;

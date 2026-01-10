@@ -8,6 +8,7 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 var url = url || {};
+var mojo_base = mojo_base || {};
 
 network.mojom.TrustTokenProtocolVersionSpec = { $: mojo.internal.Enum() };
 network.mojom.TrustTokenOperationStatusSpec = { $: mojo.internal.Enum() };
@@ -286,6 +287,47 @@ network.mojom.TrustTokenQueryAnswerer.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.TrustTokenQueryAnswererReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasTrustTokens(params.issuer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasRedemptionRecord(params.issuer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.TrustTokenQueryAnswererReceiver = network.mojom.TrustTokenQueryAnswererReceiver;
 
 network.mojom.TrustTokenQueryAnswererPtr = network.mojom.TrustTokenQueryAnswererRemote;
 network.mojom.TrustTokenQueryAnswererRequest = network.mojom.TrustTokenQueryAnswererPendingReceiver;

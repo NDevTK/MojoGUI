@@ -8,8 +8,6 @@
 var chromeos = chromeos || {};
 chromeos.payments = chromeos.payments || {};
 chromeos.payments.mojom = chromeos.payments.mojom || {};
-var chromeos = chromeos || {};
-var components = components || {};
 
 chromeos.payments.mojom.PaymentAppInstance = {};
 chromeos.payments.mojom.PaymentAppInstance.$interfaceName = 'chromeos.payments.mojom.PaymentAppInstance';
@@ -154,6 +152,71 @@ chromeos.payments.mojom.PaymentAppInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.payments.mojom.PaymentAppInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isPaymentImplemented(params.package_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isReadyToPay(params.parameters);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.invokePaymentApp(params.parameters);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.abortPaymentApp(params.request_token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.payments.mojom.PaymentAppInstanceReceiver = chromeos.payments.mojom.PaymentAppInstanceReceiver;
 
 chromeos.payments.mojom.PaymentAppInstancePtr = chromeos.payments.mojom.PaymentAppInstanceRemote;
 chromeos.payments.mojom.PaymentAppInstanceRequest = chromeos.payments.mojom.PaymentAppInstancePendingReceiver;

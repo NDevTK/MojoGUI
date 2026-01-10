@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.DevToolsFrontend = {};
 blink.mojom.DevToolsFrontend.$interfaceName = 'blink.mojom.DevToolsFrontend';
@@ -20,7 +21,7 @@ blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec, 'blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_Params', [
       mojo.internal.StructField('api_script', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('host', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.DevToolsFrontendHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('host', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -94,6 +95,33 @@ blink.mojom.DevToolsFrontend.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.DevToolsFrontendReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setupDevToolsFrontend(params.api_script, params.host);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setupDevToolsExtensionAPI(params.extension_api);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DevToolsFrontendReceiver = blink.mojom.DevToolsFrontendReceiver;
+
 blink.mojom.DevToolsFrontendPtr = blink.mojom.DevToolsFrontendRemote;
 blink.mojom.DevToolsFrontendRequest = blink.mojom.DevToolsFrontendPendingReceiver;
 
@@ -158,6 +186,28 @@ blink.mojom.DevToolsFrontendHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.DevToolsFrontendHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchEmbedderMessage(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DevToolsFrontendHostReceiver = blink.mojom.DevToolsFrontendHostReceiver;
 
 blink.mojom.DevToolsFrontendHostPtr = blink.mojom.DevToolsFrontendHostRemote;
 blink.mojom.DevToolsFrontendHostRequest = blink.mojom.DevToolsFrontendHostPendingReceiver;

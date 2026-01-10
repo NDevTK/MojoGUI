@@ -7,8 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
 
 blink.mojom.AIProofreaderCreateOptionsSpec = { $: {} };
 blink.mojom.AIProofreader = {};
@@ -106,6 +104,33 @@ blink.mojom.AIProofreader.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.AIProofreaderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AIProofreader_Proofread_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.proofread(params.input, params.pending_responder);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCorrectionType(params.input, params.corrected_input, params.correction_instruction, params.pending_responder);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AIProofreaderReceiver = blink.mojom.AIProofreaderReceiver;
 
 blink.mojom.AIProofreaderPtr = blink.mojom.AIProofreaderRemote;
 blink.mojom.AIProofreaderRequest = blink.mojom.AIProofreaderPendingReceiver;

@@ -126,6 +126,33 @@ arc.mojom.AudioHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.AudioHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showVolumeControls();
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSystemVolumeUpdateRequest(params.percent);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.AudioHostReceiver = arc.mojom.AudioHostReceiver;
+
 arc.mojom.AudioHostPtr = arc.mojom.AudioHostRemote;
 arc.mojom.AudioHostRequest = arc.mojom.AudioHostPendingReceiver;
 
@@ -260,6 +287,55 @@ arc.mojom.AudioInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.AudioInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 3: {
+          const params = arc.mojom.AudioInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.AudioInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 0: {
+          const params = arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifySwitchState(params.state);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyVolumeState(params.volume, params.muted);
+          break;
+        }
+        case 4: {
+          const params = arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifySpatialAudioState(params.enabled);
+          break;
+        }
+        case 5: {
+          const params = arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyOutputDeviceInfo(params.device_type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.AudioInstanceReceiver = arc.mojom.AudioInstanceReceiver;
 
 arc.mojom.AudioInstancePtr = arc.mojom.AudioInstanceRemote;
 arc.mojom.AudioInstanceRequest = arc.mojom.AudioInstancePendingReceiver;

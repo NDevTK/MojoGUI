@@ -9,6 +9,7 @@ var ash = ash || {};
 ash.nearby = ash.nearby || {};
 ash.nearby.presence = ash.nearby.presence || {};
 ash.nearby.presence.mojom = ash.nearby.presence.mojom || {};
+var mojo_base = mojo_base || {};
 
 ash.nearby.presence.mojom.IdentityTypeSpec = { $: mojo.internal.Enum() };
 ash.nearby.presence.mojom.PresenceDeviceTypeSpec = { $: mojo.internal.Enum() };
@@ -221,6 +222,23 @@ ash.nearby.presence.mojom.ScanSession.getRemote = function() {
   return remote.$;
 };
 
+ash.nearby.presence.mojom.ScanSessionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+ash.nearby.presence.mojom.ScanSessionReceiver = ash.nearby.presence.mojom.ScanSessionReceiver;
+
 ash.nearby.presence.mojom.ScanSessionPtr = ash.nearby.presence.mojom.ScanSessionRemote;
 ash.nearby.presence.mojom.ScanSessionRequest = ash.nearby.presence.mojom.ScanSessionPendingReceiver;
 
@@ -317,6 +335,38 @@ ash.nearby.presence.mojom.ScanObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.nearby.presence.mojom.ScanObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceFound(params.device);
+          break;
+        }
+        case 1: {
+          const params = ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceChanged(params.device);
+          break;
+        }
+        case 2: {
+          const params = ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceLost(params.device);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.nearby.presence.mojom.ScanObserverReceiver = ash.nearby.presence.mojom.ScanObserverReceiver;
 
 ash.nearby.presence.mojom.ScanObserverPtr = ash.nearby.presence.mojom.ScanObserverRemote;
 ash.nearby.presence.mojom.ScanObserverRequest = ash.nearby.presence.mojom.ScanObserverPendingReceiver;
@@ -490,6 +540,81 @@ ash.nearby.presence.mojom.NearbyPresence.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.nearby.presence.mojom.NearbyPresenceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startScan(params.scan_request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setScanObserver(params.scan_observer);
+          break;
+        }
+        case 2: {
+          const params = ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateLocalDeviceMetadata(params.metadata);
+          break;
+        }
+        case 3: {
+          const params = ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateLocalDeviceMetadataAndGenerateCredentials(params.metadata);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateRemoteSharedCredentials(params.shared_credentials, params.account_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLocalSharedCredentials(params.account_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.nearby.presence.mojom.NearbyPresenceReceiver = ash.nearby.presence.mojom.NearbyPresenceReceiver;
 
 ash.nearby.presence.mojom.NearbyPresencePtr = ash.nearby.presence.mojom.NearbyPresenceRemote;
 ash.nearby.presence.mojom.NearbyPresenceRequest = ash.nearby.presence.mojom.NearbyPresencePendingReceiver;

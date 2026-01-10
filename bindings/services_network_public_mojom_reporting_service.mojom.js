@@ -8,8 +8,7 @@
 var network = network || {};
 network.mojom = network.mojom || {};
 var url = url || {};
-var url = url || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 network.mojom.ReportingApiReportStatusSpec = { $: mojo.internal.Enum() };
 network.mojom.ReportingApiReportSpec = { $: {} };
@@ -152,6 +151,38 @@ network.mojom.ReportingApiObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.ReportingApiObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReportAdded(params.report);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReportUpdated(params.report);
+          break;
+        }
+        case 2: {
+          const params = network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEndpointsUpdatedForOrigin(params.endpoints);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.ReportingApiObserverReceiver = network.mojom.ReportingApiObserverReceiver;
 
 network.mojom.ReportingApiObserverPtr = network.mojom.ReportingApiObserverRemote;
 network.mojom.ReportingApiObserverRequest = network.mojom.ReportingApiObserverPendingReceiver;

@@ -55,6 +55,23 @@ extensions.KeepAlive.getRemote = function() {
   return remote.$;
 };
 
+extensions.KeepAliveReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+extensions.KeepAliveReceiver = extensions.KeepAliveReceiver;
+
 extensions.KeepAlivePtr = extensions.KeepAliveRemote;
 extensions.KeepAliveRequest = extensions.KeepAlivePendingReceiver;
 

@@ -217,6 +217,28 @@ ash.diagnostics.mojom.NetworkListObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.diagnostics.mojom.NetworkListObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNetworkListChanged(params.network_guids, params.active_guid);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.NetworkListObserverReceiver = ash.diagnostics.mojom.NetworkListObserverReceiver;
+
 ash.diagnostics.mojom.NetworkListObserverPtr = ash.diagnostics.mojom.NetworkListObserverRemote;
 ash.diagnostics.mojom.NetworkListObserverRequest = ash.diagnostics.mojom.NetworkListObserverPendingReceiver;
 
@@ -281,6 +303,28 @@ ash.diagnostics.mojom.NetworkStateObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.diagnostics.mojom.NetworkStateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNetworkStateChanged(params.network);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.NetworkStateObserverReceiver = ash.diagnostics.mojom.NetworkStateObserverReceiver;
 
 ash.diagnostics.mojom.NetworkStateObserverPtr = ash.diagnostics.mojom.NetworkStateObserverRemote;
 ash.diagnostics.mojom.NetworkStateObserverRequest = ash.diagnostics.mojom.NetworkStateObserverPendingReceiver;
@@ -363,6 +407,33 @@ ash.diagnostics.mojom.NetworkHealthProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.diagnostics.mojom.NetworkHealthProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeNetworkList(params.observer);
+          break;
+        }
+        case 1: {
+          const params = ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeNetwork(params.observer, params.guid);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.diagnostics.mojom.NetworkHealthProviderReceiver = ash.diagnostics.mojom.NetworkHealthProviderReceiver;
 
 ash.diagnostics.mojom.NetworkHealthProviderPtr = ash.diagnostics.mojom.NetworkHealthProviderRemote;
 ash.diagnostics.mojom.NetworkHealthProviderRequest = ash.diagnostics.mojom.NetworkHealthProviderPendingReceiver;

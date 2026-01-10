@@ -106,6 +106,47 @@ arc.mojom.WakeLockHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.WakeLockHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acquirePartialWakeLock();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.releasePartialWakeLock();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.WakeLockHostReceiver = arc.mojom.WakeLockHostReceiver;
+
 arc.mojom.WakeLockHostPtr = arc.mojom.WakeLockHostRemote;
 arc.mojom.WakeLockHostRequest = arc.mojom.WakeLockHostPendingReceiver;
 
@@ -175,6 +216,35 @@ arc.mojom.WakeLockInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.WakeLockInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.WakeLockInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.WakeLockInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.WakeLockInstanceReceiver = arc.mojom.WakeLockInstanceReceiver;
 
 arc.mojom.WakeLockInstancePtr = arc.mojom.WakeLockInstanceRemote;
 arc.mojom.WakeLockInstanceRequest = arc.mojom.WakeLockInstancePendingReceiver;

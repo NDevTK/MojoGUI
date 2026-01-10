@@ -9,7 +9,7 @@ var ash = ash || {};
 ash.settings = ash.settings || {};
 ash.settings.app_notification = ash.settings.app_notification || {};
 ash.settings.app_notification.mojom = ash.settings.app_notification.mojom || {};
-var ui = ui || {};
+var app_management = app_management || {};
 
 ash.settings.app_notification.mojom.ReadinessSpec = { $: mojo.internal.Enum() };
 ash.settings.app_notification.mojom.AppSpec = { $: {} };
@@ -203,6 +203,67 @@ ash.settings.app_notification.mojom.AppNotificationsHandler.getRemote = function
   return remote.$;
 };
 
+ash.settings.app_notification.mojom.AppNotificationsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setQuietMode(params.enabled);
+          break;
+        }
+        case 1: {
+          const params = ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 2: {
+          const params = ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNotificationPermission(params.app_id, params.permission);
+          break;
+        }
+        case 3: {
+          const params = ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getApps();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getQuietMode();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openBrowserNotificationSettings();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.app_notification.mojom.AppNotificationsHandlerReceiver = ash.settings.app_notification.mojom.AppNotificationsHandlerReceiver;
+
 ash.settings.app_notification.mojom.AppNotificationsHandlerPtr = ash.settings.app_notification.mojom.AppNotificationsHandlerRemote;
 ash.settings.app_notification.mojom.AppNotificationsHandlerRequest = ash.settings.app_notification.mojom.AppNotificationsHandlerPendingReceiver;
 
@@ -283,6 +344,33 @@ ash.settings.app_notification.mojom.AppNotificationsObserver.getRemote = functio
     'context');
   return remote.$;
 };
+
+ash.settings.app_notification.mojom.AppNotificationsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNotificationAppChanged(params.app);
+          break;
+        }
+        case 1: {
+          const params = ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onQuietModeChanged(params.enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.app_notification.mojom.AppNotificationsObserverReceiver = ash.settings.app_notification.mojom.AppNotificationsObserverReceiver;
 
 ash.settings.app_notification.mojom.AppNotificationsObserverPtr = ash.settings.app_notification.mojom.AppNotificationsObserverRemote;
 ash.settings.app_notification.mojom.AppNotificationsObserverRequest = ash.settings.app_notification.mojom.AppNotificationsObserverPendingReceiver;

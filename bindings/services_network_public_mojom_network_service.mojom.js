@@ -7,36 +7,10 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var components = components || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var content_settings = content_settings || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 var url = url || {};
-var url = url || {};
-var services = services || {};
 
 network.mojom.HttpAuthStaticParamsSpec = { $: {} };
 network.mojom.HttpAuthDynamicParamsSpec = { $: {} };
@@ -232,6 +206,28 @@ network.mojom.GssapiLibraryLoadObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.GssapiLibraryLoadObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBeforeGssapiLibraryLoad();
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.GssapiLibraryLoadObserverReceiver = network.mojom.GssapiLibraryLoadObserverReceiver;
 
 network.mojom.GssapiLibraryLoadObserverPtr = network.mojom.GssapiLibraryLoadObserverRemote;
 network.mojom.GssapiLibraryLoadObserverRequest = network.mojom.GssapiLibraryLoadObserverPendingReceiver;
@@ -994,6 +990,277 @@ network.mojom.NetworkService.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.NetworkServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.NetworkService_SetParams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setParams(params.params);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.NetworkService_StartNetLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startNetLog(params.file, params.max_total_size, params.capture_mode, params.constants, params.duration);
+          break;
+        }
+        case 2: {
+          const params = network.mojom.NetworkService_AttachNetLogProxy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.attachNetLogProxy(params.proxy_source, params.proxy_sink);
+          break;
+        }
+        case 3: {
+          const params = network.mojom.NetworkService_SetSSLKeyLogFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSSLKeyLogFile(params.file);
+          break;
+        }
+        case 4: {
+          const params = network.mojom.NetworkService_CreateNetworkContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createNetworkContext(params.context, params.params);
+          break;
+        }
+        case 5: {
+          const params = network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.configureStubHostResolver(params.insecure_dns_client_enabled, params.happy_eyeballs_v3_enabled, params.secure_dns_mode, params.dns_over_https_config, params.additional_dns_types_enabled, params.fallback_doh_nameservers);
+          break;
+        }
+        case 6: {
+          const params = network.mojom.NetworkService_DisableQuic_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableQuic();
+          break;
+        }
+        case 7: {
+          const params = network.mojom.NetworkService_SetUpHttpAuth_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUpHttpAuth(params.http_auth_static_params);
+          break;
+        }
+        case 8: {
+          const params = network.mojom.NetworkService_ConfigureHttpAuthPrefs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.configureHttpAuthPrefs(params.http_auth_dynamic_params);
+          break;
+        }
+        case 9: {
+          const params = network.mojom.NetworkService_SetRawHeadersAccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRawHeadersAccess(params.process_id, params.origins);
+          break;
+        }
+        case 10: {
+          const params = network.mojom.NetworkService_SetMaxConnectionsPerProxyChain_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMaxConnectionsPerProxyChain(params.max_connections);
+          break;
+        }
+        case 11: {
+          const params = network.mojom.NetworkService_GetNetworkChangeManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNetworkChangeManager(params.network_change_manager);
+          break;
+        }
+        case 12: {
+          const params = network.mojom.NetworkService_GetNetworkQualityEstimatorManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNetworkQualityEstimatorManager(params.receiver);
+          break;
+        }
+        case 13: {
+          const params = network.mojom.NetworkService_GetDnsConfigChangeManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDnsConfigChangeManager(params.receiver);
+          break;
+        }
+        case 14: {
+          const params = network.mojom.NetworkService_GetNetworkList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNetworkList(params.policy);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkService_GetNetworkList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = network.mojom.NetworkService_OnTrustStoreChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTrustStoreChanged();
+          break;
+        }
+        case 16: {
+          const params = network.mojom.NetworkService_OnClientCertStoreChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClientCertStoreChanged();
+          break;
+        }
+        case 17: {
+          const params = network.mojom.NetworkService_SetEncryptionKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setEncryptionKey(params.encryption_key);
+          break;
+        }
+        case 18: {
+          const params = network.mojom.NetworkService_OnPeerToPeerConnectionsCountChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPeerToPeerConnectionsCountChange(params.count);
+          break;
+        }
+        case 19: {
+          const params = network.mojom.NetworkService_OnApplicationStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onApplicationStateChange(params.state);
+          break;
+        }
+        case 20: {
+          const params = network.mojom.NetworkService_SetTrustTokenKeyCommitments_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTrustTokenKeyCommitments(params.raw_commitments);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkService_SetTrustTokenKeyCommitments_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 21: {
+          const params = network.mojom.NetworkService_ClearSCTAuditingCache_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearSCTAuditingCache();
+          break;
+        }
+        case 22: {
+          const params = network.mojom.NetworkService_ConfigureSCTAuditing_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.configureSCTAuditing(params.configuration);
+          break;
+        }
+        case 23: {
+          const params = network.mojom.NetworkService_UpdateCtLogList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateCtLogList(params.log_list);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkService_UpdateCtLogList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 24: {
+          const params = network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateCtKnownPopularSCTs(params.sct_hashes);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkService_UpdateCtKnownPopularSCTs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 25: {
+          const params = network.mojom.NetworkService_SetCtEnforcementEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCtEnforcementEnabled(params.enabled);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkService_SetCtEnforcementEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 26: {
+          const params = network.mojom.NetworkService_UpdateKeyPinsList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateKeyPinsList(params.pin_list, params.update_time);
+          break;
+        }
+        case 27: {
+          const params = network.mojom.NetworkService_DumpWithoutCrashing_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dumpWithoutCrashing(params.dump_request_time);
+          break;
+        }
+        case 28: {
+          const params = network.mojom.NetworkService_BindTestInterfaceForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindTestInterfaceForTesting(params.receiver);
+          break;
+        }
+        case 29: {
+          const params = network.mojom.NetworkService_SetFirstPartySets_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFirstPartySets(params.sets);
+          break;
+        }
+        case 30: {
+          const params = network.mojom.NetworkService_SetExplicitlyAllowedPorts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setExplicitlyAllowedPorts(params.ports);
+          break;
+        }
+        case 31: {
+          const params = network.mojom.NetworkService_ParseHeaders_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseHeaders(params.url, params.headers);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkService_ParseHeaders_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 32: {
+          const params = network.mojom.NetworkService_EnableDataUseUpdates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableDataUseUpdates(params.enable);
+          break;
+        }
+        case 33: {
+          const params = network.mojom.NetworkService_SetIPv6ReachabilityOverride_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIPv6ReachabilityOverride(params.reachability_override);
+          break;
+        }
+        case 34: {
+          const params = network.mojom.NetworkService_SetGssapiLibraryLoadObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setGssapiLibraryLoadObserver(params.gssapi_library_load_observer);
+          break;
+        }
+        case 35: {
+          const params = network.mojom.NetworkService_SetNetworkAnnotationMonitor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNetworkAnnotationMonitor(params.remote);
+          break;
+        }
+        case 36: {
+          const params = network.mojom.NetworkService_SetTpcdMetadataGrants_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTpcdMetadataGrants(params.settings);
+          break;
+        }
+        case 37: {
+          const params = network.mojom.NetworkService_InterceptUrlLoaderForBodyDecoding_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.interceptUrlLoaderForBodyDecoding(params.content_encoding_types, params.source_body, params.dest_body, params.source_url_loader, params.source_url_loader_client, params.dest_url_loader, params.dest_url_loader_client);
+          break;
+        }
+        case 38: {
+          const params = network.mojom.NetworkService_DecodeContentEncoding_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decodeContentEncoding(params.content_encoding_types, params.source_body, params.dest_body);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkService_DecodeContentEncoding_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 39: {
+          const params = network.mojom.NetworkService_SetTLS13EarlyDataEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTLS13EarlyDataEnabled(params.enabled);
+          break;
+        }
+        case 40: {
+          const params = network.mojom.NetworkService_AddDurableMessageCollector_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addDurableMessageCollector(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.NetworkServiceReceiver = network.mojom.NetworkServiceReceiver;
+
 network.mojom.NetworkServicePtr = network.mojom.NetworkServiceRemote;
 network.mojom.NetworkServiceRequest = network.mojom.NetworkServicePendingReceiver;
 
@@ -1127,6 +1394,71 @@ network.mojom.DurableMessageCollector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.DurableMessageCollectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.DurableMessageCollector_Configure_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.configure(params.config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.DurableMessageCollector_Configure_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.DurableMessageCollector_EnableForProfile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableForProfile(params.throttling_profile_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.DurableMessageCollector_EnableForProfile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = network.mojom.DurableMessageCollector_DisableForProfile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableForProfile(params.throttling_profile_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.DurableMessageCollector_DisableForProfile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = network.mojom.DurableMessageCollector_Retrieve_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.retrieve(params.devtools_request_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.DurableMessageCollector_Retrieve_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.DurableMessageCollectorReceiver = network.mojom.DurableMessageCollectorReceiver;
 
 network.mojom.DurableMessageCollectorPtr = network.mojom.DurableMessageCollectorRemote;
 network.mojom.DurableMessageCollectorRequest = network.mojom.DurableMessageCollectorPendingReceiver;

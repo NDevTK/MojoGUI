@@ -8,9 +8,7 @@
 var chromecast = chromecast || {};
 chromecast.media = chromecast.media || {};
 chromecast.media.mojom = chromecast.media.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 chromecast.media.mojom.VideoGeometryChangeClient = {};
@@ -86,6 +84,28 @@ chromecast.media.mojom.VideoGeometryChangeClient.getRemote = function() {
   return remote.$;
 };
 
+chromecast.media.mojom.VideoGeometryChangeClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVideoGeometryChange(params.rect_f, params.transform);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.media.mojom.VideoGeometryChangeClientReceiver = chromecast.media.mojom.VideoGeometryChangeClientReceiver;
+
 chromecast.media.mojom.VideoGeometryChangeClientPtr = chromecast.media.mojom.VideoGeometryChangeClientRemote;
 chromecast.media.mojom.VideoGeometryChangeClientRequest = chromecast.media.mojom.VideoGeometryChangeClientPendingReceiver;
 
@@ -157,6 +177,35 @@ chromecast.media.mojom.VideoGeometryChangeSubscriber.getRemote = function() {
   return remote.$;
 };
 
+chromecast.media.mojom.VideoGeometryChangeSubscriberReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.subscribeToVideoGeometryChange(params.overlay_plane_id, params.client_pending_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.media.mojom.VideoGeometryChangeSubscriberReceiver = chromecast.media.mojom.VideoGeometryChangeSubscriberReceiver;
+
 chromecast.media.mojom.VideoGeometryChangeSubscriberPtr = chromecast.media.mojom.VideoGeometryChangeSubscriberRemote;
 chromecast.media.mojom.VideoGeometryChangeSubscriberRequest = chromecast.media.mojom.VideoGeometryChangeSubscriberPendingReceiver;
 
@@ -223,6 +272,28 @@ chromecast.media.mojom.VideoGeometrySetter.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.media.mojom.VideoGeometrySetterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVideoGeometry(params.rect_f, params.transform, params.overlay_plane_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.media.mojom.VideoGeometrySetterReceiver = chromecast.media.mojom.VideoGeometrySetterReceiver;
 
 chromecast.media.mojom.VideoGeometrySetterPtr = chromecast.media.mojom.VideoGeometrySetterRemote;
 chromecast.media.mojom.VideoGeometrySetterRequest = chromecast.media.mojom.VideoGeometrySetterPendingReceiver;

@@ -7,9 +7,9 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var url = url || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 blink.mojom.ScrollRestorationTypeSpec = { $: mojo.internal.Enum() };

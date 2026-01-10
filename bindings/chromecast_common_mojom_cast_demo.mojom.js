@@ -8,6 +8,7 @@
 var chromecast = chromecast || {};
 chromecast.shell = chromecast.shell || {};
 chromecast.shell.mojom = chromecast.shell.mojom || {};
+var mojo_base = mojo_base || {};
 
 chromecast.shell.mojom.CastDemoVolumeChangeObserver = {};
 chromecast.shell.mojom.CastDemoVolumeChangeObserver.$interfaceName = 'chromecast.shell.mojom.CastDemoVolumeChangeObserver';
@@ -93,6 +94,28 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.shell.mojom.CastDemoVolumeChangeObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.volumeChanged(params.level);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.shell.mojom.CastDemoVolumeChangeObserverReceiver = chromecast.shell.mojom.CastDemoVolumeChangeObserverReceiver;
 
 chromecast.shell.mojom.CastDemoVolumeChangeObserverPtr = chromecast.shell.mojom.CastDemoVolumeChangeObserverRemote;
 chromecast.shell.mojom.CastDemoVolumeChangeObserverRequest = chromecast.shell.mojom.CastDemoVolumeChangeObserverPendingReceiver;
@@ -375,6 +398,123 @@ chromecast.shell.mojom.CastDemo.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.shell.mojom.CastDemoReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordEvent(params.event_name, params.data);
+          break;
+        }
+        case 1: {
+          const params = chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRetailerName(params.retailer_name);
+          break;
+        }
+        case 2: {
+          const params = chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setStoreId(params.store_id);
+          break;
+        }
+        case 3: {
+          const params = chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRetailerName();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getStoreId();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDefaultVolumeLevel(params.level);
+          break;
+        }
+        case 6: {
+          const params = chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDefaultVolumeLevel();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applyDefaultVolume();
+          break;
+        }
+        case 8: {
+          const params = chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWifiCredentials(params.ssid, params.psk);
+          break;
+        }
+        case 9: {
+          const params = chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAvailableWifiNetworks();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getConnectionStatus();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addVolumeChangeObserver(params.observer);
+          break;
+        }
+        case 12: {
+          const params = chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.persistLocalStorage();
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.shell.mojom.CastDemoReceiver = chromecast.shell.mojom.CastDemoReceiver;
 
 chromecast.shell.mojom.CastDemoPtr = chromecast.shell.mojom.CastDemoRemote;
 chromecast.shell.mojom.CastDemoRequest = chromecast.shell.mojom.CastDemoPendingReceiver;

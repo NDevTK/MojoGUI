@@ -296,6 +296,71 @@ connectors_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+connectors_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceTrustState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteDeviceTrustKey();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getClientCertificateState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSignalsReportingState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+connectors_internals.mojom.PageHandlerReceiver = connectors_internals.mojom.PageHandlerReceiver;
+
 connectors_internals.mojom.PageHandlerPtr = connectors_internals.mojom.PageHandlerRemote;
 connectors_internals.mojom.PageHandlerRequest = connectors_internals.mojom.PageHandlerPendingReceiver;
 

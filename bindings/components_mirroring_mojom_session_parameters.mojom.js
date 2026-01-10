@@ -7,7 +7,8 @@
 // Module namespace
 var mirroring = mirroring || {};
 mirroring.mojom = mirroring.mojom || {};
-var services = services || {};
+var network = network || {};
+var mojo_base = mojo_base || {};
 
 mirroring.mojom.SessionTypeSpec = { $: mojo.internal.Enum() };
 mirroring.mojom.SessionParametersSpec = { $: {} };

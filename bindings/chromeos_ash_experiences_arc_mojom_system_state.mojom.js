@@ -89,6 +89,28 @@ arc.mojom.SystemStateHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.SystemStateHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateAppRunningState(params.state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.SystemStateHostReceiver = arc.mojom.SystemStateHostReceiver;
+
 arc.mojom.SystemStateHostPtr = arc.mojom.SystemStateHostRemote;
 arc.mojom.SystemStateHostRequest = arc.mojom.SystemStateHostPendingReceiver;
 
@@ -158,6 +180,35 @@ arc.mojom.SystemStateInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.SystemStateInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.SystemStateInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.SystemStateInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.SystemStateInstanceReceiver = arc.mojom.SystemStateInstanceReceiver;
 
 arc.mojom.SystemStateInstancePtr = arc.mojom.SystemStateInstanceRemote;
 arc.mojom.SystemStateInstanceRequest = arc.mojom.SystemStateInstancePendingReceiver;

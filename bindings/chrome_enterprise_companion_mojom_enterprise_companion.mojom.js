@@ -113,6 +113,47 @@ enterprise_companion.mojom.EnterpriseCompanion.getRemote = function() {
   return remote.$;
 };
 
+enterprise_companion.mojom.EnterpriseCompanionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shutdown();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fetchPolicies(params.reason);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+enterprise_companion.mojom.EnterpriseCompanionReceiver = enterprise_companion.mojom.EnterpriseCompanionReceiver;
+
 enterprise_companion.mojom.EnterpriseCompanionPtr = enterprise_companion.mojom.EnterpriseCompanionRemote;
 enterprise_companion.mojom.EnterpriseCompanionRequest = enterprise_companion.mojom.EnterpriseCompanionPendingReceiver;
 

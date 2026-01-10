@@ -7,7 +7,7 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var ui = ui || {};
+var gpu = gpu || {};
 var gfx = gfx || {};
 
 viz.mojom.LetterboxingBehaviorSpec = { $: mojo.internal.Enum() };

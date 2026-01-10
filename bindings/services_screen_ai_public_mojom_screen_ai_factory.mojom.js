@@ -7,8 +7,9 @@
 // Module namespace
 var screen_ai = screen_ai || {};
 screen_ai.mojom = screen_ai.mojom || {};
-var services = services || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
+var ax = ax || {};
 
 screen_ai.mojom.ScreenAIServiceShutdownHandler = {};
 screen_ai.mojom.ScreenAIServiceShutdownHandler.$interfaceName = 'screen_ai.mojom.ScreenAIServiceShutdownHandler';
@@ -80,6 +81,28 @@ screen_ai.mojom.ScreenAIServiceShutdownHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = screen_ai.mojom.ScreenAIServiceShutdownHandler_ShuttingDownOnIdle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shuttingDownOnIdle();
+          break;
+        }
+      }
+    });
+  }
+};
+
+screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver = screen_ai.mojom.ScreenAIServiceShutdownHandlerReceiver;
 
 screen_ai.mojom.ScreenAIServiceShutdownHandlerPtr = screen_ai.mojom.ScreenAIServiceShutdownHandlerRemote;
 screen_ai.mojom.ScreenAIServiceShutdownHandlerRequest = screen_ai.mojom.ScreenAIServiceShutdownHandlerPendingReceiver;
@@ -193,6 +216,52 @@ screen_ai.mojom.ScreenAIServiceFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+screen_ai.mojom.ScreenAIServiceFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initializeOCR(params.library_path, params.model_files, params.ocr_service_receiver);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, screen_ai.mojom.ScreenAIServiceFactory_InitializeOCR_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initializeMainContentExtraction(params.library_path, params.model_files, params.main_content_extractor_service);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, screen_ai.mojom.ScreenAIServiceFactory_InitializeMainContentExtraction_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = screen_ai.mojom.ScreenAIServiceFactory_BindShutdownHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindShutdownHandler(params.shutdown_handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+screen_ai.mojom.ScreenAIServiceFactoryReceiver = screen_ai.mojom.ScreenAIServiceFactoryReceiver;
 
 screen_ai.mojom.ScreenAIServiceFactoryPtr = screen_ai.mojom.ScreenAIServiceFactoryRemote;
 screen_ai.mojom.ScreenAIServiceFactoryRequest = screen_ai.mojom.ScreenAIServiceFactoryPendingReceiver;

@@ -7,13 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
 var url = url || {};
 
 network.mojom.ProxyResolvingSocketOptionsSpec = { $: {} };
@@ -105,6 +98,35 @@ network.mojom.ProxyResolvingSocket.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.ProxyResolvingSocketReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.upgradeToTLS(params.host_port_pair, params.traffic_annotation, params.receiver, params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.ProxyResolvingSocketReceiver = network.mojom.ProxyResolvingSocketReceiver;
+
 network.mojom.ProxyResolvingSocketPtr = network.mojom.ProxyResolvingSocketRemote;
 network.mojom.ProxyResolvingSocketRequest = network.mojom.ProxyResolvingSocketPendingReceiver;
 
@@ -184,6 +206,35 @@ network.mojom.ProxyResolvingSocketFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.ProxyResolvingSocketFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createProxyResolvingSocket(params.url, params.network_anonymization_key, params.options, params.traffic_annotation, params.socket, params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.ProxyResolvingSocketFactoryReceiver = network.mojom.ProxyResolvingSocketFactoryReceiver;
 
 network.mojom.ProxyResolvingSocketFactoryPtr = network.mojom.ProxyResolvingSocketFactoryRemote;
 network.mojom.ProxyResolvingSocketFactoryRequest = network.mojom.ProxyResolvingSocketFactoryPendingReceiver;

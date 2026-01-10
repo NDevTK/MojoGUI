@@ -72,6 +72,28 @@ video_capture.mojom.DevicesChangedObserver.getRemote = function() {
   return remote.$;
 };
 
+video_capture.mojom.DevicesChangedObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDevicesChanged();
+          break;
+        }
+      }
+    });
+  }
+};
+
+video_capture.mojom.DevicesChangedObserverReceiver = video_capture.mojom.DevicesChangedObserverReceiver;
+
 video_capture.mojom.DevicesChangedObserverPtr = video_capture.mojom.DevicesChangedObserverRemote;
 video_capture.mojom.DevicesChangedObserverRequest = video_capture.mojom.DevicesChangedObserverPendingReceiver;
 

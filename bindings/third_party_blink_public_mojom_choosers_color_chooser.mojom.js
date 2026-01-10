@@ -95,6 +95,28 @@ blink.mojom.ColorChooserFactory.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.ColorChooserFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openColorChooser(params.chooser, params.client, params.color, params.suggestions);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ColorChooserFactoryReceiver = blink.mojom.ColorChooserFactoryReceiver;
+
 blink.mojom.ColorChooserFactoryPtr = blink.mojom.ColorChooserFactoryRemote;
 blink.mojom.ColorChooserFactoryRequest = blink.mojom.ColorChooserFactoryPendingReceiver;
 
@@ -160,6 +182,28 @@ blink.mojom.ColorChooser.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.ColorChooserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSelectedColor(params.color);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ColorChooserReceiver = blink.mojom.ColorChooserReceiver;
+
 blink.mojom.ColorChooserPtr = blink.mojom.ColorChooserRemote;
 blink.mojom.ColorChooserRequest = blink.mojom.ColorChooserPendingReceiver;
 
@@ -224,6 +268,28 @@ blink.mojom.ColorChooserClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ColorChooserClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didChooseColor(params.color);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ColorChooserClientReceiver = blink.mojom.ColorChooserClientReceiver;
 
 blink.mojom.ColorChooserClientPtr = blink.mojom.ColorChooserClientRemote;
 blink.mojom.ColorChooserClientRequest = blink.mojom.ColorChooserClientPendingReceiver;
@@ -295,6 +361,35 @@ blink.mojom.EyeDropperChooser.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.EyeDropperChooserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.EyeDropperChooser_Choose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.choose();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.EyeDropperChooserReceiver = blink.mojom.EyeDropperChooserReceiver;
 
 blink.mojom.EyeDropperChooserPtr = blink.mojom.EyeDropperChooserRemote;
 blink.mojom.EyeDropperChooserRequest = blink.mojom.EyeDropperChooserPendingReceiver;

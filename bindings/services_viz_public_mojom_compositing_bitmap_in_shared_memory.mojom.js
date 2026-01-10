@@ -7,6 +7,7 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
 
 viz.mojom.BitmapInSharedMemorySpec = { $: {} };

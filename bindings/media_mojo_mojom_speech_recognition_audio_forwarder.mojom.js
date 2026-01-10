@@ -73,6 +73,28 @@ media.mojom.SpeechRecognitionAudioForwarder.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.SpeechRecognitionAudioForwarderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addAudioFromRenderer(params.buffer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.SpeechRecognitionAudioForwarderReceiver = media.mojom.SpeechRecognitionAudioForwarderReceiver;
+
 media.mojom.SpeechRecognitionAudioForwarderPtr = media.mojom.SpeechRecognitionAudioForwarderRemote;
 media.mojom.SpeechRecognitionAudioForwarderRequest = media.mojom.SpeechRecognitionAudioForwarderPendingReceiver;
 

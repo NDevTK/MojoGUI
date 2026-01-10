@@ -7,14 +7,8 @@
 // Module namespace
 var display = display || {};
 display.mojom = display.mojom || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 display.mojom.DisplaySnapshotColorInfoSpec = { $: {} };

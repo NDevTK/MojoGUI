@@ -7,8 +7,7 @@
 // Module namespace
 var filesystem = filesystem || {};
 filesystem.mojom = filesystem.mojom || {};
-var components = components || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 filesystem.mojom.FileOpenDetailsSpec = { $: {} };
 filesystem.mojom.FileOpenResultSpec = { $: {} };
@@ -416,6 +415,184 @@ filesystem.mojom.Directory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+filesystem.mojom.DirectoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = filesystem.mojom.Directory_Read_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.read();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, filesystem.mojom.Directory_Read_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = filesystem.mojom.Directory_OpenFileHandle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFileHandle(params.path, params.open_flags);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = filesystem.mojom.Directory_OpenFileHandles_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFileHandles(params.files);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = filesystem.mojom.Directory_OpenDirectory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openDirectory(params.path, params.directory, params.open_flags);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, filesystem.mojom.Directory_OpenDirectory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = filesystem.mojom.Directory_Rename_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rename(params.path, params.new_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, filesystem.mojom.Directory_Rename_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = filesystem.mojom.Directory_Replace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.replace(params.path, params.new_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, filesystem.mojom.Directory_Replace_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = filesystem.mojom.Directory_Delete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.delete(params.path, params.delete_flags);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, filesystem.mojom.Directory_Delete_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = filesystem.mojom.Directory_Exists_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.exists(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, filesystem.mojom.Directory_Exists_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = filesystem.mojom.Directory_IsWritable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isWritable(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, filesystem.mojom.Directory_IsWritable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = filesystem.mojom.Directory_Flush_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flush();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, filesystem.mojom.Directory_Flush_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = filesystem.mojom.Directory_StatFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.statFile(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, filesystem.mojom.Directory_StatFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = filesystem.mojom.Directory_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.directory);
+          break;
+        }
+        case 12: {
+          const params = filesystem.mojom.Directory_ReadEntireFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readEntireFile(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = filesystem.mojom.Directory_WriteFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeFile(params.path, params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, filesystem.mojom.Directory_WriteFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+filesystem.mojom.DirectoryReceiver = filesystem.mojom.DirectoryReceiver;
 
 filesystem.mojom.DirectoryPtr = filesystem.mojom.DirectoryRemote;
 filesystem.mojom.DirectoryRequest = filesystem.mojom.DirectoryPendingReceiver;

@@ -7,6 +7,8 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var bluetooth = bluetooth || {};
+var mojo_base = mojo_base || {};
 
 device.mojom.SerialSendErrorSpec = { $: mojo.internal.Enum() };
 device.mojom.SerialReceiveErrorSpec = { $: mojo.internal.Enum() };
@@ -285,6 +287,52 @@ device.mojom.SerialPortManager.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.SerialPortManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.SerialPortManager_SetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setClient(params.client);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.SerialPortManager_GetDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDevices();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.SerialPortManager_OpenPort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openPort(params.token, params.use_alternate_path, params.options, params.client, params.watcher);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.SerialPortManagerReceiver = device.mojom.SerialPortManagerReceiver;
+
 device.mojom.SerialPortManagerPtr = device.mojom.SerialPortManagerRemote;
 device.mojom.SerialPortManagerRequest = device.mojom.SerialPortManagerPendingReceiver;
 
@@ -381,6 +429,38 @@ device.mojom.SerialPortManagerClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.SerialPortManagerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPortAdded(params.port_info);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPortRemoved(params.port_info);
+          break;
+        }
+        case 2: {
+          const params = device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPortConnectedStateChanged(params.port_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.SerialPortManagerClientReceiver = device.mojom.SerialPortManagerClientReceiver;
 
 device.mojom.SerialPortManagerClientPtr = device.mojom.SerialPortManagerClientRemote;
 device.mojom.SerialPortManagerClientRequest = device.mojom.SerialPortManagerClientPendingReceiver;
@@ -611,6 +691,117 @@ device.mojom.SerialPort.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.SerialPortReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.SerialPort_StartWriting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startWriting(params.consumer);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.SerialPort_StartReading_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startReading(params.producer);
+          break;
+        }
+        case 2: {
+          const params = device.mojom.SerialPort_Flush_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flush(params.mode);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SerialPort_Flush_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = device.mojom.SerialPort_Drain_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.drain();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SerialPort_Drain_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = device.mojom.SerialPort_GetControlSignals_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getControlSignals();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = device.mojom.SerialPort_SetControlSignals_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setControlSignals(params.signals);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = device.mojom.SerialPort_ConfigurePort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.configurePort(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = device.mojom.SerialPort_GetPortInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPortInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = device.mojom.SerialPort_Close_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.close(params.flush);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.SerialPort_Close_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.SerialPortReceiver = device.mojom.SerialPortReceiver;
+
 device.mojom.SerialPortPtr = device.mojom.SerialPortRemote;
 device.mojom.SerialPortRequest = device.mojom.SerialPortPendingReceiver;
 
@@ -692,6 +883,33 @@ device.mojom.SerialPortClient.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.SerialPortClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.SerialPortClient_OnReadError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReadError(params.error);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.SerialPortClient_OnSendError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSendError(params.error);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.SerialPortClientReceiver = device.mojom.SerialPortClientReceiver;
+
 device.mojom.SerialPortClientPtr = device.mojom.SerialPortClientRemote;
 device.mojom.SerialPortClientRequest = device.mojom.SerialPortClientPendingReceiver;
 
@@ -740,6 +958,23 @@ device.mojom.SerialPortConnectionWatcher.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.SerialPortConnectionWatcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+device.mojom.SerialPortConnectionWatcherReceiver = device.mojom.SerialPortConnectionWatcherReceiver;
 
 device.mojom.SerialPortConnectionWatcherPtr = device.mojom.SerialPortConnectionWatcherRemote;
 device.mojom.SerialPortConnectionWatcherRequest = device.mojom.SerialPortConnectionWatcherPendingReceiver;

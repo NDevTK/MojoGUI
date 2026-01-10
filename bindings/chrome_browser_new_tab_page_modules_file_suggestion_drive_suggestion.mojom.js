@@ -111,6 +111,45 @@ file_suggestion.mojom.DriveSuggestionHandler.getRemote = function() {
   return remote.$;
 };
 
+file_suggestion.mojom.DriveSuggestionHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFiles();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dismissModule();
+          break;
+        }
+        case 2: {
+          const params = file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restoreModule();
+          break;
+        }
+      }
+    });
+  }
+};
+
+file_suggestion.mojom.DriveSuggestionHandlerReceiver = file_suggestion.mojom.DriveSuggestionHandlerReceiver;
+
 file_suggestion.mojom.DriveSuggestionHandlerPtr = file_suggestion.mojom.DriveSuggestionHandlerRemote;
 file_suggestion.mojom.DriveSuggestionHandlerRequest = file_suggestion.mojom.DriveSuggestionHandlerPendingReceiver;
 

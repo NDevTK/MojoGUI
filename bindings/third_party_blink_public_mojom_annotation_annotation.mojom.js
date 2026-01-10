@@ -7,9 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
-var blink = blink || {};
 
 blink.mojom.AnnotationTypeSpec = { $: mojo.internal.Enum() };
 blink.mojom.AttachmentResultSpec = { $: mojo.internal.Enum() };
@@ -129,6 +128,28 @@ blink.mojom.AnnotationAgent.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.AnnotationAgentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.scrollIntoView(params.applies_focus);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AnnotationAgentReceiver = blink.mojom.AnnotationAgentReceiver;
+
 blink.mojom.AnnotationAgentPtr = blink.mojom.AnnotationAgentRemote;
 blink.mojom.AnnotationAgentRequest = blink.mojom.AnnotationAgentPendingReceiver;
 
@@ -194,6 +215,28 @@ blink.mojom.AnnotationAgentHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.AnnotationAgentHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didFinishAttachment(params.document_relative_rect, params.attachment_result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AnnotationAgentHostReceiver = blink.mojom.AnnotationAgentHostReceiver;
 
 blink.mojom.AnnotationAgentHostPtr = blink.mojom.AnnotationAgentHostRemote;
 blink.mojom.AnnotationAgentHostRequest = blink.mojom.AnnotationAgentHostPendingReceiver;
@@ -304,6 +347,45 @@ blink.mojom.AnnotationAgentContainer.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.AnnotationAgentContainerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createAgent(params.host_remote, params.agent_receiver, params.type, params.selector, params.search_range_start_node_id);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createAgentFromSelection(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeAgentsOfType(params.type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AnnotationAgentContainerReceiver = blink.mojom.AnnotationAgentContainerReceiver;
 
 blink.mojom.AnnotationAgentContainerPtr = blink.mojom.AnnotationAgentContainerRemote;
 blink.mojom.AnnotationAgentContainerRequest = blink.mojom.AnnotationAgentContainerPendingReceiver;

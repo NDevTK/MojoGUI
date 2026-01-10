@@ -7,8 +7,7 @@
 // Module namespace
 var tracing = tracing || {};
 tracing.mojom = tracing.mojom || {};
-var services = services || {};
-var services = services || {};
+var sandbox = sandbox || {};
 
 tracing.mojom.ClientInfoSpec = { $: {} };
 tracing.mojom.TracingService = {};
@@ -121,6 +120,38 @@ tracing.mojom.TracingService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+tracing.mojom.TracingServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tracing.mojom.TracingService_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.clients);
+          break;
+        }
+        case 1: {
+          const params = tracing.mojom.TracingService_AddClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addClient(params.client);
+          break;
+        }
+        case 2: {
+          const params = tracing.mojom.TracingService_BindConsumerHost_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindConsumerHost(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tracing.mojom.TracingServiceReceiver = tracing.mojom.TracingServiceReceiver;
 
 tracing.mojom.TracingServicePtr = tracing.mojom.TracingServiceRemote;
 tracing.mojom.TracingServiceRequest = tracing.mojom.TracingServicePendingReceiver;

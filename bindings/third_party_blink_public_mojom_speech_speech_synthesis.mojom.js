@@ -131,6 +131,28 @@ blink.mojom.SpeechSynthesisVoiceListObserver.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.SpeechSynthesisVoiceListObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSetVoiceList(params.voice_list);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SpeechSynthesisVoiceListObserverReceiver = blink.mojom.SpeechSynthesisVoiceListObserverReceiver;
+
 blink.mojom.SpeechSynthesisVoiceListObserverPtr = blink.mojom.SpeechSynthesisVoiceListObserverRemote;
 blink.mojom.SpeechSynthesisVoiceListObserverRequest = blink.mojom.SpeechSynthesisVoiceListObserverPendingReceiver;
 
@@ -290,6 +312,58 @@ blink.mojom.SpeechSynthesisClient.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.SpeechSynthesisClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStartedSpeaking();
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.SpeechSynthesisClient_OnFinishedSpeaking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFinishedSpeaking(params.error_code);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.SpeechSynthesisClient_OnPausedSpeaking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPausedSpeaking();
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.SpeechSynthesisClient_OnResumedSpeaking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onResumedSpeaking();
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.SpeechSynthesisClient_OnEncounteredWordBoundary_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEncounteredWordBoundary(params.char_index, params.char_length);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.SpeechSynthesisClient_OnEncounteredSentenceBoundary_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEncounteredSentenceBoundary(params.char_index, params.char_length);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.SpeechSynthesisClient_OnEncounteredSpeakingError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEncounteredSpeakingError();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SpeechSynthesisClientReceiver = blink.mojom.SpeechSynthesisClientReceiver;
+
 blink.mojom.SpeechSynthesisClientPtr = blink.mojom.SpeechSynthesisClientRemote;
 blink.mojom.SpeechSynthesisClientRequest = blink.mojom.SpeechSynthesisClientPendingReceiver;
 
@@ -416,6 +490,48 @@ blink.mojom.SpeechSynthesis.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.SpeechSynthesisReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addVoiceListObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.SpeechSynthesis_Speak_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.speak(params.utterance, params.client);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.SpeechSynthesis_Pause_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pause();
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.SpeechSynthesis_Resume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resume();
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.SpeechSynthesis_Cancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancel();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SpeechSynthesisReceiver = blink.mojom.SpeechSynthesisReceiver;
 
 blink.mojom.SpeechSynthesisPtr = blink.mojom.SpeechSynthesisRemote;
 blink.mojom.SpeechSynthesisRequest = blink.mojom.SpeechSynthesisPendingReceiver;

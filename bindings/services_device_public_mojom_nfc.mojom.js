@@ -292,6 +292,79 @@ device.mojom.NFC.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.NFCReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.NFC_SetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setClient(params.client);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.NFC_Push_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.push(params.message, params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.NFC_Push_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.NFC_CancelPush_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelPush();
+          break;
+        }
+        case 3: {
+          const params = device.mojom.NFC_MakeReadOnly_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.makeReadOnly();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.NFC_MakeReadOnly_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = device.mojom.NFC_CancelMakeReadOnly_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelMakeReadOnly();
+          break;
+        }
+        case 5: {
+          const params = device.mojom.NFC_Watch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.watch(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.NFC_Watch_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = device.mojom.NFC_CancelWatch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelWatch(params.id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.NFCReceiver = device.mojom.NFCReceiver;
+
 device.mojom.NFCPtr = device.mojom.NFCRemote;
 device.mojom.NFCRequest = device.mojom.NFCPendingReceiver;
 
@@ -375,6 +448,33 @@ device.mojom.NFCClient.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.NFCClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.NFCClient_OnWatch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWatch(params.watch_ids, params.serial_number, params.message);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.NFCClient_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.NFCClientReceiver = device.mojom.NFCClientReceiver;
+
 device.mojom.NFCClientPtr = device.mojom.NFCClientRemote;
 device.mojom.NFCClientRequest = device.mojom.NFCClientPendingReceiver;
 
@@ -456,6 +556,33 @@ device.mojom.RawNFCClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.RawNFCClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.RawNFCClient_OnWatch_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWatch(params.watch_ids, params.message);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.RawNFCClient_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.RawNFCClientReceiver = device.mojom.RawNFCClientReceiver;
 
 device.mojom.RawNFCClientPtr = device.mojom.RawNFCClientRemote;
 device.mojom.RawNFCClientRequest = device.mojom.RawNFCClientPendingReceiver;

@@ -86,6 +86,28 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver.getRemote = function
   return remote.$;
 };
 
+chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSupportedBitstreamAudioCodecsChanged(params.info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverReceiver = chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverReceiver;
+
 chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverPtr = chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemote;
 chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRequest = chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverPendingReceiver;
 
@@ -150,6 +172,28 @@ chromecast.shell.mojom.ApplicationMediaCapabilities.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.shell.mojom.ApplicationMediaCapabilitiesReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.shell.mojom.ApplicationMediaCapabilitiesReceiver = chromecast.shell.mojom.ApplicationMediaCapabilitiesReceiver;
 
 chromecast.shell.mojom.ApplicationMediaCapabilitiesPtr = chromecast.shell.mojom.ApplicationMediaCapabilitiesRemote;
 chromecast.shell.mojom.ApplicationMediaCapabilitiesRequest = chromecast.shell.mojom.ApplicationMediaCapabilitiesPendingReceiver;

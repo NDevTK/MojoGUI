@@ -146,6 +146,52 @@ blink.mojom.KeyboardLockService.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.KeyboardLockServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestKeyboardLock(params.key_codes);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelKeyboardLock();
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getKeyboardLayoutMap();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.KeyboardLockServiceReceiver = blink.mojom.KeyboardLockServiceReceiver;
+
 blink.mojom.KeyboardLockServicePtr = blink.mojom.KeyboardLockServiceRemote;
 blink.mojom.KeyboardLockServiceRequest = blink.mojom.KeyboardLockServicePendingReceiver;
 

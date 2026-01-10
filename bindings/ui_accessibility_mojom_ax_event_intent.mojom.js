@@ -7,7 +7,6 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
-var ui = ui || {};
 
 ax.mojom.EventIntentSpec = { $: {} };
 

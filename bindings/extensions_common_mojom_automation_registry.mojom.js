@@ -7,7 +7,7 @@
 // Module namespace
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
-var services = services || {};
+var ax = ax || {};
 
 extensions.mojom.RendererAutomationRegistry = {};
 extensions.mojom.RendererAutomationRegistry.$interfaceName = 'extensions.mojom.RendererAutomationRegistry';
@@ -16,7 +16,7 @@ extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec = { $: {} 
 // Interface: RendererAutomationRegistry
 mojo.internal.Struct(
     extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec, 'extensions.mojom.RendererAutomationRegistry_BindAutomation_Params', [
-      mojo.internal.StructField('automation', 0, 0, mojo.internal.AssociatedInterfaceProxy(ax.mojom.AutomationRemote), null, false, 0, undefined),
+      mojo.internal.StructField('automation', 0, 0, pending_associated_remote<ax.mojom.Automation>Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -73,6 +73,28 @@ extensions.mojom.RendererAutomationRegistry.getRemote = function() {
     'context');
   return remote.$;
 };
+
+extensions.mojom.RendererAutomationRegistryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindAutomation(params.automation);
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions.mojom.RendererAutomationRegistryReceiver = extensions.mojom.RendererAutomationRegistryReceiver;
 
 extensions.mojom.RendererAutomationRegistryPtr = extensions.mojom.RendererAutomationRegistryRemote;
 extensions.mojom.RendererAutomationRegistryRequest = extensions.mojom.RendererAutomationRegistryPendingReceiver;

@@ -7,12 +7,8 @@
 // Module namespace
 var sharing = sharing || {};
 sharing.mojom = sharing.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
 var url = url || {};
-var services = services || {};
-var services = services || {};
+var network = network || {};
 
 sharing.mojom.IceServerSpec = { $: {} };
 sharing.mojom.WebRtcDependenciesSpec = { $: {} };
@@ -109,6 +105,35 @@ sharing.mojom.IceConfigFetcher.getRemote = function() {
   return remote.$;
 };
 
+sharing.mojom.IceConfigFetcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getIceServers();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+sharing.mojom.IceConfigFetcherReceiver = sharing.mojom.IceConfigFetcherReceiver;
+
 sharing.mojom.IceConfigFetcherPtr = sharing.mojom.IceConfigFetcherRemote;
 sharing.mojom.IceConfigFetcherRequest = sharing.mojom.IceConfigFetcherPendingReceiver;
 
@@ -173,6 +198,28 @@ sharing.mojom.MdnsResponderFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+sharing.mojom.MdnsResponderFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createMdnsResponder(params.responder_receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+sharing.mojom.MdnsResponderFactoryReceiver = sharing.mojom.MdnsResponderFactoryReceiver;
 
 sharing.mojom.MdnsResponderFactoryPtr = sharing.mojom.MdnsResponderFactoryRemote;
 sharing.mojom.MdnsResponderFactoryRequest = sharing.mojom.MdnsResponderFactoryPendingReceiver;

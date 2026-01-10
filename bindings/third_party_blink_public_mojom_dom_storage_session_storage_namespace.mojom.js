@@ -73,6 +73,28 @@ blink.mojom.SessionStorageNamespace.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.SessionStorageNamespaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SessionStorageNamespace_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.clone_to_namespace);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SessionStorageNamespaceReceiver = blink.mojom.SessionStorageNamespaceReceiver;
+
 blink.mojom.SessionStorageNamespacePtr = blink.mojom.SessionStorageNamespaceRemote;
 blink.mojom.SessionStorageNamespaceRequest = blink.mojom.SessionStorageNamespacePendingReceiver;
 

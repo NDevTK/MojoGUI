@@ -7,11 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
@@ -210,6 +207,33 @@ blink.mojom.ContextMenuClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ContextMenuClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.customContextMenuAction(params.action);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.contextMenuClosed(params.link_followed, params.impression);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ContextMenuClientReceiver = blink.mojom.ContextMenuClientReceiver;
 
 blink.mojom.ContextMenuClientPtr = blink.mojom.ContextMenuClientRemote;
 blink.mojom.ContextMenuClientRequest = blink.mojom.ContextMenuClientPendingReceiver;

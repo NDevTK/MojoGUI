@@ -9,7 +9,7 @@ var ash = ash || {};
 ash.settings = ash.settings || {};
 ash.settings.app_permission = ash.settings.app_permission || {};
 ash.settings.app_permission.mojom = ash.settings.app_permission.mojom || {};
-var ui = ui || {};
+var app_management = app_management || {};
 
 ash.settings.app_permission.mojom.AppSpec = { $: {} };
 ash.settings.app_permission.mojom.AppPermissionsHandler = {};
@@ -212,6 +212,79 @@ ash.settings.app_permission.mojom.AppPermissionsHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getApps();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSystemAppsThatUseCamera();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSystemAppsThatUseMicrophone();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openBrowserPermissionSettings(params.permission_type);
+          break;
+        }
+        case 5: {
+          const params = ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openNativeSettings(params.app_id);
+          break;
+        }
+        case 6: {
+          const params = ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPermission(params.app_id, params.permission);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver = ash.settings.app_permission.mojom.AppPermissionsHandlerReceiver;
+
 ash.settings.app_permission.mojom.AppPermissionsHandlerPtr = ash.settings.app_permission.mojom.AppPermissionsHandlerRemote;
 ash.settings.app_permission.mojom.AppPermissionsHandlerRequest = ash.settings.app_permission.mojom.AppPermissionsHandlerPendingReceiver;
 
@@ -292,6 +365,33 @@ ash.settings.app_permission.mojom.AppPermissionsObserver.getRemote = function() 
     'context');
   return remote.$;
 };
+
+ash.settings.app_permission.mojom.AppPermissionsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAppRemoved(params.app_id);
+          break;
+        }
+        case 1: {
+          const params = ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAppUpdated(params.app);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.app_permission.mojom.AppPermissionsObserverReceiver = ash.settings.app_permission.mojom.AppPermissionsObserverReceiver;
 
 ash.settings.app_permission.mojom.AppPermissionsObserverPtr = ash.settings.app_permission.mojom.AppPermissionsObserverRemote;
 ash.settings.app_permission.mojom.AppPermissionsObserverRequest = ash.settings.app_permission.mojom.AppPermissionsObserverPendingReceiver;

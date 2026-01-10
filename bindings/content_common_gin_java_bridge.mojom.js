@@ -7,7 +7,8 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
-var components = components || {};
+var origin_matcher = origin_matcher || {};
+var mojo_base = mojo_base || {};
 
 content.mojom.GinJavaBridgeErrorSpec = { $: mojo.internal.Enum() };
 content.mojom.GinJavaBridge = {};
@@ -135,6 +136,38 @@ content.mojom.GinJavaBridge.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.GinJavaBridgeReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addNamedObject(params.name, params.object_id, params.origin_matcher);
+          break;
+        }
+        case 1: {
+          const params = content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeNamedObject(params.name);
+          break;
+        }
+        case 2: {
+          const params = content.mojom.GinJavaBridge_SetHost_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHost(params.host);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.GinJavaBridgeReceiver = content.mojom.GinJavaBridgeReceiver;
+
 content.mojom.GinJavaBridgePtr = content.mojom.GinJavaBridgeRemote;
 content.mojom.GinJavaBridgeRequest = content.mojom.GinJavaBridgePendingReceiver;
 
@@ -251,6 +284,59 @@ content.mojom.GinJavaBridgeRemoteObject.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.GinJavaBridgeRemoteObjectReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMethods();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasMethod(params.method_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.invokeMethod(params.method_name, params.arguments);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.GinJavaBridgeRemoteObjectReceiver = content.mojom.GinJavaBridgeRemoteObjectReceiver;
+
 content.mojom.GinJavaBridgeRemoteObjectPtr = content.mojom.GinJavaBridgeRemoteObjectRemote;
 content.mojom.GinJavaBridgeRemoteObjectRequest = content.mojom.GinJavaBridgeRemoteObjectPendingReceiver;
 
@@ -332,6 +418,33 @@ content.mojom.GinJavaBridgeHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.GinJavaBridgeHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getObject(params.object_id, params.receiver);
+          break;
+        }
+        case 1: {
+          const params = content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.objectWrapperDeleted(params.object_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.GinJavaBridgeHostReceiver = content.mojom.GinJavaBridgeHostReceiver;
 
 content.mojom.GinJavaBridgeHostPtr = content.mojom.GinJavaBridgeHostRemote;
 content.mojom.GinJavaBridgeHostRequest = content.mojom.GinJavaBridgeHostPendingReceiver;

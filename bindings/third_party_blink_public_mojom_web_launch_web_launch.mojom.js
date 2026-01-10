@@ -7,7 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 blink.mojom.WebLaunchService = {};
@@ -93,6 +93,33 @@ blink.mojom.WebLaunchService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.WebLaunchServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLaunchFiles(params.files);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enqueueLaunchParams(params.launch_url, params.time_navigation_started_in_browser, params.navigation_started);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WebLaunchServiceReceiver = blink.mojom.WebLaunchServiceReceiver;
 
 blink.mojom.WebLaunchServicePtr = blink.mojom.WebLaunchServiceRemote;
 blink.mojom.WebLaunchServiceRequest = blink.mojom.WebLaunchServicePendingReceiver;

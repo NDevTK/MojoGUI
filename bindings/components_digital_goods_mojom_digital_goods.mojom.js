@@ -8,7 +8,6 @@
 var payments = payments || {};
 payments.mojom = payments.mojom || {};
 var url = url || {};
-var components = components || {};
 
 payments.mojom.BillingResponseCodeSpec = { $: mojo.internal.Enum() };
 payments.mojom.ItemTypeSpec = { $: mojo.internal.Enum() };

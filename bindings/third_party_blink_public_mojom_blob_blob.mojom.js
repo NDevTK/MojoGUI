@@ -7,9 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 
 blink.mojom.BlobReaderClient = {};
 blink.mojom.BlobReaderClient.$interfaceName = 'blink.mojom.BlobReaderClient';
@@ -107,6 +106,33 @@ blink.mojom.BlobReaderClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.BlobReaderClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCalculatedSize(params.total_size, params.expected_content_size);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.BlobReaderClient_OnComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onComplete(params.status, params.data_length);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.BlobReaderClientReceiver = blink.mojom.BlobReaderClientReceiver;
 
 blink.mojom.BlobReaderClientPtr = blink.mojom.BlobReaderClientRemote;
 blink.mojom.BlobReaderClientRequest = blink.mojom.BlobReaderClientPendingReceiver;
@@ -307,6 +333,84 @@ blink.mojom.Blob.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.BlobReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.Blob_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.blob);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.Blob_AsDataPipeGetter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.asDataPipeGetter(params.data_pipe_getter);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.Blob_ReadAll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readAll(params.pipe, params.client);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.Blob_ReadRange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readRange(params.offset, params.length, params.pipe, params.client);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.Blob_Load_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.load(params.loader, params.request_method, params.headers, params.client);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.Blob_ReadSideData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readSideData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.Blob_ReadSideData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.Blob_CaptureSnapshot_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.captureSnapshot();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.Blob_GetInternalUUID_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getInternalUUID();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.BlobReceiver = blink.mojom.BlobReceiver;
 
 blink.mojom.BlobPtr = blink.mojom.BlobRemote;
 blink.mojom.BlobRequest = blink.mojom.BlobPendingReceiver;

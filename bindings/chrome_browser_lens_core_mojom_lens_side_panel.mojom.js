@@ -110,6 +110,28 @@ lens.mojom.LensSidePanelPageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+lens.mojom.LensSidePanelPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = lens.mojom.LensSidePanelPageHandlerFactory_CreateSidePanelPageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createSidePanelPageHandler(params.handler, params.page);
+          break;
+        }
+      }
+    });
+  }
+};
+
+lens.mojom.LensSidePanelPageHandlerFactoryReceiver = lens.mojom.LensSidePanelPageHandlerFactoryReceiver;
+
 lens.mojom.LensSidePanelPageHandlerFactoryPtr = lens.mojom.LensSidePanelPageHandlerFactoryRemote;
 lens.mojom.LensSidePanelPageHandlerFactoryRequest = lens.mojom.LensSidePanelPageHandlerFactoryPendingReceiver;
 
@@ -257,6 +279,60 @@ lens.mojom.LensSidePanelPageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+lens.mojom.LensSidePanelPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = lens.mojom.LensSidePanelPageHandler_PopAndLoadQueryFromHistory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.popAndLoadQueryFromHistory();
+          break;
+        }
+        case 1: {
+          const params = lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getIsContextualSearchbox();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, lens.mojom.LensSidePanelPageHandler_GetIsContextualSearchbox_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = lens.mojom.LensSidePanelPageHandler_OnScrollToMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScrollToMessage(params.text_fragments, params.pdf_page_number);
+          break;
+        }
+        case 3: {
+          const params = lens.mojom.LensSidePanelPageHandler_RequestSendFeedback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestSendFeedback();
+          break;
+        }
+        case 4: {
+          const params = lens.mojom.LensSidePanelPageHandler_OnAimMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAimMessage(params.message);
+          break;
+        }
+        case 5: {
+          const params = lens.mojom.LensSidePanelPageHandler_OnImageQueryWithEmptyText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onImageQueryWithEmptyText();
+          break;
+        }
+      }
+    });
+  }
+};
+
+lens.mojom.LensSidePanelPageHandlerReceiver = lens.mojom.LensSidePanelPageHandlerReceiver;
 
 lens.mojom.LensSidePanelPageHandlerPtr = lens.mojom.LensSidePanelPageHandlerRemote;
 lens.mojom.LensSidePanelPageHandlerRequest = lens.mojom.LensSidePanelPageHandlerPendingReceiver;
@@ -527,6 +603,93 @@ lens.mojom.LensSidePanelPage.getRemote = function() {
     'context');
   return remote.$;
 };
+
+lens.mojom.LensSidePanelPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = lens.mojom.LensSidePanelPage_LoadResultsInFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadResultsInFrame(params.results_url);
+          break;
+        }
+        case 1: {
+          const params = lens.mojom.LensSidePanelPage_SetIsLoadingResults_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsLoadingResults(params.is_loading);
+          break;
+        }
+        case 2: {
+          const params = lens.mojom.LensSidePanelPage_SetPageContentUploadProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPageContentUploadProgress(params.progress);
+          break;
+        }
+        case 3: {
+          const params = lens.mojom.LensSidePanelPage_SetBackArrowVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBackArrowVisible(params.visible);
+          break;
+        }
+        case 4: {
+          const params = lens.mojom.LensSidePanelPage_SetShowErrorPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setShowErrorPage(params.should_show_error_page, params.status);
+          break;
+        }
+        case 5: {
+          const params = lens.mojom.LensSidePanelPage_SuppressGhostLoader_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.suppressGhostLoader();
+          break;
+        }
+        case 6: {
+          const params = lens.mojom.LensSidePanelPage_PageContentTypeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pageContentTypeChanged(params.new_page_content_type);
+          break;
+        }
+        case 7: {
+          const params = lens.mojom.LensSidePanelPage_ShowToast_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showToast(params.message);
+          break;
+        }
+        case 8: {
+          const params = lens.mojom.LensSidePanelPage_SendClientMessageToAim_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendClientMessageToAim(params.serialized_message);
+          break;
+        }
+        case 9: {
+          const params = lens.mojom.LensSidePanelPage_AimHandshakeReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.aimHandshakeReceived();
+          break;
+        }
+        case 10: {
+          const params = lens.mojom.LensSidePanelPage_AimResultsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.aimResultsChanged(params.on_aim);
+          break;
+        }
+        case 11: {
+          const params = lens.mojom.LensSidePanelPage_FocusResultsFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focusResultsFrame();
+          break;
+        }
+        case 12: {
+          const params = lens.mojom.LensSidePanelPage_SetIsOverlayShowing_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIsOverlayShowing(params.is_showing);
+          break;
+        }
+        case 13: {
+          const params = lens.mojom.LensSidePanelPage_FocusSearchbox_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focusSearchbox();
+          break;
+        }
+      }
+    });
+  }
+};
+
+lens.mojom.LensSidePanelPageReceiver = lens.mojom.LensSidePanelPageReceiver;
 
 lens.mojom.LensSidePanelPagePtr = lens.mojom.LensSidePanelPageRemote;
 lens.mojom.LensSidePanelPageRequest = lens.mojom.LensSidePanelPagePendingReceiver;

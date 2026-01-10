@@ -7,13 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var network = network || {};
 
 blink.mojom.PolicyContainerPoliciesSpec = { $: {} };
 blink.mojom.PolicyContainerSpec = { $: {} };
@@ -41,14 +35,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.PolicyContainerSpec, 'blink.mojom.PolicyContainer', [
       mojo.internal.StructField('policies', 0, 0, blink.mojom.PolicyContainerPoliciesSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('remote', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.PolicyContainerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('remote', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: PolicyContainerBindParams
 mojo.internal.Struct(
     blink.mojom.PolicyContainerBindParamsSpec, 'blink.mojom.PolicyContainerBindParams', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.PolicyContainerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -128,6 +122,33 @@ blink.mojom.PolicyContainerHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.PolicyContainerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setReferrerPolicy(params.referrer_policy);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addContentSecurityPolicies(params.content_security_policies);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PolicyContainerHostReceiver = blink.mojom.PolicyContainerHostReceiver;
 
 blink.mojom.PolicyContainerHostPtr = blink.mojom.PolicyContainerHostRemote;
 blink.mojom.PolicyContainerHostRequest = blink.mojom.PolicyContainerHostPendingReceiver;

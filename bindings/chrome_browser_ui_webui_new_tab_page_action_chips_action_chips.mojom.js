@@ -8,6 +8,7 @@
 var action_chips = action_chips || {};
 action_chips.mojom = action_chips.mojom || {};
 var url = url || {};
+var mojo_base = mojo_base || {};
 
 action_chips.mojom.ChipTypeSpec = { $: mojo.internal.Enum() };
 action_chips.mojom.TabInfoSpec = { $: {} };
@@ -110,6 +111,28 @@ action_chips.mojom.ActionChipsHandler.getRemote = function() {
   return remote.$;
 };
 
+action_chips.mojom.ActionChipsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startActionChipsRetrieval();
+          break;
+        }
+      }
+    });
+  }
+};
+
+action_chips.mojom.ActionChipsHandlerReceiver = action_chips.mojom.ActionChipsHandlerReceiver;
+
 action_chips.mojom.ActionChipsHandlerPtr = action_chips.mojom.ActionChipsHandlerRemote;
 action_chips.mojom.ActionChipsHandlerRequest = action_chips.mojom.ActionChipsHandlerPendingReceiver;
 
@@ -174,6 +197,28 @@ action_chips.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+action_chips.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onActionChipsChanged(params.action_chips);
+          break;
+        }
+      }
+    });
+  }
+};
+
+action_chips.mojom.PageReceiver = action_chips.mojom.PageReceiver;
 
 action_chips.mojom.PagePtr = action_chips.mojom.PageRemote;
 action_chips.mojom.PageRequest = action_chips.mojom.PagePendingReceiver;
@@ -240,6 +285,28 @@ action_chips.mojom.ActionChipsHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+action_chips.mojom.ActionChipsHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createActionChipsHandler(params.handler, params.page);
+          break;
+        }
+      }
+    });
+  }
+};
+
+action_chips.mojom.ActionChipsHandlerFactoryReceiver = action_chips.mojom.ActionChipsHandlerFactoryReceiver;
 
 action_chips.mojom.ActionChipsHandlerFactoryPtr = action_chips.mojom.ActionChipsHandlerFactoryRemote;
 action_chips.mojom.ActionChipsHandlerFactoryRequest = action_chips.mojom.ActionChipsHandlerFactoryPendingReceiver;

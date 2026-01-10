@@ -7,6 +7,8 @@
 // Module namespace
 var IPC = IPC || {};
 IPC.mojom = IPC.mojom || {};
+var mojo = mojo || {};
+var mojo_base = mojo_base || {};
 
 IPC.mojom.MessageSpec = { $: {} };
 IPC.mojom.Channel = {};
@@ -20,7 +22,7 @@ IPC.mojom.ChannelBootstrap.$interfaceName = 'IPC.mojom.ChannelBootstrap';
 mojo.internal.Struct(
     IPC.mojom.MessageSpec, 'IPC.mojom.Message', [
       mojo.internal.StructField('bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('handles', 8, 0, mojo.internal.Array(mojo.native.SerializedHandleSpec.$, false), null, true, 0, undefined),
+      mojo.internal.StructField('handles', 8, 0, mojo.internal.Array(mojo.internal.Pointer, false), null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -101,6 +103,33 @@ IPC.mojom.Channel.getRemote = function() {
   return remote.$;
 };
 
+IPC.mojom.ChannelReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = IPC.mojom.Channel_SetPeerPid_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPeerPid(params.pid);
+          break;
+        }
+        case 1: {
+          const params = IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAssociatedInterface(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+IPC.mojom.ChannelReceiver = IPC.mojom.ChannelReceiver;
+
 IPC.mojom.ChannelPtr = IPC.mojom.ChannelRemote;
 IPC.mojom.ChannelRequest = IPC.mojom.ChannelPendingReceiver;
 
@@ -149,6 +178,23 @@ IPC.mojom.ChannelBootstrap.getRemote = function() {
     'context');
   return remote.$;
 };
+
+IPC.mojom.ChannelBootstrapReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+IPC.mojom.ChannelBootstrapReceiver = IPC.mojom.ChannelBootstrapReceiver;
 
 IPC.mojom.ChannelBootstrapPtr = IPC.mojom.ChannelBootstrapRemote;
 IPC.mojom.ChannelBootstrapRequest = IPC.mojom.ChannelBootstrapPendingReceiver;

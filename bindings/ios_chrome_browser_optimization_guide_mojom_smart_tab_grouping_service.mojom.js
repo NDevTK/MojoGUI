@@ -7,6 +7,7 @@
 // Module namespace
 var ai = ai || {};
 ai.mojom = ai.mojom || {};
+var mojo_base = mojo_base || {};
 
 ai.mojom.SmartTabGroupingResponseResultSpec = { $: {} };
 ai.mojom.SmartTabGroupingService = {};
@@ -94,6 +95,35 @@ ai.mojom.SmartTabGroupingService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ai.mojom.SmartTabGroupingServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeSmartTabGroupingRequest();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ai.mojom.SmartTabGroupingServiceReceiver = ai.mojom.SmartTabGroupingServiceReceiver;
 
 ai.mojom.SmartTabGroupingServicePtr = ai.mojom.SmartTabGroupingServiceRemote;
 ai.mojom.SmartTabGroupingServiceRequest = ai.mojom.SmartTabGroupingServicePendingReceiver;

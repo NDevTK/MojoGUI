@@ -9,7 +9,7 @@ var ash = ash || {};
 ash.printing = ash.printing || {};
 ash.printing.print_preview = ash.printing.print_preview || {};
 ash.printing.print_preview.mojom = ash.printing.print_preview.mojom || {};
-var ash = ash || {};
+var printing = printing || {};
 
 ash.printing.print_preview.mojom.DestinationProvider = {};
 ash.printing.print_preview.mojom.DestinationProvider.$interfaceName = 'ash.printing.print_preview.mojom.DestinationProvider';
@@ -83,6 +83,35 @@ ash.printing.print_preview.mojom.DestinationProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.printing.print_preview.mojom.DestinationProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fetchCapabilities(params.destination_id, params.printer_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.printing.print_preview.mojom.DestinationProviderReceiver = ash.printing.print_preview.mojom.DestinationProviderReceiver;
 
 ash.printing.print_preview.mojom.DestinationProviderPtr = ash.printing.print_preview.mojom.DestinationProviderRemote;
 ash.printing.print_preview.mojom.DestinationProviderRequest = ash.printing.print_preview.mojom.DestinationProviderPendingReceiver;

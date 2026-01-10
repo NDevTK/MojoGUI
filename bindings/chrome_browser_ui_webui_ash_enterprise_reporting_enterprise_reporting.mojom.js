@@ -112,6 +112,28 @@ enterprise_reporting.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+enterprise_reporting.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+enterprise_reporting.mojom.PageHandlerFactoryReceiver = enterprise_reporting.mojom.PageHandlerFactoryReceiver;
+
 enterprise_reporting.mojom.PageHandlerFactoryPtr = enterprise_reporting.mojom.PageHandlerFactoryRemote;
 enterprise_reporting.mojom.PageHandlerFactoryRequest = enterprise_reporting.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -219,6 +241,52 @@ enterprise_reporting.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+enterprise_reporting.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordDebugState(params.state);
+          break;
+        }
+        case 1: {
+          const params = enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDebugState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getErpHistoryData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+enterprise_reporting.mojom.PageHandlerReceiver = enterprise_reporting.mojom.PageHandlerReceiver;
+
 enterprise_reporting.mojom.PageHandlerPtr = enterprise_reporting.mojom.PageHandlerRemote;
 enterprise_reporting.mojom.PageHandlerRequest = enterprise_reporting.mojom.PageHandlerPendingReceiver;
 
@@ -283,6 +351,28 @@ enterprise_reporting.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+enterprise_reporting.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setErpHistoryData(params.history_data);
+          break;
+        }
+      }
+    });
+  }
+};
+
+enterprise_reporting.mojom.PageReceiver = enterprise_reporting.mojom.PageReceiver;
 
 enterprise_reporting.mojom.PagePtr = enterprise_reporting.mojom.PageRemote;
 enterprise_reporting.mojom.PageRequest = enterprise_reporting.mojom.PagePendingReceiver;

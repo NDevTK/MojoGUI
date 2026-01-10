@@ -7,7 +7,7 @@
 // Module namespace
 var data_decoder = data_decoder || {};
 data_decoder.mojom = data_decoder.mojom || {};
-var services = services || {};
+var network = network || {};
 
 data_decoder.mojom.StructuredHeadersParser = {};
 data_decoder.mojom.StructuredHeadersParser.$interfaceName = 'data_decoder.mojom.StructuredHeadersParser';
@@ -128,6 +128,59 @@ data_decoder.mojom.StructuredHeadersParser.getRemote = function() {
     'context');
   return remote.$;
 };
+
+data_decoder.mojom.StructuredHeadersParserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseItem(params.header);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseList(params.header);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseDictionary(params.header);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+data_decoder.mojom.StructuredHeadersParserReceiver = data_decoder.mojom.StructuredHeadersParserReceiver;
 
 data_decoder.mojom.StructuredHeadersParserPtr = data_decoder.mojom.StructuredHeadersParserRemote;
 data_decoder.mojom.StructuredHeadersParserRequest = data_decoder.mojom.StructuredHeadersParserPendingReceiver;

@@ -7,7 +7,7 @@
 // Module namespace
 var skia = skia || {};
 skia.mojom = skia.mojom || {};
-var skia = skia || {};
+var mojo_base = mojo_base || {};
 
 skia.mojom.BitmapN32Spec = { $: {} };
 skia.mojom.BitmapWithArbitraryBppSpec = { $: {} };

@@ -8,7 +8,6 @@
 var new_tab_footer = new_tab_footer || {};
 new_tab_footer.mojom = new_tab_footer.mojom || {};
 var url = url || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 new_tab_footer.mojom.NewTabPageTypeSpec = { $: mojo.internal.Enum() };
@@ -119,6 +118,28 @@ new_tab_footer.mojom.NewTabFooterHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createNewTabFooterHandler(params.document, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver = new_tab_footer.mojom.NewTabFooterHandlerFactoryReceiver;
 
 new_tab_footer.mojom.NewTabFooterHandlerFactoryPtr = new_tab_footer.mojom.NewTabFooterHandlerFactoryRemote;
 new_tab_footer.mojom.NewTabFooterHandlerFactoryRequest = new_tab_footer.mojom.NewTabFooterHandlerFactoryPendingReceiver;
@@ -306,6 +327,68 @@ new_tab_footer.mojom.NewTabFooterHandler.getRemote = function() {
   return remote.$;
 };
 
+new_tab_footer.mojom.NewTabFooterHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateNtpExtensionName();
+          break;
+        }
+        case 1: {
+          const params = new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateManagementNotice();
+          break;
+        }
+        case 2: {
+          const params = new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateAttachedTabState();
+          break;
+        }
+        case 3: {
+          const params = new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateBackgroundAttribution();
+          break;
+        }
+        case 4: {
+          const params = new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openExtensionOptionsPageWithFallback();
+          break;
+        }
+        case 5: {
+          const params = new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openManagementPage();
+          break;
+        }
+        case 6: {
+          const params = new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openUrlInCurrentTab(params.url);
+          break;
+        }
+        case 7: {
+          const params = new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showContextMenu(params.point);
+          break;
+        }
+        case 8: {
+          const params = new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyCustomizationButtonVisible();
+          break;
+        }
+      }
+    });
+  }
+};
+
+new_tab_footer.mojom.NewTabFooterHandlerReceiver = new_tab_footer.mojom.NewTabFooterHandlerReceiver;
+
 new_tab_footer.mojom.NewTabFooterHandlerPtr = new_tab_footer.mojom.NewTabFooterHandlerRemote;
 new_tab_footer.mojom.NewTabFooterHandlerRequest = new_tab_footer.mojom.NewTabFooterHandlerPendingReceiver;
 
@@ -419,6 +502,43 @@ new_tab_footer.mojom.NewTabFooterDocument.getRemote = function() {
     'context');
   return remote.$;
 };
+
+new_tab_footer.mojom.NewTabFooterDocumentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNtpExtensionName(params.name);
+          break;
+        }
+        case 1: {
+          const params = new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setManagementNotice(params.notice);
+          break;
+        }
+        case 2: {
+          const params = new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.attachedTabStateUpdated(params.ntp_type, params.can_customize_chrome);
+          break;
+        }
+        case 3: {
+          const params = new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBackgroundAttribution(params.background_image_attribution);
+          break;
+        }
+      }
+    });
+  }
+};
+
+new_tab_footer.mojom.NewTabFooterDocumentReceiver = new_tab_footer.mojom.NewTabFooterDocumentReceiver;
 
 new_tab_footer.mojom.NewTabFooterDocumentPtr = new_tab_footer.mojom.NewTabFooterDocumentRemote;
 new_tab_footer.mojom.NewTabFooterDocumentRequest = new_tab_footer.mojom.NewTabFooterDocumentPendingReceiver;

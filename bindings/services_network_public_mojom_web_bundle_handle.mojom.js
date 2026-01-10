@@ -121,6 +121,38 @@ network.mojom.WebBundleHandle.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.WebBundleHandleReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.WebBundleHandle_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.receiver);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWebBundleError(params.type, params.message);
+          break;
+        }
+        case 2: {
+          const params = network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWebBundleLoadFinished(params.success);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.WebBundleHandleReceiver = network.mojom.WebBundleHandleReceiver;
+
 network.mojom.WebBundleHandlePtr = network.mojom.WebBundleHandleRemote;
 network.mojom.WebBundleHandleRequest = network.mojom.WebBundleHandlePendingReceiver;
 

@@ -91,6 +91,28 @@ launcher_internals.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+launcher_internals.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page);
+          break;
+        }
+      }
+    });
+  }
+};
+
+launcher_internals.mojom.PageHandlerFactoryReceiver = launcher_internals.mojom.PageHandlerFactoryReceiver;
+
 launcher_internals.mojom.PageHandlerFactoryPtr = launcher_internals.mojom.PageHandlerFactoryRemote;
 launcher_internals.mojom.PageHandlerFactoryRequest = launcher_internals.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -157,6 +179,28 @@ launcher_internals.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+launcher_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = launcher_internals.mojom.Page_UpdateResults_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateResults(params.query, params.keywords, params.results);
+          break;
+        }
+      }
+    });
+  }
+};
+
+launcher_internals.mojom.PageReceiver = launcher_internals.mojom.PageReceiver;
 
 launcher_internals.mojom.PagePtr = launcher_internals.mojom.PageRemote;
 launcher_internals.mojom.PageRequest = launcher_internals.mojom.PagePendingReceiver;

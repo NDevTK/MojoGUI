@@ -74,6 +74,23 @@ metrics.dwa.mojom.DwaRecorderClientInterface.getRemote = function() {
   return remote.$;
 };
 
+metrics.dwa.mojom.DwaRecorderClientInterfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+metrics.dwa.mojom.DwaRecorderClientInterfaceReceiver = metrics.dwa.mojom.DwaRecorderClientInterfaceReceiver;
+
 metrics.dwa.mojom.DwaRecorderClientInterfacePtr = metrics.dwa.mojom.DwaRecorderClientInterfaceRemote;
 metrics.dwa.mojom.DwaRecorderClientInterfaceRequest = metrics.dwa.mojom.DwaRecorderClientInterfacePendingReceiver;
 
@@ -138,6 +155,28 @@ metrics.dwa.mojom.DwaRecorderInterface.getRemote = function() {
     'context');
   return remote.$;
 };
+
+metrics.dwa.mojom.DwaRecorderInterfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addEntry(params.entry);
+          break;
+        }
+      }
+    });
+  }
+};
+
+metrics.dwa.mojom.DwaRecorderInterfaceReceiver = metrics.dwa.mojom.DwaRecorderInterfaceReceiver;
 
 metrics.dwa.mojom.DwaRecorderInterfacePtr = metrics.dwa.mojom.DwaRecorderInterfaceRemote;
 metrics.dwa.mojom.DwaRecorderInterfaceRequest = metrics.dwa.mojom.DwaRecorderInterfacePendingReceiver;
@@ -204,6 +243,28 @@ metrics.dwa.mojom.DwaRecorderFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+metrics.dwa.mojom.DwaRecorderFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createDwaRecorder(params.receiver, params.client_remote);
+          break;
+        }
+      }
+    });
+  }
+};
+
+metrics.dwa.mojom.DwaRecorderFactoryReceiver = metrics.dwa.mojom.DwaRecorderFactoryReceiver;
 
 metrics.dwa.mojom.DwaRecorderFactoryPtr = metrics.dwa.mojom.DwaRecorderFactoryRemote;
 metrics.dwa.mojom.DwaRecorderFactoryRequest = metrics.dwa.mojom.DwaRecorderFactoryPendingReceiver;

@@ -7,6 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var mojo_base = mojo_base || {};
 
 media.mojom.CdmCapabilityQueryStatusSpec = { $: mojo.internal.Enum() };
 media.mojom.VideoCodecInfoSpec = { $: {} };
@@ -126,6 +127,28 @@ media.mojom.KeySystemSupportObserver.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.KeySystemSupportObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onKeySystemSupportUpdated(params.key_systems);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.KeySystemSupportObserverReceiver = media.mojom.KeySystemSupportObserverReceiver;
+
 media.mojom.KeySystemSupportObserverPtr = media.mojom.KeySystemSupportObserverRemote;
 media.mojom.KeySystemSupportObserverRequest = media.mojom.KeySystemSupportObserverPendingReceiver;
 
@@ -190,6 +213,28 @@ media.mojom.KeySystemSupport.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.KeySystemSupportReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.KeySystemSupport_SetObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setObserver(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.KeySystemSupportReceiver = media.mojom.KeySystemSupportReceiver;
 
 media.mojom.KeySystemSupportPtr = media.mojom.KeySystemSupportRemote;
 media.mojom.KeySystemSupportRequest = media.mojom.KeySystemSupportPendingReceiver;

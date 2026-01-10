@@ -97,6 +97,28 @@ zero_state_promo.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+zero_state_promo.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+zero_state_promo.mojom.PageHandlerFactoryReceiver = zero_state_promo.mojom.PageHandlerFactoryReceiver;
+
 zero_state_promo.mojom.PageHandlerFactoryPtr = zero_state_promo.mojom.PageHandlerFactoryRemote;
 zero_state_promo.mojom.PageHandlerFactoryRequest = zero_state_promo.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -161,6 +183,28 @@ zero_state_promo.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+zero_state_promo.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launchWebStoreLink(params.link);
+          break;
+        }
+      }
+    });
+  }
+};
+
+zero_state_promo.mojom.PageHandlerReceiver = zero_state_promo.mojom.PageHandlerReceiver;
 
 zero_state_promo.mojom.PageHandlerPtr = zero_state_promo.mojom.PageHandlerRemote;
 zero_state_promo.mojom.PageHandlerRequest = zero_state_promo.mojom.PageHandlerPendingReceiver;

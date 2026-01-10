@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.DeviceThermalStateSpec = { $: mojo.internal.Enum() };
 blink.mojom.PeerConnectionInfoSpec = { $: {} };
@@ -226,6 +227,63 @@ blink.mojom.PeerConnectionManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.PeerConnectionManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PeerConnectionManager_OnSuspend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSuspend();
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.PeerConnectionManager_OnThermalStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onThermalStateChange(params.thermal_state);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.PeerConnectionManager_StartEventLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startEventLog(params.peer_connection_local_id, params.output_period_ms);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.PeerConnectionManager_StopEventLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopEventLog(params.peer_connection_local_id);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.PeerConnectionManager_StartDataChannelLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startDataChannelLog(params.peer_connection_local_id);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.PeerConnectionManager_StopDataChannelLog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopDataChannelLog(params.peer_connection_local_id);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.PeerConnectionManager_GetStandardStats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getStandardStats();
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.PeerConnectionManager_GetCurrentState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCurrentState();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PeerConnectionManagerReceiver = blink.mojom.PeerConnectionManagerReceiver;
 
 blink.mojom.PeerConnectionManagerPtr = blink.mojom.PeerConnectionManagerRemote;
 blink.mojom.PeerConnectionManagerRequest = blink.mojom.PeerConnectionManagerPendingReceiver;
@@ -507,6 +565,88 @@ blink.mojom.PeerConnectionTrackerHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.PeerConnectionTrackerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PeerConnectionTrackerHost_AddPeerConnection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addPeerConnection(params.info);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.PeerConnectionTrackerHost_RemovePeerConnection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removePeerConnection(params.lid);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.PeerConnectionTrackerHost_UpdatePeerConnection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updatePeerConnection(params.lid, params.type, params.value);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.PeerConnectionTrackerHost_OnPeerConnectionSessionIdSet_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPeerConnectionSessionIdSet(params.lid, params.session_id);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.PeerConnectionTrackerHost_GetUserMedia_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUserMedia(params.request_id, params.audio, params.video, params.audio_constraints, params.video_constraints);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.PeerConnectionTrackerHost_GetUserMediaSuccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUserMediaSuccess(params.request_id, params.stream_id, params.audio_track_info, params.video_track_info);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.PeerConnectionTrackerHost_GetUserMediaFailure_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUserMediaFailure(params.request_id, params.error, params.error_message);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.PeerConnectionTrackerHost_GetDisplayMedia_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDisplayMedia(params.request_id, params.audio, params.video, params.audio_constraints, params.video_constraints);
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaSuccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDisplayMediaSuccess(params.request_id, params.stream_id, params.audio_track_info, params.video_track_info);
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.PeerConnectionTrackerHost_GetDisplayMediaFailure_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDisplayMediaFailure(params.request_id, params.error, params.error_message);
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.PeerConnectionTrackerHost_WebRtcEventLogWrite_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.webRtcEventLogWrite(params.lid, params.output);
+          break;
+        }
+        case 11: {
+          const params = blink.mojom.PeerConnectionTrackerHost_WebRtcDataChannelLogWrite_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.webRtcDataChannelLogWrite(params.lid, params.output);
+          break;
+        }
+        case 12: {
+          const params = blink.mojom.PeerConnectionTrackerHost_AddStandardStats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addStandardStats(params.lid, params.value);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PeerConnectionTrackerHostReceiver = blink.mojom.PeerConnectionTrackerHostReceiver;
 
 blink.mojom.PeerConnectionTrackerHostPtr = blink.mojom.PeerConnectionTrackerHostRemote;
 blink.mojom.PeerConnectionTrackerHostRequest = blink.mojom.PeerConnectionTrackerHostPendingReceiver;

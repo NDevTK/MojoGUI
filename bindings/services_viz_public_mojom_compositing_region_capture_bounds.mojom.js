@@ -7,8 +7,8 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
+var mojo_base = mojo_base || {};
 
 viz.mojom.CropIdBoundsPairSpec = { $: {} };
 viz.mojom.RegionCaptureBoundsSpec = { $: {} };

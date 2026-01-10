@@ -73,6 +73,28 @@ mojo_base.mojom.Binder.getRemote = function() {
   return remote.$;
 };
 
+mojo_base.mojom.BinderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mojo_base.mojom.Binder_Bind_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bind(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mojo_base.mojom.BinderReceiver = mojo_base.mojom.BinderReceiver;
+
 mojo_base.mojom.BinderPtr = mojo_base.mojom.BinderRemote;
 mojo_base.mojom.BinderRequest = mojo_base.mojom.BinderPendingReceiver;
 

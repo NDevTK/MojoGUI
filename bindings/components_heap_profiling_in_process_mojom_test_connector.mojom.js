@@ -7,8 +7,7 @@
 // Module namespace
 var heap_profiling = heap_profiling || {};
 heap_profiling.mojom = heap_profiling.mojom || {};
-var components = components || {};
-var components = components || {};
+var metrics = metrics || {};
 
 heap_profiling.mojom.TestConnector = {};
 heap_profiling.mojom.TestConnector.$interfaceName = 'heap_profiling.mojom.TestConnector';
@@ -119,6 +118,52 @@ heap_profiling.mojom.TestConnector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+heap_profiling.mojom.TestConnectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectSnapshotController(params.controller);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectProfileCollector(params.collector);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disconnect();
+          break;
+        }
+      }
+    });
+  }
+};
+
+heap_profiling.mojom.TestConnectorReceiver = heap_profiling.mojom.TestConnectorReceiver;
 
 heap_profiling.mojom.TestConnectorPtr = heap_profiling.mojom.TestConnectorRemote;
 heap_profiling.mojom.TestConnectorRequest = heap_profiling.mojom.TestConnectorPendingReceiver;

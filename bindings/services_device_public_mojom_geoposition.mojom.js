@@ -7,6 +7,7 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
+var mojo_base = mojo_base || {};
 
 device.mojom.GeopositionErrorCodeSpec = { $: mojo.internal.Enum() };
 device.mojom.GeopositionResultSpec = { $: {} };

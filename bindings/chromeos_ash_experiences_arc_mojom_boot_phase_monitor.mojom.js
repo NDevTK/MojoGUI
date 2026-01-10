@@ -76,6 +76,28 @@ arc.mojom.BootPhaseMonitorHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.BootPhaseMonitorHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBootCompleted();
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.BootPhaseMonitorHostReceiver = arc.mojom.BootPhaseMonitorHostReceiver;
+
 arc.mojom.BootPhaseMonitorHostPtr = arc.mojom.BootPhaseMonitorHostRemote;
 arc.mojom.BootPhaseMonitorHostRequest = arc.mojom.BootPhaseMonitorHostPendingReceiver;
 
@@ -145,6 +167,35 @@ arc.mojom.BootPhaseMonitorInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.BootPhaseMonitorInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.BootPhaseMonitorInstanceReceiver = arc.mojom.BootPhaseMonitorInstanceReceiver;
 
 arc.mojom.BootPhaseMonitorInstancePtr = arc.mojom.BootPhaseMonitorInstanceRemote;
 arc.mojom.BootPhaseMonitorInstanceRequest = arc.mojom.BootPhaseMonitorInstancePendingReceiver;

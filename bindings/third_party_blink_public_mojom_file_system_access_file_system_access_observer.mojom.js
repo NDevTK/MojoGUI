@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 
 blink.mojom.FileSystemAccessChangeTypeSpec = { $: {} };
 blink.mojom.FileSystemAccessChangeTypeAppearedSpec = { $: {} };
@@ -171,6 +170,28 @@ blink.mojom.FileSystemAccessObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.FileSystemAccessObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFileChanges(params.changes);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FileSystemAccessObserverReceiver = blink.mojom.FileSystemAccessObserverReceiver;
 
 blink.mojom.FileSystemAccessObserverPtr = blink.mojom.FileSystemAccessObserverRemote;
 blink.mojom.FileSystemAccessObserverRequest = blink.mojom.FileSystemAccessObserverPendingReceiver;

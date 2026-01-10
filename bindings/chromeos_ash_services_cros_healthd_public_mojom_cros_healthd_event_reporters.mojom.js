@@ -8,7 +8,6 @@
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
 ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
-var ash = ash || {};
 
 ash.cros_healthd.mojom.AshEventReporter = {};
 ash.cros_healthd.mojom.AshEventReporter.$interfaceName = 'ash.cros_healthd.mojom.AshEventReporter';
@@ -74,6 +73,28 @@ ash.cros_healthd.mojom.AshEventReporter.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.cros_healthd.mojom.AshEventReporterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendKeyboardDiagnosticEvent(params.info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cros_healthd.mojom.AshEventReporterReceiver = ash.cros_healthd.mojom.AshEventReporterReceiver;
 
 ash.cros_healthd.mojom.AshEventReporterPtr = ash.cros_healthd.mojom.AshEventReporterRemote;
 ash.cros_healthd.mojom.AshEventReporterRequest = ash.cros_healthd.mojom.AshEventReporterPendingReceiver;

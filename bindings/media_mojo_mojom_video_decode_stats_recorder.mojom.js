@@ -90,6 +90,33 @@ media.mojom.VideoDecodeStatsRecorder.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.VideoDecodeStatsRecorderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startNewRecord(params.features);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateRecord(params.targets);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.VideoDecodeStatsRecorderReceiver = media.mojom.VideoDecodeStatsRecorderReceiver;
+
 media.mojom.VideoDecodeStatsRecorderPtr = media.mojom.VideoDecodeStatsRecorderRemote;
 media.mojom.VideoDecodeStatsRecorderRequest = media.mojom.VideoDecodeStatsRecorderPendingReceiver;
 

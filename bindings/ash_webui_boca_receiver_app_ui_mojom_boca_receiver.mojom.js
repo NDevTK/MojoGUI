@@ -198,6 +198,53 @@ ash.boca_receiver.mojom.UntrustedPage.getRemote = function() {
   return remote.$;
 };
 
+ash.boca_receiver.mojom.UntrustedPageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onInitReceiverInfo(params.receiver_info);
+          break;
+        }
+        case 1: {
+          const params = ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onInitReceiverError();
+          break;
+        }
+        case 2: {
+          const params = ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameReceived(params.frame_data);
+          break;
+        }
+        case 3: {
+          const params = ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAudioPacket(params.audio_packet);
+          break;
+        }
+        case 4: {
+          const params = ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnecting(params.initiator, params.presenter);
+          break;
+        }
+        case 5: {
+          const params = ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onConnectionClosed(params.reason);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.boca_receiver.mojom.UntrustedPageReceiver = ash.boca_receiver.mojom.UntrustedPageReceiver;
+
 ash.boca_receiver.mojom.UntrustedPagePtr = ash.boca_receiver.mojom.UntrustedPageRemote;
 ash.boca_receiver.mojom.UntrustedPageRequest = ash.boca_receiver.mojom.UntrustedPagePendingReceiver;
 
@@ -262,6 +309,28 @@ ash.boca_receiver.mojom.UntrustedPageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.boca_receiver.mojom.UntrustedPageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createUntrustedPageHandler(params.page);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.boca_receiver.mojom.UntrustedPageHandlerFactoryReceiver = ash.boca_receiver.mojom.UntrustedPageHandlerFactoryReceiver;
 
 ash.boca_receiver.mojom.UntrustedPageHandlerFactoryPtr = ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRemote;
 ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRequest = ash.boca_receiver.mojom.UntrustedPageHandlerFactoryPendingReceiver;

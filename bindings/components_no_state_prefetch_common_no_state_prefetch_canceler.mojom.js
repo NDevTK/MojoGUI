@@ -88,6 +88,33 @@ prerender.mojom.NoStatePrefetchCanceler.getRemote = function() {
   return remote.$;
 };
 
+prerender.mojom.NoStatePrefetchCancelerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelNoStatePrefetchForUnsupportedScheme();
+          break;
+        }
+        case 1: {
+          const params = prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelNoStatePrefetchAfterSubresourcesDiscovered();
+          break;
+        }
+      }
+    });
+  }
+};
+
+prerender.mojom.NoStatePrefetchCancelerReceiver = prerender.mojom.NoStatePrefetchCancelerReceiver;
+
 prerender.mojom.NoStatePrefetchCancelerPtr = prerender.mojom.NoStatePrefetchCancelerRemote;
 prerender.mojom.NoStatePrefetchCancelerRequest = prerender.mojom.NoStatePrefetchCancelerPendingReceiver;
 

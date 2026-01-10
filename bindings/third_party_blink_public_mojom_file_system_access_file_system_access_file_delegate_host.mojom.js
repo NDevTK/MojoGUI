@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.FileSystemAccessFileDelegateHost = {};
 blink.mojom.FileSystemAccessFileDelegateHost.$interfaceName = 'blink.mojom.FileSystemAccessFileDelegateHost';
@@ -156,6 +157,71 @@ blink.mojom.FileSystemAccessFileDelegateHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.FileSystemAccessFileDelegateHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.read(params.offset, params.bytes_to_read);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.write(params.offset, params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLength();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLength(params.length);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FileSystemAccessFileDelegateHostReceiver = blink.mojom.FileSystemAccessFileDelegateHostReceiver;
 
 blink.mojom.FileSystemAccessFileDelegateHostPtr = blink.mojom.FileSystemAccessFileDelegateHostRemote;
 blink.mojom.FileSystemAccessFileDelegateHostRequest = blink.mojom.FileSystemAccessFileDelegateHostPendingReceiver;

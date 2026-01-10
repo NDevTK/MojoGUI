@@ -7,15 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 network.mojom.ResolverTypeSpec = { $: mojo.internal.Enum() };
 network.mojom.RuleSpec = { $: {} };
@@ -297,6 +289,83 @@ network.mojom.SimpleCacheEntry.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.SimpleCacheEntryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.SimpleCacheEntry_WriteData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeData(params.index, params.offset, params.data, params.truncate);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.SimpleCacheEntry_ReadData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readData(params.index, params.offset, params.length);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeSparseData(params.offset, params.data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readSparseData(params.offset, params.length);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = network.mojom.SimpleCacheEntry_Close_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.close();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SimpleCacheEntry_Close_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.SimpleCacheEntryReceiver = network.mojom.SimpleCacheEntryReceiver;
+
 network.mojom.SimpleCacheEntryPtr = network.mojom.SimpleCacheEntryRemote;
 network.mojom.SimpleCacheEntryRequest = network.mojom.SimpleCacheEntryPendingReceiver;
 
@@ -366,6 +435,35 @@ network.mojom.SimpleCacheEntryEnumerator.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.SimpleCacheEntryEnumeratorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNext();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.SimpleCacheEntryEnumeratorReceiver = network.mojom.SimpleCacheEntryEnumeratorReceiver;
 
 network.mojom.SimpleCacheEntryEnumeratorPtr = network.mojom.SimpleCacheEntryEnumeratorRemote;
 network.mojom.SimpleCacheEntryEnumeratorRequest = network.mojom.SimpleCacheEntryEnumeratorPendingReceiver;
@@ -540,6 +638,88 @@ network.mojom.SimpleCache.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.SimpleCacheReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.SimpleCache_CreateEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createEntry(params.key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.SimpleCache_OpenEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openEntry(params.key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = network.mojom.SimpleCache_DoomEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.doomEntry(params.key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = network.mojom.SimpleCache_DoomAllEntries_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.doomAllEntries();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = network.mojom.SimpleCache_EnumerateEntries_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enumerateEntries(params.receiver);
+          break;
+        }
+        case 5: {
+          const params = network.mojom.SimpleCache_Detach_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.detach();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SimpleCache_Detach_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.SimpleCacheReceiver = network.mojom.SimpleCacheReceiver;
 
 network.mojom.SimpleCachePtr = network.mojom.SimpleCacheRemote;
 network.mojom.SimpleCacheRequest = network.mojom.SimpleCachePendingReceiver;
@@ -1189,6 +1369,343 @@ network.mojom.NetworkServiceTest.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.NetworkServiceTestReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.NetworkServiceTest_AddRules_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addRules(params.rules);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_AddRules_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulateNetworkChange(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_SimulateNetworkChange_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulateNetworkQualityChange(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forceNetworkQualityEstimatorReportWifiAsSlow2G();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.simulateCrash();
+          break;
+        }
+        case 5: {
+          const params = network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mockCertVerifierSetDefaultResult(params.default_result);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mockCertVerifierAddResultForCertAndHost(params.cert, params.host_pattern, params.verify_result, params.rv);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTransportSecurityStateTestSource(params.enable_unittest_source);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAllowNetworkAccessToHostResolutions();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.replaceSystemDnsConfig();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTestDohConfig(params.secure_dns_mode, params.doh_config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_SetTestDohConfig_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.crashOnResolveHost(params.host);
+          break;
+        }
+        case 12: {
+          const params = network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.crashOnGetCookieList();
+          break;
+        }
+        case 13: {
+          const params = network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLatestMemoryPressureLevel();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPeerToPeerConnectionsCountChange();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEnvironmentVariableValue(params.name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = network.mojom.NetworkServiceTest_Log_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.log(params.message);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_Log_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 17: {
+          const params = network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.activateFieldTrial(params.field_trial_name);
+          break;
+        }
+        case 18: {
+          const params = network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSCTAuditingRetryDelay(params.delay);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 19: {
+          const params = network.mojom.NetworkServiceTest_OpenFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFile(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 20: {
+          const params = network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enumerateFiles(params.path, params.factory);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 21: {
+          const params = network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createSimpleCache(params.factory, params.path, params.reset);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 22: {
+          const params = network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.makeRequestToServer(params.s, params.endpoint);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 23: {
+          const params = network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolveOwnHostnameWithSystemDns();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 24: {
+          const params = network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIPv6ProbeResult(params.success);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 25: {
+          const params = network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAddressMapCacheLinux();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 26: {
+          const params = network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.allowsGSSAPILibraryLoad();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 27: {
+          const params = network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableExclusiveCookieDatabaseLockingForTesting();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 28: {
+          const params = network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isHappyEyeballsV3Enabled();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.NetworkServiceTestReceiver = network.mojom.NetworkServiceTestReceiver;
 
 network.mojom.NetworkServiceTestPtr = network.mojom.NetworkServiceTestRemote;
 network.mojom.NetworkServiceTestRequest = network.mojom.NetworkServiceTestPendingReceiver;

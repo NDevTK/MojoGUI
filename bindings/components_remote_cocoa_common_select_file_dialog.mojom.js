@@ -7,6 +7,7 @@
 // Module namespace
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
+var mojo_base = mojo_base || {};
 
 remote_cocoa.mojom.SelectFileDialogTypeSpec = { $: mojo.internal.Enum() };
 remote_cocoa.mojom.SelectFileTypeInfoSpec = { $: {} };
@@ -109,6 +110,35 @@ remote_cocoa.mojom.SelectFileDialog.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remote_cocoa.mojom.SelectFileDialogReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.show(params.type, params.title, params.file_path, params.file_types, params.file_type_index, params.default_extension);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+remote_cocoa.mojom.SelectFileDialogReceiver = remote_cocoa.mojom.SelectFileDialogReceiver;
 
 remote_cocoa.mojom.SelectFileDialogPtr = remote_cocoa.mojom.SelectFileDialogRemote;
 remote_cocoa.mojom.SelectFileDialogRequest = remote_cocoa.mojom.SelectFileDialogPendingReceiver;

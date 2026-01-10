@@ -7,6 +7,7 @@
 // Module namespace
 var chromecast = chromecast || {};
 chromecast.mojom = chromecast.mojom || {};
+var mojo_base = mojo_base || {};
 
 chromecast.mojom.DisplaySettings = {};
 chromecast.mojom.DisplaySettings.$interfaceName = 'chromecast.mojom.DisplaySettings';
@@ -212,6 +213,68 @@ chromecast.mojom.DisplaySettings.getRemote = function() {
   return remote.$;
 };
 
+chromecast.mojom.DisplaySettingsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setColorTemperature(params.kelvin);
+          break;
+        }
+        case 1: {
+          const params = chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setColorTemperatureSmooth(params.kelvin, params.duration);
+          break;
+        }
+        case 2: {
+          const params = chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetColorTemperature();
+          break;
+        }
+        case 3: {
+          const params = chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBrightness(params.brightness);
+          break;
+        }
+        case 4: {
+          const params = chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBrightnessSmooth(params.brightness, params.duration);
+          break;
+        }
+        case 5: {
+          const params = chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetBrightness();
+          break;
+        }
+        case 6: {
+          const params = chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setScreenOn(params.display_on);
+          break;
+        }
+        case 7: {
+          const params = chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAllowScreenPowerOff(params.allow_power_off);
+          break;
+        }
+        case 8: {
+          const params = chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addDisplaySettingsObserver(params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.DisplaySettingsReceiver = chromecast.mojom.DisplaySettingsReceiver;
+
 chromecast.mojom.DisplaySettingsPtr = chromecast.mojom.DisplaySettingsRemote;
 chromecast.mojom.DisplaySettingsRequest = chromecast.mojom.DisplaySettingsPendingReceiver;
 
@@ -276,6 +339,28 @@ chromecast.mojom.DisplaySettingsObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromecast.mojom.DisplaySettingsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDisplayBrightnessChanged(params.brightness);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.DisplaySettingsObserverReceiver = chromecast.mojom.DisplaySettingsObserverReceiver;
 
 chromecast.mojom.DisplaySettingsObserverPtr = chromecast.mojom.DisplaySettingsObserverRemote;
 chromecast.mojom.DisplaySettingsObserverRequest = chromecast.mojom.DisplaySettingsObserverPendingReceiver;

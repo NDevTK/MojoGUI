@@ -121,6 +121,43 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandler.getRemote = function() 
   return remote.$;
 };
 
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPowerwash();
+          break;
+        }
+        case 1: {
+          const params = ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRecreateUser();
+          break;
+        }
+        case 2: {
+          const params = ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCancel();
+          break;
+        }
+        case 3: {
+          const params = ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBack();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerReceiver = ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerReceiver;
+
 ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPtr = ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemote;
 ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRequest = ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPendingReceiver;
 

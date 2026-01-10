@@ -7,6 +7,7 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
+var mojo_base = mojo_base || {};
 
 cros.mojom.LidStateSpec = { $: mojo.internal.Enum() };
 cros.mojom.DeviceTypeSpec = { $: mojo.internal.Enum() };
@@ -112,6 +113,28 @@ cros.mojom.CrosDisplayObserver.getRemote = function() {
   return remote.$;
 };
 
+cros.mojom.CrosDisplayObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDisplayRotationChanged(params.rotation);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.CrosDisplayObserverReceiver = cros.mojom.CrosDisplayObserverReceiver;
+
 cros.mojom.CrosDisplayObserverPtr = cros.mojom.CrosDisplayObserverRemote;
 cros.mojom.CrosDisplayObserverRequest = cros.mojom.CrosDisplayObserverPendingReceiver;
 
@@ -176,6 +199,28 @@ cros.mojom.CrosLidObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cros.mojom.CrosLidObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLidStateChanged(params.new_state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.CrosLidObserverReceiver = cros.mojom.CrosLidObserverReceiver;
 
 cros.mojom.CrosLidObserverPtr = cros.mojom.CrosLidObserverRemote;
 cros.mojom.CrosLidObserverRequest = cros.mojom.CrosLidObserverPendingReceiver;
@@ -260,6 +305,40 @@ cros.mojom.CrosPowerObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cros.mojom.CrosPowerObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSystemSuspend();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSystemResume();
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.CrosPowerObserverReceiver = cros.mojom.CrosPowerObserverReceiver;
 
 cros.mojom.CrosPowerObserverPtr = cros.mojom.CrosPowerObserverRemote;
 cros.mojom.CrosPowerObserverRequest = cros.mojom.CrosPowerObserverPendingReceiver;
@@ -374,6 +453,43 @@ cros.mojom.CrosSystemEventMonitor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cros.mojom.CrosSystemEventMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addDisplayObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addLidObserver(params.observer);
+          break;
+        }
+        case 2: {
+          const params = cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addPowerObserver(params.client_name, params.observer);
+          break;
+        }
+        case 3: {
+          const params = cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyDeviceChanged(params.type);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.CrosSystemEventMonitorReceiver = cros.mojom.CrosSystemEventMonitorReceiver;
 
 cros.mojom.CrosSystemEventMonitorPtr = cros.mojom.CrosSystemEventMonitorRemote;
 cros.mojom.CrosSystemEventMonitorRequest = cros.mojom.CrosSystemEventMonitorPendingReceiver;

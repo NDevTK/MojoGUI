@@ -7,10 +7,9 @@
 // Module namespace
 var new_tab_page = new_tab_page || {};
 new_tab_page.mojom = new_tab_page.mojom || {};
-var components = components || {};
-var ui = ui || {};
+var ntp_tiles = ntp_tiles || {};
 var skia = skia || {};
-var ui = ui || {};
+var most_visited = most_visited || {};
 var url = url || {};
 
 new_tab_page.mojom.NtpBackgroundImageSourceSpec = { $: mojo.internal.Enum() };
@@ -330,6 +329,28 @@ new_tab_page.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+new_tab_page.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = new_tab_page.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+new_tab_page.mojom.PageHandlerFactoryReceiver = new_tab_page.mojom.PageHandlerFactoryReceiver;
 
 new_tab_page.mojom.PageHandlerFactoryPtr = new_tab_page.mojom.PageHandlerFactoryRemote;
 new_tab_page.mojom.PageHandlerFactoryRequest = new_tab_page.mojom.PageHandlerFactoryPendingReceiver;
@@ -910,6 +931,220 @@ new_tab_page.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+new_tab_page.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = new_tab_page.mojom.PageHandler_SetMostVisitedSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMostVisitedSettings(params.shortcuts_type, params.shortcuts_visible);
+          break;
+        }
+        case 1: {
+          const params = new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMostVisitedSettings();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetMostVisitedSettings_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = new_tab_page.mojom.PageHandler_GetDoodle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDoodle();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = new_tab_page.mojom.PageHandler_UpdatePromoData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updatePromoData();
+          break;
+        }
+        case 4: {
+          const params = new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.blocklistPromo(params.promo_id);
+          break;
+        }
+        case 5: {
+          const params = new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.undoBlocklistPromo(params.promo_id);
+          break;
+        }
+        case 6: {
+          const params = new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDismissModule(params.module_id);
+          break;
+        }
+        case 7: {
+          const params = new_tab_page.mojom.PageHandler_OnRestoreModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRestoreModule(params.module_id);
+          break;
+        }
+        case 8: {
+          const params = new_tab_page.mojom.PageHandler_SetModulesVisible_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setModulesVisible(params.visible);
+          break;
+        }
+        case 9: {
+          const params = new_tab_page.mojom.PageHandler_UpdateDisabledModules_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateDisabledModules();
+          break;
+        }
+        case 10: {
+          const params = new_tab_page.mojom.PageHandler_OnModulesLoadedWithData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onModulesLoadedWithData(params.module_ids);
+          break;
+        }
+        case 11: {
+          const params = new_tab_page.mojom.PageHandler_OnModuleUsed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onModuleUsed(params.module_id);
+          break;
+        }
+        case 12: {
+          const params = new_tab_page.mojom.PageHandler_GetModulesIdNames_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getModulesIdNames();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getModulesEligibleForRemoval();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = new_tab_page.mojom.PageHandler_SetModulesOrder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setModulesOrder(params.module_ids);
+          break;
+        }
+        case 15: {
+          const params = new_tab_page.mojom.PageHandler_GetModulesOrder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getModulesOrder();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_GetModulesOrder_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = new_tab_page.mojom.PageHandler_UpdateModulesLoadable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateModulesLoadable();
+          break;
+        }
+        case 17: {
+          const params = new_tab_page.mojom.PageHandler_SetModulesDisabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setModulesDisabled(params.module_ids, params.disabled, params.is_user_action);
+          break;
+        }
+        case 18: {
+          const params = new_tab_page.mojom.PageHandler_UpdateActionChipsVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateActionChipsVisibility();
+          break;
+        }
+        case 19: {
+          const params = new_tab_page.mojom.PageHandler_UpdateFooterVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateFooterVisibility();
+          break;
+        }
+        case 20: {
+          const params = new_tab_page.mojom.PageHandler_IncrementComposeButtonShownCount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.incrementComposeButtonShownCount();
+          break;
+        }
+        case 21: {
+          const params = new_tab_page.mojom.PageHandler_MaybeTriggerAutomaticCustomizeChromePromo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.maybeTriggerAutomaticCustomizeChromePromo();
+          break;
+        }
+        case 22: {
+          const params = new_tab_page.mojom.PageHandler_RecordContextMenuClick_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordContextMenuClick();
+          break;
+        }
+        case 23: {
+          const params = new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOneGoogleBarRendered(params.time);
+          break;
+        }
+        case 24: {
+          const params = new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPromoRendered(params.time, params.log_url);
+          break;
+        }
+        case 25: {
+          const params = new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCustomizeDialogAction(params.action);
+          break;
+        }
+        case 26: {
+          const params = new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDoodleImageClicked(params.type, params.log_url);
+          break;
+        }
+        case 27: {
+          const params = new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDoodleImageRendered(params.type, params.time, params.log_url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 28: {
+          const params = new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDoodleShared(params.channel, params.doodle_id, params.share_id);
+          break;
+        }
+        case 29: {
+          const params = new_tab_page.mojom.PageHandler_OnPromoLinkClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPromoLinkClicked();
+          break;
+        }
+        case 30: {
+          const params = new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAppRendered(params.time);
+          break;
+        }
+      }
+    });
+  }
+};
+
+new_tab_page.mojom.PageHandlerReceiver = new_tab_page.mojom.PageHandlerReceiver;
+
 new_tab_page.mojom.PageHandlerPtr = new_tab_page.mojom.PageHandlerRemote;
 new_tab_page.mojom.PageHandlerRequest = new_tab_page.mojom.PageHandlerPendingReceiver;
 
@@ -1101,6 +1336,68 @@ new_tab_page.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+new_tab_page.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = new_tab_page.mojom.Page_SetTheme_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTheme(params.theme);
+          break;
+        }
+        case 1: {
+          const params = new_tab_page.mojom.Page_SetDisabledModules_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDisabledModules(params.all, params.ids);
+          break;
+        }
+        case 2: {
+          const params = new_tab_page.mojom.Page_SetModulesLoadable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setModulesLoadable();
+          break;
+        }
+        case 3: {
+          const params = new_tab_page.mojom.Page_SetActionChipsVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setActionChipsVisibility(params.visible);
+          break;
+        }
+        case 4: {
+          const params = new_tab_page.mojom.Page_SetPromo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPromo(params.promo);
+          break;
+        }
+        case 5: {
+          const params = new_tab_page.mojom.Page_ShowWebstoreToast_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showWebstoreToast();
+          break;
+        }
+        case 6: {
+          const params = new_tab_page.mojom.Page_SetWallpaperSearchButtonVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWallpaperSearchButtonVisibility(params.visible);
+          break;
+        }
+        case 7: {
+          const params = new_tab_page.mojom.Page_FooterVisibilityUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.footerVisibilityUpdated(params.visible);
+          break;
+        }
+        case 8: {
+          const params = new_tab_page.mojom.Page_ConnectToParentDocument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectToParentDocument(params.child_untrusted_document_remote);
+          break;
+        }
+      }
+    });
+  }
+};
+
+new_tab_page.mojom.PageReceiver = new_tab_page.mojom.PageReceiver;
 
 new_tab_page.mojom.PagePtr = new_tab_page.mojom.PageRemote;
 new_tab_page.mojom.PageRequest = new_tab_page.mojom.PagePendingReceiver;

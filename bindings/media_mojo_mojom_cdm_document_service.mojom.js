@@ -7,6 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var mojo_base = mojo_base || {};
 
 media.mojom.MediaFoundationCdmDataSpec = { $: {} };
 media.mojom.CdmDocumentService = {};
@@ -199,6 +200,81 @@ media.mojom.CdmDocumentService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.CdmDocumentServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.challengePlatform(params.service_id, params.challenge);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getStorageId(params.version);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isVerifiedAccessEnabled();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMediaFoundationCdmData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCdmClientToken(params.client_token);
+          break;
+        }
+        case 5: {
+          const params = media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCdmEvent(params.event, params.hresult);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.CdmDocumentServiceReceiver = media.mojom.CdmDocumentServiceReceiver;
 
 media.mojom.CdmDocumentServicePtr = media.mojom.CdmDocumentServiceRemote;
 media.mojom.CdmDocumentServiceRequest = media.mojom.CdmDocumentServicePendingReceiver;

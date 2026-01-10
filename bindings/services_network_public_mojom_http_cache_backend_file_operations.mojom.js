@@ -7,6 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
+var mojo_base = mojo_base || {};
 
 network.mojom.HttpCacheBackendOpenFileFlagsSpec = { $: mojo.internal.Enum() };
 network.mojom.HttpCacheBackendDeleteFileModeSpec = { $: mojo.internal.Enum() };
@@ -132,6 +133,35 @@ network.mojom.FileEnumerator.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.FileEnumeratorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.FileEnumerator_GetNext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getNext(params.num_entries);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.FileEnumerator_GetNext_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.FileEnumeratorReceiver = network.mojom.FileEnumeratorReceiver;
 
 network.mojom.FileEnumeratorPtr = network.mojom.FileEnumeratorRemote;
 network.mojom.FileEnumeratorRequest = network.mojom.FileEnumeratorPendingReceiver;
@@ -379,6 +409,124 @@ network.mojom.HttpCacheBackendFileOperations.getRemote = function() {
   return remote.$;
 };
 
+network.mojom.HttpCacheBackendFileOperationsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createDirectory(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pathExists(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.directoryExists(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFile(params.path, params.flags);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteFile(params.path, params.mode);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.renameFile(params.from_path, params.to_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFileInfo(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enumerateFiles(params.path, params.receiver);
+          break;
+        }
+        case 8: {
+          const params = network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cleanupDirectory(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.HttpCacheBackendFileOperationsReceiver = network.mojom.HttpCacheBackendFileOperationsReceiver;
+
 network.mojom.HttpCacheBackendFileOperationsPtr = network.mojom.HttpCacheBackendFileOperationsRemote;
 network.mojom.HttpCacheBackendFileOperationsRequest = network.mojom.HttpCacheBackendFileOperationsPendingReceiver;
 
@@ -443,6 +591,28 @@ network.mojom.HttpCacheBackendFileOperationsFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.HttpCacheBackendFileOperationsFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.create(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.HttpCacheBackendFileOperationsFactoryReceiver = network.mojom.HttpCacheBackendFileOperationsFactoryReceiver;
 
 network.mojom.HttpCacheBackendFileOperationsFactoryPtr = network.mojom.HttpCacheBackendFileOperationsFactoryRemote;
 network.mojom.HttpCacheBackendFileOperationsFactoryRequest = network.mojom.HttpCacheBackendFileOperationsFactoryPendingReceiver;

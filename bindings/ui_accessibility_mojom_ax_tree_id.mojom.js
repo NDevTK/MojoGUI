@@ -7,7 +7,7 @@
 // Module namespace
 var ax = ax || {};
 ax.mojom = ax.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 
 ax.mojom.AXTreeIDSpec = { $: {} };
 

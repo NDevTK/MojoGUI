@@ -7,7 +7,8 @@
 // Module namespace
 var optimization_guide = optimization_guide || {};
 optimization_guide.mojom = optimization_guide.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var on_device_model = on_device_model || {};
 
 optimization_guide.mojom.OnDeviceFeatureSpec = { $: mojo.internal.Enum() };
 optimization_guide.mojom.ModelUnavailableReasonSpec = { $: mojo.internal.Enum() };
@@ -160,6 +161,38 @@ optimization_guide.mojom.ModelSolution.getRemote = function() {
   return remote.$;
 };
 
+optimization_guide.mojom.ModelSolutionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createSession(params.session, params.params);
+          break;
+        }
+        case 1: {
+          const params = optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createTextSafetySession(params.session);
+          break;
+        }
+        case 2: {
+          const params = optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportHealthyCompletion();
+          break;
+        }
+      }
+    });
+  }
+};
+
+optimization_guide.mojom.ModelSolutionReceiver = optimization_guide.mojom.ModelSolutionReceiver;
+
 optimization_guide.mojom.ModelSolutionPtr = optimization_guide.mojom.ModelSolutionRemote;
 optimization_guide.mojom.ModelSolutionRequest = optimization_guide.mojom.ModelSolutionPendingReceiver;
 
@@ -242,6 +275,33 @@ optimization_guide.mojom.ModelSubscriber.getRemote = function() {
   return remote.$;
 };
 
+optimization_guide.mojom.ModelSubscriberReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unavailable(params.reason);
+          break;
+        }
+        case 1: {
+          const params = optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.available(params.config, params.solution);
+          break;
+        }
+      }
+    });
+  }
+};
+
+optimization_guide.mojom.ModelSubscriberReceiver = optimization_guide.mojom.ModelSubscriberReceiver;
+
 optimization_guide.mojom.ModelSubscriberPtr = optimization_guide.mojom.ModelSubscriberRemote;
 optimization_guide.mojom.ModelSubscriberRequest = optimization_guide.mojom.ModelSubscriberPendingReceiver;
 
@@ -307,6 +367,28 @@ optimization_guide.mojom.ModelBroker.getRemote = function() {
     'context');
   return remote.$;
 };
+
+optimization_guide.mojom.ModelBrokerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.subscribe(params.options, params.subcriber);
+          break;
+        }
+      }
+    });
+  }
+};
+
+optimization_guide.mojom.ModelBrokerReceiver = optimization_guide.mojom.ModelBrokerReceiver;
 
 optimization_guide.mojom.ModelBrokerPtr = optimization_guide.mojom.ModelBrokerRemote;
 optimization_guide.mojom.ModelBrokerRequest = optimization_guide.mojom.ModelBrokerPendingReceiver;

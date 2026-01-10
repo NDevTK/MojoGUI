@@ -7,11 +7,9 @@
 // Module namespace
 var proxy_resolver = proxy_resolver || {};
 proxy_resolver.mojom = proxy_resolver.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var sandbox = sandbox || {};
+var network = network || {};
 var url = url || {};
-var services = services || {};
 
 proxy_resolver.mojom.HostResolveOperationSpec = { $: mojo.internal.Enum() };
 proxy_resolver.mojom.WinHttpStatusSpec = { $: mojo.internal.Enum() };
@@ -144,6 +142,28 @@ proxy_resolver.mojom.HostResolverRequestClient.getRemote = function() {
   return remote.$;
 };
 
+proxy_resolver.mojom.HostResolverRequestClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportResult(params.error, params.result);
+          break;
+        }
+      }
+    });
+  }
+};
+
+proxy_resolver.mojom.HostResolverRequestClientReceiver = proxy_resolver.mojom.HostResolverRequestClientReceiver;
+
 proxy_resolver.mojom.HostResolverRequestClientPtr = proxy_resolver.mojom.HostResolverRequestClientRemote;
 proxy_resolver.mojom.HostResolverRequestClientRequest = proxy_resolver.mojom.HostResolverRequestClientPendingReceiver;
 
@@ -210,6 +230,28 @@ proxy_resolver.mojom.ProxyResolver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+proxy_resolver.mojom.ProxyResolverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getProxyForUrl(params.url, params.network_anonymization_key, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+proxy_resolver.mojom.ProxyResolverReceiver = proxy_resolver.mojom.ProxyResolverReceiver;
 
 proxy_resolver.mojom.ProxyResolverPtr = proxy_resolver.mojom.ProxyResolverRemote;
 proxy_resolver.mojom.ProxyResolverRequest = proxy_resolver.mojom.ProxyResolverPendingReceiver;
@@ -329,6 +371,43 @@ proxy_resolver.mojom.ProxyResolverRequestClient.getRemote = function() {
   return remote.$;
 };
 
+proxy_resolver.mojom.ProxyResolverRequestClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportResult(params.error, params.proxy_info);
+          break;
+        }
+        case 1: {
+          const params = proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.alert(params.error);
+          break;
+        }
+        case 2: {
+          const params = proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.line_number, params.error);
+          break;
+        }
+        case 3: {
+          const params = proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolveDns(params.host, params.operation, params.network_anonymization_key, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+proxy_resolver.mojom.ProxyResolverRequestClientReceiver = proxy_resolver.mojom.ProxyResolverRequestClientReceiver;
+
 proxy_resolver.mojom.ProxyResolverRequestClientPtr = proxy_resolver.mojom.ProxyResolverRequestClientRemote;
 proxy_resolver.mojom.ProxyResolverRequestClientRequest = proxy_resolver.mojom.ProxyResolverRequestClientPendingReceiver;
 
@@ -395,6 +474,28 @@ proxy_resolver.mojom.ProxyResolverFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+proxy_resolver.mojom.ProxyResolverFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createResolver(params.pac_script, params.receiver, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+proxy_resolver.mojom.ProxyResolverFactoryReceiver = proxy_resolver.mojom.ProxyResolverFactoryReceiver;
 
 proxy_resolver.mojom.ProxyResolverFactoryPtr = proxy_resolver.mojom.ProxyResolverFactoryRemote;
 proxy_resolver.mojom.ProxyResolverFactoryRequest = proxy_resolver.mojom.ProxyResolverFactoryPendingReceiver;
@@ -513,6 +614,43 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClient.getRemote = function() {
   return remote.$;
 };
 
+proxy_resolver.mojom.ProxyResolverFactoryRequestClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportResult(params.error);
+          break;
+        }
+        case 1: {
+          const params = proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.alert(params.error);
+          break;
+        }
+        case 2: {
+          const params = proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.line_number, params.error);
+          break;
+        }
+        case 3: {
+          const params = proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolveDns(params.host, params.operation, params.network_anonymization_key, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+proxy_resolver.mojom.ProxyResolverFactoryRequestClientReceiver = proxy_resolver.mojom.ProxyResolverFactoryRequestClientReceiver;
+
 proxy_resolver.mojom.ProxyResolverFactoryRequestClientPtr = proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemote;
 proxy_resolver.mojom.ProxyResolverFactoryRequestClientRequest = proxy_resolver.mojom.ProxyResolverFactoryRequestClientPendingReceiver;
 
@@ -584,6 +722,35 @@ proxy_resolver.mojom.SystemProxyResolver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+proxy_resolver.mojom.SystemProxyResolverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getProxyForUrl(params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+proxy_resolver.mojom.SystemProxyResolverReceiver = proxy_resolver.mojom.SystemProxyResolverReceiver;
 
 proxy_resolver.mojom.SystemProxyResolverPtr = proxy_resolver.mojom.SystemProxyResolverRemote;
 proxy_resolver.mojom.SystemProxyResolverRequest = proxy_resolver.mojom.SystemProxyResolverPendingReceiver;

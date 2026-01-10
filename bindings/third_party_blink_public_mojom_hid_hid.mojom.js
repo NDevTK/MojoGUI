@@ -7,7 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
+var device = device || {};
 
 blink.mojom.DeviceIdFilterSpec = { $: {} };
 blink.mojom.UsageFilterSpec = { $: {} };
@@ -74,7 +74,7 @@ mojo.internal.Struct(
 // Interface: HidService
 mojo.internal.Struct(
     blink.mojom.HidService_RegisterClient_ParamsSpec, 'blink.mojom.HidService_RegisterClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(device.mojom.HidManagerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, pending_associated_remote<device.mojom.HidManagerClient>Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -219,6 +219,76 @@ blink.mojom.HidService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.HidServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.HidService_RegisterClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerClient(params.client);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.HidService_GetDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDevices();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.HidService_GetDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.HidService_RequestDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestDevice(params.filters, params.exclusion_filters);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.HidService_RequestDevice_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.HidService_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.device_guid, params.client);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.HidService_Connect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.HidService_Forget_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forget(params.device_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.HidService_Forget_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.HidServiceReceiver = blink.mojom.HidServiceReceiver;
 
 blink.mojom.HidServicePtr = blink.mojom.HidServiceRemote;
 blink.mojom.HidServiceRequest = blink.mojom.HidServicePendingReceiver;

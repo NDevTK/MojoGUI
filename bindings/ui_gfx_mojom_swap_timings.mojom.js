@@ -7,6 +7,7 @@
 // Module namespace
 var gfx = gfx || {};
 gfx.mojom = gfx.mojom || {};
+var mojo_base = mojo_base || {};
 
 gfx.mojom.SwapTimingsSpec = { $: {} };
 

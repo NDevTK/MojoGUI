@@ -7,7 +7,7 @@
 // Module namespace
 var composebox = composebox || {};
 composebox.mojom = composebox.mojom || {};
-var components = components || {};
+var searchbox = searchbox || {};
 var url = url || {};
 
 composebox.mojom.PageHandlerFactory = {};
@@ -87,6 +87,28 @@ composebox.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+composebox.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler, params.searchbox_page, params.searchbox_handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+composebox.mojom.PageHandlerFactoryReceiver = composebox.mojom.PageHandlerFactoryReceiver;
 
 composebox.mojom.PageHandlerFactoryPtr = composebox.mojom.PageHandlerFactoryRemote;
 composebox.mojom.PageHandlerFactoryRequest = composebox.mojom.PageHandlerFactoryPendingReceiver;
@@ -233,6 +255,53 @@ composebox.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+composebox.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focusChanged(params.focused);
+          break;
+        }
+        case 1: {
+          const params = composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDeepSearchMode(params.enabled);
+          break;
+        }
+        case 2: {
+          const params = composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCreateImageMode(params.enabled, params.image_present);
+          break;
+        }
+        case 3: {
+          const params = composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleLensButtonClick();
+          break;
+        }
+        case 4: {
+          const params = composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleFileUpload(params.is_image);
+          break;
+        }
+        case 5: {
+          const params = composebox.mojom.PageHandler_NavigateUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.navigateUrl(params.url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+composebox.mojom.PageHandlerReceiver = composebox.mojom.PageHandlerReceiver;
+
 composebox.mojom.PageHandlerPtr = composebox.mojom.PageHandlerRemote;
 composebox.mojom.PageHandlerRequest = composebox.mojom.PageHandlerPendingReceiver;
 
@@ -281,6 +350,23 @@ composebox.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+composebox.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+composebox.mojom.PageReceiver = composebox.mojom.PageReceiver;
 
 composebox.mojom.PagePtr = composebox.mojom.PageRemote;
 composebox.mojom.PageRequest = composebox.mojom.PagePendingReceiver;

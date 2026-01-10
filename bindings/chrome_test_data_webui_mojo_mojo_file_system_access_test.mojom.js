@@ -73,6 +73,28 @@ test.mojom.MojoFileSystemAccessTest.getRemote = function() {
   return remote.$;
 };
 
+test.mojom.MojoFileSystemAccessTestReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolveTransferToken(params.h);
+          break;
+        }
+      }
+    });
+  }
+};
+
+test.mojom.MojoFileSystemAccessTestReceiver = test.mojom.MojoFileSystemAccessTestReceiver;
+
 test.mojom.MojoFileSystemAccessTestPtr = test.mojom.MojoFileSystemAccessTestRemote;
 test.mojom.MojoFileSystemAccessTestRequest = test.mojom.MojoFileSystemAccessTestPendingReceiver;
 

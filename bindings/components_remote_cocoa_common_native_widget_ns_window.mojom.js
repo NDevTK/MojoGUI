@@ -7,15 +7,8 @@
 // Module namespace
 var remote_cocoa = remote_cocoa || {};
 remote_cocoa.mojom = remote_cocoa.mojom || {};
-var components = components || {};
-var components = components || {};
-var services = services || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var gfx = gfx || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var ui = ui || {};
 var gfx = gfx || {};
 
@@ -1051,6 +1044,300 @@ remote_cocoa.mojom.NativeWidgetNSWindow.getRemote = function() {
     'context');
   return remote.$;
 };
+
+remote_cocoa.mojom.NativeWidgetNSWindowReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_CreateWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createWindow(params.params);
+          break;
+        }
+        case 1: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetParent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setParent(params.parent_id);
+          break;
+        }
+        case 2: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_CreateSelectFileDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createSelectFileDialog(params.dialog);
+          break;
+        }
+        case 3: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_ShowCertificateViewer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showCertificateViewer(params.certificate);
+          break;
+        }
+        case 4: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_StackAbove_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stackAbove(params.sibling_id);
+          break;
+        }
+        case 5: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_StackAtTop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stackAtTop();
+          break;
+        }
+        case 6: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_ShowEmojiPanel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showEmojiPanel();
+          break;
+        }
+        case 7: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_InitWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initWindow(params.params);
+          break;
+        }
+        case 8: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initCompositorView();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, remote_cocoa.mojom.NativeWidgetNSWindow_InitCompositorView_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_CreateContentView_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createContentView(params.ns_view_id, params.bounds, params.corner_radius);
+          break;
+        }
+        case 10: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_DestroyContentView_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.destroyContentView();
+          break;
+        }
+        case 11: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeWindow();
+          break;
+        }
+        case 12: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_CloseWindowNow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeWindowNow();
+          break;
+        }
+        case 13: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetInitialBounds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setInitialBounds(params.new_bounds, params.minimum_content_size);
+          break;
+        }
+        case 14: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetBounds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBounds(params.new_bounds, params.minimum_content_size, params.maximum_content_size);
+          break;
+        }
+        case 15: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSize(params.new_size, params.minimum_content_size);
+          break;
+        }
+        case 16: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeAndCenter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSizeAndCenter(params.content_size, params.minimum_content_size);
+          break;
+        }
+        case 17: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibilityState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVisibilityState(params.new_state);
+          break;
+        }
+        case 18: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetAnimationEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAnimationEnabled(params.animation_enabled);
+          break;
+        }
+        case 19: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetTransitionsToAnimate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTransitionsToAnimate(params.transitions);
+          break;
+        }
+        case 20: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetVisibleOnAllSpaces_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVisibleOnAllSpaces(params.always_visible);
+          break;
+        }
+        case 21: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_EnterFullscreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enterFullscreen(params.target_display_id);
+          break;
+        }
+        case 22: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_ExitFullscreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.exitFullscreen();
+          break;
+        }
+        case 23: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetCanAppearInExistingFullscreenSpaces_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCanAppearInExistingFullscreenSpaces(params.can_appear_in_existing_fullscreen_spaces);
+          break;
+        }
+        case 24: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetMiniaturized_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMiniaturized(params.miniaturized);
+          break;
+        }
+        case 25: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetZoomed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setZoomed(params.zoomed);
+          break;
+        }
+        case 26: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetSizeConstraints_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSizeConstraints(params.min_size, params.max_size, params.is_resizable, params.is_maximizable);
+          break;
+        }
+        case 27: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetOpacity_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOpacity(params.opacity);
+          break;
+        }
+        case 28: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowLevel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWindowLevel(params.level);
+          break;
+        }
+        case 29: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetActivationIndependence_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setActivationIndependence(params.independence);
+          break;
+        }
+        case 30: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetAspectRatio_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAspectRatio(params.aspect_ratio, params.excluded_margin);
+          break;
+        }
+        case 31: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetCALayerParams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCALayerParams(params.ca_layer_params);
+          break;
+        }
+        case 32: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetWindowTitle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWindowTitle(params.title);
+          break;
+        }
+        case 33: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetIgnoresMouseEvents_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIgnoresMouseEvents(params.ignores_mouse_events);
+          break;
+        }
+        case 34: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_MakeFirstResponder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.makeFirstResponder();
+          break;
+        }
+        case 35: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SortSubviews_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sortSubviews(params.attached_subview_ids);
+          break;
+        }
+        case 36: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_ClearTouchBar_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearTouchBar();
+          break;
+        }
+        case 37: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_UpdateTooltip_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateTooltip();
+          break;
+        }
+        case 38: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_AcquireCapture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acquireCapture();
+          break;
+        }
+        case 39: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_ReleaseCapture_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.releaseCapture();
+          break;
+        }
+        case 40: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_RedispatchKeyEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.redispatchKeyEvent(params.native_event_data);
+          break;
+        }
+        case 41: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetLocalEventMonitorEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLocalEventMonitorEnabled(params.enabled);
+          break;
+        }
+        case 42: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetCursor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCursor(params.cursor);
+          break;
+        }
+        case 43: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_EnableImmersiveFullscreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableImmersiveFullscreen(params.fullscreen_overlay_widget_id, params.tab_widget_id);
+          break;
+        }
+        case 44: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_DisableImmersiveFullscreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disableImmersiveFullscreen();
+          break;
+        }
+        case 45: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_UpdateToolbarVisibility_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateToolbarVisibility(params.style);
+          break;
+        }
+        case 46: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_OnTopContainerViewBoundsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTopContainerViewBoundsChanged(params.bounds);
+          break;
+        }
+        case 47: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealLock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.immersiveFullscreenRevealLock();
+          break;
+        }
+        case 48: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_ImmersiveFullscreenRevealUnlock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.immersiveFullscreenRevealUnlock();
+          break;
+        }
+        case 49: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoBack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCanGoBack(params.can_go_back);
+          break;
+        }
+        case 50: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetCanGoForward_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCanGoForward(params.can_go_forward);
+          break;
+        }
+        case 51: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_DisplayContextMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.displayContextMenu(params.menu, params.host, params.receiver);
+          break;
+        }
+        case 52: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetAllowScreenshots_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAllowScreenshots(params.allow);
+          break;
+        }
+        case 53: {
+          const params = remote_cocoa.mojom.NativeWidgetNSWindow_SetColorMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setColorMode(params.color_mode);
+          break;
+        }
+      }
+    });
+  }
+};
+
+remote_cocoa.mojom.NativeWidgetNSWindowReceiver = remote_cocoa.mojom.NativeWidgetNSWindowReceiver;
 
 remote_cocoa.mojom.NativeWidgetNSWindowPtr = remote_cocoa.mojom.NativeWidgetNSWindowRemote;
 remote_cocoa.mojom.NativeWidgetNSWindowRequest = remote_cocoa.mojom.NativeWidgetNSWindowPendingReceiver;

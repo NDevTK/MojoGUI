@@ -81,6 +81,28 @@ chromecast.mojom.ActivityUrlFilterConfiguration.getRemote = function() {
   return remote.$;
 };
 
+chromecast.mojom.ActivityUrlFilterConfigurationReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFilter(params.filter);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromecast.mojom.ActivityUrlFilterConfigurationReceiver = chromecast.mojom.ActivityUrlFilterConfigurationReceiver;
+
 chromecast.mojom.ActivityUrlFilterConfigurationPtr = chromecast.mojom.ActivityUrlFilterConfigurationRemote;
 chromecast.mojom.ActivityUrlFilterConfigurationRequest = chromecast.mojom.ActivityUrlFilterConfigurationPendingReceiver;
 

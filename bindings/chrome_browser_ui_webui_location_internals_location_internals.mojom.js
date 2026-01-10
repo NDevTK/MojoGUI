@@ -6,7 +6,7 @@
 
 // Module namespace
 var mojom = mojom || {};
-var services = services || {};
+var device = device || {};
 
 mojom.LocationInternalsHandler = {};
 mojom.LocationInternalsHandler.$interfaceName = 'mojom.LocationInternalsHandler';
@@ -72,6 +72,28 @@ mojom.LocationInternalsHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+mojom.LocationInternalsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindInternalsInterface(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mojom.LocationInternalsHandlerReceiver = mojom.LocationInternalsHandlerReceiver;
 
 mojom.LocationInternalsHandlerPtr = mojom.LocationInternalsHandlerRemote;
 mojom.LocationInternalsHandlerRequest = mojom.LocationInternalsHandlerPendingReceiver;

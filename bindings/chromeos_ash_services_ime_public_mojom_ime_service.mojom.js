@@ -8,22 +8,9 @@
 var ash = ash || {};
 ash.ime = ash.ime || {};
 ash.ime.mojom = ash.ime.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
+var sandbox = sandbox || {};
 
 ash.ime.mojom.InputEngineManager = {};
 ash.ime.mojom.InputEngineManager.$interfaceName = 'ash.ime.mojom.InputEngineManager';
@@ -133,6 +120,47 @@ ash.ime.mojom.InputEngineManager.getRemote = function() {
   return remote.$;
 };
 
+ash.ime.mojom.InputEngineManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectToImeEngine(params.ime_spec, params.to_engine_request, params.from_engine, params.extra);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initializeConnectionFactory(params.connection_factory);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.ime.mojom.InputEngineManagerReceiver = ash.ime.mojom.InputEngineManagerReceiver;
+
 ash.ime.mojom.InputEngineManagerPtr = ash.ime.mojom.InputEngineManagerRemote;
 ash.ime.mojom.InputEngineManagerRequest = ash.ime.mojom.InputEngineManagerPendingReceiver;
 
@@ -204,6 +232,35 @@ ash.ime.mojom.PlatformAccessProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.ime.mojom.PlatformAccessProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.downloadImeFileTo(params.url, params.file_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.ime.mojom.PlatformAccessProviderReceiver = ash.ime.mojom.PlatformAccessProviderReceiver;
 
 ash.ime.mojom.PlatformAccessProviderPtr = ash.ime.mojom.PlatformAccessProviderRemote;
 ash.ime.mojom.PlatformAccessProviderRequest = ash.ime.mojom.PlatformAccessProviderPendingReceiver;
@@ -301,6 +358,38 @@ ash.ime.mojom.ImeService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.ime.mojom.ImeServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPlatformAccessProvider(params.provider);
+          break;
+        }
+        case 1: {
+          const params = ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindInputEngineManager(params.receiver);
+          break;
+        }
+        case 2: {
+          const params = ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindInputMethodUserDataService(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.ime.mojom.ImeServiceReceiver = ash.ime.mojom.ImeServiceReceiver;
 
 ash.ime.mojom.ImeServicePtr = ash.ime.mojom.ImeServiceRemote;
 ash.ime.mojom.ImeServiceRequest = ash.ime.mojom.ImeServicePendingReceiver;

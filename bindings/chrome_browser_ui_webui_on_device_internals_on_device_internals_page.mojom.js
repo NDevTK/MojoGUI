@@ -7,8 +7,8 @@
 // Module namespace
 var on_device_internals = on_device_internals || {};
 on_device_internals.mojom = on_device_internals.mojom || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var on_device_model = on_device_model || {};
 var skia = skia || {};
 
 on_device_internals.mojom.PageDataSpec = { $: {} };
@@ -154,6 +154,28 @@ on_device_internals.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+on_device_internals.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_internals.mojom.PageHandlerFactoryReceiver = on_device_internals.mojom.PageHandlerFactoryReceiver;
 
 on_device_internals.mojom.PageHandlerFactoryPtr = on_device_internals.mojom.PageHandlerFactoryRemote;
 on_device_internals.mojom.PageHandlerFactoryRequest = on_device_internals.mojom.PageHandlerFactoryPendingReceiver;
@@ -385,6 +407,110 @@ on_device_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+on_device_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadModel(params.model_path, params.performance_hint, params.model);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadPlatformModel(params.model_path, params.model);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceAndPerformanceInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDefaultModelPath();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.uninstallDefaultModel();
+          break;
+        }
+        case 5: {
+          const params = on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPageData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFeatureRecentlyUsedState(params.feature_key, params.is_recently_used);
+          break;
+        }
+        case 7: {
+          const params = on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decodeBitmap(params.image_buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetModelCrashCount();
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_internals.mojom.PageHandlerReceiver = on_device_internals.mojom.PageHandlerReceiver;
+
 on_device_internals.mojom.PageHandlerPtr = on_device_internals.mojom.PageHandlerRemote;
 on_device_internals.mojom.PageHandlerRequest = on_device_internals.mojom.PageHandlerPendingReceiver;
 
@@ -469,6 +595,33 @@ on_device_internals.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+on_device_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLogMessageAdded(params.event_time, params.source_file, params.source_line, params.message);
+          break;
+        }
+        case 1: {
+          const params = on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDownloadProgressUpdate(params.downloaded_bytes, params.total_bytes);
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_internals.mojom.PageReceiver = on_device_internals.mojom.PageReceiver;
 
 on_device_internals.mojom.PagePtr = on_device_internals.mojom.PageRemote;
 on_device_internals.mojom.PageRequest = on_device_internals.mojom.PagePendingReceiver;

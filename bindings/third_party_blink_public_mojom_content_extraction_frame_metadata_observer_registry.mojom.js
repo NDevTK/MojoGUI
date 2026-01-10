@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 var url = url || {};
 
 blink.mojom.PaidContentMetadataObserver = {};
@@ -82,6 +81,28 @@ blink.mojom.PaidContentMetadataObserver.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.PaidContentMetadataObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPaidContentMetadataChanged(params.has_paid_content);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PaidContentMetadataObserverReceiver = blink.mojom.PaidContentMetadataObserverReceiver;
+
 blink.mojom.PaidContentMetadataObserverPtr = blink.mojom.PaidContentMetadataObserverRemote;
 blink.mojom.PaidContentMetadataObserverRequest = blink.mojom.PaidContentMetadataObserverPendingReceiver;
 
@@ -146,6 +167,28 @@ blink.mojom.MetaTagsObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.MetaTagsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMetaTagsChanged(params.meta_tags);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.MetaTagsObserverReceiver = blink.mojom.MetaTagsObserverReceiver;
 
 blink.mojom.MetaTagsObserverPtr = blink.mojom.MetaTagsObserverRemote;
 blink.mojom.MetaTagsObserverRequest = blink.mojom.MetaTagsObserverPendingReceiver;
@@ -228,6 +271,33 @@ blink.mojom.FrameMetadataObserverRegistry.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.FrameMetadataObserverRegistryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addPaidContentMetadataObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addMetaTagsObserver(params.names, params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FrameMetadataObserverRegistryReceiver = blink.mojom.FrameMetadataObserverRegistryReceiver;
 
 blink.mojom.FrameMetadataObserverRegistryPtr = blink.mojom.FrameMetadataObserverRegistryRemote;
 blink.mojom.FrameMetadataObserverRegistryRequest = blink.mojom.FrameMetadataObserverRegistryPendingReceiver;

@@ -7,7 +7,6 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
-var chromeos = chromeos || {};
 
 cros.mojom.EntryTypeSpec = { $: mojo.internal.Enum() };
 cros.mojom.CameraMetadataEntrySpec = { $: {} };

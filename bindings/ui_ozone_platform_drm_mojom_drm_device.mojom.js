@@ -8,16 +8,9 @@
 var ui = ui || {};
 ui.ozone = ui.ozone || {};
 ui.ozone.mojom = ui.ozone.mojom || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var display = display || {};
 var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
 
 ui.ozone.mojom.DrmDevice = {};
 ui.ozone.mojom.DrmDevice.$interfaceName = 'ui.ozone.mojom.DrmDevice';
@@ -236,7 +229,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec, 'ui.ozone.mojom.DrmDevice_GetDeviceCursor_Params', [
-      mojo.internal.StructField('cursor', 0, 0, mojo.internal.AssociatedInterfaceRequest(ui.ozone.mojom.DeviceCursorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('cursor', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -473,6 +466,188 @@ ui.ozone.mojom.DrmDevice.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ui.ozone.mojom.DrmDeviceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createWindow(params.widget, params.initial_bounds);
+          break;
+        }
+        case 1: {
+          const params = ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.destroyWindow(params.widget);
+          break;
+        }
+        case 2: {
+          const params = ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWindowBounds(params.widget, params.bounds);
+          break;
+        }
+        case 3: {
+          const params = ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.takeDisplayControl();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.relinquishDisplayControl();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.refreshNativeDisplays();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addGraphicsDevice(params.path, params.fd_mojo_handle);
+          break;
+        }
+        case 7: {
+          const params = ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeGraphicsDevice(params.path);
+          break;
+        }
+        case 8: {
+          const params = ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldDisplayEventTriggerConfiguration(params.event_props);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.configureNativeDisplays(params.config_requests, params.modeset_flags);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHdcpKeyProp(params.display_id, params.key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getHDCPState(params.display_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setHDCPState(params.display_id, params.state, params.protection_method);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setColorTemperatureAdjustment(params.display_id, params.cta);
+          break;
+        }
+        case 14: {
+          const params = ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setColorCalibration(params.display_id, params.calibration);
+          break;
+        }
+        case 15: {
+          const params = ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setGammaAdjustment(params.display_id, params.adjustment);
+          break;
+        }
+        case 16: {
+          const params = ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPrivacyScreen(params.display_id, params.enabled);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 17: {
+          const params = ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSeamlessRefreshRates(params.display_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 18: {
+          const params = ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceCursor(params.cursor);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ui.ozone.mojom.DrmDeviceReceiver = ui.ozone.mojom.DrmDeviceReceiver;
 
 ui.ozone.mojom.DrmDevicePtr = ui.ozone.mojom.DrmDeviceRemote;
 ui.ozone.mojom.DrmDeviceRequest = ui.ozone.mojom.DrmDevicePendingReceiver;

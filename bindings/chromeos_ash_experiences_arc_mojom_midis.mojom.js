@@ -127,6 +127,33 @@ arc.mojom.MidisClient.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.MidisClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceAdded(params.device);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDeviceRemoved(params.device);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.MidisClientReceiver = arc.mojom.MidisClientReceiver;
+
 arc.mojom.MidisClientPtr = arc.mojom.MidisClientRemote;
 arc.mojom.MidisClientRequest = arc.mojom.MidisClientPendingReceiver;
 
@@ -235,6 +262,52 @@ arc.mojom.MidisServer.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.MidisServerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.MidisServer_ListDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listDevices();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.MidisServer_ListDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.MidisServer_RequestPort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPort(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.MidisServer_RequestPort_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.MidisServer_CloseDevice_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeDevice(params.request);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.MidisServerReceiver = arc.mojom.MidisServerReceiver;
+
 arc.mojom.MidisServerPtr = arc.mojom.MidisServerRemote;
 arc.mojom.MidisServerRequest = arc.mojom.MidisServerPendingReceiver;
 
@@ -300,6 +373,28 @@ arc.mojom.MidisHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.MidisHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.MidisHost_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.server, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.MidisHostReceiver = arc.mojom.MidisHostReceiver;
 
 arc.mojom.MidisHostPtr = arc.mojom.MidisHostRemote;
 arc.mojom.MidisHostRequest = arc.mojom.MidisHostPendingReceiver;
@@ -370,6 +465,35 @@ arc.mojom.MidisInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.MidisInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.MidisInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.MidisInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.MidisInstanceReceiver = arc.mojom.MidisInstanceReceiver;
 
 arc.mojom.MidisInstancePtr = arc.mojom.MidisInstanceRemote;
 arc.mojom.MidisInstanceRequest = arc.mojom.MidisInstancePendingReceiver;

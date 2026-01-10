@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.cellular_setup = ash.cellular_setup || {};
 ash.cellular_setup.mojom = ash.cellular_setup.mojom || {};
+var mojo_base = mojo_base || {};
 
 ash.cellular_setup.mojom.ProfileStateSpec = { $: mojo.internal.Enum() };
 ash.cellular_setup.mojom.ProfileInstallResultSpec = { $: mojo.internal.Enum() };
@@ -220,6 +221,43 @@ ash.cellular_setup.mojom.ESimManagerObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.cellular_setup.mojom.ESimManagerObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAvailableEuiccListChanged();
+          break;
+        }
+        case 1: {
+          const params = ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProfileListChanged(params.euicc);
+          break;
+        }
+        case 2: {
+          const params = ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEuiccChanged(params.euicc);
+          break;
+        }
+        case 3: {
+          const params = ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProfileChanged(params.profile);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cellular_setup.mojom.ESimManagerObserverReceiver = ash.cellular_setup.mojom.ESimManagerObserverReceiver;
+
 ash.cellular_setup.mojom.ESimManagerObserverPtr = ash.cellular_setup.mojom.ESimManagerObserverRemote;
 ash.cellular_setup.mojom.ESimManagerObserverRequest = ash.cellular_setup.mojom.ESimManagerObserverPendingReceiver;
 
@@ -305,6 +343,40 @@ ash.cellular_setup.mojom.ESimManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.cellular_setup.mojom.ESimManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 1: {
+          const params = ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAvailableEuiccs();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cellular_setup.mojom.ESimManagerReceiver = ash.cellular_setup.mojom.ESimManagerReceiver;
 
 ash.cellular_setup.mojom.ESimManagerPtr = ash.cellular_setup.mojom.ESimManagerRemote;
 ash.cellular_setup.mojom.ESimManagerRequest = ash.cellular_setup.mojom.ESimManagerPendingReceiver;
@@ -486,6 +558,95 @@ ash.cellular_setup.mojom.Euicc.getRemote = function() {
   return remote.$;
 };
 
+ash.cellular_setup.mojom.EuiccReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getProperties();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getProfileList();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestAvailableProfiles();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.refreshInstalledProfiles();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installProfileFromActivationCode(params.activation_code, params.confirmation_code, params.install_method);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEidQRCode();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cellular_setup.mojom.EuiccReceiver = ash.cellular_setup.mojom.EuiccReceiver;
+
 ash.cellular_setup.mojom.EuiccPtr = ash.cellular_setup.mojom.EuiccRemote;
 ash.cellular_setup.mojom.EuiccRequest = ash.cellular_setup.mojom.EuiccPendingReceiver;
 
@@ -620,6 +781,71 @@ ash.cellular_setup.mojom.ESimProfile.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.cellular_setup.mojom.ESimProfileReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getProperties();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installProfile(params.confirmation_code);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.uninstallProfile();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setProfileNickname(params.nickname);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cellular_setup.mojom.ESimProfileReceiver = ash.cellular_setup.mojom.ESimProfileReceiver;
 
 ash.cellular_setup.mojom.ESimProfilePtr = ash.cellular_setup.mojom.ESimProfileRemote;
 ash.cellular_setup.mojom.ESimProfileRequest = ash.cellular_setup.mojom.ESimProfilePendingReceiver;

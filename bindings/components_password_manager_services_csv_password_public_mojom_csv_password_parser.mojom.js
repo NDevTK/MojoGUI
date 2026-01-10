@@ -7,6 +7,7 @@
 // Module namespace
 var password_manager = password_manager || {};
 password_manager.mojom = password_manager.mojom || {};
+var sandbox = sandbox || {};
 var url = url || {};
 
 password_manager.mojom.StatusSpec = { $: mojo.internal.Enum() };
@@ -104,6 +105,35 @@ password_manager.mojom.CSVPasswordParser.getRemote = function() {
     'context');
   return remote.$;
 };
+
+password_manager.mojom.CSVPasswordParserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.parseCSV(params.raw_csv);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+password_manager.mojom.CSVPasswordParserReceiver = password_manager.mojom.CSVPasswordParserReceiver;
 
 password_manager.mojom.CSVPasswordParserPtr = password_manager.mojom.CSVPasswordParserRemote;
 password_manager.mojom.CSVPasswordParserRequest = password_manager.mojom.CSVPasswordParserPendingReceiver;

@@ -140,6 +140,64 @@ supervised_user.mojom.SupervisedUserCommands.getRemote = function() {
   return remote.$;
 };
 
+supervised_user.mojom.SupervisedUserCommandsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.goBack();
+          break;
+        }
+        case 1: {
+          const params = supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestUrlAccessRemote();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestUrlAccessLocal();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.learnMore();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+supervised_user.mojom.SupervisedUserCommandsReceiver = supervised_user.mojom.SupervisedUserCommandsReceiver;
+
 supervised_user.mojom.SupervisedUserCommandsPtr = supervised_user.mojom.SupervisedUserCommandsRemote;
 supervised_user.mojom.SupervisedUserCommandsRequest = supervised_user.mojom.SupervisedUserCommandsPendingReceiver;
 

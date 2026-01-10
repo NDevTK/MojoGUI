@@ -8,9 +8,7 @@
 var ash = ash || {};
 ash.ime = ash.ime || {};
 ash.ime.mojom = ash.ime.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 ash.ime.mojom.CommitTextCursorBehaviorSpec = { $: mojo.internal.Enum() };
 ash.ime.mojom.CompositionSpanStyleSpec = { $: mojo.internal.Enum() };
@@ -530,6 +528,115 @@ ash.ime.mojom.InputMethodHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.ime.mojom.InputMethodHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.commitText(params.text, params.cursor_behavior);
+          break;
+        }
+        case 1: {
+          const params = ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dEPRECATED_SetComposition(params.text, params.spans);
+          break;
+        }
+        case 12: {
+          const params = ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setComposition(params.text, params.spans, params.new_cursor_position);
+          break;
+        }
+        case 2: {
+          const params = ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCompositionRange(params.start_index, params.end_index);
+          break;
+        }
+        case 3: {
+          const params = ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.finishComposition();
+          break;
+        }
+        case 4: {
+          const params = ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteSurroundingText(params.num_before_cursor, params.num_after_cursor);
+          break;
+        }
+        case 16: {
+          const params = ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.replaceSurroundingText(params.num_before_cursor, params.num_after_cursor, params.text);
+          break;
+        }
+        case 5: {
+          const params = ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleAutocorrect(params.autocorrect_span);
+          break;
+        }
+        case 6: {
+          const params = ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.displaySuggestions(params.suggestions, params.context);
+          break;
+        }
+        case 9: {
+          const params = ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateCandidatesWindow(params.window);
+          break;
+        }
+        case 7: {
+          const params = ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestSuggestions(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateQuickSettings(params.settings);
+          break;
+        }
+        case 8: {
+          const params = ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordUkm(params.entry);
+          break;
+        }
+        case 10: {
+          const params = ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dEPRECATED_ReportKoreanAction(params.action);
+          break;
+        }
+        case 11: {
+          const params = ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dEPRECATED_ReportKoreanSettings(params.settings);
+          break;
+        }
+        case 14: {
+          const params = ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dEPRECATED_ReportSuggestionOpportunity(params.mode);
+          break;
+        }
+        case 15: {
+          const params = ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dEPRECATED_ReportHistogramSample(params.histogram, params.value);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.ime.mojom.InputMethodHostReceiver = ash.ime.mojom.InputMethodHostReceiver;
 
 ash.ime.mojom.InputMethodHostPtr = ash.ime.mojom.InputMethodHostRemote;
 ash.ime.mojom.InputMethodHostRequest = ash.ime.mojom.InputMethodHostPendingReceiver;

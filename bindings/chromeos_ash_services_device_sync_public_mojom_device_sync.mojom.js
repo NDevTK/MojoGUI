@@ -8,9 +8,7 @@
 var ash = ash || {};
 ash.device_sync = ash.device_sync || {};
 ash.device_sync.mojom = ash.device_sync.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var components = components || {};
+var mojo_base = mojo_base || {};
 
 ash.device_sync.mojom.NetworkRequestResultSpec = { $: mojo.internal.Enum() };
 ash.device_sync.mojom.FeatureStatusChangeSpec = { $: mojo.internal.Enum() };
@@ -216,6 +214,33 @@ ash.device_sync.mojom.DeviceSyncObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.device_sync.mojom.DeviceSyncObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEnrollmentFinished();
+          break;
+        }
+        case 1: {
+          const params = ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewDevicesSynced();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.device_sync.mojom.DeviceSyncObserverReceiver = ash.device_sync.mojom.DeviceSyncObserverReceiver;
 
 ash.device_sync.mojom.DeviceSyncObserverPtr = ash.device_sync.mojom.DeviceSyncObserverRemote;
 ash.device_sync.mojom.DeviceSyncObserverRequest = ash.device_sync.mojom.DeviceSyncObserverPendingReceiver;
@@ -551,6 +576,179 @@ ash.device_sync.mojom.DeviceSync.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.device_sync.mojom.DeviceSyncReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_AddObserver_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forceEnrollmentNow();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forceSyncNow();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getGroupPrivateKeyStatus();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getBetterTogetherMetadataStatus();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSyncedDevices();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLocalDeviceMetadata();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSoftwareFeatureState(params.device_public_key, params.software_feature, params.enabled, params.is_exclusive);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFeatureStatus(params.device_instance_id, params.feature, params.status_change);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.findEligibleDevices(params.software_feature);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyDevices(params.device_instance_ids, params.cryptauth_service, params.feature);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDevicesActivityStatus();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDebugInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.device_sync.mojom.DeviceSyncReceiver = ash.device_sync.mojom.DeviceSyncReceiver;
 
 ash.device_sync.mojom.DeviceSyncPtr = ash.device_sync.mojom.DeviceSyncRemote;
 ash.device_sync.mojom.DeviceSyncRequest = ash.device_sync.mojom.DeviceSyncPendingReceiver;

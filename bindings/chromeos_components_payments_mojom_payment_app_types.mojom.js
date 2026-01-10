@@ -8,6 +8,7 @@
 var chromeos = chromeos || {};
 chromeos.payments = chromeos.payments || {};
 chromeos.payments.mojom = chromeos.payments.mojom || {};
+var mojo_base = mojo_base || {};
 
 chromeos.payments.mojom.IsPaymentImplementedResultSpec = { $: {} };
 chromeos.payments.mojom.IsReadyToPayResultSpec = { $: {} };

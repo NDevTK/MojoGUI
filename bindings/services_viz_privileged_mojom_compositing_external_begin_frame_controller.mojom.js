@@ -7,7 +7,7 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 
 viz.mojom.ExternalBeginFrameController = {};
 viz.mojom.ExternalBeginFrameController.$interfaceName = 'viz.mojom.ExternalBeginFrameController';
@@ -139,6 +139,50 @@ viz.mojom.ExternalBeginFrameController.getRemote = function() {
   return remote.$;
 };
 
+viz.mojom.ExternalBeginFrameControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.issueExternalBeginFrame(params.args, params.force);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.issueExternalBeginFrameNoAck(params.args);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.issueExternalVSync(params.params);
+          break;
+        }
+        case 3: {
+          const params = viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSupportedDisplayLinkId(params.display_id, params.is_supported);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.ExternalBeginFrameControllerReceiver = viz.mojom.ExternalBeginFrameControllerReceiver;
+
 viz.mojom.ExternalBeginFrameControllerPtr = viz.mojom.ExternalBeginFrameControllerRemote;
 viz.mojom.ExternalBeginFrameControllerRequest = viz.mojom.ExternalBeginFrameControllerPendingReceiver;
 
@@ -236,6 +280,38 @@ viz.mojom.ExternalBeginFrameControllerClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.ExternalBeginFrameControllerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setNeedsBeginFrame(params.needs_begin_frames);
+          break;
+        }
+        case 1: {
+          const params = viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.needsBeginFrameWithId(params.display_id, params.needs_begin_frames);
+          break;
+        }
+        case 2: {
+          const params = viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPreferredInterval(params.interval);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.ExternalBeginFrameControllerClientReceiver = viz.mojom.ExternalBeginFrameControllerClientReceiver;
 
 viz.mojom.ExternalBeginFrameControllerClientPtr = viz.mojom.ExternalBeginFrameControllerClientRemote;
 viz.mojom.ExternalBeginFrameControllerClientRequest = viz.mojom.ExternalBeginFrameControllerClientPendingReceiver;

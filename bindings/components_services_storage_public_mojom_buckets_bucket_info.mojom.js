@@ -7,7 +7,7 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
-var blink = blink || {};
+var mojo_base = mojo_base || {};
 var blink = blink || {};
 
 storage.mojom.BucketInfoSpec = { $: {} };

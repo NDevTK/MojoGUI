@@ -7,8 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
 
 network.mojom.SocketBroker = {};
 network.mojom.SocketBroker.$interfaceName = 'network.mojom.SocketBroker';
@@ -107,6 +105,47 @@ network.mojom.SocketBroker.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.SocketBrokerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createTcpSocket(params.address_family);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createUdpSocket(params.address_family);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.SocketBrokerReceiver = network.mojom.SocketBrokerReceiver;
 
 network.mojom.SocketBrokerPtr = network.mojom.SocketBrokerRemote;
 network.mojom.SocketBrokerRequest = network.mojom.SocketBrokerPendingReceiver;

@@ -8,6 +8,7 @@
 var private_aggregation_internals = private_aggregation_internals || {};
 private_aggregation_internals.mojom = private_aggregation_internals.mojom || {};
 var url = url || {};
+var mojo_base = mojo_base || {};
 
 private_aggregation_internals.mojom.ReportStatusSpec = { $: mojo.internal.Enum() };
 private_aggregation_internals.mojom.AggregatableReportRequestIDSpec = { $: {} };
@@ -142,6 +143,33 @@ private_aggregation_internals.mojom.Observer.getRemote = function() {
   return remote.$;
 };
 
+private_aggregation_internals.mojom.ObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRequestStorageModified();
+          break;
+        }
+        case 1: {
+          const params = private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReportHandled(params.report);
+          break;
+        }
+      }
+    });
+  }
+};
+
+private_aggregation_internals.mojom.ObserverReceiver = private_aggregation_internals.mojom.ObserverReceiver;
+
 private_aggregation_internals.mojom.ObserverPtr = private_aggregation_internals.mojom.ObserverRemote;
 private_aggregation_internals.mojom.ObserverRequest = private_aggregation_internals.mojom.ObserverPendingReceiver;
 
@@ -253,6 +281,59 @@ private_aggregation_internals.mojom.Handler.getRemote = function() {
   return remote.$;
 };
 
+private_aggregation_internals.mojom.HandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getReports();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendReports(params.ids);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearStorage();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+private_aggregation_internals.mojom.HandlerReceiver = private_aggregation_internals.mojom.HandlerReceiver;
+
 private_aggregation_internals.mojom.HandlerPtr = private_aggregation_internals.mojom.HandlerRemote;
 private_aggregation_internals.mojom.HandlerRequest = private_aggregation_internals.mojom.HandlerPendingReceiver;
 
@@ -318,6 +399,28 @@ private_aggregation_internals.mojom.Factory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+private_aggregation_internals.mojom.FactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = private_aggregation_internals.mojom.Factory_Create_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.create(params.observer, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+private_aggregation_internals.mojom.FactoryReceiver = private_aggregation_internals.mojom.FactoryReceiver;
 
 private_aggregation_internals.mojom.FactoryPtr = private_aggregation_internals.mojom.FactoryRemote;
 private_aggregation_internals.mojom.FactoryRequest = private_aggregation_internals.mojom.FactoryPendingReceiver;

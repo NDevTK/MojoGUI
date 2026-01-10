@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.os_feedback_ui = ash.os_feedback_ui || {};
 ash.os_feedback_ui.mojom = ash.os_feedback_ui.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 ash.os_feedback_ui.mojom.HelpContentTypeSpec = { $: mojo.internal.Enum() };
@@ -231,6 +232,35 @@ ash.os_feedback_ui.mojom.HelpContentProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.os_feedback_ui.mojom.HelpContentProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getHelpContents(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.os_feedback_ui.mojom.HelpContentProviderReceiver = ash.os_feedback_ui.mojom.HelpContentProviderReceiver;
 
 ash.os_feedback_ui.mojom.HelpContentProviderPtr = ash.os_feedback_ui.mojom.HelpContentProviderRemote;
 ash.os_feedback_ui.mojom.HelpContentProviderRequest = ash.os_feedback_ui.mojom.HelpContentProviderPendingReceiver;
@@ -500,6 +530,109 @@ ash.os_feedback_ui.mojom.FeedbackServiceProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFeedbackContext();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getScreenshotPng();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetScreenshotPng_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendReport(params.report);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.os_feedback_ui.mojom.FeedbackServiceProvider_SendReport_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenDiagnosticsApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openDiagnosticsApp();
+          break;
+        }
+        case 4: {
+          const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenExploreApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openExploreApp();
+          break;
+        }
+        case 5: {
+          const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenMetricsDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openMetricsDialog();
+          break;
+        }
+        case 6: {
+          const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenSystemInfoDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openSystemInfoDialog();
+          break;
+        }
+        case 7: {
+          const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_OpenAutofillDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openAutofillDialog(params.autofill_metadata);
+          break;
+        }
+        case 8: {
+          const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPostSubmitAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordPostSubmitAction(params.action);
+          break;
+        }
+        case 9: {
+          const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordPreSubmitAction_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordPreSubmitAction(params.action);
+          break;
+        }
+        case 10: {
+          const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordExitPath_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordExitPath(params.exit_path);
+          break;
+        }
+        case 11: {
+          const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentOutcome_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordHelpContentOutcome(params.outcome);
+          break;
+        }
+        case 12: {
+          const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_RecordHelpContentSearchResultCount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordHelpContentSearchResultCount(params.count);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver;
 
 ash.os_feedback_ui.mojom.FeedbackServiceProviderPtr = ash.os_feedback_ui.mojom.FeedbackServiceProviderRemote;
 ash.os_feedback_ui.mojom.FeedbackServiceProviderRequest = ash.os_feedback_ui.mojom.FeedbackServiceProviderPendingReceiver;

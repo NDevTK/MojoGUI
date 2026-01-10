@@ -8,14 +8,6 @@
 var ash = ash || {};
 ash.screens_factory = ash.screens_factory || {};
 ash.screens_factory.mojom = ash.screens_factory.mojom || {};
-var ui = ui || {};
-var ash = ash || {};
-var ui = ui || {};
-var ash = ash || {};
-var ui = ui || {};
-var ash = ash || {};
-var ui = ui || {};
-var ash = ash || {};
 
 ash.screens_factory.mojom.ScreensFactory = {};
 ash.screens_factory.mojom.ScreensFactory.$interfaceName = 'ash.screens_factory.mojom.ScreensFactory';
@@ -310,6 +302,125 @@ ash.screens_factory.mojom.ScreensFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.screens_factory.mojom.ScreensFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishAiIntroScreenPipe(params.handler);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishAppDownloadingScreenPipe(params.handler);
+          break;
+        }
+        case 2: {
+          const params = ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishDrivePinningScreenPipe(params.handler);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishFjordStationSetupScreenPipe(params.handler);
+          break;
+        }
+        case 4: {
+          const params = ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishGaiaInfoScreenPipe(params.handler);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishGestureNavigationScreenPipe(params.handler);
+          break;
+        }
+        case 6: {
+          const params = ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishGeminiIntroScreenPipe(params.handler);
+          break;
+        }
+        case 7: {
+          const params = ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishConsumerUpdateScreenPipe(params.handler);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishPackagedLicenseScreenPipe(params.handler);
+          break;
+        }
+        case 9: {
+          const params = ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishArcVmDataMigrationScreenPipe(params.handler);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishEncryptionMigrationScreenPipe(params.handler);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.establishLocalDataLossWarningScreenPipe(params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.screens_factory.mojom.ScreensFactoryReceiver = ash.screens_factory.mojom.ScreensFactoryReceiver;
 
 ash.screens_factory.mojom.ScreensFactoryPtr = ash.screens_factory.mojom.ScreensFactoryRemote;
 ash.screens_factory.mojom.ScreensFactoryRequest = ash.screens_factory.mojom.ScreensFactoryPendingReceiver;

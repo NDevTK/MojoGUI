@@ -7,12 +7,9 @@
 // Module namespace
 var mirroring = mirroring || {};
 mirroring.mojom = mirroring.mojom || {};
-var components = components || {};
-var components = components || {};
-var components = components || {};
-var components = components || {};
-var ui = ui || {};
+var sandbox = sandbox || {};
 var gfx = gfx || {};
+var mojo_base = mojo_base || {};
 
 mirroring.mojom.MirroringService = {};
 mirroring.mojom.MirroringService.$interfaceName = 'mirroring.mojom.MirroringService';
@@ -128,6 +125,45 @@ mirroring.mojom.MirroringService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+mirroring.mojom.MirroringServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mirroring.mojom.MirroringService_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start(params.params, params.max_resolution, params.observer, params.resource_provider, params.outbound_channel, params.inbound_channel);
+          break;
+        }
+        case 1: {
+          const params = mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.switchMirroringSourceTab();
+          break;
+        }
+        case 2: {
+          const params = mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMirroringStats();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+mirroring.mojom.MirroringServiceReceiver = mirroring.mojom.MirroringServiceReceiver;
 
 mirroring.mojom.MirroringServicePtr = mirroring.mojom.MirroringServiceRemote;
 mirroring.mojom.MirroringServiceRequest = mirroring.mojom.MirroringServicePendingReceiver;

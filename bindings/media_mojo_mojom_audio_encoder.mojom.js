@@ -7,6 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
+var mojo_base = mojo_base || {};
 
 media.mojom.AacOutputFormatSpec = { $: mojo.internal.Enum() };
 media.mojom.AacAudioEncoderConfigSpec = { $: {} };
@@ -61,7 +62,7 @@ mojo.internal.Struct(
 // Interface: AudioEncoder
 mojo.internal.Struct(
     media.mojom.AudioEncoder_Initialize_ParamsSpec, 'media.mojom.AudioEncoder_Initialize_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(media.mojom.AudioEncoderClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('config', 8, 0, media.mojom.AudioEncoderConfigSpec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -169,6 +170,59 @@ media.mojom.AudioEncoder.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.AudioEncoderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioEncoder_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.client, params.config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.AudioEncoder_Initialize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = media.mojom.AudioEncoder_Encode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.encode(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.AudioEncoder_Encode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = media.mojom.AudioEncoder_Flush_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flush();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.AudioEncoder_Flush_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioEncoderReceiver = media.mojom.AudioEncoderReceiver;
+
 media.mojom.AudioEncoderPtr = media.mojom.AudioEncoderRemote;
 media.mojom.AudioEncoderRequest = media.mojom.AudioEncoderPendingReceiver;
 
@@ -234,6 +288,28 @@ media.mojom.AudioEncoderClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.AudioEncoderClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEncodedBufferReady(params.buffer, params.description);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AudioEncoderClientReceiver = media.mojom.AudioEncoderClientReceiver;
 
 media.mojom.AudioEncoderClientPtr = media.mojom.AudioEncoderClientRemote;
 media.mojom.AudioEncoderClientRequest = media.mojom.AudioEncoderClientPendingReceiver;

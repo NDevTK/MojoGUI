@@ -7,22 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var url = url || {};
+var network = network || {};
 var url = url || {};
 
 blink.mojom.DedicatedWorkerHostFactoryClient = {};
@@ -137,6 +122,38 @@ blink.mojom.DedicatedWorkerHostFactoryClient.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.DedicatedWorkerHostFactoryClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onWorkerHostCreated(params.browser_interface_broker, params.host, params.origin);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScriptLoadStarted(params.service_worker_container_info, params.main_script_load_params, params.subresource_loader_factories, params.subresource_loader_updater, params.controller_info, params.back_forward_cache_controller_host, params.coep_reporting_observer_receiver, params.dip_reporting_observer_receiver);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScriptLoadStartFailed();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DedicatedWorkerHostFactoryClientReceiver = blink.mojom.DedicatedWorkerHostFactoryClientReceiver;
+
 blink.mojom.DedicatedWorkerHostFactoryClientPtr = blink.mojom.DedicatedWorkerHostFactoryClientRemote;
 blink.mojom.DedicatedWorkerHostFactoryClientRequest = blink.mojom.DedicatedWorkerHostFactoryClientPendingReceiver;
 
@@ -207,6 +224,28 @@ blink.mojom.DedicatedWorkerHostFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.DedicatedWorkerHostFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createWorkerHostAndStartScriptLoad(params.token, params.script_url, params.credentials_mode, params.outside_fetch_client_settings_object, params.blob_url_token, params.client, params.storage_access_api_status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DedicatedWorkerHostFactoryReceiver = blink.mojom.DedicatedWorkerHostFactoryReceiver;
 
 blink.mojom.DedicatedWorkerHostFactoryPtr = blink.mojom.DedicatedWorkerHostFactoryRemote;
 blink.mojom.DedicatedWorkerHostFactoryRequest = blink.mojom.DedicatedWorkerHostFactoryPendingReceiver;

@@ -107,6 +107,38 @@ blink.mojom.ContentSecurityNotifier.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.ContentSecurityNotifierReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyContentWithCertificateErrorsRan();
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyContentWithCertificateErrorsDisplayed();
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyInsecureContentRan(params.origin, params.insecure_url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ContentSecurityNotifierReceiver = blink.mojom.ContentSecurityNotifierReceiver;
+
 blink.mojom.ContentSecurityNotifierPtr = blink.mojom.ContentSecurityNotifierRemote;
 blink.mojom.ContentSecurityNotifierRequest = blink.mojom.ContentSecurityNotifierPendingReceiver;
 

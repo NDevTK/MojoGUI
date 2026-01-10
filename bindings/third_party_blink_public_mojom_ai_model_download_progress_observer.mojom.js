@@ -74,6 +74,28 @@ blink.mojom.ModelDownloadProgressObserver.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.ModelDownloadProgressObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDownloadProgressUpdate(params.downloaded_bytes, params.total_bytes);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ModelDownloadProgressObserverReceiver = blink.mojom.ModelDownloadProgressObserverReceiver;
+
 blink.mojom.ModelDownloadProgressObserverPtr = blink.mojom.ModelDownloadProgressObserverRemote;
 blink.mojom.ModelDownloadProgressObserverRequest = blink.mojom.ModelDownloadProgressObserverPendingReceiver;
 

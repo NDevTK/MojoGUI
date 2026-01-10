@@ -8,6 +8,7 @@
 var metrics = metrics || {};
 metrics.structured = metrics.structured || {};
 metrics.structured.mojom = metrics.structured.mojom || {};
+var mojo_base = mojo_base || {};
 
 metrics.structured.mojom.MetricValueSpec = { $: {} };
 metrics.structured.mojom.EventSpec = { $: {} };

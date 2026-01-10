@@ -7,7 +7,7 @@
 // Module namespace
 var content_settings = content_settings || {};
 content_settings.mojom = content_settings.mojom || {};
-var components = components || {};
+var mojo_base = mojo_base || {};
 
 content_settings.mojom.ContentSettingSpec = { $: mojo.internal.Enum() };
 content_settings.mojom.PatternPartsSpec = { $: {} };

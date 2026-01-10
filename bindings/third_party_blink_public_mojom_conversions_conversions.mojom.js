@@ -7,10 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var components = components || {};
-var components = components || {};
-var blink = blink || {};
-var services = services || {};
+var attribution_reporting = attribution_reporting || {};
+var network = network || {};
 var url = url || {};
 
 blink.mojom.ImpressionSpec = { $: {} };
@@ -125,6 +123,38 @@ blink.mojom.AttributionHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.AttributionHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerDataHost(params.data_host, params.registration_eligibility, params.is_for_background_requests, params.reporting_origins);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerNavigationDataHost(params.data_host, params.attribution_src_token);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyNavigationWithBackgroundRegistrationsWillStart(params.attribution_src_token, params.expected_registrations);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AttributionHostReceiver = blink.mojom.AttributionHostReceiver;
 
 blink.mojom.AttributionHostPtr = blink.mojom.AttributionHostRemote;
 blink.mojom.AttributionHostRequest = blink.mojom.AttributionHostPendingReceiver;

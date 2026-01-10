@@ -7,8 +7,6 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
-var chromeos = chromeos || {};
-var chromeos = chromeos || {};
 
 cros.mojom.HalPixelFormatSpec = { $: mojo.internal.Enum() };
 cros.mojom.Camera3StreamTypeSpec = { $: mojo.internal.Enum() };
@@ -449,6 +447,50 @@ cros.mojom.Camera3CallbackOps.getRemote = function() {
   return remote.$;
 };
 
+cros.mojom.Camera3CallbackOpsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.Camera3CallbackOps_ProcessCaptureResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.processCaptureResult(params.result);
+          break;
+        }
+        case 1: {
+          const params = cros.mojom.Camera3CallbackOps_Notify_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notify(params.msg);
+          break;
+        }
+        case 2: {
+          const params = cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestStreamBuffers(params.buffer_reqs);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = cros.mojom.Camera3CallbackOps_ReturnStreamBuffers_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.returnStreamBuffers(params.buffers);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.Camera3CallbackOpsReceiver = cros.mojom.Camera3CallbackOpsReceiver;
+
 cros.mojom.Camera3CallbackOpsPtr = cros.mojom.Camera3CallbackOpsRemote;
 cros.mojom.Camera3CallbackOpsRequest = cros.mojom.Camera3CallbackOpsPendingReceiver;
 
@@ -752,6 +794,146 @@ cros.mojom.Camera3DeviceOps.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cros.mojom.Camera3DeviceOpsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.Camera3DeviceOps_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.callback_ops);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_Initialize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = cros.mojom.Camera3DeviceOps_ConfigureStreams_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.configureStreams(params.config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_ConfigureStreams_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.constructDefaultRequestSettings(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.processCaptureRequest(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = cros.mojom.Camera3DeviceOps_Dump_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dump(params.fd);
+          break;
+        }
+        case 5: {
+          const params = cros.mojom.Camera3DeviceOps_Flush_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flush();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_Flush_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = cros.mojom.Camera3DeviceOps_RegisterBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerBuffer(params.buffer_id, params.type, params.fds, params.drm_format, params.hal_pixel_format, params.width, params.height, params.strides, params.offsets);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_RegisterBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = cros.mojom.Camera3DeviceOps_Close_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.close();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_Close_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.configureStreamsAndGetAllocatedBuffers(params.config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = cros.mojom.Camera3DeviceOps_SignalStreamFlush_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.signalStreamFlush(params.stream_ids);
+          break;
+        }
+        case 10: {
+          const params = cros.mojom.Camera3DeviceOps_OnNewBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewBuffer(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.Camera3DeviceOps_OnNewBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = cros.mojom.Camera3DeviceOps_OnBufferRetired_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBufferRetired(params.buffer_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.Camera3DeviceOpsReceiver = cros.mojom.Camera3DeviceOpsReceiver;
 
 cros.mojom.Camera3DeviceOpsPtr = cros.mojom.Camera3DeviceOpsRemote;
 cros.mojom.Camera3DeviceOpsRequest = cros.mojom.Camera3DeviceOpsPendingReceiver;

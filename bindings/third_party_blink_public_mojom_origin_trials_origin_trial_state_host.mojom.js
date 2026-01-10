@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 var url = url || {};
 
 blink.mojom.OriginTrialFeatureStateSpec = { $: {} };
@@ -101,6 +100,33 @@ blink.mojom.OriginTrialStateHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.OriginTrialStateHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applyFeatureDiffForOriginTrial(params.origin_trial_features);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enablePersistentTrial(params.token, params.script_origins);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.OriginTrialStateHostReceiver = blink.mojom.OriginTrialStateHostReceiver;
 
 blink.mojom.OriginTrialStateHostPtr = blink.mojom.OriginTrialStateHostRemote;
 blink.mojom.OriginTrialStateHostRequest = blink.mojom.OriginTrialStateHostPendingReceiver;

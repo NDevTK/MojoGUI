@@ -7,6 +7,7 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
+var gpu = gpu || {};
 
 viz.mojom.TextureReleaser = {};
 viz.mojom.TextureReleaser.$interfaceName = 'viz.mojom.TextureReleaser';
@@ -73,6 +74,28 @@ viz.mojom.TextureReleaser.getRemote = function() {
     'context');
   return remote.$;
 };
+
+viz.mojom.TextureReleaserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = viz.mojom.TextureReleaser_Release_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.release(params.sync_token, params.is_lost);
+          break;
+        }
+      }
+    });
+  }
+};
+
+viz.mojom.TextureReleaserReceiver = viz.mojom.TextureReleaserReceiver;
 
 viz.mojom.TextureReleaserPtr = viz.mojom.TextureReleaserRemote;
 viz.mojom.TextureReleaserRequest = viz.mojom.TextureReleaserPendingReceiver;

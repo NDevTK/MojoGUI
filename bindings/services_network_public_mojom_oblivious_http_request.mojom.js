@@ -7,10 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 network.mojom.ObliviousHttpCompletionResultSpec = { $: {} };
@@ -143,6 +140,28 @@ network.mojom.ObliviousHttpClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.ObliviousHttpClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCompleted(params.response);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.ObliviousHttpClientReceiver = network.mojom.ObliviousHttpClientReceiver;
 
 network.mojom.ObliviousHttpClientPtr = network.mojom.ObliviousHttpClientRemote;
 network.mojom.ObliviousHttpClientRequest = network.mojom.ObliviousHttpClientPendingReceiver;

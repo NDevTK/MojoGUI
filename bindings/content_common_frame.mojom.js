@@ -7,61 +7,17 @@
 // Module namespace
 var content = content || {};
 content.mojom = content.mojom || {};
-var content = content || {};
-var content = content || {};
-var content = content || {};
-var content = content || {};
-var content = content || {};
+var cc = cc || {};
+var IPC = IPC || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var network = network || {};
+var service_manager = service_manager || {};
+var viz = viz || {};
 var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var ui = ui || {};
-var ui = ui || {};
+var ax = ax || {};
 var ui = ui || {};
 var gfx = gfx || {};
-var url = url || {};
-var url = url || {};
 var url = url || {};
 
 content.mojom.ViewWidgetTypeSpec = { $: mojo.internal.Enum() };
@@ -187,7 +143,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('type', 64, 0, content.mojom.ViewWidgetTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('fenced_frame_mode', 72, 0, blink.mojom.DeprecatedFencedFrameModeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('outermost_origin', 80, 0, url.mojom.OriginSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('blink_page_broadcast', 88, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.PageBroadcastRemote), null, false, 0, undefined),
+      mojo.internal.StructField('blink_page_broadcast', 88, 0, pending_associated_receiver<blink.mojom.PageBroadcast>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('base_background_color', 96, 0, skia.mojom.SkColorSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('color_provider_colors', 104, 0, blink.mojom.ColorProviderColorMapsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('browsing_context_group_token', 112, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, false, 0, undefined),
@@ -205,9 +161,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.CreateLocalMainFrameParamsSpec, 'content.mojom.CreateLocalMainFrameParams', [
       mojo.internal.StructField('frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('frame', 8, 0, mojo.internal.AssociatedInterfaceRequest(content.mojom.FrameRemote), null, false, 0, undefined),
+      mojo.internal.StructField('frame', 8, 0, pending_associated_receiver<content.mojom.Frame>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('interface_broker', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('associated_interface_provider_remote', 24, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('associated_interface_provider_remote', 24, 0, pending_associated_remote<blink.mojom.AssociatedInterfaceProvider>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('document_token', 32, 0, blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('policy_container', 40, 0, blink.mojom.PolicyContainerSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('widget_params', 48, 0, content.mojom.CreateFrameWidgetParamsSpec.$, null, false, 0, undefined),
@@ -237,10 +193,10 @@ mojo.internal.Struct(
 // Struct: CreateFrameWidgetParams
 mojo.internal.Struct(
     content.mojom.CreateFrameWidgetParamsSpec, 'content.mojom.CreateFrameWidgetParams', [
-      mojo.internal.StructField('frame_widget_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.FrameWidgetHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('frame_widget', 8, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.FrameWidgetRemote), null, false, 0, undefined),
-      mojo.internal.StructField('widget_host', 16, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.WidgetHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('widget', 24, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.WidgetRemote), null, false, 0, undefined),
+      mojo.internal.StructField('frame_widget_host', 0, 0, pending_associated_remote<blink.mojom.FrameWidgetHost>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_widget', 8, 0, pending_associated_receiver<blink.mojom.FrameWidget>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('widget_host', 16, 0, pending_associated_remote<blink.mojom.WidgetHost>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('widget', 24, 0, pending_associated_receiver<blink.mojom.Widget>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('visual_properties', 32, 0, blink.mojom.VisualPropertiesSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('routing_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -262,8 +218,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('widget_params', 80, 0, content.mojom.CreateFrameWidgetParamsSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('document_token', 88, 0, blink.mojom.DocumentTokenSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('policy_container', 96, 0, blink.mojom.PolicyContainerSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('frame', 104, 0, mojo.internal.AssociatedInterfaceRequest(content.mojom.FrameRemote), null, false, 0, undefined),
-      mojo.internal.StructField('associated_interface_provider_remote', 112, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('frame', 104, 0, pending_associated_receiver<content.mojom.Frame>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('associated_interface_provider_remote', 112, 0, pending_associated_remote<blink.mojom.AssociatedInterfaceProvider>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('navigation_metrics_token', 120, 0, mojo_base.mojom.UnguessableTokenSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('routing_id', 128, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('is_on_initial_empty_document', 132, 0, mojo.internal.Bool, true, false, 0, undefined),
@@ -297,14 +253,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('download_policy', 88, 0, blink.mojom.NavigationDownloadPolicySpec.$, null, false, 0, undefined),
       mojo.internal.StructField('pip_options', 96, 0, blink.mojom.PictureInPictureWindowOptionsSpec.$, null, true, 0, undefined),
       mojo.internal.StructField('initiator_activation_and_ad_status', 104, 0, blink.mojom.NavigationInitiatorActivationAndAdStatusSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('frame_remote', 112, 0, mojo.internal.AssociatedInterfaceProxy(content.mojom.FrameRemote), null, false, 0, undefined),
-      mojo.internal.StructField('page_broadcast_remote', 120, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.PageBroadcastRemote), null, false, 0, undefined),
+      mojo.internal.StructField('frame_remote', 112, 0, pending_associated_remote<content.mojom.Frame>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('page_broadcast_remote', 120, 0, pending_associated_remote<blink.mojom.PageBroadcast>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('main_frame_interface_broker', 128, 0, mojo.internal.InterfaceRequest(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('associated_interface_provider', 136, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('widget_host', 144, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.WidgetHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('widget', 152, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.WidgetRemote), null, false, 0, undefined),
-      mojo.internal.StructField('frame_widget_host', 160, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.FrameWidgetHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('frame_widget', 168, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.FrameWidgetRemote), null, false, 0, undefined),
+      mojo.internal.StructField('associated_interface_provider', 136, 0, pending_associated_receiver<blink.mojom.AssociatedInterfaceProvider>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('widget_host', 144, 0, pending_associated_receiver<blink.mojom.WidgetHost>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('widget', 152, 0, pending_associated_remote<blink.mojom.Widget>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_widget_host', 160, 0, pending_associated_receiver<blink.mojom.FrameWidgetHost>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('frame_widget', 168, 0, pending_associated_remote<blink.mojom.FrameWidget>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('allow_popup', 176, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('opener_suppressed', 176, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_form_submission', 176, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -406,6 +362,33 @@ content.mojom.FrameHTMLSerializerHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.FrameHTMLSerializerHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didReceiveData(params.data_buffer);
+          break;
+        }
+        case 1: {
+          const params = content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.done();
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.FrameHTMLSerializerHandlerReceiver = content.mojom.FrameHTMLSerializerHandlerReceiver;
 
 content.mojom.FrameHTMLSerializerHandlerPtr = content.mojom.FrameHTMLSerializerHandlerRemote;
 content.mojom.FrameHTMLSerializerHandlerRequest = content.mojom.FrameHTMLSerializerHandlerPendingReceiver;
@@ -624,6 +607,82 @@ content.mojom.Frame.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.FrameReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.commitSameDocumentNavigation(params.common_params, params.request_params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.Frame_CommitSameDocumentNavigation_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = content.mojom.Frame_UpdateSubresourceLoaderFactories_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateSubresourceLoaderFactories(params.subresource_loader_factories);
+          break;
+        }
+        case 2: {
+          const params = content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setWantErrorMessageStackTrace();
+          break;
+        }
+        case 3: {
+          const params = content.mojom.Frame_Unload_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unload(params.is_loading, params.new_remote_frame_replication_state, params.new_remote_frame_token, params.new_remote_frame_interfaces, params.new_remote_main_frame_interfaces, params.devtools_frame_token);
+          break;
+        }
+        case 4: {
+          const params = content.mojom.Frame_Delete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.delete(params.intention);
+          break;
+        }
+        case 5: {
+          const params = content.mojom.Frame_UndoCommitNavigation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.undoCommitNavigation(params.is_loading, params.new_remote_frame_replication_state, params.new_remote_frame_token, params.new_remote_frame_interfaces, params.new_remote_main_frame_interfaces);
+          break;
+        }
+        case 6: {
+          const params = content.mojom.Frame_GetInterfaceProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getInterfaceProvider(params.interfaces);
+          break;
+        }
+        case 7: {
+          const params = content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.snapshotAccessibilityTree(params.params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getSerializedHtmlWithLocalLinks(params.url_map, params.frame_token_map, params.save_with_empty_url, params.handler_remote);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.FrameReceiver = content.mojom.FrameReceiver;
+
 content.mojom.FramePtr = content.mojom.FrameRemote;
 content.mojom.FrameRequest = content.mojom.FramePendingReceiver;
 
@@ -649,8 +708,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec, 'content.mojom.FrameBindingsControl_BindWebUI_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(content.mojom.WebUIRemote), null, false, 0, undefined),
-      mojo.internal.StructField('remote', 8, 0, mojo.internal.AssociatedInterfaceProxy(content.mojom.WebUIHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, pending_associated_receiver<content.mojom.WebUI>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('remote', 8, 0, pending_associated_remote<content.mojom.WebUIHost>Spec.$, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -738,6 +797,43 @@ content.mojom.FrameBindingsControl.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.FrameBindingsControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.allowBindings(params.enabled_bindings_flags);
+          break;
+        }
+        case 1: {
+          const params = content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableMojoJsBindings(params.features);
+          break;
+        }
+        case 2: {
+          const params = content.mojom.FrameBindingsControl_EnableMojoJsBindingsWithBroker_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableMojoJsBindingsWithBroker(params.broker);
+          break;
+        }
+        case 3: {
+          const params = content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindWebUI(params.receiver, params.remote);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.FrameBindingsControlReceiver = content.mojom.FrameBindingsControlReceiver;
+
 content.mojom.FrameBindingsControlPtr = content.mojom.FrameBindingsControlRemote;
 content.mojom.FrameBindingsControlRequest = content.mojom.FrameBindingsControlPendingReceiver;
 
@@ -802,6 +898,28 @@ content.mojom.NavigationRendererCancellationListener.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.NavigationRendererCancellationListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rendererCancellationWindowEnded();
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.NavigationRendererCancellationListenerReceiver = content.mojom.NavigationRendererCancellationListenerReceiver;
+
 content.mojom.NavigationRendererCancellationListenerPtr = content.mojom.NavigationRendererCancellationListenerRemote;
 content.mojom.NavigationRendererCancellationListenerRequest = content.mojom.NavigationRendererCancellationListenerPendingReceiver;
 
@@ -823,10 +941,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     content.mojom.FrameHost_CreateChildFrame_ParamsSpec, 'content.mojom.FrameHost_CreateChildFrame_Params', [
       mojo.internal.StructField('child_frame_token', 0, 0, blink.mojom.LocalFrameTokenSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('frame', 8, 0, mojo.internal.AssociatedInterfaceProxy(content.mojom.FrameRemote), null, false, 0, undefined),
+      mojo.internal.StructField('frame', 8, 0, pending_associated_remote<content.mojom.Frame>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('browser_interface_broker', 16, 0, mojo.internal.InterfaceRequest(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
       mojo.internal.StructField('policy_container_bind_params', 24, 0, blink.mojom.PolicyContainerBindParamsSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('associated_interface_provider', 32, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('associated_interface_provider', 32, 0, pending_associated_receiver<blink.mojom.AssociatedInterfaceProvider>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('scope', 40, 0, blink.mojom.TreeScopeTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('frame_name', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('frame_unique_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
@@ -863,7 +981,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('common_params', 0, 0, blink.mojom.CommonNavigationParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('begin_params', 8, 0, blink.mojom.BeginNavigationParamsSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('blob_url_token', 16, 0, mojo.internal.InterfaceProxy(blink.mojom.BlobURLTokenRemote), null, true, 0, undefined),
-      mojo.internal.StructField('navigation_client', 24, 0, mojo.internal.AssociatedInterfaceProxy(content.mojom.NavigationClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('navigation_client', 24, 0, mojo.internal.Pointer, null, true, 0, undefined),
       mojo.internal.StructField('initiator_navigation_state_keep_alive_handle', 32, 0, mojo.internal.InterfaceProxy(blink.mojom.NavigationStateKeepAliveHandleRemote), null, true, 0, undefined),
       mojo.internal.StructField('renderer_cancellation_listener', 40, 0, mojo.internal.InterfaceRequest(content.mojom.NavigationRendererCancellationListenerRemote), null, false, 0, undefined),
     ],
@@ -907,7 +1025,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     content.mojom.FrameHost_UpdateState_ParamsSpec, 'content.mojom.FrameHost_UpdateState_Params', [
-      mojo.internal.StructField('state', 0, 0, content.mojom.PageStateSpec.$, null, false, 0, undefined),
+      mojo.internal.StructField('state', 0, 0, blink.mojom.PageStateSpec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1115,6 +1233,105 @@ content.mojom.FrameHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.FrameHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.FrameHost_CreateNewWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createNewWindow(params.params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.FrameHost_CreateNewWindow_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = content.mojom.FrameHost_CreateChildFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createChildFrame(params.child_frame_token, params.frame, params.browser_interface_broker, params.policy_container_bind_params, params.associated_interface_provider, params.scope, params.frame_name, params.frame_unique_name, params.is_created_by_script, params.frame_policy, params.frame_owner_properties, params.child_frame_owner_element_type, params.document_ukm_source_id);
+          break;
+        }
+        case 2: {
+          const params = content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didCommitProvisionalLoad(params.params, params.interface_params);
+          break;
+        }
+        case 3: {
+          const params = content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didCommitSameDocumentNavigation(params.params, params.same_document_params);
+          break;
+        }
+        case 4: {
+          const params = content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didOpenDocumentInputStream(params.url);
+          break;
+        }
+        case 5: {
+          const params = content.mojom.FrameHost_BeginNavigation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.beginNavigation(params.common_params, params.begin_params, params.blob_url_token, params.navigation_client, params.initiator_navigation_state_keep_alive_handle, params.renderer_cancellation_listener);
+          break;
+        }
+        case 6: {
+          const params = content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.subresourceResponseStarted(params.final_response_url, params.cert_status);
+          break;
+        }
+        case 7: {
+          const params = content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resourceLoadComplete(params.url_load_info);
+          break;
+        }
+        case 8: {
+          const params = content.mojom.FrameHost_DidChangeName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didChangeName(params.name, params.unique_name);
+          break;
+        }
+        case 9: {
+          const params = content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelInitialHistoryLoad();
+          break;
+        }
+        case 10: {
+          const params = content.mojom.FrameHost_UpdateEncoding_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateEncoding(params.encoding_name);
+          break;
+        }
+        case 11: {
+          const params = content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateUserGestureCarryoverInfo();
+          break;
+        }
+        case 12: {
+          const params = content.mojom.FrameHost_UpdateState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateState(params.state);
+          break;
+        }
+        case 13: {
+          const params = content.mojom.FrameHost_OpenURL_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openURL(params.params);
+          break;
+        }
+        case 14: {
+          const params = content.mojom.FrameHost_DidStopLoading_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didStopLoading();
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.FrameHostReceiver = content.mojom.FrameHostReceiver;
 
 content.mojom.FrameHostPtr = content.mojom.FrameHostRemote;
 content.mojom.FrameHostRequest = content.mojom.FrameHostPendingReceiver;

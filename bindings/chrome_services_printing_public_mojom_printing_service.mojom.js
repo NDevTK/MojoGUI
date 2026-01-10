@@ -7,10 +7,7 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var sandbox = sandbox || {};
 
 printing.mojom.PrintingService = {};
 printing.mojom.PrintingService.$interfaceName = 'printing.mojom.PrintingService';
@@ -131,6 +128,43 @@ printing.mojom.PrintingService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+printing.mojom.PrintingServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindPdfNupConverter(params.receiver);
+          break;
+        }
+        case 1: {
+          const params = printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindPdfToPwgRasterConverter(params.receiver);
+          break;
+        }
+        case 2: {
+          const params = printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindPdfFlattener(params.receiver);
+          break;
+        }
+        case 3: {
+          const params = printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindPdfToEmfConverterFactory(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+printing.mojom.PrintingServiceReceiver = printing.mojom.PrintingServiceReceiver;
 
 printing.mojom.PrintingServicePtr = printing.mojom.PrintingServiceRemote;
 printing.mojom.PrintingServiceRequest = printing.mojom.PrintingServicePendingReceiver;

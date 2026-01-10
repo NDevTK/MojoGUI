@@ -7,12 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var viz = viz || {};
 
 blink.mojom.SurfaceEmbedder = {};
 blink.mojom.SurfaceEmbedder.$interfaceName = 'blink.mojom.SurfaceEmbedder';
@@ -109,6 +104,33 @@ blink.mojom.SurfaceEmbedder.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.SurfaceEmbedderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLocalSurfaceId(params.local_surface_id);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOpacityChanged(params.is_opaque);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.SurfaceEmbedderReceiver = blink.mojom.SurfaceEmbedderReceiver;
+
 blink.mojom.SurfaceEmbedderPtr = blink.mojom.SurfaceEmbedderRemote;
 blink.mojom.SurfaceEmbedderRequest = blink.mojom.SurfaceEmbedderPendingReceiver;
 
@@ -173,6 +195,28 @@ blink.mojom.EmbeddedFrameSinkClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.EmbeddedFrameSinkClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindSurfaceEmbedder(params.embedder);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.EmbeddedFrameSinkClientReceiver = blink.mojom.EmbeddedFrameSinkClientReceiver;
 
 blink.mojom.EmbeddedFrameSinkClientPtr = blink.mojom.EmbeddedFrameSinkClientRemote;
 blink.mojom.EmbeddedFrameSinkClientRequest = blink.mojom.EmbeddedFrameSinkClientPendingReceiver;
@@ -364,6 +408,63 @@ blink.mojom.EmbeddedFrameSinkProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.EmbeddedFrameSinkProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerEmbeddedFrameSink(params.parent_frame_sink_id, params.frame_sink_id, params.client);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerEmbeddedFrameSinkBundle(params.bundle_id, params.receiver, params.client);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCompositorFrameSink(params.frame_sink_id, params.client, params.sink);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createBundledCompositorFrameSink(params.frame_sink_id, params.bundle_id, params.client, params.sink);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createSimpleCompositorFrameSink(params.parent_frame_sink_id, params.frame_sink_id, params.surface_client, params.client, params.sink);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectToEmbedder(params.frame_sink_id, params.embedder);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerFrameSinkHierarchy(params.frame_sink_id);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unregisterFrameSinkHierarchy(params.frame_sink_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.EmbeddedFrameSinkProviderReceiver = blink.mojom.EmbeddedFrameSinkProviderReceiver;
 
 blink.mojom.EmbeddedFrameSinkProviderPtr = blink.mojom.EmbeddedFrameSinkProviderRemote;
 blink.mojom.EmbeddedFrameSinkProviderRequest = blink.mojom.EmbeddedFrameSinkProviderPendingReceiver;

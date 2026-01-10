@@ -7,7 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var components = components || {};
+var os_crypt_async = os_crypt_async || {};
 
 network.mojom.CookieEncryptionProvider = {};
 network.mojom.CookieEncryptionProvider.$interfaceName = 'network.mojom.CookieEncryptionProvider';
@@ -79,6 +79,35 @@ network.mojom.CookieEncryptionProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.CookieEncryptionProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEncryptor();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.CookieEncryptionProviderReceiver = network.mojom.CookieEncryptionProviderReceiver;
 
 network.mojom.CookieEncryptionProviderPtr = network.mojom.CookieEncryptionProviderRemote;
 network.mojom.CookieEncryptionProviderRequest = network.mojom.CookieEncryptionProviderPendingReceiver;

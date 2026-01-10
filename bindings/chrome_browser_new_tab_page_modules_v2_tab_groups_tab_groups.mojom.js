@@ -8,7 +8,7 @@
 var ntp = ntp || {};
 ntp.tab_groups = ntp.tab_groups || {};
 ntp.tab_groups.mojom = ntp.tab_groups.mojom || {};
-var components = components || {};
+var tab_groups = tab_groups || {};
 var url = url || {};
 
 ntp.tab_groups.mojom.TabGroupSpec = { $: {} };
@@ -162,6 +162,55 @@ ntp.tab_groups.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ntp.tab_groups.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createNewTabGroup();
+          break;
+        }
+        case 1: {
+          const params = ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTabGroups();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openTabGroup(params.id);
+          break;
+        }
+        case 3: {
+          const params = ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dismissModule();
+          break;
+        }
+        case 4: {
+          const params = ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restoreModule();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ntp.tab_groups.mojom.PageHandlerReceiver = ntp.tab_groups.mojom.PageHandlerReceiver;
 
 ntp.tab_groups.mojom.PageHandlerPtr = ntp.tab_groups.mojom.PageHandlerRemote;
 ntp.tab_groups.mojom.PageHandlerRequest = ntp.tab_groups.mojom.PageHandlerPendingReceiver;

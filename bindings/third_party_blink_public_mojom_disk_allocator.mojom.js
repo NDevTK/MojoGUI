@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.DiskAllocator = {};
 blink.mojom.DiskAllocator.$interfaceName = 'blink.mojom.DiskAllocator';
@@ -72,6 +73,28 @@ blink.mojom.DiskAllocator.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.DiskAllocatorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.provideTemporaryFile(params.file);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.DiskAllocatorReceiver = blink.mojom.DiskAllocatorReceiver;
 
 blink.mojom.DiskAllocatorPtr = blink.mojom.DiskAllocatorRemote;
 blink.mojom.DiskAllocatorRequest = blink.mojom.DiskAllocatorPendingReceiver;

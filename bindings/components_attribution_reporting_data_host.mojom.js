@@ -7,8 +7,6 @@
 // Module namespace
 var attribution_reporting = attribution_reporting || {};
 attribution_reporting.mojom = attribution_reporting.mojom || {};
-var components = components || {};
-var components = components || {};
 
 attribution_reporting.mojom.DataAvailableCallsiteSpec = { $: mojo.internal.Enum() };
 attribution_reporting.mojom.DataHost = {};
@@ -156,6 +154,48 @@ attribution_reporting.mojom.DataHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+attribution_reporting.mojom.DataHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sourceDataAvailable(params.reporting_origin, params.data, params.was_fetched_via_service_worker);
+          break;
+        }
+        case 1: {
+          const params = attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.triggerDataAvailable(params.reporting_origin, params.data, params.was_fetched_via_service_worker);
+          break;
+        }
+        case 2: {
+          const params = attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.osSourceDataAvailable(params.registration, params.was_fetched_via_service_worker);
+          break;
+        }
+        case 3: {
+          const params = attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.osTriggerDataAvailable(params.registration, params.was_fetched_via_service_worker);
+          break;
+        }
+        case 4: {
+          const params = attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reportRegistrationHeaderError(params.reporting_origin, params.error);
+          break;
+        }
+      }
+    });
+  }
+};
+
+attribution_reporting.mojom.DataHostReceiver = attribution_reporting.mojom.DataHostReceiver;
 
 attribution_reporting.mojom.DataHostPtr = attribution_reporting.mojom.DataHostRemote;
 attribution_reporting.mojom.DataHostRequest = attribution_reporting.mojom.DataHostPendingReceiver;

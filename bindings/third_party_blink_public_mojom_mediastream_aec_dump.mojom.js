@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.AecDumpAgent = {};
 blink.mojom.AecDumpAgent.$interfaceName = 'blink.mojom.AecDumpAgent';
@@ -92,6 +93,33 @@ blink.mojom.AecDumpAgent.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.AecDumpAgentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AecDumpAgent_Start_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.start(params.file);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AecDumpAgent_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AecDumpAgentReceiver = blink.mojom.AecDumpAgentReceiver;
+
 blink.mojom.AecDumpAgentPtr = blink.mojom.AecDumpAgentRemote;
 blink.mojom.AecDumpAgentRequest = blink.mojom.AecDumpAgentPendingReceiver;
 
@@ -156,6 +184,28 @@ blink.mojom.AecDumpManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.AecDumpManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AecDumpManager_Add_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.add(params.agent);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AecDumpManagerReceiver = blink.mojom.AecDumpManagerReceiver;
 
 blink.mojom.AecDumpManagerPtr = blink.mojom.AecDumpManagerRemote;
 blink.mojom.AecDumpManagerRequest = blink.mojom.AecDumpManagerPendingReceiver;

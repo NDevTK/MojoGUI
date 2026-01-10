@@ -7,7 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
 
 blink.mojom.RendererPreferenceWatcher = {};
 blink.mojom.RendererPreferenceWatcher.$interfaceName = 'blink.mojom.RendererPreferenceWatcher';
@@ -73,6 +72,28 @@ blink.mojom.RendererPreferenceWatcher.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.RendererPreferenceWatcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyUpdate(params.new_prefs);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.RendererPreferenceWatcherReceiver = blink.mojom.RendererPreferenceWatcherReceiver;
 
 blink.mojom.RendererPreferenceWatcherPtr = blink.mojom.RendererPreferenceWatcherRemote;
 blink.mojom.RendererPreferenceWatcherRequest = blink.mojom.RendererPreferenceWatcherPendingReceiver;

@@ -176,6 +176,28 @@ ash.auth.mojom.FactorObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.auth.mojom.FactorObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFactorChanged(params.factor);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.auth.mojom.FactorObserverReceiver = ash.auth.mojom.FactorObserverReceiver;
+
 ash.auth.mojom.FactorObserverPtr = ash.auth.mojom.FactorObserverRemote;
 ash.auth.mojom.FactorObserverRequest = ash.auth.mojom.FactorObserverPendingReceiver;
 
@@ -349,6 +371,81 @@ ash.auth.mojom.AuthFactorConfig.getRemote = function() {
   return remote.$;
 };
 
+ash.auth.mojom.AuthFactorConfigReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeFactorChanges(params.observer);
+          break;
+        }
+        case 1: {
+          const params = ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isSupported(params.auth_token, params.factor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isConfigured(params.auth_token, params.factor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getManagementType(params.auth_token, params.factor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isEditable(params.auth_token, params.factor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getLocalAuthFactorsComplexity(params.auth_token);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.auth.mojom.AuthFactorConfigReceiver = ash.auth.mojom.AuthFactorConfigReceiver;
+
 ash.auth.mojom.AuthFactorConfigPtr = ash.auth.mojom.AuthFactorConfigRemote;
 ash.auth.mojom.AuthFactorConfigRequest = ash.auth.mojom.AuthFactorConfigPendingReceiver;
 
@@ -420,6 +517,35 @@ ash.auth.mojom.RecoveryFactorEditor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.auth.mojom.RecoveryFactorEditorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.configure(params.auth_token, params.enabled);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.auth.mojom.RecoveryFactorEditorReceiver = ash.auth.mojom.RecoveryFactorEditorReceiver;
 
 ash.auth.mojom.RecoveryFactorEditorPtr = ash.auth.mojom.RecoveryFactorEditorRemote;
 ash.auth.mojom.RecoveryFactorEditorRequest = ash.auth.mojom.RecoveryFactorEditorPendingReceiver;
@@ -582,6 +708,83 @@ ash.auth.mojom.PinFactorEditor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.auth.mojom.PinFactorEditorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPin(params.auth_token, params.pin);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updatePin(params.auth_token, params.pin);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removePin(params.auth_token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getConfiguredPinFactor(params.auth_token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkPinComplexity(params.auth_token, params.pin);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.auth.mojom.PinFactorEditorReceiver = ash.auth.mojom.PinFactorEditorReceiver;
 
 ash.auth.mojom.PinFactorEditorPtr = ash.auth.mojom.PinFactorEditorRemote;
 ash.auth.mojom.PinFactorEditorRequest = ash.auth.mojom.PinFactorEditorPendingReceiver;
@@ -767,6 +970,95 @@ ash.auth.mojom.PasswordFactorEditor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.auth.mojom.PasswordFactorEditorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateOrSetLocalPassword(params.auth_token, params.new_password);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateOrSetOnlinePassword(params.auth_token, params.new_password);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setLocalPassword(params.auth_token, params.new_password);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOnlinePassword(params.auth_token, params.new_password);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkLocalPasswordComplexity(params.password);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removePassword(params.auth_token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.auth.mojom.PasswordFactorEditorReceiver = ash.auth.mojom.PasswordFactorEditorReceiver;
 
 ash.auth.mojom.PasswordFactorEditorPtr = ash.auth.mojom.PasswordFactorEditorRemote;
 ash.auth.mojom.PasswordFactorEditorRequest = ash.auth.mojom.PasswordFactorEditorPendingReceiver;

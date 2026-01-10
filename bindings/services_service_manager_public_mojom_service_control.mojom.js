@@ -72,6 +72,28 @@ service_manager.mojom.ServiceControl.getRemote = function() {
   return remote.$;
 };
 
+service_manager.mojom.ServiceControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestQuit();
+          break;
+        }
+      }
+    });
+  }
+};
+
+service_manager.mojom.ServiceControlReceiver = service_manager.mojom.ServiceControlReceiver;
+
 service_manager.mojom.ServiceControlPtr = service_manager.mojom.ServiceControlRemote;
 service_manager.mojom.ServiceControlRequest = service_manager.mojom.ServiceControlPendingReceiver;
 

@@ -7,8 +7,8 @@
 // Module namespace
 var privacy_sandbox_internals = privacy_sandbox_internals || {};
 privacy_sandbox_internals.mojom = privacy_sandbox_internals.mojom || {};
-var components = components || {};
-var components = components || {};
+var mojo_base = mojo_base || {};
+var content_settings = content_settings || {};
 
 privacy_sandbox_internals.mojom.PrivacySandboxInternalsPrefSpec = { $: {} };
 privacy_sandbox_internals.mojom.PageHandler = {};
@@ -188,6 +188,83 @@ privacy_sandbox_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+privacy_sandbox_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readPrefsWithPrefixes(params.pref_prefixes);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readContentSettings(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTpcdMetadataGrants();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.contentSettingsPatternToString(params.pattern);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stringToContentSettingsPattern(params.s);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+privacy_sandbox_internals.mojom.PageHandlerReceiver = privacy_sandbox_internals.mojom.PageHandlerReceiver;
+
 privacy_sandbox_internals.mojom.PageHandlerPtr = privacy_sandbox_internals.mojom.PageHandlerRemote;
 privacy_sandbox_internals.mojom.PageHandlerRequest = privacy_sandbox_internals.mojom.PageHandlerPendingReceiver;
 
@@ -236,6 +313,23 @@ privacy_sandbox_internals.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+privacy_sandbox_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+privacy_sandbox_internals.mojom.PageReceiver = privacy_sandbox_internals.mojom.PageReceiver;
 
 privacy_sandbox_internals.mojom.PagePtr = privacy_sandbox_internals.mojom.PageRemote;
 privacy_sandbox_internals.mojom.PageRequest = privacy_sandbox_internals.mojom.PagePendingReceiver;

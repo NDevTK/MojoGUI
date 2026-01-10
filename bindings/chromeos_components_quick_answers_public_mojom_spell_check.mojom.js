@@ -7,6 +7,8 @@
 // Module namespace
 var quick_answers = quick_answers || {};
 quick_answers.mojom = quick_answers.mojom || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 quick_answers.mojom.SpellCheckService = {};
 quick_answers.mojom.SpellCheckService.$interfaceName = 'quick_answers.mojom.SpellCheckService';
@@ -84,6 +86,35 @@ quick_answers.mojom.SpellCheckService.getRemote = function() {
   return remote.$;
 };
 
+quick_answers.mojom.SpellCheckServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createDictionary(params.dictionary_file);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+quick_answers.mojom.SpellCheckServiceReceiver = quick_answers.mojom.SpellCheckServiceReceiver;
+
 quick_answers.mojom.SpellCheckServicePtr = quick_answers.mojom.SpellCheckServiceRemote;
 quick_answers.mojom.SpellCheckServiceRequest = quick_answers.mojom.SpellCheckServicePendingReceiver;
 
@@ -154,6 +185,35 @@ quick_answers.mojom.SpellCheckDictionary.getRemote = function() {
     'context');
   return remote.$;
 };
+
+quick_answers.mojom.SpellCheckDictionaryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkSpelling(params.word);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+quick_answers.mojom.SpellCheckDictionaryReceiver = quick_answers.mojom.SpellCheckDictionaryReceiver;
 
 quick_answers.mojom.SpellCheckDictionaryPtr = quick_answers.mojom.SpellCheckDictionaryRemote;
 quick_answers.mojom.SpellCheckDictionaryRequest = quick_answers.mojom.SpellCheckDictionaryPendingReceiver;

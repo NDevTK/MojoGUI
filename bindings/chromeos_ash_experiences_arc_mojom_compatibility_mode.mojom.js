@@ -108,6 +108,40 @@ arc.mojom.CompatibilityModeInstance.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.CompatibilityModeInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setResizeLockState(params.package_name, params.state);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isOptimizedForCrosApp(params.package_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.CompatibilityModeInstanceReceiver = arc.mojom.CompatibilityModeInstanceReceiver;
+
 arc.mojom.CompatibilityModeInstancePtr = arc.mojom.CompatibilityModeInstanceRemote;
 arc.mojom.CompatibilityModeInstanceRequest = arc.mojom.CompatibilityModeInstancePendingReceiver;
 

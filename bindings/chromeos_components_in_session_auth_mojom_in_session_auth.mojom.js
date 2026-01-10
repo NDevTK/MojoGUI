@@ -8,6 +8,7 @@
 var chromeos = chromeos || {};
 chromeos.auth = chromeos.auth || {};
 chromeos.auth.mojom = chromeos.auth.mojom || {};
+var mojo_base = mojo_base || {};
 
 chromeos.auth.mojom.ReasonSpec = { $: mojo.internal.Enum() };
 chromeos.auth.mojom.RequestTokenReplySpec = { $: {} };
@@ -166,6 +167,64 @@ chromeos.auth.mojom.InSessionAuth.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chromeos.auth.mojom.InSessionAuthReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestToken(params.reason, params.prompt);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.checkToken(params.reason, params.token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.invalidateToken(params.token);
+          break;
+        }
+        case 3: {
+          const params = chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestLegacyWebAuthn(params.rp_id, params.window_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chromeos.auth.mojom.InSessionAuthReceiver = chromeos.auth.mojom.InSessionAuthReceiver;
 
 chromeos.auth.mojom.InSessionAuthPtr = chromeos.auth.mojom.InSessionAuthRemote;
 chromeos.auth.mojom.InSessionAuthRequest = chromeos.auth.mojom.InSessionAuthPendingReceiver;

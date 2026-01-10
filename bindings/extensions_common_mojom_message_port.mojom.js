@@ -7,7 +7,7 @@
 // Module namespace
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 extensions.mojom.SerializationFormatSpec = { $: mojo.internal.Enum() };
@@ -197,6 +197,33 @@ extensions.mojom.MessagePort.getRemote = function() {
   return remote.$;
 };
 
+extensions.mojom.MessagePortReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchDisconnect(params.error);
+          break;
+        }
+        case 1: {
+          const params = extensions.mojom.MessagePort_DeliverMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deliverMessage(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions.mojom.MessagePortReceiver = extensions.mojom.MessagePortReceiver;
+
 extensions.mojom.MessagePortPtr = extensions.mojom.MessagePortRemote;
 extensions.mojom.MessagePortRequest = extensions.mojom.MessagePortPendingReceiver;
 
@@ -293,6 +320,38 @@ extensions.mojom.MessagePortHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+extensions.mojom.MessagePortHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions.mojom.MessagePortHost_ClosePort_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closePort(params.close_channel, params.error_message);
+          break;
+        }
+        case 1: {
+          const params = extensions.mojom.MessagePortHost_PostMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.postMessage(params.message);
+          break;
+        }
+        case 2: {
+          const params = extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.responsePending();
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions.mojom.MessagePortHostReceiver = extensions.mojom.MessagePortHostReceiver;
 
 extensions.mojom.MessagePortHostPtr = extensions.mojom.MessagePortHostRemote;
 extensions.mojom.MessagePortHostRequest = extensions.mojom.MessagePortHostPendingReceiver;

@@ -134,6 +134,33 @@ arc.mojom.TtsHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.TtsHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVoicesChanged(params.voices);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.TtsHost_OnTtsEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTtsEvent(params.utteranceId, params.event_type, params.char_index, params.length, params.error_msg);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.TtsHostReceiver = arc.mojom.TtsHostReceiver;
+
 arc.mojom.TtsHostPtr = arc.mojom.TtsHostRemote;
 arc.mojom.TtsHostRequest = arc.mojom.TtsHostPendingReceiver;
 
@@ -249,6 +276,50 @@ arc.mojom.TtsInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.TtsInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 3: {
+          const params = arc.mojom.TtsInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.TtsInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.TtsInstance_Speak_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.speak(params.utterance);
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.TtsInstance_Stop_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stop();
+          break;
+        }
+        case 4: {
+          const params = arc.mojom.TtsInstance_RefreshVoices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.refreshVoices();
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.TtsInstanceReceiver = arc.mojom.TtsInstanceReceiver;
 
 arc.mojom.TtsInstancePtr = arc.mojom.TtsInstanceRemote;
 arc.mojom.TtsInstanceRequest = arc.mojom.TtsInstancePendingReceiver;

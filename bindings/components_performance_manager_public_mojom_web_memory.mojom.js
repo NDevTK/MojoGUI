@@ -7,6 +7,7 @@
 // Module namespace
 var performance_manager = performance_manager || {};
 performance_manager.mojom = performance_manager.mojom || {};
+var mojo_base = mojo_base || {};
 
 performance_manager.mojom.ScopeSpec = { $: mojo.internal.Enum() };
 performance_manager.mojom.ModeSpec = { $: mojo.internal.Enum() };

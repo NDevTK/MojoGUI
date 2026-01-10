@@ -7,7 +7,7 @@
 // Module namespace
 var media_router = media_router || {};
 media_router.mojom = media_router.mojom || {};
-var components = components || {};
+var mojo_base = mojo_base || {};
 
 media_router.mojom.MediaController = {};
 media_router.mojom.MediaController.$interfaceName = 'media_router.mojom.MediaController';
@@ -171,6 +171,58 @@ media_router.mojom.MediaController.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media_router.mojom.MediaControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media_router.mojom.MediaController_Play_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.play();
+          break;
+        }
+        case 1: {
+          const params = media_router.mojom.MediaController_Pause_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.pause();
+          break;
+        }
+        case 2: {
+          const params = media_router.mojom.MediaController_SetMute_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMute(params.mute);
+          break;
+        }
+        case 3: {
+          const params = media_router.mojom.MediaController_SetVolume_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setVolume(params.volume);
+          break;
+        }
+        case 4: {
+          const params = media_router.mojom.MediaController_Seek_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.seek(params.time);
+          break;
+        }
+        case 5: {
+          const params = media_router.mojom.MediaController_NextTrack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.nextTrack();
+          break;
+        }
+        case 6: {
+          const params = media_router.mojom.MediaController_PreviousTrack_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.previousTrack();
+          break;
+        }
+      }
+    });
+  }
+};
+
+media_router.mojom.MediaControllerReceiver = media_router.mojom.MediaControllerReceiver;
 
 media_router.mojom.MediaControllerPtr = media_router.mojom.MediaControllerRemote;
 media_router.mojom.MediaControllerRequest = media_router.mojom.MediaControllerPendingReceiver;

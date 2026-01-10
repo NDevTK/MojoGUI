@@ -108,6 +108,40 @@ emoji_search.mojom.EmojiSearch.getRemote = function() {
   return remote.$;
 };
 
+emoji_search.mojom.EmojiSearchReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.searchEmoji(params.query, params.language_codes);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.loadEmojiLanguages(params.language_codes);
+          break;
+        }
+      }
+    });
+  }
+};
+
+emoji_search.mojom.EmojiSearchReceiver = emoji_search.mojom.EmojiSearchReceiver;
+
 emoji_search.mojom.EmojiSearchPtr = emoji_search.mojom.EmojiSearchRemote;
 emoji_search.mojom.EmojiSearchRequest = emoji_search.mojom.EmojiSearchPendingReceiver;
 

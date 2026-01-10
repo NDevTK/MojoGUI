@@ -7,7 +7,8 @@
 // Module namespace
 var omnibox_popup_aim = omnibox_popup_aim || {};
 omnibox_popup_aim.mojom = omnibox_popup_aim.mojom || {};
-var components = components || {};
+var searchbox = searchbox || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 omnibox_popup_aim.mojom.PageHandlerFactory = {};
@@ -86,6 +87,28 @@ omnibox_popup_aim.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+omnibox_popup_aim.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+omnibox_popup_aim.mojom.PageHandlerFactoryReceiver = omnibox_popup_aim.mojom.PageHandlerFactoryReceiver;
 
 omnibox_popup_aim.mojom.PageHandlerFactoryPtr = omnibox_popup_aim.mojom.PageHandlerFactoryRemote;
 omnibox_popup_aim.mojom.PageHandlerFactoryRequest = omnibox_popup_aim.mojom.PageHandlerFactoryPendingReceiver;
@@ -166,6 +189,33 @@ omnibox_popup_aim.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+omnibox_popup_aim.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestClose();
+          break;
+        }
+        case 1: {
+          const params = omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.navigateCurrentTab(params.url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+omnibox_popup_aim.mojom.PageHandlerReceiver = omnibox_popup_aim.mojom.PageHandlerReceiver;
 
 omnibox_popup_aim.mojom.PageHandlerPtr = omnibox_popup_aim.mojom.PageHandlerRemote;
 omnibox_popup_aim.mojom.PageHandlerRequest = omnibox_popup_aim.mojom.PageHandlerPendingReceiver;
@@ -284,6 +334,50 @@ omnibox_popup_aim.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+omnibox_popup_aim.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPopupShown(params.context);
+          break;
+        }
+        case 1: {
+          const params = omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addContext(params.context);
+          break;
+        }
+        case 2: {
+          const params = omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPopupHidden();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPreserveContextOnClose(params.preserve_context_on_close);
+          break;
+        }
+      }
+    });
+  }
+};
+
+omnibox_popup_aim.mojom.PageReceiver = omnibox_popup_aim.mojom.PageReceiver;
 
 omnibox_popup_aim.mojom.PagePtr = omnibox_popup_aim.mojom.PageRemote;
 omnibox_popup_aim.mojom.PageRequest = omnibox_popup_aim.mojom.PagePendingReceiver;

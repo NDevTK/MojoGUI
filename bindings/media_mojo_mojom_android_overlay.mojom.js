@@ -7,7 +7,7 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 media.mojom.AndroidOverlayConfigSpec = { $: {} };
@@ -98,6 +98,28 @@ media.mojom.AndroidOverlayProvider.getRemote = function() {
   return remote.$;
 };
 
+media.mojom.AndroidOverlayProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createOverlay(params.overlay, params.client, params.config);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AndroidOverlayProviderReceiver = media.mojom.AndroidOverlayProviderReceiver;
+
 media.mojom.AndroidOverlayProviderPtr = media.mojom.AndroidOverlayProviderRemote;
 media.mojom.AndroidOverlayProviderRequest = media.mojom.AndroidOverlayProviderPendingReceiver;
 
@@ -162,6 +184,28 @@ media.mojom.AndroidOverlay.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.AndroidOverlayReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.scheduleLayout(params.rect);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AndroidOverlayReceiver = media.mojom.AndroidOverlayReceiver;
 
 media.mojom.AndroidOverlayPtr = media.mojom.AndroidOverlayRemote;
 media.mojom.AndroidOverlayRequest = media.mojom.AndroidOverlayPendingReceiver;
@@ -278,6 +322,50 @@ media.mojom.AndroidOverlayClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.AndroidOverlayClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSurfaceReady(params.surface_key);
+          break;
+        }
+        case 1: {
+          const params = media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDestroyed();
+          break;
+        }
+        case 2: {
+          const params = media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSynchronouslyDestroyed();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPowerEfficientState(params.is_power_efficient);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.AndroidOverlayClientReceiver = media.mojom.AndroidOverlayClientReceiver;
 
 media.mojom.AndroidOverlayClientPtr = media.mojom.AndroidOverlayClientRemote;
 media.mojom.AndroidOverlayClientRequest = media.mojom.AndroidOverlayClientPendingReceiver;

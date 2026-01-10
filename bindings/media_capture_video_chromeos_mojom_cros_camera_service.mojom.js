@@ -7,11 +7,8 @@
 // Module namespace
 var cros = cros || {};
 cros.mojom = cros.mojom || {};
-var components = components || {};
-var components = components || {};
-var chromeos = chromeos || {};
-var chromeos = chromeos || {};
-var chromeos = chromeos || {};
+var chromeos_camera = chromeos_camera || {};
+var mojo_base = mojo_base || {};
 
 cros.mojom.CameraClientTypeSpec = { $: mojo.internal.Enum() };
 cros.mojom.CameraPrivacySwitchStateSpec = { $: mojo.internal.Enum() };
@@ -236,6 +233,38 @@ cros.mojom.KioskVisionObserver.getRemote = function() {
   return remote.$;
 };
 
+cros.mojom.KioskVisionObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameProcessed(params.detection);
+          break;
+        }
+        case 1: {
+          const params = cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTrackCompleted(params.track);
+          break;
+        }
+        case 2: {
+          const params = cros.mojom.KioskVisionObserver_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.error);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.KioskVisionObserverReceiver = cros.mojom.KioskVisionObserverReceiver;
+
 cros.mojom.KioskVisionObserverPtr = cros.mojom.KioskVisionObserverRemote;
 cros.mojom.KioskVisionObserverRequest = cros.mojom.KioskVisionObserverPendingReceiver;
 
@@ -308,6 +337,35 @@ cros.mojom.CameraHalDispatcher.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cros.mojom.CameraHalDispatcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 5: {
+          const params = cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerClientWithToken(params.client, params.type, params.auth_token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.CameraHalDispatcherReceiver = cros.mojom.CameraHalDispatcherReceiver;
 
 cros.mojom.CameraHalDispatcherPtr = cros.mojom.CameraHalDispatcherRemote;
 cros.mojom.CameraHalDispatcherRequest = cros.mojom.CameraHalDispatcherPendingReceiver;
@@ -440,6 +498,48 @@ cros.mojom.CrosCameraServiceObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cros.mojom.CrosCameraServiceObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cameraDeviceActivityChange(params.camera_id, params.opened, params.type);
+          break;
+        }
+        case 1: {
+          const params = cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cameraPrivacySwitchStateChange(params.state, params.camera_id);
+          break;
+        }
+        case 2: {
+          const params = cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cameraSWPrivacySwitchStateChange(params.state);
+          break;
+        }
+        case 3: {
+          const params = cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cameraEffectChange(params.config);
+          break;
+        }
+        case 4: {
+          const params = cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.autoFramingStateChange(params.state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.CrosCameraServiceObserverReceiver = cros.mojom.CrosCameraServiceObserverReceiver;
 
 cros.mojom.CrosCameraServiceObserverPtr = cros.mojom.CrosCameraServiceObserverRemote;
 cros.mojom.CrosCameraServiceObserverRequest = cros.mojom.CrosCameraServiceObserverPendingReceiver;
@@ -656,6 +756,96 @@ cros.mojom.CrosCameraService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cros.mojom.CrosCameraServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCameraModule(params.type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTracingEnabled(params.enabled);
+          break;
+        }
+        case 2: {
+          const params = cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAutoFramingState(params.state);
+          break;
+        }
+        case 3: {
+          const params = cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCameraSWPrivacySwitchState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCameraSWPrivacySwitchState(params.state);
+          break;
+        }
+        case 5: {
+          const params = cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAutoFramingSupported();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCameraEffect(params.config);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addCrosCameraServiceObserver(params.observer);
+          break;
+        }
+        case 8: {
+          const params = cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startKioskVisionDetection(params.dlc_path, params.observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+cros.mojom.CrosCameraServiceReceiver = cros.mojom.CrosCameraServiceReceiver;
 
 cros.mojom.CrosCameraServicePtr = cros.mojom.CrosCameraServiceRemote;
 cros.mojom.CrosCameraServiceRequest = cros.mojom.CrosCameraServicePendingReceiver;

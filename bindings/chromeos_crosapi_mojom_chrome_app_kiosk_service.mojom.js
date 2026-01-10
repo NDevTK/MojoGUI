@@ -142,6 +142,47 @@ crosapi.mojom.ChromeKioskLaunchController.getRemote = function() {
   return remote.$;
 };
 
+crosapi.mojom.ChromeKioskLaunchControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installKioskApp(params.params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launchKioskApp(params.app_id, params.is_network_ready);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.ChromeKioskLaunchControllerReceiver = crosapi.mojom.ChromeKioskLaunchControllerReceiver;
+
 crosapi.mojom.ChromeKioskLaunchControllerPtr = crosapi.mojom.ChromeKioskLaunchControllerRemote;
 crosapi.mojom.ChromeKioskLaunchControllerRequest = crosapi.mojom.ChromeKioskLaunchControllerPendingReceiver;
 
@@ -206,6 +247,28 @@ crosapi.mojom.ChromeAppKioskService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.ChromeAppKioskServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindLaunchController(params.controller);
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.ChromeAppKioskServiceReceiver = crosapi.mojom.ChromeAppKioskServiceReceiver;
 
 crosapi.mojom.ChromeAppKioskServicePtr = crosapi.mojom.ChromeAppKioskServiceRemote;
 crosapi.mojom.ChromeAppKioskServiceRequest = crosapi.mojom.ChromeAppKioskServicePendingReceiver;

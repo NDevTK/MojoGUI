@@ -7,11 +7,8 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var gpu = gpu || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 
 media.mojom.VideoBufferHandleSpec = { $: {} };

@@ -7,7 +7,7 @@
 // Module namespace
 var os_crypt_async = os_crypt_async || {};
 os_crypt_async.mojom = os_crypt_async.mojom || {};
-var components = components || {};
+var mojo_base = mojo_base || {};
 
 os_crypt_async.mojom.KeySpec = { $: {} };
 os_crypt_async.mojom.EncryptorSpec = { $: {} };

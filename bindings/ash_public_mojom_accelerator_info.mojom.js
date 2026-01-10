@@ -7,6 +7,7 @@
 // Module namespace
 var ash = ash || {};
 ash.mojom = ash.mojom || {};
+var mojo_base = mojo_base || {};
 var ui = ui || {};
 
 ash.mojom.AcceleratorSourceSpec = { $: mojo.internal.Enum() };

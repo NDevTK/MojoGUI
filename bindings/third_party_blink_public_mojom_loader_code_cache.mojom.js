@@ -7,8 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var components = components || {};
-var url = url || {};
+var persistent_cache = persistent_cache || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 blink.mojom.CodeCacheTypeSpec = { $: mojo.internal.Enum() };
@@ -173,6 +173,62 @@ blink.mojom.CodeCacheHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.CodeCacheHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPendingBackend(params.cache_type);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didGenerateCacheableMetadata(params.cache_type, params.url, params.expected_response_time, params.data);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fetchCachedCode(params.cache_type, params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearCodeCacheEntry(params.cache_type, params.url);
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didGenerateCacheableMetadataInCacheStorage(params.url, params.expected_response_time, params.data, params.cache_storage_cache_name);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.CodeCacheHostReceiver = blink.mojom.CodeCacheHostReceiver;
 
 blink.mojom.CodeCacheHostPtr = blink.mojom.CodeCacheHostRemote;
 blink.mojom.CodeCacheHostRequest = blink.mojom.CodeCacheHostPendingReceiver;

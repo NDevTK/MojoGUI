@@ -80,6 +80,35 @@ wallet.mojom.ImageExtractor.getRemote = function() {
   return remote.$;
 };
 
+wallet.mojom.ImageExtractorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.extractImages();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+wallet.mojom.ImageExtractorReceiver = wallet.mojom.ImageExtractorReceiver;
+
 wallet.mojom.ImageExtractorPtr = wallet.mojom.ImageExtractorRemote;
 wallet.mojom.ImageExtractorRequest = wallet.mojom.ImageExtractorPendingReceiver;
 

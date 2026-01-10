@@ -7,8 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
 
 network.mojom.TLSClientSocketOptionsSpec = { $: {} };
 network.mojom.TLSClientSocket = {};
@@ -68,6 +66,23 @@ network.mojom.TLSClientSocket.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.TLSClientSocketReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+network.mojom.TLSClientSocketReceiver = network.mojom.TLSClientSocketReceiver;
 
 network.mojom.TLSClientSocketPtr = network.mojom.TLSClientSocketRemote;
 network.mojom.TLSClientSocketRequest = network.mojom.TLSClientSocketPendingReceiver;

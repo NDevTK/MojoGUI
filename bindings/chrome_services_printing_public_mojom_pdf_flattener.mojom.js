@@ -7,6 +7,7 @@
 // Module namespace
 var printing = printing || {};
 printing.mojom = printing.mojom || {};
+var mojo_base = mojo_base || {};
 
 printing.mojom.FlattenPdfResultSpec = { $: {} };
 printing.mojom.PdfFlattener = {};
@@ -105,6 +106,40 @@ printing.mojom.PdfFlattener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+printing.mojom.PdfFlattenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.flattenPdf(params.src_pdf_region);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUseSkiaRendererPolicy(params.use_skia);
+          break;
+        }
+      }
+    });
+  }
+};
+
+printing.mojom.PdfFlattenerReceiver = printing.mojom.PdfFlattenerReceiver;
 
 printing.mojom.PdfFlattenerPtr = printing.mojom.PdfFlattenerRemote;
 printing.mojom.PdfFlattenerRequest = printing.mojom.PdfFlattenerPendingReceiver;

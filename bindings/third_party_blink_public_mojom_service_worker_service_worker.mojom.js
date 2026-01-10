@@ -7,28 +7,9 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var services = services || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
+var payments = payments || {};
 var url = url || {};
 
 blink.mojom.FocusErrorSpec = { $: mojo.internal.Enum() };
@@ -451,6 +432,146 @@ blink.mojom.ServiceWorkerHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.ServiceWorkerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ServiceWorkerHost_SetCachedMetadata_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCachedMetadata(params.url, params.data);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ServiceWorkerHost_ClearCachedMetadata_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearCachedMetadata(params.url);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.ServiceWorkerHost_GetClients_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getClients(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_GetClients_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.ServiceWorkerHost_GetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getClient(params.client_uuid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_GetClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.ServiceWorkerHost_OpenNewTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openNewTab(params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_OpenNewTab_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openPaymentHandlerWindow(params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_OpenPaymentHandlerWindow_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.ServiceWorkerHost_PostMessageToClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.postMessageToClient(params.client_uuid, params.message);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.ServiceWorkerHost_FocusClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focusClient(params.client_uuid);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_FocusClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.ServiceWorkerHost_NavigateClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.navigateClient(params.client_uuid, params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_NavigateClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.ServiceWorkerHost_SkipWaiting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.skipWaiting();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_SkipWaiting_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.ServiceWorkerHost_ClaimClients_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.claimClients();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_ClaimClients_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = blink.mojom.ServiceWorkerHost_AddRoutes_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addRoutes(params.rules);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorkerHost_AddRoutes_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ServiceWorkerHostReceiver = blink.mojom.ServiceWorkerHostReceiver;
+
 blink.mojom.ServiceWorkerHostPtr = blink.mojom.ServiceWorkerHostRemote;
 blink.mojom.ServiceWorkerHostRequest = blink.mojom.ServiceWorkerHostPendingReceiver;
 
@@ -458,9 +579,9 @@ blink.mojom.ServiceWorkerHostRequest = blink.mojom.ServiceWorkerHostPendingRecei
 // Interface: ServiceWorker
 mojo.internal.Struct(
     blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec, 'blink.mojom.ServiceWorker_InitializeGlobalScope_Params', [
-      mojo.internal.StructField('service_worker_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.ServiceWorkerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('associated_interfaces_to_browser', 8, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('associated_interfaces_from_browser', 16, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('service_worker_host', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('associated_interfaces_to_browser', 8, 0, pending_associated_remote<blink.mojom.AssociatedInterfaceProvider>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('associated_interfaces_from_browser', 16, 0, pending_associated_receiver<blink.mojom.AssociatedInterfaceProvider>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('registration_info', 24, 0, blink.mojom.ServiceWorkerRegistrationObjectInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('service_worker_info', 32, 0, blink.mojom.ServiceWorkerObjectInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('fetch_handler_existence', 40, 0, blink.mojom.FetchHandlerExistenceSpec.$, null, false, 0, undefined),
@@ -1080,6 +1201,312 @@ blink.mojom.ServiceWorker.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ServiceWorkerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ServiceWorker_InitializeGlobalScope_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initializeGlobalScope(params.service_worker_host, params.associated_interfaces_to_browser, params.associated_interfaces_from_browser, params.registration_info, params.service_worker_info, params.fetch_handler_existence, params.ancestor_frame_type, params.storage_key);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.ServiceWorker_DispatchInstallEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchInstallEvent();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchInstallEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.ServiceWorker_DispatchActivateEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchActivateEvent();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchActivateEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchBackgroundFetchAbortEvent(params.registration);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchBackgroundFetchAbortEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchBackgroundFetchClickEvent(params.registration);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchBackgroundFetchClickEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchBackgroundFetchFailEvent(params.registration);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchBackgroundFetchFailEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchBackgroundFetchSuccessEvent(params.registration);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchBackgroundFetchSuccessEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchCookieChangeEvent(params.change);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchCookieChangeEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchFetchEventForMainResource(params.params, params.response_callback);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchFetchEventForMainResource_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchNotificationClickEvent(params.notification_id, params.notification_data, params.action_index, params.reply);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchNotificationClickEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchNotificationCloseEvent(params.notification_id, params.notification_data);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchNotificationCloseEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = blink.mojom.ServiceWorker_DispatchPushEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchPushEvent(params.payload);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPushEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchPushEventRecordingNetworkRequests(params.payload);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPushEventRecordingNetworkRequests_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 13: {
+          const params = blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchPushSubscriptionChangeEvent(params.old_subscription, params.new_subscription);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPushSubscriptionChangeEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 14: {
+          const params = blink.mojom.ServiceWorker_DispatchSyncEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchSyncEvent(params.tag, params.last_chance, params.timeout);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchSyncEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 15: {
+          const params = blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchPeriodicSyncEvent(params.tag, params.timeout);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPeriodicSyncEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 16: {
+          const params = blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchAbortPaymentEvent(params.result_of_abort_payment);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchAbortPaymentEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 17: {
+          const params = blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchCanMakePaymentEvent(params.event_data, params.result_of_can_make_payment);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchCanMakePaymentEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 18: {
+          const params = blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchPaymentRequestEvent(params.request_data, params.response_callback);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchPaymentRequestEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 19: {
+          const params = blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchExtendableMessageEvent(params.event);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchExtendableMessageEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 20: {
+          const params = blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchContentDeleteEvent(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_DispatchContentDeleteEvent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 21: {
+          const params = blink.mojom.ServiceWorker_Ping_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.ping();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_Ping_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 22: {
+          const params = blink.mojom.ServiceWorker_SetIdleDelay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIdleDelay(params.delay);
+          break;
+        }
+        case 23: {
+          const params = blink.mojom.ServiceWorker_AddKeepAlive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addKeepAlive();
+          break;
+        }
+        case 24: {
+          const params = blink.mojom.ServiceWorker_ClearKeepAlive_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearKeepAlive();
+          break;
+        }
+        case 25: {
+          const params = blink.mojom.ServiceWorker_AddMessageToConsole_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addMessageToConsole(params.level, params.message);
+          break;
+        }
+        case 26: {
+          const params = blink.mojom.ServiceWorker_ExecuteScriptForTest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeScriptForTest(params.javascript, params.wants_result);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.ServiceWorker_ExecuteScriptForTest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ServiceWorkerReceiver = blink.mojom.ServiceWorkerReceiver;
 
 blink.mojom.ServiceWorkerPtr = blink.mojom.ServiceWorkerRemote;
 blink.mojom.ServiceWorkerRequest = blink.mojom.ServiceWorkerPendingReceiver;

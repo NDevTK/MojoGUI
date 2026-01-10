@@ -7,16 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var ui = ui || {};
+var cc = cc || {};
+var mojo_base = mojo_base || {};
+var viz = viz || {};
 var ui = ui || {};
 var gfx = gfx || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var ui = ui || {};
-var services = services || {};
-var ui = ui || {};
 
 blink.mojom.WidgetCompositor = {};
 blink.mojom.WidgetCompositor.$interfaceName = 'blink.mojom.WidgetCompositor';
@@ -114,6 +109,35 @@ blink.mojom.WidgetCompositor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.WidgetCompositorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.visualStateRequest();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WidgetCompositorReceiver = blink.mojom.WidgetCompositorReceiver;
 
 blink.mojom.WidgetCompositorPtr = blink.mojom.WidgetCompositorRemote;
 blink.mojom.WidgetCompositorRequest = blink.mojom.WidgetCompositorPendingReceiver;
@@ -302,6 +326,63 @@ blink.mojom.WidgetHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.WidgetHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WidgetHost_SetCursor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setCursor(params.cursor);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateTooltipUnderCursor(params.tooltip_text, params.text_direction_hint);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateTooltipFromKeyboard(params.tooltip_text, params.text_direction_hint, params.bounds);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearKeyboardTriggeredTooltip();
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.textInputStateChanged(params.state);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectionBoundsChanged(params.anchor_rect, params.anchor_dir, params.focus_rect, params.focus_dir, params.bounding_box_rect, params.is_anchor_first);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createFrameSink(params.compositor_frame_sink_receiver, params.compositor_frame_sink_client, params.render_input_router_client);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerRenderFrameMetadataObserver(params.render_frame_metadata_observer_client_receiver, params.render_frame_metadata_observer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WidgetHostReceiver = blink.mojom.WidgetHostReceiver;
+
 blink.mojom.WidgetHostPtr = blink.mojom.WidgetHostRemote;
 blink.mojom.WidgetHostRequest = blink.mojom.WidgetHostPendingReceiver;
 
@@ -488,6 +569,77 @@ blink.mojom.Widget.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.WidgetReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.Widget_ForceRedraw_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forceRedraw();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.Widget_ForceRedraw_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.Widget_UpdateVisualProperties_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateVisualProperties(params.visual_properties);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.Widget_UpdateScreenRects_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateScreenRects(params.widget_screen_rect, params.window_screen_rect);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.Widget_WasHidden_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.wasHidden();
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.Widget_WasShown_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.wasShown(params.was_evicted, params.record_tab_switch_time_request);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestSuccessfulPresentationTimeForNextFrame(params.visible_time_request);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelSuccessfulPresentationTimeRequest();
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setupBrowserRenderInputRouterConnections(params.browser_client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WidgetReceiver = blink.mojom.WidgetReceiver;
+
 blink.mojom.WidgetPtr = blink.mojom.WidgetRemote;
 blink.mojom.WidgetRequest = blink.mojom.WidgetPendingReceiver;
 
@@ -587,6 +739,38 @@ blink.mojom.RenderInputRouterClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.RenderInputRouterClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWidgetInputHandler(params.request, params.host, params.from_viz);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showContextMenu(params.source_type, params.location);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindInputTargetClient(params.host);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.RenderInputRouterClientReceiver = blink.mojom.RenderInputRouterClientReceiver;
 
 blink.mojom.RenderInputRouterClientPtr = blink.mojom.RenderInputRouterClientRemote;
 blink.mojom.RenderInputRouterClientRequest = blink.mojom.RenderInputRouterClientPendingReceiver;

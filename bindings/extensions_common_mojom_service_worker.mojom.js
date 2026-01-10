@@ -29,8 +29,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('channel_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('tab_info', 24, 0, extensions.mojom.TabConnectionInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('external_connection_info', 32, 0, extensions.mojom.ExternalConnectionInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('port', 40, 0, mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortRemote), null, false, 0, undefined),
-      mojo.internal.StructField('port_host', 48, 0, mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('port', 40, 0, pending_associated_receiver<extensions.mojom.MessagePort>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('port_host', 48, 0, pending_associated_remote<extensions.mojom.MessagePortHost>Spec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -103,6 +103,40 @@ extensions.mojom.ServiceWorker.getRemote = function() {
     'context');
   return remote.$;
 };
+
+extensions.mojom.ServiceWorkerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updatePermissions(params.active_permissions, params.withheld_permissions);
+          break;
+        }
+        case 1: {
+          const params = extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchOnConnect(params.port_id, params.channel_type, params.channel_name, params.tab_info, params.external_connection_info, params.port, params.port_host);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions.mojom.ServiceWorkerReceiver = extensions.mojom.ServiceWorkerReceiver;
 
 extensions.mojom.ServiceWorkerPtr = extensions.mojom.ServiceWorkerRemote;
 extensions.mojom.ServiceWorkerRequest = extensions.mojom.ServiceWorkerPendingReceiver;

@@ -8,7 +8,7 @@
 var ash = ash || {};
 ash.vm = ash.vm || {};
 ash.vm.mojom = ash.vm.mojom || {};
-var ash = ash || {};
+var guest_os = guest_os || {};
 
 ash.vm.mojom.VmDiagnosticsProvider = {};
 ash.vm.mojom.VmDiagnosticsProvider.$interfaceName = 'ash.vm.mojom.VmDiagnosticsProvider';
@@ -80,6 +80,35 @@ ash.vm.mojom.VmDiagnosticsProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.vm.mojom.VmDiagnosticsProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPluginVmDiagnostics();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.vm.mojom.VmDiagnosticsProviderReceiver = ash.vm.mojom.VmDiagnosticsProviderReceiver;
 
 ash.vm.mojom.VmDiagnosticsProviderPtr = ash.vm.mojom.VmDiagnosticsProviderRemote;
 ash.vm.mojom.VmDiagnosticsProviderRequest = ash.vm.mojom.VmDiagnosticsProviderPendingReceiver;

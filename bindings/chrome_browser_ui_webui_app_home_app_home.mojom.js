@@ -8,6 +8,7 @@
 var app_home = app_home || {};
 app_home.mojom = app_home.mojom || {};
 var url = url || {};
+var web_app = web_app || {};
 
 app_home.mojom.RunOnOsLoginModeSpec = { $: mojo.internal.Enum() };
 app_home.mojom.AppTypeSpec = { $: mojo.internal.Enum() };
@@ -141,6 +142,28 @@ app_home.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+app_home.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = app_home.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+app_home.mojom.PageHandlerFactoryReceiver = app_home.mojom.PageHandlerFactoryReceiver;
 
 app_home.mojom.PageHandlerFactoryPtr = app_home.mojom.PageHandlerFactoryRemote;
 app_home.mojom.PageHandlerFactoryRequest = app_home.mojom.PageHandlerFactoryPendingReceiver;
@@ -368,6 +391,94 @@ app_home.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+app_home.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = app_home.mojom.PageHandler_GetApps_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getApps();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, app_home.mojom.PageHandler_GetApps_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = app_home.mojom.PageHandler_GetDeprecationLinkString_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeprecationLinkString();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, app_home.mojom.PageHandler_GetDeprecationLinkString_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = app_home.mojom.PageHandler_UninstallApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.uninstallApp(params.app_id);
+          break;
+        }
+        case 3: {
+          const params = app_home.mojom.PageHandler_ShowAppSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showAppSettings(params.app_id);
+          break;
+        }
+        case 4: {
+          const params = app_home.mojom.PageHandler_CreateAppShortcut_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createAppShortcut(params.app_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, app_home.mojom.PageHandler_CreateAppShortcut_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = app_home.mojom.PageHandler_LaunchApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launchApp(params.app_id, params.click_event);
+          break;
+        }
+        case 6: {
+          const params = app_home.mojom.PageHandler_SetRunOnOsLoginMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRunOnOsLoginMode(params.app_id, params.run_on_os_login_mode);
+          break;
+        }
+        case 7: {
+          const params = app_home.mojom.PageHandler_LaunchDeprecatedAppDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launchDeprecatedAppDialog();
+          break;
+        }
+        case 8: {
+          const params = app_home.mojom.PageHandler_InstallAppLocally_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.installAppLocally(params.app_id);
+          break;
+        }
+        case 9: {
+          const params = app_home.mojom.PageHandler_SetUserDisplayMode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUserDisplayMode(params.app_id, params.display_mode);
+          break;
+        }
+      }
+    });
+  }
+};
+
+app_home.mojom.PageHandlerReceiver = app_home.mojom.PageHandlerReceiver;
+
 app_home.mojom.PageHandlerPtr = app_home.mojom.PageHandlerRemote;
 app_home.mojom.PageHandlerRequest = app_home.mojom.PageHandlerPendingReceiver;
 
@@ -464,6 +575,38 @@ app_home.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+app_home.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = app_home.mojom.Page_AddApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addApp(params.app_info);
+          break;
+        }
+        case 1: {
+          const params = app_home.mojom.Page_RemoveApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeApp(params.app_info);
+          break;
+        }
+        case 2: {
+          const params = app_home.mojom.Page_UpdateApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateApp(params.app_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+app_home.mojom.PageReceiver = app_home.mojom.PageReceiver;
 
 app_home.mojom.PagePtr = app_home.mojom.PageRemote;
 app_home.mojom.PageRequest = app_home.mojom.PagePendingReceiver;

@@ -93,6 +93,28 @@ drivefs.mojom.NativeMessagingPort.getRemote = function() {
   return remote.$;
 };
 
+drivefs.mojom.NativeMessagingPortReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.postMessageToExtension(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+drivefs.mojom.NativeMessagingPortReceiver = drivefs.mojom.NativeMessagingPortReceiver;
+
 drivefs.mojom.NativeMessagingPortPtr = drivefs.mojom.NativeMessagingPortRemote;
 drivefs.mojom.NativeMessagingPortRequest = drivefs.mojom.NativeMessagingPortPendingReceiver;
 
@@ -157,6 +179,28 @@ drivefs.mojom.NativeMessagingHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+drivefs.mojom.NativeMessagingHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.handleMessageFromExtension(params.message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+drivefs.mojom.NativeMessagingHostReceiver = drivefs.mojom.NativeMessagingHostReceiver;
 
 drivefs.mojom.NativeMessagingHostPtr = drivefs.mojom.NativeMessagingHostRemote;
 drivefs.mojom.NativeMessagingHostRequest = drivefs.mojom.NativeMessagingHostPendingReceiver;

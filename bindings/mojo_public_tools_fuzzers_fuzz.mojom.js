@@ -235,6 +235,28 @@ fuzz.mojom.FuzzDummyInterface.getRemote = function() {
   return remote.$;
 };
 
+fuzz.mojom.FuzzDummyInterfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.ping();
+          break;
+        }
+      }
+    });
+  }
+};
+
+fuzz.mojom.FuzzDummyInterfaceReceiver = fuzz.mojom.FuzzDummyInterfaceReceiver;
+
 fuzz.mojom.FuzzDummyInterfacePtr = fuzz.mojom.FuzzDummyInterfaceRemote;
 fuzz.mojom.FuzzDummyInterfaceRequest = fuzz.mojom.FuzzDummyInterfacePendingReceiver;
 
@@ -298,7 +320,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec, 'fuzz.mojom.FuzzInterface_FuzzAssociated_Params', [
-      mojo.internal.StructField('receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(fuzz.mojom.FuzzDummyInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -415,6 +437,86 @@ fuzz.mojom.FuzzInterface.getRemote = function() {
     'context');
   return remote.$;
 };
+
+fuzz.mojom.FuzzInterfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fuzzBasic();
+          break;
+        }
+        case 1: {
+          const params = fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fuzzBasicResp();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fuzzBasicSyncResp();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fuzzArgs(params.a, params.b);
+          break;
+        }
+        case 4: {
+          const params = fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fuzzArgsResp(params.a, params.b);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fuzzArgsSyncResp(params.a, params.b);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fuzzAssociated(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+fuzz.mojom.FuzzInterfaceReceiver = fuzz.mojom.FuzzInterfaceReceiver;
 
 fuzz.mojom.FuzzInterfacePtr = fuzz.mojom.FuzzInterfaceRemote;
 fuzz.mojom.FuzzInterfaceRequest = fuzz.mojom.FuzzInterfacePendingReceiver;

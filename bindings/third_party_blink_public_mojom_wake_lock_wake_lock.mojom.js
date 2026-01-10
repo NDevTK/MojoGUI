@@ -7,7 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
+var device = device || {};
 
 blink.mojom.WakeLockService = {};
 blink.mojom.WakeLockService.$interfaceName = 'blink.mojom.WakeLockService';
@@ -76,6 +76,28 @@ blink.mojom.WakeLockService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.WakeLockServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WakeLockService_GetWakeLock_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getWakeLock(params.type, params.reason, params.description, params.wake_lock);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WakeLockServiceReceiver = blink.mojom.WakeLockServiceReceiver;
 
 blink.mojom.WakeLockServicePtr = blink.mojom.WakeLockServiceRemote;
 blink.mojom.WakeLockServiceRequest = blink.mojom.WakeLockServicePendingReceiver;

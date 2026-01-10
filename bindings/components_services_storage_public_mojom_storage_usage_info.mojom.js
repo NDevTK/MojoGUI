@@ -7,6 +7,7 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var mojo_base = mojo_base || {};
 var blink = blink || {};
 
 storage.mojom.StorageUsageInfoSpec = { $: {} };

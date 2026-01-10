@@ -7,19 +7,9 @@
 // Module namespace
 var viz = viz || {};
 viz.mojom = viz.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var cc = cc || {};
+var mojo_base = mojo_base || {};
 var skia = skia || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 viz.mojom.ProtectedVideoStateSpec = { $: mojo.internal.Enum() };

@@ -137,6 +137,59 @@ arc.mojom.AppfuseHost.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.AppfuseHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.AppfuseHost_Mount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.mount(params.uid, params.mount_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.AppfuseHost_Mount_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.AppfuseHost_Unmount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unmount(params.uid, params.mount_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.AppfuseHost_OpenFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openFile(params.uid, params.mount_id, params.file_id, params.flags);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.AppfuseHostReceiver = arc.mojom.AppfuseHostReceiver;
+
 arc.mojom.AppfuseHostPtr = arc.mojom.AppfuseHostRemote;
 arc.mojom.AppfuseHostRequest = arc.mojom.AppfuseHostPendingReceiver;
 
@@ -206,6 +259,35 @@ arc.mojom.AppfuseInstance.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.AppfuseInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.AppfuseInstance_Init_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.init(params.host_remote);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.AppfuseInstance_Init_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.AppfuseInstanceReceiver = arc.mojom.AppfuseInstanceReceiver;
 
 arc.mojom.AppfuseInstancePtr = arc.mojom.AppfuseInstanceRemote;
 arc.mojom.AppfuseInstanceRequest = arc.mojom.AppfuseInstancePendingReceiver;

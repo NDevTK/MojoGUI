@@ -7,6 +7,8 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 chrome.mojom.SelectFileDialogTypeSpec = { $: mojo.internal.Enum() };
 chrome.mojom.CertificateTypeSpec = { $: mojo.internal.Enum() };
@@ -343,6 +345,107 @@ chrome.mojom.UtilWin.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.UtilWinReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isPinnedToTaskbar();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unpinShortcuts(params.shortcut_paths);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createOrUpdateShortcuts(params.shortcut_paths, params.properties, params.operation);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.callExecuteSelectFile(params.type, params.owner, params.title, params.default_path, params.filter, params.file_type_index, params.default_extension);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = chrome.mojom.UtilWin_InspectModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.inspectModule(params.module_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAntiVirusProducts(params.report_full_names);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTpmIdentifier();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.UtilWinReceiver = chrome.mojom.UtilWinReceiver;
+
 chrome.mojom.UtilWinPtr = chrome.mojom.UtilWinRemote;
 chrome.mojom.UtilWinRequest = chrome.mojom.UtilWinPendingReceiver;
 
@@ -411,6 +514,35 @@ chrome.mojom.ProcessorMetrics.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.ProcessorMetricsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordProcessorMetrics();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.ProcessorMetricsReceiver = chrome.mojom.ProcessorMetricsReceiver;
 
 chrome.mojom.ProcessorMetricsPtr = chrome.mojom.ProcessorMetricsRemote;
 chrome.mojom.ProcessorMetricsRequest = chrome.mojom.ProcessorMetricsPendingReceiver;

@@ -7,12 +7,12 @@
 // Module namespace
 var chrome = chrome || {};
 chrome.mojom = chrome.mojom || {};
-var services = services || {};
-var components = components || {};
-var ui = ui || {};
+var mac_notifications = mac_notifications || {};
+var remote_cocoa = remote_cocoa || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 var url = url || {};
-var components = components || {};
+var metrics = metrics || {};
 
 chrome.mojom.AppShimLaunchTypeSpec = { $: mojo.internal.Enum() };
 chrome.mojom.AppShimLaunchResultSpec = { $: mojo.internal.Enum() };
@@ -135,7 +135,7 @@ mojo.internal.Struct(
 // Interface: AppShim
 mojo.internal.Struct(
     chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec, 'chrome.mojom.AppShim_CreateRemoteCocoaApplication_Params', [
-      mojo.internal.StructField('application', 0, 0, mojo.internal.AssociatedInterfaceRequest(remote_cocoa.mojom.ApplicationRemote), null, false, 0, undefined),
+      mojo.internal.StructField('application', 0, 0, pending_associated_receiver<remote_cocoa.mojom.Application>Spec.$, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -325,6 +325,75 @@ chrome.mojom.AppShim.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.AppShimReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createRemoteCocoaApplication(params.application);
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCommandDispatcherForWidget(params.widget_id);
+          break;
+        }
+        case 2: {
+          const params = chrome.mojom.AppShim_SetUserAttention_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setUserAttention(params.attention_type);
+          break;
+        }
+        case 3: {
+          const params = chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setBadgeLabel(params.badge_label);
+          break;
+        }
+        case 4: {
+          const params = chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateProfileMenu(params.profile_menu_items);
+          break;
+        }
+        case 5: {
+          const params = chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateApplicationDockMenu(params.dock_menu_items);
+          break;
+        }
+        case 6: {
+          const params = chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindNotificationProvider(params.provider);
+          break;
+        }
+        case 7: {
+          const params = chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestNotificationPermission();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindChildHistogramFetcherFactory(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.AppShimReceiver = chrome.mojom.AppShimReceiver;
 
 chrome.mojom.AppShimPtr = chrome.mojom.AppShimRemote;
 chrome.mojom.AppShimRequest = chrome.mojom.AppShimPendingReceiver;
@@ -531,6 +600,73 @@ chrome.mojom.AppShimHost.getRemote = function() {
   return remote.$;
 };
 
+chrome.mojom.AppShimHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.AppShimHost_FocusApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.focusApp();
+          break;
+        }
+        case 1: {
+          const params = chrome.mojom.AppShimHost_ReopenApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reopenApp();
+          break;
+        }
+        case 2: {
+          const params = chrome.mojom.AppShimHost_FilesOpened_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.filesOpened(params.files);
+          break;
+        }
+        case 3: {
+          const params = chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.profileSelectedFromMenu(params.profile_path);
+          break;
+        }
+        case 4: {
+          const params = chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openAppSettings();
+          break;
+        }
+        case 5: {
+          const params = chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.urlsOpened(params.urls);
+          break;
+        }
+        case 6: {
+          const params = chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openAppWithOverrideUrl(params.override_url);
+          break;
+        }
+        case 7: {
+          const params = chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.enableAccessibilitySupport(params.mode);
+          break;
+        }
+        case 8: {
+          const params = chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applicationWillTerminate();
+          break;
+        }
+        case 9: {
+          const params = chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notificationPermissionStatusChanged(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.AppShimHostReceiver = chrome.mojom.AppShimHostReceiver;
+
 chrome.mojom.AppShimHostPtr = chrome.mojom.AppShimHostRemote;
 chrome.mojom.AppShimHostRequest = chrome.mojom.AppShimHostPendingReceiver;
 
@@ -604,6 +740,35 @@ chrome.mojom.AppShimHostBootstrap.getRemote = function() {
     'context');
   return remote.$;
 };
+
+chrome.mojom.AppShimHostBootstrapReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onShimConnected(params.host_receiver, params.app_shim_info);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+chrome.mojom.AppShimHostBootstrapReceiver = chrome.mojom.AppShimHostBootstrapReceiver;
 
 chrome.mojom.AppShimHostBootstrapPtr = chrome.mojom.AppShimHostBootstrapRemote;
 chrome.mojom.AppShimHostBootstrapRequest = chrome.mojom.AppShimHostBootstrapPendingReceiver;

@@ -7,10 +7,9 @@
 // Module namespace
 var auction_worklet = auction_worklet || {};
 auction_worklet.mojom = auction_worklet.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var network = network || {};
 
 auction_worklet.mojom.AuctionNetworkEventsHandler = {};
 auction_worklet.mojom.AuctionNetworkEventsHandler.$interfaceName = 'auction_worklet.mojom.AuctionNetworkEventsHandler';
@@ -132,6 +131,43 @@ auction_worklet.mojom.AuctionNetworkEventsHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNetworkSendRequest(params.request, params.timestamp);
+          break;
+        }
+        case 1: {
+          const params = auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNetworkResponseReceived(params.request_id, params.loader_id, params.request_url, params.headers);
+          break;
+        }
+        case 2: {
+          const params = auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNetworkRequestComplete(params.request_id, params.status);
+          break;
+        }
+        case 3: {
+          const params = auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver = auction_worklet.mojom.AuctionNetworkEventsHandlerReceiver;
 
 auction_worklet.mojom.AuctionNetworkEventsHandlerPtr = auction_worklet.mojom.AuctionNetworkEventsHandlerRemote;
 auction_worklet.mojom.AuctionNetworkEventsHandlerRequest = auction_worklet.mojom.AuctionNetworkEventsHandlerPendingReceiver;

@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.AndroidFontLookup = {};
 blink.mojom.AndroidFontLookup.$interfaceName = 'blink.mojom.AndroidFontLookup';
@@ -125,6 +126,59 @@ blink.mojom.AndroidFontLookup.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.AndroidFontLookupReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUniqueNameLookupTable();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.matchLocalFontByUniqueName(params.font_unique_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fetchAllFontFiles();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AndroidFontLookupReceiver = blink.mojom.AndroidFontLookupReceiver;
 
 blink.mojom.AndroidFontLookupPtr = blink.mojom.AndroidFontLookupRemote;
 blink.mojom.AndroidFontLookupRequest = blink.mojom.AndroidFontLookupPendingReceiver;

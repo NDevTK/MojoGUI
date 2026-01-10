@@ -7,13 +7,11 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
-var blink = blink || {};
-var blink = blink || {};
 
 blink.mojom.DragItemSpec = { $: {} };
 blink.mojom.AllowedDragOperationsSpec = { $: {} };

@@ -8,6 +8,7 @@
 var ash = ash || {};
 ash.secure_channel = ash.secure_channel || {};
 ash.secure_channel.mojom = ash.secure_channel.mojom || {};
+var mojo_base = mojo_base || {};
 
 ash.secure_channel.mojom.FileTransferStatusSpec = { $: mojo.internal.Enum() };
 ash.secure_channel.mojom.PayloadFilesSpec = { $: {} };
@@ -102,6 +103,28 @@ ash.secure_channel.mojom.FilePayloadListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.secure_channel.mojom.FilePayloadListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFileTransferUpdate(params.update);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.secure_channel.mojom.FilePayloadListenerReceiver = ash.secure_channel.mojom.FilePayloadListenerReceiver;
 
 ash.secure_channel.mojom.FilePayloadListenerPtr = ash.secure_channel.mojom.FilePayloadListenerRemote;
 ash.secure_channel.mojom.FilePayloadListenerRequest = ash.secure_channel.mojom.FilePayloadListenerPendingReceiver;

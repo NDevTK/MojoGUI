@@ -7,31 +7,9 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var services = services || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
+var service_manager = service_manager || {};
 var url = url || {};
 
 blink.mojom.EmbeddedWorkerStartParamsSpec = { $: {} };
@@ -71,7 +49,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('interface_provider', 96, 0, mojo.internal.InterfaceRequest(service_manager.mojom.InterfaceProviderRemote), null, false, 0, undefined),
       mojo.internal.StructField('controller_receiver', 104, 0, mojo.internal.InterfaceRequest(blink.mojom.ControllerServiceWorkerRemote), null, false, 0, undefined),
       mojo.internal.StructField('installed_scripts_info', 112, 0, blink.mojom.ServiceWorkerInstalledScriptsInfoSpec.$, null, true, 0, undefined),
-      mojo.internal.StructField('instance_host', 120, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.EmbeddedWorkerInstanceHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('instance_host', 120, 0, mojo.internal.Pointer, null, false, 0, undefined),
       mojo.internal.StructField('provider_info', 128, 0, blink.mojom.ServiceWorkerProviderInfoForStartWorkerSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('content_settings_proxy', 136, 0, mojo.internal.InterfaceProxy(blink.mojom.WorkerContentSettingsProxyRemote), null, false, 0, undefined),
       mojo.internal.StructField('preference_watcher_receiver', 144, 0, mojo.internal.InterfaceRequest(blink.mojom.RendererPreferenceWatcherRemote), null, false, 0, undefined),
@@ -175,6 +153,33 @@ blink.mojom.EmbeddedWorkerInstanceClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.EmbeddedWorkerInstanceClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startWorker(params.params);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopWorker();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.EmbeddedWorkerInstanceClientReceiver = blink.mojom.EmbeddedWorkerInstanceClientReceiver;
 
 blink.mojom.EmbeddedWorkerInstanceClientPtr = blink.mojom.EmbeddedWorkerInstanceClientRemote;
 blink.mojom.EmbeddedWorkerInstanceClientRequest = blink.mojom.EmbeddedWorkerInstanceClientPendingReceiver;
@@ -383,6 +388,75 @@ blink.mojom.EmbeddedWorkerInstanceHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestTermination();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.countFeature(params.feature);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReadyForInspection(params.agent, params.agent_host);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScriptLoaded();
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScriptEvaluationStart();
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStarted(params.status, params.fetch_handler_type, params.has_hid_event_handlers, params.has_usb_event_handlers, params.thread_id, params.start_timing);
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReportException(params.error_message, params.line_number, params.column_number, params.source_url);
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReportConsoleMessage(params.source, params.message_level, params.message, params.line_number, params.source_url);
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onStopped();
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.EmbeddedWorkerInstanceHostReceiver = blink.mojom.EmbeddedWorkerInstanceHostReceiver;
 
 blink.mojom.EmbeddedWorkerInstanceHostPtr = blink.mojom.EmbeddedWorkerInstanceHostRemote;
 blink.mojom.EmbeddedWorkerInstanceHostRequest = blink.mojom.EmbeddedWorkerInstanceHostPendingReceiver;

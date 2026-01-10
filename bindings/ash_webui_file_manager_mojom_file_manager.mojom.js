@@ -79,6 +79,28 @@ ash.file_manager.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+ash.file_manager.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.file_manager.mojom.PageHandlerFactoryReceiver = ash.file_manager.mojom.PageHandlerFactoryReceiver;
+
 ash.file_manager.mojom.PageHandlerFactoryPtr = ash.file_manager.mojom.PageHandlerFactoryRemote;
 ash.file_manager.mojom.PageHandlerFactoryRequest = ash.file_manager.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -128,6 +150,23 @@ ash.file_manager.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.file_manager.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+ash.file_manager.mojom.PageHandlerReceiver = ash.file_manager.mojom.PageHandlerReceiver;
+
 ash.file_manager.mojom.PageHandlerPtr = ash.file_manager.mojom.PageHandlerRemote;
 ash.file_manager.mojom.PageHandlerRequest = ash.file_manager.mojom.PageHandlerPendingReceiver;
 
@@ -176,6 +215,23 @@ ash.file_manager.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.file_manager.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+ash.file_manager.mojom.PageReceiver = ash.file_manager.mojom.PageReceiver;
 
 ash.file_manager.mojom.PagePtr = ash.file_manager.mojom.PageRemote;
 ash.file_manager.mojom.PageRequest = ash.file_manager.mojom.PagePendingReceiver;

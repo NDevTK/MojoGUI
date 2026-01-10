@@ -7,12 +7,7 @@
 // Module namespace
 var arc = arc || {};
 arc.mojom = arc.mojom || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
-var ash = ash || {};
-var chromeos = chromeos || {};
+var sandbox = sandbox || {};
 
 arc.mojom.DecoderStatusSpec = { $: mojo.internal.Enum() };
 arc.mojom.DecoderBufferSpec = { $: {} };
@@ -79,7 +74,7 @@ mojo.internal.Struct(
     arc.mojom.VideoDecoder_Initialize_ParamsSpec, 'arc.mojom.VideoDecoder_Initialize_Params', [
       mojo.internal.StructField('config', 0, 0, arc.mojom.VideoDecoderConfigSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('client', 8, 0, mojo.internal.InterfaceProxy(arc.mojom.VideoDecoderClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('video_frame_pool', 16, 0, mojo.internal.AssociatedInterfaceRequest(arc.mojom.VideoFramePoolRemote), null, false, 0, undefined),
+      mojo.internal.StructField('video_frame_pool', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -201,6 +196,64 @@ arc.mojom.VideoDecoder.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.VideoDecoderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.VideoDecoder_Initialize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.initialize(params.config, params.client, params.video_frame_pool);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.VideoDecoder_Initialize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.VideoDecoder_Decode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decode(params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.VideoDecoder_Decode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = arc.mojom.VideoDecoder_Reset_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.reset();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, arc.mojom.VideoDecoder_Reset_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = arc.mojom.VideoDecoder_ReleaseVideoFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.releaseVideoFrame(params.video_frame_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.VideoDecoderReceiver = arc.mojom.VideoDecoderReceiver;
+
 arc.mojom.VideoDecoderPtr = arc.mojom.VideoDecoderRemote;
 arc.mojom.VideoDecoderRequest = arc.mojom.VideoDecoderPendingReceiver;
 
@@ -283,6 +336,33 @@ arc.mojom.VideoDecoderClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+arc.mojom.VideoDecoderClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onVideoFrameDecoded(params.video_frame_id, params.visible_rect, params.timestamp);
+          break;
+        }
+        case 1: {
+          const params = arc.mojom.VideoDecoderClient_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.VideoDecoderClientReceiver = arc.mojom.VideoDecoderClientReceiver;
 
 arc.mojom.VideoDecoderClientPtr = arc.mojom.VideoDecoderClientRemote;
 arc.mojom.VideoDecoderClientRequest = arc.mojom.VideoDecoderClientPendingReceiver;

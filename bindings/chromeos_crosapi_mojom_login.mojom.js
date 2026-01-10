@@ -101,6 +101,28 @@ crosapi.mojom.ExternalLogoutRequestObserver.getRemote = function() {
   return remote.$;
 };
 
+crosapi.mojom.ExternalLogoutRequestObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onRequestExternalLogout();
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.ExternalLogoutRequestObserverReceiver = crosapi.mojom.ExternalLogoutRequestObserverReceiver;
+
 crosapi.mojom.ExternalLogoutRequestObserverPtr = crosapi.mojom.ExternalLogoutRequestObserverRemote;
 crosapi.mojom.ExternalLogoutRequestObserverRequest = crosapi.mojom.ExternalLogoutRequestObserverPendingReceiver;
 
@@ -334,6 +356,117 @@ crosapi.mojom.Login.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.LoginReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 14: {
+          const params = crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addExternalLogoutRequestObserver(params.observer);
+          break;
+        }
+        case 16: {
+          const params = crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyOnExternalLogoutDone();
+          break;
+        }
+        case 0: {
+          const params = crosapi.mojom.Login_REMOVED_0_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rEMOVED_0(params.password);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = crosapi.mojom.Login_REMOVED_4_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rEMOVED_4(params.password);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = crosapi.mojom.Login_REMOVED_5_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rEMOVED_5(params.password);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = crosapi.mojom.Login_REMOVED_6_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rEMOVED_6(params.password);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = crosapi.mojom.Login_REMOVED_7_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rEMOVED_7(params.password);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = crosapi.mojom.Login_REMOVED_10_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rEMOVED_10(params.properties);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = crosapi.mojom.Login_REMOVED_12_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rEMOVED_12(params.password);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.LoginReceiver = crosapi.mojom.LoginReceiver;
 
 crosapi.mojom.LoginPtr = crosapi.mojom.LoginRemote;
 crosapi.mojom.LoginRequest = crosapi.mojom.LoginPendingReceiver;

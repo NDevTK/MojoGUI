@@ -7,8 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var components = components || {};
-var blink = blink || {};
+var content_settings = content_settings || {};
 
 blink.mojom.WebRtcIpHandlingUrlEntrySpec = { $: {} };
 

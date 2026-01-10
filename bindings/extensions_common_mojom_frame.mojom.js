@@ -7,7 +7,7 @@
 // Module namespace
 var extensions = extensions || {};
 extensions.mojom = extensions.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 var url = url || {};
 var blink = blink || {};
@@ -152,8 +152,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('channel_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('tab_info', 24, 0, extensions.mojom.TabConnectionInfoSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('external_connection_info', 32, 0, extensions.mojom.ExternalConnectionInfoSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('port', 40, 0, mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortRemote), null, false, 0, undefined),
-      mojo.internal.StructField('port_host', 48, 0, mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('port', 40, 0, pending_associated_receiver<extensions.mojom.MessagePort>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('port_host', 48, 0, pending_associated_remote<extensions.mojom.MessagePortHost>Spec.$, null, false, 0, undefined),
     ],
     [[0, 64]]);
 
@@ -307,6 +307,87 @@ extensions.mojom.LocalFrame.getRemote = function() {
   return remote.$;
 };
 
+extensions.mojom.LocalFrameReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions.mojom.LocalFrame_SetFrameName_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setFrameName(params.frame_name);
+          break;
+        }
+        case 1: {
+          const params = extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSpatialNavigationEnabled(params.spatial_nav_enabled);
+          break;
+        }
+        case 2: {
+          const params = extensions.mojom.LocalFrame_SetTabId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTabId(params.tab_id);
+          break;
+        }
+        case 3: {
+          const params = extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.appWindowClosed(params.send_onclosed);
+          break;
+        }
+        case 4: {
+          const params = extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyRenderViewType(params.view_type);
+          break;
+        }
+        case 5: {
+          const params = extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.messageInvoke(params.extension_id, params.module_name, params.function_name, params.args);
+          break;
+        }
+        case 6: {
+          const params = extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeCode(params.param);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeDeclarativeScript(params.tab_id, params.extension_id, params.script_id, params.url);
+          break;
+        }
+        case 8: {
+          const params = extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateBrowserWindowId(params.window_id);
+          break;
+        }
+        case 9: {
+          const params = extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dispatchOnConnect(params.port_id, params.channel_type, params.channel_name, params.tab_info, params.external_connection_info, params.port, params.port_host);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions.mojom.LocalFrameReceiver = extensions.mojom.LocalFrameReceiver;
+
 extensions.mojom.LocalFramePtr = extensions.mojom.LocalFrameRemote;
 extensions.mojom.LocalFrameRequest = extensions.mojom.LocalFramePendingReceiver;
 
@@ -402,8 +483,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('channel_type', 8, 0, extensions.mojom.ChannelTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('channel_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('port_id', 24, 0, extensions.mojom.PortIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('port', 32, 0, mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortRemote), null, false, 0, undefined),
-      mojo.internal.StructField('port_host', 40, 0, mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('port', 32, 0, pending_associated_remote<extensions.mojom.MessagePort>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('port_host', 40, 0, pending_associated_receiver<extensions.mojom.MessagePortHost>Spec.$, null, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -411,8 +492,8 @@ mojo.internal.Struct(
     extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec, 'extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_Params', [
       mojo.internal.StructField('native_app_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('port_id', 8, 0, extensions.mojom.PortIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('port', 16, 0, mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortRemote), null, false, 0, undefined),
-      mojo.internal.StructField('port_host', 24, 0, mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('port', 16, 0, pending_associated_remote<extensions.mojom.MessagePort>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('port_host', 24, 0, pending_associated_receiver<extensions.mojom.MessagePortHost>Spec.$, null, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -422,8 +503,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('channel_type', 8, 0, extensions.mojom.ChannelTypeSpec.$, null, false, 0, undefined),
       mojo.internal.StructField('channel_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('port_id', 24, 0, extensions.mojom.PortIdSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('port', 32, 0, mojo.internal.AssociatedInterfaceProxy(extensions.mojom.MessagePortRemote), null, false, 0, undefined),
-      mojo.internal.StructField('port_host', 40, 0, mojo.internal.AssociatedInterfaceRequest(extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('port', 32, 0, pending_associated_remote<extensions.mojom.MessagePort>Spec.$, null, false, 0, undefined),
+      mojo.internal.StructField('port_host', 40, 0, pending_associated_receiver<extensions.mojom.MessagePortHost>Spec.$, null, false, 0, undefined),
       mojo.internal.StructField('tab_id', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('frame_id', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -602,6 +683,109 @@ extensions.mojom.LocalFrameHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+extensions.mojom.LocalFrameHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestScriptInjectionPermission(params.extension_id, params.script_type, params.run_location);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAppInstallState(params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = extensions.mojom.LocalFrameHost_Request_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.request(params.params);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.responseAck(params.request_uuid);
+          break;
+        }
+        case 4: {
+          const params = extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.watchedPageChange(params.css_selectors);
+          break;
+        }
+        case 5: {
+          const params = extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.detailedConsoleMessageAdded(params.message, params.source, params.stack_trace, params.level);
+          break;
+        }
+        case 6: {
+          const params = extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.contentScriptsExecuting(params.extension_id_to_scripts, params.frame_url);
+          break;
+        }
+        case 7: {
+          const params = extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.incrementLazyKeepaliveCount();
+          break;
+        }
+        case 8: {
+          const params = extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decrementLazyKeepaliveCount();
+          break;
+        }
+        case 9: {
+          const params = extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.appWindowReady();
+          break;
+        }
+        case 10: {
+          const params = extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openChannelToExtension(params.info, params.channel_type, params.channel_name, params.port_id, params.port, params.port_host);
+          break;
+        }
+        case 11: {
+          const params = extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openChannelToNativeApp(params.native_app_name, params.port_id, params.port, params.port_host);
+          break;
+        }
+        case 12: {
+          const params = extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.openChannelToTab(params.tab_id, params.frame_id, params.document_id, params.channel_type, params.channel_name, params.port_id, params.port, params.port_host);
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions.mojom.LocalFrameHostReceiver = extensions.mojom.LocalFrameHostReceiver;
 
 extensions.mojom.LocalFrameHostPtr = extensions.mojom.LocalFrameHostRemote;
 extensions.mojom.LocalFrameHostRequest = extensions.mojom.LocalFrameHostPendingReceiver;

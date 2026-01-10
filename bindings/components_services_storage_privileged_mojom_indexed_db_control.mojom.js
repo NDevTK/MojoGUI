@@ -7,23 +7,7 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
-var components = components || {};
-var services = services || {};
-var blink = blink || {};
+var mojo_base = mojo_base || {};
 var blink = blink || {};
 
 storage.mojom.ForceCloseReasonSpec = { $: mojo.internal.Enum() };
@@ -134,6 +118,33 @@ storage.mojom.IndexedDBObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.IndexedDBObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onIndexedDBListChanged(params.bucket_locator);
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onIndexedDBContentChanged(params.bucket_locator, params.database_name, params.object_store_name);
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.IndexedDBObserverReceiver = storage.mojom.IndexedDBObserverReceiver;
 
 storage.mojom.IndexedDBObserverPtr = storage.mojom.IndexedDBObserverRemote;
 storage.mojom.IndexedDBObserverRequest = storage.mojom.IndexedDBObserverPendingReceiver;
@@ -376,6 +387,108 @@ storage.mojom.IndexedDBControl.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.IndexedDBControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindIndexedDB(params.bucket_locator, params.client_info, params.client_state_checker_remote, params.receiver);
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.IndexedDBControl_ForceClose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.forceClose(params.bucket_id, params.reason);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.downloadBucketData(params.bucket_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getAllBucketsDetails();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startMetadataRecording(params.bucket_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopMetadataRecording(params.bucket_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setForceKeepSessionState();
+          break;
+        }
+        case 7: {
+          const params = storage.mojom.IndexedDBControl_AddObserver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addObserver(params.observer);
+          break;
+        }
+        case 8: {
+          const params = storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.applyPolicyUpdates(params.policy_updates);
+          break;
+        }
+        case 9: {
+          const params = storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindTestInterfaceForTesting(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.IndexedDBControlReceiver = storage.mojom.IndexedDBControlReceiver;
 
 storage.mojom.IndexedDBControlPtr = storage.mojom.IndexedDBControlRemote;
 storage.mojom.IndexedDBControlRequest = storage.mojom.IndexedDBControlPendingReceiver;

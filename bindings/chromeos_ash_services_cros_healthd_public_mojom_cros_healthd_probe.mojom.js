@@ -8,11 +8,7 @@
 var ash = ash || {};
 ash.cros_healthd = ash.cros_healthd || {};
 ash.cros_healthd.mojom = ash.cros_healthd.mojom || {};
-var ash = ash || {};
 var chromeos = chromeos || {};
-var services = services || {};
-var chromeos = chromeos || {};
-var services = services || {};
 
 ash.cros_healthd.mojom.CpuArchitectureEnumSpec = { $: mojo.internal.Enum() };
 ash.cros_healthd.mojom.ProbeCategoryEnumSpec = { $: mojo.internal.Enum() };

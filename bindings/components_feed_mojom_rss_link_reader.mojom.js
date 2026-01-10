@@ -89,6 +89,35 @@ feed.mojom.RssLinkReader.getRemote = function() {
   return remote.$;
 };
 
+feed.mojom.RssLinkReaderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getRssLinks();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+feed.mojom.RssLinkReaderReceiver = feed.mojom.RssLinkReaderReceiver;
+
 feed.mojom.RssLinkReaderPtr = feed.mojom.RssLinkReaderRemote;
 feed.mojom.RssLinkReaderRequest = feed.mojom.RssLinkReaderPendingReceiver;
 

@@ -111,6 +111,38 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocument.getRemote = function() {
   return remote.$;
 };
 
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acquireTokenPopup();
+          break;
+        }
+        case 1: {
+          const params = new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.acquireTokenSilent();
+          break;
+        }
+        case 2: {
+          const params = new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.signOut();
+          break;
+        }
+      }
+    });
+  }
+};
+
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentReceiver = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentReceiver;
+
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPtr = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote;
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRequest = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPendingReceiver;
 

@@ -7,7 +7,6 @@
 // Module namespace
 var media = media || {};
 media.mojom = media.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 media.mojom.PlaybackEventsRecorder = {};
@@ -204,6 +203,68 @@ media.mojom.PlaybackEventsRecorder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media.mojom.PlaybackEventsRecorderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPlaying();
+          break;
+        }
+        case 1: {
+          const params = media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPaused();
+          break;
+        }
+        case 2: {
+          const params = media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSeeking();
+          break;
+        }
+        case 3: {
+          const params = media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEnded();
+          break;
+        }
+        case 4: {
+          const params = media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onError(params.status);
+          break;
+        }
+        case 5: {
+          const params = media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBuffering();
+          break;
+        }
+        case 6: {
+          const params = media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBufferingComplete();
+          break;
+        }
+        case 7: {
+          const params = media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNaturalSizeChanged(params.size);
+          break;
+        }
+        case 8: {
+          const params = media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPipelineStatistics(params.stats);
+          break;
+        }
+      }
+    });
+  }
+};
+
+media.mojom.PlaybackEventsRecorderReceiver = media.mojom.PlaybackEventsRecorderReceiver;
 
 media.mojom.PlaybackEventsRecorderPtr = media.mojom.PlaybackEventsRecorderRemote;
 media.mojom.PlaybackEventsRecorderRequest = media.mojom.PlaybackEventsRecorderPendingReceiver;

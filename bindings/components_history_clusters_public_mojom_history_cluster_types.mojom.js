@@ -7,6 +7,7 @@
 // Module namespace
 var history_clusters = history_clusters || {};
 history_clusters.mojom = history_clusters.mojom || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 history_clusters.mojom.AnnotationSpec = { $: mojo.internal.Enum() };

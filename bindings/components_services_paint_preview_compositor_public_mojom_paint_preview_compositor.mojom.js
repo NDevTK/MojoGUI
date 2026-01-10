@@ -7,10 +7,10 @@
 // Module namespace
 var paint_preview = paint_preview || {};
 paint_preview.mojom = paint_preview.mojom || {};
-var components = components || {};
-var components = components || {};
+var discardable_memory = discardable_memory || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 var skia = skia || {};
-var ui = ui || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -243,6 +243,76 @@ paint_preview.mojom.PaintPreviewCompositor.getRemote = function() {
   return remote.$;
 };
 
+paint_preview.mojom.PaintPreviewCompositorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.beginSeparatedFrameComposite(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bitmapForSeparatedFrame(params.frame_guid, params.clip_rect, params.scale_factor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.beginMainFrameComposite(params.request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bitmapForMainFrame(params.clip_rect, params.scale_factor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setRootFrameUrl(params.url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+paint_preview.mojom.PaintPreviewCompositorReceiver = paint_preview.mojom.PaintPreviewCompositorReceiver;
+
 paint_preview.mojom.PaintPreviewCompositorPtr = paint_preview.mojom.PaintPreviewCompositorRemote;
 paint_preview.mojom.PaintPreviewCompositorRequest = paint_preview.mojom.PaintPreviewCompositorPendingReceiver;
 
@@ -350,6 +420,52 @@ paint_preview.mojom.PaintPreviewCompositorCollection.getRemote = function() {
     'context');
   return remote.$;
 };
+
+paint_preview.mojom.PaintPreviewCompositorCollectionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setDiscardableSharedMemoryManager(params.manager);
+          break;
+        }
+        case 1: {
+          const params = paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createCompositor(params.compositor);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.listCompositors();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+paint_preview.mojom.PaintPreviewCompositorCollectionReceiver = paint_preview.mojom.PaintPreviewCompositorCollectionReceiver;
 
 paint_preview.mojom.PaintPreviewCompositorCollectionPtr = paint_preview.mojom.PaintPreviewCompositorCollectionRemote;
 paint_preview.mojom.PaintPreviewCompositorCollectionRequest = paint_preview.mojom.PaintPreviewCompositorCollectionPendingReceiver;

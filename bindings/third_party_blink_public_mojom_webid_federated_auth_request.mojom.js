@@ -7,8 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var url = url || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 blink.mojom.RequestTokenStatusSpec = { $: mojo.internal.Enum() };
@@ -437,6 +436,129 @@ blink.mojom.FederatedAuthRequest.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.FederatedAuthRequestReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestToken(params.idp_get_params, params.requirement);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestUserInfo(params.provider);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelTokenRequest();
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolveTokenRequest(params.account_id, params.token);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setIdpSigninStatus(params.origin, params.status, params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerIdP(params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unregisterIdP(params.url);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeModalDialogView();
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.preventSilentAccess();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.disconnect(params.options);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FederatedAuthRequestReceiver = blink.mojom.FederatedAuthRequestReceiver;
 
 blink.mojom.FederatedAuthRequestPtr = blink.mojom.FederatedAuthRequestRemote;
 blink.mojom.FederatedAuthRequestRequest = blink.mojom.FederatedAuthRequestPendingReceiver;

@@ -16,7 +16,7 @@ mojo_base.mojom.GenericAssociatedInterface.$interfaceName = 'mojo_base.mojom.Gen
 mojo.internal.Struct(
     mojo_base.mojom.GenericPendingAssociatedReceiverSpec, 'mojo_base.mojom.GenericPendingAssociatedReceiver', [
       mojo.internal.StructField('interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo_base.mojom.GenericAssociatedInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('receiver', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -64,6 +64,23 @@ mojo_base.mojom.GenericAssociatedInterface.getRemote = function() {
     'context');
   return remote.$;
 };
+
+mojo_base.mojom.GenericAssociatedInterfaceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+mojo_base.mojom.GenericAssociatedInterfaceReceiver = mojo_base.mojom.GenericAssociatedInterfaceReceiver;
 
 mojo_base.mojom.GenericAssociatedInterfacePtr = mojo_base.mojom.GenericAssociatedInterfaceRemote;
 mojo_base.mojom.GenericAssociatedInterfaceRequest = mojo_base.mojom.GenericAssociatedInterfacePendingReceiver;

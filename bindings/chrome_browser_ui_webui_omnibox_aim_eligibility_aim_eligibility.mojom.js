@@ -7,6 +7,7 @@
 // Module namespace
 var aim_eligibility = aim_eligibility || {};
 aim_eligibility.mojom = aim_eligibility.mojom || {};
+var mojo_base = mojo_base || {};
 
 aim_eligibility.mojom.EligibilityStateSpec = { $: {} };
 aim_eligibility.mojom.Page = {};
@@ -98,6 +99,28 @@ aim_eligibility.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+aim_eligibility.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEligibilityStateChanged(params.state);
+          break;
+        }
+      }
+    });
+  }
+};
+
+aim_eligibility.mojom.PageReceiver = aim_eligibility.mojom.PageReceiver;
 
 aim_eligibility.mojom.PagePtr = aim_eligibility.mojom.PageRemote;
 aim_eligibility.mojom.PageRequest = aim_eligibility.mojom.PagePendingReceiver;
@@ -206,6 +229,52 @@ aim_eligibility.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+aim_eligibility.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEligibilityState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestServerEligibilityForDebugging();
+          break;
+        }
+        case 2: {
+          const params = aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setEligibilityResponseForDebugging(params.base64_encoded_response);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+aim_eligibility.mojom.PageHandlerReceiver = aim_eligibility.mojom.PageHandlerReceiver;
+
 aim_eligibility.mojom.PageHandlerPtr = aim_eligibility.mojom.PageHandlerRemote;
 aim_eligibility.mojom.PageHandlerRequest = aim_eligibility.mojom.PageHandlerPendingReceiver;
 
@@ -271,6 +340,28 @@ aim_eligibility.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+aim_eligibility.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+aim_eligibility.mojom.PageHandlerFactoryReceiver = aim_eligibility.mojom.PageHandlerFactoryReceiver;
 
 aim_eligibility.mojom.PageHandlerFactoryPtr = aim_eligibility.mojom.PageHandlerFactoryRemote;
 aim_eligibility.mojom.PageHandlerFactoryRequest = aim_eligibility.mojom.PageHandlerFactoryPendingReceiver;

@@ -104,6 +104,47 @@ on_device_translation.mojom.Translator.getRemote = function() {
   return remote.$;
 };
 
+on_device_translation.mojom.TranslatorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_translation.mojom.Translator_Translate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.translate(params.input);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_translation.mojom.Translator_Translate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = on_device_translation.mojom.Translator_SplitSentences_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.splitSentences(params.input);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_translation.mojom.TranslatorReceiver = on_device_translation.mojom.TranslatorReceiver;
+
 on_device_translation.mojom.TranslatorPtr = on_device_translation.mojom.TranslatorRemote;
 on_device_translation.mojom.TranslatorRequest = on_device_translation.mojom.TranslatorPendingReceiver;
 

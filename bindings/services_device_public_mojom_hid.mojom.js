@@ -448,6 +448,38 @@ device.mojom.HidManagerClient.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.HidManagerClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deviceAdded(params.device_info);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deviceRemoved(params.device_info);
+          break;
+        }
+        case 2: {
+          const params = device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deviceChanged(params.device_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.HidManagerClientReceiver = device.mojom.HidManagerClientReceiver;
+
 device.mojom.HidManagerClientPtr = device.mojom.HidManagerClientRemote;
 device.mojom.HidManagerClientRequest = device.mojom.HidManagerClientPendingReceiver;
 
@@ -455,7 +487,7 @@ device.mojom.HidManagerClientRequest = device.mojom.HidManagerClientPendingRecei
 // Interface: HidManager
 mojo.internal.Struct(
     device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec, 'device.mojom.HidManager_GetDevicesAndSetClient_Params', [
-      mojo.internal.StructField('client', 0, 0, mojo.internal.AssociatedInterfaceProxy(device.mojom.HidManagerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -581,6 +613,64 @@ device.mojom.HidManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.HidManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDevicesAndSetClient(params.client);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.HidManager_GetDevices_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDevices();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.HidManager_GetDevices_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.HidManager_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.device_guid, params.connection_client, params.watcher, params.allow_protected_reports, params.allow_fido_reports);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.HidManager_Connect_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = device.mojom.HidManager_AddReceiver_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addReceiver(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.HidManagerReceiver = device.mojom.HidManagerReceiver;
 
 device.mojom.HidManagerPtr = device.mojom.HidManagerRemote;
 device.mojom.HidManagerRequest = device.mojom.HidManagerPendingReceiver;
@@ -723,6 +813,71 @@ device.mojom.HidConnection.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.HidConnectionReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.HidConnection_Read_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.read();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.HidConnection_Read_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = device.mojom.HidConnection_Write_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.write(params.report_id, params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.HidConnection_Write_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFeatureReport(params.report_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendFeatureReport(params.report_id, params.buffer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.HidConnectionReceiver = device.mojom.HidConnectionReceiver;
+
 device.mojom.HidConnectionPtr = device.mojom.HidConnectionRemote;
 device.mojom.HidConnectionRequest = device.mojom.HidConnectionPendingReceiver;
 
@@ -789,6 +944,28 @@ device.mojom.HidConnectionClient.getRemote = function() {
   return remote.$;
 };
 
+device.mojom.HidConnectionClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onInputReport(params.report_id, params.buffer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.HidConnectionClientReceiver = device.mojom.HidConnectionClientReceiver;
+
 device.mojom.HidConnectionClientPtr = device.mojom.HidConnectionClientRemote;
 device.mojom.HidConnectionClientRequest = device.mojom.HidConnectionClientPendingReceiver;
 
@@ -837,6 +1014,23 @@ device.mojom.HidConnectionWatcher.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.HidConnectionWatcherReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+device.mojom.HidConnectionWatcherReceiver = device.mojom.HidConnectionWatcherReceiver;
 
 device.mojom.HidConnectionWatcherPtr = device.mojom.HidConnectionWatcherRemote;
 device.mojom.HidConnectionWatcherRequest = device.mojom.HidConnectionWatcherPendingReceiver;

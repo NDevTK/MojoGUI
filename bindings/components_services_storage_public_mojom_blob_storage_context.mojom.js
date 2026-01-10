@@ -7,6 +7,7 @@
 // Module namespace
 var storage = storage || {};
 storage.mojom = storage.mojom || {};
+var mojo_base = mojo_base || {};
 var blink = blink || {};
 
 storage.mojom.BlobDataItemTypeSpec = { $: mojo.internal.Enum() };
@@ -145,6 +146,47 @@ storage.mojom.BlobDataItemReader.getRemote = function() {
   return remote.$;
 };
 
+storage.mojom.BlobDataItemReaderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.BlobDataItemReader_Read_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.read(params.offset, params.length, params.pipe);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readSideData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.BlobDataItemReaderReceiver = storage.mojom.BlobDataItemReaderReceiver;
+
 storage.mojom.BlobDataItemReaderPtr = storage.mojom.BlobDataItemReaderRemote;
 storage.mojom.BlobDataItemReaderRequest = storage.mojom.BlobDataItemReaderPendingReceiver;
 
@@ -270,6 +312,50 @@ storage.mojom.BlobStorageContext.getRemote = function() {
     'context');
   return remote.$;
 };
+
+storage.mojom.BlobStorageContextReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerFromDataItem(params.blob, params.uuid, params.item);
+          break;
+        }
+        case 1: {
+          const params = storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerFromMemory(params.blob, params.uuid, params.data);
+          break;
+        }
+        case 2: {
+          const params = storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.writeBlobToFile(params.blob, params.path, params.flush_on_write, params.last_modified);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = storage.mojom.BlobStorageContext_Clone_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clone(params.receiver);
+          break;
+        }
+      }
+    });
+  }
+};
+
+storage.mojom.BlobStorageContextReceiver = storage.mojom.BlobStorageContextReceiver;
 
 storage.mojom.BlobStorageContextPtr = storage.mojom.BlobStorageContextRemote;
 storage.mojom.BlobStorageContextRequest = storage.mojom.BlobStorageContextPendingReceiver;

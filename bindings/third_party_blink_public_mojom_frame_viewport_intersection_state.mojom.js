@@ -7,9 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 blink.mojom.FrameOcclusionStateSpec = { $: mojo.internal.Enum() };

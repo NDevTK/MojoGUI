@@ -56,6 +56,23 @@ blink.mojom.DedicatedWorkerHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.DedicatedWorkerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+blink.mojom.DedicatedWorkerHostReceiver = blink.mojom.DedicatedWorkerHostReceiver;
+
 blink.mojom.DedicatedWorkerHostPtr = blink.mojom.DedicatedWorkerHostRemote;
 blink.mojom.DedicatedWorkerHostRequest = blink.mojom.DedicatedWorkerHostPendingReceiver;
 

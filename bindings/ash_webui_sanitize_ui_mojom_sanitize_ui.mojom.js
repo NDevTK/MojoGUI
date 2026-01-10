@@ -74,6 +74,28 @@ ash.sanitize_ui.mojom.SettingsResetter.getRemote = function() {
   return remote.$;
 };
 
+ash.sanitize_ui.mojom.SettingsResetterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.performSanitizeSettings();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.sanitize_ui.mojom.SettingsResetterReceiver = ash.sanitize_ui.mojom.SettingsResetterReceiver;
+
 ash.sanitize_ui.mojom.SettingsResetterPtr = ash.sanitize_ui.mojom.SettingsResetterRemote;
 ash.sanitize_ui.mojom.SettingsResetterRequest = ash.sanitize_ui.mojom.SettingsResetterPendingReceiver;
 

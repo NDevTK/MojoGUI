@@ -7,11 +7,7 @@
 // Module namespace
 var video_capture = video_capture || {};
 video_capture.mojom = video_capture.mojom || {};
-var services = services || {};
-var services = services || {};
-var ui = ui || {};
-var gfx = gfx || {};
-var ui = ui || {};
+var media = media || {};
 var gfx = gfx || {};
 
 video_capture.mojom.SharedMemoryVirtualDevice = {};
@@ -117,6 +113,40 @@ video_capture.mojom.SharedMemoryVirtualDevice.getRemote = function() {
     'context');
   return remote.$;
 };
+
+video_capture.mojom.SharedMemoryVirtualDeviceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestFrameBuffer(params.dimension, params.pixel_format, params.strides);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameReadyInBuffer(params.buffer_id, params.frame_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+video_capture.mojom.SharedMemoryVirtualDeviceReceiver = video_capture.mojom.SharedMemoryVirtualDeviceReceiver;
 
 video_capture.mojom.SharedMemoryVirtualDevicePtr = video_capture.mojom.SharedMemoryVirtualDeviceRemote;
 video_capture.mojom.SharedMemoryVirtualDeviceRequest = video_capture.mojom.SharedMemoryVirtualDevicePendingReceiver;
@@ -233,6 +263,43 @@ video_capture.mojom.TextureVirtualDevice.getRemote = function() {
   return remote.$;
 };
 
+video_capture.mojom.TextureVirtualDeviceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewSharedImageBufferHandle(params.buffer_id, params.shared_image_handle);
+          break;
+        }
+        case 1: {
+          const params = video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameAccessHandlerReady(params.frame_access_handler);
+          break;
+        }
+        case 2: {
+          const params = video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameReadyInBuffer(params.buffer_id, params.frame_info);
+          break;
+        }
+        case 3: {
+          const params = video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBufferRetired(params.buffer_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+video_capture.mojom.TextureVirtualDeviceReceiver = video_capture.mojom.TextureVirtualDeviceReceiver;
+
 video_capture.mojom.TextureVirtualDevicePtr = video_capture.mojom.TextureVirtualDeviceRemote;
 video_capture.mojom.TextureVirtualDeviceRequest = video_capture.mojom.TextureVirtualDevicePendingReceiver;
 
@@ -347,6 +414,43 @@ video_capture.mojom.GpuMemoryBufferVirtualDevice.getRemote = function() {
     'context');
   return remote.$;
 };
+
+video_capture.mojom.GpuMemoryBufferVirtualDeviceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onNewGpuMemoryBufferHandle(params.buffer_id, params.gmb_handle);
+          break;
+        }
+        case 1: {
+          const params = video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameAccessHandlerReady(params.frame_access_handler);
+          break;
+        }
+        case 2: {
+          const params = video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onFrameReadyInBuffer(params.buffer_id, params.frame_info);
+          break;
+        }
+        case 3: {
+          const params = video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onBufferRetired(params.buffer_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+video_capture.mojom.GpuMemoryBufferVirtualDeviceReceiver = video_capture.mojom.GpuMemoryBufferVirtualDeviceReceiver;
 
 video_capture.mojom.GpuMemoryBufferVirtualDevicePtr = video_capture.mojom.GpuMemoryBufferVirtualDeviceRemote;
 video_capture.mojom.GpuMemoryBufferVirtualDeviceRequest = video_capture.mojom.GpuMemoryBufferVirtualDevicePendingReceiver;

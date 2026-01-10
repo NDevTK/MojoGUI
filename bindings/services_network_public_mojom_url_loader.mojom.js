@@ -7,11 +7,7 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 network.mojom.URLLoaderClientEndpointsSpec = { $: {} };
@@ -119,6 +115,33 @@ network.mojom.URLLoader.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.URLLoaderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.URLLoader_FollowRedirect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.followRedirect(params.removed_headers, params.modified_headers, params.modified_cors_exempt_headers, params.new_url);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.URLLoader_SetPriority_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPriority(params.priority, params.intra_priority_value);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.URLLoaderReceiver = network.mojom.URLLoaderReceiver;
 
 network.mojom.URLLoaderPtr = network.mojom.URLLoaderRemote;
 network.mojom.URLLoaderRequest = network.mojom.URLLoaderPendingReceiver;
@@ -273,6 +296,60 @@ network.mojom.URLLoaderClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.URLLoaderClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReceiveEarlyHints(params.early_hints);
+          break;
+        }
+        case 1: {
+          const params = network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReceiveResponse(params.head, params.body, params.cached_metadata);
+          break;
+        }
+        case 2: {
+          const params = network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReceiveRedirect(params.redirect_info, params.head);
+          break;
+        }
+        case 3: {
+          const params = network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onUploadProgress(params.current_position, params.total_size);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTransferSizeUpdated(params.transfer_size_diff);
+          break;
+        }
+        case 5: {
+          const params = network.mojom.URLLoaderClient_OnComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onComplete(params.status);
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.URLLoaderClientReceiver = network.mojom.URLLoaderClientReceiver;
 
 network.mojom.URLLoaderClientPtr = network.mojom.URLLoaderClientRemote;
 network.mojom.URLLoaderClientRequest = network.mojom.URLLoaderClientPendingReceiver;

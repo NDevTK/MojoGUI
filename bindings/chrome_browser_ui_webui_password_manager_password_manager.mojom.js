@@ -120,6 +120,28 @@ password_manager.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+password_manager.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+password_manager.mojom.PageHandlerFactoryReceiver = password_manager.mojom.PageHandlerFactoryReceiver;
+
 password_manager.mojom.PageHandlerFactoryPtr = password_manager.mojom.PageHandlerFactoryRemote;
 password_manager.mojom.PageHandlerFactoryRequest = password_manager.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -416,6 +438,144 @@ password_manager.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+password_manager.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.extendAuthValidity();
+          break;
+        }
+        case 1: {
+          const params = password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.deleteAllPasswordManagerData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.copyPlaintextBackupPassword(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeBackupPassword(params.id);
+          break;
+        }
+        case 4: {
+          const params = password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getActorLoginPermissions();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 5: {
+          const params = password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.revokeActorLoginPermission(params.site);
+          break;
+        }
+        case 6: {
+          const params = password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.changePasswordManagerPin();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.showAddShortcutDialog();
+          break;
+        }
+        case 8: {
+          const params = password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isAccountStorageEnabled();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAccountStorageEnabled(params.enabled);
+          break;
+        }
+        case 10: {
+          const params = password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldShowAccountStorageSettingToggle();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 11: {
+          const params = password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isPasswordManagerPinAvailable();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.switchBiometricAuthBeforeFillingState();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+password_manager.mojom.PageHandlerReceiver = password_manager.mojom.PageHandlerReceiver;
+
 password_manager.mojom.PageHandlerPtr = password_manager.mojom.PageHandlerRemote;
 password_manager.mojom.PageHandlerRequest = password_manager.mojom.PageHandlerPendingReceiver;
 
@@ -464,6 +624,23 @@ password_manager.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+password_manager.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+      }
+    });
+  }
+};
+
+password_manager.mojom.PageReceiver = password_manager.mojom.PageReceiver;
 
 password_manager.mojom.PagePtr = password_manager.mojom.PageRemote;
 password_manager.mojom.PageRequest = password_manager.mojom.PagePendingReceiver;

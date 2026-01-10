@@ -7,8 +7,9 @@
 // Module namespace
 var unzip = unzip || {};
 unzip.mojom = unzip.mojom || {};
-var components = components || {};
-var services = services || {};
+var storage = storage || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 unzip.mojom.UnzipOptionsSpec = { $: {} };
 unzip.mojom.InfoSpec = { $: {} };
@@ -115,6 +116,35 @@ unzip.mojom.UnzipFilter.getRemote = function() {
   return remote.$;
 };
 
+unzip.mojom.UnzipFilterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldUnzipFile(params.path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+unzip.mojom.UnzipFilterReceiver = unzip.mojom.UnzipFilterReceiver;
+
 unzip.mojom.UnzipFilterPtr = unzip.mojom.UnzipFilterRemote;
 unzip.mojom.UnzipFilterRequest = unzip.mojom.UnzipFilterPendingReceiver;
 
@@ -179,6 +209,28 @@ unzip.mojom.UnzipListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+unzip.mojom.UnzipListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = unzip.mojom.UnzipListener_OnProgress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProgress(params.bytes);
+          break;
+        }
+      }
+    });
+  }
+};
+
+unzip.mojom.UnzipListenerReceiver = unzip.mojom.UnzipListenerReceiver;
 
 unzip.mojom.UnzipListenerPtr = unzip.mojom.UnzipListenerRemote;
 unzip.mojom.UnzipListenerRequest = unzip.mojom.UnzipListenerPendingReceiver;
@@ -321,6 +373,71 @@ unzip.mojom.Unzipper.getRemote = function() {
     'context');
   return remote.$;
 };
+
+unzip.mojom.UnzipperReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = unzip.mojom.Unzipper_Unzip_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unzip(params.zip_file, params.output_dir, params.options, params.filter, params.listener);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, unzip.mojom.Unzipper_Unzip_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = unzip.mojom.Unzipper_DetectEncoding_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.detectEncoding(params.zip_file);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getExtractedInfo(params.zip_file);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = unzip.mojom.Unzipper_DecodeXz_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.decodeXz(params.in_file, params.out_file);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+unzip.mojom.UnzipperReceiver = unzip.mojom.UnzipperReceiver;
 
 unzip.mojom.UnzipperPtr = unzip.mojom.UnzipperRemote;
 unzip.mojom.UnzipperRequest = unzip.mojom.UnzipperPendingReceiver;

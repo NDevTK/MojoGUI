@@ -7,7 +7,6 @@
 // Module namespace
 var media_router = media_router || {};
 media_router.mojom = media_router.mojom || {};
-var components = components || {};
 
 media_router.mojom.MediaRouterTraitsTestService = {};
 media_router.mojom.MediaRouterTraitsTestService.$interfaceName = 'media_router.mojom.MediaRouterTraitsTestService';
@@ -80,6 +79,35 @@ media_router.mojom.MediaRouterTraitsTestService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+media_router.mojom.MediaRouterTraitsTestServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.echoMediaSink(params.s);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+media_router.mojom.MediaRouterTraitsTestServiceReceiver = media_router.mojom.MediaRouterTraitsTestServiceReceiver;
 
 media_router.mojom.MediaRouterTraitsTestServicePtr = media_router.mojom.MediaRouterTraitsTestServiceRemote;
 media_router.mojom.MediaRouterTraitsTestServiceRequest = media_router.mojom.MediaRouterTraitsTestServicePendingReceiver;

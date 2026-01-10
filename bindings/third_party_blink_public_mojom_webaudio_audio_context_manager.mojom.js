@@ -124,6 +124,43 @@ blink.mojom.AudioContextManager.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.AudioContextManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.audioContextAudiblePlaybackStarted(params.id);
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.audioContextAudiblePlaybackStopped(params.id);
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.audioContextCreated(params.id);
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.audioContextClosed(params.id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.AudioContextManagerReceiver = blink.mojom.AudioContextManagerReceiver;
+
 blink.mojom.AudioContextManagerPtr = blink.mojom.AudioContextManagerRemote;
 blink.mojom.AudioContextManagerRequest = blink.mojom.AudioContextManagerPendingReceiver;
 

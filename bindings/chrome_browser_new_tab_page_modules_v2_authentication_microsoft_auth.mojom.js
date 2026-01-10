@@ -112,6 +112,45 @@ ntp.authentication.mojom.MicrosoftAuthPageHandler.getRemote = function() {
   return remote.$;
 };
 
+ntp.authentication.mojom.MicrosoftAuthPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dismissModule();
+          break;
+        }
+        case 1: {
+          const params = ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restoreModule();
+          break;
+        }
+        case 2: {
+          const params = ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldShowModule();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ntp.authentication.mojom.MicrosoftAuthPageHandlerReceiver = ntp.authentication.mojom.MicrosoftAuthPageHandlerReceiver;
+
 ntp.authentication.mojom.MicrosoftAuthPageHandlerPtr = ntp.authentication.mojom.MicrosoftAuthPageHandlerRemote;
 ntp.authentication.mojom.MicrosoftAuthPageHandlerRequest = ntp.authentication.mojom.MicrosoftAuthPageHandlerPendingReceiver;
 

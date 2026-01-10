@@ -7,7 +7,7 @@
 // Module namespace
 var android_webview = android_webview || {};
 android_webview.mojom = android_webview.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 var gfx = gfx || {};
 var url = url || {};
 
@@ -182,6 +182,55 @@ android_webview.mojom.LocalMainFrame.getRemote = function() {
   return remote.$;
 };
 
+android_webview.mojom.LocalMainFrameReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setInitialPageScale(params.page_scale_factor);
+          break;
+        }
+        case 1: {
+          const params = android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTextZoomFactor(params.zoom_factor);
+          break;
+        }
+        case 2: {
+          const params = android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.documentHasImage();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resetScrollAndScaleState();
+          break;
+        }
+        case 4: {
+          const params = android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.smoothScroll(params.target_x, params.target_y, params.duration);
+          break;
+        }
+      }
+    });
+  }
+};
+
+android_webview.mojom.LocalMainFrameReceiver = android_webview.mojom.LocalMainFrameReceiver;
+
 android_webview.mojom.LocalMainFramePtr = android_webview.mojom.LocalMainFrameRemote;
 android_webview.mojom.LocalMainFrameRequest = android_webview.mojom.LocalMainFramePendingReceiver;
 
@@ -287,6 +336,45 @@ android_webview.mojom.FrameHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+android_webview.mojom.FrameHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateHitTestData(params.data);
+          break;
+        }
+        case 1: {
+          const params = android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.contentsSizeChanged(params.contents_size);
+          break;
+        }
+        case 2: {
+          const params = android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.shouldOverrideUrlLoading(params.url, params.has_user_gesture, params.is_redirect, params.is_outermost_main_frame);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+android_webview.mojom.FrameHostReceiver = android_webview.mojom.FrameHostReceiver;
 
 android_webview.mojom.FrameHostPtr = android_webview.mojom.FrameHostRemote;
 android_webview.mojom.FrameHostRequest = android_webview.mojom.FrameHostPendingReceiver;

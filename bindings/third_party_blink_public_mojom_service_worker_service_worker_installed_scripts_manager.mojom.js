@@ -101,6 +101,28 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHost.getRemote = function() {
   return remote.$;
 };
 
+blink.mojom.ServiceWorkerInstalledScriptsManagerHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestInstalledScript(params.script_url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ServiceWorkerInstalledScriptsManagerHostReceiver = blink.mojom.ServiceWorkerInstalledScriptsManagerHostReceiver;
+
 blink.mojom.ServiceWorkerInstalledScriptsManagerHostPtr = blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote;
 blink.mojom.ServiceWorkerInstalledScriptsManagerHostRequest = blink.mojom.ServiceWorkerInstalledScriptsManagerHostPendingReceiver;
 
@@ -165,6 +187,28 @@ blink.mojom.ServiceWorkerInstalledScriptsManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.ServiceWorkerInstalledScriptsManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.transferInstalledScript(params.script_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.ServiceWorkerInstalledScriptsManagerReceiver = blink.mojom.ServiceWorkerInstalledScriptsManagerReceiver;
 
 blink.mojom.ServiceWorkerInstalledScriptsManagerPtr = blink.mojom.ServiceWorkerInstalledScriptsManagerRemote;
 blink.mojom.ServiceWorkerInstalledScriptsManagerRequest = blink.mojom.ServiceWorkerInstalledScriptsManagerPendingReceiver;

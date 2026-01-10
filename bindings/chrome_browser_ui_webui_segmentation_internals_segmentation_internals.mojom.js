@@ -7,6 +7,7 @@
 // Module namespace
 var segmentation_internals = segmentation_internals || {};
 segmentation_internals.mojom = segmentation_internals.mojom || {};
+var mojo_base = mojo_base || {};
 
 segmentation_internals.mojom.ServiceStatusSpec = { $: {} };
 segmentation_internals.mojom.SegmentInfoSpec = { $: {} };
@@ -115,6 +116,28 @@ segmentation_internals.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+segmentation_internals.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+segmentation_internals.mojom.PageHandlerFactoryReceiver = segmentation_internals.mojom.PageHandlerFactoryReceiver;
 
 segmentation_internals.mojom.PageHandlerFactoryPtr = segmentation_internals.mojom.PageHandlerFactoryRemote;
 segmentation_internals.mojom.PageHandlerFactoryRequest = segmentation_internals.mojom.PageHandlerFactoryPendingReceiver;
@@ -230,6 +253,43 @@ segmentation_internals.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+segmentation_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getServiceStatus();
+          break;
+        }
+        case 1: {
+          const params = segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.executeModel(params.segment_id);
+          break;
+        }
+        case 2: {
+          const params = segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.overwriteResult(params.segment_id, params.result);
+          break;
+        }
+        case 3: {
+          const params = segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSelected(params.segmentation_key, params.optimization_target);
+          break;
+        }
+      }
+    });
+  }
+};
+
+segmentation_internals.mojom.PageHandlerReceiver = segmentation_internals.mojom.PageHandlerReceiver;
+
 segmentation_internals.mojom.PageHandlerPtr = segmentation_internals.mojom.PageHandlerRemote;
 segmentation_internals.mojom.PageHandlerRequest = segmentation_internals.mojom.PageHandlerPendingReceiver;
 
@@ -311,6 +371,33 @@ segmentation_internals.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+segmentation_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onServiceStatusChanged(params.is_initialized, params.status_flag);
+          break;
+        }
+        case 1: {
+          const params = segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onClientInfoAvailable(params.client_info);
+          break;
+        }
+      }
+    });
+  }
+};
+
+segmentation_internals.mojom.PageReceiver = segmentation_internals.mojom.PageReceiver;
 
 segmentation_internals.mojom.PagePtr = segmentation_internals.mojom.PageRemote;
 segmentation_internals.mojom.PageRequest = segmentation_internals.mojom.PagePendingReceiver;

@@ -81,6 +81,35 @@ ash.cfm.mojom.MeetBrowser.getRemote = function() {
   return remote.$;
 };
 
+ash.cfm.mojom.MeetBrowserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.translateVideoDeviceId(params.hashed_device_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.cfm.mojom.MeetBrowserReceiver = ash.cfm.mojom.MeetBrowserReceiver;
+
 ash.cfm.mojom.MeetBrowserPtr = ash.cfm.mojom.MeetBrowserRemote;
 ash.cfm.mojom.MeetBrowserRequest = ash.cfm.mojom.MeetBrowserPendingReceiver;
 

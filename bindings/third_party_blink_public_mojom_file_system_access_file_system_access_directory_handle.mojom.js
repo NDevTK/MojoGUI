@@ -7,12 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
 
 blink.mojom.FileSystemAccessHandleSpec = { $: {} };
 blink.mojom.FileSystemAccessEntrySpec = { $: {} };
@@ -131,6 +125,28 @@ blink.mojom.FileSystemAccessDirectoryEntriesListener.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.FileSystemAccessDirectoryEntriesListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didReadDirectory(params.result, params.entries, params.has_more_entries);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FileSystemAccessDirectoryEntriesListenerReceiver = blink.mojom.FileSystemAccessDirectoryEntriesListenerReceiver;
 
 blink.mojom.FileSystemAccessDirectoryEntriesListenerPtr = blink.mojom.FileSystemAccessDirectoryEntriesListenerRemote;
 blink.mojom.FileSystemAccessDirectoryEntriesListenerRequest = blink.mojom.FileSystemAccessDirectoryEntriesListenerPendingReceiver;
@@ -462,6 +478,165 @@ blink.mojom.FileSystemAccessDirectoryHandle.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPermissionStatus(params.mode);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestPermission(params.mode);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFile(params.basename, params.create);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 3: {
+          const params = blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDirectory(params.basename, params.create);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 4: {
+          const params = blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getEntries(params.listener);
+          break;
+        }
+        case 5: {
+          const params = blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rename(params.new_entry_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 6: {
+          const params = blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.move(params.destination_directory, params.new_entry_name);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 7: {
+          const params = blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.remove(params.recurse);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 8: {
+          const params = blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeEntry(params.basename, params.recurse);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.resolve(params.possible_child);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 10: {
+          const params = blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.transfer(params.token);
+          break;
+        }
+        case 11: {
+          const params = blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getUniqueId();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 12: {
+          const params = blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getCloudIdentifiers();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FileSystemAccessDirectoryHandleReceiver = blink.mojom.FileSystemAccessDirectoryHandleReceiver;
 
 blink.mojom.FileSystemAccessDirectoryHandlePtr = blink.mojom.FileSystemAccessDirectoryHandleRemote;
 blink.mojom.FileSystemAccessDirectoryHandleRequest = blink.mojom.FileSystemAccessDirectoryHandlePendingReceiver;

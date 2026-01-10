@@ -7,7 +7,6 @@
 // Module namespace
 var lens = lens || {};
 lens.mojom = lens.mojom || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 lens.mojom.CoordinateTypeSpec = { $: mojo.internal.Enum() };

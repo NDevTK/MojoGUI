@@ -7,7 +7,6 @@
 // Module namespace
 var network = network || {};
 network.mojom = network.mojom || {};
-var services = services || {};
 
 network.mojom.MdnsResponder = {};
 network.mojom.MdnsResponder.$interfaceName = 'network.mojom.MdnsResponder';
@@ -106,6 +105,47 @@ network.mojom.MdnsResponder.getRemote = function() {
     'context');
   return remote.$;
 };
+
+network.mojom.MdnsResponderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createNameForAddress(params.address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.removeNameForAddress(params.address);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+network.mojom.MdnsResponderReceiver = network.mojom.MdnsResponderReceiver;
 
 network.mojom.MdnsResponderPtr = network.mojom.MdnsResponderRemote;
 network.mojom.MdnsResponderRequest = network.mojom.MdnsResponderPendingReceiver;

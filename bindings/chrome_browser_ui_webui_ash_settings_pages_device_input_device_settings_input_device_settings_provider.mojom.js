@@ -8,10 +8,7 @@
 var ash = ash || {};
 ash.settings = ash.settings || {};
 ash.settings.mojom = ash.settings.mojom || {};
-var ash = ash || {};
-var ash = ash || {};
 var ui = ui || {};
-var ash = ash || {};
 
 ash.settings.mojom.ActionTypeSpec = { $: {} };
 ash.settings.mojom.ActionChoiceSpec = { $: {} };
@@ -184,6 +181,33 @@ ash.settings.mojom.KeyboardSettingsObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.mojom.KeyboardSettingsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onKeyboardListUpdated(params.keyboards);
+          break;
+        }
+        case 1: {
+          const params = ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onKeyboardPoliciesUpdated(params.policies);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.KeyboardSettingsObserverReceiver = ash.settings.mojom.KeyboardSettingsObserverReceiver;
+
 ash.settings.mojom.KeyboardSettingsObserverPtr = ash.settings.mojom.KeyboardSettingsObserverRemote;
 ash.settings.mojom.KeyboardSettingsObserverRequest = ash.settings.mojom.KeyboardSettingsObserverPendingReceiver;
 
@@ -249,6 +273,28 @@ ash.settings.mojom.TouchpadSettingsObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.mojom.TouchpadSettingsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTouchpadListUpdated(params.touchpads);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.TouchpadSettingsObserverReceiver = ash.settings.mojom.TouchpadSettingsObserverReceiver;
+
 ash.settings.mojom.TouchpadSettingsObserverPtr = ash.settings.mojom.TouchpadSettingsObserverRemote;
 ash.settings.mojom.TouchpadSettingsObserverRequest = ash.settings.mojom.TouchpadSettingsObserverPendingReceiver;
 
@@ -313,6 +359,28 @@ ash.settings.mojom.PointingStickSettingsObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.mojom.PointingStickSettingsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPointingStickListUpdated(params.pointSticks);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.PointingStickSettingsObserverReceiver = ash.settings.mojom.PointingStickSettingsObserverReceiver;
 
 ash.settings.mojom.PointingStickSettingsObserverPtr = ash.settings.mojom.PointingStickSettingsObserverRemote;
 ash.settings.mojom.PointingStickSettingsObserverRequest = ash.settings.mojom.PointingStickSettingsObserverPendingReceiver;
@@ -395,6 +463,33 @@ ash.settings.mojom.MouseSettingsObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.mojom.MouseSettingsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMouseListUpdated(params.mice);
+          break;
+        }
+        case 1: {
+          const params = ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onMousePoliciesUpdated(params.policies);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.MouseSettingsObserverReceiver = ash.settings.mojom.MouseSettingsObserverReceiver;
+
 ash.settings.mojom.MouseSettingsObserverPtr = ash.settings.mojom.MouseSettingsObserverRemote;
 ash.settings.mojom.MouseSettingsObserverRequest = ash.settings.mojom.MouseSettingsObserverPendingReceiver;
 
@@ -459,6 +554,28 @@ ash.settings.mojom.ButtonPressObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.mojom.ButtonPressObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onButtonPressed(params.button);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.ButtonPressObserverReceiver = ash.settings.mojom.ButtonPressObserverReceiver;
 
 ash.settings.mojom.ButtonPressObserverPtr = ash.settings.mojom.ButtonPressObserverRemote;
 ash.settings.mojom.ButtonPressObserverRequest = ash.settings.mojom.ButtonPressObserverPendingReceiver;
@@ -525,6 +642,28 @@ ash.settings.mojom.GraphicsTabletSettingsObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.mojom.GraphicsTabletSettingsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onGraphicsTabletListUpdated(params.graphics_tablets);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.GraphicsTabletSettingsObserverReceiver = ash.settings.mojom.GraphicsTabletSettingsObserverReceiver;
+
 ash.settings.mojom.GraphicsTabletSettingsObserverPtr = ash.settings.mojom.GraphicsTabletSettingsObserverRemote;
 ash.settings.mojom.GraphicsTabletSettingsObserverRequest = ash.settings.mojom.GraphicsTabletSettingsObserverPendingReceiver;
 
@@ -589,6 +728,28 @@ ash.settings.mojom.KeyboardBrightnessObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.mojom.KeyboardBrightnessObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onKeyboardBrightnessChanged(params.brightness_percent);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.KeyboardBrightnessObserverReceiver = ash.settings.mojom.KeyboardBrightnessObserverReceiver;
 
 ash.settings.mojom.KeyboardBrightnessObserverPtr = ash.settings.mojom.KeyboardBrightnessObserverRemote;
 ash.settings.mojom.KeyboardBrightnessObserverRequest = ash.settings.mojom.KeyboardBrightnessObserverPendingReceiver;
@@ -655,6 +816,28 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserver.getRemote = function() {
   return remote.$;
 };
 
+ash.settings.mojom.KeyboardAmbientLightSensorObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onKeyboardAmbientLightSensorEnabledChanged(params.keyboard_ambient_light_sensor_enabled);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.KeyboardAmbientLightSensorObserverReceiver = ash.settings.mojom.KeyboardAmbientLightSensorObserverReceiver;
+
 ash.settings.mojom.KeyboardAmbientLightSensorObserverPtr = ash.settings.mojom.KeyboardAmbientLightSensorObserverRemote;
 ash.settings.mojom.KeyboardAmbientLightSensorObserverRequest = ash.settings.mojom.KeyboardAmbientLightSensorObserverPendingReceiver;
 
@@ -719,6 +902,28 @@ ash.settings.mojom.LidStateObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.mojom.LidStateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onLidStateChanged(params.is_lid_open);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.LidStateObserverReceiver = ash.settings.mojom.LidStateObserverReceiver;
 
 ash.settings.mojom.LidStateObserverPtr = ash.settings.mojom.LidStateObserverRemote;
 ash.settings.mojom.LidStateObserverRequest = ash.settings.mojom.LidStateObserverPendingReceiver;
@@ -1277,6 +1482,224 @@ ash.settings.mojom.InputDeviceSettingsProvider.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.settings.mojom.InputDeviceSettingsProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeKeyboardSettings(params.observer);
+          break;
+        }
+        case 1: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeTouchpadSettings(params.observer);
+          break;
+        }
+        case 2: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observePointingStickSettings(params.observer);
+          break;
+        }
+        case 3: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeMouseSettings(params.observer);
+          break;
+        }
+        case 4: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeGraphicsTabletSettings(params.observer);
+          break;
+        }
+        case 5: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeButtonPresses(params.observer);
+          break;
+        }
+        case 6: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeKeyboardBrightness(params.observer);
+          break;
+        }
+        case 7: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeKeyboardAmbientLightSensor(params.observer);
+          break;
+        }
+        case 8: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observeLidState(params.observer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 9: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restoreDefaultKeyboardRemappings(params.device_id);
+          break;
+        }
+        case 10: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setKeyboardSettings(params.device_id, params.settings);
+          break;
+        }
+        case 11: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPointingStickSettings(params.device_id, params.settings);
+          break;
+        }
+        case 12: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setMouseSettings(params.device_id, params.settings);
+          break;
+        }
+        case 13: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTouchpadSettings(params.device_id, params.settings);
+          break;
+        }
+        case 14: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setGraphicsTabletSettings(params.device_id, params.settings);
+          break;
+        }
+        case 15: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setKeyboardBrightness(params.percent);
+          break;
+        }
+        case 16: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setKeyboardAmbientLightSensorEnabled(params.enabled);
+          break;
+        }
+        case 17: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.startObserving(params.device_id);
+          break;
+        }
+        case 18: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.stopObserving();
+          break;
+        }
+        case 19: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getActionsForMouseButtonCustomization();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 20: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getActionsForGraphicsTabletButtonCustomization();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 21: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getMetaKeyToDisplay();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 22: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasKeyboardBacklight();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 23: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.hasAmbientLightSensor();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 24: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isRgbKeyboardSupported();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 25: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordKeyboardColorLinkClicked();
+          break;
+        }
+        case 26: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.recordKeyboardBrightnessChangeFromSlider(params.percent);
+          break;
+        }
+        case 27: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDeviceIconImage(params.device_key);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 28: {
+          const params = ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.launchCompanionApp(params.package_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.settings.mojom.InputDeviceSettingsProviderReceiver = ash.settings.mojom.InputDeviceSettingsProviderReceiver;
 
 ash.settings.mojom.InputDeviceSettingsProviderPtr = ash.settings.mojom.InputDeviceSettingsProviderRemote;
 ash.settings.mojom.InputDeviceSettingsProviderRequest = ash.settings.mojom.InputDeviceSettingsProviderPendingReceiver;

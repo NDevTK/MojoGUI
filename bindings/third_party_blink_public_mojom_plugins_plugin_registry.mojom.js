@@ -7,6 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
+var mojo_base = mojo_base || {};
 
 blink.mojom.PluginMimeTypeSpec = { $: {} };
 blink.mojom.PluginInfoSpec = { $: {} };
@@ -101,6 +102,35 @@ blink.mojom.PluginRegistry.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.PluginRegistryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.PluginRegistry_GetPlugins_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getPlugins();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.PluginRegistryReceiver = blink.mojom.PluginRegistryReceiver;
 
 blink.mojom.PluginRegistryPtr = blink.mojom.PluginRegistryRemote;
 blink.mojom.PluginRegistryRequest = blink.mojom.PluginRegistryPendingReceiver;

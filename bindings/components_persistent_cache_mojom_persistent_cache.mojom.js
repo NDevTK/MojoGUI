@@ -7,6 +7,7 @@
 // Module namespace
 var persistent_cache = persistent_cache || {};
 persistent_cache.mojom = persistent_cache.mojom || {};
+var mojo_base = mojo_base || {};
 
 persistent_cache.mojom.PendingReadOnlyBackendSpec = { $: {} };
 persistent_cache.mojom.PendingReadWriteBackendSpec = { $: {} };

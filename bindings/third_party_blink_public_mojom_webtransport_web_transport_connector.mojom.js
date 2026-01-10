@@ -7,7 +7,7 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
+var network = network || {};
 var url = url || {};
 
 blink.mojom.WebTransportConnector = {};
@@ -77,6 +77,28 @@ blink.mojom.WebTransportConnector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.WebTransportConnectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WebTransportConnector_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.url, params.fingerprints, params.application_protocols, params.client);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WebTransportConnectorReceiver = blink.mojom.WebTransportConnectorReceiver;
 
 blink.mojom.WebTransportConnectorPtr = blink.mojom.WebTransportConnectorRemote;
 blink.mojom.WebTransportConnectorRequest = blink.mojom.WebTransportConnectorPendingReceiver;

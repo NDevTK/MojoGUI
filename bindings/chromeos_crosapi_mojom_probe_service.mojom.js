@@ -8,8 +8,6 @@
 var crosapi = crosapi || {};
 crosapi.mojom = crosapi.mojom || {};
 var chromeos = chromeos || {};
-var chromeos = chromeos || {};
-var services = services || {};
 
 crosapi.mojom.ProbeCategoryEnumSpec = { $: mojo.internal.Enum() };
 crosapi.mojom.ProbeErrorTypeSpec = { $: mojo.internal.Enum() };
@@ -926,6 +924,47 @@ crosapi.mojom.TelemetryProbeService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+crosapi.mojom.TelemetryProbeServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.probeTelemetryInfo(params.categories);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getOemData();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+crosapi.mojom.TelemetryProbeServiceReceiver = crosapi.mojom.TelemetryProbeServiceReceiver;
 
 crosapi.mojom.TelemetryProbeServicePtr = crosapi.mojom.TelemetryProbeServiceRemote;
 crosapi.mojom.TelemetryProbeServiceRequest = crosapi.mojom.TelemetryProbeServicePendingReceiver;

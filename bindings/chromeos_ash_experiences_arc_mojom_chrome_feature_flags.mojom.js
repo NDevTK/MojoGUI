@@ -105,6 +105,28 @@ arc.mojom.ChromeFeatureFlagsInstance.getRemote = function() {
   return remote.$;
 };
 
+arc.mojom.ChromeFeatureFlagsInstanceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 1: {
+          const params = arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyFeatureFlags(params.flags);
+          break;
+        }
+      }
+    });
+  }
+};
+
+arc.mojom.ChromeFeatureFlagsInstanceReceiver = arc.mojom.ChromeFeatureFlagsInstanceReceiver;
+
 arc.mojom.ChromeFeatureFlagsInstancePtr = arc.mojom.ChromeFeatureFlagsInstanceRemote;
 arc.mojom.ChromeFeatureFlagsInstanceRequest = arc.mojom.ChromeFeatureFlagsInstancePendingReceiver;
 

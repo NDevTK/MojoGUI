@@ -7,6 +7,7 @@
 // Module namespace
 var cast_streaming = cast_streaming || {};
 cast_streaming.mojom = cast_streaming.mojom || {};
+var media = media || {};
 
 cast_streaming.mojom.RendererController = {};
 cast_streaming.mojom.RendererController.$interfaceName = 'cast_streaming.mojom.RendererController';
@@ -78,6 +79,35 @@ cast_streaming.mojom.RendererController.getRemote = function() {
     'context');
   return remote.$;
 };
+
+cast_streaming.mojom.RendererControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setPlaybackController(params.renderer);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+cast_streaming.mojom.RendererControllerReceiver = cast_streaming.mojom.RendererControllerReceiver;
 
 cast_streaming.mojom.RendererControllerPtr = cast_streaming.mojom.RendererControllerRemote;
 cast_streaming.mojom.RendererControllerRequest = cast_streaming.mojom.RendererControllerPendingReceiver;

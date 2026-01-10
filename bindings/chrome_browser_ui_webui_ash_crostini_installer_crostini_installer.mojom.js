@@ -8,7 +8,7 @@
 var ash = ash || {};
 ash.crostini_installer = ash.crostini_installer || {};
 ash.crostini_installer.mojom = ash.crostini_installer.mojom || {};
-var ash = ash || {};
+var crostini = crostini || {};
 
 ash.crostini_installer.mojom.PageHandlerFactory = {};
 ash.crostini_installer.mojom.PageHandlerFactory.$interfaceName = 'ash.crostini_installer.mojom.PageHandlerFactory';
@@ -89,6 +89,28 @@ ash.crostini_installer.mojom.PageHandlerFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.crostini_installer.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.crostini_installer.mojom.PageHandlerFactoryReceiver = ash.crostini_installer.mojom.PageHandlerFactoryReceiver;
 
 ash.crostini_installer.mojom.PageHandlerFactoryPtr = ash.crostini_installer.mojom.PageHandlerFactoryRemote;
 ash.crostini_installer.mojom.PageHandlerFactoryRequest = ash.crostini_installer.mojom.PageHandlerFactoryPendingReceiver;
@@ -224,6 +246,55 @@ ash.crostini_installer.mojom.PageHandler.getRemote = function() {
   return remote.$;
 };
 
+ash.crostini_installer.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.install(params.disk_size, params.username);
+          break;
+        }
+        case 1: {
+          const params = ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancel();
+          break;
+        }
+        case 2: {
+          const params = ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancelBeforeStart();
+          break;
+        }
+        case 3: {
+          const params = ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPageClosed();
+          break;
+        }
+        case 4: {
+          const params = ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestAmountOfFreeDiskSpace();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.crostini_installer.mojom.PageHandlerReceiver = ash.crostini_installer.mojom.PageHandlerReceiver;
+
 ash.crostini_installer.mojom.PageHandlerPtr = ash.crostini_installer.mojom.PageHandlerRemote;
 ash.crostini_installer.mojom.PageHandlerRequest = ash.crostini_installer.mojom.PageHandlerPendingReceiver;
 
@@ -335,6 +406,43 @@ ash.crostini_installer.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+ash.crostini_installer.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onProgressUpdate(params.install_state, params.progress_fraction);
+          break;
+        }
+        case 1: {
+          const params = ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onInstallFinished(params.error);
+          break;
+        }
+        case 2: {
+          const params = ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onCanceled();
+          break;
+        }
+        case 3: {
+          const params = ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.requestClose();
+          break;
+        }
+      }
+    });
+  }
+};
+
+ash.crostini_installer.mojom.PageReceiver = ash.crostini_installer.mojom.PageReceiver;
 
 ash.crostini_installer.mojom.PagePtr = ash.crostini_installer.mojom.PageRemote;
 ash.crostini_installer.mojom.PageRequest = ash.crostini_installer.mojom.PagePendingReceiver;

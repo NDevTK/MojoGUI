@@ -7,9 +7,8 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
+var mojo_base = mojo_base || {};
+var network = network || {};
 var url = url || {};
 
 blink.mojom.WebSocketConnector = {};
@@ -82,6 +81,28 @@ blink.mojom.WebSocketConnector.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.WebSocketConnectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.WebSocketConnector_Connect_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connect(params.url, params.requested_protocols, params.site_for_cookies, params.user_agent, params.storage_access_api_status, params.handshake_client, params.throttling_profile_id);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.WebSocketConnectorReceiver = blink.mojom.WebSocketConnectorReceiver;
 
 blink.mojom.WebSocketConnectorPtr = blink.mojom.WebSocketConnectorRemote;
 blink.mojom.WebSocketConnectorRequest = blink.mojom.WebSocketConnectorPendingReceiver;

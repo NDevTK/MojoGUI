@@ -128,6 +128,35 @@ mojom.app_service_internals.AppServiceInternalsPageHandler.getRemote = function(
   return remote.$;
 };
 
+mojom.app_service_internals.AppServiceInternalsPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getDebugInfo();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+mojom.app_service_internals.AppServiceInternalsPageHandlerReceiver = mojom.app_service_internals.AppServiceInternalsPageHandlerReceiver;
+
 mojom.app_service_internals.AppServiceInternalsPageHandlerPtr = mojom.app_service_internals.AppServiceInternalsPageHandlerRemote;
 mojom.app_service_internals.AppServiceInternalsPageHandlerRequest = mojom.app_service_internals.AppServiceInternalsPageHandlerPendingReceiver;
 

@@ -7,9 +7,7 @@
 // Module namespace
 var tabs_api = tabs_api || {};
 tabs_api.mojom = tabs_api.mojom || {};
-var components = components || {};
-var components = components || {};
-var components = components || {};
+var mojo_base = mojo_base || {};
 var url = url || {};
 
 tabs_api.mojom.TabsEventSpec = { $: {} };
@@ -61,7 +59,7 @@ mojo.internal.Union(
 mojo.internal.Struct(
     tabs_api.mojom.TabsSnapshotSpec, 'tabs_api.mojom.TabsSnapshot', [
       mojo.internal.StructField('tab_strip', 0, 0, tabs_api.mojom.ContainerSpec.$, null, false, 0, undefined),
-      mojo.internal.StructField('stream', 8, 0, mojo.internal.AssociatedInterfaceRequest(tabs_api.mojom.TabsObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('stream', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -224,6 +222,58 @@ tabs_api.mojom.TabStripService.getRemote = function() {
   return remote.$;
 };
 
+tabs_api.mojom.TabStripServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tabs_api.mojom.TabStripService_GetTabs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTabs();
+          break;
+        }
+        case 1: {
+          const params = tabs_api.mojom.TabStripService_GetTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getTab(params.id);
+          break;
+        }
+        case 2: {
+          const params = tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createTabAt(params.pos, params.url);
+          break;
+        }
+        case 3: {
+          const params = tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.closeTabs(params.id);
+          break;
+        }
+        case 4: {
+          const params = tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.activateTab(params.id);
+          break;
+        }
+        case 5: {
+          const params = tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setSelectedTabs(params.selection, params.tab_to_activate);
+          break;
+        }
+        case 6: {
+          const params = tabs_api.mojom.TabStripService_MoveNode_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.moveNode(params.id, params.position);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tabs_api.mojom.TabStripServiceReceiver = tabs_api.mojom.TabStripServiceReceiver;
+
 tabs_api.mojom.TabStripServicePtr = tabs_api.mojom.TabStripServiceRemote;
 tabs_api.mojom.TabStripServiceRequest = tabs_api.mojom.TabStripServicePendingReceiver;
 
@@ -288,6 +338,28 @@ tabs_api.mojom.TabsObserver.getRemote = function() {
     'context');
   return remote.$;
 };
+
+tabs_api.mojom.TabsObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTabEvents(params.events);
+          break;
+        }
+      }
+    });
+  }
+};
+
+tabs_api.mojom.TabsObserverReceiver = tabs_api.mojom.TabsObserverReceiver;
 
 tabs_api.mojom.TabsObserverPtr = tabs_api.mojom.TabsObserverRemote;
 tabs_api.mojom.TabsObserverRequest = tabs_api.mojom.TabsObserverPendingReceiver;

@@ -7,16 +7,8 @@
 // Module namespace
 var attribution_internals = attribution_internals || {};
 attribution_internals.mojom = attribution_internals.mojom || {};
-var components = components || {};
-var components = components || {};
-var components = components || {};
-var content = content || {};
-var content = content || {};
-var content = content || {};
-var content = content || {};
-var content = content || {};
-var services = services || {};
-var url = url || {};
+var attribution_reporting = attribution_reporting || {};
+var network = network || {};
 var url = url || {};
 
 attribution_internals.mojom.AttributabilitySpec = { $: mojo.internal.Enum() };
@@ -487,6 +479,68 @@ attribution_internals.mojom.Observer.getRemote = function() {
   return remote.$;
 };
 
+attribution_internals.mojom.ObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSourcesChanged(params.sources);
+          break;
+        }
+        case 1: {
+          const params = attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReportsChanged(params.reports);
+          break;
+        }
+        case 2: {
+          const params = attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onSourceHandled(params.source);
+          break;
+        }
+        case 3: {
+          const params = attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onReportHandled(params.report);
+          break;
+        }
+        case 4: {
+          const params = attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDebugReportSent(params.report);
+          break;
+        }
+        case 5: {
+          const params = attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onAggregatableDebugReportSent(params.report);
+          break;
+        }
+        case 6: {
+          const params = attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onTriggerHandled(params.trigger);
+          break;
+        }
+        case 7: {
+          const params = attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onOsRegistration(params.registration);
+          break;
+        }
+        case 8: {
+          const params = attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onDebugModeChanged(params.debug_mode);
+          break;
+        }
+      }
+    });
+  }
+};
+
+attribution_internals.mojom.ObserverReceiver = attribution_internals.mojom.ObserverReceiver;
+
 attribution_internals.mojom.ObserverPtr = attribution_internals.mojom.ObserverRemote;
 attribution_internals.mojom.ObserverRequest = attribution_internals.mojom.ObserverPendingReceiver;
 
@@ -599,6 +653,59 @@ attribution_internals.mojom.Handler.getRemote = function() {
   return remote.$;
 };
 
+attribution_internals.mojom.HandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.isAttributionReportingEnabled();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = attribution_internals.mojom.Handler_SendReport_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.sendReport(params.id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, attribution_internals.mojom.Handler_SendReport_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = attribution_internals.mojom.Handler_ClearStorage_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearStorage();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, attribution_internals.mojom.Handler_ClearStorage_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+attribution_internals.mojom.HandlerReceiver = attribution_internals.mojom.HandlerReceiver;
+
 attribution_internals.mojom.HandlerPtr = attribution_internals.mojom.HandlerRemote;
 attribution_internals.mojom.HandlerRequest = attribution_internals.mojom.HandlerPendingReceiver;
 
@@ -664,6 +771,28 @@ attribution_internals.mojom.Factory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+attribution_internals.mojom.FactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = attribution_internals.mojom.Factory_Create_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.create(params.observer, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+attribution_internals.mojom.FactoryReceiver = attribution_internals.mojom.FactoryReceiver;
 
 attribution_internals.mojom.FactoryPtr = attribution_internals.mojom.FactoryRemote;
 attribution_internals.mojom.FactoryRequest = attribution_internals.mojom.FactoryPendingReceiver;

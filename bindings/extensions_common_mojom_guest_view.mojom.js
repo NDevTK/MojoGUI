@@ -106,6 +106,40 @@ extensions.mojom.GuestView.getRemote = function() {
   return remote.$;
 };
 
+extensions.mojom.GuestViewReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.readyToCreateMimeHandlerView(params.success);
+          break;
+        }
+        case 1: {
+          const params = extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.canExecuteContentScript(params.script_id);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions.mojom.GuestViewReceiver = extensions.mojom.GuestViewReceiver;
+
 extensions.mojom.GuestViewPtr = extensions.mojom.GuestViewRemote;
 extensions.mojom.GuestViewRequest = extensions.mojom.GuestViewPendingReceiver;
 
@@ -224,6 +258,50 @@ extensions.mojom.MimeHandlerViewContainerManager.getRemote = function() {
     'context');
   return remote.$;
 };
+
+extensions.mojom.MimeHandlerViewContainerManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setInternalId(params.token_id);
+          break;
+        }
+        case 1: {
+          const params = extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createBeforeUnloadControl();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.destroyFrameContainer(params.element_instance_id);
+          break;
+        }
+        case 3: {
+          const params = extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.didLoad(params.mime_handler_view_guest_element_instance_id, params.resource_url);
+          break;
+        }
+      }
+    });
+  }
+};
+
+extensions.mojom.MimeHandlerViewContainerManagerReceiver = extensions.mojom.MimeHandlerViewContainerManagerReceiver;
 
 extensions.mojom.MimeHandlerViewContainerManagerPtr = extensions.mojom.MimeHandlerViewContainerManagerRemote;
 extensions.mojom.MimeHandlerViewContainerManagerRequest = extensions.mojom.MimeHandlerViewContainerManagerPendingReceiver;

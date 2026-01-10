@@ -109,6 +109,33 @@ content.mojom.ChildMemoryConsumer.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.ChildMemoryConsumerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyReleaseMemory();
+          break;
+        }
+        case 1: {
+          const params = content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyUpdateMemoryLimit(params.percentage);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.ChildMemoryConsumerReceiver = content.mojom.ChildMemoryConsumerReceiver;
+
 content.mojom.ChildMemoryConsumerPtr = content.mojom.ChildMemoryConsumerRemote;
 content.mojom.ChildMemoryConsumerRequest = content.mojom.ChildMemoryConsumerPendingReceiver;
 
@@ -175,6 +202,28 @@ content.mojom.BrowserMemoryConsumerRegistry.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.BrowserMemoryConsumerRegistryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.registerChildMemoryConsumer(params.consumer_id, params.traits, params.child_consumer);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.BrowserMemoryConsumerRegistryReceiver = content.mojom.BrowserMemoryConsumerRegistryReceiver;
 
 content.mojom.BrowserMemoryConsumerRegistryPtr = content.mojom.BrowserMemoryConsumerRegistryRemote;
 content.mojom.BrowserMemoryConsumerRegistryRequest = content.mojom.BrowserMemoryConsumerRegistryPendingReceiver;

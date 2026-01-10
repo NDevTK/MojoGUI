@@ -8,7 +8,6 @@
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
 var url = url || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 blink.mojom.FaviconIconTypeSpec = { $: mojo.internal.Enum() };

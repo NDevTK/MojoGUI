@@ -7,9 +7,6 @@
 // Module namespace
 var blink = blink || {};
 blink.mojom = blink.mojom || {};
-var blink = blink || {};
-var blink = blink || {};
-var blink = blink || {};
 
 blink.mojom.FileSystemAccessObserverHost = {};
 blink.mojom.FileSystemAccessObserverHost.$interfaceName = 'blink.mojom.FileSystemAccessObserverHost';
@@ -101,6 +98,40 @@ blink.mojom.FileSystemAccessObserverHost.getRemote = function() {
     'context');
   return remote.$;
 };
+
+blink.mojom.FileSystemAccessObserverHostReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.observe(params.token, params.is_recursive);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.unobserve(params.token);
+          break;
+        }
+      }
+    });
+  }
+};
+
+blink.mojom.FileSystemAccessObserverHostReceiver = blink.mojom.FileSystemAccessObserverHostReceiver;
 
 blink.mojom.FileSystemAccessObserverHostPtr = blink.mojom.FileSystemAccessObserverHostRemote;
 blink.mojom.FileSystemAccessObserverHostRequest = blink.mojom.FileSystemAccessObserverHostPendingReceiver;

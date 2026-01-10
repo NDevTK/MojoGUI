@@ -7,10 +7,6 @@
 // Module namespace
 var device = device || {};
 device.mojom = device.mojom || {};
-var services = services || {};
-var services = services || {};
-var services = services || {};
-var url = url || {};
 var url = url || {};
 
 device.mojom.GeolocationPermissionLevelSpec = { $: mojo.internal.Enum() };
@@ -139,6 +135,43 @@ device.mojom.GeolocationContext.getRemote = function() {
     'context');
   return remote.$;
 };
+
+device.mojom.GeolocationContextReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = device.mojom.GeolocationContext_BindGeolocation_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindGeolocation(params.receiver, params.requesting_url, params.client_id, params.has_precise_permission);
+          break;
+        }
+        case 1: {
+          const params = device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onPermissionUpdated(params.origin, params.permission_level);
+          break;
+        }
+        case 2: {
+          const params = device.mojom.GeolocationContext_SetOverride_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setOverride(params.result);
+          break;
+        }
+        case 3: {
+          const params = device.mojom.GeolocationContext_ClearOverride_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearOverride();
+          break;
+        }
+      }
+    });
+  }
+};
+
+device.mojom.GeolocationContextReceiver = device.mojom.GeolocationContextReceiver;
 
 device.mojom.GeolocationContextPtr = device.mojom.GeolocationContextRemote;
 device.mojom.GeolocationContextRequest = device.mojom.GeolocationContextPendingReceiver;

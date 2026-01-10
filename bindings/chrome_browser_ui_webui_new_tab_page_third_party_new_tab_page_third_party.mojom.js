@@ -8,7 +8,7 @@
 var new_tab_page_third_party = new_tab_page_third_party || {};
 new_tab_page_third_party.mojom = new_tab_page_third_party.mojom || {};
 var skia = skia || {};
-var ui = ui || {};
+var most_visited = most_visited || {};
 
 new_tab_page_third_party.mojom.ThemeSpec = { $: {} };
 new_tab_page_third_party.mojom.PageHandlerFactory = {};
@@ -97,6 +97,28 @@ new_tab_page_third_party.mojom.PageHandlerFactory.getRemote = function() {
   return remote.$;
 };
 
+new_tab_page_third_party.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.page, params.handler);
+          break;
+        }
+      }
+    });
+  }
+};
+
+new_tab_page_third_party.mojom.PageHandlerFactoryReceiver = new_tab_page_third_party.mojom.PageHandlerFactoryReceiver;
+
 new_tab_page_third_party.mojom.PageHandlerFactoryPtr = new_tab_page_third_party.mojom.PageHandlerFactoryRemote;
 new_tab_page_third_party.mojom.PageHandlerFactoryRequest = new_tab_page_third_party.mojom.PageHandlerFactoryPendingReceiver;
 
@@ -160,6 +182,28 @@ new_tab_page_third_party.mojom.PageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+new_tab_page_third_party.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.updateTheme();
+          break;
+        }
+      }
+    });
+  }
+};
+
+new_tab_page_third_party.mojom.PageHandlerReceiver = new_tab_page_third_party.mojom.PageHandlerReceiver;
 
 new_tab_page_third_party.mojom.PageHandlerPtr = new_tab_page_third_party.mojom.PageHandlerRemote;
 new_tab_page_third_party.mojom.PageHandlerRequest = new_tab_page_third_party.mojom.PageHandlerPendingReceiver;
@@ -225,6 +269,28 @@ new_tab_page_third_party.mojom.Page.getRemote = function() {
     'context');
   return remote.$;
 };
+
+new_tab_page_third_party.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setTheme(params.theme);
+          break;
+        }
+      }
+    });
+  }
+};
+
+new_tab_page_third_party.mojom.PageReceiver = new_tab_page_third_party.mojom.PageReceiver;
 
 new_tab_page_third_party.mojom.PagePtr = new_tab_page_third_party.mojom.PageRemote;
 new_tab_page_third_party.mojom.PageRequest = new_tab_page_third_party.mojom.PagePendingReceiver;

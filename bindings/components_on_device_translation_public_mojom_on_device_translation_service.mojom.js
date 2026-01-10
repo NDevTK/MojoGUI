@@ -7,7 +7,8 @@
 // Module namespace
 var on_device_translation = on_device_translation || {};
 on_device_translation.mojom = on_device_translation.mojom || {};
-var components = components || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
 
 on_device_translation.mojom.CreateTranslatorResultSpec = { $: mojo.internal.Enum() };
 on_device_translation.mojom.OnDeviceTranslationLanguagePackageSpec = { $: {} };
@@ -150,6 +151,47 @@ on_device_translation.mojom.FileOperationProxy.getRemote = function() {
   return remote.$;
 };
 
+on_device_translation.mojom.FileOperationProxyReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.fileExists(params.package_index, params.relative_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.open(params.package_index, params.relative_path);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_translation.mojom.FileOperationProxyReceiver = on_device_translation.mojom.FileOperationProxyReceiver;
+
 on_device_translation.mojom.FileOperationProxyPtr = on_device_translation.mojom.FileOperationProxyRemote;
 on_device_translation.mojom.FileOperationProxyRequest = on_device_translation.mojom.FileOperationProxyPendingReceiver;
 
@@ -261,6 +303,52 @@ on_device_translation.mojom.OnDeviceTranslationService.getRemote = function() {
     'context');
   return remote.$;
 };
+
+on_device_translation.mojom.OnDeviceTranslationServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setServiceConfig(params.config);
+          break;
+        }
+        case 1: {
+          const params = on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createTranslator(params.source_lang, params.target_lang, params.receiver);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 2: {
+          const params = on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.canTranslate(params.source_lang, params.target_lang);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+on_device_translation.mojom.OnDeviceTranslationServiceReceiver = on_device_translation.mojom.OnDeviceTranslationServiceReceiver;
 
 on_device_translation.mojom.OnDeviceTranslationServicePtr = on_device_translation.mojom.OnDeviceTranslationServiceRemote;
 on_device_translation.mojom.OnDeviceTranslationServiceRequest = on_device_translation.mojom.OnDeviceTranslationServicePendingReceiver;

@@ -111,6 +111,45 @@ file_suggestion.mojom.MicrosoftFilesPageHandler.getRemote = function() {
   return remote.$;
 };
 
+file_suggestion.mojom.MicrosoftFilesPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getFiles();
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.dismissModule();
+          break;
+        }
+        case 2: {
+          const params = file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.restoreModule();
+          break;
+        }
+      }
+    });
+  }
+};
+
+file_suggestion.mojom.MicrosoftFilesPageHandlerReceiver = file_suggestion.mojom.MicrosoftFilesPageHandlerReceiver;
+
 file_suggestion.mojom.MicrosoftFilesPageHandlerPtr = file_suggestion.mojom.MicrosoftFilesPageHandlerRemote;
 file_suggestion.mojom.MicrosoftFilesPageHandlerRequest = file_suggestion.mojom.MicrosoftFilesPageHandlerPendingReceiver;
 

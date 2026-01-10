@@ -138,6 +138,38 @@ content.mojom.FakeBluetoothChooser.getRemote = function() {
   return remote.$;
 };
 
+content.mojom.FakeBluetoothChooserReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.selectPeripheral(params.peripheral_address);
+          break;
+        }
+        case 1: {
+          const params = content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.cancel();
+          break;
+        }
+        case 2: {
+          const params = content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.rescan();
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.FakeBluetoothChooserReceiver = content.mojom.FakeBluetoothChooserReceiver;
+
 content.mojom.FakeBluetoothChooserPtr = content.mojom.FakeBluetoothChooserRemote;
 content.mojom.FakeBluetoothChooserRequest = content.mojom.FakeBluetoothChooserPendingReceiver;
 
@@ -146,7 +178,7 @@ content.mojom.FakeBluetoothChooserRequest = content.mojom.FakeBluetoothChooserPe
 mojo.internal.Struct(
     content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec, 'content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_Params', [
       mojo.internal.StructField('fake_chooser', 0, 0, mojo.internal.InterfaceRequest(content.mojom.FakeBluetoothChooserRemote), null, false, 0, undefined),
-      mojo.internal.StructField('client', 8, 0, mojo.internal.AssociatedInterfaceProxy(content.mojom.FakeBluetoothChooserClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('client', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -208,6 +240,35 @@ content.mojom.FakeBluetoothChooserFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.FakeBluetoothChooserFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createFakeBluetoothChooser(params.fake_chooser, params.client);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.FakeBluetoothChooserFactoryReceiver = content.mojom.FakeBluetoothChooserFactoryReceiver;
 
 content.mojom.FakeBluetoothChooserFactoryPtr = content.mojom.FakeBluetoothChooserFactoryRemote;
 content.mojom.FakeBluetoothChooserFactoryRequest = content.mojom.FakeBluetoothChooserFactoryPendingReceiver;
@@ -273,6 +334,28 @@ content.mojom.FakeBluetoothChooserClient.getRemote = function() {
     'context');
   return remote.$;
 };
+
+content.mojom.FakeBluetoothChooserClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onEvent(params.event);
+          break;
+        }
+      }
+    });
+  }
+};
+
+content.mojom.FakeBluetoothChooserClientReceiver = content.mojom.FakeBluetoothChooserClientReceiver;
 
 content.mojom.FakeBluetoothChooserClientPtr = content.mojom.FakeBluetoothChooserClientRemote;
 content.mojom.FakeBluetoothChooserClientRequest = content.mojom.FakeBluetoothChooserClientPendingReceiver;

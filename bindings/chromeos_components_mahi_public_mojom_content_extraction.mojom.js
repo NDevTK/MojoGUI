@@ -7,8 +7,10 @@
 // Module namespace
 var mahi = mahi || {};
 mahi.mojom = mahi.mojom || {};
-var services = services || {};
-var ui = ui || {};
+var screen_ai = screen_ai || {};
+var mojo_base = mojo_base || {};
+var sandbox = sandbox || {};
+var ax = ax || {};
 
 mahi.mojom.ResponseStatusSpec = { $: mojo.internal.Enum() };
 mahi.mojom.ExtractionMethodsSpec = { $: {} };
@@ -157,6 +159,47 @@ mahi.mojom.ContentExtractionService.getRemote = function() {
   return remote.$;
 };
 
+mahi.mojom.ContentExtractionServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.extractContent(params.extraction_request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+        case 1: {
+          const params = mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.getContentSize(params.extraction_request);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+mahi.mojom.ContentExtractionServiceReceiver = mahi.mojom.ContentExtractionServiceReceiver;
+
 mahi.mojom.ContentExtractionServicePtr = mahi.mojom.ContentExtractionServiceRemote;
 mahi.mojom.ContentExtractionServiceRequest = mahi.mojom.ContentExtractionServicePendingReceiver;
 
@@ -237,6 +280,33 @@ mahi.mojom.ContentExtractionServiceFactory.getRemote = function() {
     'context');
   return remote.$;
 };
+
+mahi.mojom.ContentExtractionServiceFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.bindContentExtractionService(params.content_extraction_service);
+          break;
+        }
+        case 1: {
+          const params = mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.onScreen2xReady(params.extractor);
+          break;
+        }
+      }
+    });
+  }
+};
+
+mahi.mojom.ContentExtractionServiceFactoryReceiver = mahi.mojom.ContentExtractionServiceFactoryReceiver;
 
 mahi.mojom.ContentExtractionServiceFactoryPtr = mahi.mojom.ContentExtractionServiceFactoryRemote;
 mahi.mojom.ContentExtractionServiceFactoryRequest = mahi.mojom.ContentExtractionServiceFactoryPendingReceiver;

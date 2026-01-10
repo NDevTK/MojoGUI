@@ -7,8 +7,8 @@
 // Module namespace
 var actor = actor || {};
 actor.mojom = actor.mojom || {};
+var mojo_base = mojo_base || {};
 var blink = blink || {};
-var ui = ui || {};
 var gfx = gfx || {};
 
 actor.mojom.TypeSpec = { $: mojo.internal.Enum() };
@@ -397,6 +397,28 @@ actor.mojom.JournalClient.getRemote = function() {
   return remote.$;
 };
 
+actor.mojom.JournalClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.addEntriesToJournal(params.entries);
+          break;
+        }
+      }
+    });
+  }
+};
+
+actor.mojom.JournalClientReceiver = actor.mojom.JournalClientReceiver;
+
 actor.mojom.JournalClientPtr = actor.mojom.JournalClientRemote;
 actor.mojom.JournalClientRequest = actor.mojom.JournalClientPendingReceiver;
 
@@ -466,6 +488,35 @@ actor.mojom.PageStabilityMonitor.getRemote = function() {
     'context');
   return remote.$;
 };
+
+actor.mojom.PageStabilityMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.notifyWhenStable(params.observation_delay);
+          if (header.expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const responder = mojo.internal.interfaceSupport.createResponder(
+                this.endpoint, header.requestId, actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec);
+               responder(response);
+            }});
+          }
+          break;
+        }
+      }
+    });
+  }
+};
+
+actor.mojom.PageStabilityMonitorReceiver = actor.mojom.PageStabilityMonitorReceiver;
 
 actor.mojom.PageStabilityMonitorPtr = actor.mojom.PageStabilityMonitorRemote;
 actor.mojom.PageStabilityMonitorRequest = actor.mojom.PageStabilityMonitorPendingReceiver;

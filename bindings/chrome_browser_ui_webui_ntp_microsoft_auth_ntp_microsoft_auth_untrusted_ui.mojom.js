@@ -7,7 +7,7 @@
 // Module namespace
 var new_tab_page = new_tab_page || {};
 new_tab_page.mojom = new_tab_page.mojom || {};
-var ui = ui || {};
+var mojo_base = mojo_base || {};
 
 new_tab_page.mojom.AccessTokenSpec = { $: {} };
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory = {};
@@ -106,6 +106,33 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory.getRemote = f
     'context');
   return remote.$;
 };
+
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.connectToParentDocument(params.child_document);
+          break;
+        }
+        case 1: {
+          const params = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.createPageHandler(params.handler, params.document);
+          break;
+        }
+      }
+    });
+  }
+};
+
+new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryReceiver = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryReceiver;
 
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryPtr = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemote;
 new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRequest = new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryPendingReceiver;
@@ -218,6 +245,43 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler.getRemote = function() {
     'context');
   return remote.$;
 };
+
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.clearAuthData();
+          break;
+        }
+        case 1: {
+          const params = new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.maybeAcquireTokenSilent();
+          break;
+        }
+        case 2: {
+          const params = new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAccessToken(params.access_token);
+          break;
+        }
+        case 3: {
+          const params = new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.setAuthStateError(params.error_code, params.error_message);
+          break;
+        }
+      }
+    });
+  }
+};
+
+new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerReceiver = new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerReceiver;
 
 new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerPtr = new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote;
 new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRequest = new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerPendingReceiver;

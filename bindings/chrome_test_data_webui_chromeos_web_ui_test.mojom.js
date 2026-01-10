@@ -73,6 +73,28 @@ web_ui_test.mojom.TestRunner.getRemote = function() {
   return remote.$;
 };
 
+web_ui_test.mojom.TestRunnerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+  }
+  bind(handle) {
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(handle);
+    this.endpoint.start((message) => {
+      const header = message.header;
+      switch (header.ordinal) {
+        case 0: {
+          const params = web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec.$.decode(message.payload);
+          const result = this.impl.testComplete(params.failureMessage);
+          break;
+        }
+      }
+    });
+  }
+};
+
+web_ui_test.mojom.TestRunnerReceiver = web_ui_test.mojom.TestRunnerReceiver;
+
 web_ui_test.mojom.TestRunnerPtr = web_ui_test.mojom.TestRunnerRemote;
 web_ui_test.mojom.TestRunnerRequest = web_ui_test.mojom.TestRunnerPendingReceiver;
 
