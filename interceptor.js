@@ -92,22 +92,21 @@
                             const structSpec = responseParamsSpec.$.structSpec;
                             const reqHeader = typeof headerOrOrdinal === 'object' ? headerOrOrdinal : { ordinal: headerOrOrdinal };
 
-                            const headerSize = 32; // Always send V1 Header (requestId at offset 24)
+                            // Protocol Symmetry: Match the size and version of the request header
+                            const headerSize = reqHeader.headerSize || 32;
                             const payloadSize = structSpec.packedSize;
                             const totalSize = headerSize + payloadSize;
 
                             const buffer = new ArrayBuffer(totalSize);
                             const view = new DataView(buffer);
 
-                            // 1. Build Mojo Message Header V1
-                            // CRITICAL: We MUST set version to 1 if we only send 32 bytes. 
-                            // If we set it to 3 (from request), browser expects 56 bytes and hangs.
+                            // 1. Build Mojo Message Header (Symmetric)
                             const ordinal = reqHeader.ordinal || 0;
                             const interfaceId = (reqHeader.interfaceId !== undefined) ? reqHeader.interfaceId : (endpoint.interfaceId_ || 0);
-                            const version = 1;
+                            const version = (reqHeader.headerVersion !== undefined) ? reqHeader.headerVersion : 1;
 
                             view.setUint32(0, totalSize, true);     // num_bytes
-                            view.setUint32(4, version, true);       // version 1
+                            view.setUint32(4, version, true);       // version
                             view.setUint32(8, interfaceId, true);   // interface_id
                             view.setUint32(12, ordinal, true);      // ordinal
                             view.setUint32(16, 2, true);            // flags (2 = kMessageIsResponse)
@@ -120,6 +119,9 @@
                                 view.setUint32(24, Number(requestId) & 0xFFFFFFFF, true);
                                 view.setUint32(28, Math.floor(Number(requestId) / 0x100000000), true);
                             }
+
+                            // If headerSize > 32 (V2/V3), the remaining fields should be zeroed (handled by ArrayBuffer init)
+                            // but we could explicitly set them if we had the context. Symmetry is enough.
 
                             // 2. Encode Struct Payload
                             const encoder = new mojo.internal.Encoder(payloadSize, 0);
