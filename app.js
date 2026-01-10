@@ -116,6 +116,46 @@
         setupEventListeners();
     }
 
+    function getInterceptorFormValues(interceptId) {
+        const inputs = document.querySelectorAll(`.intercept-input[data-id="${interceptId}"]`);
+        const params = [];
+
+        inputs.forEach(input => {
+            const index = parseInt(input.dataset.index);
+            const type = input.dataset.type;
+            let value;
+
+            if (input.type === 'checkbox') {
+                value = input.checked;
+            } else {
+                value = input.value;
+                // Type conversion
+                if (type === 'json' || type.includes('array') || type.includes('map') || type.includes('object')) {
+                    // If empty string, treat as null or empty? 
+                    // Usually for complex types we expect valid JSON
+                    if (value.trim()) {
+                        value = safeParse(value);
+                    } else {
+                        value = null;
+                    }
+                } else if (input.type === 'number') {
+                    value = parseFloat(value);
+                } else if (!input.type || input.type === 'text') {
+                    // Check if it's supposed to be a BigInt (e.g. ends with 'n' or type is likely integer)
+                    // Our safeParse/safeStringify uses '123n' convention.
+                    // If the type suggests integer, we might need to be careful.
+                    // But Mojo bindings usually handle coercion if it's close.
+                    // However, for explicit BigInt support from user input:
+                    if (value.endsWith('n') && /^-?\d+n$/.test(value)) {
+                        value = BigInt(value.slice(0, -1));
+                    }
+                }
+            }
+            params[index] = value;
+        });
+        return params;
+    }
+
     function checkMojoAvailability() {
         // Check for both legacy (Mojo) and standard (mojo) namespaces
         state.mojoAvailable = (typeof Mojo !== 'undefined' && Mojo.bindInterface) ||
@@ -506,54 +546,101 @@
         return paramDefs[interfaceName]?.[methodName] || generateDefaultParams(methodName);
     }
 
-    function resolveNamespace(moduleName) {
-        if (!moduleName) return window;
-        const parts = moduleName.split('.');
-        let current = window;
-        for (const part of parts) {
-            current = current[part];
-            if (!current) return null;
-        }
-        return current;
+    function findMethodDefinition(interfaceName, methodName) {
+        const iface = state.interfaces.find(i => i.name === interfaceName);
+        if (!iface) return null;
+        return iface.methods.find(m => m.name === methodName);
     }
 
-    function inferTypeFromMojomType(mojomType) {
-        // Best effort mapping from string types (from parser) or runtime types
-        if (!mojomType) return 'json'; // Default to JSON for unknown/complex
+    function renderInput(param, value, options = {}) {
+        const { isInterceptor, index, interceptId } = options;
 
-        // Handle runtime objects if passed
-        if (typeof mojo !== 'undefined') {
-            if (mojomType === mojo.internal.String) return 'string';
-            if (mojomType === mojo.internal.Bool) return 'bool';
-            // ... (other runtime checks could go here but we mostly get strings)
+        let inputType = MojoParser.getInputType(param.type);
+        // Force textarea for 'json', complex types, or if it's a BigInt value (to allow editing as text)
+        if (param.type === 'json' || param.type.includes('array') || param.type.includes('map') || (value && typeof value === 'object')) {
+            inputType = 'textarea';
         }
 
-        // Handle string types from Parser
-        if (typeof mojomType === 'string') {
-            const t = mojomType.toLowerCase();
-            if (t === 'string') return 'string';
-            if (t === 'bool' || t === 'boolean') return 'bool';
-            if (t.includes('int') || t.includes('float') || t.includes('double')) return 'number';
-            if (t.includes('array') || t.includes('map')) return 'json';
+        // Clean handling of BigInts/Objects for display
+        let displayValue = value;
+        if (typeof value === 'bigint') {
+            displayValue = value.toString() + 'n';
+            if (inputType === 'number') inputType = 'text';
+        } else if (typeof value === 'object' && value !== null) {
+            displayValue = safeStringify(value, 2);
+        } else if (value === undefined || value === null) {
+            // Handle defaults if value is not provided (for Manual Form)
+            if (!isInterceptor) {
+                const def = MojoParser.getDefaultValue(param.type);
+                if (def !== undefined) {
+                    displayValue = def;
+                    if (typeof def === 'object') displayValue = safeStringify(def, 2);
+                } else if (param.type === 'json') {
+                    displayValue = '{}';
+                }
+            }
         }
 
-        // Default to JSON for complex types (Structs, Unions, 'any')
-        return 'json';
+        // Attributes generation
+        let attributes = '';
+        if (isInterceptor) {
+            attributes = `class="intercept-input ${inputType === 'textarea' ? 'params-editor' : ''}"
+                          data-id="${interceptId}"
+                          data-index="${index}"
+                          data-type="${escapeHtml(param.type)}"`;
+            if (inputType === 'textarea') attributes += ' style="min-height: 100px;"';
+        } else {
+            // Manual Form attributes
+            attributes = `name="${escapeHtml(param.name)}" data-type="${escapeHtml(param.type)}"`;
+        }
+
+        if (inputType === 'checkbox') {
+            return `
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" ${attributes} ${displayValue ? 'checked' : ''}>
+                        ${escapeHtml(param.name)}
+                        <span class="type">${escapeHtml(param.type)}</span>
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                    </label>
+                </div>
+            `;
+        } else if (inputType === 'textarea') {
+            return `
+                <div class="form-group">
+                    <label>
+                        ${escapeHtml(param.name)}
+                        <span class="type">${escapeHtml(param.type)}</span>
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                    </label>
+                    <textarea ${attributes} placeholder="Enter ${param.type}...">${escapeHtml(displayValue || '')}</textarea>
+                </div>
+            `;
+        } else {
+            return `
+                <div class="form-group">
+                    <label>
+                        ${escapeHtml(param.name)}
+                        <span class="type">${escapeHtml(param.type)}</span>
+                        ${param.optional ? '<span class="optional">(optional)</span>' : ''}
+                    </label>
+                    <input type="${inputType === 'number' && typeof displayValue === 'string' && displayValue.endsWith('n') ? 'text' : inputType}"
+                           ${attributes}
+                           value="${escapeHtml(displayValue ?? '')}"
+                           placeholder="Enter ${param.type}...">
+                </div>
+            `;
+        }
     }
 
-    function generateDefaultParams(methodName) {
-        // Generate sensible default params based on method name
-        const params = [];
-
-        if (methodName.toLowerCase().includes('get') || methodName.toLowerCase().includes('fetch')) {
-            params.push({ name: 'id', type: 'string', optional: false });
-        } else if (methodName.toLowerCase().includes('set') || methodName.toLowerCase().includes('update')) {
-            params.push({ name: 'value', type: 'json', optional: false });
-        } else if (methodName.toLowerCase().includes('create') || methodName.toLowerCase().includes('add')) {
-            params.push({ name: 'options', type: 'json', optional: true });
+    function renderInterceptorForm(paramsDef, values, interceptId) {
+        if (!paramsDef || paramsDef.length === 0) {
+            return `<div class="empty-state small"><p>No parameters</p></div>`;
         }
 
-        return params;
+        return paramsDef.map((param, index) => {
+            return renderInput(param, values[index], { isInterceptor: true, index, interceptId });
+        }).join('');
     }
 
     function renderParamsForm(params) {
@@ -567,65 +654,7 @@
         }
 
         elements.paramsForm.innerHTML = safeHTML(params.map(param => {
-            // Force textarea for 'json' type or complex types
-            let inputType = MojoParser.getInputType(param.type);
-            if (param.type === 'json' || param.type.includes('array') || param.type.includes('map')) {
-                inputType = 'textarea';
-            }
-
-            const defaultValue = MojoParser.getDefaultValue(param.type);
-
-            if (inputType === 'checkbox') {
-                return `
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" 
-                                   name="${escapeHtml(param.name)}" 
-                                   data-type="${escapeHtml(param.type)}"
-                                   ${defaultValue ? 'checked' : ''}>
-                            ${escapeHtml(param.name)}
-                            <span class="type">${escapeHtml(param.type)}</span>
-                            ${param.optional ? '<span class="optional">(optional)</span>' : ''}
-                        </label>
-                    </div>
-                `;
-            } else if (inputType === 'textarea') {
-                // If default is object/array, stringify it. If null/undefined, use empty string or {}
-                let displayValue = defaultValue;
-                if (typeof defaultValue === 'object' && defaultValue !== null) {
-                    displayValue = safeStringify(defaultValue, 2);
-                } else if (!defaultValue && param.type === 'json') {
-                    displayValue = '{}';
-                }
-
-                return `
-                    <div class="form-group">
-                        <label>
-                            ${escapeHtml(param.name)}
-                            <span class="type">${escapeHtml(param.type)}</span>
-                            ${param.optional ? '<span class="optional">(optional)</span>' : ''}
-                        </label>
-                        <textarea name="${escapeHtml(param.name)}" 
-                                  data-type="${escapeHtml(param.type)}"
-                                  placeholder="Enter JSON...">${escapeHtml(displayValue || '')}</textarea>
-                    </div>
-                `;
-            } else {
-                return `
-                    <div class="form-group">
-                        <label>
-                            ${escapeHtml(param.name)}
-                            <span class="type">${escapeHtml(param.type)}</span>
-                            ${param.optional ? '<span class="optional">(optional)</span>' : ''}
-                        </label>
-                        <input type="${inputType}" 
-                               name="${escapeHtml(param.name)}" 
-                               data-type="${escapeHtml(param.type)}"
-                               value="${escapeHtml(defaultValue ?? '')}"
-                               placeholder="Enter ${escapeHtml(param.type)}...">
-                    </div>
-                `;
-            }
+            return renderInput(param, undefined, { isInterceptor: false });
         }).join(''));
 
         // Add change handlers
@@ -1047,6 +1076,18 @@
         const isPending = row && !row.cells[2].innerHTML.includes('Done') && !row.cells[2].innerHTML.includes('Error');
         const isManual = detail.type === 'MANUAL';
 
+        const methodDef = findMethodDefinition(iface, method);
+        let paramsHtml;
+
+        if (methodDef && methodDef.parameters) {
+            paramsHtml = `<div class="params-form-container" id="interceptForm_${id}">
+                           ${renderInterceptorForm(methodDef.parameters, params, id)}
+                           </div>`;
+        } else {
+            // Fallback for unknown methods
+            paramsHtml = `<textarea id="interceptParams_${id}" class="params-editor" ${!isPending ? 'disabled' : ''}>${escapeHtml(safeStringify(params, 2))}</textarea>`;
+        }
+
         elements.interceptorDetails.innerHTML = safeHTML(`
             <div class="interceptor-actions">
                 <h4>${escapeHtml(iface)}.${escapeHtml(method)}</h4>
@@ -1059,7 +1100,7 @@
             </div>
             <div class="code-block" style="margin-top: 10px;">
                 <label style="font-size:0.8rem;color:var(--text-tertiary);">Request Params:</label>
-                <textarea id="interceptParams_${id}" class="params-editor" ${!isPending ? 'disabled' : ''}>${escapeHtml(safeStringify(params, 2))}</textarea>
+                ${paramsHtml}
             </div>
             ${(detail.result || detail.status === 'Done') ? `
             <div class="code-block" style="margin-top: 10px;">
@@ -1076,14 +1117,29 @@
 
     // Modify request function (globally accessible for onclick)
     window.resumeIntercept = function (id, drop) {
-        const textarea = document.getElementById(`interceptParams_${id}`);
         let params = null;
+
         if (!drop) {
-            try {
-                params = safeParse(textarea.value);
-            } catch (e) {
-                alert('Invalid JSON params');
-                return;
+            const formContainer = document.getElementById(`interceptForm_${id}`);
+            if (formContainer) {
+                // New logic: gather from form inputs
+                try {
+                    params = getInterceptorFormValues(id);
+                } catch (e) {
+                    alert('Error parsing form values: ' + e.message);
+                    return;
+                }
+            } else {
+                // Fallback: old textarea logic
+                const textarea = document.getElementById(`interceptParams_${id}`);
+                if (textarea) {
+                    try {
+                        params = safeParse(textarea.value);
+                    } catch (e) {
+                        alert('Invalid JSON params');
+                        return;
+                    }
+                }
             }
         }
 

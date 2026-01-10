@@ -3,7 +3,7 @@
  * Client-side parser for .mojom.js files
  */
 
-(function(global) {
+(function (global) {
     'use strict';
 
     const MojoParser = {
@@ -33,10 +33,10 @@
                 while ((match = interfacePattern.exec(content)) !== null) {
                     const interfaceName = match[2].replace(/Ptr$/, '');
                     const startPos = match.index;
-                    
+
                     // Find the methods in this class
                     const methods = this.extractMethods(content, startPos);
-                    
+
                     result.interfaces.push({
                         name: interfaceName,
                         namespace: match[1],
@@ -100,12 +100,12 @@
          */
         extractMethods(content, classStart) {
             const methods = [];
-            
+
             // Find the class body
             let braceCount = 0;
             let inClass = false;
             let classEnd = content.length;
-            
+
             for (let i = classStart; i < content.length; i++) {
                 if (content[i] === '{') {
                     braceCount++;
@@ -118,39 +118,39 @@
                     }
                 }
             }
-            
+
             const classBody = content.substring(classStart, classEnd);
-            
+
             // Find method definitions
             const methodPattern = /(\w+)\s*\(([^)]*)\)\s*\{/g;
             let match;
-            
+
             while ((match = methodPattern.exec(classBody)) !== null) {
                 const methodName = match[1];
                 const paramsStr = match[2].trim();
-                
+
                 // Skip constructor and internal methods
                 if (methodName === 'constructor' || methodName.startsWith('_')) {
                     continue;
                 }
-                
+
                 const params = paramsStr ? paramsStr.split(',').map(p => {
                     const name = p.trim();
                     return { name: name, type: this.inferType(name) };
                 }) : [];
-                
+
                 // Check if method returns a Promise
                 const methodStart = match.index;
                 const methodBodyMatch = classBody.substring(methodStart).match(/\{([^}]*)\}/);
                 const hasReturn = methodBodyMatch && methodBodyMatch[1].includes('Promise');
-                
+
                 methods.push({
                     name: methodName,
                     params: params.filter(p => p.name),
                     hasReturn: hasReturn
                 });
             }
-            
+
             return methods;
         },
 
@@ -161,17 +161,17 @@
          */
         inferType(name) {
             const nameLower = name.toLowerCase();
-            
-            if (nameLower.includes('id') || nameLower.includes('count') || 
+
+            if (nameLower.includes('id') || nameLower.includes('count') ||
                 nameLower.includes('index') || nameLower.includes('size') ||
                 nameLower.includes('offset') || nameLower.includes('length')) {
                 return 'int32';
             }
-            if (nameLower.includes('enabled') || nameLower.includes('is') || 
+            if (nameLower.includes('enabled') || nameLower.includes('is') ||
                 nameLower.includes('has') || nameLower.includes('flag')) {
                 return 'bool';
             }
-            if (nameLower.includes('name') || nameLower.includes('url') || 
+            if (nameLower.includes('name') || nameLower.includes('url') ||
                 nameLower.includes('path') || nameLower.includes('text') ||
                 nameLower.includes('string') || nameLower.includes('message')) {
                 return 'string';
@@ -183,7 +183,7 @@
             if (nameLower.includes('origin') || nameLower.includes('url')) {
                 return 'url.mojom.Url';
             }
-            
+
             return 'any';
         },
 
@@ -194,8 +194,8 @@
          */
         getDefaultValue(type) {
             const typeLower = type.toLowerCase();
-            
-            if (typeLower.includes('int') || typeLower.includes('float') || 
+
+            if (typeLower.includes('int') || typeLower.includes('float') ||
                 typeLower.includes('double')) {
                 return 0;
             }
@@ -211,7 +211,7 @@
             if (typeLower.includes('map')) {
                 return {};
             }
-            
+
             return null;
         },
 
@@ -222,8 +222,13 @@
          */
         getInputType(type) {
             const typeLower = type.toLowerCase();
-            
-            if (typeLower.includes('int') || typeLower.includes('float') || 
+
+            // 64-bit types should be text to allow BigInt precision (and 'n' suffix)
+            if (typeLower.includes('int64')) {
+                return 'text';
+            }
+
+            if (typeLower.includes('int') || typeLower.includes('float') ||
                 typeLower.includes('double')) {
                 return 'number';
             }
@@ -233,7 +238,7 @@
             if (typeLower.includes('array') || typeLower.includes('map')) {
                 return 'textarea';
             }
-            
+
             return 'text';
         }
     };
