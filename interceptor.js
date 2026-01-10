@@ -88,99 +88,50 @@
                 console.log('[Interceptor] Polyfilling createResponder');
                 mojo.internal.interfaceSupport.createResponder = function (endpoint, requestId, responseParamsSpec) {
                     return function (response) {
-                        let message;
                         try {
-                            // Attempt 1: Use internal Encoder
-                            var structSpec = responseParamsSpec.$.structSpec;
-                            var encoder = new mojo.internal.Encoder(structSpec.packedSize, 0);
+                            const structSpec = responseParamsSpec.$.structSpec;
+                            const headerSize = 32; // V1 Header (necessary for RequestID)
+                            const payloadSize = structSpec.packedSize;
+                            const totalSize = headerSize + payloadSize;
 
-                            // Fix: Manually allocate if missing (common in some envs)
-                            if (!encoder.buffer_) {
-                                console.log('[Interceptor] Encoder buffer missing, allocating:', structSpec.packedSize);
-                                encoder.buffer_ = new ArrayBuffer(structSpec.packedSize);
+                            const buffer = new ArrayBuffer(totalSize);
+                            const view = new DataView(buffer);
+
+                            // 1. Build Mojo Message Header V1
+                            view.setUint32(0, totalSize, true);     // num_bytes
+                            view.setUint32(4, 1, true);             // version (1 = includes requestId)
+                            view.setUint32(8, 0, true);             // interface_id
+                            view.setUint32(12, 0, true);            // ordinal
+                            view.setUint32(16, 2, true);            // flags (2 = kMessageIsResponse)
+                            view.setUint32(20, 0, true);            // padding (aligned to 8 bytes)
+
+                            // requestId (uint64)
+                            if (typeof requestId === 'bigint') {
+                                view.setBigUint64(24, requestId, true);
+                            } else {
+                                view.setUint32(24, Number(requestId) & 0xFFFFFFFF, true);
+                                view.setUint32(28, Math.floor(Number(requestId) / 0x100000000), true);
                             }
 
-                            // Fix: Force DataView initialization
-                            if (!encoder.data_ || typeof encoder.data_.setUint32 !== 'function') {
-                                // console.log('[Interceptor] Encoder data_ invalid, recreating DataView');
-                                encoder.data_ = new DataView(encoder.buffer_);
-                            }
+                            // 2. Encode Struct Payload
+                            // We use the native Encoder but point its DataView to the payload area
+                            const encoder = new mojo.internal.Encoder(payloadSize, 0);
+                            encoder.buffer_ = buffer;
+                            encoder.data_ = new DataView(buffer, headerSize);
 
                             encoder.encodeStructInline(structSpec, response);
-                            message = encoder.message_;
 
+                            // 3. Send via Handle (Instance Method)
+                            // We know from probe that MojoHandle.prototype.writeMessage exists
+                            const pipe = endpoint.router_.pipe_ || endpoint.router_.handle_;
+                            if (pipe && typeof pipe.writeMessage === 'function') {
+                                // console.log('[Interceptor] sending response via pipe.writeMessage', totalSize, 'bytes');
+                                pipe.writeMessage(buffer, []);
+                            } else {
+                                console.error('[Interceptor] No valid pipe handle found for response');
+                            }
                         } catch (e) {
-                            console.error('[Interceptor] createResponder Encoder failed:', e);
-                            // Fallback removed to focus on Encoder fix, as manual packet was rejected.
-                            return;
-                        }
-
-
-                        if (message) {
-                            // Ensure header properties are set
-                            if (message.header && !message.header.requestId) {
-                                message.header.requestId = requestId;
-                                message.header.flags = 2;
-                            }
-
-                            // Try-Catch-Cascade for sending
-                            let sent = false;
-
-                            // 1. Try router.accept (Standard)
-                            if (!sent && typeof endpoint.router_.accept === 'function') {
-                                try {
-                                    endpoint.router_.accept(message);
-                                    sent = true;
-                                } catch (e) { console.warn('[Interceptor] router.accept failed:', e); }
-                            }
-
-                            // 2. Try router.send (Alternative)
-                            if (!sent && typeof endpoint.router_.send === 'function') {
-                                try {
-                                    console.log('[Interceptor] using router_.send');
-                                    endpoint.router_.send(message);
-                                    sent = true;
-                                } catch (e) {
-                                    console.warn('[Interceptor] router.send failed:', e);
-                                    // It might want raw buffer?
-                                    try {
-                                        endpoint.router_.send(message.buffer, message.handles || []);
-                                        sent = true;
-                                        console.log('[Interceptor] router.send(buffer) worked');
-                                    } catch (e2) { console.warn('[Interceptor] router.send(buffer) failed:', e2); }
-                                }
-                            }
-
-                            // 3. Fallback: Mojo.writeMessage (Direct Global)
-                            if (!sent && endpoint.router_.pipe_) {
-                                try {
-                                    if (typeof Mojo !== 'undefined' && Mojo.writeMessage) {
-                                        console.log('[Interceptor] using Mojo.writeMessage (Global)');
-                                        const result = Mojo.writeMessage(endpoint.router_.pipe_, message.buffer, message.handles || []);
-                                        if (result !== Mojo.RESULT_OK) {
-                                            console.error('[Interceptor] Mojo.writeMessage failed:', result);
-                                        } else {
-                                            sent = true;
-                                        }
-                                    }
-                                } catch (e) { console.warn('[Interceptor] Mojo.writeMessage threw:', e); }
-                            }
-
-                            // 4. Fallback: pipe.writeMessage (Instance Method)
-                            if (!sent && endpoint.router_.pipe_ && typeof endpoint.router_.pipe_.writeMessage === 'function') {
-                                try {
-                                    console.log('[Interceptor] using pipe.writeMessage (Instance)');
-                                    const result = endpoint.router_.pipe_.writeMessage(message.buffer, message.handles || []);
-                                    sent = true;
-                                    // Note: instance method might return undefined or result code, usually throws on error
-                                } catch (e) {
-                                    console.error('[Interceptor] pipe.writeMessage threw:', e);
-                                }
-                            }
-
-                            if (!sent) {
-                                console.error('[Interceptor] FAILED TO SEND RESPONSE. Method unavailable.');
-                            }
+                            console.error('[Interceptor] createResponder polyfill FAILED:', e);
                         }
                     };
                 };
