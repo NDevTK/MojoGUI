@@ -201,7 +201,8 @@ browsing_topics.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ParamsSpec,
       browsing_topics.mojom.PageHandler_GetBrowsingTopicsConfiguration_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getBrowsingTopicsState(calculate_now) {
@@ -210,7 +211,8 @@ browsing_topics.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ParamsSpec,
       browsing_topics.mojom.PageHandler_GetBrowsingTopicsState_ResponseParamsSpec,
-      [calculate_now]);
+      [calculate_now],
+      false);
   }
 
   getModelInfo() {
@@ -219,7 +221,8 @@ browsing_topics.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       browsing_topics.mojom.PageHandler_GetModelInfo_ParamsSpec,
       browsing_topics.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   classifyHosts(hosts) {
@@ -228,7 +231,8 @@ browsing_topics.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       browsing_topics.mojom.PageHandler_ClassifyHosts_ParamsSpec,
       browsing_topics.mojom.PageHandler_ClassifyHosts_ResponseParamsSpec,
-      [hosts]);
+      [hosts],
+      false);
   }
 
 };

@@ -82,7 +82,8 @@ quarantine.mojom.QuarantineRemoteCallHandler = class {
       0,  // ordinal
       quarantine.mojom.Quarantine_QuarantineFile_ParamsSpec,
       quarantine.mojom.Quarantine_QuarantineFile_ResponseParamsSpec,
-      [full_path, source_url, referrer_url, request_initiator, client_guid]);
+      [full_path, source_url, referrer_url, request_initiator, client_guid],
+      false);
   }
 
 };

@@ -94,7 +94,8 @@ remote_cocoa.mojom.SelectFileDialogRemoteCallHandler = class {
       0,  // ordinal
       remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec,
       remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec,
-      [type, title, file_path, file_types, file_type_index, default_extension]);
+      [type, title, file_path, file_types, file_type_index, default_extension],
+      false);
   }
 
 };

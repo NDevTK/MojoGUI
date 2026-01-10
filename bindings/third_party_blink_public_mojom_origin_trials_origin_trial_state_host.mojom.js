@@ -76,7 +76,8 @@ blink.mojom.OriginTrialStateHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.OriginTrialStateHost_ApplyFeatureDiffForOriginTrial_ParamsSpec,
       null,
-      [origin_trial_features]);
+      [origin_trial_features],
+      false);
   }
 
   enablePersistentTrial(token, script_origins) {
@@ -85,7 +86,8 @@ blink.mojom.OriginTrialStateHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.OriginTrialStateHost_EnablePersistentTrial_ParamsSpec,
       null,
-      [token, script_origins]);
+      [token, script_origins],
+      false);
   }
 
 };

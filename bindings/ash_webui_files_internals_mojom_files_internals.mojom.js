@@ -208,7 +208,8 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetSmbfsEnableVerboseLogging_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setSmbfsEnableVerboseLogging(enabled) {
@@ -217,7 +218,8 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.mojom.files_internals.PageHandler_SetSmbfsEnableVerboseLogging_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   getOfficeFileHandlers() {
@@ -226,7 +228,8 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetOfficeFileHandlers_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   clearOfficeFileHandlers() {
@@ -235,7 +238,8 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.mojom.files_internals.PageHandler_ClearOfficeFileHandlers_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getMoveConfirmationShownForDrive() {
@@ -244,7 +248,8 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getMoveConfirmationShownForOneDrive() {
@@ -253,7 +258,8 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForOneDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getMoveConfirmationShownForLocalToDrive() {
@@ -262,7 +268,8 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getMoveConfirmationShownForLocalToOneDrive() {
@@ -271,7 +278,8 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForLocalToOneDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getMoveConfirmationShownForCloudToDrive() {
@@ -280,7 +288,8 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getMoveConfirmationShownForCloudToOneDrive() {
@@ -289,7 +298,8 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetMoveConfirmationShownForCloudToOneDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAlwaysMoveOfficeFilesToDrive() {
@@ -298,7 +308,8 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setAlwaysMoveOfficeFilesToDrive(always_move) {
@@ -307,7 +318,8 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
       null,
-      [always_move]);
+      [always_move],
+      false);
   }
 
   getAlwaysMoveOfficeFilesToOneDrive() {
@@ -316,7 +328,8 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
       ash.mojom.files_internals.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setAlwaysMoveOfficeFilesToOneDrive(always_move) {
@@ -325,7 +338,8 @@ ash.mojom.files_internals.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       ash.mojom.files_internals.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
       null,
-      [always_move]);
+      [always_move],
+      false);
   }
 
 };

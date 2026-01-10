@@ -80,7 +80,8 @@ arc.mojom.WakeLockHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.WakeLockHost_AcquirePartialWakeLock_ParamsSpec,
       arc.mojom.WakeLockHost_AcquirePartialWakeLock_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   releasePartialWakeLock() {
@@ -89,7 +90,8 @@ arc.mojom.WakeLockHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.WakeLockHost_ReleasePartialWakeLock_ParamsSpec,
       arc.mojom.WakeLockHost_ReleasePartialWakeLock_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -158,7 +160,8 @@ arc.mojom.WakeLockInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.WakeLockInstance_Init_ParamsSpec,
       arc.mojom.WakeLockInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

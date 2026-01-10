@@ -132,7 +132,8 @@ ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler = class {
       0,  // ordinal
       ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec,
       null,
-      [buffer_manager_gpu_associated]);
+      [buffer_manager_gpu_associated],
+      false);
   }
 
   createDmabufBasedBuffer(dmabuf_fd, size, strides, offsets, modifiers, format, planes_count, color_space, hdr_metadata, buffer_id) {
@@ -141,7 +142,8 @@ ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler = class {
       1,  // ordinal
       ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec,
       null,
-      [dmabuf_fd, size, strides, offsets, modifiers, format, planes_count, color_space, hdr_metadata, buffer_id]);
+      [dmabuf_fd, size, strides, offsets, modifiers, format, planes_count, color_space, hdr_metadata, buffer_id],
+      false);
   }
 
   createShmBasedBuffer(shm_fd, length, size, buffer_id) {
@@ -150,7 +152,8 @@ ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler = class {
       2,  // ordinal
       ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec,
       null,
-      [shm_fd, length, size, buffer_id]);
+      [shm_fd, length, size, buffer_id],
+      false);
   }
 
   createSinglePixelBuffer(color, buffer_id) {
@@ -159,7 +162,8 @@ ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler = class {
       3,  // ordinal
       ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec,
       null,
-      [color, buffer_id]);
+      [color, buffer_id],
+      false);
   }
 
   destroyBuffer(buffer_id) {
@@ -168,7 +172,8 @@ ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler = class {
       4,  // ordinal
       ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec,
       null,
-      [buffer_id]);
+      [buffer_id],
+      false);
   }
 
   commitOverlays(widget, frame_id, data, overlays) {
@@ -177,7 +182,8 @@ ui.ozone.mojom.WaylandBufferManagerHostRemoteCallHandler = class {
       5,  // ordinal
       ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec,
       null,
-      [widget, frame_id, data, overlays]);
+      [widget, frame_id, data, overlays],
+      false);
   }
 
 };
@@ -264,7 +270,8 @@ ui.ozone.mojom.WaylandBufferManagerGpuRemoteCallHandler = class {
       0,  // ordinal
       ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec,
       null,
-      [remote_host, shared_image_formats_with_modifiers, supports_dma_buf, supports_viewporter, supports_acquire_fence, supports_overlays, supports_single_pixel_buffer]);
+      [remote_host, shared_image_formats_with_modifiers, supports_dma_buf, supports_viewporter, supports_acquire_fence, supports_overlays, supports_single_pixel_buffer],
+      false);
   }
 
   onSubmission(widget, frame_id, swap_result, release_fence_handle, presentation_infos) {
@@ -273,7 +280,8 @@ ui.ozone.mojom.WaylandBufferManagerGpuRemoteCallHandler = class {
       1,  // ordinal
       ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec,
       null,
-      [widget, frame_id, swap_result, release_fence_handle, presentation_infos]);
+      [widget, frame_id, swap_result, release_fence_handle, presentation_infos],
+      false);
   }
 
   onPresentation(widget, presentation_infos) {
@@ -282,7 +290,8 @@ ui.ozone.mojom.WaylandBufferManagerGpuRemoteCallHandler = class {
       2,  // ordinal
       ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec,
       null,
-      [widget, presentation_infos]);
+      [widget, presentation_infos],
+      false);
   }
 
 };

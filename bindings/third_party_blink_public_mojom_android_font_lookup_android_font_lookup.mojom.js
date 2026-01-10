@@ -90,7 +90,8 @@ blink.mojom.AndroidFontLookupRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec,
       blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   matchLocalFontByUniqueName(font_unique_name) {
@@ -99,7 +100,8 @@ blink.mojom.AndroidFontLookupRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec,
       blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec,
-      [font_unique_name]);
+      [font_unique_name],
+      false);
   }
 
   fetchAllFontFiles() {
@@ -108,7 +110,8 @@ blink.mojom.AndroidFontLookupRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec,
       blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

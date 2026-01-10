@@ -101,7 +101,8 @@ arc.mojom.MidisClientRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec,
       null,
-      [device]);
+      [device],
+      false);
   }
 
   onDeviceRemoved(device) {
@@ -110,7 +111,8 @@ arc.mojom.MidisClientRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec,
       null,
-      [device]);
+      [device],
+      false);
   }
 
 };
@@ -197,7 +199,8 @@ arc.mojom.MidisServerRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.MidisServer_ListDevices_ParamsSpec,
       arc.mojom.MidisServer_ListDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestPort(request) {
@@ -206,7 +209,8 @@ arc.mojom.MidisServerRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.MidisServer_RequestPort_ParamsSpec,
       arc.mojom.MidisServer_RequestPort_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   closeDevice(request) {
@@ -215,7 +219,8 @@ arc.mojom.MidisServerRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.MidisServer_CloseDevice_ParamsSpec,
       null,
-      [request]);
+      [request],
+      false);
   }
 
 };
@@ -280,7 +285,8 @@ arc.mojom.MidisHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.MidisHost_Connect_ParamsSpec,
       null,
-      [server, client]);
+      [server, client],
+      false);
   }
 
 };
@@ -349,7 +355,8 @@ arc.mojom.MidisInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.MidisInstance_Init_ParamsSpec,
       arc.mojom.MidisInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

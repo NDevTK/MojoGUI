@@ -634,7 +634,8 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.Authenticator_MakeCredential_ParamsSpec,
       blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   getCredential(options) {
@@ -643,7 +644,8 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.Authenticator_GetCredential_ParamsSpec,
       blink.mojom.Authenticator_GetCredential_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   isUserVerifyingPlatformAuthenticatorAvailable() {
@@ -652,7 +654,8 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
       blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isConditionalMediationAvailable() {
@@ -661,7 +664,8 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec,
       blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   report(options) {
@@ -670,7 +674,8 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.Authenticator_Report_ParamsSpec,
       blink.mojom.Authenticator_Report_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   getClientCapabilities() {
@@ -679,7 +684,8 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec,
       blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   cancel() {
@@ -688,7 +694,8 @@ blink.mojom.AuthenticatorRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.Authenticator_Cancel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

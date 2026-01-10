@@ -64,7 +64,8 @@ blink.mojom.MimeRegistryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ParamsSpec,
       blink.mojom.MimeRegistry_GetMimeTypeFromExtension_ResponseParamsSpec,
-      [extension]);
+      [extension],
+      false);
   }
 
 };

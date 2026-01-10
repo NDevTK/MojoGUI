@@ -58,7 +58,7 @@ mojo.internal.Struct(
     network.mojom.TCPConnectedSocketOptionsSpec, 'network.mojom.TCPConnectedSocketOptions', [
       mojo.internal.StructField('send_buffer_size', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('receive_buffer_size', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('no_delay', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('no_delay', 8, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('keep_alive_options', 16, 0, network.mojom.TCPKeepAliveOptionsSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -144,7 +144,8 @@ network.mojom.TCPBoundSocketRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.TCPBoundSocket_Listen_ParamsSpec,
       network.mojom.TCPBoundSocket_Listen_ResponseParamsSpec,
-      [backlog, socket]);
+      [backlog, socket],
+      false);
   }
 
   connect(remote_addr_list, tcp_connected_socket_options, socket, observer) {
@@ -153,7 +154,8 @@ network.mojom.TCPBoundSocketRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.TCPBoundSocket_Connect_ParamsSpec,
       network.mojom.TCPBoundSocket_Connect_ResponseParamsSpec,
-      [remote_addr_list, tcp_connected_socket_options, socket, observer]);
+      [remote_addr_list, tcp_connected_socket_options, socket, observer],
+      false);
   }
 
 };
@@ -279,7 +281,8 @@ network.mojom.TCPConnectedSocketRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec,
       network.mojom.TCPConnectedSocket_UpgradeToTLS_ResponseParamsSpec,
-      [host_port_pair, options, traffic_annotation, receiver, observer]);
+      [host_port_pair, options, traffic_annotation, receiver, observer],
+      false);
   }
 
   setSendBufferSize(send_buffer_size) {
@@ -288,7 +291,8 @@ network.mojom.TCPConnectedSocketRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.TCPConnectedSocket_SetSendBufferSize_ParamsSpec,
       network.mojom.TCPConnectedSocket_SetSendBufferSize_ResponseParamsSpec,
-      [send_buffer_size]);
+      [send_buffer_size],
+      false);
   }
 
   setReceiveBufferSize(receive_buffer_size) {
@@ -297,7 +301,8 @@ network.mojom.TCPConnectedSocketRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ParamsSpec,
       network.mojom.TCPConnectedSocket_SetReceiveBufferSize_ResponseParamsSpec,
-      [receive_buffer_size]);
+      [receive_buffer_size],
+      false);
   }
 
   setNoDelay(no_delay) {
@@ -306,7 +311,8 @@ network.mojom.TCPConnectedSocketRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.TCPConnectedSocket_SetNoDelay_ParamsSpec,
       network.mojom.TCPConnectedSocket_SetNoDelay_ResponseParamsSpec,
-      [no_delay]);
+      [no_delay],
+      false);
   }
 
   setKeepAlive(enable, delay_secs) {
@@ -315,7 +321,8 @@ network.mojom.TCPConnectedSocketRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.TCPConnectedSocket_SetKeepAlive_ParamsSpec,
       network.mojom.TCPConnectedSocket_SetKeepAlive_ResponseParamsSpec,
-      [enable, delay_secs]);
+      [enable, delay_secs],
+      false);
   }
 
 };
@@ -385,7 +392,8 @@ network.mojom.SocketObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.SocketObserver_OnReadError_ParamsSpec,
       null,
-      [net_error]);
+      [net_error],
+      false);
   }
 
   onWriteError(net_error) {
@@ -394,7 +402,8 @@ network.mojom.SocketObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.SocketObserver_OnWriteError_ParamsSpec,
       null,
-      [net_error]);
+      [net_error],
+      false);
   }
 
 };
@@ -468,7 +477,8 @@ network.mojom.TCPServerSocketRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.TCPServerSocket_Accept_ParamsSpec,
       network.mojom.TCPServerSocket_Accept_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

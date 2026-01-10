@@ -107,7 +107,8 @@ ash.ime.mojom.InputEngineManagerRemoteCallHandler = class {
       0,  // ordinal
       ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec,
       ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec,
-      [ime_spec, to_engine_request, from_engine, extra]);
+      [ime_spec, to_engine_request, from_engine, extra],
+      false);
   }
 
   initializeConnectionFactory(connection_factory) {
@@ -116,7 +117,8 @@ ash.ime.mojom.InputEngineManagerRemoteCallHandler = class {
       1,  // ordinal
       ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec,
       ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec,
-      [connection_factory]);
+      [connection_factory],
+      false);
   }
 
 };
@@ -187,7 +189,8 @@ ash.ime.mojom.PlatformAccessProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec,
       ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec,
-      [url, file_path]);
+      [url, file_path],
+      false);
   }
 
 };
@@ -263,7 +266,8 @@ ash.ime.mojom.ImeServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec,
       null,
-      [provider]);
+      [provider],
+      false);
   }
 
   bindInputEngineManager(receiver) {
@@ -272,7 +276,8 @@ ash.ime.mojom.ImeServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindInputMethodUserDataService(receiver) {
@@ -281,7 +286,8 @@ ash.ime.mojom.ImeServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

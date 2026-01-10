@@ -55,7 +55,8 @@ mojom.ResetPasswordHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

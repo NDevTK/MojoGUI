@@ -96,7 +96,8 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BlobURLStore_Register_ParamsSpec,
       blink.mojom.BlobURLStore_Register_ResponseParamsSpec,
-      [blob, url]);
+      [blob, url],
+      false);
   }
 
   revoke(url) {
@@ -105,7 +106,8 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BlobURLStore_Revoke_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   resolveAsURLLoaderFactory(url, factory) {
@@ -114,7 +116,8 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.BlobURLStore_ResolveAsURLLoaderFactory_ParamsSpec,
       null,
-      [url, factory]);
+      [url, factory],
+      false);
   }
 
   resolveAsBlobURLToken(url, token, is_top_level_navigation) {
@@ -123,7 +126,8 @@ blink.mojom.BlobURLStoreRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.BlobURLStore_ResolveAsBlobURLToken_ParamsSpec,
       null,
-      [url, token, is_top_level_navigation]);
+      [url, token, is_top_level_navigation],
+      false);
   }
 
 };
@@ -198,7 +202,8 @@ blink.mojom.BlobURLTokenRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BlobURLToken_Clone_ParamsSpec,
       null,
-      [token]);
+      [token],
+      false);
   }
 
   getToken() {
@@ -207,7 +212,8 @@ blink.mojom.BlobURLTokenRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BlobURLToken_GetToken_ParamsSpec,
       blink.mojom.BlobURLToken_GetToken_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

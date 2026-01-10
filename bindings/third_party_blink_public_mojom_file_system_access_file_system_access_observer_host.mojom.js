@@ -76,7 +76,8 @@ blink.mojom.FileSystemAccessObserverHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec,
       blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec,
-      [token, is_recursive]);
+      [token, is_recursive],
+      false);
   }
 
   unobserve(token) {
@@ -85,7 +86,8 @@ blink.mojom.FileSystemAccessObserverHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec,
       null,
-      [token]);
+      [token],
+      false);
   }
 
 };

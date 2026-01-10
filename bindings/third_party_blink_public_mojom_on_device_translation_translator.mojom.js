@@ -67,7 +67,8 @@ blink.mojom.TranslatorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.Translator_Translate_ParamsSpec,
       null,
-      [input, pending_responder]);
+      [input, pending_responder],
+      false);
   }
 
   translateStreaming(input, pending_responder) {
@@ -76,7 +77,8 @@ blink.mojom.TranslatorRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.Translator_TranslateStreaming_ParamsSpec,
       null,
-      [input, pending_responder]);
+      [input, pending_responder],
+      false);
   }
 
 };

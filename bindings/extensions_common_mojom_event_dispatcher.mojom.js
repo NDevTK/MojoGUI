@@ -93,7 +93,8 @@ extensions.mojom.EventDispatcherRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec,
       extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec,
-      [params, event_args]);
+      [params, event_args],
+      false);
   }
 
 };

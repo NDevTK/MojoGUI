@@ -65,7 +65,8 @@ gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
       0,  // ordinal
       gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec,
       null,
-      [point]);
+      [point],
+      false);
   }
 
   resetPrediction() {
@@ -74,7 +75,8 @@ gfx.mojom.DelegatedInkPointRendererRemoteCallHandler = class {
       1,  // ordinal
       gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

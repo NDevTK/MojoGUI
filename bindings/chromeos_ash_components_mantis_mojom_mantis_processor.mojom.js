@@ -198,7 +198,8 @@ mantis.mojom.MantisProcessorRemoteCallHandler = class {
       0,  // ordinal
       mantis.mojom.MantisProcessor_Inpainting_ParamsSpec,
       mantis.mojom.MantisProcessor_Inpainting_ResponseParamsSpec,
-      [image, mask, seed]);
+      [image, mask, seed],
+      false);
   }
 
   generativeFill(image, mask, seed, prompt) {
@@ -207,7 +208,8 @@ mantis.mojom.MantisProcessorRemoteCallHandler = class {
       1,  // ordinal
       mantis.mojom.MantisProcessor_GenerativeFill_ParamsSpec,
       mantis.mojom.MantisProcessor_GenerativeFill_ResponseParamsSpec,
-      [image, mask, seed, prompt]);
+      [image, mask, seed, prompt],
+      false);
   }
 
   segmentation(image, prior) {
@@ -216,7 +218,8 @@ mantis.mojom.MantisProcessorRemoteCallHandler = class {
       2,  // ordinal
       mantis.mojom.MantisProcessor_Segmentation_ParamsSpec,
       mantis.mojom.MantisProcessor_Segmentation_ResponseParamsSpec,
-      [image, prior]);
+      [image, prior],
+      false);
   }
 
   classifyImageSafety(image) {
@@ -225,7 +228,8 @@ mantis.mojom.MantisProcessorRemoteCallHandler = class {
       3,  // ordinal
       mantis.mojom.MantisProcessor_ClassifyImageSafety_ParamsSpec,
       mantis.mojom.MantisProcessor_ClassifyImageSafety_ResponseParamsSpec,
-      [image]);
+      [image],
+      false);
   }
 
   outpainting(image, mask, seed) {
@@ -234,7 +238,8 @@ mantis.mojom.MantisProcessorRemoteCallHandler = class {
       4,  // ordinal
       mantis.mojom.MantisProcessor_Outpainting_ParamsSpec,
       mantis.mojom.MantisProcessor_Outpainting_ResponseParamsSpec,
-      [image, mask, seed]);
+      [image, mask, seed],
+      false);
   }
 
   inferSegmentationMode(gesture) {
@@ -243,7 +248,8 @@ mantis.mojom.MantisProcessorRemoteCallHandler = class {
       5,  // ordinal
       mantis.mojom.MantisProcessor_InferSegmentationMode_ParamsSpec,
       mantis.mojom.MantisProcessor_InferSegmentationMode_ResponseParamsSpec,
-      [gesture]);
+      [gesture],
+      false);
   }
 
 };

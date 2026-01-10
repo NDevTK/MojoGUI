@@ -114,7 +114,8 @@ arc.mojom.SharesheetInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.SharesheetInstance_Init_ParamsSpec,
       arc.mojom.SharesheetInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

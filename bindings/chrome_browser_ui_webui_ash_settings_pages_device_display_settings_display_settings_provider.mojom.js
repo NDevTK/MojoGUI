@@ -136,7 +136,8 @@ ash.settings.mojom.TabletModeObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec,
       null,
-      [is_tablet_mode]);
+      [is_tablet_mode],
+      false);
   }
 
 };
@@ -199,7 +200,8 @@ ash.settings.mojom.DisplayConfigurationObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -264,7 +266,8 @@ ash.settings.mojom.DisplayBrightnessSettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec,
       null,
-      [brightness_percent, triggered_by_als]);
+      [brightness_percent, triggered_by_als],
+      false);
   }
 
 };
@@ -328,7 +331,8 @@ ash.settings.mojom.AmbientLightSensorObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec,
       null,
-      [is_ambient_light_sensor_enabled]);
+      [is_ambient_light_sensor_enabled],
+      false);
   }
 
 };
@@ -469,7 +473,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec,
       ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeDisplayConfiguration(observer) {
@@ -478,7 +483,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeDisplayBrightnessSettings(observer) {
@@ -487,7 +493,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec,
       ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeAmbientLightSensor(observer) {
@@ -496,7 +503,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec,
       ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
   recordChangingDisplaySettings(type, value) {
@@ -505,7 +513,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec,
       null,
-      [type, value]);
+      [type, value],
+      false);
   }
 
   setShinyPerformance(enabled) {
@@ -514,7 +523,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setInternalDisplayScreenBrightness(percent) {
@@ -523,7 +533,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec,
       null,
-      [percent]);
+      [percent],
+      false);
   }
 
   setInternalDisplayAmbientLightSensorEnabled(enabled) {
@@ -532,7 +543,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   startNativeTouchscreenMappingExperience() {
@@ -541,7 +553,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       8,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   hasAmbientLightSensor() {
@@ -550,7 +563,8 @@ ash.settings.mojom.DisplaySettingsProviderRemoteCallHandler = class {
       9,  // ordinal
       ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec,
       ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

@@ -113,7 +113,8 @@ blink.mojom.AnnotationAgentRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AnnotationAgent_ScrollIntoView_ParamsSpec,
       null,
-      [applies_focus]);
+      [applies_focus],
+      false);
   }
 
 };
@@ -178,7 +179,8 @@ blink.mojom.AnnotationAgentHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AnnotationAgentHost_DidFinishAttachment_ParamsSpec,
       null,
-      [document_relative_rect, attachment_result]);
+      [document_relative_rect, attachment_result],
+      false);
   }
 
 };
@@ -267,7 +269,8 @@ blink.mojom.AnnotationAgentContainerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AnnotationAgentContainer_CreateAgent_ParamsSpec,
       null,
-      [host_remote, agent_receiver, type, selector, search_range_start_node_id]);
+      [host_remote, agent_receiver, type, selector, search_range_start_node_id],
+      false);
   }
 
   createAgentFromSelection(type) {
@@ -276,7 +279,8 @@ blink.mojom.AnnotationAgentContainerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ParamsSpec,
       blink.mojom.AnnotationAgentContainer_CreateAgentFromSelection_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
   removeAgentsOfType(type) {
@@ -285,7 +289,8 @@ blink.mojom.AnnotationAgentContainerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AnnotationAgentContainer_RemoveAgentsOfType_ParamsSpec,
       null,
-      [type]);
+      [type],
+      false);
   }
 
 };

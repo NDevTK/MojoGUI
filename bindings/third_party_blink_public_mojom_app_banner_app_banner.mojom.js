@@ -80,7 +80,8 @@ blink.mojom.AppBannerControllerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AppBannerController_BannerPromptRequest_ParamsSpec,
       blink.mojom.AppBannerController_BannerPromptRequest_ResponseParamsSpec,
-      [service, event_receiver, platform]);
+      [service, event_receiver, platform],
+      false);
   }
 
 };
@@ -149,7 +150,8 @@ blink.mojom.AppBannerEventRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AppBannerEvent_BannerAccepted_ParamsSpec,
       null,
-      [platform]);
+      [platform],
+      false);
   }
 
   bannerDismissed() {
@@ -158,7 +160,8 @@ blink.mojom.AppBannerEventRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AppBannerEvent_BannerDismissed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -221,7 +224,8 @@ blink.mojom.AppBannerServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AppBannerService_DisplayAppBanner_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

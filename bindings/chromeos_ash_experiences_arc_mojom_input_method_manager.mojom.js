@@ -164,7 +164,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.InputConnection_CommitText_ParamsSpec,
       null,
-      [text, new_cursor_pos]);
+      [text, new_cursor_pos],
+      false);
   }
 
   deleteSurroundingText(before, after) {
@@ -173,7 +174,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.InputConnection_DeleteSurroundingText_ParamsSpec,
       null,
-      [before, after]);
+      [before, after],
+      false);
   }
 
   finishComposingText() {
@@ -182,7 +184,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.InputConnection_FinishComposingText_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   requestTextInputState() {
@@ -191,7 +194,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.InputConnection_RequestTextInputState_ParamsSpec,
       arc.mojom.InputConnection_RequestTextInputState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setComposingText(text, new_cursor_pos, new_selection_range) {
@@ -200,7 +204,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.InputConnection_SetComposingText_ParamsSpec,
       null,
-      [text, new_cursor_pos, new_selection_range]);
+      [text, new_cursor_pos, new_selection_range],
+      false);
   }
 
   setSelection(new_selection_range) {
@@ -209,7 +214,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.InputConnection_SetSelection_ParamsSpec,
       null,
-      [new_selection_range]);
+      [new_selection_range],
+      false);
   }
 
   sendKeyEvent(key_event_data) {
@@ -218,7 +224,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.InputConnection_SendKeyEvent_ParamsSpec,
       null,
-      [key_event_data]);
+      [key_event_data],
+      false);
   }
 
   setCompositionRange(new_range) {
@@ -227,7 +234,8 @@ arc.mojom.InputConnectionRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.InputConnection_SetCompositionRange_ParamsSpec,
       null,
-      [new_range]);
+      [new_range],
+      false);
   }
 
 };
@@ -303,7 +311,8 @@ arc.mojom.InputMethodManagerHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.InputMethodManagerHost_OnActiveImeChanged_ParamsSpec,
       null,
-      [ime_id]);
+      [ime_id],
+      false);
   }
 
   onImeDisabled(ime_id) {
@@ -312,7 +321,8 @@ arc.mojom.InputMethodManagerHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.InputMethodManagerHost_OnImeDisabled_ParamsSpec,
       null,
-      [ime_id]);
+      [ime_id],
+      false);
   }
 
   onImeInfoChanged(ime_infos) {
@@ -321,7 +331,8 @@ arc.mojom.InputMethodManagerHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.InputMethodManagerHost_OnImeInfoChanged_ParamsSpec,
       null,
-      [ime_infos]);
+      [ime_infos],
+      false);
   }
 
 };
@@ -438,7 +449,8 @@ arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.InputMethodManagerInstance_Init_ParamsSpec,
       arc.mojom.InputMethodManagerInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   enableIme(ime_id, enable) {
@@ -447,7 +459,8 @@ arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.InputMethodManagerInstance_EnableIme_ParamsSpec,
       arc.mojom.InputMethodManagerInstance_EnableIme_ResponseParamsSpec,
-      [ime_id, enable]);
+      [ime_id, enable],
+      false);
   }
 
   switchImeTo(ime_id) {
@@ -456,7 +469,8 @@ arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.InputMethodManagerInstance_SwitchImeTo_ParamsSpec,
       arc.mojom.InputMethodManagerInstance_SwitchImeTo_ResponseParamsSpec,
-      [ime_id]);
+      [ime_id],
+      false);
   }
 
   focus(connection, initial_state) {
@@ -465,7 +479,8 @@ arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.InputMethodManagerInstance_Focus_ParamsSpec,
       null,
-      [connection, initial_state]);
+      [connection, initial_state],
+      false);
   }
 
   updateTextInputState(state) {
@@ -474,7 +489,8 @@ arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.InputMethodManagerInstance_UpdateTextInputState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   showVirtualKeyboard() {
@@ -483,7 +499,8 @@ arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.InputMethodManagerInstance_ShowVirtualKeyboard_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   hideVirtualKeyboard() {
@@ -492,7 +509,8 @@ arc.mojom.InputMethodManagerInstanceRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.InputMethodManagerInstance_HideVirtualKeyboard_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

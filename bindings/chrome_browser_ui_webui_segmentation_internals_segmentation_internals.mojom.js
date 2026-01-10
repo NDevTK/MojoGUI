@@ -100,7 +100,8 @@ segmentation_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -183,7 +184,8 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   executeModel(segment_id) {
@@ -192,7 +194,8 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec,
       null,
-      [segment_id]);
+      [segment_id],
+      false);
   }
 
   overwriteResult(segment_id, result) {
@@ -201,7 +204,8 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec,
       null,
-      [segment_id, result]);
+      [segment_id, result],
+      false);
   }
 
   setSelected(segmentation_key, optimization_target) {
@@ -210,7 +214,8 @@ segmentation_internals.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec,
       null,
-      [segmentation_key, optimization_target]);
+      [segmentation_key, optimization_target],
+      false);
   }
 
 };
@@ -281,7 +286,8 @@ segmentation_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec,
       null,
-      [is_initialized, status_flag]);
+      [is_initialized, status_flag],
+      false);
   }
 
   onClientInfoAvailable(client_info) {
@@ -290,7 +296,8 @@ segmentation_internals.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec,
       null,
-      [client_info]);
+      [client_info],
+      false);
   }
 
 };

@@ -412,7 +412,8 @@ device.mojom.HidManagerClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.HidManagerClient_DeviceAdded_ParamsSpec,
       null,
-      [device_info]);
+      [device_info],
+      false);
   }
 
   deviceRemoved(device_info) {
@@ -421,7 +422,8 @@ device.mojom.HidManagerClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec,
       null,
-      [device_info]);
+      [device_info],
+      false);
   }
 
   deviceChanged(device_info) {
@@ -430,7 +432,8 @@ device.mojom.HidManagerClientRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.HidManagerClient_DeviceChanged_ParamsSpec,
       null,
-      [device_info]);
+      [device_info],
+      false);
   }
 
 };
@@ -533,7 +536,8 @@ device.mojom.HidManagerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec,
       device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec,
-      [client]);
+      [client],
+      false);
   }
 
   getDevices() {
@@ -542,7 +546,8 @@ device.mojom.HidManagerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.HidManager_GetDevices_ParamsSpec,
       device.mojom.HidManager_GetDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   connect(device_guid, connection_client, watcher, allow_protected_reports, allow_fido_reports) {
@@ -551,7 +556,8 @@ device.mojom.HidManagerRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.HidManager_Connect_ParamsSpec,
       device.mojom.HidManager_Connect_ResponseParamsSpec,
-      [device_guid, connection_client, watcher, allow_protected_reports, allow_fido_reports]);
+      [device_guid, connection_client, watcher, allow_protected_reports, allow_fido_reports],
+      false);
   }
 
   addReceiver(receiver) {
@@ -560,7 +566,8 @@ device.mojom.HidManagerRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.HidManager_AddReceiver_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };
@@ -670,7 +677,8 @@ device.mojom.HidConnectionRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.HidConnection_Read_ParamsSpec,
       device.mojom.HidConnection_Read_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   write(report_id, buffer) {
@@ -679,7 +687,8 @@ device.mojom.HidConnectionRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.HidConnection_Write_ParamsSpec,
       device.mojom.HidConnection_Write_ResponseParamsSpec,
-      [report_id, buffer]);
+      [report_id, buffer],
+      false);
   }
 
   getFeatureReport(report_id) {
@@ -688,7 +697,8 @@ device.mojom.HidConnectionRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.HidConnection_GetFeatureReport_ParamsSpec,
       device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec,
-      [report_id]);
+      [report_id],
+      false);
   }
 
   sendFeatureReport(report_id, buffer) {
@@ -697,7 +707,8 @@ device.mojom.HidConnectionRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.HidConnection_SendFeatureReport_ParamsSpec,
       device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec,
-      [report_id, buffer]);
+      [report_id, buffer],
+      false);
   }
 
 };
@@ -762,7 +773,8 @@ device.mojom.HidConnectionClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.HidConnectionClient_OnInputReport_ParamsSpec,
       null,
-      [report_id, buffer]);
+      [report_id, buffer],
+      false);
   }
 
 };

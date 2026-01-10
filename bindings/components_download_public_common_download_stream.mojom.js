@@ -81,7 +81,8 @@ download.mojom.DownloadStreamClientRemoteCallHandler = class {
       0,  // ordinal
       download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
 };

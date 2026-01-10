@@ -86,7 +86,8 @@ blink.mojom.LockScreenServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.LockScreenService_GetKeys_ParamsSpec,
       blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setData(key, data) {
@@ -95,7 +96,8 @@ blink.mojom.LockScreenServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.LockScreenService_SetData_ParamsSpec,
       blink.mojom.LockScreenService_SetData_ResponseParamsSpec,
-      [key, data]);
+      [key, data],
+      false);
   }
 
 };

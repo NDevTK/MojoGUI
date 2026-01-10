@@ -93,7 +93,8 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryRemot
       0,  // ordinal
       contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -163,7 +164,8 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemoteCallHa
       0,  // ordinal
       contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec,
       contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
 };
@@ -230,7 +232,8 @@ contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemoteCallHandler =
       0,  // ordinal
       contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec,
       null,
-      [event_time, source_file, source_line, message]);
+      [event_time, source_file, source_line, message],
+      false);
   }
 
 };

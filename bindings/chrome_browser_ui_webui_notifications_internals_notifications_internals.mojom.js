@@ -57,7 +57,8 @@ notifications_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec,
       null,
-      [feature]);
+      [feature],
+      false);
   }
 
 };

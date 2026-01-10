@@ -87,7 +87,8 @@ media.mojom.FuchsiaMediaCdmProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec,
       null,
-      [key_system, cdm_request]);
+      [key_system, cdm_request],
+      false);
   }
 
 };
@@ -164,7 +165,8 @@ media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec,
       null,
-      [codec, secure_mode, stream_processor_request]);
+      [codec, secure_mode, stream_processor_request],
+      false);
   }
 
   getSupportedVideoDecoderConfigs() {
@@ -173,7 +175,8 @@ media.mojom.FuchsiaMediaCodecProviderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec,
       media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

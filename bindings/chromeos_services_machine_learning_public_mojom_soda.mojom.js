@@ -121,7 +121,7 @@ mojo.internal.Union(
 // Struct: SodaMultilangConfig
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.SodaMultilangConfigSpec, 'chromeos.machine_learning.mojom.SodaMultilangConfig', [
-      mojo.internal.StructField('rewind_when_switching_language', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('rewind_when_switching_language', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('locale_to_language_pack_map', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -134,14 +134,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('api_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('library_dlc_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('language_dlc_path', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('enable_formatting', 32, 0, chromeos.machine_learning.mojom.OptionalBoolSpec, null, false, 2, undefined),
-      mojo.internal.StructField('recognition_mode', 36, 0, chromeos.machine_learning.mojom.SodaRecognitionModeSpec, null, false, 3, undefined),
+      mojo.internal.StructField('enable_formatting', 32, 0, chromeos.machine_learning.mojom.OptionalBoolSpec, 0, false, 2, undefined),
+      mojo.internal.StructField('recognition_mode', 36, 0, chromeos.machine_learning.mojom.SodaRecognitionModeSpec, 0, false, 3, undefined),
       mojo.internal.StructField('mask_offensive_words', 40, 0, mojo.internal.Bool, false, false, 4, undefined),
       mojo.internal.StructField('speaker_change_detection', 40, 1, mojo.internal.Bool, false, false, 5, undefined),
       mojo.internal.StructField('include_logging_output', 40, 2, mojo.internal.Bool, false, false, 6, undefined),
       mojo.internal.StructField('multi_lang_config', 48, 0, chromeos.machine_learning.mojom.SodaMultilangConfigSpec, null, true, 7, undefined),
-      mojo.internal.StructField('kSpeakerDiarizationModeOffDefault', 56, 0, chromeos.machine_learning.mojom.SpeakerDiarizationMode speaker_diarization_mode =Spec, null, false, 9, undefined),
-      mojo.internal.StructField('max_speaker_count', 64, 0, mojo.internal.Uint32, 0, false, 9, undefined),
+      mojo.internal.StructField('kSpeakerDiarizationModeOffDefault', 56, 0, chromeos.machine_learning.mojom.SpeakerDiarizationMode speaker_diarization_mode =Spec, 0, false, 9, undefined),
+      mojo.internal.StructField('max_speaker_count', 64, 0, mojo.internal.Uint32, 2, false, 9, undefined),
     ],
     [[0, 40], [2, 48], [3, 48], [4, 56], [5, 56], [6, 56], [7, 64], [9, 80]]);
 
@@ -276,7 +276,8 @@ chromeos.machine_learning.mojom.SodaClientRemoteCallHandler = class {
       0,  // ordinal
       chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onStop() {
@@ -285,7 +286,8 @@ chromeos.machine_learning.mojom.SodaClientRemoteCallHandler = class {
       1,  // ordinal
       chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSpeechRecognizerEvent(event) {
@@ -294,7 +296,8 @@ chromeos.machine_learning.mojom.SodaClientRemoteCallHandler = class {
       2,  // ordinal
       chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
 };
@@ -373,7 +376,8 @@ chromeos.machine_learning.mojom.SodaRecognizerRemoteCallHandler = class {
       0,  // ordinal
       chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec,
       null,
-      [audio]);
+      [audio],
+      false);
   }
 
   stop() {
@@ -382,7 +386,8 @@ chromeos.machine_learning.mojom.SodaRecognizerRemoteCallHandler = class {
       1,  // ordinal
       chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   start() {
@@ -391,7 +396,8 @@ chromeos.machine_learning.mojom.SodaRecognizerRemoteCallHandler = class {
       2,  // ordinal
       chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   markDone() {
@@ -400,7 +406,8 @@ chromeos.machine_learning.mojom.SodaRecognizerRemoteCallHandler = class {
       3,  // ordinal
       chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

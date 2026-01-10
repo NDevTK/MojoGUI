@@ -126,7 +126,8 @@ blink.mojom.DevToolsAgentRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DevToolsAgent_AttachDevToolsSession_ParamsSpec,
       null,
-      [host, session, io_session, reattach_session_state, script_to_evaluate_on_load, client_expects_binary_responses, client_is_trusted, session_id, session_waits_for_debugger]);
+      [host, session, io_session, reattach_session_state, script_to_evaluate_on_load, client_expects_binary_responses, client_is_trusted, session_id, session_waits_for_debugger],
+      false);
   }
 
   inspectElement(point) {
@@ -135,7 +136,8 @@ blink.mojom.DevToolsAgentRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DevToolsAgent_InspectElement_ParamsSpec,
       null,
-      [point]);
+      [point],
+      false);
   }
 
   reportChildTargets(report, wait_for_debugger) {
@@ -144,7 +146,8 @@ blink.mojom.DevToolsAgentRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.DevToolsAgent_ReportChildTargets_ParamsSpec,
       blink.mojom.DevToolsAgent_ReportChildTargets_ResponseParamsSpec,
-      [report, wait_for_debugger]);
+      [report, wait_for_debugger],
+      false);
   }
 
 };
@@ -229,7 +232,8 @@ blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DevToolsAgentHost_ChildTargetCreated_ParamsSpec,
       null,
-      [worker_devtools_agent, worker_devtools_agent_host, url, name, devtools_worker_token, waiting_for_debugger, context_type]);
+      [worker_devtools_agent, worker_devtools_agent_host, url, name, devtools_worker_token, waiting_for_debugger, context_type],
+      false);
   }
 
   mainThreadDebuggerPaused() {
@@ -238,7 +242,8 @@ blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DevToolsAgentHost_MainThreadDebuggerPaused_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   mainThreadDebuggerResumed() {
@@ -247,7 +252,8 @@ blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.DevToolsAgentHost_MainThreadDebuggerResumed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   bringToForeground() {
@@ -256,7 +262,8 @@ blink.mojom.DevToolsAgentHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.DevToolsAgentHost_BringToForeground_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -327,7 +334,8 @@ blink.mojom.DevToolsSessionRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DevToolsSession_DispatchProtocolCommand_ParamsSpec,
       null,
-      [call_id, method, message]);
+      [call_id, method, message],
+      false);
   }
 
   unpauseAndTerminate() {
@@ -336,7 +344,8 @@ blink.mojom.DevToolsSessionRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DevToolsSession_UnpauseAndTerminate_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -409,7 +418,8 @@ blink.mojom.DevToolsSessionHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DevToolsSessionHost_DispatchProtocolResponse_ParamsSpec,
       null,
-      [message, call_id, updates]);
+      [message, call_id, updates],
+      false);
   }
 
   dispatchProtocolNotification(message, updates) {
@@ -418,7 +428,8 @@ blink.mojom.DevToolsSessionHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DevToolsSessionHost_DispatchProtocolNotification_ParamsSpec,
       null,
-      [message, updates]);
+      [message, updates],
+      false);
   }
 
 };

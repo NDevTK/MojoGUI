@@ -80,7 +80,8 @@ media_session.mojom.MediaSessionServiceRemoteCallHandler = class {
       0,  // ordinal
       media_session.mojom.MediaSessionService_BindAudioFocusManager_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindAudioFocusManagerDebug(receiver) {
@@ -89,7 +90,8 @@ media_session.mojom.MediaSessionServiceRemoteCallHandler = class {
       1,  // ordinal
       media_session.mojom.MediaSessionService_BindAudioFocusManagerDebug_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindMediaControllerManager(receiver) {
@@ -98,7 +100,8 @@ media_session.mojom.MediaSessionServiceRemoteCallHandler = class {
       2,  // ordinal
       media_session.mojom.MediaSessionService_BindMediaControllerManager_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bind(receiver) {
@@ -107,7 +110,8 @@ media_session.mojom.MediaSessionServiceRemoteCallHandler = class {
       3,  // ordinal
       media_session.mojom.MediaSessionService_Bind_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

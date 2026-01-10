@@ -32,7 +32,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('integrity_policy_report_only', 24, 0, network.mojom.IntegrityPolicySpec, null, false, 0, undefined),
       mojo.internal.StructField('content_security_policies', 32, 0, mojo.internal.Array(network.mojom.ContentSecurityPolicySpec, false), null, false, 0, undefined),
       mojo.internal.StructField('is_credentialless', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('can_navigate_top_without_user_gesture', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('can_navigate_top_without_user_gesture', 40, 1, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('cross_origin_isolation_enabled_by_dip', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -103,7 +103,8 @@ blink.mojom.PolicyContainerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec,
       null,
-      [referrer_policy]);
+      [referrer_policy],
+      false);
   }
 
   addContentSecurityPolicies(content_security_policies) {
@@ -112,7 +113,8 @@ blink.mojom.PolicyContainerHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec,
       null,
-      [content_security_policies]);
+      [content_security_policies],
+      false);
   }
 
 };

@@ -237,7 +237,8 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.ProcessInstance_KillProcess_ParamsSpec,
       null,
-      [pid, reason]);
+      [pid, reason],
+      false);
   }
 
   requestProcessList() {
@@ -246,7 +247,8 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.ProcessInstance_RequestProcessList_ParamsSpec,
       arc.mojom.ProcessInstance_RequestProcessList_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestApplicationProcessMemoryInfo() {
@@ -255,7 +257,8 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ParamsSpec,
       arc.mojom.ProcessInstance_RequestApplicationProcessMemoryInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestSystemProcessMemoryInfo(nspids) {
@@ -264,7 +267,8 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ParamsSpec,
       arc.mojom.ProcessInstance_RequestSystemProcessMemoryInfo_ResponseParamsSpec,
-      [nspids]);
+      [nspids],
+      false);
   }
 
   applyHostMemoryPressureDeprecated(level, reclaim_target) {
@@ -273,7 +277,8 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ParamsSpec,
       arc.mojom.ProcessInstance_ApplyHostMemoryPressureDeprecated_ResponseParamsSpec,
-      [level, reclaim_target]);
+      [level, reclaim_target],
+      false);
   }
 
   applyHostMemoryPressure(level, reclaim_target) {
@@ -282,7 +287,8 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ParamsSpec,
       arc.mojom.ProcessInstance_ApplyHostMemoryPressure_ResponseParamsSpec,
-      [level, reclaim_target]);
+      [level, reclaim_target],
+      false);
   }
 
   requestLowMemoryKillCounts() {
@@ -291,7 +297,8 @@ arc.mojom.ProcessInstanceRemoteCallHandler = class {
       12,  // ordinal
       arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ParamsSpec,
       arc.mojom.ProcessInstance_RequestLowMemoryKillCounts_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

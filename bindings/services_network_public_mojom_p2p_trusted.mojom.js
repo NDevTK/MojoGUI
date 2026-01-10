@@ -72,7 +72,8 @@ network.mojom.P2PTrustedSocketManagerClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   dumpPacket(packet_header, packet_length, incoming) {
@@ -81,7 +82,8 @@ network.mojom.P2PTrustedSocketManagerClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec,
       null,
-      [packet_header, packet_length, incoming]);
+      [packet_header, packet_length, incoming],
+      false);
   }
 
 };
@@ -163,7 +165,8 @@ network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec,
       null,
-      [incoming, outgoing]);
+      [incoming, outgoing],
+      false);
   }
 
   stopRtpDump(incoming, outgoing) {
@@ -172,7 +175,8 @@ network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec,
       null,
-      [incoming, outgoing]);
+      [incoming, outgoing],
+      false);
   }
 
   pauseNetworkChangeNotifications() {
@@ -181,7 +185,8 @@ network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   resumeNetworkChangeNotifications() {
@@ -190,7 +195,8 @@ network.mojom.P2PTrustedSocketManagerRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

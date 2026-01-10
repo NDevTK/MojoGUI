@@ -350,7 +350,8 @@ media.mojom.VideoEncodeAcceleratorProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoEncodeAcceleratorProvider_CreateVideoEncodeAccelerator_ParamsSpec,
       null,
-      [command_buffer_id, receiver]);
+      [command_buffer_id, receiver],
+      false);
   }
 
   getVideoEncodeAcceleratorSupportedProfiles() {
@@ -359,7 +360,8 @@ media.mojom.VideoEncodeAcceleratorProviderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ParamsSpec,
       media.mojom.VideoEncodeAcceleratorProvider_GetVideoEncodeAcceleratorSupportedProfiles_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -423,7 +425,8 @@ media.mojom.VideoEncodeAcceleratorProviderFactoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoEncodeAcceleratorProviderFactory_CreateVideoEncodeAcceleratorProvider_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };
@@ -552,7 +555,8 @@ media.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec,
       media.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec,
-      [config, client, media_log]);
+      [config, client, media_log],
+      false);
   }
 
   encode(frame, options) {
@@ -561,7 +565,8 @@ media.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.VideoEncodeAccelerator_Encode_ParamsSpec,
       media.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec,
-      [frame, options]);
+      [frame, options],
+      false);
   }
 
   useOutputBitstreamBuffer(bitstream_buffer_id, region) {
@@ -570,7 +575,8 @@ media.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.VideoEncodeAccelerator_UseOutputBitstreamBuffer_ParamsSpec,
       null,
-      [bitstream_buffer_id, region]);
+      [bitstream_buffer_id, region],
+      false);
   }
 
   requestEncodingParametersChangeWithLayers(bitrate_allocation, framerate, size) {
@@ -579,7 +585,8 @@ media.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithLayers_ParamsSpec,
       null,
-      [bitrate_allocation, framerate, size]);
+      [bitrate_allocation, framerate, size],
+      false);
   }
 
   requestEncodingParametersChangeWithBitrate(bitrate, framerate, size) {
@@ -588,7 +595,8 @@ media.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeWithBitrate_ParamsSpec,
       null,
-      [bitrate, framerate, size]);
+      [bitrate, framerate, size],
+      false);
   }
 
   isFlushSupported() {
@@ -597,7 +605,8 @@ media.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.VideoEncodeAccelerator_IsFlushSupported_ParamsSpec,
       media.mojom.VideoEncodeAccelerator_IsFlushSupported_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   flush() {
@@ -606,7 +615,8 @@ media.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.VideoEncodeAccelerator_Flush_ParamsSpec,
       media.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -691,7 +701,8 @@ media.mojom.VideoEncodeAcceleratorClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoEncodeAcceleratorClient_RequireBitstreamBuffers_ParamsSpec,
       null,
-      [input_count, input_coded_size, output_buffer_size]);
+      [input_count, input_coded_size, output_buffer_size],
+      false);
   }
 
   bitstreamBufferReady(bitstream_buffer_id, metadata) {
@@ -700,7 +711,8 @@ media.mojom.VideoEncodeAcceleratorClientRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.VideoEncodeAcceleratorClient_BitstreamBufferReady_ParamsSpec,
       null,
-      [bitstream_buffer_id, metadata]);
+      [bitstream_buffer_id, metadata],
+      false);
   }
 
   notifyErrorStatus(status) {
@@ -709,7 +721,8 @@ media.mojom.VideoEncodeAcceleratorClientRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.VideoEncodeAcceleratorClient_NotifyErrorStatus_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   notifyEncoderInfoChange(info) {
@@ -718,7 +731,8 @@ media.mojom.VideoEncodeAcceleratorClientRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.VideoEncodeAcceleratorClient_NotifyEncoderInfoChange_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
 };

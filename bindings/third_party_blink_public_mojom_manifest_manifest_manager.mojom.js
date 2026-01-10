@@ -113,7 +113,8 @@ blink.mojom.ManifestManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ManifestManager_RequestManifest_ParamsSpec,
       blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestManifestAndErrors() {
@@ -122,7 +123,8 @@ blink.mojom.ManifestManagerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   requestManifestDebugInfo() {
@@ -131,7 +133,8 @@ blink.mojom.ManifestManagerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec,
       blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   parseManifestFromString(document_url, manifest_url, manifest_content) {
@@ -140,7 +143,8 @@ blink.mojom.ManifestManagerRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec,
       blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec,
-      [document_url, manifest_url, manifest_content]);
+      [document_url, manifest_url, manifest_content],
+      false);
   }
 
 };

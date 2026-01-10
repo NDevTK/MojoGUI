@@ -414,7 +414,8 @@ arc.mojom.AuthHostRemoteCallHandler = class {
       19,  // ordinal
       arc.mojom.AuthHost_OnAuthorizationResult_ParamsSpec,
       null,
-      [result, account]);
+      [result, account],
+      false);
   }
 
   reportMetrics(metrics_type, value) {
@@ -423,7 +424,8 @@ arc.mojom.AuthHostRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.AuthHost_ReportMetrics_ParamsSpec,
       null,
-      [metrics_type, value]);
+      [metrics_type, value],
+      false);
   }
 
   reportAccountCheckStatus(status) {
@@ -432,7 +434,8 @@ arc.mojom.AuthHostRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.AuthHost_ReportAccountCheckStatus_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   reportManagementChangeStatus(status) {
@@ -441,7 +444,8 @@ arc.mojom.AuthHostRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.AuthHost_ReportManagementChangeStatus_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   requestPrimaryAccount() {
@@ -450,7 +454,8 @@ arc.mojom.AuthHostRemoteCallHandler = class {
       18,  // ordinal
       arc.mojom.AuthHost_RequestPrimaryAccount_ParamsSpec,
       arc.mojom.AuthHost_RequestPrimaryAccount_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestPrimaryAccountInfo() {
@@ -459,7 +464,8 @@ arc.mojom.AuthHostRemoteCallHandler = class {
       12,  // ordinal
       arc.mojom.AuthHost_RequestPrimaryAccountInfo_ParamsSpec,
       arc.mojom.AuthHost_RequestPrimaryAccountInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestAccountInfo(account_name) {
@@ -468,7 +474,8 @@ arc.mojom.AuthHostRemoteCallHandler = class {
       13,  // ordinal
       arc.mojom.AuthHost_RequestAccountInfo_ParamsSpec,
       arc.mojom.AuthHost_RequestAccountInfo_ResponseParamsSpec,
-      [account_name]);
+      [account_name],
+      false);
   }
 
   isAccountManagerAvailable() {
@@ -477,7 +484,8 @@ arc.mojom.AuthHostRemoteCallHandler = class {
       14,  // ordinal
       arc.mojom.AuthHost_IsAccountManagerAvailable_ParamsSpec,
       arc.mojom.AuthHost_IsAccountManagerAvailable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   handleAddAccountRequest() {
@@ -486,7 +494,8 @@ arc.mojom.AuthHostRemoteCallHandler = class {
       15,  // ordinal
       arc.mojom.AuthHost_HandleAddAccountRequest_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   handleRemoveAccountRequest(account_name) {
@@ -495,7 +504,8 @@ arc.mojom.AuthHostRemoteCallHandler = class {
       16,  // ordinal
       arc.mojom.AuthHost_HandleRemoveAccountRequest_ParamsSpec,
       null,
-      [account_name]);
+      [account_name],
+      false);
   }
 
   handleUpdateCredentialsRequest(account_name) {
@@ -504,7 +514,8 @@ arc.mojom.AuthHostRemoteCallHandler = class {
       17,  // ordinal
       arc.mojom.AuthHost_HandleUpdateCredentialsRequest_ParamsSpec,
       null,
-      [account_name]);
+      [account_name],
+      false);
   }
 
   reportAccountReauthReason(reason) {
@@ -513,7 +524,8 @@ arc.mojom.AuthHostRemoteCallHandler = class {
       20,  // ordinal
       arc.mojom.AuthHost_ReportAccountReauthReason_ParamsSpec,
       null,
-      [reason]);
+      [reason],
+      false);
   }
 
 };
@@ -617,7 +629,8 @@ arc.mojom.AuthInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.AuthInstance_Init_ParamsSpec,
       arc.mojom.AuthInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   onAccountUpdated(account_name, update_type) {
@@ -626,7 +639,8 @@ arc.mojom.AuthInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.AuthInstance_OnAccountUpdated_ParamsSpec,
       null,
-      [account_name, update_type]);
+      [account_name, update_type],
+      false);
   }
 
   getGoogleAccounts() {
@@ -635,7 +649,8 @@ arc.mojom.AuthInstanceRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.AuthInstance_GetGoogleAccounts_ParamsSpec,
       arc.mojom.AuthInstance_GetGoogleAccounts_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getMainAccountResolutionStatus() {
@@ -644,7 +659,8 @@ arc.mojom.AuthInstanceRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ParamsSpec,
       arc.mojom.AuthInstance_GetMainAccountResolutionStatus_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setAccounts(accounts) {
@@ -653,7 +669,8 @@ arc.mojom.AuthInstanceRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.AuthInstance_SetAccounts_ParamsSpec,
       null,
-      [accounts]);
+      [accounts],
+      false);
   }
 
 };

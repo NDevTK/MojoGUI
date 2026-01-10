@@ -136,7 +136,8 @@ network.mojom.ClientCertificateResponderRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec,
       null,
-      [x509_certificate, provider_name, algorithm_preferences, ssl_private_key]);
+      [x509_certificate, provider_name, algorithm_preferences, ssl_private_key],
+      false);
   }
 
   continueWithoutCertificate() {
@@ -145,7 +146,8 @@ network.mojom.ClientCertificateResponderRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   cancelRequest() {
@@ -154,7 +156,8 @@ network.mojom.ClientCertificateResponderRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -226,7 +229,8 @@ network.mojom.SSLPrivateKeyRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.SSLPrivateKey_Sign_ParamsSpec,
       network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec,
-      [algorithm, input]);
+      [algorithm, input],
+      false);
   }
 
 };
@@ -290,7 +294,8 @@ network.mojom.AuthChallengeResponderRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec,
       null,
-      [credentials]);
+      [credentials],
+      false);
   }
 
 };
@@ -472,7 +477,8 @@ network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec,
       network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec,
-      [url, net_error, ssl_info, fatal]);
+      [url, net_error, ssl_info, fatal],
+      false);
   }
 
   onCertificateRequested(window_id, cert_info, cert_responder) {
@@ -481,7 +487,8 @@ network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec,
       null,
-      [window_id, cert_info, cert_responder]);
+      [window_id, cert_info, cert_responder],
+      false);
   }
 
   onAuthRequired(window_id, request_id, url, first_auth_attempt, auth_info, head_headers, auth_challenge_responder) {
@@ -490,7 +497,8 @@ network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec,
       null,
-      [window_id, request_id, url, first_auth_attempt, auth_info, head_headers, auth_challenge_responder]);
+      [window_id, request_id, url, first_auth_attempt, auth_info, head_headers, auth_challenge_responder],
+      false);
   }
 
   onLocalNetworkAccessPermissionRequired(transport_type, ip_address_space) {
@@ -499,7 +507,8 @@ network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec,
       network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec,
-      [transport_type, ip_address_space]);
+      [transport_type, ip_address_space],
+      false);
   }
 
   onClearSiteData(url, header_value, load_flags, cookie_partition_key, partitioned_state_allowed_only) {
@@ -508,7 +517,8 @@ network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec,
       network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec,
-      [url, header_value, load_flags, cookie_partition_key, partitioned_state_allowed_only]);
+      [url, header_value, load_flags, cookie_partition_key, partitioned_state_allowed_only],
+      false);
   }
 
   onLoadingStateUpdate(info) {
@@ -517,7 +527,8 @@ network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec,
       network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec,
-      [info]);
+      [info],
+      false);
   }
 
   onDataUseUpdate(network_traffic_annotation_id_hash, recv_bytes, sent_bytes) {
@@ -526,7 +537,8 @@ network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
       6,  // ordinal
       network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec,
       null,
-      [network_traffic_annotation_id_hash, recv_bytes, sent_bytes]);
+      [network_traffic_annotation_id_hash, recv_bytes, sent_bytes],
+      false);
   }
 
   onSharedStorageHeaderReceived(request_origin, methods_with_options, with_lock) {
@@ -535,7 +547,8 @@ network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
       7,  // ordinal
       network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec,
       network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec,
-      [request_origin, methods_with_options, with_lock]);
+      [request_origin, methods_with_options, with_lock],
+      false);
   }
 
   onAdAuctionEventRecordHeaderReceived(ad_auction_event_record, top_frame_origin) {
@@ -544,7 +557,8 @@ network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
       8,  // ordinal
       network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec,
       null,
-      [ad_auction_event_record, top_frame_origin]);
+      [ad_auction_event_record, top_frame_origin],
+      false);
   }
 
   clone(listener) {
@@ -553,7 +567,8 @@ network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
       9,  // ordinal
       network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec,
       null,
-      [listener]);
+      [listener],
+      false);
   }
 
   onWebSocketConnectedToPrivateNetwork(request_url, ip_address_space) {
@@ -562,7 +577,8 @@ network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
       10,  // ordinal
       network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec,
       null,
-      [request_url, ip_address_space]);
+      [request_url, ip_address_space],
+      false);
   }
 
   onUrlLoaderConnectedToPrivateNetwork(request_url, response_address_space, client_address_space, target_address_space) {
@@ -571,7 +587,8 @@ network.mojom.URLLoaderNetworkServiceObserverRemoteCallHandler = class {
       11,  // ordinal
       network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec,
       null,
-      [request_url, response_address_space, client_address_space, target_address_space]);
+      [request_url, response_address_space, client_address_space, target_address_space],
+      false);
   }
 
 };

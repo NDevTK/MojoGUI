@@ -105,7 +105,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('uploaded', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('download_total', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('downloaded', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('result', 40, 0, blink.mojom.BackgroundFetchResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('result', 40, 0, blink.mojom.BackgroundFetchResultSpec, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
@@ -120,7 +120,7 @@ mojo.internal.Struct(
 // Struct: BackgroundFetchUkmData
 mojo.internal.Struct(
     blink.mojom.BackgroundFetchUkmDataSpec, 'blink.mojom.BackgroundFetchUkmData', [
-      mojo.internal.StructField('ideal_to_chosen_icon_size', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('ideal_to_chosen_icon_size', 0, 0, mojo.internal.Int64, -1, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -186,7 +186,8 @@ blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec,
       null,
-      [upload_total, uploaded, download_total, downloaded, result, failure_reason]);
+      [upload_total, uploaded, download_total, downloaded, result, failure_reason],
+      false);
   }
 
   onRecordsUnavailable() {
@@ -195,7 +196,8 @@ blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onRequestCompleted(request, response) {
@@ -204,7 +206,8 @@ blink.mojom.BackgroundFetchRegistrationObserverRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec,
       null,
-      [request, response]);
+      [request, response],
+      false);
   }
 
 };
@@ -318,7 +321,8 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BackgroundFetchService_Fetch_ParamsSpec,
       blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec,
-      [service_worker_registration_id, developer_id, requests, options, icon, ukm_data]);
+      [service_worker_registration_id, developer_id, requests, options, icon, ukm_data],
+      false);
   }
 
   getRegistration(service_worker_registration_id, developer_id) {
@@ -327,7 +331,8 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec,
       blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec,
-      [service_worker_registration_id, developer_id]);
+      [service_worker_registration_id, developer_id],
+      false);
   }
 
   getDeveloperIds(service_worker_registration_id) {
@@ -336,7 +341,8 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec,
       blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec,
-      [service_worker_registration_id]);
+      [service_worker_registration_id],
+      false);
   }
 
   getIconDisplaySize() {
@@ -345,7 +351,8 @@ blink.mojom.BackgroundFetchServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec,
       blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -447,7 +454,8 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec,
       blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec,
-      [title, icon]);
+      [title, icon],
+      false);
   }
 
   abort() {
@@ -456,7 +464,8 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec,
       blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   matchRequests(request_to_match, cache_query_options, match_all) {
@@ -465,7 +474,8 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec,
       blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec,
-      [request_to_match, cache_query_options, match_all]);
+      [request_to_match, cache_query_options, match_all],
+      false);
   }
 
   addRegistrationObserver(observer) {
@@ -474,7 +484,8 @@ blink.mojom.BackgroundFetchRegistrationServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

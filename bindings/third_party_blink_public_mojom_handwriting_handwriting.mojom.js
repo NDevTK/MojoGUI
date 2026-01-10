@@ -182,7 +182,8 @@ handwriting.mojom.HandwritingRecognizerRemoteCallHandler = class {
       0,  // ordinal
       handwriting.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec,
       handwriting.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec,
-      [strokes, hints]);
+      [strokes, hints],
+      false);
   }
 
 };
@@ -265,7 +266,8 @@ handwriting.mojom.HandwritingRecognitionServiceRemoteCallHandler = class {
       0,  // ordinal
       handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ParamsSpec,
       handwriting.mojom.HandwritingRecognitionService_CreateHandwritingRecognizer_ResponseParamsSpec,
-      [constraint]);
+      [constraint],
+      false);
   }
 
   queryHandwritingRecognizer(constraint) {
@@ -274,7 +276,8 @@ handwriting.mojom.HandwritingRecognitionServiceRemoteCallHandler = class {
       1,  // ordinal
       handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ParamsSpec,
       handwriting.mojom.HandwritingRecognitionService_QueryHandwritingRecognizer_ResponseParamsSpec,
-      [constraint]);
+      [constraint],
+      false);
   }
 
 };

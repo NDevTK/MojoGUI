@@ -96,7 +96,8 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
       0,  // ordinal
       media_router.mojom.MediaController_Play_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   pause() {
@@ -105,7 +106,8 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
       1,  // ordinal
       media_router.mojom.MediaController_Pause_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setMute(mute) {
@@ -114,7 +116,8 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
       2,  // ordinal
       media_router.mojom.MediaController_SetMute_ParamsSpec,
       null,
-      [mute]);
+      [mute],
+      false);
   }
 
   setVolume(volume) {
@@ -123,7 +126,8 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
       3,  // ordinal
       media_router.mojom.MediaController_SetVolume_ParamsSpec,
       null,
-      [volume]);
+      [volume],
+      false);
   }
 
   seek(time) {
@@ -132,7 +136,8 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
       4,  // ordinal
       media_router.mojom.MediaController_Seek_ParamsSpec,
       null,
-      [time]);
+      [time],
+      false);
   }
 
   nextTrack() {
@@ -141,7 +146,8 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
       5,  // ordinal
       media_router.mojom.MediaController_NextTrack_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   previousTrack() {
@@ -150,7 +156,8 @@ media_router.mojom.MediaControllerRemoteCallHandler = class {
       6,  // ordinal
       media_router.mojom.MediaController_PreviousTrack_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

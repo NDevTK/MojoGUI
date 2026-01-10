@@ -63,7 +63,8 @@ network.mojom.DhcpWpadUrlClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec,
       network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

@@ -84,7 +84,8 @@ storage.mojom.IndexedDBClientStateCheckerRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec,
       storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec,
-      [connection_id, reason, keep_active]);
+      [connection_id, reason, keep_active],
+      false);
   }
 
   makeClone(receiver) {
@@ -93,7 +94,8 @@ storage.mojom.IndexedDBClientStateCheckerRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

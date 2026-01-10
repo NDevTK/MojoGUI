@@ -267,7 +267,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
       5,  // ordinal
       chromeos.machine_learning.mojom.MachineLearningService_Clone_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   loadBuiltinModel(spec, receiver) {
@@ -276,7 +277,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
       0,  // ordinal
       chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ParamsSpec,
       chromeos.machine_learning.mojom.MachineLearningService_LoadBuiltinModel_ResponseParamsSpec,
-      [spec, receiver]);
+      [spec, receiver],
+      false);
   }
 
   loadFlatBufferModel(spec, receiver) {
@@ -285,7 +287,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
       1,  // ordinal
       chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ParamsSpec,
       chromeos.machine_learning.mojom.MachineLearningService_LoadFlatBufferModel_ResponseParamsSpec,
-      [spec, receiver]);
+      [spec, receiver],
+      false);
   }
 
   loadTextClassifier(receiver) {
@@ -294,7 +297,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
       2,  // ordinal
       chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ParamsSpec,
       chromeos.machine_learning.mojom.MachineLearningService_LoadTextClassifier_ResponseParamsSpec,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   loadHandwritingModel(spec, receiver) {
@@ -303,7 +307,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
       3,  // ordinal
       chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ParamsSpec,
       chromeos.machine_learning.mojom.MachineLearningService_LoadHandwritingModel_ResponseParamsSpec,
-      [spec, receiver]);
+      [spec, receiver],
+      false);
   }
 
   loadSpeechRecognizer(config, soda_client, soda_recognizer) {
@@ -312,7 +317,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
       6,  // ordinal
       chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ParamsSpec,
       chromeos.machine_learning.mojom.MachineLearningService_LoadSpeechRecognizer_ResponseParamsSpec,
-      [config, soda_client, soda_recognizer]);
+      [config, soda_client, soda_recognizer],
+      false);
   }
 
   loadGrammarChecker(receiver) {
@@ -321,7 +327,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
       7,  // ordinal
       chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ParamsSpec,
       chromeos.machine_learning.mojom.MachineLearningService_LoadGrammarChecker_ResponseParamsSpec,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   loadTextSuggester(receiver, spec) {
@@ -330,7 +337,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
       8,  // ordinal
       chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ParamsSpec,
       chromeos.machine_learning.mojom.MachineLearningService_LoadTextSuggester_ResponseParamsSpec,
-      [receiver, spec]);
+      [receiver, spec],
+      false);
   }
 
   loadWebPlatformHandwritingModel(constraint, receiver) {
@@ -339,7 +347,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
       9,  // ordinal
       chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ParamsSpec,
       chromeos.machine_learning.mojom.MachineLearningService_LoadWebPlatformHandwritingModel_ResponseParamsSpec,
-      [constraint, receiver]);
+      [constraint, receiver],
+      false);
   }
 
   loadDocumentScanner(receiver, config) {
@@ -348,7 +357,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
       10,  // ordinal
       chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ParamsSpec,
       chromeos.machine_learning.mojom.MachineLearningService_LoadDocumentScanner_ResponseParamsSpec,
-      [receiver, config]);
+      [receiver, config],
+      false);
   }
 
   loadImageAnnotator(config, receiver) {
@@ -357,7 +367,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
       12,  // ordinal
       chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ParamsSpec,
       chromeos.machine_learning.mojom.MachineLearningService_LoadImageAnnotator_ResponseParamsSpec,
-      [config, receiver]);
+      [config, receiver],
+      false);
   }
 
   loadHeatmapPalmRejection(config, client) {
@@ -366,7 +377,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
       13,  // ordinal
       chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ParamsSpec,
       chromeos.machine_learning.mojom.MachineLearningService_LoadHeatmapPalmRejection_ResponseParamsSpec,
-      [config, client]);
+      [config, client],
+      false);
   }
 
   rEMOVED_4(spec, receiver) {
@@ -375,7 +387,8 @@ chromeos.machine_learning.mojom.MachineLearningServiceRemoteCallHandler = class 
       4,  // ordinal
       chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ParamsSpec,
       chromeos.machine_learning.mojom.MachineLearningService_REMOVED_4_ResponseParamsSpec,
-      [spec, receiver]);
+      [spec, receiver],
+      false);
   }
 
 };

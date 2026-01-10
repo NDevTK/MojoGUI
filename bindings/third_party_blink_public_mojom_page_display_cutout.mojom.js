@@ -78,7 +78,8 @@ blink.mojom.DisplayCutoutHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec,
       null,
-      [value]);
+      [value],
+      false);
   }
 
   notifyComplexSafeAreaConstraintChanged(value) {
@@ -87,7 +88,8 @@ blink.mojom.DisplayCutoutHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec,
       null,
-      [value]);
+      [value],
+      false);
   }
 
 };
@@ -151,7 +153,8 @@ blink.mojom.DisplayCutoutClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec,
       null,
-      [safe_area]);
+      [safe_area],
+      false);
   }
 
 };

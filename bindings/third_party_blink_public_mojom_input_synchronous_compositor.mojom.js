@@ -83,7 +83,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('min_page_scale_factor', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('max_page_scale_factor', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('need_invalidate_count', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('invalidate_needs_draw', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('invalidate_needs_draw', 48, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('did_activate_pending_tree_count', 52, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 64]]);
@@ -239,7 +239,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec,
       null,
-      [draw_params]);
+      [draw_params],
+      false);
   }
 
   demandDrawHw(draw_params) {
@@ -248,7 +249,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SynchronousCompositor_DemandDrawHw_ParamsSpec,
       blink.mojom.SynchronousCompositor_DemandDrawHw_ResponseParamsSpec,
-      [draw_params]);
+      [draw_params],
+      false);
   }
 
   setSharedMemory(shm_region) {
@@ -257,7 +259,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SynchronousCompositor_SetSharedMemory_ParamsSpec,
       blink.mojom.SynchronousCompositor_SetSharedMemory_ResponseParamsSpec,
-      [shm_region]);
+      [shm_region],
+      false);
   }
 
   demandDrawSw(draw_params) {
@@ -266,7 +269,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.SynchronousCompositor_DemandDrawSw_ParamsSpec,
       blink.mojom.SynchronousCompositor_DemandDrawSw_ResponseParamsSpec,
-      [draw_params]);
+      [draw_params],
+      false);
   }
 
   willSkipDraw() {
@@ -275,7 +279,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.SynchronousCompositor_WillSkipDraw_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   zeroSharedMemory() {
@@ -284,7 +289,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.SynchronousCompositor_ZeroSharedMemory_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   zoomBy(delta, anchor) {
@@ -293,7 +299,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.SynchronousCompositor_ZoomBy_ParamsSpec,
       blink.mojom.SynchronousCompositor_ZoomBy_ResponseParamsSpec,
-      [delta, anchor]);
+      [delta, anchor],
+      false);
   }
 
   setMemoryPolicy(bytes_limit) {
@@ -302,7 +309,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.SynchronousCompositor_SetMemoryPolicy_ParamsSpec,
       null,
-      [bytes_limit]);
+      [bytes_limit],
+      false);
   }
 
   reclaimResources(layer_tree_frame_sink_id, resources) {
@@ -311,7 +319,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.SynchronousCompositor_ReclaimResources_ParamsSpec,
       null,
-      [layer_tree_frame_sink_id, resources]);
+      [layer_tree_frame_sink_id, resources],
+      false);
   }
 
   onCompositorFrameTransitionDirectiveProcessed(layer_tree_frame_sink_id, sequence_id) {
@@ -320,7 +329,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.SynchronousCompositor_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
-      [layer_tree_frame_sink_id, sequence_id]);
+      [layer_tree_frame_sink_id, sequence_id],
+      false);
   }
 
   setScroll(offset) {
@@ -329,7 +339,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.SynchronousCompositor_SetScroll_ParamsSpec,
       null,
-      [offset]);
+      [offset],
+      false);
   }
 
   beginFrame(args, timing_details) {
@@ -338,7 +349,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.SynchronousCompositor_BeginFrame_ParamsSpec,
       null,
-      [args, timing_details]);
+      [args, timing_details],
+      false);
   }
 
   setBeginFrameSourcePaused(paused) {
@@ -347,7 +359,8 @@ blink.mojom.SynchronousCompositorRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.SynchronousCompositor_SetBeginFrameSourcePaused_ParamsSpec,
       null,
-      [paused]);
+      [paused],
+      false);
   }
 
 };
@@ -428,7 +441,8 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateState(params) {
@@ -437,7 +451,8 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SynchronousCompositorHost_UpdateState_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   setNeedsBeginFrames(needs_begin_frames) {
@@ -446,7 +461,8 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SynchronousCompositorHost_SetNeedsBeginFrames_ParamsSpec,
       null,
-      [needs_begin_frames]);
+      [needs_begin_frames],
+      false);
   }
 
   setThreads(threads) {
@@ -455,7 +471,8 @@ blink.mojom.SynchronousCompositorHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.SynchronousCompositorHost_SetThreads_ParamsSpec,
       null,
-      [threads]);
+      [threads],
+      false);
   }
 
 };
@@ -529,7 +546,8 @@ blink.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec,
       null,
-      [layer_tree_frame_sink_id, metadata_version, local_surface_id, frame, hit_test_region_list]);
+      [layer_tree_frame_sink_id, metadata_version, local_surface_id, frame, hit_test_region_list],
+      false);
   }
 
   beginFrameResponse(params) {
@@ -538,7 +556,8 @@ blink.mojom.SynchronousCompositorControlHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SynchronousCompositorControlHost_BeginFrameResponse_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
 };

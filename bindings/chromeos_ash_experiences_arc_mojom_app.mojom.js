@@ -288,9 +288,9 @@ mojo.internal.Struct(
 // Struct: WindowInfo
 mojo.internal.Struct(
     arc.mojom.WindowInfoSpec, 'arc.mojom.WindowInfo', [
-      mojo.internal.StructField('window_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('window_id', 0, 0, mojo.internal.Int32, -1, false, 0, undefined),
       mojo.internal.StructField('state', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('display_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('display_id', 8, 0, mojo.internal.Int64, -1, false, 0, undefined),
       mojo.internal.StructField('bounds', 16, 0, arc.mojom.RectSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -494,7 +494,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec,
       null,
-      [app]);
+      [app],
+      false);
   }
 
   onAppListRefreshed(apps) {
@@ -503,7 +504,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.AppHost_OnAppListRefreshed_ParamsSpec,
       null,
-      [apps]);
+      [apps],
+      false);
   }
 
   onPackageAdded(arcPackageInfo) {
@@ -512,7 +514,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.AppHost_OnPackageAdded_ParamsSpec,
       null,
-      [arcPackageInfo]);
+      [arcPackageInfo],
+      false);
   }
 
   onPackageAppListRefreshed(package_name, apps) {
@@ -521,7 +524,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       13,  // ordinal
       arc.mojom.AppHost_OnPackageAppListRefreshed_ParamsSpec,
       null,
-      [package_name, apps]);
+      [package_name, apps],
+      false);
   }
 
   onPackageListRefreshed(packages) {
@@ -530,7 +534,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.AppHost_OnPackageListRefreshed_ParamsSpec,
       null,
-      [packages]);
+      [packages],
+      false);
   }
 
   onPackageModified(arcPackageInfo) {
@@ -539,7 +544,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.AppHost_OnPackageModified_ParamsSpec,
       null,
-      [arcPackageInfo]);
+      [arcPackageInfo],
+      false);
   }
 
   onPackageRemoved(package_name) {
@@ -548,7 +554,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.AppHost_OnPackageRemoved_ParamsSpec,
       null,
-      [package_name]);
+      [package_name],
+      false);
   }
 
   onTaskCreated(task_id, package_name, activity, name, intent, session_id) {
@@ -557,7 +564,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.AppHost_OnTaskCreated_ParamsSpec,
       null,
-      [task_id, package_name, activity, name, intent, session_id]);
+      [task_id, package_name, activity, name, intent, session_id],
+      false);
   }
 
   onTaskDescriptionUpdated(task_id, label, icon_png_data) {
@@ -566,7 +574,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       17,  // ordinal
       arc.mojom.AppHost_OnTaskDescriptionUpdated_ParamsSpec,
       null,
-      [task_id, label, icon_png_data]);
+      [task_id, label, icon_png_data],
+      false);
   }
 
   onTaskDescriptionChanged(task_id, label, icon, primary_color, status_bar_color) {
@@ -575,7 +584,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       18,  // ordinal
       arc.mojom.AppHost_OnTaskDescriptionChanged_ParamsSpec,
       null,
-      [task_id, label, icon, primary_color, status_bar_color]);
+      [task_id, label, icon, primary_color, status_bar_color],
+      false);
   }
 
   onTaskDestroyed(task_id) {
@@ -584,7 +594,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.AppHost_OnTaskDestroyed_ParamsSpec,
       null,
-      [task_id]);
+      [task_id],
+      false);
   }
 
   onTaskSetActive(task_id) {
@@ -593,7 +604,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.AppHost_OnTaskSetActive_ParamsSpec,
       null,
-      [task_id]);
+      [task_id],
+      false);
   }
 
   onNotificationsEnabledChanged(package_name, enabled) {
@@ -602,7 +614,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.AppHost_OnNotificationsEnabledChanged_ParamsSpec,
       null,
-      [package_name, enabled]);
+      [package_name, enabled],
+      false);
   }
 
   onInstallShortcut(shortcut) {
@@ -611,7 +624,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.AppHost_OnInstallShortcut_ParamsSpec,
       null,
-      [shortcut]);
+      [shortcut],
+      false);
   }
 
   onInstallationStarted(package_name) {
@@ -620,7 +634,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       14,  // ordinal
       arc.mojom.AppHost_OnInstallationStarted_ParamsSpec,
       null,
-      [package_name]);
+      [package_name],
+      false);
   }
 
   onInstallationFinished(result) {
@@ -629,7 +644,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       15,  // ordinal
       arc.mojom.AppHost_OnInstallationFinished_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
   onUninstallShortcut(package_name, intent_uri) {
@@ -638,7 +654,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       16,  // ordinal
       arc.mojom.AppHost_OnUninstallShortcut_ParamsSpec,
       null,
-      [package_name, intent_uri]);
+      [package_name, intent_uri],
+      false);
   }
 
   onInstallationProgressChanged(package_name, progress) {
@@ -647,7 +664,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       19,  // ordinal
       arc.mojom.AppHost_OnInstallationProgressChanged_ParamsSpec,
       null,
-      [package_name, progress]);
+      [package_name, progress],
+      false);
   }
 
   onInstallationActiveChanged(package_name, active) {
@@ -656,7 +674,8 @@ arc.mojom.AppHostRemoteCallHandler = class {
       20,  // ordinal
       arc.mojom.AppHost_OnInstallationActiveChanged_ParamsSpec,
       null,
-      [package_name, active]);
+      [package_name, active],
+      false);
   }
 
 };
@@ -1000,7 +1019,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       21,  // ordinal
       arc.mojom.AppInstance_Init_ParamsSpec,
       arc.mojom.AppInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   closeTask(task_id) {
@@ -1009,7 +1029,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.AppInstance_CloseTask_ParamsSpec,
       null,
-      [task_id]);
+      [task_id],
+      false);
   }
 
   installPackage(arcPackageInfo) {
@@ -1018,7 +1039,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.AppInstance_InstallPackage_ParamsSpec,
       null,
-      [arcPackageInfo]);
+      [arcPackageInfo],
+      false);
   }
 
   launchAppWithWindowInfo(package_name, activity, window_info) {
@@ -1027,7 +1049,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       38,  // ordinal
       arc.mojom.AppInstance_LaunchAppWithWindowInfo_ParamsSpec,
       null,
-      [package_name, activity, window_info]);
+      [package_name, activity, window_info],
+      false);
   }
 
   launchAppShortcutItem(package_name, shortcut_id, display_id) {
@@ -1036,7 +1059,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       24,  // ordinal
       arc.mojom.AppInstance_LaunchAppShortcutItem_ParamsSpec,
       null,
-      [package_name, shortcut_id, display_id]);
+      [package_name, shortcut_id, display_id],
+      false);
   }
 
   launchIntentWithWindowInfo(intent_uri, window_info) {
@@ -1045,7 +1069,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       39,  // ordinal
       arc.mojom.AppInstance_LaunchIntentWithWindowInfo_ParamsSpec,
       null,
-      [intent_uri, window_info]);
+      [intent_uri, window_info],
+      false);
   }
 
   updateWindowInfo(window_info) {
@@ -1054,7 +1079,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       40,  // ordinal
       arc.mojom.AppInstance_UpdateWindowInfo_ParamsSpec,
       null,
-      [window_info]);
+      [window_info],
+      false);
   }
 
   requestAppIcon(package_name, activity, pixel_size) {
@@ -1063,7 +1089,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       27,  // ordinal
       arc.mojom.AppInstance_RequestAppIcon_ParamsSpec,
       arc.mojom.AppInstance_RequestAppIcon_ResponseParamsSpec,
-      [package_name, activity, pixel_size]);
+      [package_name, activity, pixel_size],
+      false);
   }
 
   getAppIcon(package_name, activity, pixel_size) {
@@ -1072,7 +1099,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       35,  // ordinal
       arc.mojom.AppInstance_GetAppIcon_ParamsSpec,
       arc.mojom.AppInstance_GetAppIcon_ResponseParamsSpec,
-      [package_name, activity, pixel_size]);
+      [package_name, activity, pixel_size],
+      false);
   }
 
   requestShortcutIcon(icon_resource_id, pixel_size) {
@@ -1081,7 +1109,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       28,  // ordinal
       arc.mojom.AppInstance_RequestShortcutIcon_ParamsSpec,
       arc.mojom.AppInstance_RequestShortcutIcon_ResponseParamsSpec,
-      [icon_resource_id, pixel_size]);
+      [icon_resource_id, pixel_size],
+      false);
   }
 
   getAppShortcutIcon(icon_resource_id, pixel_size) {
@@ -1090,7 +1119,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       36,  // ordinal
       arc.mojom.AppInstance_GetAppShortcutIcon_ParamsSpec,
       arc.mojom.AppInstance_GetAppShortcutIcon_ResponseParamsSpec,
-      [icon_resource_id, pixel_size]);
+      [icon_resource_id, pixel_size],
+      false);
   }
 
   requestPackageIcon(package_name, pixel_size, normalize) {
@@ -1099,7 +1129,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       30,  // ordinal
       arc.mojom.AppInstance_RequestPackageIcon_ParamsSpec,
       arc.mojom.AppInstance_RequestPackageIcon_ResponseParamsSpec,
-      [package_name, pixel_size, normalize]);
+      [package_name, pixel_size, normalize],
+      false);
   }
 
   getPackageIcon(package_name, pixel_size, normalize) {
@@ -1108,7 +1139,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       37,  // ordinal
       arc.mojom.AppInstance_GetPackageIcon_ParamsSpec,
       arc.mojom.AppInstance_GetPackageIcon_ResponseParamsSpec,
-      [package_name, pixel_size, normalize]);
+      [package_name, pixel_size, normalize],
+      false);
   }
 
   removeCachedIcon(icon_resource_id) {
@@ -1117,7 +1149,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       14,  // ordinal
       arc.mojom.AppInstance_RemoveCachedIcon_ParamsSpec,
       null,
-      [icon_resource_id]);
+      [icon_resource_id],
+      false);
   }
 
   setTaskActive(task_id) {
@@ -1126,7 +1159,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.AppInstance_SetTaskActive_ParamsSpec,
       null,
-      [task_id]);
+      [task_id],
+      false);
   }
 
   showPackageInfoDeprecated(package_name, dimension_on_screen) {
@@ -1135,7 +1169,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.AppInstance_ShowPackageInfoDeprecated_ParamsSpec,
       null,
-      [package_name, dimension_on_screen]);
+      [package_name, dimension_on_screen],
+      false);
   }
 
   showPackageInfoOnPageDeprecated(package_name, page, dimension_on_screen) {
@@ -1144,7 +1179,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       15,  // ordinal
       arc.mojom.AppInstance_ShowPackageInfoOnPageDeprecated_ParamsSpec,
       null,
-      [package_name, page, dimension_on_screen]);
+      [package_name, page, dimension_on_screen],
+      false);
   }
 
   showPackageInfoOnPage(package_name, page, display_id) {
@@ -1153,7 +1189,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       20,  // ordinal
       arc.mojom.AppInstance_ShowPackageInfoOnPage_ParamsSpec,
       null,
-      [package_name, page, display_id]);
+      [package_name, page, display_id],
+      false);
   }
 
   setNotificationsEnabled(package_name, enabled) {
@@ -1162,7 +1199,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.AppInstance_SetNotificationsEnabled_ParamsSpec,
       null,
-      [package_name, enabled]);
+      [package_name, enabled],
+      false);
   }
 
   startPaiFlow() {
@@ -1171,7 +1209,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       32,  // ordinal
       arc.mojom.AppInstance_StartPaiFlow_ParamsSpec,
       arc.mojom.AppInstance_StartPaiFlow_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startFastAppReinstallFlow(arc_package_names) {
@@ -1180,7 +1219,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       25,  // ordinal
       arc.mojom.AppInstance_StartFastAppReinstallFlow_ParamsSpec,
       null,
-      [arc_package_names]);
+      [arc_package_names],
+      false);
   }
 
   uninstallPackage(package_name) {
@@ -1189,7 +1229,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.AppInstance_UninstallPackage_ParamsSpec,
       null,
-      [package_name]);
+      [package_name],
+      false);
   }
 
   updateAppDetails(package_name) {
@@ -1198,7 +1239,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       42,  // ordinal
       arc.mojom.AppInstance_UpdateAppDetails_ParamsSpec,
       null,
-      [package_name]);
+      [package_name],
+      false);
   }
 
   getAndroidId() {
@@ -1207,7 +1249,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       33,  // ordinal
       arc.mojom.AppInstance_GetAndroidId_ParamsSpec,
       arc.mojom.AppInstance_GetAndroidId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAppShortcutGlobalQueryItems(query, max_results) {
@@ -1216,7 +1259,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       26,  // ordinal
       arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ParamsSpec,
       arc.mojom.AppInstance_GetAppShortcutGlobalQueryItems_ResponseParamsSpec,
-      [query, max_results]);
+      [query, max_results],
+      false);
   }
 
   getAppShortcutItems(package_name) {
@@ -1225,7 +1269,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       23,  // ordinal
       arc.mojom.AppInstance_GetAppShortcutItems_ParamsSpec,
       arc.mojom.AppInstance_GetAppShortcutItems_ResponseParamsSpec,
-      [package_name]);
+      [package_name],
+      false);
   }
 
   getRecentAndSuggestedAppsFromPlayStore(query, max_results) {
@@ -1234,7 +1279,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       16,  // ordinal
       arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ParamsSpec,
       arc.mojom.AppInstance_GetRecentAndSuggestedAppsFromPlayStore_ResponseParamsSpec,
-      [query, max_results]);
+      [query, max_results],
+      false);
   }
 
   isInstallable(package_name) {
@@ -1243,7 +1289,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       34,  // ordinal
       arc.mojom.AppInstance_IsInstallable_ParamsSpec,
       arc.mojom.AppInstance_IsInstallable_ResponseParamsSpec,
-      [package_name]);
+      [package_name],
+      false);
   }
 
   getAppCategory(package_name) {
@@ -1252,7 +1299,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       41,  // ordinal
       arc.mojom.AppInstance_GetAppCategory_ParamsSpec,
       arc.mojom.AppInstance_GetAppCategory_ResponseParamsSpec,
-      [package_name]);
+      [package_name],
+      false);
   }
 
   setAppLocale(package_name, locale_tag) {
@@ -1261,7 +1309,8 @@ arc.mojom.AppInstanceRemoteCallHandler = class {
       43,  // ordinal
       arc.mojom.AppInstance_SetAppLocale_ParamsSpec,
       null,
-      [package_name, locale_tag]);
+      [package_name, locale_tag],
+      false);
   }
 
 };

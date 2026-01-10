@@ -134,7 +134,8 @@ media.mojom.AudioDecoderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec,
       media.mojom.AudioDecoder_GetSupportedConfigs_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   construct(client, media_log) {
@@ -143,7 +144,8 @@ media.mojom.AudioDecoderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioDecoder_Construct_ParamsSpec,
       null,
-      [client, media_log]);
+      [client, media_log],
+      false);
   }
 
   initialize(config, cdm_id) {
@@ -152,7 +154,8 @@ media.mojom.AudioDecoderRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.AudioDecoder_Initialize_ParamsSpec,
       media.mojom.AudioDecoder_Initialize_ResponseParamsSpec,
-      [config, cdm_id]);
+      [config, cdm_id],
+      false);
   }
 
   setDataSource(receive_pipe) {
@@ -161,7 +164,8 @@ media.mojom.AudioDecoderRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.AudioDecoder_SetDataSource_ParamsSpec,
       null,
-      [receive_pipe]);
+      [receive_pipe],
+      false);
   }
 
   decode(buffer) {
@@ -170,7 +174,8 @@ media.mojom.AudioDecoderRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.AudioDecoder_Decode_ParamsSpec,
       media.mojom.AudioDecoder_Decode_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   reset() {
@@ -179,7 +184,8 @@ media.mojom.AudioDecoderRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.AudioDecoder_Reset_ParamsSpec,
       media.mojom.AudioDecoder_Reset_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -249,7 +255,8 @@ media.mojom.AudioDecoderClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec,
       null,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   onWaiting(reason) {
@@ -258,7 +265,8 @@ media.mojom.AudioDecoderClientRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioDecoderClient_OnWaiting_ParamsSpec,
       null,
-      [reason]);
+      [reason],
+      false);
   }
 
 };

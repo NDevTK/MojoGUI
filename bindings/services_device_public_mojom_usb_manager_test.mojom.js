@@ -105,7 +105,8 @@ device.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec,
       device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec,
-      [name, serial_number, landing_page]);
+      [name, serial_number, landing_page],
+      false);
   }
 
   removeDeviceForTesting(guid) {
@@ -114,7 +115,8 @@ device.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec,
       device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec,
-      [guid]);
+      [guid],
+      false);
   }
 
   getTestDevices() {
@@ -123,7 +125,8 @@ device.mojom.UsbDeviceManagerTestRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec,
       device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

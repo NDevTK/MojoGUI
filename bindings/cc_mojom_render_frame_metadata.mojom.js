@@ -123,7 +123,8 @@ cc.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
       0,  // ordinal
       cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec,
       null,
-      [frequency]);
+      [frequency],
+      false);
   }
 
   reportAllFrameSubmissionsForTesting(enabled) {
@@ -132,7 +133,8 @@ cc.mojom.RenderFrameMetadataObserverRemoteCallHandler = class {
       1,  // ordinal
       cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
 };
@@ -209,7 +211,8 @@ cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
       0,  // ordinal
       cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec,
       null,
-      [frame_token, metadata]);
+      [frame_token, metadata],
+      false);
   }
 
   onFrameSubmissionForTesting(frame_token) {
@@ -218,7 +221,8 @@ cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
       1,  // ordinal
       cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec,
       null,
-      [frame_token]);
+      [frame_token],
+      false);
   }
 
   onRootScrollOffsetChanged(root_scroll_offset) {
@@ -227,7 +231,8 @@ cc.mojom.RenderFrameMetadataObserverClientRemoteCallHandler = class {
       2,  // ordinal
       cc.mojom.RenderFrameMetadataObserverClient_OnRootScrollOffsetChanged_ParamsSpec,
       null,
-      [root_scroll_offset]);
+      [root_scroll_offset],
+      false);
   }
 
 };

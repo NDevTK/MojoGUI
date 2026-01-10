@@ -96,7 +96,8 @@ arc.mojom.AppPermissionsInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec,
       null,
-      [package_name, permission]);
+      [package_name, permission],
+      false);
   }
 
   revokePermission(package_name, permission) {
@@ -105,7 +106,8 @@ arc.mojom.AppPermissionsInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec,
       null,
-      [package_name, permission]);
+      [package_name, permission],
+      false);
   }
 
 };

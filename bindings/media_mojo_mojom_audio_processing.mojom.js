@@ -102,7 +102,8 @@ media.mojom.AudioProcessorControlsRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioProcessorControls_GetStats_ParamsSpec,
       media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setPreferredNumCaptureChannels(num_preferred_channels) {
@@ -111,7 +112,8 @@ media.mojom.AudioProcessorControlsRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec,
       null,
-      [num_preferred_channels]);
+      [num_preferred_channels],
+      false);
   }
 
 };

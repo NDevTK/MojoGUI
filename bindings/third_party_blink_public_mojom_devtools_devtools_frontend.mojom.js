@@ -68,7 +68,8 @@ blink.mojom.DevToolsFrontendRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec,
       null,
-      [api_script, host]);
+      [api_script, host],
+      false);
   }
 
   setupDevToolsExtensionAPI(extension_api) {
@@ -77,7 +78,8 @@ blink.mojom.DevToolsFrontendRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec,
       null,
-      [extension_api]);
+      [extension_api],
+      false);
   }
 
 };
@@ -141,7 +143,8 @@ blink.mojom.DevToolsFrontendHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };

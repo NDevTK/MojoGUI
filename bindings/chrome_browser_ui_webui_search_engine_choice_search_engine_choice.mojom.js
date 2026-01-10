@@ -72,7 +72,8 @@ search_engine_choice.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -158,7 +159,8 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   handleSearchEngineChoiceSelected(prepopulate_id, save_guest_mode_selection) {
@@ -167,7 +169,8 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec,
       null,
-      [prepopulate_id, save_guest_mode_selection]);
+      [prepopulate_id, save_guest_mode_selection],
+      false);
   }
 
   handleLearnMoreLinkClicked() {
@@ -176,7 +179,8 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   handleMoreButtonClicked() {
@@ -185,7 +189,8 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordScrollState(scroll_state) {
@@ -194,7 +199,8 @@ search_engine_choice.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec,
       null,
-      [scroll_state]);
+      [scroll_state],
+      false);
   }
 
 };

@@ -57,7 +57,8 @@ extensions.mojom.AppWindowRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec,
       null,
-      [deemphasized]);
+      [deemphasized],
+      false);
   }
 
 };

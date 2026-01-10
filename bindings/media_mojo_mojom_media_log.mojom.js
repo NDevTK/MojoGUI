@@ -57,7 +57,8 @@ media.mojom.MediaLogRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaLog_AddLogRecord_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
 };

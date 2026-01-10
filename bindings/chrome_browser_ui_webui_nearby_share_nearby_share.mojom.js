@@ -207,7 +207,8 @@ nearby_share.mojom.ShareTargetListenerRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec,
       null,
-      [share_target]);
+      [share_target],
+      false);
   }
 
   onShareTargetLost(share_target) {
@@ -216,7 +217,8 @@ nearby_share.mojom.ShareTargetListenerRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec,
       null,
-      [share_target]);
+      [share_target],
+      false);
   }
 
 };
@@ -281,7 +283,8 @@ nearby_share.mojom.TransferUpdateListenerRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec,
       null,
-      [status, token]);
+      [status, token],
+      false);
   }
 
 };
@@ -350,7 +353,8 @@ nearby_share.mojom.DiscoveryObserverRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onStartDiscoveryResult(success) {
@@ -359,7 +363,8 @@ nearby_share.mojom.DiscoveryObserverRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec,
       null,
-      [success]);
+      [success],
+      false);
   }
 
 };
@@ -470,7 +475,8 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   startDiscovery(listener) {
@@ -479,7 +485,8 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec,
       nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec,
-      [listener]);
+      [listener],
+      false);
   }
 
   stopDiscovery() {
@@ -488,7 +495,8 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
       2,  // ordinal
       nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec,
       nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   selectShareTarget(share_target_id) {
@@ -497,7 +505,8 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
       3,  // ordinal
       nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec,
       nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec,
-      [share_target_id]);
+      [share_target_id],
+      false);
   }
 
   getPayloadPreview() {
@@ -506,7 +515,8 @@ nearby_share.mojom.DiscoveryManagerRemoteCallHandler = class {
       4,  // ordinal
       nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec,
       nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -597,7 +607,8 @@ nearby_share.mojom.ConfirmationManagerRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec,
       nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   reject() {
@@ -606,7 +617,8 @@ nearby_share.mojom.ConfirmationManagerRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec,
       nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   cancel() {
@@ -615,7 +627,8 @@ nearby_share.mojom.ConfirmationManagerRemoteCallHandler = class {
       2,  // ordinal
       nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec,
       nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -696,7 +709,8 @@ nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec,
       null,
-      [in_high_visibility]);
+      [in_high_visibility],
+      false);
   }
 
   onTransferUpdate(share_target, metadata) {
@@ -705,7 +719,8 @@ nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec,
       null,
-      [share_target, metadata]);
+      [share_target, metadata],
+      false);
   }
 
   onNearbyProcessStopped() {
@@ -714,7 +729,8 @@ nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
       2,  // ordinal
       nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onStartAdvertisingFailure() {
@@ -723,7 +739,8 @@ nearby_share.mojom.ReceiveObserverRemoteCallHandler = class {
       3,  // ordinal
       nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -850,7 +867,8 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   isInHighVisibility() {
@@ -859,7 +877,8 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec,
       nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   registerForegroundReceiveSurface() {
@@ -868,7 +887,8 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
       2,  // ordinal
       nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec,
       nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   unregisterForegroundReceiveSurface() {
@@ -877,7 +897,8 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
       3,  // ordinal
       nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec,
       nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   accept(share_target_id) {
@@ -886,7 +907,8 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
       4,  // ordinal
       nearby_share.mojom.ReceiveManager_Accept_ParamsSpec,
       nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec,
-      [share_target_id]);
+      [share_target_id],
+      false);
   }
 
   reject(share_target_id) {
@@ -895,7 +917,8 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
       5,  // ordinal
       nearby_share.mojom.ReceiveManager_Reject_ParamsSpec,
       nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec,
-      [share_target_id]);
+      [share_target_id],
+      false);
   }
 
   recordFastInitiationNotificationUsage(success) {
@@ -904,7 +927,8 @@ nearby_share.mojom.ReceiveManagerRemoteCallHandler = class {
       6,  // ordinal
       nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec,
       null,
-      [success]);
+      [success],
+      false);
   }
 
 };

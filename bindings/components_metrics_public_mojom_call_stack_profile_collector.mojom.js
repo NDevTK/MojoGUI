@@ -74,7 +74,8 @@ metrics.mojom.CallStackProfileCollectorRemoteCallHandler = class {
       0,  // ordinal
       metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec,
       null,
-      [start_timestamp, profile_type, profile]);
+      [start_timestamp, profile_type, profile],
+      false);
   }
 
 };

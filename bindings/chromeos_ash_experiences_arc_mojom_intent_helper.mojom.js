@@ -396,7 +396,8 @@ arc.mojom.CustomTabSessionRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.CustomTabSession_OnOpenInChromeClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -591,7 +592,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.IntentHelperHost_OnIconInvalidated_ParamsSpec,
       null,
-      [package_name]);
+      [package_name],
+      false);
   }
 
   onIntentFiltersUpdated(intent_filters) {
@@ -600,7 +602,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.IntentHelperHost_OnIntentFiltersUpdated_ParamsSpec,
       null,
-      [intent_filters]);
+      [intent_filters],
+      false);
   }
 
   onOpenDownloads() {
@@ -609,7 +612,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.IntentHelperHost_OnOpenDownloads_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onOpenUrl(url) {
@@ -618,7 +622,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.IntentHelperHost_OnOpenUrl_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   onOpenCustomTab(url, task_id) {
@@ -627,7 +632,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       17,  // ordinal
       arc.mojom.IntentHelperHost_OnOpenCustomTab_ParamsSpec,
       arc.mojom.IntentHelperHost_OnOpenCustomTab_ResponseParamsSpec,
-      [url, task_id]);
+      [url, task_id],
+      false);
   }
 
   openWallpaperPicker() {
@@ -636,7 +642,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.IntentHelperHost_OpenWallpaperPicker_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openVolumeControl() {
@@ -645,7 +652,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.IntentHelperHost_OpenVolumeControl_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onOpenChromePage(page) {
@@ -654,7 +662,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.IntentHelperHost_OnOpenChromePage_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
   onOpenWebApp(url) {
@@ -663,7 +672,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.IntentHelperHost_OnOpenWebApp_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   factoryResetArc() {
@@ -672,7 +682,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.IntentHelperHost_FactoryResetArc_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   launchCameraApp(intent_id, mode, should_handle_result, should_down_scale, is_secure, task_id) {
@@ -681,7 +692,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       12,  // ordinal
       arc.mojom.IntentHelperHost_LaunchCameraApp_ParamsSpec,
       null,
-      [intent_id, mode, should_handle_result, should_down_scale, is_secure, task_id]);
+      [intent_id, mode, should_handle_result, should_down_scale, is_secure, task_id],
+      false);
   }
 
   onIntentFiltersUpdatedForPackage(package_name, intent_filters) {
@@ -690,7 +702,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       13,  // ordinal
       arc.mojom.IntentHelperHost_OnIntentFiltersUpdatedForPackage_ParamsSpec,
       null,
-      [package_name, intent_filters]);
+      [package_name, intent_filters],
+      false);
   }
 
   closeCameraApp() {
@@ -699,7 +712,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       14,  // ordinal
       arc.mojom.IntentHelperHost_CloseCameraApp_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   isChromeAppEnabled(app) {
@@ -708,7 +722,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       15,  // ordinal
       arc.mojom.IntentHelperHost_IsChromeAppEnabled_ParamsSpec,
       arc.mojom.IntentHelperHost_IsChromeAppEnabled_ResponseParamsSpec,
-      [app]);
+      [app],
+      false);
   }
 
   onSupportedLinksChanged(added_packages, removed_packages, source) {
@@ -717,7 +732,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       20,  // ordinal
       arc.mojom.IntentHelperHost_OnSupportedLinksChanged_ParamsSpec,
       null,
-      [added_packages, removed_packages, source]);
+      [added_packages, removed_packages, source],
+      false);
   }
 
   onDownloadAddedDeprecated(relative_path, owner_package_name) {
@@ -726,7 +742,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       18,  // ordinal
       arc.mojom.IntentHelperHost_OnDownloadAddedDeprecated_ParamsSpec,
       null,
-      [relative_path, owner_package_name]);
+      [relative_path, owner_package_name],
+      false);
   }
 
   onOpenAppWithIntent(start_url, intent) {
@@ -735,7 +752,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       19,  // ordinal
       arc.mojom.IntentHelperHost_OnOpenAppWithIntent_ParamsSpec,
       null,
-      [start_url, intent]);
+      [start_url, intent],
+      false);
   }
 
   onOpenGlobalActions() {
@@ -744,7 +762,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       21,  // ordinal
       arc.mojom.IntentHelperHost_OnOpenGlobalActions_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onCloseSystemDialogs() {
@@ -753,7 +772,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       22,  // ordinal
       arc.mojom.IntentHelperHost_OnCloseSystemDialogs_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onAndroidSettingChange(setting, is_enabled) {
@@ -762,7 +782,8 @@ arc.mojom.IntentHelperHostRemoteCallHandler = class {
       23,  // ordinal
       arc.mojom.IntentHelperHost_OnAndroidSettingChange_ParamsSpec,
       null,
-      [setting, is_enabled]);
+      [setting, is_enabled],
+      false);
   }
 
 };
@@ -968,7 +989,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.IntentHelperInstance_AddPreferredPackage_ParamsSpec,
       null,
-      [package_name]);
+      [package_name],
+      false);
   }
 
   setVerifiedLinks(package_names, always_open) {
@@ -977,7 +999,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       21,  // ordinal
       arc.mojom.IntentHelperInstance_SetVerifiedLinks_ParamsSpec,
       null,
-      [package_names, always_open]);
+      [package_names, always_open],
+      false);
   }
 
   handleIntent(intent, activity) {
@@ -986,7 +1009,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.IntentHelperInstance_HandleIntent_ParamsSpec,
       null,
-      [intent, activity]);
+      [intent, activity],
+      false);
   }
 
   handleIntentWithWindowInfo(intent, activity, window_info) {
@@ -995,7 +1019,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       20,  // ordinal
       arc.mojom.IntentHelperInstance_HandleIntentWithWindowInfo_ParamsSpec,
       null,
-      [intent, activity, window_info]);
+      [intent, activity, window_info],
+      false);
   }
 
   handleUrl(url, package_name) {
@@ -1004,7 +1029,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.IntentHelperInstance_HandleUrl_ParamsSpec,
       null,
-      [url, package_name]);
+      [url, package_name],
+      false);
   }
 
   init(host_remote) {
@@ -1013,7 +1039,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       13,  // ordinal
       arc.mojom.IntentHelperInstance_Init_ParamsSpec,
       arc.mojom.IntentHelperInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   requestActivityIcons(activities, scale_factor) {
@@ -1022,7 +1049,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.IntentHelperInstance_RequestActivityIcons_ParamsSpec,
       arc.mojom.IntentHelperInstance_RequestActivityIcons_ResponseParamsSpec,
-      [activities, scale_factor]);
+      [activities, scale_factor],
+      false);
   }
 
   requestIntentHandlerList(intent) {
@@ -1031,7 +1059,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ParamsSpec,
       arc.mojom.IntentHelperInstance_RequestIntentHandlerList_ResponseParamsSpec,
-      [intent]);
+      [intent],
+      false);
   }
 
   requestUrlHandlerList(url) {
@@ -1040,7 +1069,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ParamsSpec,
       arc.mojom.IntentHelperInstance_RequestUrlHandlerList_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   requestUrlListHandlerList(urls) {
@@ -1049,7 +1079,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ParamsSpec,
       arc.mojom.IntentHelperInstance_RequestUrlListHandlerList_ResponseParamsSpec,
-      [urls]);
+      [urls],
+      false);
   }
 
   sendBroadcast(action, package_name, cls, extras) {
@@ -1058,7 +1089,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.IntentHelperInstance_SendBroadcast_ParamsSpec,
       null,
-      [action, package_name, cls, extras]);
+      [action, package_name, cls, extras],
+      false);
   }
 
   requestTextSelectionActions(text, scale_factor) {
@@ -1067,7 +1099,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       15,  // ordinal
       arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ParamsSpec,
       arc.mojom.IntentHelperInstance_RequestTextSelectionActions_ResponseParamsSpec,
-      [text, scale_factor]);
+      [text, scale_factor],
+      false);
   }
 
   handleCameraResult(intent_id, action, data) {
@@ -1076,7 +1109,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       16,  // ordinal
       arc.mojom.IntentHelperInstance_HandleCameraResult_ParamsSpec,
       arc.mojom.IntentHelperInstance_HandleCameraResult_ResponseParamsSpec,
-      [intent_id, action, data]);
+      [intent_id, action, data],
+      false);
   }
 
   requestDomainVerificationStatusUpdate() {
@@ -1085,7 +1119,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       19,  // ordinal
       arc.mojom.IntentHelperInstance_RequestDomainVerificationStatusUpdate_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setCaptionStyle(style) {
@@ -1094,7 +1129,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       22,  // ordinal
       arc.mojom.IntentHelperInstance_SetCaptionStyle_ParamsSpec,
       null,
-      [style]);
+      [style],
+      false);
   }
 
   enableAccessibilityFeatures(features) {
@@ -1103,7 +1139,8 @@ arc.mojom.IntentHelperInstanceRemoteCallHandler = class {
       23,  // ordinal
       arc.mojom.IntentHelperInstance_EnableAccessibilityFeatures_ParamsSpec,
       null,
-      [features]);
+      [features],
+      false);
   }
 
 };

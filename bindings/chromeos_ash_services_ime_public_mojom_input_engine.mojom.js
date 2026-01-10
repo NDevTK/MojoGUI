@@ -65,7 +65,8 @@ ash.ime.mojom.InputChannelRemoteCallHandler = class {
       0,  // ordinal
       ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec,
       ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec,
-      [message]);
+      [message],
+      false);
   }
 
 };

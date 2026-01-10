@@ -58,7 +58,8 @@ blink.mojom.SubresourceLoaderUpdaterRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec,
       null,
-      [subresource_loader_factories]);
+      [subresource_loader_factories],
+      false);
   }
 
 };

@@ -62,7 +62,8 @@ chrome.mojom.NetworkDiagnosticsRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec,
       null,
-      [failed_url]);
+      [failed_url],
+      false);
   }
 
 };
@@ -132,7 +133,8 @@ chrome.mojom.NetworkDiagnosticsClientRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec,
       null,
-      [can_show]);
+      [can_show],
+      false);
   }
 
   dNSProbeStatus(status) {
@@ -141,7 +143,8 @@ chrome.mojom.NetworkDiagnosticsClientRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
 };

@@ -64,7 +64,8 @@ gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemoteCallHandler = class {
       0,  // ordinal
       gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec,
       gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec,
-      [device_path]);
+      [device_path],
+      false);
   }
 
 };

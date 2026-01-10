@@ -122,7 +122,8 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.GestureHandler_OnBackGesture_ParamsSpec,
       chromecast.mojom.GestureHandler_OnBackGesture_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onBackGestureProgress(touch_location) {
@@ -131,7 +132,8 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.GestureHandler_OnBackGestureProgress_ParamsSpec,
       null,
-      [touch_location]);
+      [touch_location],
+      false);
   }
 
   onTopDragGestureProgress(touch_location) {
@@ -140,7 +142,8 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
       2,  // ordinal
       chromecast.mojom.GestureHandler_OnTopDragGestureProgress_ParamsSpec,
       null,
-      [touch_location]);
+      [touch_location],
+      false);
   }
 
   onTopDragGestureDone() {
@@ -149,7 +152,8 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
       3,  // ordinal
       chromecast.mojom.GestureHandler_OnTopDragGestureDone_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onRightDragGestureProgress(touch_location) {
@@ -158,7 +162,8 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
       4,  // ordinal
       chromecast.mojom.GestureHandler_OnRightDragGestureProgress_ParamsSpec,
       null,
-      [touch_location]);
+      [touch_location],
+      false);
   }
 
   onRightDragGestureDone() {
@@ -167,7 +172,8 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
       5,  // ordinal
       chromecast.mojom.GestureHandler_OnRightDragGestureDone_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onBackGestureCancel() {
@@ -176,7 +182,8 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
       6,  // ordinal
       chromecast.mojom.GestureHandler_OnBackGestureCancel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onTapGesture() {
@@ -185,7 +192,8 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
       7,  // ordinal
       chromecast.mojom.GestureHandler_OnTapGesture_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onTapDownGesture() {
@@ -194,7 +202,8 @@ chromecast.mojom.GestureHandlerRemoteCallHandler = class {
       8,  // ordinal
       chromecast.mojom.GestureHandler_OnTapDownGesture_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -276,7 +285,8 @@ chromecast.mojom.GestureSourceRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.GestureSource_Subscribe_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
   setCanGoBack(can_go_back) {
@@ -285,7 +295,8 @@ chromecast.mojom.GestureSourceRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.GestureSource_SetCanGoBack_ParamsSpec,
       null,
-      [can_go_back]);
+      [can_go_back],
+      false);
   }
 
   setCanTopDrag(can_top_drag) {
@@ -294,7 +305,8 @@ chromecast.mojom.GestureSourceRemoteCallHandler = class {
       2,  // ordinal
       chromecast.mojom.GestureSource_SetCanTopDrag_ParamsSpec,
       null,
-      [can_top_drag]);
+      [can_top_drag],
+      false);
   }
 
   setCanRightDrag(can_top_drag) {
@@ -303,7 +315,8 @@ chromecast.mojom.GestureSourceRemoteCallHandler = class {
       3,  // ordinal
       chromecast.mojom.GestureSource_SetCanRightDrag_ParamsSpec,
       null,
-      [can_top_drag]);
+      [can_top_drag],
+      false);
   }
 
 };

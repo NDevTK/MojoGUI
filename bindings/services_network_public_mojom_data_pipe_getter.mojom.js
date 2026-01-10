@@ -72,7 +72,8 @@ network.mojom.DataPipeGetterRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DataPipeGetter_Read_ParamsSpec,
       network.mojom.DataPipeGetter_Read_ResponseParamsSpec,
-      [pipe]);
+      [pipe],
+      false);
   }
 
   clone(receiver) {
@@ -81,7 +82,8 @@ network.mojom.DataPipeGetterRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.DataPipeGetter_Clone_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

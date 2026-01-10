@@ -57,7 +57,8 @@ network.mojom.NetworkAnnotationMonitorRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec,
       null,
-      [hash_code]);
+      [hash_code],
+      false);
   }
 
 };

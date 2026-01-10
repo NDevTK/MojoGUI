@@ -107,7 +107,8 @@ content.mojom.MhtmlFileWriterRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec,
       content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
 };

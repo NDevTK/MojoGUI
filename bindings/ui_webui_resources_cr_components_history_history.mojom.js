@@ -271,7 +271,8 @@ history.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       history.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
   queryHistory(query, max_results, begin_time) {
@@ -280,7 +281,8 @@ history.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       history.mojom.PageHandler_QueryHistory_ParamsSpec,
       history.mojom.PageHandler_QueryHistory_ResponseParamsSpec,
-      [query, max_results, begin_time]);
+      [query, max_results, begin_time],
+      false);
   }
 
   queryHistoryContinuation() {
@@ -289,7 +291,8 @@ history.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec,
       history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   removeVisits(items) {
@@ -298,7 +301,8 @@ history.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       history.mojom.PageHandler_RemoveVisits_ParamsSpec,
       history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec,
-      [items]);
+      [items],
+      false);
   }
 
   openClearBrowsingDataDialog() {
@@ -307,7 +311,8 @@ history.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       history.mojom.PageHandler_OpenClearBrowsingDataDialog_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   removeBookmark(url) {
@@ -316,7 +321,8 @@ history.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       history.mojom.PageHandler_RemoveBookmark_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   setLastSelectedTab(last_tab) {
@@ -325,7 +331,8 @@ history.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec,
       null,
-      [last_tab]);
+      [last_tab],
+      false);
   }
 
   showSidePanelUI() {
@@ -334,7 +341,8 @@ history.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       history.mojom.PageHandler_ShowSidePanelUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   requestAccountInfo() {
@@ -343,7 +351,8 @@ history.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       history.mojom.PageHandler_RequestAccountInfo_ParamsSpec,
       history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   turnOnHistorySync() {
@@ -352,7 +361,8 @@ history.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   shouldShowHistoryPageHistorySyncPromo() {
@@ -361,7 +371,8 @@ history.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec,
       history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   recordHistoryPageHistorySyncPromoDismissed() {
@@ -370,7 +381,8 @@ history.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   incrementHistoryPageHistorySyncPromoShownCount() {
@@ -379,7 +391,8 @@ history.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -454,7 +467,8 @@ history.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       history.mojom.Page_OnHistoryDeleted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onHasOtherFormsChanged(has_other_forms) {
@@ -463,7 +477,8 @@ history.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec,
       null,
-      [has_other_forms]);
+      [has_other_forms],
+      false);
   }
 
   sendAccountInfo(account_info) {
@@ -472,7 +487,8 @@ history.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       history.mojom.Page_SendAccountInfo_ParamsSpec,
       null,
-      [account_info]);
+      [account_info],
+      false);
   }
 
 };

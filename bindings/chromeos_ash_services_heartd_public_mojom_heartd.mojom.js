@@ -130,7 +130,8 @@ ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
       0,  // ordinal
       ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   enableForceRebootAction() {
@@ -139,7 +140,8 @@ ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
       1,  // ordinal
       ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   runAction(action) {
@@ -148,7 +150,8 @@ ash.heartd.mojom.HeartdControlRemoteCallHandler = class {
       2,  // ordinal
       ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec,
       ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec,
-      [action]);
+      [action],
+      false);
   }
 
 };
@@ -220,7 +223,8 @@ ash.heartd.mojom.HeartbeatServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.heartd.mojom.HeartbeatService_Register_ParamsSpec,
       ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec,
-      [name, argument, receiver]);
+      [name, argument, receiver],
+      false);
   }
 
 };
@@ -299,7 +303,8 @@ ash.heartd.mojom.PacemakerRemoteCallHandler = class {
       0,  // ordinal
       ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec,
       ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   stopMonitor() {
@@ -308,7 +313,8 @@ ash.heartd.mojom.PacemakerRemoteCallHandler = class {
       1,  // ordinal
       ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec,
       ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

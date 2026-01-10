@@ -57,7 +57,8 @@ blink.mojom.DiskAllocatorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec,
       null,
-      [file]);
+      [file],
+      false);
   }
 
 };

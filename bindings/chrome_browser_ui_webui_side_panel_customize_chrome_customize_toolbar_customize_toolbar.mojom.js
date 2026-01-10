@@ -135,7 +135,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactoryRemoteCallHandle
       0,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarHandlerFactory_CreateCustomizeToolbarHandler_ParamsSpec,
       null,
-      [client, handler]);
+      [client, handler],
+      false);
   }
 
 };
@@ -238,7 +239,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
       0,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ParamsSpec,
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListActions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   listCategories() {
@@ -247,7 +249,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
       1,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ParamsSpec,
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ListCategories_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   pinAction(action_id, pinned) {
@@ -256,7 +259,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
       2,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_PinAction_ParamsSpec,
       null,
-      [action_id, pinned]);
+      [action_id, pinned],
+      false);
   }
 
   getIsCustomized() {
@@ -265,7 +269,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
       3,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ParamsSpec,
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_GetIsCustomized_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   resetToDefault() {
@@ -274,7 +279,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarHandlerRemoteCallHandler = cla
       4,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarHandler_ResetToDefault_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -344,7 +350,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientRemoteCallHandler = clas
       0,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarClient_SetActionPinned_ParamsSpec,
       null,
-      [action_id, pinned]);
+      [action_id, pinned],
+      false);
   }
 
   notifyActionsUpdated() {
@@ -353,7 +360,8 @@ side_panel.customize_chrome.mojom.CustomizeToolbarClientRemoteCallHandler = clas
       1,  // ordinal
       side_panel.customize_chrome.mojom.CustomizeToolbarClient_NotifyActionsUpdated_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

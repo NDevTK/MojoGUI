@@ -169,7 +169,8 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec,
       null,
-      [receiver, page]);
+      [receiver, page],
+      false);
   }
 
   createMahiUntrustedService(receiver, page, file_name) {
@@ -178,7 +179,8 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
       1,  // ordinal
       ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMahiUntrustedService_ParamsSpec,
       null,
-      [receiver, page, file_name]);
+      [receiver, page, file_name],
+      false);
   }
 
   isMantisAvailable() {
@@ -187,7 +189,8 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
       2,  // ordinal
       ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ParamsSpec,
       ash.media_app_ui.mojom.UntrustedServiceFactory_IsMantisAvailable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   createMantisUntrustedService(page, dlc_uuid) {
@@ -196,7 +199,8 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryRemoteCallHandler = class {
       3,  // ordinal
       ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ParamsSpec,
       ash.media_app_ui.mojom.UntrustedServiceFactory_CreateMantisUntrustedService_ResponseParamsSpec,
-      [page, dlc_uuid]);
+      [page, dlc_uuid],
+      false);
   }
 
 };
@@ -273,7 +277,8 @@ ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec,
       null,
-      [page_metadata]);
+      [page_metadata],
+      false);
   }
 
   pageContentsUpdated(dirty_page_id) {
@@ -282,7 +287,8 @@ ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.media_app_ui.mojom.OcrUntrustedService_PageContentsUpdated_ParamsSpec,
       null,
-      [dirty_page_id]);
+      [dirty_page_id],
+      false);
   }
 
   viewportUpdated(viewport_box, scale_factor) {
@@ -291,7 +297,8 @@ ash.media_app_ui.mojom.OcrUntrustedServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.media_app_ui.mojom.OcrUntrustedService_ViewportUpdated_ParamsSpec,
       null,
-      [viewport_box, scale_factor]);
+      [viewport_box, scale_factor],
+      false);
   }
 
 };
@@ -373,7 +380,8 @@ ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec,
       ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ResponseParamsSpec,
-      [requestedPageId]);
+      [requestedPageId],
+      false);
   }
 
   setViewport(viewport_box) {
@@ -382,7 +390,8 @@ ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler = class {
       1,  // ordinal
       ash.media_app_ui.mojom.OcrUntrustedPage_SetViewport_ParamsSpec,
       null,
-      [viewport_box]);
+      [viewport_box],
+      false);
   }
 
   setPdfOcrEnabled(enabled) {
@@ -391,7 +400,8 @@ ash.media_app_ui.mojom.OcrUntrustedPageRemoteCallHandler = class {
       2,  // ordinal
       ash.media_app_ui.mojom.OcrUntrustedPage_SetPdfOcrEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
 };
@@ -472,7 +482,8 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onPdfFileNameUpdated(new_name) {
@@ -481,7 +492,8 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.media_app_ui.mojom.MahiUntrustedService_OnPdfFileNameUpdated_ParamsSpec,
       null,
-      [new_name]);
+      [new_name],
+      false);
   }
 
   onPdfContextMenuShow(anchor, selected_text) {
@@ -490,7 +502,8 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuShow_ParamsSpec,
       null,
-      [anchor, selected_text]);
+      [anchor, selected_text],
+      false);
   }
 
   onPdfContextMenuHide() {
@@ -499,7 +512,8 @@ ash.media_app_ui.mojom.MahiUntrustedServiceRemoteCallHandler = class {
       3,  // ordinal
       ash.media_app_ui.mojom.MahiUntrustedService_OnPdfContextMenuHide_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -574,7 +588,8 @@ ash.media_app_ui.mojom.MahiUntrustedPageRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getPdfContent(limit) {
@@ -583,7 +598,8 @@ ash.media_app_ui.mojom.MahiUntrustedPageRemoteCallHandler = class {
       1,  // ordinal
       ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ParamsSpec,
       ash.media_app_ui.mojom.MahiUntrustedPage_GetPdfContent_ResponseParamsSpec,
-      [limit]);
+      [limit],
+      false);
   }
 
 };
@@ -721,7 +737,8 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec,
       ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ResponseParamsSpec,
-      [image, selection]);
+      [image, selection],
+      false);
   }
 
   generativeFillImage(image, mask, text, seed) {
@@ -730,7 +747,8 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ParamsSpec,
       ash.media_app_ui.mojom.MantisUntrustedService_GenerativeFillImage_ResponseParamsSpec,
-      [image, mask, text, seed]);
+      [image, mask, text, seed],
+      false);
   }
 
   inpaintImage(image, mask, seed) {
@@ -739,7 +757,8 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ParamsSpec,
       ash.media_app_ui.mojom.MantisUntrustedService_InpaintImage_ResponseParamsSpec,
-      [image, mask, seed]);
+      [image, mask, seed],
+      false);
   }
 
   outpaintImage(image, mask, seed) {
@@ -748,7 +767,8 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
       3,  // ordinal
       ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ParamsSpec,
       ash.media_app_ui.mojom.MantisUntrustedService_OutpaintImage_ResponseParamsSpec,
-      [image, mask, seed]);
+      [image, mask, seed],
+      false);
   }
 
   classifyImageSafety(image) {
@@ -757,7 +777,8 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
       4,  // ordinal
       ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ParamsSpec,
       ash.media_app_ui.mojom.MantisUntrustedService_ClassifyImageSafety_ResponseParamsSpec,
-      [image]);
+      [image],
+      false);
   }
 
   inferSegmentationMode(gesture) {
@@ -766,7 +787,8 @@ ash.media_app_ui.mojom.MantisUntrustedServiceRemoteCallHandler = class {
       5,  // ordinal
       ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ParamsSpec,
       ash.media_app_ui.mojom.MantisUntrustedService_InferSegmentationMode_ResponseParamsSpec,
-      [gesture]);
+      [gesture],
+      false);
   }
 
 };
@@ -830,7 +852,8 @@ ash.media_app_ui.mojom.MantisUntrustedPageRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec,
       null,
-      [progress]);
+      [progress],
+      false);
   }
 
 };

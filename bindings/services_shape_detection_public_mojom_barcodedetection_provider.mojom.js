@@ -80,7 +80,8 @@ shape_detection.mojom.BarcodeDetectionProviderRemoteCallHandler = class {
       0,  // ordinal
       shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec,
       null,
-      [receiver, options]);
+      [receiver, options],
+      false);
   }
 
   enumerateSupportedFormats() {
@@ -89,7 +90,8 @@ shape_detection.mojom.BarcodeDetectionProviderRemoteCallHandler = class {
       1,  // ordinal
       shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec,
       shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

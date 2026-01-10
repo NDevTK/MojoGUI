@@ -82,7 +82,8 @@ arc.mojom.OnDeviceSafetyHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ParamsSpec,
       arc.mojom.OnDeviceSafetyHost_IsCrosSafetyServiceEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -163,7 +164,8 @@ arc.mojom.OnDeviceSafetyInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ParamsSpec,
       arc.mojom.OnDeviceSafetyInstance_GetArcSafetySession_ResponseParamsSpec,
-      [session]);
+      [session],
+      false);
   }
 
   init(host_remote) {
@@ -172,7 +174,8 @@ arc.mojom.OnDeviceSafetyInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.OnDeviceSafetyInstance_Init_ParamsSpec,
       arc.mojom.OnDeviceSafetyInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

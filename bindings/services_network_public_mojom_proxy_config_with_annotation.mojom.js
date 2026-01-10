@@ -87,7 +87,8 @@ network.mojom.ProxyConfigClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ProxyConfigClient_OnProxyConfigUpdated_ParamsSpec,
       null,
-      [proxy_config]);
+      [proxy_config],
+      false);
   }
 
   flushProxyConfig() {
@@ -96,7 +97,8 @@ network.mojom.ProxyConfigClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.ProxyConfigClient_FlushProxyConfig_ParamsSpec,
       network.mojom.ProxyConfigClient_FlushProxyConfig_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -159,7 +161,8 @@ network.mojom.ProxyConfigPollerClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ProxyConfigPollerClient_OnLazyProxyConfigPoll_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -230,7 +233,8 @@ network.mojom.ProxyErrorClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ProxyErrorClient_OnPACScriptError_ParamsSpec,
       null,
-      [line_number, details]);
+      [line_number, details],
+      false);
   }
 
   onRequestMaybeFailedDueToProxySettings(net_error) {
@@ -239,7 +243,8 @@ network.mojom.ProxyErrorClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.ProxyErrorClient_OnRequestMaybeFailedDueToProxySettings_ParamsSpec,
       null,
-      [net_error]);
+      [net_error],
+      false);
   }
 
 };

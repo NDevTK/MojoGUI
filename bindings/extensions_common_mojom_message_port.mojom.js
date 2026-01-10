@@ -171,7 +171,8 @@ extensions.mojom.MessagePortRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.MessagePort_DispatchDisconnect_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
   deliverMessage(message) {
@@ -180,7 +181,8 @@ extensions.mojom.MessagePortRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.MessagePort_DeliverMessage_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };
@@ -256,7 +258,8 @@ extensions.mojom.MessagePortHostRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.MessagePortHost_ClosePort_ParamsSpec,
       null,
-      [close_channel, error_message]);
+      [close_channel, error_message],
+      false);
   }
 
   postMessage(message) {
@@ -265,7 +268,8 @@ extensions.mojom.MessagePortHostRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.MessagePortHost_PostMessage_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
   responsePending() {
@@ -274,7 +278,8 @@ extensions.mojom.MessagePortHostRemoteCallHandler = class {
       2,  // ordinal
       extensions.mojom.MessagePortHost_ResponsePending_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

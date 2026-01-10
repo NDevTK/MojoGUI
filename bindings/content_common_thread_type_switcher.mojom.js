@@ -58,7 +58,8 @@ content.mojom.ThreadTypeSwitcherRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec,
       null,
-      [platform_thread_id, thread_type]);
+      [platform_thread_id, thread_type],
+      false);
   }
 
 };

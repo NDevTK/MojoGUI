@@ -95,7 +95,8 @@ ash.personalization_app.mojom.SearchResultsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -172,7 +173,8 @@ ash.personalization_app.mojom.SearchHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.SearchHandler_Search_ParamsSpec,
       ash.personalization_app.mojom.SearchHandler_Search_ResponseParamsSpec,
-      [query, max_num_results]);
+      [query, max_num_results],
+      false);
   }
 
   addObserver(observer) {
@@ -181,7 +183,8 @@ ash.personalization_app.mojom.SearchHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.SearchHandler_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

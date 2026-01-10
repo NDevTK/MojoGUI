@@ -71,7 +71,8 @@ watermark.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -140,7 +141,8 @@ watermark.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec,
       null,
-      [style]);
+      [style],
+      false);
   }
 
   showNotificationToast() {
@@ -149,7 +151,8 @@ watermark.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

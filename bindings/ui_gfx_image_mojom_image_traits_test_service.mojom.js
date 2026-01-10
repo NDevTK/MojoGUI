@@ -80,7 +80,8 @@ gfx.mojom.ImageTraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ParamsSpec,
       gfx.mojom.ImageTraitsTestService_EchoImageSkiaRep_ResponseParamsSpec,
-      [in]);
+      [in],
+      false);
   }
 
   echoImageSkia(in) {
@@ -89,7 +90,8 @@ gfx.mojom.ImageTraitsTestServiceRemoteCallHandler = class {
       1,  // ordinal
       gfx.mojom.ImageTraitsTestService_EchoImageSkia_ParamsSpec,
       gfx.mojom.ImageTraitsTestService_EchoImageSkia_ResponseParamsSpec,
-      [in]);
+      [in],
+      false);
   }
 
 };

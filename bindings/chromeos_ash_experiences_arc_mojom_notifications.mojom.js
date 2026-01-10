@@ -143,7 +143,7 @@ mojo.internal.Struct(
 // Struct: ArcNotificationFlags
 mojo.internal.Struct(
     arc.mojom.ArcNotificationFlagsSpec, 'arc.mojom.ArcNotificationFlags', [
-      mojo.internal.StructField('SUPPORT_SNOOZE', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('SUPPORT_SNOOZE', 0, 0, mojo.internal.Pointer, 1, false, 0, undefined),
       mojo.internal.StructField('value', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -323,7 +323,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   onNotificationPosted(notification_data) {
@@ -332,7 +333,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.NotificationsHost_OnNotificationPosted_ParamsSpec,
       null,
-      [notification_data]);
+      [notification_data],
+      false);
   }
 
   onNotificationRemoved(key) {
@@ -341,7 +343,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.NotificationsHost_OnNotificationRemoved_ParamsSpec,
       null,
-      [key]);
+      [key],
+      false);
   }
 
   onNotificationUpdated(notification_data) {
@@ -350,7 +353,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.NotificationsHost_OnNotificationUpdated_ParamsSpec,
       null,
-      [notification_data]);
+      [notification_data],
+      false);
   }
 
   openMessageCenter() {
@@ -359,7 +363,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.NotificationsHost_OpenMessageCenter_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   closeMessageCenter() {
@@ -368,7 +373,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.NotificationsHost_CloseMessageCenter_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   processUserAction(data) {
@@ -377,7 +383,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.NotificationsHost_ProcessUserAction_ParamsSpec,
       null,
-      [data]);
+      [data],
+      false);
   }
 
   onLockScreenSettingUpdated(setting) {
@@ -386,7 +393,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.NotificationsHost_OnLockScreenSettingUpdated_ParamsSpec,
       null,
-      [setting]);
+      [setting],
+      false);
   }
 
   logInlineReplySent(key) {
@@ -395,7 +403,8 @@ arc.mojom.NotificationsHostRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.NotificationsHost_LogInlineReplySent_ParamsSpec,
       null,
-      [key]);
+      [key],
+      false);
   }
 
 };
@@ -551,7 +560,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.NotificationsInstance_Init_ParamsSpec,
       arc.mojom.NotificationsInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   sendNotificationEventToAndroid(key, event) {
@@ -560,7 +570,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.NotificationsInstance_SendNotificationEventToAndroid_ParamsSpec,
       null,
-      [key, event]);
+      [key, event],
+      false);
   }
 
   createNotificationWindow(key) {
@@ -569,7 +580,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.NotificationsInstance_CreateNotificationWindow_ParamsSpec,
       null,
-      [key]);
+      [key],
+      false);
   }
 
   closeNotificationWindow(key) {
@@ -578,7 +590,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.NotificationsInstance_CloseNotificationWindow_ParamsSpec,
       null,
-      [key]);
+      [key],
+      false);
   }
 
   openNotificationSettings(key) {
@@ -587,7 +600,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.NotificationsInstance_OpenNotificationSettings_ParamsSpec,
       null,
-      [key]);
+      [key],
+      false);
   }
 
   openNotificationSnoozeSettings(key) {
@@ -596,7 +610,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.NotificationsInstance_OpenNotificationSnoozeSettings_ParamsSpec,
       null,
-      [key]);
+      [key],
+      false);
   }
 
   setDoNotDisturbStatusOnAndroid(status) {
@@ -605,7 +620,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.NotificationsInstance_SetDoNotDisturbStatusOnAndroid_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   cancelPress(key) {
@@ -614,7 +630,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.NotificationsInstance_CancelPress_ParamsSpec,
       null,
-      [key]);
+      [key],
+      false);
   }
 
   performDeferredUserAction(action_id) {
@@ -623,7 +640,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.NotificationsInstance_PerformDeferredUserAction_ParamsSpec,
       null,
-      [action_id]);
+      [action_id],
+      false);
   }
 
   cancelDeferredUserAction(action_id) {
@@ -632,7 +650,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.NotificationsInstance_CancelDeferredUserAction_ParamsSpec,
       null,
-      [action_id]);
+      [action_id],
+      false);
   }
 
   setLockScreenSettingOnAndroid(setting) {
@@ -641,7 +660,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.NotificationsInstance_SetLockScreenSettingOnAndroid_ParamsSpec,
       null,
-      [setting]);
+      [setting],
+      false);
   }
 
   setNotificationConfiguration(configuration) {
@@ -650,7 +670,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       12,  // ordinal
       arc.mojom.NotificationsInstance_SetNotificationConfiguration_ParamsSpec,
       null,
-      [configuration]);
+      [configuration],
+      false);
   }
 
   onMessageCenterVisibilityChanged(visibility) {
@@ -659,7 +680,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       13,  // ordinal
       arc.mojom.NotificationsInstance_OnMessageCenterVisibilityChanged_ParamsSpec,
       null,
-      [visibility]);
+      [visibility],
+      false);
   }
 
   sendNotificationButtonClickToAndroid(key, action_button_index, input) {
@@ -668,7 +690,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       14,  // ordinal
       arc.mojom.NotificationsInstance_SendNotificationButtonClickToAndroid_ParamsSpec,
       null,
-      [key, action_button_index, input]);
+      [key, action_button_index, input],
+      false);
   }
 
   popUpAppNotificationSettings(key) {
@@ -677,7 +700,8 @@ arc.mojom.NotificationsInstanceRemoteCallHandler = class {
       15,  // ordinal
       arc.mojom.NotificationsInstance_PopUpAppNotificationSettings_ParamsSpec,
       null,
-      [key]);
+      [key],
+      false);
   }
 
 };

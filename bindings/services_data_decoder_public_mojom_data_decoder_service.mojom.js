@@ -106,7 +106,8 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
       0,  // ordinal
       data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindXmlParser(reciever) {
@@ -115,7 +116,8 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
       1,  // ordinal
       data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec,
       null,
-      [reciever]);
+      [reciever],
+      false);
   }
 
   bindWebBundleParserFactory(receiver) {
@@ -124,7 +126,8 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
       2,  // ordinal
       data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindGzipper(receiver) {
@@ -133,7 +136,8 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
       3,  // ordinal
       data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindStructuredHeadersParser(receiver) {
@@ -142,7 +146,8 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
       4,  // ordinal
       data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindCborParser(receiver) {
@@ -151,7 +156,8 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
       5,  // ordinal
       data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindPixCodeValidator(receiver) {
@@ -160,7 +166,8 @@ data_decoder.mojom.DataDecoderServiceRemoteCallHandler = class {
       6,  // ordinal
       data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

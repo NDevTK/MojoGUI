@@ -106,7 +106,8 @@ batch_upload.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       batch_upload.mojom.PageHandlerFactory_CreateBatchUploadHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -181,7 +182,8 @@ batch_upload.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       batch_upload.mojom.PageHandler_UpdateViewHeight_ParamsSpec,
       null,
-      [height]);
+      [height],
+      false);
   }
 
   saveToAccount(idsToMove) {
@@ -190,7 +192,8 @@ batch_upload.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       batch_upload.mojom.PageHandler_SaveToAccount_ParamsSpec,
       null,
-      [idsToMove]);
+      [idsToMove],
+      false);
   }
 
   close() {
@@ -199,7 +202,8 @@ batch_upload.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       batch_upload.mojom.PageHandler_Close_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -263,7 +267,8 @@ batch_upload.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       batch_upload.mojom.Page_SendBatchUploadData_ParamsSpec,
       null,
-      [data]);
+      [data],
+      false);
   }
 
 };

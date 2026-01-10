@@ -109,7 +109,8 @@ media.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ParamsSpec,
       media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementScoreDetails_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getMediaEngagementConfig() {
@@ -118,7 +119,8 @@ media.mojom.MediaEngagementScoreDetailsProviderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ParamsSpec,
       media.mojom.MediaEngagementScoreDetailsProvider_GetMediaEngagementConfig_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

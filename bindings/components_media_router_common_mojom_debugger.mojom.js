@@ -77,7 +77,8 @@ media_router.mojom.DebuggerRemoteCallHandler = class {
       0,  // ordinal
       media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec,
       media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onMirroringStats(json_stats) {
@@ -86,7 +87,8 @@ media_router.mojom.DebuggerRemoteCallHandler = class {
       1,  // ordinal
       media_router.mojom.Debugger_OnMirroringStats_ParamsSpec,
       null,
-      [json_stats]);
+      [json_stats],
+      false);
   }
 
   bindReceiver(receiver) {
@@ -95,7 +97,8 @@ media_router.mojom.DebuggerRemoteCallHandler = class {
       2,  // ordinal
       media_router.mojom.Debugger_BindReceiver_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

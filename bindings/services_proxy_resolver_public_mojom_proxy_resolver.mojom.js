@@ -128,7 +128,8 @@ proxy_resolver.mojom.HostResolverRequestClientRemoteCallHandler = class {
       0,  // ordinal
       proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec,
       null,
-      [error, result]);
+      [error, result],
+      false);
   }
 
 };
@@ -194,7 +195,8 @@ proxy_resolver.mojom.ProxyResolverRemoteCallHandler = class {
       0,  // ordinal
       proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec,
       null,
-      [url, network_anonymization_key, client]);
+      [url, network_anonymization_key, client],
+      false);
   }
 
 };
@@ -281,7 +283,8 @@ proxy_resolver.mojom.ProxyResolverRequestClientRemoteCallHandler = class {
       0,  // ordinal
       proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec,
       null,
-      [error, proxy_info]);
+      [error, proxy_info],
+      false);
   }
 
   alert(error) {
@@ -290,7 +293,8 @@ proxy_resolver.mojom.ProxyResolverRequestClientRemoteCallHandler = class {
       1,  // ordinal
       proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
   onError(line_number, error) {
@@ -299,7 +303,8 @@ proxy_resolver.mojom.ProxyResolverRequestClientRemoteCallHandler = class {
       2,  // ordinal
       proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec,
       null,
-      [line_number, error]);
+      [line_number, error],
+      false);
   }
 
   resolveDns(host, operation, network_anonymization_key, client) {
@@ -308,7 +313,8 @@ proxy_resolver.mojom.ProxyResolverRequestClientRemoteCallHandler = class {
       3,  // ordinal
       proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec,
       null,
-      [host, operation, network_anonymization_key, client]);
+      [host, operation, network_anonymization_key, client],
+      false);
   }
 
 };
@@ -374,7 +380,8 @@ proxy_resolver.mojom.ProxyResolverFactoryRemoteCallHandler = class {
       0,  // ordinal
       proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec,
       null,
-      [pac_script, receiver, client]);
+      [pac_script, receiver, client],
+      false);
   }
 
 };
@@ -460,7 +467,8 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemoteCallHandler = class 
       0,  // ordinal
       proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
   alert(error) {
@@ -469,7 +477,8 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemoteCallHandler = class 
       1,  // ordinal
       proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
   onError(line_number, error) {
@@ -478,7 +487,8 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemoteCallHandler = class 
       2,  // ordinal
       proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec,
       null,
-      [line_number, error]);
+      [line_number, error],
+      false);
   }
 
   resolveDns(host, operation, network_anonymization_key, client) {
@@ -487,7 +497,8 @@ proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemoteCallHandler = class 
       3,  // ordinal
       proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec,
       null,
-      [host, operation, network_anonymization_key, client]);
+      [host, operation, network_anonymization_key, client],
+      false);
   }
 
 };
@@ -558,7 +569,8 @@ proxy_resolver.mojom.SystemProxyResolverRemoteCallHandler = class {
       0,  // ordinal
       proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec,
       proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
 };

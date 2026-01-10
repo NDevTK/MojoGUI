@@ -56,7 +56,8 @@ chrome.mojom.SandboxStatusExtensionRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -79,7 +79,8 @@ pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec,
       null,
-      [image, page_index]);
+      [image, page_index],
+      false);
   }
 
   deletePage(page_index) {
@@ -88,7 +89,8 @@ pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
       1,  // ordinal
       pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec,
       null,
-      [page_index]);
+      [page_index],
+      false);
   }
 
   save() {
@@ -97,7 +99,8 @@ pdf.mojom.PdfProgressiveSearchifierRemoteCallHandler = class {
       2,  // ordinal
       pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec,
       pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

@@ -91,7 +91,8 @@ ash.local_search_service.mojom.SearchMetricsReporterRemoteCallHandler = class {
       0,  // ordinal
       ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec,
       ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec,
-      [index_id]);
+      [index_id],
+      false);
   }
 
 };
@@ -164,7 +165,8 @@ ash.local_search_service.mojom.LocalSearchServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec,
       ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec,
-      [index_id, backend, index_receiver, reporter_remote]);
+      [index_id, backend, index_receiver, reporter_remote],
+      false);
   }
 
 };

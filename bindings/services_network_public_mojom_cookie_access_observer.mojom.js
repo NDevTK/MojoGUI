@@ -84,7 +84,8 @@ network.mojom.CookieAccessObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec,
       null,
-      [details]);
+      [details],
+      false);
   }
 
   clone(listener) {
@@ -93,7 +94,8 @@ network.mojom.CookieAccessObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.CookieAccessObserver_Clone_ParamsSpec,
       null,
-      [listener]);
+      [listener],
+      false);
   }
 
 };

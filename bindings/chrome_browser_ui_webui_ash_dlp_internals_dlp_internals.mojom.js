@@ -143,14 +143,14 @@ mojo.internal.Struct(
 // Struct: EventDestination
 mojo.internal.Struct(
     dlp_internals.mojom.EventDestinationSpec, 'dlp_internals.mojom.EventDestination', [
-      mojo.internal.StructField('kUndefinedComponent', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUndefinedComponent', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: DlpEvent
 mojo.internal.Struct(
     dlp_internals.mojom.DlpEventSpec, 'dlp_internals.mojom.DlpEvent', [
-      mojo.internal.StructField('kUndefinedRestriction', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUndefinedRestriction', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -211,7 +211,8 @@ dlp_internals.mojom.ReportingObserverRemoteCallHandler = class {
       0,  // ordinal
       dlp_internals.mojom.ReportingObserver_OnReportEvent_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
 };
@@ -320,7 +321,8 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       dlp_internals.mojom.PageHandler_GetClipboardDataSource_ParamsSpec,
       dlp_internals.mojom.PageHandler_GetClipboardDataSource_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getContentRestrictionsInfo() {
@@ -329,7 +331,8 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ParamsSpec,
       dlp_internals.mojom.PageHandler_GetContentRestrictionsInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   observeReporting(observer) {
@@ -338,7 +341,8 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       dlp_internals.mojom.PageHandler_ObserveReporting_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   getFilesDatabaseEntries() {
@@ -347,7 +351,8 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ParamsSpec,
       dlp_internals.mojom.PageHandler_GetFilesDatabaseEntries_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getFileInode(file_name) {
@@ -356,7 +361,8 @@ dlp_internals.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       dlp_internals.mojom.PageHandler_GetFileInode_ParamsSpec,
       dlp_internals.mojom.PageHandler_GetFileInode_ResponseParamsSpec,
-      [file_name]);
+      [file_name],
+      false);
   }
 
 };

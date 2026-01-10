@@ -78,7 +78,8 @@ blink.mojom.AudioContextManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStarted_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   audioContextAudiblePlaybackStopped(id) {
@@ -87,7 +88,8 @@ blink.mojom.AudioContextManagerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AudioContextManager_AudioContextAudiblePlaybackStopped_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   audioContextCreated(id) {
@@ -96,7 +98,8 @@ blink.mojom.AudioContextManagerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AudioContextManager_AudioContextCreated_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   audioContextClosed(id) {
@@ -105,7 +108,8 @@ blink.mojom.AudioContextManagerRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.AudioContextManager_AudioContextClosed_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
 };

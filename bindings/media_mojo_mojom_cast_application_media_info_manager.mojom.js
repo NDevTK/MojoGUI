@@ -73,7 +73,8 @@ media.mojom.CastApplicationMediaInfoManagerRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec,
       media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

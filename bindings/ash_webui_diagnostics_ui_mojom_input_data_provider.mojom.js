@@ -147,7 +147,8 @@ ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.KeyboardObserver_OnKeyEvent_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
   onKeyEventsPaused() {
@@ -156,7 +157,8 @@ ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsPaused_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onKeyEventsResumed() {
@@ -165,7 +167,8 @@ ash.diagnostics.mojom.KeyboardObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.diagnostics.mojom.KeyboardObserver_OnKeyEventsResumed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -229,7 +232,8 @@ ash.diagnostics.mojom.InternalDisplayPowerStateObserverRemoteCallHandler = class
       0,  // ordinal
       ash.diagnostics.mojom.InternalDisplayPowerStateObserver_OnInternalDisplayPowerStateChanged_ParamsSpec,
       null,
-      [is_display_on]);
+      [is_display_on],
+      false);
   }
 
 };
@@ -293,7 +297,8 @@ ash.diagnostics.mojom.TabletModeObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec,
       null,
-      [is_tablet_mode]);
+      [is_tablet_mode],
+      false);
   }
 
 };
@@ -357,7 +362,8 @@ ash.diagnostics.mojom.LidStateObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec,
       null,
-      [is_lid_open]);
+      [is_lid_open],
+      false);
   }
 
 };
@@ -439,7 +445,8 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardConnected_ParamsSpec,
       null,
-      [new_keyboard]);
+      [new_keyboard],
+      false);
   }
 
   onKeyboardDisconnected(id) {
@@ -448,7 +455,8 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.diagnostics.mojom.ConnectedDevicesObserver_OnKeyboardDisconnected_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   onTouchDeviceConnected(new_touch_device) {
@@ -457,7 +465,8 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceConnected_ParamsSpec,
       null,
-      [new_touch_device]);
+      [new_touch_device],
+      false);
   }
 
   onTouchDeviceDisconnected(id) {
@@ -466,7 +475,8 @@ ash.diagnostics.mojom.ConnectedDevicesObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.diagnostics.mojom.ConnectedDevicesObserver_OnTouchDeviceDisconnected_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
 };
@@ -595,7 +605,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ParamsSpec,
       ash.diagnostics.mojom.InputDataProvider_GetConnectedDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   observeConnectedDevices(observer) {
@@ -604,7 +615,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_ObserveConnectedDevices_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeKeyEvents(id, observer) {
@@ -613,7 +625,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_ObserveKeyEvents_ParamsSpec,
       null,
-      [id, observer]);
+      [id, observer],
+      false);
   }
 
   observeTabletMode(observer) {
@@ -622,7 +635,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ParamsSpec,
       ash.diagnostics.mojom.InputDataProvider_ObserveTabletMode_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeLidState(observer) {
@@ -631,7 +645,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ParamsSpec,
       ash.diagnostics.mojom.InputDataProvider_ObserveLidState_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeInternalDisplayPowerState(observer) {
@@ -640,7 +655,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_ObserveInternalDisplayPowerState_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   moveAppToTestingScreen(evdev_id) {
@@ -649,7 +665,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_MoveAppToTestingScreen_ParamsSpec,
       null,
-      [evdev_id]);
+      [evdev_id],
+      false);
   }
 
   moveAppBackToPreviousScreen() {
@@ -658,7 +675,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_MoveAppBackToPreviousScreen_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setA11yTouchPassthrough(enabled) {
@@ -667,7 +685,8 @@ ash.diagnostics.mojom.InputDataProviderRemoteCallHandler = class {
       8,  // ordinal
       ash.diagnostics.mojom.InputDataProvider_SetA11yTouchPassthrough_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
 };

@@ -85,7 +85,8 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.AutomationClient_Enable_ParamsSpec,
       ax.mojom.AutomationClient_Enable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   disable() {
@@ -94,7 +95,8 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.AutomationClient_Disable_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   enableChildTree(tree_id) {
@@ -103,7 +105,8 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
       2,  // ordinal
       ax.mojom.AutomationClient_EnableChildTree_ParamsSpec,
       null,
-      [tree_id]);
+      [tree_id],
+      false);
   }
 
   performAction(action_data) {
@@ -112,7 +115,8 @@ ax.mojom.AutomationClientRemoteCallHandler = class {
       3,  // ordinal
       ax.mojom.AutomationClient_PerformAction_ParamsSpec,
       null,
-      [action_data]);
+      [action_data],
+      false);
   }
 
 };

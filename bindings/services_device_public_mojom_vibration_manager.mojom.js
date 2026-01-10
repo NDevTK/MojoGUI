@@ -78,7 +78,8 @@ device.mojom.VibrationManagerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.VibrationManager_Vibrate_ParamsSpec,
       device.mojom.VibrationManager_Vibrate_ResponseParamsSpec,
-      [milliseconds]);
+      [milliseconds],
+      false);
   }
 
   cancel() {
@@ -87,7 +88,8 @@ device.mojom.VibrationManagerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.VibrationManager_Cancel_ParamsSpec,
       device.mojom.VibrationManager_Cancel_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -150,7 +152,8 @@ device.mojom.VibrationManagerListenerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

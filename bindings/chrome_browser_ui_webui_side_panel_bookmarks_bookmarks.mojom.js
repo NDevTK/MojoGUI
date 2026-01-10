@@ -141,7 +141,8 @@ side_panel.mojom.BookmarksPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       side_panel.mojom.BookmarksPageHandlerFactory_CreateBookmarksPageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -374,7 +375,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       side_panel.mojom.BookmarksPageHandler_BookmarkCurrentTabInFolder_ParamsSpec,
       null,
-      [folder_id]);
+      [folder_id],
+      false);
   }
 
   createFolder(folder_id, title) {
@@ -383,7 +385,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       side_panel.mojom.BookmarksPageHandler_CreateFolder_ParamsSpec,
       side_panel.mojom.BookmarksPageHandler_CreateFolder_ResponseParamsSpec,
-      [folder_id, title]);
+      [folder_id, title],
+      false);
   }
 
   dropBookmarks(folder_id) {
@@ -392,7 +395,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       side_panel.mojom.BookmarksPageHandler_DropBookmarks_ParamsSpec,
       side_panel.mojom.BookmarksPageHandler_DropBookmarks_ResponseParamsSpec,
-      [folder_id]);
+      [folder_id],
+      false);
   }
 
   executeEditCommand(node_ids, source) {
@@ -401,7 +405,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteEditCommand_ParamsSpec,
       null,
-      [node_ids, source]);
+      [node_ids, source],
+      false);
   }
 
   executeMoveCommand(node_ids, source) {
@@ -410,7 +415,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteMoveCommand_ParamsSpec,
       null,
-      [node_ids, source]);
+      [node_ids, source],
+      false);
   }
 
   executeOpenInNewTabCommand(side_panel_ids, source) {
@@ -419,7 +425,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       5,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabCommand_ParamsSpec,
       null,
-      [side_panel_ids, source]);
+      [side_panel_ids, source],
+      false);
   }
 
   executeOpenInNewWindowCommand(side_panel_ids, source) {
@@ -428,7 +435,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       6,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewWindowCommand_ParamsSpec,
       null,
-      [side_panel_ids, source]);
+      [side_panel_ids, source],
+      false);
   }
 
   executeOpenInIncognitoWindowCommand(side_panel_ids, source) {
@@ -437,7 +445,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       7,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteOpenInIncognitoWindowCommand_ParamsSpec,
       null,
-      [side_panel_ids, source]);
+      [side_panel_ids, source],
+      false);
   }
 
   executeOpenInNewTabGroupCommand(side_panel_ids, source) {
@@ -446,7 +455,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       8,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteOpenInNewTabGroupCommand_ParamsSpec,
       null,
-      [side_panel_ids, source]);
+      [side_panel_ids, source],
+      false);
   }
 
   executeOpenInSplitViewCommand(node_ids, source) {
@@ -455,7 +465,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       9,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteOpenInSplitViewCommand_ParamsSpec,
       null,
-      [node_ids, source]);
+      [node_ids, source],
+      false);
   }
 
   executeAddToBookmarksBarCommand(node_id, source) {
@@ -464,7 +475,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       10,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteAddToBookmarksBarCommand_ParamsSpec,
       null,
-      [node_id, source]);
+      [node_id, source],
+      false);
   }
 
   executeRemoveFromBookmarksBarCommand(node_id, source) {
@@ -473,7 +485,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       11,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteRemoveFromBookmarksBarCommand_ParamsSpec,
       null,
-      [node_id, source]);
+      [node_id, source],
+      false);
   }
 
   executeDeleteCommand(node_ids, source) {
@@ -482,7 +495,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       12,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ExecuteDeleteCommand_ParamsSpec,
       null,
-      [node_ids, source]);
+      [node_ids, source],
+      false);
   }
 
   openBookmark(node_id, parent_folder_depth, click_modifiers, source) {
@@ -491,7 +505,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       13,  // ordinal
       side_panel.mojom.BookmarksPageHandler_OpenBookmark_ParamsSpec,
       null,
-      [node_id, parent_folder_depth, click_modifiers, source]);
+      [node_id, parent_folder_depth, click_modifiers, source],
+      false);
   }
 
   undo() {
@@ -500,7 +515,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       14,  // ordinal
       side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   renameBookmark(node_id, new_title) {
@@ -509,7 +525,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       15,  // ordinal
       side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec,
       null,
-      [node_id, new_title]);
+      [node_id, new_title],
+      false);
   }
 
   moveBookmark(node_id, folder_id) {
@@ -518,7 +535,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       16,  // ordinal
       side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec,
       null,
-      [node_id, folder_id]);
+      [node_id, folder_id],
+      false);
   }
 
   removeBookmarks(node_ids) {
@@ -527,7 +545,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       17,  // ordinal
       side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec,
       side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ResponseParamsSpec,
-      [node_ids]);
+      [node_ids],
+      false);
   }
 
   setSortOrder(sort_order) {
@@ -536,7 +555,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       18,  // ordinal
       side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec,
       null,
-      [sort_order]);
+      [sort_order],
+      false);
   }
 
   setViewType(view_type) {
@@ -545,7 +565,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       19,  // ordinal
       side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec,
       null,
-      [view_type]);
+      [view_type],
+      false);
   }
 
   showContextMenu(id, point, source) {
@@ -554,7 +575,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       20,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec,
       null,
-      [id, point, source]);
+      [id, point, source],
+      false);
   }
 
   showUI() {
@@ -563,7 +585,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       21,  // ordinal
       side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getAllBookmarks() {
@@ -572,7 +595,8 @@ side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = class {
       22,  // ordinal
       side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec,
       side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -666,7 +690,8 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       0,  // ordinal
       side_panel.mojom.BookmarksPage_OnBookmarkNodeAdded_ParamsSpec,
       null,
-      [node]);
+      [node],
+      false);
   }
 
   onBookmarkNodesRemoved(node_ids) {
@@ -675,7 +700,8 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       1,  // ordinal
       side_panel.mojom.BookmarksPage_OnBookmarkNodesRemoved_ParamsSpec,
       null,
-      [node_ids]);
+      [node_ids],
+      false);
   }
 
   onBookmarkParentFolderChildrenReordered(folder_id, children_ordered_ids) {
@@ -684,7 +710,8 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       2,  // ordinal
       side_panel.mojom.BookmarksPage_OnBookmarkParentFolderChildrenReordered_ParamsSpec,
       null,
-      [folder_id, children_ordered_ids]);
+      [folder_id, children_ordered_ids],
+      false);
   }
 
   onBookmarkNodeMoved(old_parent_index, old_node_index, new_parent_index, new_node_index) {
@@ -693,7 +720,8 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       3,  // ordinal
       side_panel.mojom.BookmarksPage_OnBookmarkNodeMoved_ParamsSpec,
       null,
-      [old_parent_index, old_node_index, new_parent_index, new_node_index]);
+      [old_parent_index, old_node_index, new_parent_index, new_node_index],
+      false);
   }
 
   onBookmarkNodeChanged(id, new_title, new_url) {
@@ -702,7 +730,8 @@ side_panel.mojom.BookmarksPageRemoteCallHandler = class {
       4,  // ordinal
       side_panel.mojom.BookmarksPage_OnBookmarkNodeChanged_ParamsSpec,
       null,
-      [id, new_title, new_url]);
+      [id, new_title, new_url],
+      false);
   }
 
 };

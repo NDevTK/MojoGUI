@@ -16,6 +16,6 @@ blink.mojom.ReferrerSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.ReferrerSpec, 'blink.mojom.Referrer', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('policy', 8, 0, network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy', 8, 0, network.mojom.ReferrerPolicySpec, 0, false, 0, undefined),
     ],
     [[0, 24]]);

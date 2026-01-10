@@ -128,7 +128,8 @@ network.mojom.ObliviousHttpClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ObliviousHttpClient_OnCompleted_ParamsSpec,
       null,
-      [response]);
+      [response],
+      false);
   }
 
 };

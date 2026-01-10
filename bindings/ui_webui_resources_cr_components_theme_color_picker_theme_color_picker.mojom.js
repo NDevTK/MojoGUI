@@ -106,7 +106,8 @@ theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRemoteCallHandler = class
       0,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec,
       null,
-      [handler, client]);
+      [handler, client],
+      false);
   }
 
 };
@@ -209,7 +210,8 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
       0,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec,
       theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec,
-      [is_dark_mode]);
+      [is_dark_mode],
+      false);
   }
 
   updateTheme() {
@@ -218,7 +220,8 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
       1,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setDefaultColor() {
@@ -227,7 +230,8 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
       2,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setGreyDefaultColor() {
@@ -236,7 +240,8 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
       3,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setSeedColor(seed_color, variant) {
@@ -245,7 +250,8 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
       4,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec,
       null,
-      [seed_color, variant]);
+      [seed_color, variant],
+      false);
   }
 
   setSeedColorFromHue(hue) {
@@ -254,7 +260,8 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
       5,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec,
       null,
-      [hue]);
+      [hue],
+      false);
   }
 
   removeBackgroundImage() {
@@ -263,7 +270,8 @@ theme_color_picker.mojom.ThemeColorPickerHandlerRemoteCallHandler = class {
       6,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -327,7 +335,8 @@ theme_color_picker.mojom.ThemeColorPickerClientRemoteCallHandler = class {
       0,  // ordinal
       theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec,
       null,
-      [theme]);
+      [theme],
+      false);
   }
 
 };

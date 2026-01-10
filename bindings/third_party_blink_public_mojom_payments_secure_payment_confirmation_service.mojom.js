@@ -113,7 +113,8 @@ payments.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec,
       payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   storePaymentCredential(credential_id, rp_id, user_id) {
@@ -122,7 +123,8 @@ payments.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {
       1,  // ordinal
       payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec,
       payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec,
-      [credential_id, rp_id, user_id]);
+      [credential_id, rp_id, user_id],
+      false);
   }
 
   makePaymentCredential(options) {
@@ -131,7 +133,8 @@ payments.mojom.SecurePaymentConfirmationServiceRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec,
       payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
 };

@@ -136,7 +136,8 @@ network.mojom.RestrictedUDPSocketRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.RestrictedUDPSocket_JoinGroup_ParamsSpec,
       network.mojom.RestrictedUDPSocket_JoinGroup_ResponseParamsSpec,
-      [group_address]);
+      [group_address],
+      false);
   }
 
   leaveGroup(group_address) {
@@ -145,7 +146,8 @@ network.mojom.RestrictedUDPSocketRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.RestrictedUDPSocket_LeaveGroup_ParamsSpec,
       network.mojom.RestrictedUDPSocket_LeaveGroup_ResponseParamsSpec,
-      [group_address]);
+      [group_address],
+      false);
   }
 
   receiveMore(num_additional_datagrams) {
@@ -154,7 +156,8 @@ network.mojom.RestrictedUDPSocketRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.RestrictedUDPSocket_ReceiveMore_ParamsSpec,
       null,
-      [num_additional_datagrams]);
+      [num_additional_datagrams],
+      false);
   }
 
   send(data) {
@@ -163,7 +166,8 @@ network.mojom.RestrictedUDPSocketRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.RestrictedUDPSocket_Send_ParamsSpec,
       network.mojom.RestrictedUDPSocket_Send_ResponseParamsSpec,
-      [data]);
+      [data],
+      false);
   }
 
   sendTo(data, dest_addr, dns_query_type) {
@@ -172,7 +176,8 @@ network.mojom.RestrictedUDPSocketRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.RestrictedUDPSocket_SendTo_ParamsSpec,
       network.mojom.RestrictedUDPSocket_SendTo_ResponseParamsSpec,
-      [data, dest_addr, dns_query_type]);
+      [data, dest_addr, dns_query_type],
+      false);
   }
 
 };

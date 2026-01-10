@@ -108,7 +108,8 @@ sensor.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -176,7 +177,8 @@ sensor.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   stopRecordingUpdate() {
@@ -185,7 +187,8 @@ sensor.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

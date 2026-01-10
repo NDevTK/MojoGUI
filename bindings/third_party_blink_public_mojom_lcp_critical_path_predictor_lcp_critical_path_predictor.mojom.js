@@ -130,7 +130,8 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.LCPCriticalPathPredictorHost_OnLcpUpdated_ParamsSpec,
       null,
-      [lcp_element]);
+      [lcp_element],
+      false);
   }
 
   onLcpTimingPredictedForTesting(element_locator) {
@@ -139,7 +140,8 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.LCPCriticalPathPredictorHost_OnLcpTimingPredictedForTesting_ParamsSpec,
       null,
-      [element_locator]);
+      [element_locator],
+      false);
   }
 
   setLcpInfluencerScriptUrls(lcp_influencer_scripts) {
@@ -148,7 +150,8 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.LCPCriticalPathPredictorHost_SetLcpInfluencerScriptUrls_ParamsSpec,
       null,
-      [lcp_influencer_scripts]);
+      [lcp_influencer_scripts],
+      false);
   }
 
   addPreconnectOrigin(origin) {
@@ -157,7 +160,8 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.LCPCriticalPathPredictorHost_AddPreconnectOrigin_ParamsSpec,
       null,
-      [origin]);
+      [origin],
+      false);
   }
 
   notifyFetchedFont(font_url, hit) {
@@ -166,7 +170,8 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedFont_ParamsSpec,
       null,
-      [font_url, hit]);
+      [font_url, hit],
+      false);
   }
 
   notifyFetchedSubresource(subresource_url, subresource_load_start, request_destination) {
@@ -175,7 +180,8 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.LCPCriticalPathPredictorHost_NotifyFetchedSubresource_ParamsSpec,
       null,
-      [subresource_url, subresource_load_start, request_destination]);
+      [subresource_url, subresource_load_start, request_destination],
+      false);
   }
 
   setUnusedPreloads(unused_preloads) {
@@ -184,7 +190,8 @@ blink.mojom.LCPCriticalPathPredictorHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.LCPCriticalPathPredictorHost_SetUnusedPreloads_ParamsSpec,
       null,
-      [unused_preloads]);
+      [unused_preloads],
+      false);
   }
 
 };

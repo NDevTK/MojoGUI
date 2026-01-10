@@ -84,7 +84,8 @@ heap_profiling.mojom.TestConnectorRemoteCallHandler = class {
       0,  // ordinal
       heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec,
       heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec,
-      [controller]);
+      [controller],
+      false);
   }
 
   connectProfileCollector(collector) {
@@ -93,7 +94,8 @@ heap_profiling.mojom.TestConnectorRemoteCallHandler = class {
       1,  // ordinal
       heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec,
       heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec,
-      [collector]);
+      [collector],
+      false);
   }
 
   disconnect() {
@@ -102,7 +104,8 @@ heap_profiling.mojom.TestConnectorRemoteCallHandler = class {
       2,  // ordinal
       heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

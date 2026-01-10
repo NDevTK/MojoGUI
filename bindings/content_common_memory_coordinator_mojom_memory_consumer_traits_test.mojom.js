@@ -65,7 +65,8 @@ content.mojom.MemoryConsumerTraitsTestRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec,
       content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec,
-      [in]);
+      [in],
+      false);
   }
 
 };

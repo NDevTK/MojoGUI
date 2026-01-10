@@ -57,7 +57,8 @@ blink.mojom.PersistentRendererPrefsServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec,
       null,
-      [value]);
+      [value],
+      false);
   }
 
 };

@@ -96,7 +96,8 @@ media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec,
       null,
-      [encoder_id, encoder_use_case, profile, encode_size, is_hardware_encoder, svc_mode]);
+      [encoder_id, encoder_use_case, profile, encode_size, is_hardware_encoder, svc_mode],
+      false);
   }
 
   setEncodedFrameCount(encoder_id, num_encoded_frames) {
@@ -105,7 +106,8 @@ media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec,
       null,
-      [encoder_id, num_encoded_frames]);
+      [encoder_id, num_encoded_frames],
+      false);
   }
 
   setError(encoder_id, status) {
@@ -114,7 +116,8 @@ media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec,
       null,
-      [encoder_id, status]);
+      [encoder_id, status],
+      false);
   }
 
   complete(encoder_id) {
@@ -123,7 +126,8 @@ media.mojom.VideoEncoderMetricsProviderRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec,
       null,
-      [encoder_id]);
+      [encoder_id],
+      false);
   }
 
 };

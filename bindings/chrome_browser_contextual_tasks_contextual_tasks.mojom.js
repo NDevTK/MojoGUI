@@ -220,7 +220,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec,
       contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getUrlForTask(uuid) {
@@ -229,7 +230,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec,
       contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec,
-      [uuid]);
+      [uuid],
+      false);
   }
 
   setTaskId(uuid) {
@@ -238,7 +240,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec,
       null,
-      [uuid]);
+      [uuid],
+      false);
   }
 
   isZeroState(url) {
@@ -247,7 +250,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec,
       contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   setThreadTitle(title) {
@@ -256,7 +260,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       contextual_tasks.mojom.PageHandler_SetThreadTitle_ParamsSpec,
       null,
-      [title]);
+      [title],
+      false);
   }
 
   closeSidePanel() {
@@ -265,7 +270,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       contextual_tasks.mojom.PageHandler_CloseSidePanel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   showThreadHistory() {
@@ -274,7 +280,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       contextual_tasks.mojom.PageHandler_ShowThreadHistory_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   isShownInTab() {
@@ -283,7 +290,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec,
       contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openMyActivityUi() {
@@ -292,7 +300,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       contextual_tasks.mojom.PageHandler_OpenMyActivityUi_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openHelpUi() {
@@ -301,7 +310,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       contextual_tasks.mojom.PageHandler_OpenHelpUi_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openOnboardingHelpUi() {
@@ -310,7 +320,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   moveTaskUiToNewTab() {
@@ -319,7 +330,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onTabClickedFromSourcesMenu(tab_id, url) {
@@ -328,7 +340,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec,
       null,
-      [tab_id, url]);
+      [tab_id, url],
+      false);
   }
 
   onWebviewMessage(message) {
@@ -337,7 +350,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       contextual_tasks.mojom.PageHandler_OnWebviewMessage_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
   getCommonSearchParams(is_dark_mode, is_side_panel) {
@@ -346,7 +360,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec,
       contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec,
-      [is_dark_mode, is_side_panel]);
+      [is_dark_mode, is_side_panel],
+      false);
   }
 
   onboardingTooltipDismissed() {
@@ -355,7 +370,8 @@ contextual_tasks.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -493,7 +509,8 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       contextual_tasks.mojom.Page_SetThreadTitle_ParamsSpec,
       null,
-      [title]);
+      [title],
+      false);
   }
 
   setTaskDetails(uuid, thread_id, turn_id) {
@@ -502,7 +519,8 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec,
       null,
-      [uuid, thread_id, turn_id]);
+      [uuid, thread_id, turn_id],
+      false);
   }
 
   onSidePanelStateChanged() {
@@ -511,7 +529,8 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   postMessageToWebview(message) {
@@ -520,7 +539,8 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
   onHandshakeComplete() {
@@ -529,7 +549,8 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       4,  // ordinal
       contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setOAuthToken(oauth_token) {
@@ -538,7 +559,8 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       5,  // ordinal
       contextual_tasks.mojom.Page_SetOAuthToken_ParamsSpec,
       null,
-      [oauth_token]);
+      [oauth_token],
+      false);
   }
 
   onContextUpdated(context_tabs) {
@@ -547,7 +569,8 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       6,  // ordinal
       contextual_tasks.mojom.Page_OnContextUpdated_ParamsSpec,
       null,
-      [context_tabs]);
+      [context_tabs],
+      false);
   }
 
   hideInput() {
@@ -556,7 +579,8 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       7,  // ordinal
       contextual_tasks.mojom.Page_HideInput_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   restoreInput() {
@@ -565,7 +589,8 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       8,  // ordinal
       contextual_tasks.mojom.Page_RestoreInput_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onZeroStateChange(is_zero_state) {
@@ -574,7 +599,8 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       9,  // ordinal
       contextual_tasks.mojom.Page_OnZeroStateChange_ParamsSpec,
       null,
-      [is_zero_state]);
+      [is_zero_state],
+      false);
   }
 
   onAiPageStatusChanged(is_ai_page) {
@@ -583,7 +609,8 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       10,  // ordinal
       contextual_tasks.mojom.Page_OnAiPageStatusChanged_ParamsSpec,
       null,
-      [is_ai_page]);
+      [is_ai_page],
+      false);
   }
 
   onLensOverlayStateChanged(is_showing) {
@@ -592,7 +619,8 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       11,  // ordinal
       contextual_tasks.mojom.Page_OnLensOverlayStateChanged_ParamsSpec,
       null,
-      [is_showing]);
+      [is_showing],
+      false);
   }
 
   showErrorPage() {
@@ -601,7 +629,8 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       12,  // ordinal
       contextual_tasks.mojom.Page_ShowErrorPage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   hideErrorPage() {
@@ -610,7 +639,8 @@ contextual_tasks.mojom.PageRemoteCallHandler = class {
       13,  // ordinal
       contextual_tasks.mojom.Page_HideErrorPage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -675,7 +705,8 @@ contextual_tasks.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, page_handler]);
+      [page, page_handler],
+      false);
   }
 
 };

@@ -92,7 +92,8 @@ heap_profiling.mojom.ProfilingServiceRemoteCallHandler = class {
       0,  // ordinal
       heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec,
       heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec,
-      [pid, client, process_type, params]);
+      [pid, client, process_type, params],
+      false);
   }
 
   getProfiledPids() {
@@ -101,7 +102,8 @@ heap_profiling.mojom.ProfilingServiceRemoteCallHandler = class {
       1,  // ordinal
       heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec,
       heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

@@ -87,7 +87,8 @@ enterprise_companion.mojom.EnterpriseCompanionRemoteCallHandler = class {
       0,  // ordinal
       enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec,
       enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   fetchPolicies(reason) {
@@ -96,7 +97,8 @@ enterprise_companion.mojom.EnterpriseCompanionRemoteCallHandler = class {
       1,  // ordinal
       enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec,
       enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec,
-      [reason]);
+      [reason],
+      false);
   }
 
 };

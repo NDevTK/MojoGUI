@@ -331,7 +331,8 @@ arc.mojom.KeymasterHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.KeymasterHost_GetServer_ParamsSpec,
       arc.mojom.KeymasterHost_GetServer_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -400,7 +401,8 @@ arc.mojom.KeymasterInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.KeymasterInstance_Init_ParamsSpec,
       arc.mojom.KeymasterInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };
@@ -620,7 +622,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec,
       null,
-      [os_version, os_patchlevel]);
+      [os_version, os_patchlevel],
+      false);
   }
 
   addRngEntropy(data) {
@@ -629,7 +632,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.KeymasterServer_AddRngEntropy_ParamsSpec,
       arc.mojom.KeymasterServer_AddRngEntropy_ResponseParamsSpec,
-      [data]);
+      [data],
+      false);
   }
 
   getKeyCharacteristics(request) {
@@ -638,7 +642,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.KeymasterServer_GetKeyCharacteristics_ParamsSpec,
       arc.mojom.KeymasterServer_GetKeyCharacteristics_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   generateKey(key_params) {
@@ -647,7 +652,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.KeymasterServer_GenerateKey_ParamsSpec,
       arc.mojom.KeymasterServer_GenerateKey_ResponseParamsSpec,
-      [key_params]);
+      [key_params],
+      false);
   }
 
   importKey(request) {
@@ -656,7 +662,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.KeymasterServer_ImportKey_ParamsSpec,
       arc.mojom.KeymasterServer_ImportKey_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   exportKey(request) {
@@ -665,7 +672,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.KeymasterServer_ExportKey_ParamsSpec,
       arc.mojom.KeymasterServer_ExportKey_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   attestKey(request) {
@@ -674,7 +682,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.KeymasterServer_AttestKey_ParamsSpec,
       arc.mojom.KeymasterServer_AttestKey_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   upgradeKey(request) {
@@ -683,7 +692,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.KeymasterServer_UpgradeKey_ParamsSpec,
       arc.mojom.KeymasterServer_UpgradeKey_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   deleteKey(key_blob) {
@@ -692,7 +702,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.KeymasterServer_DeleteKey_ParamsSpec,
       arc.mojom.KeymasterServer_DeleteKey_ResponseParamsSpec,
-      [key_blob]);
+      [key_blob],
+      false);
   }
 
   deleteAllKeys() {
@@ -701,7 +712,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.KeymasterServer_DeleteAllKeys_ParamsSpec,
       arc.mojom.KeymasterServer_DeleteAllKeys_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   begin(request) {
@@ -710,7 +722,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.KeymasterServer_Begin_ParamsSpec,
       arc.mojom.KeymasterServer_Begin_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   update(request) {
@@ -719,7 +732,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.KeymasterServer_Update_ParamsSpec,
       arc.mojom.KeymasterServer_Update_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   finish(request) {
@@ -728,7 +742,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
       12,  // ordinal
       arc.mojom.KeymasterServer_Finish_ParamsSpec,
       arc.mojom.KeymasterServer_Finish_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   abort(op_handle) {
@@ -737,7 +752,8 @@ arc.mojom.KeymasterServerRemoteCallHandler = class {
       13,  // ordinal
       arc.mojom.KeymasterServer_Abort_ParamsSpec,
       arc.mojom.KeymasterServer_Abort_ResponseParamsSpec,
-      [op_handle]);
+      [op_handle],
+      false);
   }
 
 };

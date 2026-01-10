@@ -107,7 +107,8 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ntp.tab_groups.mojom.PageHandler_CreateNewTabGroup_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getTabGroups() {
@@ -116,7 +117,8 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ntp.tab_groups.mojom.PageHandler_GetTabGroups_ParamsSpec,
       ntp.tab_groups.mojom.PageHandler_GetTabGroups_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openTabGroup(id) {
@@ -125,7 +127,8 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ntp.tab_groups.mojom.PageHandler_OpenTabGroup_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   dismissModule() {
@@ -134,7 +137,8 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ntp.tab_groups.mojom.PageHandler_DismissModule_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   restoreModule() {
@@ -143,7 +147,8 @@ ntp.tab_groups.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ntp.tab_groups.mojom.PageHandler_RestoreModule_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

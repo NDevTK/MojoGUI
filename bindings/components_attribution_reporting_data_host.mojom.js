@@ -101,7 +101,8 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
       0,  // ordinal
       attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec,
       null,
-      [reporting_origin, data, was_fetched_via_service_worker]);
+      [reporting_origin, data, was_fetched_via_service_worker],
+      false);
   }
 
   triggerDataAvailable(reporting_origin, data, was_fetched_via_service_worker) {
@@ -110,7 +111,8 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
       1,  // ordinal
       attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec,
       null,
-      [reporting_origin, data, was_fetched_via_service_worker]);
+      [reporting_origin, data, was_fetched_via_service_worker],
+      false);
   }
 
   osSourceDataAvailable(registration, was_fetched_via_service_worker) {
@@ -119,7 +121,8 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
       2,  // ordinal
       attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec,
       null,
-      [registration, was_fetched_via_service_worker]);
+      [registration, was_fetched_via_service_worker],
+      false);
   }
 
   osTriggerDataAvailable(registration, was_fetched_via_service_worker) {
@@ -128,7 +131,8 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
       3,  // ordinal
       attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec,
       null,
-      [registration, was_fetched_via_service_worker]);
+      [registration, was_fetched_via_service_worker],
+      false);
   }
 
   reportRegistrationHeaderError(reporting_origin, error) {
@@ -137,7 +141,8 @@ attribution_reporting.mojom.DataHostRemoteCallHandler = class {
       4,  // ordinal
       attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec,
       null,
-      [reporting_origin, error]);
+      [reporting_origin, error],
+      false);
   }
 
 };

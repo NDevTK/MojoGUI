@@ -45,10 +45,10 @@ blink.mojom.FindMatchUpdateType = {
 // Struct: FindOptions
 mojo.internal.Struct(
     blink.mojom.FindOptionsSpec, 'blink.mojom.FindOptions', [
-      mojo.internal.StructField('forward', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('forward', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('match_case', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('new_session', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('find_match', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('new_session', 0, 2, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('find_match', 0, 3, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('force', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('run_synchronously_for_testing', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -151,7 +151,8 @@ blink.mojom.FindInPageRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FindInPage_Find_ParamsSpec,
       null,
-      [request_id, search_text, options]);
+      [request_id, search_text, options],
+      false);
   }
 
   stopFinding(action) {
@@ -160,7 +161,8 @@ blink.mojom.FindInPageRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FindInPage_StopFinding_ParamsSpec,
       null,
-      [action]);
+      [action],
+      false);
   }
 
   clearActiveFindMatch() {
@@ -169,7 +171,8 @@ blink.mojom.FindInPageRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setClient(client) {
@@ -178,7 +181,8 @@ blink.mojom.FindInPageRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FindInPage_SetClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   getNearestFindResult(point) {
@@ -187,7 +191,8 @@ blink.mojom.FindInPageRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.FindInPage_GetNearestFindResult_ParamsSpec,
       blink.mojom.FindInPage_GetNearestFindResult_ResponseParamsSpec,
-      [point]);
+      [point],
+      false);
   }
 
   activateNearestFindResult(request_id, point) {
@@ -196,7 +201,8 @@ blink.mojom.FindInPageRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.FindInPage_ActivateNearestFindResult_ParamsSpec,
       null,
-      [request_id, point]);
+      [request_id, point],
+      false);
   }
 
   findMatchRects(current_version) {
@@ -205,7 +211,8 @@ blink.mojom.FindInPageRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.FindInPage_FindMatchRects_ParamsSpec,
       blink.mojom.FindInPage_FindMatchRects_ResponseParamsSpec,
-      [current_version]);
+      [current_version],
+      false);
   }
 
 };
@@ -280,7 +287,8 @@ blink.mojom.FindInPageClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec,
       null,
-      [request_id, number_of_matches, update_type]);
+      [request_id, number_of_matches, update_type],
+      false);
   }
 
   setActiveMatch(request_id, active_match_rect, active_match_ordinal, update_type) {
@@ -289,7 +297,8 @@ blink.mojom.FindInPageClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec,
       null,
-      [request_id, active_match_rect, active_match_ordinal, update_type]);
+      [request_id, active_match_rect, active_match_ordinal, update_type],
+      false);
   }
 
 };

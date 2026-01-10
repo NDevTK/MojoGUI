@@ -64,7 +64,8 @@ arc.mojom.IioSensorHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
 };
@@ -139,7 +140,8 @@ arc.mojom.IioSensorInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.IioSensorInstance_Init_ParamsSpec,
       arc.mojom.IioSensorInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   onTabletModeChanged(is_tablet_mode_on) {
@@ -148,7 +150,8 @@ arc.mojom.IioSensorInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec,
       null,
-      [is_tablet_mode_on]);
+      [is_tablet_mode_on],
+      false);
   }
 
 };

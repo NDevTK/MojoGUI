@@ -491,7 +491,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.FileSystemHost_GetFileName_ParamsSpec,
       arc.mojom.FileSystemHost_GetFileName_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   getFileSize(url) {
@@ -500,7 +501,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.FileSystemHost_GetFileSize_ParamsSpec,
       arc.mojom.FileSystemHost_GetFileSize_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   getLastModified(url) {
@@ -509,7 +511,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.FileSystemHost_GetLastModified_ParamsSpec,
       arc.mojom.FileSystemHost_GetLastModified_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   getFileType(url) {
@@ -518,7 +521,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.FileSystemHost_GetFileType_ParamsSpec,
       arc.mojom.FileSystemHost_GetFileType_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   onDocumentChanged(watcher_id, type) {
@@ -527,7 +531,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.FileSystemHost_OnDocumentChanged_ParamsSpec,
       null,
-      [watcher_id, type]);
+      [watcher_id, type],
+      false);
   }
 
   onRootsChanged() {
@@ -536,7 +541,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.FileSystemHost_OnRootsChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getVirtualFileId(url) {
@@ -545,7 +551,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.FileSystemHost_GetVirtualFileId_ParamsSpec,
       arc.mojom.FileSystemHost_GetVirtualFileId_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   handleIdReleased(id) {
@@ -554,7 +561,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.FileSystemHost_HandleIdReleased_ParamsSpec,
       arc.mojom.FileSystemHost_HandleIdReleased_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   openFileToRead(url) {
@@ -563,7 +571,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.FileSystemHost_OpenFileToRead_ParamsSpec,
       arc.mojom.FileSystemHost_OpenFileToRead_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   selectFiles(request) {
@@ -572,7 +581,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.FileSystemHost_SelectFiles_ParamsSpec,
       arc.mojom.FileSystemHost_SelectFiles_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   onFileSelectorEvent(event) {
@@ -581,7 +591,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.FileSystemHost_OnFileSelectorEvent_ParamsSpec,
       arc.mojom.FileSystemHost_OnFileSelectorEvent_ResponseParamsSpec,
-      [event]);
+      [event],
+      false);
   }
 
   getFileSelectorElements(request) {
@@ -590,7 +601,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.FileSystemHost_GetFileSelectorElements_ParamsSpec,
       arc.mojom.FileSystemHost_GetFileSelectorElements_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   onMediaStoreUriAdded(uri, metadata) {
@@ -599,7 +611,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       12,  // ordinal
       arc.mojom.FileSystemHost_OnMediaStoreUriAdded_ParamsSpec,
       null,
-      [uri, metadata]);
+      [uri, metadata],
+      false);
   }
 
   createMoniker(content_uri, read_only) {
@@ -608,7 +621,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       13,  // ordinal
       arc.mojom.FileSystemHost_CreateMoniker_ParamsSpec,
       arc.mojom.FileSystemHost_CreateMoniker_ResponseParamsSpec,
-      [content_uri, read_only]);
+      [content_uri, read_only],
+      false);
   }
 
   destroyMoniker(moniker) {
@@ -617,7 +631,8 @@ arc.mojom.FileSystemHostRemoteCallHandler = class {
       14,  // ordinal
       arc.mojom.FileSystemHost_DestroyMoniker_ParamsSpec,
       arc.mojom.FileSystemHost_DestroyMoniker_ResponseParamsSpec,
-      [moniker]);
+      [moniker],
+      false);
   }
 
 };
@@ -943,7 +958,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.FileSystemInstance_AddWatcher_ParamsSpec,
       arc.mojom.FileSystemInstance_AddWatcher_ResponseParamsSpec,
-      [authority, document_id]);
+      [authority, document_id],
+      false);
   }
 
   getChildDocuments(authority, parent_document_id) {
@@ -952,7 +968,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.FileSystemInstance_GetChildDocuments_ParamsSpec,
       arc.mojom.FileSystemInstance_GetChildDocuments_ResponseParamsSpec,
-      [authority, parent_document_id]);
+      [authority, parent_document_id],
+      false);
   }
 
   getDocument(authority, document_id) {
@@ -961,7 +978,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.FileSystemInstance_GetDocument_ParamsSpec,
       arc.mojom.FileSystemInstance_GetDocument_ResponseParamsSpec,
-      [authority, document_id]);
+      [authority, document_id],
+      false);
   }
 
   getFileSize(url) {
@@ -970,7 +988,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.FileSystemInstance_GetFileSize_ParamsSpec,
       arc.mojom.FileSystemInstance_GetFileSize_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   getMimeType(url) {
@@ -979,7 +998,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.FileSystemInstance_GetMimeType_ParamsSpec,
       arc.mojom.FileSystemInstance_GetMimeType_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   getRecentDocuments(authority, root_id) {
@@ -988,7 +1008,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.FileSystemInstance_GetRecentDocuments_ParamsSpec,
       arc.mojom.FileSystemInstance_GetRecentDocuments_ResponseParamsSpec,
-      [authority, root_id]);
+      [authority, root_id],
+      false);
   }
 
   getRoots() {
@@ -997,7 +1018,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       12,  // ordinal
       arc.mojom.FileSystemInstance_GetRoots_ParamsSpec,
       arc.mojom.FileSystemInstance_GetRoots_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getRootSize(authority, root_id) {
@@ -1006,7 +1028,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       22,  // ordinal
       arc.mojom.FileSystemInstance_GetRootSize_ParamsSpec,
       arc.mojom.FileSystemInstance_GetRootSize_ResponseParamsSpec,
-      [authority, root_id]);
+      [authority, root_id],
+      false);
   }
 
   deleteDocument(authority, document_id) {
@@ -1015,7 +1038,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       13,  // ordinal
       arc.mojom.FileSystemInstance_DeleteDocument_ParamsSpec,
       arc.mojom.FileSystemInstance_DeleteDocument_ResponseParamsSpec,
-      [authority, document_id]);
+      [authority, document_id],
+      false);
   }
 
   renameDocument(authority, document_id, display_name) {
@@ -1024,7 +1048,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       14,  // ordinal
       arc.mojom.FileSystemInstance_RenameDocument_ParamsSpec,
       arc.mojom.FileSystemInstance_RenameDocument_ResponseParamsSpec,
-      [authority, document_id, display_name]);
+      [authority, document_id, display_name],
+      false);
   }
 
   createDocument(authority, parent_document_id, mime_type, display_name) {
@@ -1033,7 +1058,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       15,  // ordinal
       arc.mojom.FileSystemInstance_CreateDocument_ParamsSpec,
       arc.mojom.FileSystemInstance_CreateDocument_ResponseParamsSpec,
-      [authority, parent_document_id, mime_type, display_name]);
+      [authority, parent_document_id, mime_type, display_name],
+      false);
   }
 
   copyDocument(authority, source_document_id, target_parent_document_id) {
@@ -1042,7 +1068,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       16,  // ordinal
       arc.mojom.FileSystemInstance_CopyDocument_ParamsSpec,
       arc.mojom.FileSystemInstance_CopyDocument_ResponseParamsSpec,
-      [authority, source_document_id, target_parent_document_id]);
+      [authority, source_document_id, target_parent_document_id],
+      false);
   }
 
   moveDocument(authority, source_document_id, source_parent_document_id, target_parent_document_id) {
@@ -1051,7 +1078,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       17,  // ordinal
       arc.mojom.FileSystemInstance_MoveDocument_ParamsSpec,
       arc.mojom.FileSystemInstance_MoveDocument_ResponseParamsSpec,
-      [authority, source_document_id, source_parent_document_id, target_parent_document_id]);
+      [authority, source_document_id, source_parent_document_id, target_parent_document_id],
+      false);
   }
 
   init(host_remote) {
@@ -1060,7 +1088,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.FileSystemInstance_Init_ParamsSpec,
       arc.mojom.FileSystemInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   openThumbnail(url, size_hint) {
@@ -1069,7 +1098,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       21,  // ordinal
       arc.mojom.FileSystemInstance_OpenThumbnail_ParamsSpec,
       arc.mojom.FileSystemInstance_OpenThumbnail_ResponseParamsSpec,
-      [url, size_hint]);
+      [url, size_hint],
+      false);
   }
 
   closeFileSession(url_id, error_message) {
@@ -1078,7 +1108,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       24,  // ordinal
       arc.mojom.FileSystemInstance_CloseFileSession_ParamsSpec,
       null,
-      [url_id, error_message]);
+      [url_id, error_message],
+      false);
   }
 
   openFileSessionToWrite(url) {
@@ -1087,7 +1118,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       25,  // ordinal
       arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ParamsSpec,
       arc.mojom.FileSystemInstance_OpenFileSessionToWrite_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   openFileSessionToRead(url) {
@@ -1096,7 +1128,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       26,  // ordinal
       arc.mojom.FileSystemInstance_OpenFileSessionToRead_ParamsSpec,
       arc.mojom.FileSystemInstance_OpenFileSessionToRead_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   removeWatcher(watcher_id) {
@@ -1105,7 +1138,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.FileSystemInstance_RemoveWatcher_ParamsSpec,
       arc.mojom.FileSystemInstance_RemoveWatcher_ResponseParamsSpec,
-      [watcher_id]);
+      [watcher_id],
+      false);
   }
 
   requestMediaScan(paths) {
@@ -1114,7 +1148,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.FileSystemInstance_RequestMediaScan_ParamsSpec,
       null,
-      [paths]);
+      [paths],
+      false);
   }
 
   reindexDirectory(directory_path) {
@@ -1123,7 +1158,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       19,  // ordinal
       arc.mojom.FileSystemInstance_ReindexDirectory_ParamsSpec,
       null,
-      [directory_path]);
+      [directory_path],
+      false);
   }
 
   requestFileRemovalScan(directory_paths) {
@@ -1132,7 +1168,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       20,  // ordinal
       arc.mojom.FileSystemInstance_RequestFileRemovalScan_ParamsSpec,
       null,
-      [directory_paths]);
+      [directory_paths],
+      false);
   }
 
   openUrlsWithPermissionAndWindowInfo(request, window_info) {
@@ -1141,7 +1178,8 @@ arc.mojom.FileSystemInstanceRemoteCallHandler = class {
       23,  // ordinal
       arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ParamsSpec,
       arc.mojom.FileSystemInstance_OpenUrlsWithPermissionAndWindowInfo_ResponseParamsSpec,
-      [request, window_info]);
+      [request, window_info],
+      false);
   }
 
 };

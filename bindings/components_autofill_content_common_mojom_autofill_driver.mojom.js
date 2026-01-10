@@ -203,7 +203,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       0,  // ordinal
       autofill.mojom.AutofillDriver_FormsSeen_ParamsSpec,
       null,
-      [updated_forms, removed_forms]);
+      [updated_forms, removed_forms],
+      false);
   }
 
   formSubmitted(form, source) {
@@ -212,7 +213,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       1,  // ordinal
       autofill.mojom.AutofillDriver_FormSubmitted_ParamsSpec,
       null,
-      [form, source]);
+      [form, source],
+      false);
   }
 
   caretMovedInFormField(form, field_id, caret_bounds) {
@@ -221,7 +223,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       2,  // ordinal
       autofill.mojom.AutofillDriver_CaretMovedInFormField_ParamsSpec,
       null,
-      [form, field_id, caret_bounds]);
+      [form, field_id, caret_bounds],
+      false);
   }
 
   textFieldValueChanged(form, field_id, timestamp) {
@@ -230,7 +233,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       3,  // ordinal
       autofill.mojom.AutofillDriver_TextFieldValueChanged_ParamsSpec,
       null,
-      [form, field_id, timestamp]);
+      [form, field_id, timestamp],
+      false);
   }
 
   didEndTextFieldEditing() {
@@ -239,7 +243,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       4,  // ordinal
       autofill.mojom.AutofillDriver_DidEndTextFieldEditing_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   textFieldDidScroll(form, field_id) {
@@ -248,7 +253,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       5,  // ordinal
       autofill.mojom.AutofillDriver_TextFieldDidScroll_ParamsSpec,
       null,
-      [form, field_id]);
+      [form, field_id],
+      false);
   }
 
   selectControlSelectionChanged(form, field_id) {
@@ -257,7 +263,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       6,  // ordinal
       autofill.mojom.AutofillDriver_SelectControlSelectionChanged_ParamsSpec,
       null,
-      [form, field_id]);
+      [form, field_id],
+      false);
   }
 
   selectFieldOptionsDidChange(form, field_id) {
@@ -266,7 +273,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       7,  // ordinal
       autofill.mojom.AutofillDriver_SelectFieldOptionsDidChange_ParamsSpec,
       null,
-      [form, field_id]);
+      [form, field_id],
+      false);
   }
 
   focusOnFormField(form, field_id) {
@@ -275,7 +283,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       8,  // ordinal
       autofill.mojom.AutofillDriver_FocusOnFormField_ParamsSpec,
       null,
-      [form, field_id]);
+      [form, field_id],
+      false);
   }
 
   focusOnNonFormField() {
@@ -284,7 +293,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       9,  // ordinal
       autofill.mojom.AutofillDriver_FocusOnNonFormField_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   askForValuesToFill(form, field_id, caret_bounds, trigger_source, password_request) {
@@ -293,7 +303,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       10,  // ordinal
       autofill.mojom.AutofillDriver_AskForValuesToFill_ParamsSpec,
       null,
-      [form, field_id, caret_bounds, trigger_source, password_request]);
+      [form, field_id, caret_bounds, trigger_source, password_request],
+      false);
   }
 
   hidePopup() {
@@ -302,7 +313,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       11,  // ordinal
       autofill.mojom.AutofillDriver_HidePopup_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   didAutofillForm(form) {
@@ -311,7 +323,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       12,  // ordinal
       autofill.mojom.AutofillDriver_DidAutofillForm_ParamsSpec,
       null,
-      [form]);
+      [form],
+      false);
   }
 
   suppressAutomaticRefills(fill_id) {
@@ -320,7 +333,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       13,  // ordinal
       autofill.mojom.AutofillDriver_SuppressAutomaticRefills_ParamsSpec,
       null,
-      [fill_id]);
+      [fill_id],
+      false);
   }
 
   requestRefill(fill_id) {
@@ -329,7 +343,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       14,  // ordinal
       autofill.mojom.AutofillDriver_RequestRefill_ParamsSpec,
       null,
-      [fill_id]);
+      [fill_id],
+      false);
   }
 
   javaScriptChangedAutofilledValue(form, field_id, old_value) {
@@ -338,7 +353,8 @@ autofill.mojom.AutofillDriverRemoteCallHandler = class {
       15,  // ordinal
       autofill.mojom.AutofillDriver_JavaScriptChangedAutofilledValue_ParamsSpec,
       null,
-      [form, field_id, old_value]);
+      [form, field_id, old_value],
+      false);
   }
 
 };
@@ -479,7 +495,8 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       0,  // ordinal
       autofill.mojom.PasswordManagerDriver_PasswordFormsParsed_ParamsSpec,
       null,
-      [forms_data]);
+      [forms_data],
+      false);
   }
 
   passwordFormsRendered(visible_forms_data) {
@@ -488,7 +505,8 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       1,  // ordinal
       autofill.mojom.PasswordManagerDriver_PasswordFormsRendered_ParamsSpec,
       null,
-      [visible_forms_data]);
+      [visible_forms_data],
+      false);
   }
 
   passwordFormSubmitted(form_data) {
@@ -497,7 +515,8 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       2,  // ordinal
       autofill.mojom.PasswordManagerDriver_PasswordFormSubmitted_ParamsSpec,
       null,
-      [form_data]);
+      [form_data],
+      false);
   }
 
   informAboutUserInput(form_data) {
@@ -506,7 +525,8 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       3,  // ordinal
       autofill.mojom.PasswordManagerDriver_InformAboutUserInput_ParamsSpec,
       null,
-      [form_data]);
+      [form_data],
+      false);
   }
 
   dynamicFormSubmission(submission_indication_event) {
@@ -515,7 +535,8 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       4,  // ordinal
       autofill.mojom.PasswordManagerDriver_DynamicFormSubmission_ParamsSpec,
       null,
-      [submission_indication_event]);
+      [submission_indication_event],
+      false);
   }
 
   passwordFormCleared(form_data) {
@@ -524,7 +545,8 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       5,  // ordinal
       autofill.mojom.PasswordManagerDriver_PasswordFormCleared_ParamsSpec,
       null,
-      [form_data]);
+      [form_data],
+      false);
   }
 
   recordSavePasswordProgress(log) {
@@ -533,7 +555,8 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       6,  // ordinal
       autofill.mojom.PasswordManagerDriver_RecordSavePasswordProgress_ParamsSpec,
       null,
-      [log]);
+      [log],
+      false);
   }
 
   userModifiedPasswordField() {
@@ -542,7 +565,8 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       7,  // ordinal
       autofill.mojom.PasswordManagerDriver_UserModifiedPasswordField_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   userModifiedNonPasswordField(renderer_id, value, autocomplete_attribute_has_username, is_likely_otp) {
@@ -551,7 +575,8 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       8,  // ordinal
       autofill.mojom.PasswordManagerDriver_UserModifiedNonPasswordField_ParamsSpec,
       null,
-      [renderer_id, value, autocomplete_attribute_has_username, is_likely_otp]);
+      [renderer_id, value, autocomplete_attribute_has_username, is_likely_otp],
+      false);
   }
 
   showPasswordSuggestions(request) {
@@ -560,7 +585,8 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       9,  // ordinal
       autofill.mojom.PasswordManagerDriver_ShowPasswordSuggestions_ParamsSpec,
       null,
-      [request]);
+      [request],
+      false);
   }
 
   checkSafeBrowsingReputation(form_action, frame_url) {
@@ -569,7 +595,8 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       10,  // ordinal
       autofill.mojom.PasswordManagerDriver_CheckSafeBrowsingReputation_ParamsSpec,
       null,
-      [form_action, frame_url]);
+      [form_action, frame_url],
+      false);
   }
 
   focusedInputChanged(focused_field_id, focused_field_type) {
@@ -578,7 +605,8 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       11,  // ordinal
       autofill.mojom.PasswordManagerDriver_FocusedInputChanged_ParamsSpec,
       null,
-      [focused_field_id, focused_field_type]);
+      [focused_field_id, focused_field_type],
+      false);
   }
 
   logFirstFillingResult(form_renderer_id, result) {
@@ -587,7 +615,8 @@ autofill.mojom.PasswordManagerDriverRemoteCallHandler = class {
       12,  // ordinal
       autofill.mojom.PasswordManagerDriver_LogFirstFillingResult_ParamsSpec,
       null,
-      [form_renderer_id, result]);
+      [form_renderer_id, result],
+      false);
   }
 
 };
@@ -688,7 +717,8 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
       0,  // ordinal
       autofill.mojom.PasswordGenerationDriver_AutomaticGenerationAvailable_ParamsSpec,
       null,
-      [password_generation_ui_data]);
+      [password_generation_ui_data],
+      false);
   }
 
   presaveGeneratedPassword(form_data, password_value) {
@@ -697,7 +727,8 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
       1,  // ordinal
       autofill.mojom.PasswordGenerationDriver_PresaveGeneratedPassword_ParamsSpec,
       null,
-      [form_data, password_value]);
+      [form_data, password_value],
+      false);
   }
 
   passwordNoLongerGenerated(form_data) {
@@ -706,7 +737,8 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
       2,  // ordinal
       autofill.mojom.PasswordGenerationDriver_PasswordNoLongerGenerated_ParamsSpec,
       null,
-      [form_data]);
+      [form_data],
+      false);
   }
 
   showPasswordEditingPopup(bounds, form_data, field_renderer_id, password_value) {
@@ -715,7 +747,8 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
       3,  // ordinal
       autofill.mojom.PasswordGenerationDriver_ShowPasswordEditingPopup_ParamsSpec,
       null,
-      [bounds, form_data, field_renderer_id, password_value]);
+      [bounds, form_data, field_renderer_id, password_value],
+      false);
   }
 
   passwordGenerationRejectedByTyping() {
@@ -724,7 +757,8 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
       4,  // ordinal
       autofill.mojom.PasswordGenerationDriver_PasswordGenerationRejectedByTyping_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   frameWasScrolled() {
@@ -733,7 +767,8 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
       5,  // ordinal
       autofill.mojom.PasswordGenerationDriver_FrameWasScrolled_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   generationElementLostFocus() {
@@ -742,7 +777,8 @@ autofill.mojom.PasswordGenerationDriverRemoteCallHandler = class {
       6,  // ordinal
       autofill.mojom.PasswordGenerationDriver_GenerationElementLostFocus_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

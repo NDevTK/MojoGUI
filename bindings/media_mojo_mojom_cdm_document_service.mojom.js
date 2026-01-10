@@ -134,7 +134,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec,
       media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec,
-      [service_id, challenge]);
+      [service_id, challenge],
+      false);
   }
 
   getStorageId(version) {
@@ -143,7 +144,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.CdmDocumentService_GetStorageId_ParamsSpec,
       media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec,
-      [version]);
+      [version],
+      false);
   }
 
   isVerifiedAccessEnabled() {
@@ -152,7 +154,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ParamsSpec,
       media.mojom.CdmDocumentService_IsVerifiedAccessEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getMediaFoundationCdmData() {
@@ -161,7 +164,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec,
       media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setCdmClientToken(client_token) {
@@ -170,7 +174,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.CdmDocumentService_SetCdmClientToken_ParamsSpec,
       null,
-      [client_token]);
+      [client_token],
+      false);
   }
 
   onCdmEvent(event, hresult) {
@@ -179,7 +184,8 @@ media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec,
       null,
-      [event, hresult]);
+      [event, hresult],
+      false);
   }
 
 };

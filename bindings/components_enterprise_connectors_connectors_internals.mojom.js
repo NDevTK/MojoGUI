@@ -250,7 +250,8 @@ connectors_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec,
       connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   deleteDeviceTrustKey() {
@@ -259,7 +260,8 @@ connectors_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec,
       connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getClientCertificateState() {
@@ -268,7 +270,8 @@ connectors_internals.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec,
       connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSignalsReportingState() {
@@ -277,7 +280,8 @@ connectors_internals.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec,
       connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

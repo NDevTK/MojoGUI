@@ -66,7 +66,8 @@ history_clusters_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, page_handler]);
+      [page, page_handler],
+      false);
   }
 
 };
@@ -140,7 +141,8 @@ history_clusters_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec,
       history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   printKeywordBagStateToLogMessages() {
@@ -149,7 +151,8 @@ history_clusters_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -213,7 +216,8 @@ history_clusters_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };

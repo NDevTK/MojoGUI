@@ -181,7 +181,8 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
       0,  // ordinal
       font_data_service.mojom.FontDataService_MatchFamilyName_ParamsSpec,
       font_data_service.mojom.FontDataService_MatchFamilyName_ResponseParamsSpec,
-      [family_name, style]);
+      [family_name, style],
+      false);
   }
 
   matchFamilyNameCharacter(family_name, style, bcp47s, character) {
@@ -190,7 +191,8 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
       1,  // ordinal
       font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ParamsSpec,
       font_data_service.mojom.FontDataService_MatchFamilyNameCharacter_ResponseParamsSpec,
-      [family_name, style, bcp47s, character]);
+      [family_name, style, bcp47s, character],
+      false);
   }
 
   getAllFamilyNames() {
@@ -199,7 +201,8 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
       2,  // ordinal
       font_data_service.mojom.FontDataService_GetAllFamilyNames_ParamsSpec,
       font_data_service.mojom.FontDataService_GetAllFamilyNames_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   legacyMakeTypeface(family_name, style) {
@@ -208,7 +211,8 @@ font_data_service.mojom.FontDataServiceRemoteCallHandler = class {
       3,  // ordinal
       font_data_service.mojom.FontDataService_LegacyMakeTypeface_ParamsSpec,
       font_data_service.mojom.FontDataService_LegacyMakeTypeface_ResponseParamsSpec,
-      [family_name, style]);
+      [family_name, style],
+      false);
   }
 
 };

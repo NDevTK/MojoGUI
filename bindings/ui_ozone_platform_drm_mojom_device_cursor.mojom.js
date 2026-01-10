@@ -74,7 +74,8 @@ ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
       0,  // ordinal
       ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec,
       null,
-      [window, bitmaps, point, frame_delay]);
+      [window, bitmaps, point, frame_delay],
+      false);
   }
 
   moveCursor(window, point) {
@@ -83,7 +84,8 @@ ui.ozone.mojom.DeviceCursorRemoteCallHandler = class {
       1,  // ordinal
       ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec,
       null,
-      [window, point]);
+      [window, point],
+      false);
   }
 
 };

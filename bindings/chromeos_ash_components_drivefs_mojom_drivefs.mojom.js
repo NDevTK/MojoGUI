@@ -421,7 +421,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('lost_and_found_directory_name', 24, 0, mojo.internal.String, null, true, 3, undefined),
       mojo.internal.StructField('enable_experimental_mirroring', 32, 0, mojo.internal.Bool, false, false, 4, undefined),
       mojo.internal.StructField('enable_verbose_logging', 32, 1, mojo.internal.Bool, false, false, 5, undefined),
-      mojo.internal.StructField('cse_support', 36, 0, drivefs.mojom.CSESupportSpec, null, false, 7, undefined),
+      mojo.internal.StructField('cse_support', 36, 0, drivefs.mojom.CSESupportSpec, 0, false, 7, undefined),
       mojo.internal.StructField('fetch_modifying_user_metadata', 40, 0, mojo.internal.Bool, false, false, 8, undefined),
       mojo.internal.StructField('fetch_sharing_user_metadata', 40, 1, mojo.internal.Bool, false, false, 8, undefined),
     ],
@@ -483,11 +483,11 @@ mojo.internal.Struct(
 // Struct: Capabilities
 mojo.internal.Struct(
     drivefs.mojom.CapabilitiesSpec, 'drivefs.mojom.Capabilities', [
-      mojo.internal.StructField('can_share', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('can_copy', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('can_delete', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('can_rename', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('can_add_children', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('can_share', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('can_copy', 0, 1, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('can_delete', 0, 2, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('can_rename', 0, 3, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('can_add_children', 0, 4, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -550,7 +550,7 @@ mojo.internal.Struct(
 // Struct: QueryParameters
 mojo.internal.Struct(
     drivefs.mojom.QueryParametersSpec, 'drivefs.mojom.QueryParameters', [
-      mojo.internal.StructField('kLocalOnly', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kLocalOnly', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -565,7 +565,7 @@ mojo.internal.Struct(
 // Struct: FetchChangeLogOptions
 mojo.internal.Struct(
     drivefs.mojom.FetchChangeLogOptionsSpec, 'drivefs.mojom.FetchChangeLogOptions', [
-      mojo.internal.StructField('change_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('change_id', 0, 0, mojo.internal.Int64, -1, false, 0, undefined),
       mojo.internal.StructField('team_drive_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -575,7 +575,7 @@ mojo.internal.Struct(
     drivefs.mojom.PooledQuotaUsageSpec, 'drivefs.mojom.PooledQuotaUsage', [
       mojo.internal.StructField('user_type', 0, 0, drivefs.mojom.UserTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('used_user_bytes', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('total_user_bytes', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('total_user_bytes', 16, 0, mojo.internal.Int64, -1, false, 0, undefined),
       mojo.internal.StructField('organization_limit_exceeded', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('organization_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -692,7 +692,8 @@ drivefs.mojom.DriveFsBootstrapRemoteCallHandler = class {
       0,  // ordinal
       drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec,
       null,
-      [config, drive_fs, delegate]);
+      [config, drive_fs, delegate],
+      false);
   }
 
 };
@@ -1129,7 +1130,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       0,  // ordinal
       drivefs.mojom.DriveFs_GetMetadata_ParamsSpec,
       drivefs.mojom.DriveFs_GetMetadata_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   setPinned(path, pinned) {
@@ -1138,7 +1140,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       1,  // ordinal
       drivefs.mojom.DriveFs_SetPinned_ParamsSpec,
       drivefs.mojom.DriveFs_SetPinned_ResponseParamsSpec,
-      [path, pinned]);
+      [path, pinned],
+      false);
   }
 
   updateNetworkState(pause_syncing, is_offline) {
@@ -1147,7 +1150,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       2,  // ordinal
       drivefs.mojom.DriveFs_UpdateNetworkState_ParamsSpec,
       null,
-      [pause_syncing, is_offline]);
+      [pause_syncing, is_offline],
+      false);
   }
 
   resetCache() {
@@ -1156,7 +1160,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       3,  // ordinal
       drivefs.mojom.DriveFs_ResetCache_ParamsSpec,
       drivefs.mojom.DriveFs_ResetCache_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getThumbnail(path, crop_to_square) {
@@ -1165,7 +1170,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       4,  // ordinal
       drivefs.mojom.DriveFs_GetThumbnail_ParamsSpec,
       drivefs.mojom.DriveFs_GetThumbnail_ResponseParamsSpec,
-      [path, crop_to_square]);
+      [path, crop_to_square],
+      false);
   }
 
   copyFile(source, target) {
@@ -1174,7 +1180,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       5,  // ordinal
       drivefs.mojom.DriveFs_CopyFile_ParamsSpec,
       drivefs.mojom.DriveFs_CopyFile_ResponseParamsSpec,
-      [source, target]);
+      [source, target],
+      false);
   }
 
   startSearchQuery(query, query_params) {
@@ -1183,7 +1190,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       6,  // ordinal
       drivefs.mojom.DriveFs_StartSearchQuery_ParamsSpec,
       null,
-      [query, query_params]);
+      [query, query_params],
+      false);
   }
 
   fetchAllChangeLogs() {
@@ -1192,7 +1200,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       7,  // ordinal
       drivefs.mojom.DriveFs_FetchAllChangeLogs_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   fetchChangeLog(options) {
@@ -1201,7 +1210,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       8,  // ordinal
       drivefs.mojom.DriveFs_FetchChangeLog_ParamsSpec,
       null,
-      [options]);
+      [options],
+      false);
   }
 
   sendNativeMessageRequest(request) {
@@ -1210,7 +1220,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       9,  // ordinal
       drivefs.mojom.DriveFs_SendNativeMessageRequest_ParamsSpec,
       drivefs.mojom.DriveFs_SendNativeMessageRequest_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   setStartupArguments(arguments) {
@@ -1219,7 +1230,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       10,  // ordinal
       drivefs.mojom.DriveFs_SetStartupArguments_ParamsSpec,
       drivefs.mojom.DriveFs_SetStartupArguments_ResponseParamsSpec,
-      [arguments]);
+      [arguments],
+      false);
   }
 
   getStartupArguments() {
@@ -1228,7 +1240,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       11,  // ordinal
       drivefs.mojom.DriveFs_GetStartupArguments_ParamsSpec,
       drivefs.mojom.DriveFs_GetStartupArguments_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setTracingEnabled(enabled) {
@@ -1237,7 +1250,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       12,  // ordinal
       drivefs.mojom.DriveFs_SetTracingEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setNetworkingEnabled(enabled) {
@@ -1246,7 +1260,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       13,  // ordinal
       drivefs.mojom.DriveFs_SetNetworkingEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   forcePauseSyncing(enable) {
@@ -1255,7 +1270,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       14,  // ordinal
       drivefs.mojom.DriveFs_ForcePauseSyncing_ParamsSpec,
       null,
-      [enable]);
+      [enable],
+      false);
   }
 
   dumpAccountSettings() {
@@ -1264,7 +1280,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       15,  // ordinal
       drivefs.mojom.DriveFs_DumpAccountSettings_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   loadAccountSettings() {
@@ -1273,7 +1290,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       16,  // ordinal
       drivefs.mojom.DriveFs_LoadAccountSettings_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   createNativeHostSession(params, host, port) {
@@ -1282,7 +1300,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       17,  // ordinal
       drivefs.mojom.DriveFs_CreateNativeHostSession_ParamsSpec,
       null,
-      [params, host, port]);
+      [params, host, port],
+      false);
   }
 
   locateFilesByItemIds(item_ids) {
@@ -1291,7 +1310,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       18,  // ordinal
       drivefs.mojom.DriveFs_LocateFilesByItemIds_ParamsSpec,
       drivefs.mojom.DriveFs_LocateFilesByItemIds_ResponseParamsSpec,
-      [item_ids]);
+      [item_ids],
+      false);
   }
 
   getQuotaUsage() {
@@ -1300,7 +1320,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       19,  // ordinal
       drivefs.mojom.DriveFs_GetQuotaUsage_ParamsSpec,
       drivefs.mojom.DriveFs_GetQuotaUsage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   toggleMirroring(enabled) {
@@ -1309,7 +1330,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       20,  // ordinal
       drivefs.mojom.DriveFs_ToggleMirroring_ParamsSpec,
       drivefs.mojom.DriveFs_ToggleMirroring_ResponseParamsSpec,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   toggleSyncForPath(path, status) {
@@ -1318,7 +1340,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       21,  // ordinal
       drivefs.mojom.DriveFs_ToggleSyncForPath_ParamsSpec,
       drivefs.mojom.DriveFs_ToggleSyncForPath_ResponseParamsSpec,
-      [path, status]);
+      [path, status],
+      false);
   }
 
   getSyncingPaths() {
@@ -1327,7 +1350,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       22,  // ordinal
       drivefs.mojom.DriveFs_GetSyncingPaths_ParamsSpec,
       drivefs.mojom.DriveFs_GetSyncingPaths_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   pollHostedFilePinStates() {
@@ -1336,7 +1360,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       23,  // ordinal
       drivefs.mojom.DriveFs_PollHostedFilePinStates_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getPooledQuotaUsage() {
@@ -1345,7 +1370,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       24,  // ordinal
       drivefs.mojom.DriveFs_GetPooledQuotaUsage_ParamsSpec,
       drivefs.mojom.DriveFs_GetPooledQuotaUsage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setPinnedByStableId(stable_id, pinned) {
@@ -1354,7 +1380,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       25,  // ordinal
       drivefs.mojom.DriveFs_SetPinnedByStableId_ParamsSpec,
       drivefs.mojom.DriveFs_SetPinnedByStableId_ResponseParamsSpec,
-      [stable_id, pinned]);
+      [stable_id, pinned],
+      false);
   }
 
   getMetadataByStableId(stable_id) {
@@ -1363,7 +1390,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       26,  // ordinal
       drivefs.mojom.DriveFs_GetMetadataByStableId_ParamsSpec,
       drivefs.mojom.DriveFs_GetMetadataByStableId_ResponseParamsSpec,
-      [stable_id]);
+      [stable_id],
+      false);
   }
 
   cancelUploadByPath(path, cancel_mode) {
@@ -1372,7 +1400,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       27,  // ordinal
       drivefs.mojom.DriveFs_CancelUploadByPath_ParamsSpec,
       null,
-      [path, cancel_mode]);
+      [path, cancel_mode],
+      false);
   }
 
   setDocsOfflineEnabled(enabled) {
@@ -1381,7 +1410,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       28,  // ordinal
       drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ParamsSpec,
       drivefs.mojom.DriveFs_SetDocsOfflineEnabled_ResponseParamsSpec,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   getOfflineFilesSpaceUsage() {
@@ -1390,7 +1420,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       29,  // ordinal
       drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ParamsSpec,
       drivefs.mojom.DriveFs_GetOfflineFilesSpaceUsage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   clearOfflineFiles() {
@@ -1399,7 +1430,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       30,  // ordinal
       drivefs.mojom.DriveFs_ClearOfflineFiles_ParamsSpec,
       drivefs.mojom.DriveFs_ClearOfflineFiles_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   immediatelyUpload(path) {
@@ -1408,7 +1440,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       31,  // ordinal
       drivefs.mojom.DriveFs_ImmediatelyUpload_ParamsSpec,
       drivefs.mojom.DriveFs_ImmediatelyUpload_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   updateFromPairedDoc(path) {
@@ -1417,7 +1450,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       32,  // ordinal
       drivefs.mojom.DriveFs_UpdateFromPairedDoc_ParamsSpec,
       drivefs.mojom.DriveFs_UpdateFromPairedDoc_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   getItemFromCloudStore(path) {
@@ -1426,7 +1460,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       33,  // ordinal
       drivefs.mojom.DriveFs_GetItemFromCloudStore_ParamsSpec,
       drivefs.mojom.DriveFs_GetItemFromCloudStore_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   getDocsOfflineStats() {
@@ -1435,7 +1470,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       34,  // ordinal
       drivefs.mojom.DriveFs_GetDocsOfflineStats_ParamsSpec,
       drivefs.mojom.DriveFs_GetDocsOfflineStats_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getMirrorSyncStatusForFile(path) {
@@ -1444,7 +1480,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       35,  // ordinal
       drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ParamsSpec,
       drivefs.mojom.DriveFs_GetMirrorSyncStatusForFile_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   getMirrorSyncStatusForDirectory(path) {
@@ -1453,7 +1490,8 @@ drivefs.mojom.DriveFsRemoteCallHandler = class {
       36,  // ordinal
       drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ParamsSpec,
       drivefs.mojom.DriveFs_GetMirrorSyncStatusForDirectory_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
 };
@@ -1668,7 +1706,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       0,  // ordinal
       drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec,
       drivefs.mojom.DriveFsDelegate_GetAccessToken_ResponseParamsSpec,
-      [client_id, app_id, scopes]);
+      [client_id, app_id, scopes],
+      false);
   }
 
   onMounted() {
@@ -1677,7 +1716,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       1,  // ordinal
       drivefs.mojom.DriveFsDelegate_OnMounted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onMountFailed(retry_delay) {
@@ -1686,7 +1726,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       2,  // ordinal
       drivefs.mojom.DriveFsDelegate_OnMountFailed_ParamsSpec,
       null,
-      [retry_delay]);
+      [retry_delay],
+      false);
   }
 
   onUnmounted(retry_delay) {
@@ -1695,7 +1736,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       3,  // ordinal
       drivefs.mojom.DriveFsDelegate_OnUnmounted_ParamsSpec,
       null,
-      [retry_delay]);
+      [retry_delay],
+      false);
   }
 
   onSyncingStatusUpdate(status) {
@@ -1704,7 +1746,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       4,  // ordinal
       drivefs.mojom.DriveFsDelegate_OnSyncingStatusUpdate_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   onFilesChanged(changes) {
@@ -1713,7 +1756,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       5,  // ordinal
       drivefs.mojom.DriveFsDelegate_OnFilesChanged_ParamsSpec,
       null,
-      [changes]);
+      [changes],
+      false);
   }
 
   onError(error) {
@@ -1722,7 +1766,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       6,  // ordinal
       drivefs.mojom.DriveFsDelegate_OnError_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
   onTeamDrivesListReady(team_drive_ids) {
@@ -1731,7 +1776,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       7,  // ordinal
       drivefs.mojom.DriveFsDelegate_OnTeamDrivesListReady_ParamsSpec,
       null,
-      [team_drive_ids]);
+      [team_drive_ids],
+      false);
   }
 
   onTeamDriveChanged(team_drive_id, change_type) {
@@ -1740,7 +1786,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       8,  // ordinal
       drivefs.mojom.DriveFsDelegate_OnTeamDriveChanged_ParamsSpec,
       null,
-      [team_drive_id, change_type]);
+      [team_drive_id, change_type],
+      false);
   }
 
   onHeartbeat() {
@@ -1749,7 +1796,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       9,  // ordinal
       drivefs.mojom.DriveFsDelegate_OnHeartbeat_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   connectToExtension(params, port, host) {
@@ -1758,7 +1806,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       10,  // ordinal
       drivefs.mojom.DriveFsDelegate_ConnectToExtension_ParamsSpec,
       drivefs.mojom.DriveFsDelegate_ConnectToExtension_ResponseParamsSpec,
-      [params, port, host]);
+      [params, port, host],
+      false);
   }
 
   displayConfirmDialog(reason) {
@@ -1767,7 +1816,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       11,  // ordinal
       drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ParamsSpec,
       drivefs.mojom.DriveFsDelegate_DisplayConfirmDialog_ResponseParamsSpec,
-      [reason]);
+      [reason],
+      false);
   }
 
   executeHttpRequest(request, delegate) {
@@ -1776,7 +1826,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       12,  // ordinal
       drivefs.mojom.DriveFsDelegate_ExecuteHttpRequest_ParamsSpec,
       null,
-      [request, delegate]);
+      [request, delegate],
+      false);
   }
 
   getMachineRootID() {
@@ -1785,7 +1836,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       13,  // ordinal
       drivefs.mojom.DriveFsDelegate_GetMachineRootID_ParamsSpec,
       drivefs.mojom.DriveFsDelegate_GetMachineRootID_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   persistMachineRootID(doc_id) {
@@ -1794,7 +1846,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       14,  // ordinal
       drivefs.mojom.DriveFsDelegate_PersistMachineRootID_ParamsSpec,
       null,
-      [doc_id]);
+      [doc_id],
+      false);
   }
 
   onMirrorSyncingStatusUpdate(status) {
@@ -1803,7 +1856,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       15,  // ordinal
       drivefs.mojom.DriveFsDelegate_OnMirrorSyncingStatusUpdate_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   onItemProgress(progress_event) {
@@ -1812,7 +1866,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       16,  // ordinal
       drivefs.mojom.DriveFsDelegate_OnItemProgress_ParamsSpec,
       null,
-      [progress_event]);
+      [progress_event],
+      false);
   }
 
   getAccessTokenWithExpiry(client_id, app_id, scopes) {
@@ -1821,7 +1876,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       17,  // ordinal
       drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ParamsSpec,
       drivefs.mojom.DriveFsDelegate_GetAccessTokenWithExpiry_ResponseParamsSpec,
-      [client_id, app_id, scopes]);
+      [client_id, app_id, scopes],
+      false);
   }
 
   onNotificationReceived(notification) {
@@ -1830,7 +1886,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       18,  // ordinal
       drivefs.mojom.DriveFsDelegate_OnNotificationReceived_ParamsSpec,
       null,
-      [notification]);
+      [notification],
+      false);
   }
 
   onMirrorSyncError(error_list) {
@@ -1839,7 +1896,8 @@ drivefs.mojom.DriveFsDelegateRemoteCallHandler = class {
       19,  // ordinal
       drivefs.mojom.DriveFsDelegate_OnMirrorSyncError_ParamsSpec,
       null,
-      [error_list]);
+      [error_list],
+      false);
   }
 
 };
@@ -1909,7 +1967,8 @@ drivefs.mojom.SearchQueryRemoteCallHandler = class {
       0,  // ordinal
       drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec,
       drivefs.mojom.SearchQuery_GetNextPage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1991,7 +2050,8 @@ drivefs.mojom.HttpDelegateRemoteCallHandler = class {
       0,  // ordinal
       drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec,
       null,
-      [request_body]);
+      [request_body],
+      false);
   }
 
   onReceiveResponse(response) {
@@ -2000,7 +2060,8 @@ drivefs.mojom.HttpDelegateRemoteCallHandler = class {
       1,  // ordinal
       drivefs.mojom.HttpDelegate_OnReceiveResponse_ParamsSpec,
       null,
-      [response]);
+      [response],
+      false);
   }
 
   onReceiveBody(response_body) {
@@ -2009,7 +2070,8 @@ drivefs.mojom.HttpDelegateRemoteCallHandler = class {
       2,  // ordinal
       drivefs.mojom.HttpDelegate_OnReceiveBody_ParamsSpec,
       null,
-      [response_body]);
+      [response_body],
+      false);
   }
 
   onRequestComplete(status) {
@@ -2018,7 +2080,8 @@ drivefs.mojom.HttpDelegateRemoteCallHandler = class {
       3,  // ordinal
       drivefs.mojom.HttpDelegate_OnRequestComplete_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
 };

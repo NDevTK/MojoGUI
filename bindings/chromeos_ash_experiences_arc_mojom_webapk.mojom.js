@@ -131,7 +131,8 @@ arc.mojom.WebApkInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec,
       arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec,
-      [package_name, version, app_name, token]);
+      [package_name, version, app_name, token],
+      false);
   }
 
   getWebApkInfo(package_name) {
@@ -140,7 +141,8 @@ arc.mojom.WebApkInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec,
       arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec,
-      [package_name]);
+      [package_name],
+      false);
   }
 
 };

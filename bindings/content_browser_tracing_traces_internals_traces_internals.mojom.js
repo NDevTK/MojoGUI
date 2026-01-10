@@ -177,7 +177,8 @@ traces_internals.mojom.TracesInternalsHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -462,7 +463,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec,
       traces_internals.mojom.PageHandler_StartTraceSession_ResponseParamsSpec,
-      [config_pb, enable_privacy_filters]);
+      [config_pb, enable_privacy_filters],
+      false);
   }
 
   cloneTraceSession() {
@@ -471,7 +473,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       traces_internals.mojom.PageHandler_CloneTraceSession_ParamsSpec,
       traces_internals.mojom.PageHandler_CloneTraceSession_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   stopTraceSession() {
@@ -480,7 +483,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       traces_internals.mojom.PageHandler_StopTraceSession_ParamsSpec,
       traces_internals.mojom.PageHandler_StopTraceSession_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getTrackEventCategories() {
@@ -489,7 +493,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       traces_internals.mojom.PageHandler_GetTrackEventCategories_ParamsSpec,
       traces_internals.mojom.PageHandler_GetTrackEventCategories_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getBufferUsage() {
@@ -498,7 +503,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       traces_internals.mojom.PageHandler_GetBufferUsage_ParamsSpec,
       traces_internals.mojom.PageHandler_GetBufferUsage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAllTraceReports() {
@@ -507,7 +513,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       traces_internals.mojom.PageHandler_GetAllTraceReports_ParamsSpec,
       traces_internals.mojom.PageHandler_GetAllTraceReports_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   deleteSingleTrace(uuid) {
@@ -516,7 +523,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       traces_internals.mojom.PageHandler_DeleteSingleTrace_ParamsSpec,
       traces_internals.mojom.PageHandler_DeleteSingleTrace_ResponseParamsSpec,
-      [uuid]);
+      [uuid],
+      false);
   }
 
   deleteAllTraces() {
@@ -525,7 +533,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       traces_internals.mojom.PageHandler_DeleteAllTraces_ParamsSpec,
       traces_internals.mojom.PageHandler_DeleteAllTraces_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   userUploadSingleTrace(uuid) {
@@ -534,7 +543,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       traces_internals.mojom.PageHandler_UserUploadSingleTrace_ParamsSpec,
       traces_internals.mojom.PageHandler_UserUploadSingleTrace_ResponseParamsSpec,
-      [uuid]);
+      [uuid],
+      false);
   }
 
   downloadTrace(uuid) {
@@ -543,7 +553,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       traces_internals.mojom.PageHandler_DownloadTrace_ParamsSpec,
       traces_internals.mojom.PageHandler_DownloadTrace_ResponseParamsSpec,
-      [uuid]);
+      [uuid],
+      false);
   }
 
   getAllScenarios() {
@@ -552,7 +563,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       traces_internals.mojom.PageHandler_GetAllScenarios_ParamsSpec,
       traces_internals.mojom.PageHandler_GetAllScenarios_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setEnabledScenarios(new_config) {
@@ -561,7 +573,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       traces_internals.mojom.PageHandler_SetEnabledScenarios_ParamsSpec,
       traces_internals.mojom.PageHandler_SetEnabledScenarios_ResponseParamsSpec,
-      [new_config]);
+      [new_config],
+      false);
   }
 
   setScenariosConfigFromString(config_string) {
@@ -570,7 +583,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ParamsSpec,
       traces_internals.mojom.PageHandler_SetScenariosConfigFromString_ResponseParamsSpec,
-      [config_string]);
+      [config_string],
+      false);
   }
 
   setScenariosConfigFromBuffer(config_pb) {
@@ -579,7 +593,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ParamsSpec,
       traces_internals.mojom.PageHandler_SetScenariosConfigFromBuffer_ResponseParamsSpec,
-      [config_pb]);
+      [config_pb],
+      false);
   }
 
   getPrivacyFilterEnabled() {
@@ -588,7 +603,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ParamsSpec,
       traces_internals.mojom.PageHandler_GetPrivacyFilterEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setPrivacyFilterEnabled(enable) {
@@ -597,7 +613,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       traces_internals.mojom.PageHandler_SetPrivacyFilterEnabled_ParamsSpec,
       null,
-      [enable]);
+      [enable],
+      false);
   }
 
   getSystemTracingState() {
@@ -606,7 +623,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       traces_internals.mojom.PageHandler_GetSystemTracingState_ParamsSpec,
       traces_internals.mojom.PageHandler_GetSystemTracingState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSecurityShieldIconUrl() {
@@ -615,7 +633,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       17,  // ordinal
       traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ParamsSpec,
       traces_internals.mojom.PageHandler_GetSecurityShieldIconUrl_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   enableSystemTracing() {
@@ -624,7 +643,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       18,  // ordinal
       traces_internals.mojom.PageHandler_EnableSystemTracing_ParamsSpec,
       traces_internals.mojom.PageHandler_EnableSystemTracing_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   disableSystemTracing() {
@@ -633,7 +653,8 @@ traces_internals.mojom.PageHandlerRemoteCallHandler = class {
       19,  // ordinal
       traces_internals.mojom.PageHandler_DisableSystemTracing_ParamsSpec,
       traces_internals.mojom.PageHandler_DisableSystemTracing_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -698,7 +719,8 @@ traces_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       traces_internals.mojom.Page_OnTraceComplete_ParamsSpec,
       null,
-      [trace, uuid]);
+      [trace, uuid],
+      false);
   }
 
 };

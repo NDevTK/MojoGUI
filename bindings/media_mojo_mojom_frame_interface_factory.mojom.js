@@ -67,7 +67,8 @@ media.mojom.MuteStateObserverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec,
       null,
-      [muted]);
+      [muted],
+      false);
   }
 
 };
@@ -166,7 +167,8 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec,
       null,
-      [provision_fetcher]);
+      [provision_fetcher],
+      false);
   }
 
   createCdmStorage(cdm_storage) {
@@ -175,7 +177,8 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec,
       null,
-      [cdm_storage]);
+      [cdm_storage],
+      false);
   }
 
   registerMuteStateObserver(site_mute_observer) {
@@ -184,7 +187,8 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec,
       null,
-      [site_mute_observer]);
+      [site_mute_observer],
+      false);
   }
 
   createDCOMPSurfaceRegistry(registry) {
@@ -193,7 +197,8 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec,
       null,
-      [registry]);
+      [registry],
+      false);
   }
 
   getCdmOrigin() {
@@ -202,7 +207,8 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec,
       media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   bindEmbedderReceiver(receiver) {
@@ -211,7 +217,8 @@ media.mojom.FrameInterfaceFactoryRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

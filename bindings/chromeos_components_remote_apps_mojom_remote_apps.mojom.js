@@ -164,7 +164,8 @@ chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = class {
       0,  // ordinal
       chromeos.remote_apps.mojom.RemoteApps_AddFolder_ParamsSpec,
       chromeos.remote_apps.mojom.RemoteApps_AddFolder_ResponseParamsSpec,
-      [name, add_to_front]);
+      [name, add_to_front],
+      false);
   }
 
   addApp(source_id, name, folder_id, icon_url, add_to_front) {
@@ -173,7 +174,8 @@ chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = class {
       1,  // ordinal
       chromeos.remote_apps.mojom.RemoteApps_AddApp_ParamsSpec,
       chromeos.remote_apps.mojom.RemoteApps_AddApp_ResponseParamsSpec,
-      [source_id, name, folder_id, icon_url, add_to_front]);
+      [source_id, name, folder_id, icon_url, add_to_front],
+      false);
   }
 
   deleteApp(app_id) {
@@ -182,7 +184,8 @@ chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = class {
       2,  // ordinal
       chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ParamsSpec,
       chromeos.remote_apps.mojom.RemoteApps_DeleteApp_ResponseParamsSpec,
-      [app_id]);
+      [app_id],
+      false);
   }
 
   sortLauncherWithRemoteAppsFirst() {
@@ -191,7 +194,8 @@ chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = class {
       3,  // ordinal
       chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ParamsSpec,
       chromeos.remote_apps.mojom.RemoteApps_SortLauncherWithRemoteAppsFirst_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setPinnedApps(app_ids) {
@@ -200,7 +204,8 @@ chromeos.remote_apps.mojom.RemoteAppsRemoteCallHandler = class {
       4,  // ordinal
       chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ParamsSpec,
       chromeos.remote_apps.mojom.RemoteApps_SetPinnedApps_ResponseParamsSpec,
-      [app_ids]);
+      [app_ids],
+      false);
   }
 
 };
@@ -266,7 +271,8 @@ chromeos.remote_apps.mojom.RemoteAppsFactoryRemoteCallHandler = class {
       0,  // ordinal
       chromeos.remote_apps.mojom.RemoteAppsFactory_BindRemoteAppsAndAppLaunchObserver_ParamsSpec,
       null,
-      [source_id, remote_apps, observer]);
+      [source_id, remote_apps, observer],
+      false);
   }
 
 };
@@ -331,7 +337,8 @@ chromeos.remote_apps.mojom.RemoteAppLaunchObserverRemoteCallHandler = class {
       0,  // ordinal
       chromeos.remote_apps.mojom.RemoteAppLaunchObserver_OnRemoteAppLaunched_ParamsSpec,
       null,
-      [app_id, source_id]);
+      [app_id, source_id],
+      false);
   }
 
 };

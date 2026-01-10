@@ -106,7 +106,8 @@ related_website_sets.mojom.RelatedWebsiteSetsPageHandlerRemoteCallHandler = clas
       0,  // ordinal
       related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ParamsSpec,
       related_website_sets.mojom.RelatedWebsiteSetsPageHandler_GetRelatedWebsiteSets_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

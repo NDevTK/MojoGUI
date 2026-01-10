@@ -71,7 +71,8 @@ chrome.mojom.ZipListenerRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.ZipListener_OnProgress_ParamsSpec,
       null,
-      [bytes, files, directories]);
+      [bytes, files, directories],
+      false);
   }
 
   onFinished(success) {
@@ -80,7 +81,8 @@ chrome.mojom.ZipListenerRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.ZipListener_OnFinished_ParamsSpec,
       null,
-      [success]);
+      [success],
+      false);
   }
 
 };
@@ -147,7 +149,8 @@ chrome.mojom.ZipFileCreatorRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec,
       null,
-      [src_dir, relative_paths, zip_file, listener]);
+      [src_dir, relative_paths, zip_file, listener],
+      false);
   }
 
 };

@@ -64,7 +64,8 @@ arc.mojom.MediaSessionInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec,
       null,
-      [service]);
+      [service],
+      false);
   }
 
   disableAudioFocus() {
@@ -73,7 +74,8 @@ arc.mojom.MediaSessionInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

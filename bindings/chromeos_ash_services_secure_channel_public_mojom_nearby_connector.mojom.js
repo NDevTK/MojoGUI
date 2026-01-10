@@ -121,7 +121,8 @@ ash.secure_channel.mojom.NearbyConnectionStateListenerRemoteCallHandler = class 
       0,  // ordinal
       ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec,
       null,
-      [step, result]);
+      [step, result],
+      false);
   }
 
 };
@@ -191,7 +192,8 @@ ash.secure_channel.mojom.NearbyMessageSenderRemoteCallHandler = class {
       0,  // ordinal
       ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec,
       ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec,
-      [message]);
+      [message],
+      false);
   }
 
 };
@@ -255,7 +257,8 @@ ash.secure_channel.mojom.NearbyMessageReceiverRemoteCallHandler = class {
       0,  // ordinal
       ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };
@@ -327,7 +330,8 @@ ash.secure_channel.mojom.NearbyFilePayloadHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec,
       ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec,
-      [payload_id, payload_files, listener]);
+      [payload_id, payload_files, listener],
+      false);
   }
 
 };
@@ -401,7 +405,8 @@ ash.secure_channel.mojom.NearbyConnectorRemoteCallHandler = class {
       0,  // ordinal
       ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec,
       ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec,
-      [bluetooth_public_address, eid, message_receiver, nearby_connection_state_listener]);
+      [bluetooth_public_address, eid, message_receiver, nearby_connection_state_listener],
+      false);
   }
 
 };

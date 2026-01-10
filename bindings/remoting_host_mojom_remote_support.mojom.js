@@ -171,7 +171,8 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onHostStateRequestedAccessCode() {
@@ -180,7 +181,8 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onHostStateReceivedAccessCode(access_code, lifetime) {
@@ -189,7 +191,8 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec,
       null,
-      [access_code, lifetime]);
+      [access_code, lifetime],
+      false);
   }
 
   onHostStateConnecting() {
@@ -198,7 +201,8 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
       3,  // ordinal
       remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onHostStateConnected(remote_username) {
@@ -207,7 +211,8 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
       4,  // ordinal
       remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec,
       null,
-      [remote_username]);
+      [remote_username],
+      false);
   }
 
   onHostStateDisconnected(disconnect_reason) {
@@ -216,7 +221,8 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
       6,  // ordinal
       remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec,
       null,
-      [disconnect_reason]);
+      [disconnect_reason],
+      false);
   }
 
   onNatPolicyChanged(nat_policy_state) {
@@ -225,7 +231,8 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
       7,  // ordinal
       remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec,
       null,
-      [nat_policy_state]);
+      [nat_policy_state],
+      false);
   }
 
   onHostStateError(error_code) {
@@ -234,7 +241,8 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
       8,  // ordinal
       remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec,
       null,
-      [error_code]);
+      [error_code],
+      false);
   }
 
   onPolicyError() {
@@ -243,7 +251,8 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
       9,  // ordinal
       remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onInvalidDomainError() {
@@ -252,7 +261,8 @@ remoting.mojom.SupportHostObserverRemoteCallHandler = class {
       10,  // ordinal
       remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

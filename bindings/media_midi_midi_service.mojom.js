@@ -138,7 +138,8 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
       0,  // ordinal
       midi.mojom.MidiSessionClient_AddInputPort_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
   addOutputPort(info) {
@@ -147,7 +148,8 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
       1,  // ordinal
       midi.mojom.MidiSessionClient_AddOutputPort_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
   setInputPortState(port, state) {
@@ -156,7 +158,8 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
       2,  // ordinal
       midi.mojom.MidiSessionClient_SetInputPortState_ParamsSpec,
       null,
-      [port, state]);
+      [port, state],
+      false);
   }
 
   setOutputPortState(port, state) {
@@ -165,7 +168,8 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
       3,  // ordinal
       midi.mojom.MidiSessionClient_SetOutputPortState_ParamsSpec,
       null,
-      [port, state]);
+      [port, state],
+      false);
   }
 
   sessionStarted(result) {
@@ -174,7 +178,8 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
       4,  // ordinal
       midi.mojom.MidiSessionClient_SessionStarted_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
   acknowledgeSentData(bytes) {
@@ -183,7 +188,8 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
       5,  // ordinal
       midi.mojom.MidiSessionClient_AcknowledgeSentData_ParamsSpec,
       null,
-      [bytes]);
+      [bytes],
+      false);
   }
 
   dataReceived(port, data, timestamp) {
@@ -192,7 +198,8 @@ midi.mojom.MidiSessionClientRemoteCallHandler = class {
       6,  // ordinal
       midi.mojom.MidiSessionClient_DataReceived_ParamsSpec,
       null,
-      [port, data, timestamp]);
+      [port, data, timestamp],
+      false);
   }
 
 };
@@ -257,7 +264,8 @@ midi.mojom.MidiSessionProviderRemoteCallHandler = class {
       0,  // ordinal
       midi.mojom.MidiSessionProvider_StartSession_ParamsSpec,
       null,
-      [receiver, client]);
+      [receiver, client],
+      false);
   }
 
 };
@@ -323,7 +331,8 @@ midi.mojom.MidiSessionRemoteCallHandler = class {
       0,  // ordinal
       midi.mojom.MidiSession_SendData_ParamsSpec,
       null,
-      [port, data, timestamp]);
+      [port, data, timestamp],
+      false);
   }
 
 };

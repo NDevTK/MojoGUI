@@ -192,10 +192,10 @@ mojo.internal.Struct(
 // Struct: VmRegion
 mojo.internal.Struct(
     memory_instrumentation.mojom.VmRegionSpec, 'memory_instrumentation.mojom.VmRegion', [
-      mojo.internal.StructField('kProtectionFlagsRead', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('kProtectionFlagsWrite', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('kProtectionFlagsExec', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('kProtectionFlagsMayshare', 24, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kProtectionFlagsRead', 0, 0, mojo.internal.Pointer, 4, false, 0, undefined),
+      mojo.internal.StructField('kProtectionFlagsWrite', 8, 0, mojo.internal.Pointer, 2, false, 0, undefined),
+      mojo.internal.StructField('kProtectionFlagsExec', 16, 0, mojo.internal.Pointer, 1, false, 0, undefined),
+      mojo.internal.StructField('kProtectionFlagsMayshare', 24, 0, mojo.internal.Pointer, 128, false, 0, undefined),
       mojo.internal.StructField('start_address', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('size_in_bytes', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('module_timestamp', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
@@ -368,7 +368,8 @@ memory_instrumentation.mojom.ClientProcessRemoteCallHandler = class {
       0,  // ordinal
       memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec,
       memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec,
-      [args]);
+      [args],
+      false);
   }
 
   requestOSMemoryDump(option, flags, pids) {
@@ -377,7 +378,8 @@ memory_instrumentation.mojom.ClientProcessRemoteCallHandler = class {
       1,  // ordinal
       memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec,
       memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec,
-      [option, flags, pids]);
+      [option, flags, pids],
+      false);
   }
 
 };
@@ -448,7 +450,8 @@ memory_instrumentation.mojom.HeapProfilerRemoteCallHandler = class {
       0,  // ordinal
       memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec,
       memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec,
-      [strip_path_from_mapped_files, write_proto]);
+      [strip_path_from_mapped_files, write_proto],
+      false);
   }
 
 };
@@ -518,7 +521,8 @@ memory_instrumentation.mojom.HeapProfilerHelperRemoteCallHandler = class {
       0,  // ordinal
       memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec,
       memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec,
-      [pids]);
+      [pids],
+      false);
   }
 
 };
@@ -634,7 +638,8 @@ memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
       0,  // ordinal
       memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec,
       memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec,
-      [dump_type, level_of_detail, determinism, allocator_dump_names]);
+      [dump_type, level_of_detail, determinism, allocator_dump_names],
+      false);
   }
 
   requestGlobalMemoryDumpForPid(pid, allocator_dump_names) {
@@ -643,7 +648,8 @@ memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
       1,  // ordinal
       memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec,
       memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec,
-      [pid, allocator_dump_names]);
+      [pid, allocator_dump_names],
+      false);
   }
 
   requestPrivateMemoryFootprint(pid) {
@@ -652,7 +658,8 @@ memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
       2,  // ordinal
       memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec,
       memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec,
-      [pid]);
+      [pid],
+      false);
   }
 
   requestGlobalMemoryDumpAndAppendToTrace(dump_type, level_of_detail, determinism) {
@@ -661,7 +668,8 @@ memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
       3,  // ordinal
       memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec,
       memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec,
-      [dump_type, level_of_detail, determinism]);
+      [dump_type, level_of_detail, determinism],
+      false);
   }
 
 };
@@ -726,7 +734,8 @@ memory_instrumentation.mojom.CoordinatorConnectorRemoteCallHandler = class {
       0,  // ordinal
       memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec,
       null,
-      [receiver, client_process]);
+      [receiver, client_process],
+      false);
   }
 
 };

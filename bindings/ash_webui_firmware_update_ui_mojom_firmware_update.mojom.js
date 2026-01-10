@@ -153,7 +153,8 @@ ash.firmware_update.mojom.UpdateObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec,
       null,
-      [firmware_updates]);
+      [firmware_updates],
+      false);
   }
 
 };
@@ -217,7 +218,8 @@ ash.firmware_update.mojom.DeviceRequestObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec,
       null,
-      [request]);
+      [request],
+      false);
   }
 
 };
@@ -281,7 +283,8 @@ ash.firmware_update.mojom.UpdateProgressObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec,
       null,
-      [update]);
+      [update],
+      false);
   }
 
 };
@@ -368,7 +371,8 @@ ash.firmware_update.mojom.UpdateProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   prepareForUpdate(device_id) {
@@ -377,7 +381,8 @@ ash.firmware_update.mojom.UpdateProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ParamsSpec,
       ash.firmware_update.mojom.UpdateProvider_PrepareForUpdate_ResponseParamsSpec,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   fetchInProgressUpdate() {
@@ -386,7 +391,8 @@ ash.firmware_update.mojom.UpdateProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ParamsSpec,
       ash.firmware_update.mojom.UpdateProvider_FetchInProgressUpdate_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -463,7 +469,8 @@ ash.firmware_update.mojom.InstallControllerRemoteCallHandler = class {
       0,  // ordinal
       ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec,
       null,
-      [device_id, filepath]);
+      [device_id, filepath],
+      false);
   }
 
   addDeviceRequestObserver(observer) {
@@ -472,7 +479,8 @@ ash.firmware_update.mojom.InstallControllerRemoteCallHandler = class {
       1,  // ordinal
       ash.firmware_update.mojom.InstallController_AddDeviceRequestObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   addUpdateProgressObserver(observer) {
@@ -481,7 +489,8 @@ ash.firmware_update.mojom.InstallControllerRemoteCallHandler = class {
       2,  // ordinal
       ash.firmware_update.mojom.InstallController_AddUpdateProgressObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };
@@ -544,7 +553,8 @@ ash.firmware_update.mojom.SystemUtilsRemoteCallHandler = class {
       0,  // ordinal
       ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

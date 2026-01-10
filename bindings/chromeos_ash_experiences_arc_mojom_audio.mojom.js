@@ -100,7 +100,8 @@ arc.mojom.AudioHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSystemVolumeUpdateRequest(percent) {
@@ -109,7 +110,8 @@ arc.mojom.AudioHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec,
       null,
-      [percent]);
+      [percent],
+      false);
   }
 
 };
@@ -203,7 +205,8 @@ arc.mojom.AudioInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.AudioInstance_Init_ParamsSpec,
       arc.mojom.AudioInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   notifySwitchState(state) {
@@ -212,7 +215,8 @@ arc.mojom.AudioInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   notifyVolumeState(volume, muted) {
@@ -221,7 +225,8 @@ arc.mojom.AudioInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec,
       null,
-      [volume, muted]);
+      [volume, muted],
+      false);
   }
 
   notifySpatialAudioState(enabled) {
@@ -230,7 +235,8 @@ arc.mojom.AudioInstanceRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   notifyOutputDeviceInfo(device_type) {
@@ -239,7 +245,8 @@ arc.mojom.AudioInstanceRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec,
       null,
-      [device_type]);
+      [device_type],
+      false);
   }
 
 };

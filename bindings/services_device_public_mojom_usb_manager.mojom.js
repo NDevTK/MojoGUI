@@ -151,7 +151,8 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ParamsSpec,
       device.mojom.UsbDeviceManager_EnumerateDevicesAndSetClient_ResponseParamsSpec,
-      [client]);
+      [client],
+      false);
   }
 
   getDevices(options) {
@@ -160,7 +161,8 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.UsbDeviceManager_GetDevices_ParamsSpec,
       device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   getDevice(guid, blocked_interface_classes, device_receiver, device_client) {
@@ -169,7 +171,8 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.UsbDeviceManager_GetDevice_ParamsSpec,
       null,
-      [guid, blocked_interface_classes, device_receiver, device_client]);
+      [guid, blocked_interface_classes, device_receiver, device_client],
+      false);
   }
 
   getSecurityKeyDevice(guid, device_receiver, device_client) {
@@ -178,7 +181,8 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec,
       null,
-      [guid, device_receiver, device_client]);
+      [guid, device_receiver, device_client],
+      false);
   }
 
   refreshDeviceInfo(guid) {
@@ -187,7 +191,8 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.UsbDeviceManager_RefreshDeviceInfo_ParamsSpec,
       device.mojom.UsbDeviceManager_RefreshDeviceInfo_ResponseParamsSpec,
-      [guid]);
+      [guid],
+      false);
   }
 
   checkAccess(guid) {
@@ -196,7 +201,8 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       5,  // ordinal
       device.mojom.UsbDeviceManager_CheckAccess_ParamsSpec,
       device.mojom.UsbDeviceManager_CheckAccess_ResponseParamsSpec,
-      [guid]);
+      [guid],
+      false);
   }
 
   openFileDescriptor(guid, allowed_interfaces_mask, lifeline_fd) {
@@ -205,7 +211,8 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       6,  // ordinal
       device.mojom.UsbDeviceManager_OpenFileDescriptor_ParamsSpec,
       device.mojom.UsbDeviceManager_OpenFileDescriptor_ResponseParamsSpec,
-      [guid, allowed_interfaces_mask, lifeline_fd]);
+      [guid, allowed_interfaces_mask, lifeline_fd],
+      false);
   }
 
   setClient(client) {
@@ -214,7 +221,8 @@ device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       7,  // ordinal
       device.mojom.UsbDeviceManager_SetClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
 };

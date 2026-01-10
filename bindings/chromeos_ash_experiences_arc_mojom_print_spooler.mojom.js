@@ -132,7 +132,8 @@ arc.mojom.PrintSessionInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   createPreviewDocument(request) {
@@ -141,7 +142,8 @@ arc.mojom.PrintSessionInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec,
       arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
 };
@@ -213,7 +215,8 @@ arc.mojom.PrintSpoolerHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec,
       arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec,
-      [scoped_handle, task_id, instance]);
+      [scoped_handle, task_id, instance],
+      false);
   }
 
 };
@@ -282,7 +285,8 @@ arc.mojom.PrintSpoolerInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.PrintSpoolerInstance_Init_ParamsSpec,
       arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

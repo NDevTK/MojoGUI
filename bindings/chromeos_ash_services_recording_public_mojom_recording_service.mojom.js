@@ -98,7 +98,8 @@ recording.mojom.DriveFsQuotaDelegateRemoteCallHandler = class {
       0,  // ordinal
       recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ParamsSpec,
       recording.mojom.DriveFsQuotaDelegate_GetDriveFsFreeSpaceBytes_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -163,7 +164,8 @@ recording.mojom.RecordingServiceClientRemoteCallHandler = class {
       0,  // ordinal
       recording.mojom.RecordingServiceClient_OnRecordingEnded_ParamsSpec,
       null,
-      [status, thumbnail]);
+      [status, thumbnail],
+      false);
   }
 
 };
@@ -292,7 +294,8 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
       0,  // ordinal
       recording.mojom.RecordingService_RecordFullscreen_ParamsSpec,
       null,
-      [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor]);
+      [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor],
+      false);
   }
 
   recordWindow(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, subtree_capture_id, window_size_dip) {
@@ -301,7 +304,8 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
       1,  // ordinal
       recording.mojom.RecordingService_RecordWindow_ParamsSpec,
       null,
-      [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, subtree_capture_id, window_size_dip]);
+      [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, subtree_capture_id, window_size_dip],
+      false);
   }
 
   recordRegion(client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, crop_region_dip) {
@@ -310,7 +314,8 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
       2,  // ordinal
       recording.mojom.RecordingService_RecordRegion_ParamsSpec,
       null,
-      [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, crop_region_dip]);
+      [client, video_capturer, microphone_stream_factory, system_audio_stream_factory, drive_fs_quota_delegate, output_file_path, frame_sink_id, frame_sink_size_dip, device_scale_factor, crop_region_dip],
+      false);
   }
 
   stopRecording() {
@@ -319,7 +324,8 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
       3,  // ordinal
       recording.mojom.RecordingService_StopRecording_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onRecordedWindowChangingRoot(new_frame_sink_id, new_frame_sink_size_dip, new_device_scale_factor) {
@@ -328,7 +334,8 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
       4,  // ordinal
       recording.mojom.RecordingService_OnRecordedWindowChangingRoot_ParamsSpec,
       null,
-      [new_frame_sink_id, new_frame_sink_size_dip, new_device_scale_factor]);
+      [new_frame_sink_id, new_frame_sink_size_dip, new_device_scale_factor],
+      false);
   }
 
   onRecordedWindowSizeChanged(new_window_size_dip) {
@@ -337,7 +344,8 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
       5,  // ordinal
       recording.mojom.RecordingService_OnRecordedWindowSizeChanged_ParamsSpec,
       null,
-      [new_window_size_dip]);
+      [new_window_size_dip],
+      false);
   }
 
   onFrameSinkSizeChanged(new_frame_sink_size_dip, new_device_scale_factor) {
@@ -346,7 +354,8 @@ recording.mojom.RecordingServiceRemoteCallHandler = class {
       6,  // ordinal
       recording.mojom.RecordingService_OnFrameSinkSizeChanged_ParamsSpec,
       null,
-      [new_frame_sink_size_dip, new_device_scale_factor]);
+      [new_frame_sink_size_dip, new_device_scale_factor],
+      false);
   }
 
 };

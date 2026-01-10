@@ -81,7 +81,8 @@ userspace_swap.mojom.UserspaceSwapInitializationRemoteCallHandler = class {
       0,  // ordinal
       userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec,
       userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec,
-      [uffd_error, uffd_handle, mmap_error, swap_area]);
+      [uffd_error, uffd_handle, mmap_error, swap_area],
+      false);
   }
 
 };
@@ -164,7 +165,8 @@ userspace_swap.mojom.UserspaceSwapRemoteCallHandler = class {
       0,  // ordinal
       userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec,
       null,
-      [src, dest]);
+      [src, dest],
+      false);
   }
 
   mapArea(area) {
@@ -173,7 +175,8 @@ userspace_swap.mojom.UserspaceSwapRemoteCallHandler = class {
       1,  // ordinal
       userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec,
       null,
-      [area]);
+      [area],
+      false);
   }
 
   getPartitionAllocSuperPagesUsed(max_superpages) {
@@ -182,7 +185,8 @@ userspace_swap.mojom.UserspaceSwapRemoteCallHandler = class {
       2,  // ordinal
       userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec,
       userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec,
-      [max_superpages]);
+      [max_superpages],
+      false);
   }
 
 };

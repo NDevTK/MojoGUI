@@ -69,7 +69,8 @@ arc.mojom.PipHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.PipHost_OnPipEvent_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
 };
@@ -149,7 +150,8 @@ arc.mojom.PipInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.PipInstance_Init_ParamsSpec,
       arc.mojom.PipInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   closePip() {
@@ -158,7 +160,8 @@ arc.mojom.PipInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.PipInstance_ClosePip_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setPipSuppressionStatus(suppressed) {
@@ -167,7 +170,8 @@ arc.mojom.PipInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.PipInstance_SetPipSuppressionStatus_ParamsSpec,
       null,
-      [suppressed]);
+      [suppressed],
+      false);
   }
 
 };

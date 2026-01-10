@@ -65,7 +65,8 @@ ash.cfm.mojom.MeetBrowserRemoteCallHandler = class {
       0,  // ordinal
       ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec,
       ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec,
-      [hashed_device_id]);
+      [hashed_device_id],
+      false);
   }
 
 };

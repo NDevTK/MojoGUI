@@ -72,7 +72,8 @@ tracing.mojom.TracedProcessRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec,
       tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
 };

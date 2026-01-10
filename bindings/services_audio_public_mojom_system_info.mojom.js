@@ -160,7 +160,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.SystemInfo_GetInputStreamParameters_ParamsSpec,
       audio.mojom.SystemInfo_GetInputStreamParameters_ResponseParamsSpec,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   getOutputStreamParameters(device_id) {
@@ -169,7 +170,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       1,  // ordinal
       audio.mojom.SystemInfo_GetOutputStreamParameters_ParamsSpec,
       audio.mojom.SystemInfo_GetOutputStreamParameters_ResponseParamsSpec,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   hasInputDevices() {
@@ -178,7 +180,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       2,  // ordinal
       audio.mojom.SystemInfo_HasInputDevices_ParamsSpec,
       audio.mojom.SystemInfo_HasInputDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   hasOutputDevices() {
@@ -187,7 +190,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       3,  // ordinal
       audio.mojom.SystemInfo_HasOutputDevices_ParamsSpec,
       audio.mojom.SystemInfo_HasOutputDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getInputDeviceDescriptions() {
@@ -196,7 +200,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       4,  // ordinal
       audio.mojom.SystemInfo_GetInputDeviceDescriptions_ParamsSpec,
       audio.mojom.SystemInfo_GetInputDeviceDescriptions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getOutputDeviceDescriptions() {
@@ -205,7 +210,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       5,  // ordinal
       audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ParamsSpec,
       audio.mojom.SystemInfo_GetOutputDeviceDescriptions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAssociatedOutputDeviceID(input_device_id) {
@@ -214,7 +220,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       6,  // ordinal
       audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ParamsSpec,
       audio.mojom.SystemInfo_GetAssociatedOutputDeviceID_ResponseParamsSpec,
-      [input_device_id]);
+      [input_device_id],
+      false);
   }
 
   getInputDeviceInfo(input_device_id) {
@@ -223,7 +230,8 @@ audio.mojom.SystemInfoRemoteCallHandler = class {
       7,  // ordinal
       audio.mojom.SystemInfo_GetInputDeviceInfo_ParamsSpec,
       audio.mojom.SystemInfo_GetInputDeviceInfo_ResponseParamsSpec,
-      [input_device_id]);
+      [input_device_id],
+      false);
   }
 
 };

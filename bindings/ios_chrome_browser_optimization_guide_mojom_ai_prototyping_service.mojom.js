@@ -79,7 +79,8 @@ ai.mojom.AIPrototypingServiceRemoteCallHandler = class {
       0,  // ordinal
       ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec,
       ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   executeOnDeviceQuery(request) {
@@ -88,7 +89,8 @@ ai.mojom.AIPrototypingServiceRemoteCallHandler = class {
       1,  // ordinal
       ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec,
       ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
 };

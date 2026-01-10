@@ -65,7 +65,8 @@ blink.mojom.PointerLockContextRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec,
       blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec,
-      [unadjusted_movement]);
+      [unadjusted_movement],
+      false);
   }
 
 };

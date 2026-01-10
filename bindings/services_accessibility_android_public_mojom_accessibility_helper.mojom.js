@@ -573,7 +573,8 @@ ax.android.mojom.AccessibilityHelperHostRemoteCallHandler = class {
       1,  // ordinal
       ax.android.mojom.AccessibilityHelperHost_OnAccessibilityEvent_ParamsSpec,
       null,
-      [event_data]);
+      [event_data],
+      false);
   }
 
   onNotificationStateChanged(notification_key, state) {
@@ -582,7 +583,8 @@ ax.android.mojom.AccessibilityHelperHostRemoteCallHandler = class {
       2,  // ordinal
       ax.android.mojom.AccessibilityHelperHost_OnNotificationStateChanged_ParamsSpec,
       null,
-      [notification_key, state]);
+      [notification_key, state],
+      false);
   }
 
   onToggleNativeChromeVoxArcSupport(enabled) {
@@ -591,7 +593,8 @@ ax.android.mojom.AccessibilityHelperHostRemoteCallHandler = class {
       3,  // ordinal
       ax.android.mojom.AccessibilityHelperHost_OnToggleNativeChromeVoxArcSupport_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
 };
@@ -714,7 +717,8 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
       7,  // ordinal
       ax.android.mojom.AccessibilityHelperInstance_Init_ParamsSpec,
       ax.android.mojom.AccessibilityHelperInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   setFilter(filter_type) {
@@ -723,7 +727,8 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
       2,  // ordinal
       ax.android.mojom.AccessibilityHelperInstance_SetFilter_ParamsSpec,
       null,
-      [filter_type]);
+      [filter_type],
+      false);
   }
 
   performAction(action_data) {
@@ -732,7 +737,8 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
       4,  // ordinal
       ax.android.mojom.AccessibilityHelperInstance_PerformAction_ParamsSpec,
       ax.android.mojom.AccessibilityHelperInstance_PerformAction_ResponseParamsSpec,
-      [action_data]);
+      [action_data],
+      false);
   }
 
   setExploreByTouchEnabled(enabled) {
@@ -741,7 +747,8 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
       8,  // ordinal
       ax.android.mojom.AccessibilityHelperInstance_SetExploreByTouchEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   refreshWithExtraData(refresh_data) {
@@ -750,7 +757,8 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
       9,  // ordinal
       ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ParamsSpec,
       ax.android.mojom.AccessibilityHelperInstance_RefreshWithExtraData_ResponseParamsSpec,
-      [refresh_data]);
+      [refresh_data],
+      false);
   }
 
   requestSendAccessibilityTree(window) {
@@ -759,7 +767,8 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
       11,  // ordinal
       ax.android.mojom.AccessibilityHelperInstance_RequestSendAccessibilityTree_ParamsSpec,
       null,
-      [window]);
+      [window],
+      false);
   }
 
   setNativeChromeVoxArcSupportForFocusedWindow(enabled) {
@@ -768,7 +777,8 @@ ax.android.mojom.AccessibilityHelperInstanceRemoteCallHandler = class {
       12,  // ordinal
       ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ParamsSpec,
       ax.android.mojom.AccessibilityHelperInstance_SetNativeChromeVoxArcSupportForFocusedWindow_ResponseParamsSpec,
-      [enabled]);
+      [enabled],
+      false);
   }
 
 };

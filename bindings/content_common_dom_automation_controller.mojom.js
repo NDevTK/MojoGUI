@@ -57,7 +57,8 @@ content.mojom.DomAutomationControllerHostRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec,
       null,
-      [json_string]);
+      [json_string],
+      false);
   }
 
 };

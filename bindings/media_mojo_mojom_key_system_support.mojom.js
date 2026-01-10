@@ -40,7 +40,7 @@ media.mojom.CdmCapabilityQueryStatus = {
 mojo.internal.Struct(
     media.mojom.VideoCodecInfoSpec, 'media.mojom.VideoCodecInfo', [
       mojo.internal.StructField('supported_profiles', 0, 0, mojo.internal.Array(media.mojom.VideoCodecProfileSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('supports_clear_lead', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('supports_clear_lead', 8, 0, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -110,7 +110,8 @@ media.mojom.KeySystemSupportObserverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec,
       null,
-      [key_systems]);
+      [key_systems],
+      false);
   }
 
 };
@@ -174,7 +175,8 @@ media.mojom.KeySystemSupportRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.KeySystemSupport_SetObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

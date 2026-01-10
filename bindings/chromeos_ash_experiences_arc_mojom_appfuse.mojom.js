@@ -101,7 +101,8 @@ arc.mojom.AppfuseHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.AppfuseHost_Mount_ParamsSpec,
       arc.mojom.AppfuseHost_Mount_ResponseParamsSpec,
-      [uid, mount_id]);
+      [uid, mount_id],
+      false);
   }
 
   unmount(uid, mount_id) {
@@ -110,7 +111,8 @@ arc.mojom.AppfuseHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.AppfuseHost_Unmount_ParamsSpec,
       arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec,
-      [uid, mount_id]);
+      [uid, mount_id],
+      false);
   }
 
   openFile(uid, mount_id, file_id, flags) {
@@ -119,7 +121,8 @@ arc.mojom.AppfuseHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.AppfuseHost_OpenFile_ParamsSpec,
       arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec,
-      [uid, mount_id, file_id, flags]);
+      [uid, mount_id, file_id, flags],
+      false);
   }
 
 };
@@ -188,7 +191,8 @@ arc.mojom.AppfuseInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.AppfuseInstance_Init_ParamsSpec,
       arc.mojom.AppfuseInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

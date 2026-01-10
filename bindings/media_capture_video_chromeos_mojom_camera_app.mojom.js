@@ -184,7 +184,8 @@ cros.mojom.CameraAppDeviceProviderRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ParamsSpec,
       cros.mojom.CameraAppDeviceProvider_GetCameraAppDevice_ResponseParamsSpec,
-      [source_id]);
+      [source_id],
+      false);
   }
 
   isSupported() {
@@ -193,7 +194,8 @@ cros.mojom.CameraAppDeviceProviderRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.CameraAppDeviceProvider_IsSupported_ParamsSpec,
       cros.mojom.CameraAppDeviceProvider_IsSupported_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isDeviceInUse(source_id) {
@@ -202,7 +204,8 @@ cros.mojom.CameraAppDeviceProviderRemoteCallHandler = class {
       2,  // ordinal
       cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ParamsSpec,
       cros.mojom.CameraAppDeviceProvider_IsDeviceInUse_ResponseParamsSpec,
-      [source_id]);
+      [source_id],
+      false);
   }
 
 };
@@ -309,7 +312,8 @@ cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ParamsSpec,
       cros.mojom.CameraAppDeviceBridge_GetCameraAppDevice_ResponseParamsSpec,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   isSupported() {
@@ -318,7 +322,8 @@ cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.CameraAppDeviceBridge_IsSupported_ParamsSpec,
       cros.mojom.CameraAppDeviceBridge_IsSupported_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setVirtualDeviceEnabled(device_id, enabled) {
@@ -327,7 +332,8 @@ cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
       2,  // ordinal
       cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ParamsSpec,
       cros.mojom.CameraAppDeviceBridge_SetVirtualDeviceEnabled_ResponseParamsSpec,
-      [device_id, enabled]);
+      [device_id, enabled],
+      false);
   }
 
   isDeviceInUse(device_id) {
@@ -336,7 +342,8 @@ cros.mojom.CameraAppDeviceBridgeRemoteCallHandler = class {
       3,  // ordinal
       cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ParamsSpec,
       cros.mojom.CameraAppDeviceBridge_IsDeviceInUse_ResponseParamsSpec,
-      [device_id]);
+      [device_id],
+      false);
   }
 
 };
@@ -539,7 +546,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CameraAppDevice_TakePortraitModePhoto_ParamsSpec,
       cros.mojom.CameraAppDevice_TakePortraitModePhoto_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
   setFpsRange(fps_range) {
@@ -548,7 +556,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.CameraAppDevice_SetFpsRange_ParamsSpec,
       cros.mojom.CameraAppDevice_SetFpsRange_ResponseParamsSpec,
-      [fps_range]);
+      [fps_range],
+      false);
   }
 
   setStillCaptureResolution(resolution) {
@@ -557,7 +566,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       2,  // ordinal
       cros.mojom.CameraAppDevice_SetStillCaptureResolution_ParamsSpec,
       cros.mojom.CameraAppDevice_SetStillCaptureResolution_ResponseParamsSpec,
-      [resolution]);
+      [resolution],
+      false);
   }
 
   setCaptureIntent(intent) {
@@ -566,7 +576,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       3,  // ordinal
       cros.mojom.CameraAppDevice_SetCaptureIntent_ParamsSpec,
       cros.mojom.CameraAppDevice_SetCaptureIntent_ResponseParamsSpec,
-      [intent]);
+      [intent],
+      false);
   }
 
   addResultMetadataObserver(observer, stream_type) {
@@ -575,7 +586,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       4,  // ordinal
       cros.mojom.CameraAppDevice_AddResultMetadataObserver_ParamsSpec,
       cros.mojom.CameraAppDevice_AddResultMetadataObserver_ResponseParamsSpec,
-      [observer, stream_type]);
+      [observer, stream_type],
+      false);
   }
 
   addCameraEventObserver(observer) {
@@ -584,7 +596,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       5,  // ordinal
       cros.mojom.CameraAppDevice_AddCameraEventObserver_ParamsSpec,
       cros.mojom.CameraAppDevice_AddCameraEventObserver_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
   setCameraFrameRotationEnabledAtSource(is_enabled) {
@@ -593,7 +606,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       6,  // ordinal
       cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ParamsSpec,
       cros.mojom.CameraAppDevice_SetCameraFrameRotationEnabledAtSource_ResponseParamsSpec,
-      [is_enabled]);
+      [is_enabled],
+      false);
   }
 
   getCameraFrameRotation() {
@@ -602,7 +616,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       7,  // ordinal
       cros.mojom.CameraAppDevice_GetCameraFrameRotation_ParamsSpec,
       cros.mojom.CameraAppDevice_GetCameraFrameRotation_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   registerDocumentCornersObserver(observer) {
@@ -611,7 +626,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       8,  // ordinal
       cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ParamsSpec,
       cros.mojom.CameraAppDevice_RegisterDocumentCornersObserver_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
   setMultipleStreamsEnabled(enabled) {
@@ -620,7 +636,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       9,  // ordinal
       cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ParamsSpec,
       cros.mojom.CameraAppDevice_SetMultipleStreamsEnabled_ResponseParamsSpec,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   registerCameraInfoObserver(observer) {
@@ -629,7 +646,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       10,  // ordinal
       cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ParamsSpec,
       cros.mojom.CameraAppDevice_RegisterCameraInfoObserver_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
   setCropRegion(crop_region) {
@@ -638,7 +656,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       11,  // ordinal
       cros.mojom.CameraAppDevice_SetCropRegion_ParamsSpec,
       cros.mojom.CameraAppDevice_SetCropRegion_ResponseParamsSpec,
-      [crop_region]);
+      [crop_region],
+      false);
   }
 
   resetCropRegion() {
@@ -647,7 +666,8 @@ cros.mojom.CameraAppDeviceRemoteCallHandler = class {
       12,  // ordinal
       cros.mojom.CameraAppDevice_ResetCropRegion_ParamsSpec,
       cros.mojom.CameraAppDevice_ResetCropRegion_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -711,7 +731,8 @@ cros.mojom.ResultMetadataObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.ResultMetadataObserver_OnMetadataAvailable_ParamsSpec,
       null,
-      [camera_metadata]);
+      [camera_metadata],
+      false);
   }
 
 };
@@ -774,7 +795,8 @@ cros.mojom.CameraEventObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CameraEventObserver_OnShutterDone_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -838,7 +860,8 @@ cros.mojom.DocumentCornersObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.DocumentCornersObserver_OnDocumentCornersUpdated_ParamsSpec,
       null,
-      [corners]);
+      [corners],
+      false);
   }
 
 };
@@ -902,7 +925,8 @@ cros.mojom.CameraInfoObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CameraInfoObserver_OnCameraInfoUpdated_ParamsSpec,
       null,
-      [camera_info]);
+      [camera_info],
+      false);
   }
 
 };
@@ -968,7 +992,8 @@ cros.mojom.StillCaptureResultObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.StillCaptureResultObserver_OnStillCaptureDone_ParamsSpec,
       null,
-      [effect, status, blob]);
+      [effect, status, blob],
+      false);
   }
 
 };

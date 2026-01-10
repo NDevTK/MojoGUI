@@ -75,7 +75,8 @@ launcher_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
 };
@@ -141,7 +142,8 @@ launcher_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       launcher_internals.mojom.Page_UpdateResults_ParamsSpec,
       null,
-      [query, keywords, results]);
+      [query, keywords, results],
+      false);
   }
 
 };

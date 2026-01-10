@@ -154,7 +154,8 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.SandboxSupport_GetSystemColors_ParamsSpec,
       content.mojom.SandboxSupport_GetSystemColors_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   lcidAndFirstDayOfWeek(locale, default_language, defaults) {
@@ -163,7 +164,8 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec,
       content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec,
-      [locale, default_language, defaults]);
+      [locale, default_language, defaults],
+      false);
   }
 
   digitsAndSigns(lcid, defaults) {
@@ -172,7 +174,8 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec,
       content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec,
-      [lcid, defaults]);
+      [lcid, defaults],
+      false);
   }
 
   localeString(lcid, defaults, type) {
@@ -181,7 +184,8 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.SandboxSupport_LocaleString_ParamsSpec,
       content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec,
-      [lcid, defaults, type]);
+      [lcid, defaults, type],
+      false);
   }
 
   localeStrings(lcid, defaults, collection) {
@@ -190,7 +194,8 @@ content.mojom.SandboxSupportRemoteCallHandler = class {
       4,  // ordinal
       content.mojom.SandboxSupport_LocaleStrings_ParamsSpec,
       content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec,
-      [lcid, defaults, collection]);
+      [lcid, defaults, collection],
+      false);
   }
 
 };

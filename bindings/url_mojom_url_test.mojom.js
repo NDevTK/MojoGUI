@@ -80,7 +80,8 @@ url.mojom.UrlTestRemoteCallHandler = class {
       0,  // ordinal
       url.mojom.UrlTest_BounceUrl_ParamsSpec,
       url.mojom.UrlTest_BounceUrl_ResponseParamsSpec,
-      [in]);
+      [in],
+      false);
   }
 
   bounceOrigin(in) {
@@ -89,7 +90,8 @@ url.mojom.UrlTestRemoteCallHandler = class {
       1,  // ordinal
       url.mojom.UrlTest_BounceOrigin_ParamsSpec,
       url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec,
-      [in]);
+      [in],
+      false);
   }
 
 };

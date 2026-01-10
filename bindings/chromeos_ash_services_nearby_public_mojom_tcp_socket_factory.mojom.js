@@ -101,7 +101,8 @@ sharing.mojom.TcpSocketFactoryRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ParamsSpec,
       sharing.mojom.TcpSocketFactory_CreateTCPServerSocket_ResponseParamsSpec,
-      [local_addr, port, backlog, traffic_annotation, socket]);
+      [local_addr, port, backlog, traffic_annotation, socket],
+      false);
   }
 
   createTCPConnectedSocket(timeout, local_addr, remote_addr_list, tcp_connected_socket_options, traffic_annotation, socket, observer) {
@@ -110,7 +111,8 @@ sharing.mojom.TcpSocketFactoryRemoteCallHandler = class {
       1,  // ordinal
       sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ParamsSpec,
       sharing.mojom.TcpSocketFactory_CreateTCPConnectedSocket_ResponseParamsSpec,
-      [timeout, local_addr, remote_addr_list, tcp_connected_socket_options, traffic_annotation, socket, observer]);
+      [timeout, local_addr, remote_addr_list, tcp_connected_socket_options, traffic_annotation, socket, observer],
+      false);
   }
 
 };

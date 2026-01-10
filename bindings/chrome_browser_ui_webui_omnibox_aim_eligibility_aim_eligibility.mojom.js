@@ -83,7 +83,8 @@ aim_eligibility.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       aim_eligibility.mojom.Page_OnEligibilityStateChanged_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
 };
@@ -169,7 +170,8 @@ aim_eligibility.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       aim_eligibility.mojom.PageHandler_GetEligibilityState_ParamsSpec,
       aim_eligibility.mojom.PageHandler_GetEligibilityState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestServerEligibilityForDebugging() {
@@ -178,7 +180,8 @@ aim_eligibility.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       aim_eligibility.mojom.PageHandler_RequestServerEligibilityForDebugging_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setEligibilityResponseForDebugging(base64_encoded_response) {
@@ -187,7 +190,8 @@ aim_eligibility.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ParamsSpec,
       aim_eligibility.mojom.PageHandler_SetEligibilityResponseForDebugging_ResponseParamsSpec,
-      [base64_encoded_response]);
+      [base64_encoded_response],
+      false);
   }
 
 };
@@ -252,7 +256,8 @@ aim_eligibility.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       aim_eligibility.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };

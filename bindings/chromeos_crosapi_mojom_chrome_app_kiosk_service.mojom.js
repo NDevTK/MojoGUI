@@ -116,7 +116,8 @@ crosapi.mojom.ChromeKioskLaunchControllerRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec,
       crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
   launchKioskApp(app_id, is_network_ready) {
@@ -125,7 +126,8 @@ crosapi.mojom.ChromeKioskLaunchControllerRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec,
       crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec,
-      [app_id, is_network_ready]);
+      [app_id, is_network_ready],
+      false);
   }
 
 };
@@ -189,7 +191,8 @@ crosapi.mojom.ChromeAppKioskServiceRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec,
       null,
-      [controller]);
+      [controller],
+      false);
   }
 
 };

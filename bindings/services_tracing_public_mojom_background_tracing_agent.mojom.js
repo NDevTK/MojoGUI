@@ -81,7 +81,8 @@ tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onTriggerBackgroundTrace(rule, histogram_value, flow_id) {
@@ -90,7 +91,8 @@ tracing.mojom.BackgroundTracingAgentClientRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec,
       null,
-      [rule, histogram_value, flow_id]);
+      [rule, histogram_value, flow_id],
+      false);
   }
 
 };
@@ -163,7 +165,8 @@ tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec,
       null,
-      [rule, histogram_name, histogram_lower_value, histogram_upper_value]);
+      [rule, histogram_name, histogram_lower_value, histogram_upper_value],
+      false);
   }
 
   clearUMACallback(rule) {
@@ -172,7 +175,8 @@ tracing.mojom.BackgroundTracingAgentRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec,
       null,
-      [rule]);
+      [rule],
+      false);
   }
 
 };
@@ -238,7 +242,8 @@ tracing.mojom.BackgroundTracingAgentProviderRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec,
       null,
-      [tracing_process_id, client, agent]);
+      [tracing_process_id, client, agent],
+      false);
   }
 
 };

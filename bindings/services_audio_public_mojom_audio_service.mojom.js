@@ -105,7 +105,8 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.AudioService_BindSystemInfo_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindDebugRecording(receiver) {
@@ -114,7 +115,8 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
       1,  // ordinal
       audio.mojom.AudioService_BindDebugRecording_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindStreamFactory(receiver) {
@@ -123,7 +125,8 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
       2,  // ordinal
       audio.mojom.AudioService_BindStreamFactory_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindDeviceNotifier(receiver) {
@@ -132,7 +135,8 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
       3,  // ordinal
       audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindLogFactoryManager(receiver) {
@@ -141,7 +145,8 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
       4,  // ordinal
       audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindTestingApi(receiver) {
@@ -150,7 +155,8 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
       5,  // ordinal
       audio.mojom.AudioService_BindTestingApi_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindMlModelManager(receiver) {
@@ -159,7 +165,8 @@ audio.mojom.AudioServiceRemoteCallHandler = class {
       6,  // ordinal
       audio.mojom.AudioService_BindMlModelManager_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

@@ -74,7 +74,8 @@ video_capture.mojom.AcceleratorFactoryRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec,
       null,
-      [jda]);
+      [jda],
+      false);
   }
 
 };
@@ -168,7 +169,8 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.VideoCaptureService_InjectGpuDependencies_ParamsSpec,
       null,
-      [accelerator_factory]);
+      [accelerator_factory],
+      false);
   }
 
   connectToCameraAppDeviceBridge(receiver) {
@@ -177,7 +179,8 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.VideoCaptureService_ConnectToCameraAppDeviceBridge_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindVideoCaptureDeviceFactory(receiver) {
@@ -186,7 +189,8 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
       2,  // ordinal
       video_capture.mojom.VideoCaptureService_BindVideoCaptureDeviceFactory_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   connectToVideoSourceProvider(receiver) {
@@ -195,7 +199,8 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
       3,  // ordinal
       video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindControlsForTesting(receiver) {
@@ -204,7 +209,8 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
       4,  // ordinal
       video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   onGpuInfoUpdate(luid) {
@@ -213,7 +219,8 @@ video_capture.mojom.VideoCaptureServiceRemoteCallHandler = class {
       5,  // ordinal
       video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec,
       null,
-      [luid]);
+      [luid],
+      false);
   }
 
 };

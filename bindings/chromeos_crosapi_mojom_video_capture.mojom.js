@@ -324,7 +324,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       11,  // ordinal
       crosapi.mojom.VideoFrameHandler_OnCaptureConfigurationChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onNewBuffer(buffer_id, buffer_handle) {
@@ -333,7 +334,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.VideoFrameHandler_OnNewBuffer_ParamsSpec,
       null,
-      [buffer_id, buffer_handle]);
+      [buffer_id, buffer_handle],
+      false);
   }
 
   dEPRECATED_OnFrameReadyInBuffer(buffer, scaled_buffers) {
@@ -342,7 +344,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.VideoFrameHandler_DEPRECATED_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      [buffer, scaled_buffers]);
+      [buffer, scaled_buffers],
+      false);
   }
 
   onFrameReadyInBuffer(buffer) {
@@ -351,7 +354,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       13,  // ordinal
       crosapi.mojom.VideoFrameHandler_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   onBufferRetired(buffer_id) {
@@ -360,7 +364,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       2,  // ordinal
       crosapi.mojom.VideoFrameHandler_OnBufferRetired_ParamsSpec,
       null,
-      [buffer_id]);
+      [buffer_id],
+      false);
   }
 
   onError(error) {
@@ -369,7 +374,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       3,  // ordinal
       crosapi.mojom.VideoFrameHandler_OnError_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
   onFrameDropped(reason) {
@@ -378,7 +384,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       4,  // ordinal
       crosapi.mojom.VideoFrameHandler_OnFrameDropped_ParamsSpec,
       null,
-      [reason]);
+      [reason],
+      false);
   }
 
   dEPRECATED_OnNewCropVersion(crop_version) {
@@ -387,7 +394,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       10,  // ordinal
       crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewCropVersion_ParamsSpec,
       null,
-      [crop_version]);
+      [crop_version],
+      false);
   }
 
   dEPRECATED_OnNewSubCaptureTargetVersion(sub_capture_target_version) {
@@ -396,7 +404,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       12,  // ordinal
       crosapi.mojom.VideoFrameHandler_DEPRECATED_OnNewSubCaptureTargetVersion_ParamsSpec,
       null,
-      [sub_capture_target_version]);
+      [sub_capture_target_version],
+      false);
   }
 
   onNewCaptureVersion(capture_version) {
@@ -405,7 +414,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       14,  // ordinal
       crosapi.mojom.VideoFrameHandler_OnNewCaptureVersion_ParamsSpec,
       null,
-      [capture_version]);
+      [capture_version],
+      false);
   }
 
   onFrameWithEmptyRegionCapture() {
@@ -414,7 +424,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       9,  // ordinal
       crosapi.mojom.VideoFrameHandler_OnFrameWithEmptyRegionCapture_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onLog(message) {
@@ -423,7 +434,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       5,  // ordinal
       crosapi.mojom.VideoFrameHandler_OnLog_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
   onStarted() {
@@ -432,7 +444,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       6,  // ordinal
       crosapi.mojom.VideoFrameHandler_OnStarted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onStartedUsingGpuDecode() {
@@ -441,7 +454,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       7,  // ordinal
       crosapi.mojom.VideoFrameHandler_OnStartedUsingGpuDecode_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onStopped() {
@@ -450,7 +464,8 @@ crosapi.mojom.VideoFrameHandlerRemoteCallHandler = class {
       8,  // ordinal
       crosapi.mojom.VideoFrameHandler_OnStopped_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -570,7 +585,8 @@ crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.VideoCaptureDevice_Start_ParamsSpec,
       null,
-      [requested_settings, handler]);
+      [requested_settings, handler],
+      false);
   }
 
   maybeSuspend() {
@@ -579,7 +595,8 @@ crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.VideoCaptureDevice_MaybeSuspend_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   resume() {
@@ -588,7 +605,8 @@ crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class {
       2,  // ordinal
       crosapi.mojom.VideoCaptureDevice_Resume_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getPhotoState() {
@@ -597,7 +615,8 @@ crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class {
       3,  // ordinal
       crosapi.mojom.VideoCaptureDevice_GetPhotoState_ParamsSpec,
       crosapi.mojom.VideoCaptureDevice_GetPhotoState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setPhotoOptions(settings) {
@@ -606,7 +625,8 @@ crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class {
       4,  // ordinal
       crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ParamsSpec,
       crosapi.mojom.VideoCaptureDevice_SetPhotoOptions_ResponseParamsSpec,
-      [settings]);
+      [settings],
+      false);
   }
 
   takePhoto() {
@@ -615,7 +635,8 @@ crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class {
       5,  // ordinal
       crosapi.mojom.VideoCaptureDevice_TakePhoto_ParamsSpec,
       crosapi.mojom.VideoCaptureDevice_TakePhoto_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   processFeedback(feedback) {
@@ -624,7 +645,8 @@ crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class {
       6,  // ordinal
       crosapi.mojom.VideoCaptureDevice_ProcessFeedback_ParamsSpec,
       null,
-      [feedback]);
+      [feedback],
+      false);
   }
 
   requestRefreshFrame() {
@@ -633,7 +655,8 @@ crosapi.mojom.VideoCaptureDeviceRemoteCallHandler = class {
       7,  // ordinal
       crosapi.mojom.VideoCaptureDevice_RequestRefreshFrame_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -715,7 +738,8 @@ crosapi.mojom.VideoCaptureDeviceFactoryRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ParamsSpec,
       crosapi.mojom.VideoCaptureDeviceFactory_GetDeviceInfos_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   createDevice(device_id, device_receiver) {
@@ -724,7 +748,8 @@ crosapi.mojom.VideoCaptureDeviceFactoryRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ParamsSpec,
       crosapi.mojom.VideoCaptureDeviceFactory_CreateDevice_ResponseParamsSpec,
-      [device_id, device_receiver]);
+      [device_id, device_receiver],
+      false);
   }
 
 };

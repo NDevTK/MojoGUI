@@ -90,7 +90,8 @@ ai.mojom.EnhancedCalendarServiceRemoteCallHandler = class {
       0,  // ordinal
       ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec,
       ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec,
-      [request_params]);
+      [request_params],
+      false);
   }
 
 };

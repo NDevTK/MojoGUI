@@ -66,7 +66,8 @@ ash.mall.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.mall.mojom.PageHandler_GetMallEmbedUrl_ParamsSpec,
       ash.mall.mojom.PageHandler_GetMallEmbedUrl_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
 };

@@ -61,7 +61,8 @@ device.mojom.WakeLockContextRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.WakeLockContext_GetWakeLock_ParamsSpec,
       null,
-      [type, reason, description, wake_lock]);
+      [type, reason, description, wake_lock],
+      false);
   }
 
 };

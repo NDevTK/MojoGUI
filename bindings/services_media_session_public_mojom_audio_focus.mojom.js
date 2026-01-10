@@ -131,7 +131,8 @@ media_session.mojom.AudioFocusObserverRemoteCallHandler = class {
       0,  // ordinal
       media_session.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   onFocusLost(state) {
@@ -140,7 +141,8 @@ media_session.mojom.AudioFocusObserverRemoteCallHandler = class {
       1,  // ordinal
       media_session.mojom.AudioFocusObserver_OnFocusLost_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   onRequestIdReleased(request_id) {
@@ -149,7 +151,8 @@ media_session.mojom.AudioFocusObserverRemoteCallHandler = class {
       2,  // ordinal
       media_session.mojom.AudioFocusObserver_OnRequestIdReleased_ParamsSpec,
       null,
-      [request_id]);
+      [request_id],
+      false);
   }
 
 };
@@ -230,7 +233,8 @@ media_session.mojom.AudioFocusRequestClientRemoteCallHandler = class {
       0,  // ordinal
       media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec,
       media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ResponseParamsSpec,
-      [session_info, type]);
+      [session_info, type],
+      false);
   }
 
   abandonAudioFocus() {
@@ -239,7 +243,8 @@ media_session.mojom.AudioFocusRequestClientRemoteCallHandler = class {
       1,  // ordinal
       media_session.mojom.AudioFocusRequestClient_AbandonAudioFocus_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   mediaSessionInfoChanged(session_info) {
@@ -248,7 +253,8 @@ media_session.mojom.AudioFocusRequestClientRemoteCallHandler = class {
       2,  // ordinal
       media_session.mojom.AudioFocusRequestClient_MediaSessionInfoChanged_ParamsSpec,
       null,
-      [session_info]);
+      [session_info],
+      false);
   }
 
 };
@@ -414,7 +420,8 @@ media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
       0,  // ordinal
       media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec,
       media_session.mojom.AudioFocusManager_RequestAudioFocus_ResponseParamsSpec,
-      [client, session, session_info, type]);
+      [client, session, session_info, type],
+      false);
   }
 
   requestGroupedAudioFocus(request_id, client, session, session_info, type, group_id) {
@@ -423,7 +430,8 @@ media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
       4,  // ordinal
       media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ParamsSpec,
       media_session.mojom.AudioFocusManager_RequestGroupedAudioFocus_ResponseParamsSpec,
-      [request_id, client, session, session_info, type, group_id]);
+      [request_id, client, session, session_info, type, group_id],
+      false);
   }
 
   getFocusRequests() {
@@ -432,7 +440,8 @@ media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
       1,  // ordinal
       media_session.mojom.AudioFocusManager_GetFocusRequests_ParamsSpec,
       media_session.mojom.AudioFocusManager_GetFocusRequests_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addObserver(observer) {
@@ -441,7 +450,8 @@ media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
       2,  // ordinal
       media_session.mojom.AudioFocusManager_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   setSource(identity, name) {
@@ -450,7 +460,8 @@ media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
       6,  // ordinal
       media_session.mojom.AudioFocusManager_SetSource_ParamsSpec,
       null,
-      [identity, name]);
+      [identity, name],
+      false);
   }
 
   setEnforcementMode(mode) {
@@ -459,7 +470,8 @@ media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
       5,  // ordinal
       media_session.mojom.AudioFocusManager_SetEnforcementMode_ParamsSpec,
       null,
-      [mode]);
+      [mode],
+      false);
   }
 
   addSourceObserver(source_id, observer) {
@@ -468,7 +480,8 @@ media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
       7,  // ordinal
       media_session.mojom.AudioFocusManager_AddSourceObserver_ParamsSpec,
       null,
-      [source_id, observer]);
+      [source_id, observer],
+      false);
   }
 
   getSourceFocusRequests(source_id) {
@@ -477,7 +490,8 @@ media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
       8,  // ordinal
       media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ParamsSpec,
       media_session.mojom.AudioFocusManager_GetSourceFocusRequests_ResponseParamsSpec,
-      [source_id]);
+      [source_id],
+      false);
   }
 
   requestIdReleased(request_id) {
@@ -486,7 +500,8 @@ media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
       9,  // ordinal
       media_session.mojom.AudioFocusManager_RequestIdReleased_ParamsSpec,
       null,
-      [request_id]);
+      [request_id],
+      false);
   }
 
   startDuckingAllAudio(exempted_request_id) {
@@ -495,7 +510,8 @@ media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
       10,  // ordinal
       media_session.mojom.AudioFocusManager_StartDuckingAllAudio_ParamsSpec,
       null,
-      [exempted_request_id]);
+      [exempted_request_id],
+      false);
   }
 
   stopDuckingAllAudio() {
@@ -504,7 +520,8 @@ media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
       11,  // ordinal
       media_session.mojom.AudioFocusManager_StopDuckingAllAudio_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   flushForTesting() {
@@ -513,7 +530,8 @@ media_session.mojom.AudioFocusManagerRemoteCallHandler = class {
       12,  // ordinal
       media_session.mojom.AudioFocusManager_FlushForTesting_ParamsSpec,
       media_session.mojom.AudioFocusManager_FlushForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -583,7 +601,8 @@ media_session.mojom.AudioFocusManagerDebugRemoteCallHandler = class {
       0,  // ordinal
       media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec,
       media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ResponseParamsSpec,
-      [request_id]);
+      [request_id],
+      false);
   }
 
 };

@@ -179,7 +179,8 @@ crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ParamsSpec,
       crosapi.mojom.VideoConferenceManagerClient_GetMediaApps_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   returnToApp(id) {
@@ -188,7 +189,8 @@ crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ParamsSpec,
       crosapi.mojom.VideoConferenceManagerClient_ReturnToApp_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   setSystemMediaDeviceStatus(device, enabled) {
@@ -197,7 +199,8 @@ crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler = class {
       2,  // ordinal
       crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ParamsSpec,
       crosapi.mojom.VideoConferenceManagerClient_SetSystemMediaDeviceStatus_ResponseParamsSpec,
-      [device, enabled]);
+      [device, enabled],
+      false);
   }
 
   stopAllScreenShare() {
@@ -206,7 +209,8 @@ crosapi.mojom.VideoConferenceManagerClientRemoteCallHandler = class {
       3,  // ordinal
       crosapi.mojom.VideoConferenceManagerClient_StopAllScreenShare_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -360,7 +360,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ParamsSpec,
       mojom.WebAppInternalsHandler_GetDebugInfoAsJsonString_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   installIsolatedWebAppFromDevProxy(url) {
@@ -369,7 +370,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       1,  // ordinal
       mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ParamsSpec,
       mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromDevProxy_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   selectFileAndInstallIsolatedWebAppFromDevBundle() {
@@ -378,7 +380,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       2,  // ordinal
       mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ParamsSpec,
       mojom.WebAppInternalsHandler_SelectFileAndInstallIsolatedWebAppFromDevBundle_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   parseUpdateManifestFromUrl(update_manifest_url) {
@@ -387,7 +390,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       3,  // ordinal
       mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ParamsSpec,
       mojom.WebAppInternalsHandler_ParseUpdateManifestFromUrl_ResponseParamsSpec,
-      [update_manifest_url]);
+      [update_manifest_url],
+      false);
   }
 
   installIsolatedWebAppFromBundleUrl(params) {
@@ -396,7 +400,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       4,  // ordinal
       mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ParamsSpec,
       mojom.WebAppInternalsHandler_InstallIsolatedWebAppFromBundleUrl_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
   updateDevProxyIsolatedWebApp(app_id) {
@@ -405,7 +410,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       5,  // ordinal
       mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ParamsSpec,
       mojom.WebAppInternalsHandler_UpdateDevProxyIsolatedWebApp_ResponseParamsSpec,
-      [app_id]);
+      [app_id],
+      false);
   }
 
   selectFileAndUpdateIsolatedWebAppFromDevBundle(app_id) {
@@ -414,7 +420,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       6,  // ordinal
       mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ParamsSpec,
       mojom.WebAppInternalsHandler_SelectFileAndUpdateIsolatedWebAppFromDevBundle_ResponseParamsSpec,
-      [app_id]);
+      [app_id],
+      false);
   }
 
   updateManifestInstalledIsolatedWebApp(app_id) {
@@ -423,7 +430,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       7,  // ordinal
       mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ParamsSpec,
       mojom.WebAppInternalsHandler_UpdateManifestInstalledIsolatedWebApp_ResponseParamsSpec,
-      [app_id]);
+      [app_id],
+      false);
   }
 
   deleteIsolatedWebApp(app_id) {
@@ -432,7 +440,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       8,  // ordinal
       mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ParamsSpec,
       mojom.WebAppInternalsHandler_DeleteIsolatedWebApp_ResponseParamsSpec,
-      [app_id]);
+      [app_id],
+      false);
   }
 
   setUpdateChannelForIsolatedWebApp(app_id, update_channel) {
@@ -441,7 +450,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       9,  // ordinal
       mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ParamsSpec,
       mojom.WebAppInternalsHandler_SetUpdateChannelForIsolatedWebApp_ResponseParamsSpec,
-      [app_id, update_channel]);
+      [app_id, update_channel],
+      false);
   }
 
   setPinnedVersionForIsolatedWebApp(app_id, pinned_version) {
@@ -450,7 +460,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       10,  // ordinal
       mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ParamsSpec,
       mojom.WebAppInternalsHandler_SetPinnedVersionForIsolatedWebApp_ResponseParamsSpec,
-      [app_id, pinned_version]);
+      [app_id, pinned_version],
+      false);
   }
 
   resetPinnedVersionForIsolatedWebApp(app_id) {
@@ -459,7 +470,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       11,  // ordinal
       mojom.WebAppInternalsHandler_ResetPinnedVersionForIsolatedWebApp_ParamsSpec,
       null,
-      [app_id]);
+      [app_id],
+      false);
   }
 
   setAllowDowngradesForIsolatedWebApp(allow_downgrades, app_id) {
@@ -468,7 +480,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       12,  // ordinal
       mojom.WebAppInternalsHandler_SetAllowDowngradesForIsolatedWebApp_ParamsSpec,
       null,
-      [allow_downgrades, app_id]);
+      [allow_downgrades, app_id],
+      false);
   }
 
   searchForIsolatedWebAppUpdates() {
@@ -477,7 +490,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       13,  // ordinal
       mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ParamsSpec,
       mojom.WebAppInternalsHandler_SearchForIsolatedWebAppUpdates_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getIsolatedWebAppDevModeAppInfo() {
@@ -486,7 +500,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       14,  // ordinal
       mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ParamsSpec,
       mojom.WebAppInternalsHandler_GetIsolatedWebAppDevModeAppInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   rotateKey(web_bundle_id, rotated_key) {
@@ -495,7 +510,8 @@ mojom.WebAppInternalsHandlerRemoteCallHandler = class {
       15,  // ordinal
       mojom.WebAppInternalsHandler_RotateKey_ParamsSpec,
       null,
-      [web_bundle_id, rotated_key]);
+      [web_bundle_id, rotated_key],
+      false);
   }
 
 };

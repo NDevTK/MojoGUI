@@ -217,7 +217,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_GetNewScreencastPrecondition_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   shouldDownloadSoda() {
@@ -226,7 +227,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_ShouldDownloadSoda_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   installSoda() {
@@ -235,7 +237,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_InstallSoda_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getPendingScreencasts() {
@@ -244,7 +247,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_GetPendingScreencasts_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getUserPref(pref) {
@@ -253,7 +257,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_GetUserPref_ResponseParamsSpec,
-      [pref]);
+      [pref],
+      false);
   }
 
   setUserPref(pref, value) {
@@ -262,7 +267,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_SetUserPref_ResponseParamsSpec,
-      [pref, value]);
+      [pref, value],
+      false);
   }
 
   openFeedbackDialog() {
@@ -271,7 +277,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       6,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_OpenFeedbackDialog_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startProjectorSession(storage_dir_name) {
@@ -280,7 +287,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       7,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_StartProjectorSession_ResponseParamsSpec,
-      [storage_dir_name]);
+      [storage_dir_name],
+      false);
   }
 
   sendXhr(url, method, request_body, use_credentials, use_api_key, headers, account_email) {
@@ -289,7 +297,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       8,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_SendXhr_ResponseParamsSpec,
-      [url, method, request_body, use_credentials, use_api_key, headers, account_email]);
+      [url, method, request_body, use_credentials, use_api_key, headers, account_email],
+      false);
   }
 
   getAccounts() {
@@ -298,7 +307,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       9,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_GetAccounts_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getVideo(video_file_id, resource_key) {
@@ -307,7 +317,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerRemoteCallHandler = class {
       10,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ParamsSpec,
       ash.projector.mojom.UntrustedProjectorPageHandler_GetVideo_ResponseParamsSpec,
-      [video_file_id, resource_key]);
+      [video_file_id, resource_key],
+      false);
   }
 
 };
@@ -393,7 +404,8 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
       0,  // ordinal
       ash.projector.mojom.UntrustedProjectorPage_OnNewScreencastPreconditionChanged_ParamsSpec,
       null,
-      [precondition]);
+      [precondition],
+      false);
   }
 
   onSodaInstallProgressUpdated(progress) {
@@ -402,7 +414,8 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
       1,  // ordinal
       ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallProgressUpdated_ParamsSpec,
       null,
-      [progress]);
+      [progress],
+      false);
   }
 
   onSodaInstalled() {
@@ -411,7 +424,8 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
       2,  // ordinal
       ash.projector.mojom.UntrustedProjectorPage_OnSodaInstalled_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSodaInstallError() {
@@ -420,7 +434,8 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
       3,  // ordinal
       ash.projector.mojom.UntrustedProjectorPage_OnSodaInstallError_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onScreencastsStateChange(pending_screencasts) {
@@ -429,7 +444,8 @@ ash.projector.mojom.UntrustedProjectorPageRemoteCallHandler = class {
       4,  // ordinal
       ash.projector.mojom.UntrustedProjectorPage_OnScreencastsStateChange_ParamsSpec,
       null,
-      [pending_screencasts]);
+      [pending_screencasts],
+      false);
   }
 
 };
@@ -494,7 +510,8 @@ ash.projector.mojom.UntrustedProjectorPageHandlerFactoryRemoteCallHandler = clas
       0,  // ordinal
       ash.projector.mojom.UntrustedProjectorPageHandlerFactory_Create_ParamsSpec,
       null,
-      [handler, page]);
+      [handler, page],
+      false);
   }
 
 };

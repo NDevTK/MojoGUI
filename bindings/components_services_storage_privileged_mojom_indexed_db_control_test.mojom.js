@@ -103,7 +103,8 @@ storage.mojom.MockFailureInjectorRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.MockFailureInjector_FailOperation_ParamsSpec,
       null,
-      [failure_class, failure_method, instance_num, call_num]);
+      [failure_class, failure_method, instance_num, call_num],
+      false);
   }
 
 };
@@ -258,7 +259,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec,
       storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getFilePathForTesting(bucket_locator, for_sqlite) {
@@ -267,7 +269,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ParamsSpec,
       storage.mojom.IndexedDBControlTest_GetFilePathForTesting_ResponseParamsSpec,
-      [bucket_locator, for_sqlite]);
+      [bucket_locator, for_sqlite],
+      false);
   }
 
   resetCachesForTesting() {
@@ -276,7 +279,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ParamsSpec,
       storage.mojom.IndexedDBControlTest_ResetCachesForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getPathForBlobForTesting(bucket_locator, database_id, blob_number) {
@@ -285,7 +289,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ParamsSpec,
       storage.mojom.IndexedDBControlTest_GetPathForBlobForTesting_ResponseParamsSpec,
-      [bucket_locator, database_id, blob_number]);
+      [bucket_locator, database_id, blob_number],
+      false);
   }
 
   flushBackingStoreForTesting(bucket_locator) {
@@ -294,7 +299,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       4,  // ordinal
       storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ParamsSpec,
       storage.mojom.IndexedDBControlTest_FlushBackingStoreForTesting_ResponseParamsSpec,
-      [bucket_locator]);
+      [bucket_locator],
+      false);
   }
 
   flushBucketSequenceForTesting(bucket_locator) {
@@ -303,7 +309,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       5,  // ordinal
       storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ParamsSpec,
       storage.mojom.IndexedDBControlTest_FlushBucketSequenceForTesting_ResponseParamsSpec,
-      [bucket_locator]);
+      [bucket_locator],
+      false);
   }
 
   getUsageForTesting() {
@@ -312,7 +319,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       6,  // ordinal
       storage.mojom.IndexedDBControlTest_GetUsageForTesting_ParamsSpec,
       storage.mojom.IndexedDBControlTest_GetUsageForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   bindMockFailureSingletonForTesting(receiver) {
@@ -321,7 +329,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       7,  // ordinal
       storage.mojom.IndexedDBControlTest_BindMockFailureSingletonForTesting_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   forceInitializeFromFilesForTesting() {
@@ -330,7 +339,8 @@ storage.mojom.IndexedDBControlTestRemoteCallHandler = class {
       8,  // ordinal
       storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ParamsSpec,
       storage.mojom.IndexedDBControlTest_ForceInitializeFromFilesForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

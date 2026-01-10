@@ -115,7 +115,8 @@ network.mojom.TrustTokenAccessObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.TrustTokenAccessObserver_OnTrustTokensAccessed_ParamsSpec,
       null,
-      [details]);
+      [details],
+      false);
   }
 
   clone(listener) {
@@ -124,7 +125,8 @@ network.mojom.TrustTokenAccessObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.TrustTokenAccessObserver_Clone_ParamsSpec,
       null,
-      [listener]);
+      [listener],
+      false);
   }
 
 };

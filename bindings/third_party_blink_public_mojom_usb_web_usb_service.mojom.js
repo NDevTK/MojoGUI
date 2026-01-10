@@ -117,7 +117,8 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebUsbService_GetDevices_ParamsSpec,
       blink.mojom.WebUsbService_GetDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getDevice(guid, device_receiver) {
@@ -126,7 +127,8 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WebUsbService_GetDevice_ParamsSpec,
       null,
-      [guid, device_receiver]);
+      [guid, device_receiver],
+      false);
   }
 
   getPermission(options) {
@@ -135,7 +137,8 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.WebUsbService_GetPermission_ParamsSpec,
       blink.mojom.WebUsbService_GetPermission_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   forgetDevice(guid) {
@@ -144,7 +147,8 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.WebUsbService_ForgetDevice_ParamsSpec,
       blink.mojom.WebUsbService_ForgetDevice_ResponseParamsSpec,
-      [guid]);
+      [guid],
+      false);
   }
 
   setClient(client) {
@@ -153,7 +157,8 @@ blink.mojom.WebUsbServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.WebUsbService_SetClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
 };

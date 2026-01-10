@@ -63,7 +63,8 @@ webui_examples.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -140,7 +141,8 @@ webui_examples.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       webui_examples.mojom.PageHandler_Navigate_ParamsSpec,
       null,
-      [guest_contents_id, src]);
+      [guest_contents_id, src],
+      false);
   }
 
   goBack(guest_contents_id) {
@@ -149,7 +151,8 @@ webui_examples.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       webui_examples.mojom.PageHandler_GoBack_ParamsSpec,
       null,
-      [guest_contents_id]);
+      [guest_contents_id],
+      false);
   }
 
   goForward(guest_contents_id) {
@@ -158,7 +161,8 @@ webui_examples.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       webui_examples.mojom.PageHandler_GoForward_ParamsSpec,
       null,
-      [guest_contents_id]);
+      [guest_contents_id],
+      false);
   }
 
 };

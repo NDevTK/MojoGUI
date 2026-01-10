@@ -110,7 +110,8 @@ network.mojom.P2PNetworkNotificationClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec,
       null,
-      [networks, default_ipv4_local_address, default_ipv6_local_address]);
+      [networks, default_ipv4_local_address, default_ipv6_local_address],
+      false);
   }
 
 };
@@ -201,7 +202,8 @@ network.mojom.P2PSocketManagerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   getHostAddress(host_name, address_family, enable_mdns) {
@@ -210,7 +212,8 @@ network.mojom.P2PSocketManagerRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec,
       network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec,
-      [host_name, address_family, enable_mdns]);
+      [host_name, address_family, enable_mdns],
+      false);
   }
 
   createSocket(type, local_address, port_range, remote_address, traffic_annotation, devtools_token, client, socket) {
@@ -219,7 +222,8 @@ network.mojom.P2PSocketManagerRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.P2PSocketManager_CreateSocket_ParamsSpec,
       null,
-      [type, local_address, port_range, remote_address, traffic_annotation, devtools_token, client, socket]);
+      [type, local_address, port_range, remote_address, traffic_annotation, devtools_token, client, socket],
+      false);
   }
 
 };
@@ -297,7 +301,8 @@ network.mojom.P2PSocketRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.P2PSocket_Send_ParamsSpec,
       null,
-      [data, packet_info]);
+      [data, packet_info],
+      false);
   }
 
   sendBatch(packet_batch) {
@@ -306,7 +311,8 @@ network.mojom.P2PSocketRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.P2PSocket_SendBatch_ParamsSpec,
       null,
-      [packet_batch]);
+      [packet_batch],
+      false);
   }
 
   setOption(option, value) {
@@ -315,7 +321,8 @@ network.mojom.P2PSocketRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.P2PSocket_SetOption_ParamsSpec,
       null,
-      [option, value]);
+      [option, value],
+      false);
   }
 
 };
@@ -398,7 +405,8 @@ network.mojom.P2PSocketClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.P2PSocketClient_SocketCreated_ParamsSpec,
       null,
-      [local_address, remote_address]);
+      [local_address, remote_address],
+      false);
   }
 
   sendComplete(send_metrics) {
@@ -407,7 +415,8 @@ network.mojom.P2PSocketClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.P2PSocketClient_SendComplete_ParamsSpec,
       null,
-      [send_metrics]);
+      [send_metrics],
+      false);
   }
 
   sendBatchComplete(send_metrics_batch) {
@@ -416,7 +425,8 @@ network.mojom.P2PSocketClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec,
       null,
-      [send_metrics_batch]);
+      [send_metrics_batch],
+      false);
   }
 
   dataReceived(packets) {
@@ -425,7 +435,8 @@ network.mojom.P2PSocketClientRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.P2PSocketClient_DataReceived_ParamsSpec,
       null,
-      [packets]);
+      [packets],
+      false);
   }
 
 };

@@ -67,7 +67,8 @@ safe_browsing.mojom.SafeBrowsingUrlCheckerRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec,
       safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec,
-      [url, method]);
+      [url, method],
+      false);
   }
 
 };

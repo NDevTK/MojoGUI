@@ -60,7 +60,8 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemoteCallHandler = class 
       0,  // ordinal
       chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec,
       null,
-      [api_key]);
+      [api_key],
+      false);
   }
 
 };
@@ -124,7 +125,8 @@ chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

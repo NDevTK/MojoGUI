@@ -58,7 +58,8 @@ viz.mojom.VSyncParameterObserverRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec,
       null,
-      [timebase, interval]);
+      [timebase, interval],
+      false);
   }
 
 };

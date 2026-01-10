@@ -75,7 +75,8 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = clas
       0,  // ordinal
       ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onRecreateUser() {
@@ -84,7 +85,8 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = clas
       1,  // ordinal
       ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onCancel() {
@@ -93,7 +95,8 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = clas
       2,  // ordinal
       ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onBack() {
@@ -102,7 +105,8 @@ ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemoteCallHandler = clas
       3,  // ordinal
       ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

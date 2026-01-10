@@ -71,7 +71,8 @@ omnibox_popup_aim.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -140,7 +141,8 @@ omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   navigateCurrentTab(url) {
@@ -149,7 +151,8 @@ omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       omnibox_popup_aim.mojom.PageHandler_NavigateCurrentTab_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
 };
@@ -236,7 +239,8 @@ omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec,
       null,
-      [context]);
+      [context],
+      false);
   }
 
   addContext(context) {
@@ -245,7 +249,8 @@ omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       omnibox_popup_aim.mojom.Page_AddContext_ParamsSpec,
       null,
-      [context]);
+      [context],
+      false);
   }
 
   onPopupHidden() {
@@ -254,7 +259,8 @@ omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       omnibox_popup_aim.mojom.Page_OnPopupHidden_ParamsSpec,
       omnibox_popup_aim.mojom.Page_OnPopupHidden_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setPreserveContextOnClose(preserve_context_on_close) {
@@ -263,7 +269,8 @@ omnibox_popup_aim.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec,
       null,
-      [preserve_context_on_close]);
+      [preserve_context_on_close],
+      false);
   }
 
 };

@@ -83,7 +83,8 @@ site_engagement.mojom.SiteEngagementDetailsProviderRemoteCallHandler = class {
       0,  // ordinal
       site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec,
       site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setSiteEngagementBaseScoreForUrl(url, score) {
@@ -92,7 +93,8 @@ site_engagement.mojom.SiteEngagementDetailsProviderRemoteCallHandler = class {
       1,  // ordinal
       site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec,
       null,
-      [url, score]);
+      [url, score],
+      false);
   }
 
 };

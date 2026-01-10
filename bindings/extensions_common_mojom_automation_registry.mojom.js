@@ -58,7 +58,8 @@ extensions.mojom.RendererAutomationRegistryRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec,
       null,
-      [automation]);
+      [automation],
+      false);
   }
 
 };

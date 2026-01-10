@@ -76,7 +76,8 @@ chrome.mojom.UtilReadIconRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec,
       chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec,
-      [file, size, scale]);
+      [file, size, scale],
+      false);
   }
 
 };

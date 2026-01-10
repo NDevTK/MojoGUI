@@ -158,7 +158,8 @@ ash.settings.mojom.KeyboardSettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardListUpdated_ParamsSpec,
       null,
-      [keyboards]);
+      [keyboards],
+      false);
   }
 
   onKeyboardPoliciesUpdated(policies) {
@@ -167,7 +168,8 @@ ash.settings.mojom.KeyboardSettingsObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.mojom.KeyboardSettingsObserver_OnKeyboardPoliciesUpdated_ParamsSpec,
       null,
-      [policies]);
+      [policies],
+      false);
   }
 
 };
@@ -231,7 +233,8 @@ ash.settings.mojom.TouchpadSettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.TouchpadSettingsObserver_OnTouchpadListUpdated_ParamsSpec,
       null,
-      [touchpads]);
+      [touchpads],
+      false);
   }
 
 };
@@ -295,7 +298,8 @@ ash.settings.mojom.PointingStickSettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.PointingStickSettingsObserver_OnPointingStickListUpdated_ParamsSpec,
       null,
-      [pointSticks]);
+      [pointSticks],
+      false);
   }
 
 };
@@ -365,7 +369,8 @@ ash.settings.mojom.MouseSettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.MouseSettingsObserver_OnMouseListUpdated_ParamsSpec,
       null,
-      [mice]);
+      [mice],
+      false);
   }
 
   onMousePoliciesUpdated(policies) {
@@ -374,7 +379,8 @@ ash.settings.mojom.MouseSettingsObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.mojom.MouseSettingsObserver_OnMousePoliciesUpdated_ParamsSpec,
       null,
-      [policies]);
+      [policies],
+      false);
   }
 
 };
@@ -438,7 +444,8 @@ ash.settings.mojom.ButtonPressObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.ButtonPressObserver_OnButtonPressed_ParamsSpec,
       null,
-      [button]);
+      [button],
+      false);
   }
 
 };
@@ -502,7 +509,8 @@ ash.settings.mojom.GraphicsTabletSettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.GraphicsTabletSettingsObserver_OnGraphicsTabletListUpdated_ParamsSpec,
       null,
-      [graphics_tablets]);
+      [graphics_tablets],
+      false);
   }
 
 };
@@ -566,7 +574,8 @@ ash.settings.mojom.KeyboardBrightnessObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.KeyboardBrightnessObserver_OnKeyboardBrightnessChanged_ParamsSpec,
       null,
-      [brightness_percent]);
+      [brightness_percent],
+      false);
   }
 
 };
@@ -630,7 +639,8 @@ ash.settings.mojom.KeyboardAmbientLightSensorObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.KeyboardAmbientLightSensorObserver_OnKeyboardAmbientLightSensorEnabledChanged_ParamsSpec,
       null,
-      [keyboard_ambient_light_sensor_enabled]);
+      [keyboard_ambient_light_sensor_enabled],
+      false);
   }
 
 };
@@ -694,7 +704,8 @@ ash.settings.mojom.LidStateObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.LidStateObserver_OnLidStateChanged_ParamsSpec,
       null,
-      [is_lid_open]);
+      [is_lid_open],
+      false);
   }
 
 };
@@ -971,7 +982,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardSettings_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeTouchpadSettings(observer) {
@@ -980,7 +992,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveTouchpadSettings_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observePointingStickSettings(observer) {
@@ -989,7 +1002,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObservePointingStickSettings_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeMouseSettings(observer) {
@@ -998,7 +1012,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveMouseSettings_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeGraphicsTabletSettings(observer) {
@@ -1007,7 +1022,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveGraphicsTabletSettings_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeButtonPresses(observer) {
@@ -1016,7 +1032,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveButtonPresses_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeKeyboardBrightness(observer) {
@@ -1025,7 +1042,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardBrightness_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeKeyboardAmbientLightSensor(observer) {
@@ -1034,7 +1052,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveKeyboardAmbientLightSensor_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeLidState(observer) {
@@ -1043,7 +1062,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       8,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_ObserveLidState_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
   restoreDefaultKeyboardRemappings(device_id) {
@@ -1052,7 +1072,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       9,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_RestoreDefaultKeyboardRemappings_ParamsSpec,
       null,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   setKeyboardSettings(device_id, settings) {
@@ -1061,7 +1082,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       10,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardSettings_ParamsSpec,
       null,
-      [device_id, settings]);
+      [device_id, settings],
+      false);
   }
 
   setPointingStickSettings(device_id, settings) {
@@ -1070,7 +1092,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       11,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_SetPointingStickSettings_ParamsSpec,
       null,
-      [device_id, settings]);
+      [device_id, settings],
+      false);
   }
 
   setMouseSettings(device_id, settings) {
@@ -1079,7 +1102,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       12,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_SetMouseSettings_ParamsSpec,
       null,
-      [device_id, settings]);
+      [device_id, settings],
+      false);
   }
 
   setTouchpadSettings(device_id, settings) {
@@ -1088,7 +1112,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       13,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_SetTouchpadSettings_ParamsSpec,
       null,
-      [device_id, settings]);
+      [device_id, settings],
+      false);
   }
 
   setGraphicsTabletSettings(device_id, settings) {
@@ -1097,7 +1122,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       14,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_SetGraphicsTabletSettings_ParamsSpec,
       null,
-      [device_id, settings]);
+      [device_id, settings],
+      false);
   }
 
   setKeyboardBrightness(percent) {
@@ -1106,7 +1132,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       15,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardBrightness_ParamsSpec,
       null,
-      [percent]);
+      [percent],
+      false);
   }
 
   setKeyboardAmbientLightSensorEnabled(enabled) {
@@ -1115,7 +1142,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       16,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_SetKeyboardAmbientLightSensorEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   startObserving(device_id) {
@@ -1124,7 +1152,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       17,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_StartObserving_ParamsSpec,
       null,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   stopObserving() {
@@ -1133,7 +1162,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       18,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_StopObserving_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getActionsForMouseButtonCustomization() {
@@ -1142,7 +1172,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       19,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForMouseButtonCustomization_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getActionsForGraphicsTabletButtonCustomization() {
@@ -1151,7 +1182,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       20,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_GetActionsForGraphicsTabletButtonCustomization_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getMetaKeyToDisplay() {
@@ -1160,7 +1192,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       21,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_GetMetaKeyToDisplay_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   hasKeyboardBacklight() {
@@ -1169,7 +1202,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       22,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_HasKeyboardBacklight_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   hasAmbientLightSensor() {
@@ -1178,7 +1212,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       23,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_HasAmbientLightSensor_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isRgbKeyboardSupported() {
@@ -1187,7 +1222,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       24,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_IsRgbKeyboardSupported_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   recordKeyboardColorLinkClicked() {
@@ -1196,7 +1232,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       25,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardColorLinkClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordKeyboardBrightnessChangeFromSlider(percent) {
@@ -1205,7 +1242,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       26,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_RecordKeyboardBrightnessChangeFromSlider_ParamsSpec,
       null,
-      [percent]);
+      [percent],
+      false);
   }
 
   getDeviceIconImage(device_key) {
@@ -1214,7 +1252,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       27,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ParamsSpec,
       ash.settings.mojom.InputDeviceSettingsProvider_GetDeviceIconImage_ResponseParamsSpec,
-      [device_key]);
+      [device_key],
+      false);
   }
 
   launchCompanionApp(package_id) {
@@ -1223,7 +1262,8 @@ ash.settings.mojom.InputDeviceSettingsProviderRemoteCallHandler = class {
       28,  // ordinal
       ash.settings.mojom.InputDeviceSettingsProvider_LaunchCompanionApp_ParamsSpec,
       null,
-      [package_id]);
+      [package_id],
+      false);
   }
 
 };

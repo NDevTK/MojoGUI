@@ -48,8 +48,8 @@ subresource_filter.mojom.SubresourceFilterDisabledReason = {
 // Struct: ActivationState
 mojo.internal.Struct(
     subresource_filter.mojom.ActivationStateSpec, 'subresource_filter.mojom.ActivationState', [
-      mojo.internal.StructField('activation_level', 0, 0, subresource_filter.mojom.ActivationLevelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('disabled_reason', 4, 0, subresource_filter.mojom.SubresourceFilterDisabledReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activation_level', 0, 0, subresource_filter.mojom.ActivationLevelSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('disabled_reason', 4, 0, subresource_filter.mojom.SubresourceFilterDisabledReasonSpec, 0, false, 0, undefined),
       mojo.internal.StructField('filtering_disabled_for_document', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('generic_blocking_rules_disabled', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('measure_performance', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
@@ -114,7 +114,8 @@ subresource_filter.mojom.SubresourceFilterRulesetObserverRemoteCallHandler = cla
       0,  // ordinal
       subresource_filter.mojom.SubresourceFilterRulesetObserver_SetRulesetForProcess_ParamsSpec,
       null,
-      [ruleset_file]);
+      [ruleset_file],
+      false);
   }
 
 };

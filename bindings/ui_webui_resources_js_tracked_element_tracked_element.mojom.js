@@ -76,7 +76,8 @@ tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
       0,  // ordinal
       tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec,
       null,
-      [native_identifier, visible, rect]);
+      [native_identifier, visible, rect],
+      false);
   }
 
   trackedElementActivated(native_identifier) {
@@ -85,7 +86,8 @@ tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
       1,  // ordinal
       tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec,
       null,
-      [native_identifier]);
+      [native_identifier],
+      false);
   }
 
   trackedElementCustomEvent(native_identifier, custom_event_name) {
@@ -94,7 +96,8 @@ tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
       2,  // ordinal
       tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec,
       null,
-      [native_identifier, custom_event_name]);
+      [native_identifier, custom_event_name],
+      false);
   }
 
 };

@@ -79,7 +79,8 @@ blink.mojom.WorkletDevToolsHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec,
       null,
-      [agent, agent_host]);
+      [agent, agent_host],
+      false);
   }
 
 };

@@ -62,7 +62,8 @@ ash.settings.magic_boost_handler.mojom.PageHandlerFactoryRemoteCallHandler = cla
       0,  // ordinal
       ash.settings.magic_boost_handler.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -125,7 +126,8 @@ ash.settings.magic_boost_handler.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.magic_boost_handler.mojom.PageHandler_ShowNotice_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

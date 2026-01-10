@@ -133,7 +133,8 @@ media.mojom.AudioEncoderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioEncoder_Initialize_ParamsSpec,
       media.mojom.AudioEncoder_Initialize_ResponseParamsSpec,
-      [client, config]);
+      [client, config],
+      false);
   }
 
   encode(buffer) {
@@ -142,7 +143,8 @@ media.mojom.AudioEncoderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioEncoder_Encode_ParamsSpec,
       media.mojom.AudioEncoder_Encode_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   flush() {
@@ -151,7 +153,8 @@ media.mojom.AudioEncoderRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.AudioEncoder_Flush_ParamsSpec,
       media.mojom.AudioEncoder_Flush_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -216,7 +219,8 @@ media.mojom.AudioEncoderClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioEncoderClient_OnEncodedBufferReady_ParamsSpec,
       null,
-      [buffer, description]);
+      [buffer, description],
+      false);
   }
 
 };

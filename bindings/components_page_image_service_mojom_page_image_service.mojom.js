@@ -31,8 +31,8 @@ page_image_service.mojom.ClientId = {
 // Struct: Options
 mojo.internal.Struct(
     page_image_service.mojom.OptionsSpec, 'page_image_service.mojom.Options', [
-      mojo.internal.StructField('suggest_images', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('optimization_guide_images', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('suggest_images', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('optimization_guide_images', 0, 1, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -96,7 +96,8 @@ page_image_service.mojom.PageImageServiceHandlerRemoteCallHandler = class {
       0,  // ordinal
       page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec,
       page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec,
-      [client_id, page_url, options]);
+      [client_id, page_url, options],
+      false);
   }
 
 };

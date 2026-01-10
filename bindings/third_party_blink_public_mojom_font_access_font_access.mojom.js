@@ -87,7 +87,8 @@ blink.mojom.FontAccessManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec,
       blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

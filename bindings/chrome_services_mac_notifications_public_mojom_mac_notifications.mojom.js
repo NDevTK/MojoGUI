@@ -205,7 +205,8 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
       0,  // ordinal
       mac_notifications.mojom.MacNotificationService_DisplayNotification_ParamsSpec,
       null,
-      [notification]);
+      [notification],
+      false);
   }
 
   getDisplayedNotifications(profile, origin) {
@@ -214,7 +215,8 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
       1,  // ordinal
       mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ParamsSpec,
       mac_notifications.mojom.MacNotificationService_GetDisplayedNotifications_ResponseParamsSpec,
-      [profile, origin]);
+      [profile, origin],
+      false);
   }
 
   closeNotification(identifier) {
@@ -223,7 +225,8 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
       2,  // ordinal
       mac_notifications.mojom.MacNotificationService_CloseNotification_ParamsSpec,
       null,
-      [identifier]);
+      [identifier],
+      false);
   }
 
   closeNotificationsForProfile(profile) {
@@ -232,7 +235,8 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
       3,  // ordinal
       mac_notifications.mojom.MacNotificationService_CloseNotificationsForProfile_ParamsSpec,
       null,
-      [profile]);
+      [profile],
+      false);
   }
 
   closeAllNotifications() {
@@ -241,7 +245,8 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
       4,  // ordinal
       mac_notifications.mojom.MacNotificationService_CloseAllNotifications_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   okayToTerminateService() {
@@ -250,7 +255,8 @@ mac_notifications.mojom.MacNotificationServiceRemoteCallHandler = class {
       5,  // ordinal
       mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ParamsSpec,
       mac_notifications.mojom.MacNotificationService_OkayToTerminateService_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -314,7 +320,8 @@ mac_notifications.mojom.MacNotificationActionHandlerRemoteCallHandler = class {
       0,  // ordinal
       mac_notifications.mojom.MacNotificationActionHandler_OnNotificationAction_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
 };
@@ -379,7 +386,8 @@ mac_notifications.mojom.MacNotificationProviderRemoteCallHandler = class {
       0,  // ordinal
       mac_notifications.mojom.MacNotificationProvider_BindNotificationService_ParamsSpec,
       null,
-      [service, handler]);
+      [service, handler],
+      false);
   }
 
 };

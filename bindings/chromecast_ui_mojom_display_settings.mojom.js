@@ -116,7 +116,8 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.DisplaySettings_SetColorTemperature_ParamsSpec,
       null,
-      [kelvin]);
+      [kelvin],
+      false);
   }
 
   setColorTemperatureSmooth(kelvin, duration) {
@@ -125,7 +126,8 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.DisplaySettings_SetColorTemperatureSmooth_ParamsSpec,
       null,
-      [kelvin, duration]);
+      [kelvin, duration],
+      false);
   }
 
   resetColorTemperature() {
@@ -134,7 +136,8 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       2,  // ordinal
       chromecast.mojom.DisplaySettings_ResetColorTemperature_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setBrightness(brightness) {
@@ -143,7 +146,8 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       3,  // ordinal
       chromecast.mojom.DisplaySettings_SetBrightness_ParamsSpec,
       null,
-      [brightness]);
+      [brightness],
+      false);
   }
 
   setBrightnessSmooth(brightness, duration) {
@@ -152,7 +156,8 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       4,  // ordinal
       chromecast.mojom.DisplaySettings_SetBrightnessSmooth_ParamsSpec,
       null,
-      [brightness, duration]);
+      [brightness, duration],
+      false);
   }
 
   resetBrightness() {
@@ -161,7 +166,8 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       5,  // ordinal
       chromecast.mojom.DisplaySettings_ResetBrightness_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setScreenOn(display_on) {
@@ -170,7 +176,8 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       6,  // ordinal
       chromecast.mojom.DisplaySettings_SetScreenOn_ParamsSpec,
       null,
-      [display_on]);
+      [display_on],
+      false);
   }
 
   setAllowScreenPowerOff(allow_power_off) {
@@ -179,7 +186,8 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       7,  // ordinal
       chromecast.mojom.DisplaySettings_SetAllowScreenPowerOff_ParamsSpec,
       null,
-      [allow_power_off]);
+      [allow_power_off],
+      false);
   }
 
   addDisplaySettingsObserver(observer) {
@@ -188,7 +196,8 @@ chromecast.mojom.DisplaySettingsRemoteCallHandler = class {
       8,  // ordinal
       chromecast.mojom.DisplaySettings_AddDisplaySettingsObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };
@@ -252,7 +261,8 @@ chromecast.mojom.DisplaySettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.DisplaySettingsObserver_OnDisplayBrightnessChanged_ParamsSpec,
       null,
-      [brightness]);
+      [brightness],
+      false);
   }
 
 };

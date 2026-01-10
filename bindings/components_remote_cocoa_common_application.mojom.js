@@ -164,7 +164,8 @@ remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       0,  // ordinal
       remote_cocoa.mojom.Application_CreateAlert_ParamsSpec,
       null,
-      [alert_bridge_receiver]);
+      [alert_bridge_receiver],
+      false);
   }
 
   createNativeWidgetNSWindow(bridge_id, window_receiver, host, text_input_host) {
@@ -173,7 +174,8 @@ remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       1,  // ordinal
       remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec,
       null,
-      [bridge_id, window_receiver, host, text_input_host]);
+      [bridge_id, window_receiver, host, text_input_host],
+      false);
   }
 
   createRenderWidgetHostNSView(view_id, host, view_receiver) {
@@ -182,7 +184,8 @@ remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       2,  // ordinal
       remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec,
       null,
-      [view_id, host, view_receiver]);
+      [view_id, host, view_receiver],
+      false);
   }
 
   createSystemMediaControlsBridge(receiver, host) {
@@ -191,7 +194,8 @@ remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       3,  // ordinal
       remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec,
       null,
-      [receiver, host]);
+      [receiver, host],
+      false);
   }
 
   createWebContentsNSView(view_id, host, view_receiver) {
@@ -200,7 +204,8 @@ remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       4,  // ordinal
       remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec,
       null,
-      [view_id, host, view_receiver]);
+      [view_id, host, view_receiver],
+      false);
   }
 
   forwardCutCopyPaste(command) {
@@ -209,7 +214,8 @@ remote_cocoa.mojom.ApplicationRemoteCallHandler = class {
       5,  // ordinal
       remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec,
       null,
-      [command]);
+      [command],
+      false);
   }
 
 };

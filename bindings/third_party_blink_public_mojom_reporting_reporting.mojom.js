@@ -163,7 +163,8 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ReportingServiceProxy_QueueInterventionReport_ParamsSpec,
       null,
-      [url, id, message, source_file, line_number, column_number]);
+      [url, id, message, source_file, line_number, column_number],
+      false);
   }
 
   queueDeprecationReport(url, id, anticipatedRemoval, message, source_file, line_number, column_number) {
@@ -172,7 +173,8 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ReportingServiceProxy_QueueDeprecationReport_ParamsSpec,
       null,
-      [url, id, anticipatedRemoval, message, source_file, line_number, column_number]);
+      [url, id, anticipatedRemoval, message, source_file, line_number, column_number],
+      false);
   }
 
   queueCspViolationReport(url, group, document_url, referrer, blocked_url, effective_directive, original_policy, source_file, script_sample, disposition, status_code, line_number, column_number) {
@@ -181,7 +183,8 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ReportingServiceProxy_QueueCspViolationReport_ParamsSpec,
       null,
-      [url, group, document_url, referrer, blocked_url, effective_directive, original_policy, source_file, script_sample, disposition, status_code, line_number, column_number]);
+      [url, group, document_url, referrer, blocked_url, effective_directive, original_policy, source_file, script_sample, disposition, status_code, line_number, column_number],
+      false);
   }
 
   queueIntegrityViolationReport(url, endpoint, document_url, blocked_url, destination, report_only) {
@@ -190,7 +193,8 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.ReportingServiceProxy_QueueIntegrityViolationReport_ParamsSpec,
       null,
-      [url, endpoint, document_url, blocked_url, destination, report_only]);
+      [url, endpoint, document_url, blocked_url, destination, report_only],
+      false);
   }
 
   queuePermissionsPolicyViolationReport(url, endpoint, policy_id, disposition, message, source_file, line_number, column_number) {
@@ -199,7 +203,8 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.ReportingServiceProxy_QueuePermissionsPolicyViolationReport_ParamsSpec,
       null,
-      [url, endpoint, policy_id, disposition, message, source_file, line_number, column_number]);
+      [url, endpoint, policy_id, disposition, message, source_file, line_number, column_number],
+      false);
   }
 
   queuePotentialPermissionsPolicyViolationReport(url, endpoint, policy_id, disposition, message, allow_attribute, src_attribute, source_file, line_number, column_number) {
@@ -208,7 +213,8 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.ReportingServiceProxy_QueuePotentialPermissionsPolicyViolationReport_ParamsSpec,
       null,
-      [url, endpoint, policy_id, disposition, message, allow_attribute, src_attribute, source_file, line_number, column_number]);
+      [url, endpoint, policy_id, disposition, message, allow_attribute, src_attribute, source_file, line_number, column_number],
+      false);
   }
 
   queueDocumentPolicyViolationReport(url, group, policy_id, disposition, message, source_file, line_number, column_number) {
@@ -217,7 +223,8 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.ReportingServiceProxy_QueueDocumentPolicyViolationReport_ParamsSpec,
       null,
-      [url, group, policy_id, disposition, message, source_file, line_number, column_number]);
+      [url, group, policy_id, disposition, message, source_file, line_number, column_number],
+      false);
   }
 
   queueCSPHashReport(url, endpoint, subresource_url, integrity_hash, type, destination) {
@@ -226,7 +233,8 @@ blink.mojom.ReportingServiceProxyRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.ReportingServiceProxy_QueueCSPHashReport_ParamsSpec,
       null,
-      [url, endpoint, subresource_url, integrity_hash, type, destination]);
+      [url, endpoint, subresource_url, integrity_hash, type, destination],
+      false);
   }
 
 };

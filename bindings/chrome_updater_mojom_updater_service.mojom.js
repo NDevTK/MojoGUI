@@ -152,7 +152,7 @@ mojo.internal.Struct(
 // Struct: UpdateState
 mojo.internal.Struct(
     updater.mojom.UpdateStateSpec, 'updater.mojom.UpdateState', [
-      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -176,7 +176,7 @@ mojo.internal.Struct(
 // Struct: PolicyValue
 mojo.internal.Struct(
     updater.mojom.PolicyValueSpec, 'updater.mojom.PolicyValue', [
-      mojo.internal.StructField('kSourceUnknown', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kSourceUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -400,7 +400,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
       0,  // ordinal
       updater.mojom.UpdateService_GetVersion_ParamsSpec,
       updater.mojom.UpdateService_GetVersion_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   fetchPolicies(reason) {
@@ -409,7 +410,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
       1,  // ordinal
       updater.mojom.UpdateService_FetchPolicies_ParamsSpec,
       updater.mojom.UpdateService_FetchPolicies_ResponseParamsSpec,
-      [reason]);
+      [reason],
+      false);
   }
 
   registerApp(request) {
@@ -418,7 +420,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
       2,  // ordinal
       updater.mojom.UpdateService_RegisterApp_ParamsSpec,
       updater.mojom.UpdateService_RegisterApp_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   getAppStates() {
@@ -427,7 +430,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
       3,  // ordinal
       updater.mojom.UpdateService_GetAppStates_ParamsSpec,
       updater.mojom.UpdateService_GetAppStates_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runPeriodicTasks() {
@@ -436,7 +440,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
       4,  // ordinal
       updater.mojom.UpdateService_RunPeriodicTasks_ParamsSpec,
       updater.mojom.UpdateService_RunPeriodicTasks_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   updateAll() {
@@ -445,7 +450,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
       5,  // ordinal
       updater.mojom.UpdateService_UpdateAll_ParamsSpec,
       updater.mojom.UpdateService_UpdateAll_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   update(app_id, install_data_index, priority, policy_same_version_update, do_update_check_only, language) {
@@ -454,7 +460,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
       6,  // ordinal
       updater.mojom.UpdateService_Update_ParamsSpec,
       updater.mojom.UpdateService_Update_ResponseParamsSpec,
-      [app_id, install_data_index, priority, policy_same_version_update, do_update_check_only, language]);
+      [app_id, install_data_index, priority, policy_same_version_update, do_update_check_only, language],
+      false);
   }
 
   install(registration, client_install_data, install_data_index, priority, language) {
@@ -463,7 +470,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
       7,  // ordinal
       updater.mojom.UpdateService_Install_ParamsSpec,
       updater.mojom.UpdateService_Install_ResponseParamsSpec,
-      [registration, client_install_data, install_data_index, priority, language]);
+      [registration, client_install_data, install_data_index, priority, language],
+      false);
   }
 
   cancelInstalls(app_id) {
@@ -472,7 +480,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
       8,  // ordinal
       updater.mojom.UpdateService_CancelInstalls_ParamsSpec,
       null,
-      [app_id]);
+      [app_id],
+      false);
   }
 
   runInstaller(app_id, installer_path, install_args, install_data, install_settings, language) {
@@ -481,7 +490,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
       9,  // ordinal
       updater.mojom.UpdateService_RunInstaller_ParamsSpec,
       updater.mojom.UpdateService_RunInstaller_ResponseParamsSpec,
-      [app_id, installer_path, install_args, install_data, install_settings, language]);
+      [app_id, installer_path, install_args, install_data, install_settings, language],
+      false);
   }
 
   checkForUpdate(app_id, priority, policy_same_version_update, language) {
@@ -490,7 +500,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
       10,  // ordinal
       updater.mojom.UpdateService_CheckForUpdate_ParamsSpec,
       updater.mojom.UpdateService_CheckForUpdate_ResponseParamsSpec,
-      [app_id, priority, policy_same_version_update, language]);
+      [app_id, priority, policy_same_version_update, language],
+      false);
   }
 
   getUpdaterState() {
@@ -499,7 +510,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
       11,  // ordinal
       updater.mojom.UpdateService_GetUpdaterState_ParamsSpec,
       updater.mojom.UpdateService_GetUpdaterState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getUpdaterPolicies() {
@@ -508,7 +520,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
       12,  // ordinal
       updater.mojom.UpdateService_GetUpdaterPolicies_ParamsSpec,
       updater.mojom.UpdateService_GetUpdaterPolicies_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAppPolicies() {
@@ -517,7 +530,8 @@ updater.mojom.UpdateServiceRemoteCallHandler = class {
       13,  // ordinal
       updater.mojom.UpdateService_GetAppPolicies_ParamsSpec,
       updater.mojom.UpdateService_GetAppPolicies_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -587,7 +601,8 @@ updater.mojom.StateChangeObserverRemoteCallHandler = class {
       0,  // ordinal
       updater.mojom.StateChangeObserver_OnStateChange_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   onComplete(result) {
@@ -596,7 +611,8 @@ updater.mojom.StateChangeObserverRemoteCallHandler = class {
       1,  // ordinal
       updater.mojom.StateChangeObserver_OnComplete_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
 };

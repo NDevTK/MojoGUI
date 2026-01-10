@@ -75,7 +75,8 @@ IPC.mojom.ChannelRemoteCallHandler = class {
       0,  // ordinal
       IPC.mojom.Channel_SetPeerPid_ParamsSpec,
       null,
-      [pid]);
+      [pid],
+      false);
   }
 
   getAssociatedInterface(receiver) {
@@ -84,7 +85,8 @@ IPC.mojom.ChannelRemoteCallHandler = class {
       1,  // ordinal
       IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

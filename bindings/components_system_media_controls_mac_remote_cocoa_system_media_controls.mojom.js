@@ -153,7 +153,8 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       0,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setIsPreviousEnabled(enabled) {
@@ -162,7 +163,8 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       1,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetIsPreviousEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setIsPlayPauseEnabled(enabled) {
@@ -171,7 +173,8 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       2,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetIsPlayPauseEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setIsStopEnabled(enabled) {
@@ -180,7 +183,8 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       3,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetIsStopEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setIsSeekToEnabled(enabled) {
@@ -189,7 +193,8 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       4,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetIsSeekToEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setPlaybackStatus(status) {
@@ -198,7 +203,8 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       5,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetPlaybackStatus_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   setTitle(title) {
@@ -207,7 +213,8 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       6,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetTitle_ParamsSpec,
       null,
-      [title]);
+      [title],
+      false);
   }
 
   setArtist(artist) {
@@ -216,7 +223,8 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       7,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetArtist_ParamsSpec,
       null,
-      [artist]);
+      [artist],
+      false);
   }
 
   setAlbum(album) {
@@ -225,7 +233,8 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       8,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetAlbum_ParamsSpec,
       null,
-      [album]);
+      [album],
+      false);
   }
 
   setThumbnail(thumbnail) {
@@ -234,7 +243,8 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       9,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetThumbnail_ParamsSpec,
       null,
-      [thumbnail]);
+      [thumbnail],
+      false);
   }
 
   setPosition(position) {
@@ -243,7 +253,8 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       10,  // ordinal
       system_media_controls.mojom.SystemMediaControls_SetPosition_ParamsSpec,
       null,
-      [position]);
+      [position],
+      false);
   }
 
   clearMetadata() {
@@ -252,7 +263,8 @@ system_media_controls.mojom.SystemMediaControlsRemoteCallHandler = class {
       11,  // ordinal
       system_media_controls.mojom.SystemMediaControls_ClearMetadata_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -356,7 +368,8 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       0,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onPrevious() {
@@ -365,7 +378,8 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       1,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnPrevious_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onPause() {
@@ -374,7 +388,8 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       2,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnPause_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onPlayPause() {
@@ -383,7 +398,8 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       3,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnPlayPause_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onStop() {
@@ -392,7 +408,8 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       4,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnStop_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onPlay() {
@@ -401,7 +418,8 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       5,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnPlay_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSeekTo(seek_time) {
@@ -410,7 +428,8 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       6,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnSeekTo_ParamsSpec,
       null,
-      [seek_time]);
+      [seek_time],
+      false);
   }
 
   onBridgeCreatedForTesting() {
@@ -419,7 +438,8 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       7,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnBridgeCreatedForTesting_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onMetadataClearedForTesting() {
@@ -428,7 +448,8 @@ system_media_controls.mojom.SystemMediaControlsObserverRemoteCallHandler = class
       8,  // ordinal
       system_media_controls.mojom.SystemMediaControlsObserver_OnMetadataClearedForTesting_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -141,7 +141,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('assets', 8, 0, on_device_model.mojom.ModelAssetsSpec, null, false, 0, undefined),
       mojo.internal.StructField('max_tokens', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('adaptation_ranks', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('performance_hint', 32, 0, on_device_model.mojom.ModelPerformanceHintSpec, null, false, 0, undefined),
+      mojo.internal.StructField('performance_hint', 32, 0, on_device_model.mojom.ModelPerformanceHintSpec, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -220,7 +220,8 @@ on_device_model.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
       0,  // ordinal
       on_device_model.mojom.PlatformModelProgressObserver_Progress_ParamsSpec,
       null,
-      [progress]);
+      [progress],
+      false);
   }
 
 };
@@ -322,7 +323,8 @@ on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
       0,  // ordinal
       on_device_model.mojom.OnDeviceModelService_LoadModel_ParamsSpec,
       on_device_model.mojom.OnDeviceModelService_LoadModel_ResponseParamsSpec,
-      [params, model]);
+      [params, model],
+      false);
   }
 
   getCapabilities(weights) {
@@ -331,7 +333,8 @@ on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
       1,  // ordinal
       on_device_model.mojom.OnDeviceModelService_GetCapabilities_ParamsSpec,
       on_device_model.mojom.OnDeviceModelService_GetCapabilities_ResponseParamsSpec,
-      [weights]);
+      [weights],
+      false);
   }
 
   loadTextSafetyModel(params, model) {
@@ -340,7 +343,8 @@ on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
       2,  // ordinal
       on_device_model.mojom.OnDeviceModelService_LoadTextSafetyModel_ParamsSpec,
       null,
-      [params, model]);
+      [params, model],
+      false);
   }
 
   getDeviceAndPerformanceInfo() {
@@ -349,7 +353,8 @@ on_device_model.mojom.OnDeviceModelServiceRemoteCallHandler = class {
       3,  // ordinal
       on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ParamsSpec,
       on_device_model.mojom.OnDeviceModelService_GetDeviceAndPerformanceInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -472,7 +477,8 @@ on_device_model.mojom.OnDeviceModelPlatformServiceRemoteCallHandler = class {
       0,  // ordinal
       on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ParamsSpec,
       on_device_model.mojom.OnDeviceModelPlatformService_LoadPlatformModel_ResponseParamsSpec,
-      [uuid, model, progress_observer]);
+      [uuid, model, progress_observer],
+      false);
   }
 
   getPlatformModelState(uuid) {
@@ -481,7 +487,8 @@ on_device_model.mojom.OnDeviceModelPlatformServiceRemoteCallHandler = class {
       1,  // ordinal
       on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ParamsSpec,
       on_device_model.mojom.OnDeviceModelPlatformService_GetPlatformModelState_ResponseParamsSpec,
-      [uuid]);
+      [uuid],
+      false);
   }
 
   getEstimatedPerformanceClass() {
@@ -490,7 +497,8 @@ on_device_model.mojom.OnDeviceModelPlatformServiceRemoteCallHandler = class {
       2,  // ordinal
       on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ParamsSpec,
       on_device_model.mojom.OnDeviceModelPlatformService_GetEstimatedPerformanceClass_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   formatInput(uuid, feature, fields) {
@@ -499,7 +507,8 @@ on_device_model.mojom.OnDeviceModelPlatformServiceRemoteCallHandler = class {
       3,  // ordinal
       on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ParamsSpec,
       on_device_model.mojom.OnDeviceModelPlatformService_FormatInput_ResponseParamsSpec,
-      [uuid, feature, fields]);
+      [uuid, feature, fields],
+      false);
   }
 
   validateSafetyResult(safety_feature, text, safety_info) {
@@ -508,7 +517,8 @@ on_device_model.mojom.OnDeviceModelPlatformServiceRemoteCallHandler = class {
       4,  // ordinal
       on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ParamsSpec,
       on_device_model.mojom.OnDeviceModelPlatformService_ValidateSafetyResult_ResponseParamsSpec,
-      [safety_feature, text, safety_info]);
+      [safety_feature, text, safety_info],
+      false);
   }
 
 };

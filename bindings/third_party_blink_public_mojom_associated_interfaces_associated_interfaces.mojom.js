@@ -109,7 +109,8 @@ blink.mojom.AssociatedInterfaceProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec,
       null,
-      [name, receiver]);
+      [name, receiver],
+      false);
   }
 
 };

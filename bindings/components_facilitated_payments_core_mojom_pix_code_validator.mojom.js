@@ -73,7 +73,8 @@ payments.facilitated.mojom.PixCodeValidatorRemoteCallHandler = class {
       0,  // ordinal
       payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec,
       payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec,
-      [input_text]);
+      [input_text],
+      false);
   }
 
 };

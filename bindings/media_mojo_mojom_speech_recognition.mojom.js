@@ -217,7 +217,8 @@ media.mojom.SpeechRecognitionContextRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SpeechRecognitionContext_BindRecognizer_ParamsSpec,
       media.mojom.SpeechRecognitionContext_BindRecognizer_ResponseParamsSpec,
-      [receiver, client, options]);
+      [receiver, client, options],
+      false);
   }
 
   bindWebSpeechRecognizer(session_receiver, session_client, audio_forwarder, channel_count, sample_rate, options, continuous) {
@@ -226,7 +227,8 @@ media.mojom.SpeechRecognitionContextRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.SpeechRecognitionContext_BindWebSpeechRecognizer_ParamsSpec,
       null,
-      [session_receiver, session_client, audio_forwarder, channel_count, sample_rate, options, continuous]);
+      [session_receiver, session_client, audio_forwarder, channel_count, sample_rate, options, continuous],
+      false);
   }
 
 };
@@ -314,7 +316,8 @@ media.mojom.SpeechRecognitionRecognizerRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SpeechRecognitionRecognizer_SendAudioToSpeechRecognitionService_ParamsSpec,
       null,
-      [buffer, media_start_pts]);
+      [buffer, media_start_pts],
+      false);
   }
 
   markDone() {
@@ -323,7 +326,8 @@ media.mojom.SpeechRecognitionRecognizerRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.SpeechRecognitionRecognizer_MarkDone_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onLanguageChanged(language) {
@@ -332,7 +336,8 @@ media.mojom.SpeechRecognitionRecognizerRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.SpeechRecognitionRecognizer_OnLanguageChanged_ParamsSpec,
       null,
-      [language]);
+      [language],
+      false);
   }
 
   onMaskOffensiveWordsChanged(mask_offensive_words) {
@@ -341,7 +346,8 @@ media.mojom.SpeechRecognitionRecognizerRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.SpeechRecognitionRecognizer_OnMaskOffensiveWordsChanged_ParamsSpec,
       null,
-      [mask_offensive_words]);
+      [mask_offensive_words],
+      false);
   }
 
   updateRecognitionContext(recognition_context) {
@@ -350,7 +356,8 @@ media.mojom.SpeechRecognitionRecognizerRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.SpeechRecognitionRecognizer_UpdateRecognitionContext_ParamsSpec,
       null,
-      [recognition_context]);
+      [recognition_context],
+      false);
   }
 
 };
@@ -436,7 +443,8 @@ media.mojom.SpeechRecognitionRecognizerClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ParamsSpec,
       media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionRecognitionEvent_ResponseParamsSpec,
-      [result]);
+      [result],
+      false);
   }
 
   onSpeechRecognitionStopped() {
@@ -445,7 +453,8 @@ media.mojom.SpeechRecognitionRecognizerClientRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionStopped_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSpeechRecognitionError() {
@@ -454,7 +463,8 @@ media.mojom.SpeechRecognitionRecognizerClientRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.SpeechRecognitionRecognizerClient_OnSpeechRecognitionError_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onLanguageIdentificationEvent(event) {
@@ -463,7 +473,8 @@ media.mojom.SpeechRecognitionRecognizerClientRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.SpeechRecognitionRecognizerClient_OnLanguageIdentificationEvent_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
 };
@@ -539,7 +550,8 @@ media.mojom.SpeechRecognitionBrowserObserverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionAvailabilityChanged_ParamsSpec,
       null,
-      [is_speech_recognition_available]);
+      [is_speech_recognition_available],
+      false);
   }
 
   speechRecognitionLanguageChanged(language) {
@@ -548,7 +560,8 @@ media.mojom.SpeechRecognitionBrowserObserverRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionLanguageChanged_ParamsSpec,
       null,
-      [language]);
+      [language],
+      false);
   }
 
   speechRecognitionMaskOffensiveWordsChanged(mask_offensive_words) {
@@ -557,7 +570,8 @@ media.mojom.SpeechRecognitionBrowserObserverRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.SpeechRecognitionBrowserObserver_SpeechRecognitionMaskOffensiveWordsChanged_ParamsSpec,
       null,
-      [mask_offensive_words]);
+      [mask_offensive_words],
+      false);
   }
 
 };
@@ -631,7 +645,8 @@ media.mojom.SpeechRecognitionSurfaceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SpeechRecognitionSurface_Activate_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getBounds() {
@@ -640,7 +655,8 @@ media.mojom.SpeechRecognitionSurfaceRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.SpeechRecognitionSurface_GetBounds_ParamsSpec,
       media.mojom.SpeechRecognitionSurface_GetBounds_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -708,7 +724,8 @@ media.mojom.SpeechRecognitionSurfaceClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SpeechRecognitionSurfaceClient_OnSessionEnded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onFullscreenToggled() {
@@ -717,7 +734,8 @@ media.mojom.SpeechRecognitionSurfaceClientRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.SpeechRecognitionSurfaceClient_OnFullscreenToggled_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -792,7 +810,8 @@ media.mojom.SpeechRecognitionClientBrowserInterfaceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SpeechRecognitionClientBrowserInterface_BindSpeechRecognitionBrowserObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   rEMOVED_1() {
@@ -801,7 +820,8 @@ media.mojom.SpeechRecognitionClientBrowserInterfaceRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_1_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   rEMOVED_2(observer) {
@@ -810,7 +830,8 @@ media.mojom.SpeechRecognitionClientBrowserInterfaceRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.SpeechRecognitionClientBrowserInterface_REMOVED_2_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

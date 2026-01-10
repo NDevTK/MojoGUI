@@ -84,7 +84,8 @@ arc.mojom.ObbMounterHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.ObbMounterHost_MountObb_ParamsSpec,
       arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec,
-      [obb_file, target_path, owner_gid]);
+      [obb_file, target_path, owner_gid],
+      false);
   }
 
   unmountObb(target_path) {
@@ -93,7 +94,8 @@ arc.mojom.ObbMounterHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec,
       arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec,
-      [target_path]);
+      [target_path],
+      false);
   }
 
 };
@@ -162,7 +164,8 @@ arc.mojom.ObbMounterInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.ObbMounterInstance_Init_ParamsSpec,
       arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

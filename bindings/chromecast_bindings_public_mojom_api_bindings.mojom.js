@@ -80,7 +80,8 @@ chromecast.mojom.ApiBindingsRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.ApiBindings_GetAll_ParamsSpec,
       chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   connect(port_name, port) {
@@ -89,7 +90,8 @@ chromecast.mojom.ApiBindingsRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.ApiBindings_Connect_ParamsSpec,
       null,
-      [port_name, port]);
+      [port_name, port],
+      false);
   }
 
 };

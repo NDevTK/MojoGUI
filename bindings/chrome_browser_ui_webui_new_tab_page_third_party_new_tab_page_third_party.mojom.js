@@ -81,7 +81,8 @@ new_tab_page_third_party.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -144,7 +145,8 @@ new_tab_page_third_party.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -208,7 +210,8 @@ new_tab_page_third_party.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec,
       null,
-      [theme]);
+      [theme],
+      false);
   }
 
 };

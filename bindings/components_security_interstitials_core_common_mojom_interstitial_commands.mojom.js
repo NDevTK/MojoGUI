@@ -176,7 +176,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       0,  // ordinal
       security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   proceed() {
@@ -185,7 +186,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       1,  // ordinal
       security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   showMoreSection() {
@@ -194,7 +196,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       2,  // ordinal
       security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openHelpCenter() {
@@ -203,7 +206,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       3,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openDiagnostic() {
@@ -212,7 +216,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       4,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   reload() {
@@ -221,7 +226,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       5,  // ordinal
       security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openDateSettings() {
@@ -230,7 +236,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       6,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openLogin() {
@@ -239,7 +246,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       7,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   doReport() {
@@ -248,7 +256,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       8,  // ordinal
       security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   dontReport() {
@@ -257,7 +266,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       9,  // ordinal
       security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openReportingPrivacy() {
@@ -266,7 +276,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       10,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openWhitepaper() {
@@ -275,7 +286,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       11,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openHelpCenterInNewTab() {
@@ -284,7 +296,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       12,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openDiagnosticInNewTab() {
@@ -293,7 +306,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       13,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openReportingPrivacyInNewTab() {
@@ -302,7 +316,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       14,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openWhitepaperInNewTab() {
@@ -311,7 +326,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       15,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   reportPhishingErrorInNewTab() {
@@ -320,7 +336,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       16,  // ordinal
       security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   reportPhishingError() {
@@ -329,7 +346,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       17,  // ordinal
       security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openEnhancedProtectionSettings() {
@@ -338,7 +356,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       18,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   showCertificateViewer() {
@@ -347,7 +366,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       19,  // ordinal
       security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openAndroidAdvancedProtectionSettings() {
@@ -356,7 +376,8 @@ security_interstitials.mojom.InterstitialCommandsRemoteCallHandler = class {
       20,  // ordinal
       security_interstitials.mojom.InterstitialCommands_OpenAndroidAdvancedProtectionSettings_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -91,7 +91,8 @@ bookmark_bar.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -166,7 +167,8 @@ bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec,
       bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openInNewTab(node_id) {
@@ -175,7 +177,8 @@ bookmark_bar.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec,
       null,
-      [node_id]);
+      [node_id],
+      false);
   }
 
 };
@@ -254,7 +257,8 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   favIconChanged(bookmark_data) {
@@ -263,7 +267,8 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec,
       null,
-      [bookmark_data]);
+      [bookmark_data],
+      false);
   }
 
   show() {
@@ -272,7 +277,8 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       bookmark_bar.mojom.Page_Show_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   hide() {
@@ -281,7 +287,8 @@ bookmark_bar.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       bookmark_bar.mojom.Page_Hide_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

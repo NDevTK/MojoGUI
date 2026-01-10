@@ -120,7 +120,8 @@ arc.mojom.TimerHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.TimerHost_CreateTimers_ParamsSpec,
       arc.mojom.TimerHost_CreateTimers_ResponseParamsSpec,
-      [timer_requests]);
+      [timer_requests],
+      false);
   }
 
   startTimer(clock_id, absolute_expiration_time) {
@@ -129,7 +130,8 @@ arc.mojom.TimerHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.TimerHost_StartTimer_ParamsSpec,
       arc.mojom.TimerHost_StartTimer_ResponseParamsSpec,
-      [clock_id, absolute_expiration_time]);
+      [clock_id, absolute_expiration_time],
+      false);
   }
 
   setTime(time) {
@@ -138,7 +140,8 @@ arc.mojom.TimerHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.TimerHost_SetTime_ParamsSpec,
       arc.mojom.TimerHost_SetTime_ResponseParamsSpec,
-      [time]);
+      [time],
+      false);
   }
 
 };
@@ -207,7 +210,8 @@ arc.mojom.TimerInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.TimerInstance_Init_ParamsSpec,
       arc.mojom.TimerInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

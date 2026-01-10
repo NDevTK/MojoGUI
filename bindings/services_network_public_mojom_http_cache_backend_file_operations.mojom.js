@@ -117,7 +117,8 @@ network.mojom.FileEnumeratorRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.FileEnumerator_GetNext_ParamsSpec,
       network.mojom.FileEnumerator_GetNext_ResponseParamsSpec,
-      [num_entries]);
+      [num_entries],
+      false);
   }
 
 };
@@ -282,7 +283,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec,
       network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   pathExists(path) {
@@ -291,7 +293,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.HttpCacheBackendFileOperations_PathExists_ParamsSpec,
       network.mojom.HttpCacheBackendFileOperations_PathExists_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   directoryExists(path) {
@@ -300,7 +303,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ParamsSpec,
       network.mojom.HttpCacheBackendFileOperations_DirectoryExists_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   openFile(path, flags) {
@@ -309,7 +313,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.HttpCacheBackendFileOperations_OpenFile_ParamsSpec,
       network.mojom.HttpCacheBackendFileOperations_OpenFile_ResponseParamsSpec,
-      [path, flags]);
+      [path, flags],
+      false);
   }
 
   deleteFile(path, mode) {
@@ -318,7 +323,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.HttpCacheBackendFileOperations_DeleteFile_ParamsSpec,
       network.mojom.HttpCacheBackendFileOperations_DeleteFile_ResponseParamsSpec,
-      [path, mode]);
+      [path, mode],
+      false);
   }
 
   renameFile(from_path, to_path) {
@@ -327,7 +333,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.HttpCacheBackendFileOperations_RenameFile_ParamsSpec,
       network.mojom.HttpCacheBackendFileOperations_RenameFile_ResponseParamsSpec,
-      [from_path, to_path]);
+      [from_path, to_path],
+      false);
   }
 
   getFileInfo(path) {
@@ -336,7 +343,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
       6,  // ordinal
       network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ParamsSpec,
       network.mojom.HttpCacheBackendFileOperations_GetFileInfo_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   enumerateFiles(path, receiver) {
@@ -345,7 +353,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
       7,  // ordinal
       network.mojom.HttpCacheBackendFileOperations_EnumerateFiles_ParamsSpec,
       null,
-      [path, receiver]);
+      [path, receiver],
+      false);
   }
 
   cleanupDirectory(path) {
@@ -354,7 +363,8 @@ network.mojom.HttpCacheBackendFileOperationsRemoteCallHandler = class {
       8,  // ordinal
       network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ParamsSpec,
       network.mojom.HttpCacheBackendFileOperations_CleanupDirectory_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
 };
@@ -418,7 +428,8 @@ network.mojom.HttpCacheBackendFileOperationsFactoryRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

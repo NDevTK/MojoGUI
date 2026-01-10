@@ -93,7 +93,8 @@ remote_cocoa.mojom.AlertBridgeRemoteCallHandler = class {
       0,  // ordinal
       remote_cocoa.mojom.AlertBridge_Show_ParamsSpec,
       remote_cocoa.mojom.AlertBridge_Show_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
   dismiss() {
@@ -102,7 +103,8 @@ remote_cocoa.mojom.AlertBridgeRemoteCallHandler = class {
       1,  // ordinal
       remote_cocoa.mojom.AlertBridge_Dismiss_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

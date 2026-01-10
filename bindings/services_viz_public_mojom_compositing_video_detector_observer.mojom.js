@@ -62,7 +62,8 @@ viz.mojom.VideoDetectorObserverRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onVideoActivityEnded() {
@@ -71,7 +72,8 @@ viz.mojom.VideoDetectorObserverRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

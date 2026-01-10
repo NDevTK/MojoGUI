@@ -71,7 +71,8 @@ video_capture.mojom.ProducerRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.Producer_OnNewBuffer_ParamsSpec,
       video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec,
-      [buffer_id, buffer_handle]);
+      [buffer_id, buffer_handle],
+      false);
   }
 
   onBufferRetired(buffer_id) {
@@ -80,7 +81,8 @@ video_capture.mojom.ProducerRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.Producer_OnBufferRetired_ParamsSpec,
       null,
-      [buffer_id]);
+      [buffer_id],
+      false);
   }
 
 };

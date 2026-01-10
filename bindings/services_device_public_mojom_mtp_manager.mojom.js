@@ -92,7 +92,8 @@ device.mojom.MtpManagerClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.MtpManagerClient_StorageAttached_ParamsSpec,
       null,
-      [storage_info]);
+      [storage_info],
+      false);
   }
 
   storageDetached(storage_name) {
@@ -101,7 +102,8 @@ device.mojom.MtpManagerClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.MtpManagerClient_StorageDetached_ParamsSpec,
       null,
-      [storage_name]);
+      [storage_name],
+      false);
   }
 
 };
@@ -322,7 +324,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec,
       device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec,
-      [client]);
+      [client],
+      false);
   }
 
   getStorageInfo(storage_name) {
@@ -331,7 +334,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.MtpManager_GetStorageInfo_ParamsSpec,
       device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec,
-      [storage_name]);
+      [storage_name],
+      false);
   }
 
   getStorageInfoFromDevice(storage_name) {
@@ -340,7 +344,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec,
       device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec,
-      [storage_name]);
+      [storage_name],
+      false);
   }
 
   openStorage(storage_name, mode) {
@@ -349,7 +354,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.MtpManager_OpenStorage_ParamsSpec,
       device.mojom.MtpManager_OpenStorage_ResponseParamsSpec,
-      [storage_name, mode]);
+      [storage_name, mode],
+      false);
   }
 
   closeStorage(storage_handle) {
@@ -358,7 +364,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.MtpManager_CloseStorage_ParamsSpec,
       device.mojom.MtpManager_CloseStorage_ResponseParamsSpec,
-      [storage_handle]);
+      [storage_handle],
+      false);
   }
 
   createDirectory(storage_handle, parent_id, directory_name) {
@@ -367,7 +374,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       5,  // ordinal
       device.mojom.MtpManager_CreateDirectory_ParamsSpec,
       device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec,
-      [storage_handle, parent_id, directory_name]);
+      [storage_handle, parent_id, directory_name],
+      false);
   }
 
   readDirectoryEntryIds(storage_handle, file_id) {
@@ -376,7 +384,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       6,  // ordinal
       device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec,
       device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec,
-      [storage_handle, file_id]);
+      [storage_handle, file_id],
+      false);
   }
 
   readFileChunk(storage_handle, file_id, offset, count) {
@@ -385,7 +394,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       7,  // ordinal
       device.mojom.MtpManager_ReadFileChunk_ParamsSpec,
       device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec,
-      [storage_handle, file_id, offset, count]);
+      [storage_handle, file_id, offset, count],
+      false);
   }
 
   getFileInfo(storage_handle, file_ids) {
@@ -394,7 +404,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       8,  // ordinal
       device.mojom.MtpManager_GetFileInfo_ParamsSpec,
       device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec,
-      [storage_handle, file_ids]);
+      [storage_handle, file_ids],
+      false);
   }
 
   renameObject(storage_handle, object_id, new_name) {
@@ -403,7 +414,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       9,  // ordinal
       device.mojom.MtpManager_RenameObject_ParamsSpec,
       device.mojom.MtpManager_RenameObject_ResponseParamsSpec,
-      [storage_handle, object_id, new_name]);
+      [storage_handle, object_id, new_name],
+      false);
   }
 
   copyFileFromLocal(storage_handle, source_file_descriptor, parent_id, file_name) {
@@ -412,7 +424,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       10,  // ordinal
       device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec,
       device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec,
-      [storage_handle, source_file_descriptor, parent_id, file_name]);
+      [storage_handle, source_file_descriptor, parent_id, file_name],
+      false);
   }
 
   deleteObject(storage_handle, object_id) {
@@ -421,7 +434,8 @@ device.mojom.MtpManagerRemoteCallHandler = class {
       11,  // ordinal
       device.mojom.MtpManager_DeleteObject_ParamsSpec,
       device.mojom.MtpManager_DeleteObject_ResponseParamsSpec,
-      [storage_handle, object_id]);
+      [storage_handle, object_id],
+      false);
   }
 
 };

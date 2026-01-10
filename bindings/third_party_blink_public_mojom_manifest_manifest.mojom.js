@@ -169,14 +169,14 @@ mojo.internal.Struct(
 // Struct: ManifestImageResource
 mojo.internal.Struct(
     blink.mojom.ManifestImageResourceSpec, 'blink.mojom.ManifestImageResource', [
-      mojo.internal.StructField('ANY', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('ANY', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ManifestScreenshot
 mojo.internal.Struct(
     blink.mojom.ManifestScreenshotSpec, 'blink.mojom.ManifestScreenshot', [
-      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

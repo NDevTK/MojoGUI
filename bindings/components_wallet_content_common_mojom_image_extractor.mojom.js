@@ -64,7 +64,8 @@ wallet.mojom.ImageExtractorRemoteCallHandler = class {
       0,  // ordinal
       wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec,
       wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

@@ -65,7 +65,8 @@ data_decoder.mojom.CborParserRemoteCallHandler = class {
       0,  // ordinal
       data_decoder.mojom.CborParser_Parse_ParamsSpec,
       data_decoder.mojom.CborParser_Parse_ResponseParamsSpec,
-      [cbor]);
+      [cbor],
+      false);
   }
 
 };

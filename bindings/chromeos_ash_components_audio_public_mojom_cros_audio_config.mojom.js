@@ -162,7 +162,8 @@ ash.audio_config.mojom.AudioSystemPropertiesObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec,
       null,
-      [properties]);
+      [properties],
+      false);
   }
 
 };
@@ -297,7 +298,8 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       0,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   setOutputMuted(muted) {
@@ -306,7 +308,8 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       1,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec,
       null,
-      [muted]);
+      [muted],
+      false);
   }
 
   setOutputVolumePercent(volume) {
@@ -315,7 +318,8 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       2,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec,
       null,
-      [volume]);
+      [volume],
+      false);
   }
 
   setInputGainPercent(gain) {
@@ -324,7 +328,8 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       3,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec,
       null,
-      [gain]);
+      [gain],
+      false);
   }
 
   setActiveDevice(device) {
@@ -333,7 +338,8 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       4,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec,
       null,
-      [device]);
+      [device],
+      false);
   }
 
   setInputMuted(muted) {
@@ -342,7 +348,8 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       5,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec,
       null,
-      [muted]);
+      [muted],
+      false);
   }
 
   recordVoiceIsolationEnabledChange() {
@@ -351,7 +358,8 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       6,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordVoiceIsolationPreferredEffectChange(preferred_effect) {
@@ -360,7 +368,8 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       7,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec,
       null,
-      [preferred_effect]);
+      [preferred_effect],
+      false);
   }
 
   setNoiseCancellationEnabled(enabled) {
@@ -369,7 +378,8 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       8,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setStyleTransferEnabled(enabled) {
@@ -378,7 +388,8 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       9,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setForceRespectUiGainsEnabled(enabled) {
@@ -387,7 +398,8 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       10,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setHfpMicSrEnabled(enabled) {
@@ -396,7 +408,8 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       11,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setSpatialAudioEnabled(enabled) {
@@ -405,7 +418,8 @@ ash.audio_config.mojom.CrosAudioConfigRemoteCallHandler = class {
       12,  // ordinal
       ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
 };

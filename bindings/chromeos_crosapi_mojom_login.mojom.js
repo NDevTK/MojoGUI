@@ -85,7 +85,8 @@ crosapi.mojom.ExternalLogoutRequestObserverRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.ExternalLogoutRequestObserver_OnRequestExternalLogout_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -238,7 +239,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
       14,  // ordinal
       crosapi.mojom.Login_AddExternalLogoutRequestObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   notifyOnExternalLogoutDone() {
@@ -247,7 +249,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
       16,  // ordinal
       crosapi.mojom.Login_NotifyOnExternalLogoutDone_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   rEMOVED_0(password) {
@@ -256,7 +259,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.Login_REMOVED_0_ParamsSpec,
       crosapi.mojom.Login_REMOVED_0_ResponseParamsSpec,
-      [password]);
+      [password],
+      false);
   }
 
   rEMOVED_4(password) {
@@ -265,7 +269,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
       4,  // ordinal
       crosapi.mojom.Login_REMOVED_4_ParamsSpec,
       crosapi.mojom.Login_REMOVED_4_ResponseParamsSpec,
-      [password]);
+      [password],
+      false);
   }
 
   rEMOVED_5(password) {
@@ -274,7 +279,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
       5,  // ordinal
       crosapi.mojom.Login_REMOVED_5_ParamsSpec,
       crosapi.mojom.Login_REMOVED_5_ResponseParamsSpec,
-      [password]);
+      [password],
+      false);
   }
 
   rEMOVED_6(password) {
@@ -283,7 +289,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
       6,  // ordinal
       crosapi.mojom.Login_REMOVED_6_ParamsSpec,
       crosapi.mojom.Login_REMOVED_6_ResponseParamsSpec,
-      [password]);
+      [password],
+      false);
   }
 
   rEMOVED_7(password) {
@@ -292,7 +299,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
       7,  // ordinal
       crosapi.mojom.Login_REMOVED_7_ParamsSpec,
       crosapi.mojom.Login_REMOVED_7_ResponseParamsSpec,
-      [password]);
+      [password],
+      false);
   }
 
   rEMOVED_10(properties) {
@@ -301,7 +309,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
       10,  // ordinal
       crosapi.mojom.Login_REMOVED_10_ParamsSpec,
       crosapi.mojom.Login_REMOVED_10_ResponseParamsSpec,
-      [properties]);
+      [properties],
+      false);
   }
 
   rEMOVED_12(password) {
@@ -310,7 +319,8 @@ crosapi.mojom.LoginRemoteCallHandler = class {
       12,  // ordinal
       crosapi.mojom.Login_REMOVED_12_ParamsSpec,
       crosapi.mojom.Login_REMOVED_12_ResponseParamsSpec,
-      [password]);
+      [password],
+      false);
   }
 
 };

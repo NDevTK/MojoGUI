@@ -70,7 +70,8 @@ ash.office_fallback.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -134,7 +135,8 @@ ash.office_fallback.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.office_fallback.mojom.PageHandler_Close_ParamsSpec,
       null,
-      [choice]);
+      [choice],
+      false);
   }
 
 };

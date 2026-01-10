@@ -78,7 +78,8 @@ extensions.mojom.ServiceWorkerRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec,
       null,
-      [active_permissions, withheld_permissions]);
+      [active_permissions, withheld_permissions],
+      false);
   }
 
   dispatchOnConnect(port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host) {
@@ -87,7 +88,8 @@ extensions.mojom.ServiceWorkerRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec,
       extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec,
-      [port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host]);
+      [port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host],
+      false);
   }
 
 };

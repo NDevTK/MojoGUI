@@ -66,7 +66,8 @@ blink.mojom.TextInputHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec,
       null,
-      [index]);
+      [index],
+      false);
   }
 
   gotFirstRectForRange(rect) {
@@ -75,7 +76,8 @@ blink.mojom.TextInputHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec,
       null,
-      [rect]);
+      [rect],
+      false);
   }
 
 };

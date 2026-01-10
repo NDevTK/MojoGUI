@@ -64,7 +64,8 @@ chromecast.mojom.JsChannelRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.JsChannel_PostMessage_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };
@@ -135,7 +136,8 @@ chromecast.mojom.JsChannelClientRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.JsChannelClient_CreateChannel_ParamsSpec,
       null,
-      [channel, pipe]);
+      [channel, pipe],
+      false);
   }
 
   removeChannel(channel) {
@@ -144,7 +146,8 @@ chromecast.mojom.JsChannelClientRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.JsChannelClient_RemoveChannel_ParamsSpec,
       null,
-      [channel]);
+      [channel],
+      false);
   }
 
 };
@@ -209,7 +212,8 @@ chromecast.mojom.JsChannelBindingProviderRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.JsChannelBindingProvider_Register_ParamsSpec,
       null,
-      [routing_id, client]);
+      [routing_id, client],
+      false);
   }
 
 };

@@ -117,7 +117,7 @@ mojo.internal.Struct(
     device.mojom.SerialPortInfoSpec, 'device.mojom.SerialPortInfo', [
       mojo.internal.StructField('token', 0, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('path', 8, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('type', 16, 0, device.mojom.SerialPortTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 16, 0, device.mojom.SerialPortTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('alternate_path', 24, 0, mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
       mojo.internal.StructField('usb_driver_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('device_instance_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
@@ -128,7 +128,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('bluetooth_service_class_id', 56, 0, bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
       mojo.internal.StructField('display_name', 64, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('serial_number', 72, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('connected', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('connected', 80, 0, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 96]]);
 
@@ -136,9 +136,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.SerialConnectionOptionsSpec, 'device.mojom.SerialConnectionOptions', [
       mojo.internal.StructField('bitrate', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data_bits', 4, 0, device.mojom.SerialDataBitsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('parity_bit', 8, 0, device.mojom.SerialParityBitSpec, null, false, 0, undefined),
-      mojo.internal.StructField('stop_bits', 12, 0, device.mojom.SerialStopBitsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_bits', 4, 0, device.mojom.SerialDataBitsSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('parity_bit', 8, 0, device.mojom.SerialParityBitSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('stop_bits', 12, 0, device.mojom.SerialStopBitsSpec, 0, false, 0, undefined),
       mojo.internal.StructField('cts_flow_control', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('has_cts_flow_control', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -148,9 +148,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     device.mojom.SerialConnectionInfoSpec, 'device.mojom.SerialConnectionInfo', [
       mojo.internal.StructField('bitrate', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('data_bits', 4, 0, device.mojom.SerialDataBitsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('parity_bit', 8, 0, device.mojom.SerialParityBitSpec, null, false, 0, undefined),
-      mojo.internal.StructField('stop_bits', 12, 0, device.mojom.SerialStopBitsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('data_bits', 4, 0, device.mojom.SerialDataBitsSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('parity_bit', 8, 0, device.mojom.SerialParityBitSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('stop_bits', 12, 0, device.mojom.SerialStopBitsSpec, 0, false, 0, undefined),
       mojo.internal.StructField('cts_flow_control', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -249,7 +249,8 @@ device.mojom.SerialPortManagerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SerialPortManager_SetClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   getDevices() {
@@ -258,7 +259,8 @@ device.mojom.SerialPortManagerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.SerialPortManager_GetDevices_ParamsSpec,
       device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openPort(token, use_alternate_path, options, client, watcher) {
@@ -267,7 +269,8 @@ device.mojom.SerialPortManagerRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.SerialPortManager_OpenPort_ParamsSpec,
       device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec,
-      [token, use_alternate_path, options, client, watcher]);
+      [token, use_alternate_path, options, client, watcher],
+      false);
   }
 
 };
@@ -343,7 +346,8 @@ device.mojom.SerialPortManagerClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec,
       null,
-      [port_info]);
+      [port_info],
+      false);
   }
 
   onPortRemoved(port_info) {
@@ -352,7 +356,8 @@ device.mojom.SerialPortManagerClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec,
       null,
-      [port_info]);
+      [port_info],
+      false);
   }
 
   onPortConnectedStateChanged(port_info) {
@@ -361,7 +366,8 @@ device.mojom.SerialPortManagerClientRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec,
       null,
-      [port_info]);
+      [port_info],
+      false);
   }
 
 };
@@ -509,7 +515,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SerialPort_StartWriting_ParamsSpec,
       null,
-      [consumer]);
+      [consumer],
+      false);
   }
 
   startReading(producer) {
@@ -518,7 +525,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.SerialPort_StartReading_ParamsSpec,
       null,
-      [producer]);
+      [producer],
+      false);
   }
 
   flush(mode) {
@@ -527,7 +535,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.SerialPort_Flush_ParamsSpec,
       device.mojom.SerialPort_Flush_ResponseParamsSpec,
-      [mode]);
+      [mode],
+      false);
   }
 
   drain() {
@@ -536,7 +545,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.SerialPort_Drain_ParamsSpec,
       device.mojom.SerialPort_Drain_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getControlSignals() {
@@ -545,7 +555,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.SerialPort_GetControlSignals_ParamsSpec,
       device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setControlSignals(signals) {
@@ -554,7 +565,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
       5,  // ordinal
       device.mojom.SerialPort_SetControlSignals_ParamsSpec,
       device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec,
-      [signals]);
+      [signals],
+      false);
   }
 
   configurePort(options) {
@@ -563,7 +575,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
       6,  // ordinal
       device.mojom.SerialPort_ConfigurePort_ParamsSpec,
       device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   getPortInfo() {
@@ -572,7 +585,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
       7,  // ordinal
       device.mojom.SerialPort_GetPortInfo_ParamsSpec,
       device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   close(flush) {
@@ -581,7 +595,8 @@ device.mojom.SerialPortRemoteCallHandler = class {
       8,  // ordinal
       device.mojom.SerialPort_Close_ParamsSpec,
       device.mojom.SerialPort_Close_ResponseParamsSpec,
-      [flush]);
+      [flush],
+      false);
   }
 
 };
@@ -651,7 +666,8 @@ device.mojom.SerialPortClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SerialPortClient_OnReadError_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
   onSendError(error) {
@@ -660,7 +676,8 @@ device.mojom.SerialPortClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.SerialPortClient_OnSendError_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
 };

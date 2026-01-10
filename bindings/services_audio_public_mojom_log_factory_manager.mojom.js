@@ -57,7 +57,8 @@ audio.mojom.LogFactoryManagerRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec,
       null,
-      [factory]);
+      [factory],
+      false);
   }
 
 };

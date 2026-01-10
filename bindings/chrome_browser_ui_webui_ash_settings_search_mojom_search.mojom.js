@@ -127,7 +127,8 @@ ash.settings.mojom.SearchResultsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -205,7 +206,8 @@ ash.settings.mojom.SearchHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.SearchHandler_Search_ParamsSpec,
       ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec,
-      [query, max_num_results, parent_result_behavior]);
+      [query, max_num_results, parent_result_behavior],
+      false);
   }
 
   observe(observer) {
@@ -214,7 +216,8 @@ ash.settings.mojom.SearchHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.mojom.SearchHandler_Observe_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

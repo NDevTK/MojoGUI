@@ -62,7 +62,8 @@ ash.common.mojom.ForceHiddenElementsVisibleObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec,
       null,
-      [forceVisible]);
+      [forceVisible],
+      false);
   }
 
 };
@@ -132,7 +133,8 @@ ash.common.mojom.AccessibilityFeaturesRemoteCallHandler = class {
       0,  // ordinal
       ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec,
       ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

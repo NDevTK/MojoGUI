@@ -84,7 +84,8 @@ chromeos.machine_learning.mojom.GraphExecutorRemoteCallHandler = class {
       0,  // ordinal
       chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec,
       chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec,
-      [inputs, output_names]);
+      [inputs, output_names],
+      false);
   }
 
 };

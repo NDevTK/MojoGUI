@@ -73,7 +73,8 @@ ash.borealis_installer.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -161,7 +162,8 @@ ash.borealis_installer.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   shutDown() {
@@ -170,7 +172,8 @@ ash.borealis_installer.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   launch() {
@@ -179,7 +182,8 @@ ash.borealis_installer.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   cancelInstall() {
@@ -188,7 +192,8 @@ ash.borealis_installer.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onPageClosed() {
@@ -197,7 +202,8 @@ ash.borealis_installer.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openStoragePage() {
@@ -206,7 +212,8 @@ ash.borealis_installer.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -282,7 +289,8 @@ ash.borealis_installer.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec,
       null,
-      [progress_fraction, label]);
+      [progress_fraction, label],
+      false);
   }
 
   onInstallFinished(error) {
@@ -291,7 +299,8 @@ ash.borealis_installer.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
   requestClose() {
@@ -300,7 +309,8 @@ ash.borealis_installer.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

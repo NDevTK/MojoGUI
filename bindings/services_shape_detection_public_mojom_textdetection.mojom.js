@@ -77,7 +77,8 @@ shape_detection.mojom.TextDetectionRemoteCallHandler = class {
       0,  // ordinal
       shape_detection.mojom.TextDetection_Detect_ParamsSpec,
       shape_detection.mojom.TextDetection_Detect_ResponseParamsSpec,
-      [bitmap_data]);
+      [bitmap_data],
+      false);
   }
 
 };

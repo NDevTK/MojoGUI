@@ -132,7 +132,8 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
       0,  // ordinal
       ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverInfo_ParamsSpec,
       null,
-      [receiver_info]);
+      [receiver_info],
+      false);
   }
 
   onInitReceiverError() {
@@ -141,7 +142,8 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
       1,  // ordinal
       ash.boca_receiver.mojom.UntrustedPage_OnInitReceiverError_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onFrameReceived(frame_data) {
@@ -150,7 +152,8 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
       2,  // ordinal
       ash.boca_receiver.mojom.UntrustedPage_OnFrameReceived_ParamsSpec,
       null,
-      [frame_data]);
+      [frame_data],
+      false);
   }
 
   onAudioPacket(audio_packet) {
@@ -159,7 +162,8 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
       3,  // ordinal
       ash.boca_receiver.mojom.UntrustedPage_OnAudioPacket_ParamsSpec,
       null,
-      [audio_packet]);
+      [audio_packet],
+      false);
   }
 
   onConnecting(initiator, presenter) {
@@ -168,7 +172,8 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
       4,  // ordinal
       ash.boca_receiver.mojom.UntrustedPage_OnConnecting_ParamsSpec,
       null,
-      [initiator, presenter]);
+      [initiator, presenter],
+      false);
   }
 
   onConnectionClosed(reason) {
@@ -177,7 +182,8 @@ ash.boca_receiver.mojom.UntrustedPageRemoteCallHandler = class {
       5,  // ordinal
       ash.boca_receiver.mojom.UntrustedPage_OnConnectionClosed_ParamsSpec,
       null,
-      [reason]);
+      [reason],
+      false);
   }
 
 };
@@ -241,7 +247,8 @@ ash.boca_receiver.mojom.UntrustedPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.boca_receiver.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
 };

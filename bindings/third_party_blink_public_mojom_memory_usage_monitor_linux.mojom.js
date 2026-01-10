@@ -58,7 +58,8 @@ blink.mojom.MemoryUsageMonitorLinuxRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec,
       null,
-      [statm_file, status_file]);
+      [statm_file, status_file],
+      false);
   }
 
 };

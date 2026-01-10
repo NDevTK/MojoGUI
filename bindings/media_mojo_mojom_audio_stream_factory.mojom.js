@@ -200,7 +200,8 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec,
       media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec,
-      [stream, client, observer, log, device_id, params, group_id, shared_memory_count, enable_agc, processing_config]);
+      [stream, client, observer, log, device_id, params, group_id, shared_memory_count, enable_agc, processing_config],
+      false);
   }
 
   associateInputAndOutputForAec(input_stream_id, output_device_id) {
@@ -209,7 +210,8 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec,
       null,
-      [input_stream_id, output_device_id]);
+      [input_stream_id, output_device_id],
+      false);
   }
 
   createOutputStream(stream, observer, log, device_id, params, group_id) {
@@ -218,7 +220,8 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec,
       media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec,
-      [stream, observer, log, device_id, params, group_id]);
+      [stream, observer, log, device_id, params, group_id],
+      false);
   }
 
   createSwitchableOutputStream(stream, device_switch_receiver, observer, log, device_id, params, group_id) {
@@ -227,7 +230,8 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec,
       media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec,
-      [stream, device_switch_receiver, observer, log, device_id, params, group_id]);
+      [stream, device_switch_receiver, observer, log, device_id, params, group_id],
+      false);
   }
 
   bindMuter(receiver, group_id) {
@@ -236,7 +240,8 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.AudioStreamFactory_BindMuter_ParamsSpec,
       null,
-      [receiver, group_id]);
+      [receiver, group_id],
+      false);
   }
 
   createLoopbackStream(receiver, client, observer, params, shared_memory_count, group_id) {
@@ -245,7 +250,8 @@ media.mojom.AudioStreamFactoryRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec,
       media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec,
-      [receiver, client, observer, params, shared_memory_count, group_id]);
+      [receiver, client, observer, params, shared_memory_count, group_id],
+      false);
   }
 
 };

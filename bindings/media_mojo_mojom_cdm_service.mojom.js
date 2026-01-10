@@ -66,7 +66,8 @@ media.mojom.CdmServiceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmService_CreateCdmFactory_ParamsSpec,
       null,
-      [factory, frame_interfaces]);
+      [factory, frame_interfaces],
+      false);
   }
 
 };
@@ -135,7 +136,8 @@ media.mojom.SeatbeltExtensionTokenProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec,
       media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -201,7 +203,8 @@ media.mojom.CdmServiceBrokerRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmServiceBroker_GetService_ParamsSpec,
       null,
-      [cdm_path, token_provider, receiver]);
+      [cdm_path, token_provider, receiver],
+      false);
   }
 
 };

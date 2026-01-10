@@ -83,7 +83,8 @@ blink.mojom.SurfaceEmbedderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SurfaceEmbedder_SetLocalSurfaceId_ParamsSpec,
       null,
-      [local_surface_id]);
+      [local_surface_id],
+      false);
   }
 
   onOpacityChanged(is_opaque) {
@@ -92,7 +93,8 @@ blink.mojom.SurfaceEmbedderRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SurfaceEmbedder_OnOpacityChanged_ParamsSpec,
       null,
-      [is_opaque]);
+      [is_opaque],
+      false);
   }
 
 };
@@ -156,7 +158,8 @@ blink.mojom.EmbeddedFrameSinkClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.EmbeddedFrameSinkClient_BindSurfaceEmbedder_ParamsSpec,
       null,
-      [embedder]);
+      [embedder],
+      false);
   }
 
 };
@@ -276,7 +279,8 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSink_ParamsSpec,
       null,
-      [parent_frame_sink_id, frame_sink_id, client]);
+      [parent_frame_sink_id, frame_sink_id, client],
+      false);
   }
 
   registerEmbeddedFrameSinkBundle(bundle_id, receiver, client) {
@@ -285,7 +289,8 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.EmbeddedFrameSinkProvider_RegisterEmbeddedFrameSinkBundle_ParamsSpec,
       null,
-      [bundle_id, receiver, client]);
+      [bundle_id, receiver, client],
+      false);
   }
 
   createCompositorFrameSink(frame_sink_id, client, sink) {
@@ -294,7 +299,8 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.EmbeddedFrameSinkProvider_CreateCompositorFrameSink_ParamsSpec,
       null,
-      [frame_sink_id, client, sink]);
+      [frame_sink_id, client, sink],
+      false);
   }
 
   createBundledCompositorFrameSink(frame_sink_id, bundle_id, client, sink) {
@@ -303,7 +309,8 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.EmbeddedFrameSinkProvider_CreateBundledCompositorFrameSink_ParamsSpec,
       null,
-      [frame_sink_id, bundle_id, client, sink]);
+      [frame_sink_id, bundle_id, client, sink],
+      false);
   }
 
   createSimpleCompositorFrameSink(parent_frame_sink_id, frame_sink_id, surface_client, client, sink) {
@@ -312,7 +319,8 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.EmbeddedFrameSinkProvider_CreateSimpleCompositorFrameSink_ParamsSpec,
       null,
-      [parent_frame_sink_id, frame_sink_id, surface_client, client, sink]);
+      [parent_frame_sink_id, frame_sink_id, surface_client, client, sink],
+      false);
   }
 
   connectToEmbedder(frame_sink_id, embedder) {
@@ -321,7 +329,8 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.EmbeddedFrameSinkProvider_ConnectToEmbedder_ParamsSpec,
       null,
-      [frame_sink_id, embedder]);
+      [frame_sink_id, embedder],
+      false);
   }
 
   registerFrameSinkHierarchy(frame_sink_id) {
@@ -330,7 +339,8 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.EmbeddedFrameSinkProvider_RegisterFrameSinkHierarchy_ParamsSpec,
       null,
-      [frame_sink_id]);
+      [frame_sink_id],
+      false);
   }
 
   unregisterFrameSinkHierarchy(frame_sink_id) {
@@ -339,7 +349,8 @@ blink.mojom.EmbeddedFrameSinkProviderRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.EmbeddedFrameSinkProvider_UnregisterFrameSinkHierarchy_ParamsSpec,
       null,
-      [frame_sink_id]);
+      [frame_sink_id],
+      false);
   }
 
 };

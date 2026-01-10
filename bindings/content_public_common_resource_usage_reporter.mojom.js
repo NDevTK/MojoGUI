@@ -98,7 +98,8 @@ content.mojom.ResourceUsageReporterRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec,
       content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

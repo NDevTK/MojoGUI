@@ -102,7 +102,8 @@ blink.mojom.PrivateAggregationHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PrivateAggregationHost_ContributeToHistogram_ParamsSpec,
       null,
-      [contributions]);
+      [contributions],
+      false);
   }
 
   contributeToHistogramOnEvent(error_event, contributions) {
@@ -111,7 +112,8 @@ blink.mojom.PrivateAggregationHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PrivateAggregationHost_ContributeToHistogramOnEvent_ParamsSpec,
       null,
-      [error_event, contributions]);
+      [error_event, contributions],
+      false);
   }
 
   enableDebugMode(debug_key) {
@@ -120,7 +122,8 @@ blink.mojom.PrivateAggregationHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PrivateAggregationHost_EnableDebugMode_ParamsSpec,
       null,
-      [debug_key]);
+      [debug_key],
+      false);
   }
 
 };

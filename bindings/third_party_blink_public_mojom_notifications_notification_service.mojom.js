@@ -101,7 +101,8 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.NonPersistentNotificationListener_OnShow_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onClick() {
@@ -110,7 +111,8 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.NonPersistentNotificationListener_OnClick_ParamsSpec,
       blink.mojom.NonPersistentNotificationListener_OnClick_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onClose() {
@@ -119,7 +121,8 @@ blink.mojom.NonPersistentNotificationListenerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.NonPersistentNotificationListener_OnClose_ParamsSpec,
       blink.mojom.NonPersistentNotificationListener_OnClose_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -238,7 +241,8 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.NotificationService_GetPermissionStatus_ParamsSpec,
       blink.mojom.NotificationService_GetPermissionStatus_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   displayNonPersistentNotification(token, notification_data, notification_resources, event_listener) {
@@ -247,7 +251,8 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.NotificationService_DisplayNonPersistentNotification_ParamsSpec,
       null,
-      [token, notification_data, notification_resources, event_listener]);
+      [token, notification_data, notification_resources, event_listener],
+      false);
   }
 
   closeNonPersistentNotification(token) {
@@ -256,7 +261,8 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.NotificationService_CloseNonPersistentNotification_ParamsSpec,
       null,
-      [token]);
+      [token],
+      false);
   }
 
   displayPersistentNotification(service_worker_registration_id, notification_data, notification_resources) {
@@ -265,7 +271,8 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.NotificationService_DisplayPersistentNotification_ParamsSpec,
       blink.mojom.NotificationService_DisplayPersistentNotification_ResponseParamsSpec,
-      [service_worker_registration_id, notification_data, notification_resources]);
+      [service_worker_registration_id, notification_data, notification_resources],
+      false);
   }
 
   closePersistentNotification(notification_id) {
@@ -274,7 +281,8 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.NotificationService_ClosePersistentNotification_ParamsSpec,
       null,
-      [notification_id]);
+      [notification_id],
+      false);
   }
 
   getNotifications(service_worker_registration_id, filter_tag, include_triggered) {
@@ -283,7 +291,8 @@ blink.mojom.NotificationServiceRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.NotificationService_GetNotifications_ParamsSpec,
       blink.mojom.NotificationService_GetNotifications_ResponseParamsSpec,
-      [service_worker_registration_id, filter_tag, include_triggered]);
+      [service_worker_registration_id, filter_tag, include_triggered],
+      false);
   }
 
 };

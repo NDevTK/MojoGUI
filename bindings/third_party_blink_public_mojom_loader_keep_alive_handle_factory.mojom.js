@@ -58,7 +58,8 @@ blink.mojom.KeepAliveHandleFactoryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec,
       null,
-      [keep_alive_handle]);
+      [keep_alive_handle],
+      false);
   }
 
 };

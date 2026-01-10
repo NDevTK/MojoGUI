@@ -94,7 +94,8 @@ network.mojom.URLLoaderRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.URLLoader_FollowRedirect_ParamsSpec,
       null,
-      [removed_headers, modified_headers, modified_cors_exempt_headers, new_url]);
+      [removed_headers, modified_headers, modified_cors_exempt_headers, new_url],
+      false);
   }
 
   setPriority(priority, intra_priority_value) {
@@ -103,7 +104,8 @@ network.mojom.URLLoaderRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.URLLoader_SetPriority_ParamsSpec,
       null,
-      [priority, intra_priority_value]);
+      [priority, intra_priority_value],
+      false);
   }
 
 };
@@ -206,7 +208,8 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec,
       null,
-      [early_hints]);
+      [early_hints],
+      false);
   }
 
   onReceiveResponse(head, body, cached_metadata) {
@@ -215,7 +218,8 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec,
       null,
-      [head, body, cached_metadata]);
+      [head, body, cached_metadata],
+      false);
   }
 
   onReceiveRedirect(redirect_info, head) {
@@ -224,7 +228,8 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec,
       null,
-      [redirect_info, head]);
+      [redirect_info, head],
+      false);
   }
 
   onUploadProgress(current_position, total_size) {
@@ -233,7 +238,8 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec,
       network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec,
-      [current_position, total_size]);
+      [current_position, total_size],
+      false);
   }
 
   onTransferSizeUpdated(transfer_size_diff) {
@@ -242,7 +248,8 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec,
       null,
-      [transfer_size_diff]);
+      [transfer_size_diff],
+      false);
   }
 
   onComplete(status) {
@@ -251,7 +258,8 @@ network.mojom.URLLoaderClientRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.URLLoaderClient_OnComplete_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
 };

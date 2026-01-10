@@ -88,7 +88,8 @@ content.mojom.RenderMessageFilterRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec,
       content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   generateFrameRoutingInfos() {
@@ -97,7 +98,8 @@ content.mojom.RenderMessageFilterRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec,
       content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

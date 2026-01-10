@@ -103,7 +103,8 @@ chromeos.machine_learning.mojom.HeatmapPalmRejectionClientRemoteCallHandler = cl
       0,  // ordinal
       chromeos.machine_learning.mojom.HeatmapPalmRejectionClient_OnHeatmapProcessedEvent_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
 };

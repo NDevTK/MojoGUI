@@ -79,7 +79,8 @@ metrics.mojom.ChildHistogramFetcherFactoryRemoteCallHandler = class {
       0,  // ordinal
       metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec,
       null,
-      [shared_memory, child_histogram_fetcher]);
+      [shared_memory, child_histogram_fetcher],
+      false);
   }
 
 };
@@ -159,7 +160,8 @@ metrics.mojom.ChildHistogramFetcherRemoteCallHandler = class {
       0,  // ordinal
       metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec,
       metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   ping(call_source) {
@@ -168,7 +170,8 @@ metrics.mojom.ChildHistogramFetcherRemoteCallHandler = class {
       1,  // ordinal
       metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec,
       metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec,
-      [call_source]);
+      [call_source],
+      false);
   }
 
 };

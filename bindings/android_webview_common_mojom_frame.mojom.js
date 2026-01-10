@@ -126,7 +126,8 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
       0,  // ordinal
       android_webview.mojom.LocalMainFrame_SetInitialPageScale_ParamsSpec,
       null,
-      [page_scale_factor]);
+      [page_scale_factor],
+      false);
   }
 
   setTextZoomFactor(zoom_factor) {
@@ -135,7 +136,8 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
       1,  // ordinal
       android_webview.mojom.LocalMainFrame_SetTextZoomFactor_ParamsSpec,
       null,
-      [zoom_factor]);
+      [zoom_factor],
+      false);
   }
 
   documentHasImage() {
@@ -144,7 +146,8 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
       2,  // ordinal
       android_webview.mojom.LocalMainFrame_DocumentHasImage_ParamsSpec,
       android_webview.mojom.LocalMainFrame_DocumentHasImage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   resetScrollAndScaleState() {
@@ -153,7 +156,8 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
       3,  // ordinal
       android_webview.mojom.LocalMainFrame_ResetScrollAndScaleState_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   smoothScroll(target_x, target_y, duration) {
@@ -162,7 +166,8 @@ android_webview.mojom.LocalMainFrameRemoteCallHandler = class {
       4,  // ordinal
       android_webview.mojom.LocalMainFrame_SmoothScroll_ParamsSpec,
       null,
-      [target_x, target_y, duration]);
+      [target_x, target_y, duration],
+      false);
   }
 
 };
@@ -247,7 +252,8 @@ android_webview.mojom.FrameHostRemoteCallHandler = class {
       0,  // ordinal
       android_webview.mojom.FrameHost_UpdateHitTestData_ParamsSpec,
       null,
-      [data]);
+      [data],
+      false);
   }
 
   contentsSizeChanged(contents_size) {
@@ -256,7 +262,8 @@ android_webview.mojom.FrameHostRemoteCallHandler = class {
       1,  // ordinal
       android_webview.mojom.FrameHost_ContentsSizeChanged_ParamsSpec,
       null,
-      [contents_size]);
+      [contents_size],
+      false);
   }
 
   shouldOverrideUrlLoading(url, has_user_gesture, is_redirect, is_outermost_main_frame) {
@@ -265,7 +272,8 @@ android_webview.mojom.FrameHostRemoteCallHandler = class {
       2,  // ordinal
       android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ParamsSpec,
       android_webview.mojom.FrameHost_ShouldOverrideUrlLoading_ResponseParamsSpec,
-      [url, has_user_gesture, is_redirect, is_outermost_main_frame]);
+      [url, has_user_gesture, is_redirect, is_outermost_main_frame],
+      false);
   }
 
 };

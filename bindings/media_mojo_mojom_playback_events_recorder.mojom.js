@@ -109,7 +109,8 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnPlaying_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onPaused() {
@@ -118,7 +119,8 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnPaused_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSeeking() {
@@ -127,7 +129,8 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnSeeking_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onEnded() {
@@ -136,7 +139,8 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnEnded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onError(status) {
@@ -145,7 +149,8 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnError_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   onBuffering() {
@@ -154,7 +159,8 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnBuffering_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onBufferingComplete() {
@@ -163,7 +169,8 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnBufferingComplete_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onNaturalSizeChanged(size) {
@@ -172,7 +179,8 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnNaturalSizeChanged_ParamsSpec,
       null,
-      [size]);
+      [size],
+      false);
   }
 
   onPipelineStatistics(stats) {
@@ -181,7 +189,8 @@ media.mojom.PlaybackEventsRecorderRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.PlaybackEventsRecorder_OnPipelineStatistics_ParamsSpec,
       null,
-      [stats]);
+      [stats],
+      false);
   }
 
 };

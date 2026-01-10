@@ -228,7 +228,8 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.ContentDecryptionModule_SetClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   setServerCertificate(certificate_data) {
@@ -237,7 +238,8 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec,
       media.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec,
-      [certificate_data]);
+      [certificate_data],
+      false);
   }
 
   getStatusForPolicy(min_hdcp_version) {
@@ -246,7 +248,8 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec,
       media.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec,
-      [min_hdcp_version]);
+      [min_hdcp_version],
+      false);
   }
 
   createSessionAndGenerateRequest(session_type, init_data_type, init_data) {
@@ -255,7 +258,8 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec,
       media.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec,
-      [session_type, init_data_type, init_data]);
+      [session_type, init_data_type, init_data],
+      false);
   }
 
   loadSession(session_type, session_id) {
@@ -264,7 +268,8 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.ContentDecryptionModule_LoadSession_ParamsSpec,
       media.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec,
-      [session_type, session_id]);
+      [session_type, session_id],
+      false);
   }
 
   updateSession(session_id, response) {
@@ -273,7 +278,8 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec,
       media.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec,
-      [session_id, response]);
+      [session_id, response],
+      false);
   }
 
   closeSession(session_id) {
@@ -282,7 +288,8 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.ContentDecryptionModule_CloseSession_ParamsSpec,
       media.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec,
-      [session_id]);
+      [session_id],
+      false);
   }
 
   removeSession(session_id) {
@@ -291,7 +298,8 @@ media.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec,
       media.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec,
-      [session_id]);
+      [session_id],
+      false);
   }
 
 };
@@ -379,7 +387,8 @@ media.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec,
       null,
-      [session_id, message_type, message]);
+      [session_id, message_type, message],
+      false);
   }
 
   onSessionClosed(session_id, reason) {
@@ -388,7 +397,8 @@ media.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec,
       null,
-      [session_id, reason]);
+      [session_id, reason],
+      false);
   }
 
   onSessionKeysChange(session_id, has_additional_usable_key, keys_info) {
@@ -397,7 +407,8 @@ media.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec,
       null,
-      [session_id, has_additional_usable_key, keys_info]);
+      [session_id, has_additional_usable_key, keys_info],
+      false);
   }
 
   onSessionExpirationUpdate(session_id, new_expiry_time_sec) {
@@ -406,7 +417,8 @@ media.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec,
       null,
-      [session_id, new_expiry_time_sec]);
+      [session_id, new_expiry_time_sec],
+      false);
   }
 
 };
@@ -478,7 +490,8 @@ media.mojom.CdmFactoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmFactory_CreateCdm_ParamsSpec,
       media.mojom.CdmFactory_CreateCdm_ResponseParamsSpec,
-      [cdm_config]);
+      [cdm_config],
+      false);
   }
 
 };

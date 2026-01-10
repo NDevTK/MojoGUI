@@ -169,7 +169,8 @@ data_sharing.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       data_sharing.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -308,7 +309,8 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       data_sharing.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   closeUI(status_code) {
@@ -317,7 +319,8 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       data_sharing.mojom.PageHandler_CloseUI_ParamsSpec,
       null,
-      [status_code]);
+      [status_code],
+      false);
   }
 
   apiInitComplete() {
@@ -326,7 +329,8 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       data_sharing.mojom.PageHandler_ApiInitComplete_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   makeTabGroupShared(tab_group_id, group_id, access_token) {
@@ -335,7 +339,8 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       data_sharing.mojom.PageHandler_MakeTabGroupShared_ParamsSpec,
       data_sharing.mojom.PageHandler_MakeTabGroupShared_ResponseParamsSpec,
-      [tab_group_id, group_id, access_token]);
+      [tab_group_id, group_id, access_token],
+      false);
   }
 
   getShareLink(group_id, access_token) {
@@ -344,7 +349,8 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       data_sharing.mojom.PageHandler_GetShareLink_ParamsSpec,
       data_sharing.mojom.PageHandler_GetShareLink_ResponseParamsSpec,
-      [group_id, access_token]);
+      [group_id, access_token],
+      false);
   }
 
   getTabGroupPreview(group_id, access_token) {
@@ -353,7 +359,8 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       data_sharing.mojom.PageHandler_GetTabGroupPreview_ParamsSpec,
       data_sharing.mojom.PageHandler_GetTabGroupPreview_ResponseParamsSpec,
-      [group_id, access_token]);
+      [group_id, access_token],
+      false);
   }
 
   openTabGroup(group_id) {
@@ -362,7 +369,8 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       data_sharing.mojom.PageHandler_OpenTabGroup_ParamsSpec,
       null,
-      [group_id]);
+      [group_id],
+      false);
   }
 
   aboutToUnShareTabGroup(tab_group_id) {
@@ -371,7 +379,8 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       data_sharing.mojom.PageHandler_AboutToUnShareTabGroup_ParamsSpec,
       null,
-      [tab_group_id]);
+      [tab_group_id],
+      false);
   }
 
   onTabGroupUnShareComplete(tab_group_id) {
@@ -380,7 +389,8 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       data_sharing.mojom.PageHandler_OnTabGroupUnShareComplete_ParamsSpec,
       null,
-      [tab_group_id]);
+      [tab_group_id],
+      false);
   }
 
   onGroupAction(action, progress) {
@@ -389,7 +399,8 @@ data_sharing.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       data_sharing.mojom.PageHandler_OnGroupAction_ParamsSpec,
       null,
-      [action, progress]);
+      [action, progress],
+      false);
   }
 
 };
@@ -501,7 +512,8 @@ data_sharing.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       data_sharing.mojom.Page_OnAccessTokenFetched_ParamsSpec,
       null,
-      [access_token]);
+      [access_token],
+      false);
   }
 
   readGroups(read_groups_params) {
@@ -510,7 +522,8 @@ data_sharing.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       data_sharing.mojom.Page_ReadGroups_ParamsSpec,
       data_sharing.mojom.Page_ReadGroups_ResponseParamsSpec,
-      [read_groups_params]);
+      [read_groups_params],
+      false);
   }
 
   readGroupWithToken(param) {
@@ -519,7 +532,8 @@ data_sharing.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       data_sharing.mojom.Page_ReadGroupWithToken_ParamsSpec,
       data_sharing.mojom.Page_ReadGroupWithToken_ResponseParamsSpec,
-      [param]);
+      [param],
+      false);
   }
 
   deleteGroup(group_id) {
@@ -528,7 +542,8 @@ data_sharing.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       data_sharing.mojom.Page_DeleteGroup_ParamsSpec,
       data_sharing.mojom.Page_DeleteGroup_ResponseParamsSpec,
-      [group_id]);
+      [group_id],
+      false);
   }
 
   leaveGroup(group_id) {
@@ -537,7 +552,8 @@ data_sharing.mojom.PageRemoteCallHandler = class {
       4,  // ordinal
       data_sharing.mojom.Page_LeaveGroup_ParamsSpec,
       data_sharing.mojom.Page_LeaveGroup_ResponseParamsSpec,
-      [group_id]);
+      [group_id],
+      false);
   }
 
 };

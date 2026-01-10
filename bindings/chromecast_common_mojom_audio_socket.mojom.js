@@ -63,7 +63,8 @@ chromecast.mojom.AudioSocketBrokerRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec,
       chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

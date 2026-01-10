@@ -87,7 +87,8 @@ chromeos.connectivity.mojom.PasspointEventsListenerRemoteCallHandler = class {
       0,  // ordinal
       chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionAdded_ParamsSpec,
       null,
-      [subscription]);
+      [subscription],
+      false);
   }
 
   onPasspointSubscriptionRemoved(subscription) {
@@ -96,7 +97,8 @@ chromeos.connectivity.mojom.PasspointEventsListenerRemoteCallHandler = class {
       1,  // ordinal
       chromeos.connectivity.mojom.PasspointEventsListener_OnPasspointSubscriptionRemoved_ParamsSpec,
       null,
-      [subscription]);
+      [subscription],
+      false);
   }
 
 };
@@ -195,7 +197,8 @@ chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
       0,  // ordinal
       chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ParamsSpec,
       chromeos.connectivity.mojom.PasspointService_GetPasspointSubscription_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   listPasspointSubscriptions() {
@@ -204,7 +207,8 @@ chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
       1,  // ordinal
       chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ParamsSpec,
       chromeos.connectivity.mojom.PasspointService_ListPasspointSubscriptions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   deletePasspointSubscription(id) {
@@ -213,7 +217,8 @@ chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
       2,  // ordinal
       chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ParamsSpec,
       chromeos.connectivity.mojom.PasspointService_DeletePasspointSubscription_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   registerPasspointListener(listener) {
@@ -222,7 +227,8 @@ chromeos.connectivity.mojom.PasspointServiceRemoteCallHandler = class {
       3,  // ordinal
       chromeos.connectivity.mojom.PasspointService_RegisterPasspointListener_ParamsSpec,
       null,
-      [listener]);
+      [listener],
+      false);
   }
 
 };

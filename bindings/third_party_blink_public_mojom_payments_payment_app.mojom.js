@@ -298,7 +298,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.PaymentManager_Init_ParamsSpec,
       null,
-      [context_url, service_worker_scope]);
+      [context_url, service_worker_scope],
+      false);
   }
 
   deletePaymentInstrument(instrument_key) {
@@ -307,7 +308,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       1,  // ordinal
       payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec,
       payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec,
-      [instrument_key]);
+      [instrument_key],
+      false);
   }
 
   getPaymentInstrument(instrument_key) {
@@ -316,7 +318,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec,
       payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec,
-      [instrument_key]);
+      [instrument_key],
+      false);
   }
 
   keysOfPaymentInstruments() {
@@ -325,7 +328,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       3,  // ordinal
       payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec,
       payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   hasPaymentInstrument(instrument_key) {
@@ -334,7 +338,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       4,  // ordinal
       payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec,
       payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec,
-      [instrument_key]);
+      [instrument_key],
+      false);
   }
 
   setPaymentInstrument(instrument_key, instrument) {
@@ -343,7 +348,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       5,  // ordinal
       payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec,
       payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec,
-      [instrument_key, instrument]);
+      [instrument_key, instrument],
+      false);
   }
 
   clearPaymentInstruments() {
@@ -352,7 +358,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       6,  // ordinal
       payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec,
       payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setUserHint(user_hint) {
@@ -361,7 +368,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       7,  // ordinal
       payments.mojom.PaymentManager_SetUserHint_ParamsSpec,
       null,
-      [user_hint]);
+      [user_hint],
+      false);
   }
 
   enableDelegations(delegations) {
@@ -370,7 +378,8 @@ payments.mojom.PaymentManagerRemoteCallHandler = class {
       8,  // ordinal
       payments.mojom.PaymentManager_EnableDelegations_ParamsSpec,
       payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec,
-      [delegations]);
+      [delegations],
+      false);
   }
 
 };
@@ -446,7 +455,8 @@ payments.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec,
       null,
-      [payment_aborted]);
+      [payment_aborted],
+      false);
   }
 
   onResponseForCanMakePayment(response) {
@@ -455,7 +465,8 @@ payments.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
       1,  // ordinal
       payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec,
       null,
-      [response]);
+      [response],
+      false);
   }
 
   onResponseForPaymentRequest(response) {
@@ -464,7 +475,8 @@ payments.mojom.PaymentHandlerResponseCallbackRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec,
       null,
-      [response]);
+      [response],
+      false);
   }
 
 };

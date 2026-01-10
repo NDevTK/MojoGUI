@@ -81,7 +81,8 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemoteCallHand
       0,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec,
       null,
-      [child_document]);
+      [child_document],
+      false);
   }
 
   createPageHandler(handler, document) {
@@ -90,7 +91,8 @@ new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryRemoteCallHand
       1,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler, document]);
+      [handler, document],
+      false);
   }
 
 };
@@ -171,7 +173,8 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   maybeAcquireTokenSilent() {
@@ -180,7 +183,8 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setAccessToken(access_token) {
@@ -189,7 +193,8 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec,
       null,
-      [access_token]);
+      [access_token],
+      false);
   }
 
   setAuthStateError(error_code, error_message) {
@@ -198,7 +203,8 @@ new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec,
       null,
-      [error_code, error_message]);
+      [error_code, error_message],
+      false);
   }
 
 };

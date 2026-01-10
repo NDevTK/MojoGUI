@@ -178,7 +178,8 @@ blink.mojom.AIManagerCreateLanguageModelClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AIManagerCreateLanguageModelClient_OnResult_ParamsSpec,
       null,
-      [language_model_remote, info]);
+      [language_model_remote, info],
+      false);
   }
 
   onError(error, quota_error_info) {
@@ -187,7 +188,8 @@ blink.mojom.AIManagerCreateLanguageModelClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AIManagerCreateLanguageModelClient_OnError_ParamsSpec,
       null,
-      [error, quota_error_info]);
+      [error, quota_error_info],
+      false);
   }
 
 };
@@ -284,7 +286,8 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AILanguageModel_Prompt_ParamsSpec,
       null,
-      [prompts, constraint, pending_responder]);
+      [prompts, constraint, pending_responder],
+      false);
   }
 
   append(prompts, client) {
@@ -293,7 +296,8 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AILanguageModel_Append_ParamsSpec,
       null,
-      [prompts, client]);
+      [prompts, client],
+      false);
   }
 
   fork(client) {
@@ -302,7 +306,8 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AILanguageModel_Fork_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   destroy() {
@@ -311,7 +316,8 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.AILanguageModel_Destroy_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   measureInputUsage(input) {
@@ -320,7 +326,8 @@ blink.mojom.AILanguageModelRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.AILanguageModel_MeasureInputUsage_ParamsSpec,
       blink.mojom.AILanguageModel_MeasureInputUsage_ResponseParamsSpec,
-      [input]);
+      [input],
+      false);
   }
 
 };

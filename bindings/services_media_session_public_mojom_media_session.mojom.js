@@ -305,7 +305,8 @@ media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
       0,  // ordinal
       media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
   mediaSessionMetadataChanged(metadata) {
@@ -314,7 +315,8 @@ media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
       1,  // ordinal
       media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec,
       null,
-      [metadata]);
+      [metadata],
+      false);
   }
 
   mediaSessionActionsChanged(action) {
@@ -323,7 +325,8 @@ media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
       2,  // ordinal
       media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec,
       null,
-      [action]);
+      [action],
+      false);
   }
 
   mediaSessionImagesChanged(images) {
@@ -332,7 +335,8 @@ media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
       3,  // ordinal
       media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec,
       null,
-      [images]);
+      [images],
+      false);
   }
 
   mediaSessionPositionChanged(position) {
@@ -341,7 +345,8 @@ media_session.mojom.MediaSessionObserverRemoteCallHandler = class {
       4,  // ordinal
       media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec,
       null,
-      [position]);
+      [position],
+      false);
   }
 
 };
@@ -575,7 +580,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       0,  // ordinal
       media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec,
       media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getDebugInfo() {
@@ -584,7 +590,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       1,  // ordinal
       media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec,
       media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startDucking() {
@@ -593,7 +600,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       2,  // ordinal
       media_session.mojom.MediaSession_StartDucking_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   stopDucking() {
@@ -602,7 +610,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       3,  // ordinal
       media_session.mojom.MediaSession_StopDucking_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   suspend(suspend_type) {
@@ -611,7 +620,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       4,  // ordinal
       media_session.mojom.MediaSession_Suspend_ParamsSpec,
       null,
-      [suspend_type]);
+      [suspend_type],
+      false);
   }
 
   resume(suspend_type) {
@@ -620,7 +630,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       5,  // ordinal
       media_session.mojom.MediaSession_Resume_ParamsSpec,
       null,
-      [suspend_type]);
+      [suspend_type],
+      false);
   }
 
   addObserver(observer) {
@@ -629,7 +640,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       6,  // ordinal
       media_session.mojom.MediaSession_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   previousTrack() {
@@ -638,7 +650,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       7,  // ordinal
       media_session.mojom.MediaSession_PreviousTrack_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   nextTrack() {
@@ -647,7 +660,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       8,  // ordinal
       media_session.mojom.MediaSession_NextTrack_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   seek(seek_time) {
@@ -656,7 +670,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       9,  // ordinal
       media_session.mojom.MediaSession_Seek_ParamsSpec,
       null,
-      [seek_time]);
+      [seek_time],
+      false);
   }
 
   stop(suspend_type) {
@@ -665,7 +680,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       10,  // ordinal
       media_session.mojom.MediaSession_Stop_ParamsSpec,
       null,
-      [suspend_type]);
+      [suspend_type],
+      false);
   }
 
   skipAd() {
@@ -674,7 +690,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       11,  // ordinal
       media_session.mojom.MediaSession_SkipAd_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getMediaImageBitmap(image, minimum_size_px, desired_size_px) {
@@ -683,7 +700,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       12,  // ordinal
       media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec,
       media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec,
-      [image, minimum_size_px, desired_size_px]);
+      [image, minimum_size_px, desired_size_px],
+      false);
   }
 
   seekTo(seek_time) {
@@ -692,7 +710,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       13,  // ordinal
       media_session.mojom.MediaSession_SeekTo_ParamsSpec,
       null,
-      [seek_time]);
+      [seek_time],
+      false);
   }
 
   scrubTo(seek_time) {
@@ -701,7 +720,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       14,  // ordinal
       media_session.mojom.MediaSession_ScrubTo_ParamsSpec,
       null,
-      [seek_time]);
+      [seek_time],
+      false);
   }
 
   enterPictureInPicture() {
@@ -710,7 +730,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       15,  // ordinal
       media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   exitPictureInPicture() {
@@ -719,7 +740,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       16,  // ordinal
       media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setAudioSinkId(id) {
@@ -728,7 +750,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       17,  // ordinal
       media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   toggleMicrophone() {
@@ -737,7 +760,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       18,  // ordinal
       media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   toggleCamera() {
@@ -746,7 +770,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       19,  // ordinal
       media_session.mojom.MediaSession_ToggleCamera_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   hangUp() {
@@ -755,7 +780,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       20,  // ordinal
       media_session.mojom.MediaSession_HangUp_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   raise() {
@@ -764,7 +790,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       21,  // ordinal
       media_session.mojom.MediaSession_Raise_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setMute(mute) {
@@ -773,7 +800,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       22,  // ordinal
       media_session.mojom.MediaSession_SetMute_ParamsSpec,
       null,
-      [mute]);
+      [mute],
+      false);
   }
 
   requestMediaRemoting() {
@@ -782,7 +810,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       23,  // ordinal
       media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   previousSlide() {
@@ -791,7 +820,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       24,  // ordinal
       media_session.mojom.MediaSession_PreviousSlide_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   nextSlide() {
@@ -800,7 +830,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       25,  // ordinal
       media_session.mojom.MediaSession_NextSlide_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   enterAutoPictureInPicture() {
@@ -809,7 +840,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       26,  // ordinal
       media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getVisibility() {
@@ -818,7 +850,8 @@ media_session.mojom.MediaSessionRemoteCallHandler = class {
       27,  // ordinal
       media_session.mojom.MediaSession_GetVisibility_ParamsSpec,
       media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

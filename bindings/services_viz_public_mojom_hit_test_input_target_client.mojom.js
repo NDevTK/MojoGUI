@@ -69,7 +69,8 @@ viz.mojom.InputTargetClientRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.InputTargetClient_FrameSinkIdAt_ParamsSpec,
       viz.mojom.InputTargetClient_FrameSinkIdAt_ResponseParamsSpec,
-      [point, trace_id]);
+      [point, trace_id],
+      false);
   }
 
 };

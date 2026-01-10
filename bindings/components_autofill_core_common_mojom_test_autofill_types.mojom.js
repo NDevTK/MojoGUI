@@ -163,7 +163,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       0,  // ordinal
       autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
   passFormFieldData(s) {
@@ -172,7 +173,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       1,  // ordinal
       autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
   passFormDataPredictions(s) {
@@ -181,7 +183,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       2,  // ordinal
       autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
   passFormFieldDataPredictions(s) {
@@ -190,7 +193,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       3,  // ordinal
       autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
   passPasswordFormFillData(s) {
@@ -199,7 +203,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       4,  // ordinal
       autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
   passPasswordFormGenerationData(s) {
@@ -208,7 +213,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       5,  // ordinal
       autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
   passPasswordGenerationUIData(s) {
@@ -217,7 +223,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       6,  // ordinal
       autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
   passPasswordSuggestionRequest(s) {
@@ -226,7 +233,8 @@ autofill.mojom.TypeTraitsTestRemoteCallHandler = class {
       7,  // ordinal
       autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec,
       autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
 };

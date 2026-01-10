@@ -61,7 +61,8 @@ chromecast.metrics.mojom.MetricsHelperRemoteCallHandler = class {
       0,  // ordinal
       chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec,
       null,
-      [app_id, session_id, sdk_version, event]);
+      [app_id, session_id, sdk_version, event],
+      false);
   }
 
 };

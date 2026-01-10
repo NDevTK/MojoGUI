@@ -70,7 +70,8 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemoteCallHandler = c
       0,  // ordinal
       chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
 };
@@ -134,7 +135,8 @@ chromecast.shell.mojom.ApplicationMediaCapabilitiesRemoteCallHandler = class {
       0,  // ordinal
       chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

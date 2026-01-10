@@ -127,7 +127,8 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec,
       null,
-      [storage_key, receiver]);
+      [storage_key, receiver],
+      false);
   }
 
   getUsage() {
@@ -136,7 +137,8 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.LocalStorageControl_GetUsage_ParamsSpec,
       storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   deleteStorage(storage_key) {
@@ -145,7 +147,8 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec,
       storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec,
-      [storage_key]);
+      [storage_key],
+      false);
   }
 
   cleanUpStorage() {
@@ -154,7 +157,8 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec,
       storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   flush() {
@@ -163,7 +167,8 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       4,  // ordinal
       storage.mojom.LocalStorageControl_Flush_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   purgeMemory() {
@@ -172,7 +177,8 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       5,  // ordinal
       storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   applyPolicyUpdates(policy_updates) {
@@ -181,7 +187,8 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       6,  // ordinal
       storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec,
       null,
-      [policy_updates]);
+      [policy_updates],
+      false);
   }
 
   forceKeepSessionState() {
@@ -190,7 +197,8 @@ storage.mojom.LocalStorageControlRemoteCallHandler = class {
       7,  // ordinal
       storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

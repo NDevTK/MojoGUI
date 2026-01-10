@@ -64,7 +64,8 @@ media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec,
       null,
-      [features]);
+      [features],
+      false);
   }
 
   updateRecord(targets) {
@@ -73,7 +74,8 @@ media.mojom.VideoDecodeStatsRecorderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec,
       null,
-      [targets]);
+      [targets],
+      false);
   }
 
 };

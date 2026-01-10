@@ -353,7 +353,8 @@ crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.CrosDisplayConfigController_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   getDisplayLayoutInfo() {
@@ -362,7 +363,8 @@ crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ParamsSpec,
       crosapi.mojom.CrosDisplayConfigController_GetDisplayLayoutInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setDisplayLayoutInfo(info) {
@@ -371,7 +373,8 @@ crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandler = class {
       2,  // ordinal
       crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ParamsSpec,
       crosapi.mojom.CrosDisplayConfigController_SetDisplayLayoutInfo_ResponseParamsSpec,
-      [info]);
+      [info],
+      false);
   }
 
   getDisplayUnitInfoList(single_unified) {
@@ -380,7 +383,8 @@ crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandler = class {
       3,  // ordinal
       crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ParamsSpec,
       crosapi.mojom.CrosDisplayConfigController_GetDisplayUnitInfoList_ResponseParamsSpec,
-      [single_unified]);
+      [single_unified],
+      false);
   }
 
   setDisplayProperties(id, properties, source) {
@@ -389,7 +393,8 @@ crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandler = class {
       4,  // ordinal
       crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ParamsSpec,
       crosapi.mojom.CrosDisplayConfigController_SetDisplayProperties_ResponseParamsSpec,
-      [id, properties, source]);
+      [id, properties, source],
+      false);
   }
 
   setUnifiedDesktopEnabled(enabled) {
@@ -398,7 +403,8 @@ crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandler = class {
       5,  // ordinal
       crosapi.mojom.CrosDisplayConfigController_SetUnifiedDesktopEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   overscanCalibration(display_id, op, delta) {
@@ -407,7 +413,8 @@ crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandler = class {
       6,  // ordinal
       crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ParamsSpec,
       crosapi.mojom.CrosDisplayConfigController_OverscanCalibration_ResponseParamsSpec,
-      [display_id, op, delta]);
+      [display_id, op, delta],
+      false);
   }
 
   touchCalibration(display_id, op, calibration) {
@@ -416,7 +423,8 @@ crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandler = class {
       7,  // ordinal
       crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ParamsSpec,
       crosapi.mojom.CrosDisplayConfigController_TouchCalibration_ResponseParamsSpec,
-      [display_id, op, calibration]);
+      [display_id, op, calibration],
+      false);
   }
 
   highlightDisplay(id) {
@@ -425,7 +433,8 @@ crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandler = class {
       8,  // ordinal
       crosapi.mojom.CrosDisplayConfigController_HighlightDisplay_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   dragDisplayDelta(display_id, delta_x, delta_y) {
@@ -434,7 +443,8 @@ crosapi.mojom.CrosDisplayConfigControllerRemoteCallHandler = class {
       9,  // ordinal
       crosapi.mojom.CrosDisplayConfigController_DragDisplayDelta_ParamsSpec,
       null,
-      [display_id, delta_x, delta_y]);
+      [display_id, delta_x, delta_y],
+      false);
   }
 
 };
@@ -497,7 +507,8 @@ crosapi.mojom.CrosDisplayConfigObserverRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.CrosDisplayConfigObserver_OnDisplayConfigChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

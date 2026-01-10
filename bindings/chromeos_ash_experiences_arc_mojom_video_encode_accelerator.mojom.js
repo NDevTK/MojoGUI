@@ -237,7 +237,8 @@ arc.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ParamsSpec,
       arc.mojom.VideoEncodeAccelerator_GetSupportedProfiles_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   initialize(config, client) {
@@ -246,7 +247,8 @@ arc.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.VideoEncodeAccelerator_Initialize_ParamsSpec,
       arc.mojom.VideoEncodeAccelerator_Initialize_ResponseParamsSpec,
-      [config, client]);
+      [config, client],
+      false);
   }
 
   encode(format, frame_fd, planes, timestamp, force_keyframe) {
@@ -255,7 +257,8 @@ arc.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.VideoEncodeAccelerator_Encode_ParamsSpec,
       arc.mojom.VideoEncodeAccelerator_Encode_ResponseParamsSpec,
-      [format, frame_fd, planes, timestamp, force_keyframe]);
+      [format, frame_fd, planes, timestamp, force_keyframe],
+      false);
   }
 
   useBitstreamBuffer(shmem_fd, offset, size) {
@@ -264,7 +267,8 @@ arc.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ParamsSpec,
       arc.mojom.VideoEncodeAccelerator_UseBitstreamBuffer_ResponseParamsSpec,
-      [shmem_fd, offset, size]);
+      [shmem_fd, offset, size],
+      false);
   }
 
   requestEncodingParametersChange(bitrate, framerate) {
@@ -273,7 +277,8 @@ arc.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChange_ParamsSpec,
       null,
-      [bitrate, framerate]);
+      [bitrate, framerate],
+      false);
   }
 
   requestEncodingParametersChangeDeprecated(bitrate, framerate) {
@@ -282,7 +287,8 @@ arc.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.VideoEncodeAccelerator_RequestEncodingParametersChangeDeprecated_ParamsSpec,
       null,
-      [bitrate, framerate]);
+      [bitrate, framerate],
+      false);
   }
 
   flush() {
@@ -291,7 +297,8 @@ arc.mojom.VideoEncodeAcceleratorRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.VideoEncodeAccelerator_Flush_ParamsSpec,
       arc.mojom.VideoEncodeAccelerator_Flush_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -363,7 +370,8 @@ arc.mojom.VideoEncodeClientRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.VideoEncodeClient_RequireBitstreamBuffers_ParamsSpec,
       null,
-      [input_count, input_coded_size, output_buffer_size]);
+      [input_count, input_coded_size, output_buffer_size],
+      false);
   }
 
   notifyError(error) {
@@ -372,7 +380,8 @@ arc.mojom.VideoEncodeClientRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.VideoEncodeClient_NotifyError_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
 };

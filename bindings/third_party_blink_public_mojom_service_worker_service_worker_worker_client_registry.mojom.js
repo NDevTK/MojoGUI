@@ -65,7 +65,8 @@ blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   cloneWorkerClientRegistry(host) {
@@ -74,7 +75,8 @@ blink.mojom.ServiceWorkerWorkerClientRegistryRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec,
       null,
-      [host]);
+      [host],
+      false);
   }
 
 };

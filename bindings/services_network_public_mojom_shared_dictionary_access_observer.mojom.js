@@ -82,7 +82,8 @@ network.mojom.SharedDictionaryAccessObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec,
       null,
-      [details]);
+      [details],
+      false);
   }
 
   clone(observer) {
@@ -91,7 +92,8 @@ network.mojom.SharedDictionaryAccessObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

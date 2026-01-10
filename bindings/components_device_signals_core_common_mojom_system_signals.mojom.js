@@ -159,7 +159,8 @@ device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {
       0,  // ordinal
       device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec,
       device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec,
-      [requests]);
+      [requests],
+      false);
   }
 
   getAntiVirusSignals() {
@@ -168,7 +169,8 @@ device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {
       1,  // ordinal
       device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec,
       device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getHotfixSignals() {
@@ -177,7 +179,8 @@ device_signals.mojom.SystemSignalsServiceRemoteCallHandler = class {
       2,  // ordinal
       device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec,
       device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

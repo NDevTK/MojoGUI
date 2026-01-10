@@ -82,14 +82,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('default_configuration', 40, 0, device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
       mojo.internal.StructField('maximum_frequency', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('minimum_frequency', 56, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('kReadBufferSizeForTests', 64, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kReadBufferSizeForTests', 64, 0, mojo.internal.Pointer, 48, false, 0, undefined),
     ],
     [[0, 80]]);
 
 // Struct: VirtualSensorMetadata
 mojo.internal.Struct(
     device.mojom.VirtualSensorMetadataSpec, 'device.mojom.VirtualSensorMetadata', [
-      mojo.internal.StructField('available', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('available', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('maximum_frequency_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'maximum_frequency_$value', originalFieldName: 'maximum_frequency' }),
       mojo.internal.StructField('maximum_frequency_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'maximum_frequency_$flag', originalFieldName: 'maximum_frequency' }),
       mojo.internal.StructField('minimum_frequency_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'minimum_frequency_$value', originalFieldName: 'minimum_frequency' }),
@@ -206,7 +206,8 @@ device.mojom.SensorProviderRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SensorProvider_GetSensor_ParamsSpec,
       device.mojom.SensorProvider_GetSensor_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
   createVirtualSensor(type, metadata) {
@@ -215,7 +216,8 @@ device.mojom.SensorProviderRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec,
       device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec,
-      [type, metadata]);
+      [type, metadata],
+      false);
   }
 
   updateVirtualSensor(type, reading) {
@@ -224,7 +226,8 @@ device.mojom.SensorProviderRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec,
       device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec,
-      [type, reading]);
+      [type, reading],
+      false);
   }
 
   removeVirtualSensor(type) {
@@ -233,7 +236,8 @@ device.mojom.SensorProviderRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec,
       device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
   getVirtualSensorInformation(type) {
@@ -242,7 +246,8 @@ device.mojom.SensorProviderRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec,
       device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
 };

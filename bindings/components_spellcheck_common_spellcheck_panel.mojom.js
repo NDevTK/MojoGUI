@@ -67,7 +67,8 @@ spellcheck.mojom.SpellCheckPanelRemoteCallHandler = class {
       0,  // ordinal
       spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec,
       null,
-      [visible]);
+      [visible],
+      false);
   }
 
   advanceToNextMisspelling() {
@@ -76,7 +77,8 @@ spellcheck.mojom.SpellCheckPanelRemoteCallHandler = class {
       1,  // ordinal
       spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -146,7 +148,8 @@ spellcheck.mojom.SpellCheckPanelHostRemoteCallHandler = class {
       0,  // ordinal
       spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec,
       null,
-      [show]);
+      [show],
+      false);
   }
 
   updateSpellingPanelWithMisspelledWord(word) {
@@ -155,7 +158,8 @@ spellcheck.mojom.SpellCheckPanelHostRemoteCallHandler = class {
       1,  // ordinal
       spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec,
       null,
-      [word]);
+      [word],
+      false);
   }
 
 };

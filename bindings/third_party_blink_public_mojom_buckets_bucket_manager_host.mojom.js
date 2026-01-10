@@ -222,7 +222,8 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BucketHost_Persist_ParamsSpec,
       blink.mojom.BucketHost_Persist_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   persisted() {
@@ -231,7 +232,8 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BucketHost_Persisted_ParamsSpec,
       blink.mojom.BucketHost_Persisted_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   estimate() {
@@ -240,7 +242,8 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.BucketHost_Estimate_ParamsSpec,
       blink.mojom.BucketHost_Estimate_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   durability() {
@@ -249,7 +252,8 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.BucketHost_Durability_ParamsSpec,
       blink.mojom.BucketHost_Durability_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setExpires(expires) {
@@ -258,7 +262,8 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.BucketHost_SetExpires_ParamsSpec,
       blink.mojom.BucketHost_SetExpires_ResponseParamsSpec,
-      [expires]);
+      [expires],
+      false);
   }
 
   expires() {
@@ -267,7 +272,8 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.BucketHost_Expires_ParamsSpec,
       blink.mojom.BucketHost_Expires_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getIdbFactory(idb_factory) {
@@ -276,7 +282,8 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.BucketHost_GetIdbFactory_ParamsSpec,
       null,
-      [idb_factory]);
+      [idb_factory],
+      false);
   }
 
   getLockManager(lock_manager) {
@@ -285,7 +292,8 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.BucketHost_GetLockManager_ParamsSpec,
       null,
-      [lock_manager]);
+      [lock_manager],
+      false);
   }
 
   getCaches(cache_storage) {
@@ -294,7 +302,8 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.BucketHost_GetCaches_ParamsSpec,
       null,
-      [cache_storage]);
+      [cache_storage],
+      false);
   }
 
   getDirectory() {
@@ -303,7 +312,8 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.BucketHost_GetDirectory_ParamsSpec,
       blink.mojom.BucketHost_GetDirectory_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getDirectoryForDevtools(directory_path_components) {
@@ -312,7 +322,8 @@ blink.mojom.BucketHostRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.BucketHost_GetDirectoryForDevtools_ParamsSpec,
       blink.mojom.BucketHost_GetDirectoryForDevtools_ResponseParamsSpec,
-      [directory_path_components]);
+      [directory_path_components],
+      false);
   }
 
 };
@@ -415,7 +426,8 @@ blink.mojom.BucketManagerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BucketManagerHost_OpenBucket_ParamsSpec,
       blink.mojom.BucketManagerHost_OpenBucket_ResponseParamsSpec,
-      [name, policy]);
+      [name, policy],
+      false);
   }
 
   getBucketForDevtools(name, receiver) {
@@ -424,7 +436,8 @@ blink.mojom.BucketManagerHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BucketManagerHost_GetBucketForDevtools_ParamsSpec,
       null,
-      [name, receiver]);
+      [name, receiver],
+      false);
   }
 
   keys() {
@@ -433,7 +446,8 @@ blink.mojom.BucketManagerHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.BucketManagerHost_Keys_ParamsSpec,
       blink.mojom.BucketManagerHost_Keys_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   deleteBucket(name) {
@@ -442,7 +456,8 @@ blink.mojom.BucketManagerHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.BucketManagerHost_DeleteBucket_ParamsSpec,
       blink.mojom.BucketManagerHost_DeleteBucket_ResponseParamsSpec,
-      [name]);
+      [name],
+      false);
   }
 
 };

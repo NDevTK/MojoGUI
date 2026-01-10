@@ -54,7 +54,7 @@ mojo.internal.Struct(
 // Struct: GrammarCheckerResult
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.GrammarCheckerResultSpec, 'chromeos.machine_learning.mojom.GrammarCheckerResult', [
-      mojo.internal.StructField('OK', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('OK', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -109,7 +109,8 @@ chromeos.machine_learning.mojom.GrammarCheckerRemoteCallHandler = class {
       0,  // ordinal
       chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec,
       chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec,
-      [query]);
+      [query],
+      false);
   }
 
 };

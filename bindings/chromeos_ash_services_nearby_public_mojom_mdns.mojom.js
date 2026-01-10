@@ -84,7 +84,8 @@ sharing.mojom.MdnsObserverRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec,
       null,
-      [service_info]);
+      [service_info],
+      false);
   }
 
   serviceLost(service_info) {
@@ -93,7 +94,8 @@ sharing.mojom.MdnsObserverRemoteCallHandler = class {
       1,  // ordinal
       sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec,
       null,
-      [service_info]);
+      [service_info],
+      false);
   }
 
 };
@@ -181,7 +183,8 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.MdnsManager_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   startDiscoverySession(service_type) {
@@ -190,7 +193,8 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
       1,  // ordinal
       sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec,
       sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec,
-      [service_type]);
+      [service_type],
+      false);
   }
 
   stopDiscoverySession(service_type) {
@@ -199,7 +203,8 @@ sharing.mojom.MdnsManagerRemoteCallHandler = class {
       2,  // ordinal
       sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec,
       sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec,
-      [service_type]);
+      [service_type],
+      false);
   }
 
 };

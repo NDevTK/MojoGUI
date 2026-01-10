@@ -19,7 +19,7 @@ mojo.internal.Struct(
     network.mojom.OriginWithPossibleWildcardsSpec, 'network.mojom.OriginWithPossibleWildcards', [
       mojo.internal.StructField('scheme', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('host', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('port', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('port', 16, 0, mojo.internal.Int32, -1, false, 0, undefined),
       mojo.internal.StructField('is_host_wildcard', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_port_wildcard', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],

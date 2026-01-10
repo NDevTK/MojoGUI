@@ -71,7 +71,8 @@ ash.color_internals.mojom.WallpaperColorsObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec,
       null,
-      [colors]);
+      [colors],
+      false);
   }
 
 };
@@ -135,7 +136,8 @@ ash.color_internals.mojom.WallpaperColorsHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

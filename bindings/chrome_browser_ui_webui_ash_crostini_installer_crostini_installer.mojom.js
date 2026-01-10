@@ -74,7 +74,8 @@ ash.crostini_installer.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.crostini_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -167,7 +168,8 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.crostini_installer.mojom.PageHandler_Install_ParamsSpec,
       null,
-      [disk_size, username]);
+      [disk_size, username],
+      false);
   }
 
   cancel() {
@@ -176,7 +178,8 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.crostini_installer.mojom.PageHandler_Cancel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   cancelBeforeStart() {
@@ -185,7 +188,8 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.crostini_installer.mojom.PageHandler_CancelBeforeStart_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onPageClosed() {
@@ -194,7 +198,8 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.crostini_installer.mojom.PageHandler_OnPageClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   requestAmountOfFreeDiskSpace() {
@@ -203,7 +208,8 @@ ash.crostini_installer.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ParamsSpec,
       ash.crostini_installer.mojom.PageHandler_RequestAmountOfFreeDiskSpace_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -284,7 +290,8 @@ ash.crostini_installer.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       ash.crostini_installer.mojom.Page_OnProgressUpdate_ParamsSpec,
       null,
-      [install_state, progress_fraction]);
+      [install_state, progress_fraction],
+      false);
   }
 
   onInstallFinished(error) {
@@ -293,7 +300,8 @@ ash.crostini_installer.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       ash.crostini_installer.mojom.Page_OnInstallFinished_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
   onCanceled() {
@@ -302,7 +310,8 @@ ash.crostini_installer.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       ash.crostini_installer.mojom.Page_OnCanceled_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   requestClose() {
@@ -311,7 +320,8 @@ ash.crostini_installer.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       ash.crostini_installer.mojom.Page_RequestClose_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

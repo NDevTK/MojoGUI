@@ -68,7 +68,8 @@ blink.mojom.WebLaunchServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec,
       null,
-      [files]);
+      [files],
+      false);
   }
 
   enqueueLaunchParams(launch_url, time_navigation_started_in_browser, navigation_started) {
@@ -77,7 +78,8 @@ blink.mojom.WebLaunchServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec,
       null,
-      [launch_url, time_navigation_started_in_browser, navigation_started]);
+      [launch_url, time_navigation_started_in_browser, navigation_started],
+      false);
   }
 
 };

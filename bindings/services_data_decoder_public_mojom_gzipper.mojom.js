@@ -107,7 +107,8 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
       0,  // ordinal
       data_decoder.mojom.Gzipper_Deflate_ParamsSpec,
       data_decoder.mojom.Gzipper_Deflate_ResponseParamsSpec,
-      [data]);
+      [data],
+      false);
   }
 
   inflate(data, max_uncompressed_size) {
@@ -116,7 +117,8 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
       1,  // ordinal
       data_decoder.mojom.Gzipper_Inflate_ParamsSpec,
       data_decoder.mojom.Gzipper_Inflate_ResponseParamsSpec,
-      [data, max_uncompressed_size]);
+      [data, max_uncompressed_size],
+      false);
   }
 
   compress(data) {
@@ -125,7 +127,8 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
       2,  // ordinal
       data_decoder.mojom.Gzipper_Compress_ParamsSpec,
       data_decoder.mojom.Gzipper_Compress_ResponseParamsSpec,
-      [data]);
+      [data],
+      false);
   }
 
   uncompress(compressed_data) {
@@ -134,7 +137,8 @@ data_decoder.mojom.GzipperRemoteCallHandler = class {
       3,  // ordinal
       data_decoder.mojom.Gzipper_Uncompress_ParamsSpec,
       data_decoder.mojom.Gzipper_Uncompress_ResponseParamsSpec,
-      [compressed_data]);
+      [compressed_data],
+      false);
   }
 
 };

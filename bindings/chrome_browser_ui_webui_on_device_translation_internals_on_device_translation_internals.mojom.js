@@ -82,7 +82,8 @@ on_device_translation_internals.mojom.PageHandlerFactoryRemoteCallHandler = clas
       0,  // ordinal
       on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -152,7 +153,8 @@ on_device_translation_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec,
       null,
-      [package_index]);
+      [package_index],
+      false);
   }
 
   uninstallLanguagePackage(package_index) {
@@ -161,7 +163,8 @@ on_device_translation_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec,
       null,
-      [package_index]);
+      [package_index],
+      false);
   }
 
 };
@@ -225,7 +228,8 @@ on_device_translation_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
 };

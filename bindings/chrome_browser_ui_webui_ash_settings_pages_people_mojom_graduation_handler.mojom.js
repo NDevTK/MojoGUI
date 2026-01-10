@@ -68,7 +68,8 @@ ash.settings.graduation.mojom.GraduationHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   addObserver(observer) {
@@ -77,7 +78,8 @@ ash.settings.graduation.mojom.GraduationHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };
@@ -141,7 +143,8 @@ ash.settings.graduation.mojom.GraduationObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec,
       null,
-      [is_app_enabled]);
+      [is_app_enabled],
+      false);
   }
 
 };

@@ -113,7 +113,8 @@ ash.cros_safety.mojom.CloudSafetySessionRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec,
       ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec,
-      [rules, text]);
+      [rules, text],
+      false);
   }
 
   classifyImageSafety(rules, prompt, image) {
@@ -122,7 +123,8 @@ ash.cros_safety.mojom.CloudSafetySessionRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec,
       ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec,
-      [rules, prompt, image]);
+      [rules, prompt, image],
+      false);
   }
 
 };
@@ -206,7 +208,8 @@ ash.cros_safety.mojom.OnDeviceSafetySessionRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec,
       ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec,
-      [rules, text]);
+      [rules, text],
+      false);
   }
 
   classifyImageSafety(rules, image) {
@@ -215,7 +218,8 @@ ash.cros_safety.mojom.OnDeviceSafetySessionRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec,
       ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec,
-      [rules, image]);
+      [rules, image],
+      false);
   }
 
 };

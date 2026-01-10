@@ -64,7 +64,8 @@ network.mojom.CookieEncryptionProviderRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec,
       network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

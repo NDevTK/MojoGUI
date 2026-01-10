@@ -179,7 +179,8 @@ ash.diagnostics.mojom.BatteryChargeStatusObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec,
       null,
-      [battery_charge_status]);
+      [battery_charge_status],
+      false);
   }
 
 };
@@ -243,7 +244,8 @@ ash.diagnostics.mojom.BatteryHealthObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec,
       null,
-      [battery_health]);
+      [battery_health],
+      false);
   }
 
 };
@@ -307,7 +309,8 @@ ash.diagnostics.mojom.MemoryUsageObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec,
       null,
-      [memory_usage]);
+      [memory_usage],
+      false);
   }
 
 };
@@ -371,7 +374,8 @@ ash.diagnostics.mojom.CpuUsageObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec,
       null,
-      [cpu_usage]);
+      [cpu_usage],
+      false);
   }
 
 };
@@ -475,7 +479,8 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec,
       ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getBatteryInfo() {
@@ -484,7 +489,8 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec,
       ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   observeBatteryChargeStatus(observer) {
@@ -493,7 +499,8 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeBatteryHealth(observer) {
@@ -502,7 +509,8 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeMemoryUsage(observer) {
@@ -511,7 +519,8 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeCpuUsage(observer) {
@@ -520,7 +529,8 @@ ash.diagnostics.mojom.SystemDataProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

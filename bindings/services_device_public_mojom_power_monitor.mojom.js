@@ -62,7 +62,8 @@ device.mojom.PowerMonitorRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.PowerMonitor_AddClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
 };
@@ -136,7 +137,8 @@ device.mojom.PowerMonitorClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec,
       null,
-      [battery_power_status]);
+      [battery_power_status],
+      false);
   }
 
   suspend() {
@@ -145,7 +147,8 @@ device.mojom.PowerMonitorClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.PowerMonitorClient_Suspend_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   resume() {
@@ -154,7 +157,8 @@ device.mojom.PowerMonitorClientRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.PowerMonitorClient_Resume_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

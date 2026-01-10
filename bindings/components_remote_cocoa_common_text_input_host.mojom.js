@@ -228,7 +228,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       0,  // ordinal
       remote_cocoa.mojom.TextInputHost_HasClient_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_HasClient_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   hasInputContext() {
@@ -237,7 +238,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       1,  // ordinal
       remote_cocoa.mojom.TextInputHost_HasInputContext_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_HasInputContext_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isRTL() {
@@ -246,7 +248,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       2,  // ordinal
       remote_cocoa.mojom.TextInputHost_IsRTL_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_IsRTL_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSelectionRange() {
@@ -255,7 +258,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       3,  // ordinal
       remote_cocoa.mojom.TextInputHost_GetSelectionRange_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_GetSelectionRange_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSelectionText() {
@@ -264,7 +268,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       4,  // ordinal
       remote_cocoa.mojom.TextInputHost_GetSelectionText_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_GetSelectionText_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   insertText(text, as_character) {
@@ -273,7 +278,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       5,  // ordinal
       remote_cocoa.mojom.TextInputHost_InsertText_ParamsSpec,
       null,
-      [text, as_character]);
+      [text, as_character],
+      false);
   }
 
   deleteRange(range) {
@@ -282,7 +288,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       6,  // ordinal
       remote_cocoa.mojom.TextInputHost_DeleteRange_ParamsSpec,
       null,
-      [range]);
+      [range],
+      false);
   }
 
   setCompositionText(text, selected_range, replacement_range) {
@@ -291,7 +298,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       7,  // ordinal
       remote_cocoa.mojom.TextInputHost_SetCompositionText_ParamsSpec,
       null,
-      [text, selected_range, replacement_range]);
+      [text, selected_range, replacement_range],
+      false);
   }
 
   confirmCompositionText() {
@@ -300,7 +308,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       8,  // ordinal
       remote_cocoa.mojom.TextInputHost_ConfirmCompositionText_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   hasCompositionText() {
@@ -309,7 +318,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       9,  // ordinal
       remote_cocoa.mojom.TextInputHost_HasCompositionText_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_HasCompositionText_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getCompositionTextRange() {
@@ -318,7 +328,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       10,  // ordinal
       remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_GetCompositionTextRange_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAttributedSubstringForRange(requested_range) {
@@ -327,7 +338,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       11,  // ordinal
       remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_GetAttributedSubstringForRange_ResponseParamsSpec,
-      [requested_range]);
+      [requested_range],
+      false);
   }
 
   getFirstRectForRange(requested_range) {
@@ -336,7 +348,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       12,  // ordinal
       remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_GetFirstRectForRange_ResponseParamsSpec,
-      [requested_range]);
+      [requested_range],
+      false);
   }
 
   isTextEditCommandEnabled(command) {
@@ -345,7 +358,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       13,  // ordinal
       remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ParamsSpec,
       remote_cocoa.mojom.TextInputHost_IsTextEditCommandEnabled_ResponseParamsSpec,
-      [command]);
+      [command],
+      false);
   }
 
   setTextEditCommandForNextKeyEvent(command) {
@@ -354,7 +368,8 @@ remote_cocoa.mojom.TextInputHostRemoteCallHandler = class {
       14,  // ordinal
       remote_cocoa.mojom.TextInputHost_SetTextEditCommandForNextKeyEvent_ParamsSpec,
       null,
-      [command]);
+      [command],
+      false);
   }
 
 };

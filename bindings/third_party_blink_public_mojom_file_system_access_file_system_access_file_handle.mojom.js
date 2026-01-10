@@ -271,7 +271,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_GetPermissionStatus_ResponseParamsSpec,
-      [mode]);
+      [mode],
+      false);
   }
 
   requestPermission(mode) {
@@ -280,7 +281,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_RequestPermission_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_RequestPermission_ResponseParamsSpec,
-      [mode]);
+      [mode],
+      false);
   }
 
   asBlob() {
@@ -289,7 +291,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_AsBlob_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_AsBlob_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   createFileWriter(keep_existing_data, auto_close, mode) {
@@ -298,7 +301,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_CreateFileWriter_ResponseParamsSpec,
-      [keep_existing_data, auto_close, mode]);
+      [keep_existing_data, auto_close, mode],
+      false);
   }
 
   rename(new_entry_name) {
@@ -307,7 +311,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_Rename_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_Rename_ResponseParamsSpec,
-      [new_entry_name]);
+      [new_entry_name],
+      false);
   }
 
   move(destination_directory, new_entry_name) {
@@ -316,7 +321,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_Move_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_Move_ResponseParamsSpec,
-      [destination_directory, new_entry_name]);
+      [destination_directory, new_entry_name],
+      false);
   }
 
   remove() {
@@ -325,7 +331,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_Remove_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_Remove_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openAccessHandle(mode) {
@@ -334,7 +341,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_OpenAccessHandle_ResponseParamsSpec,
-      [mode]);
+      [mode],
+      false);
   }
 
   isSameEntry(other) {
@@ -343,7 +351,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_IsSameEntry_ResponseParamsSpec,
-      [other]);
+      [other],
+      false);
   }
 
   transfer(token) {
@@ -352,7 +361,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_Transfer_ParamsSpec,
       null,
-      [token]);
+      [token],
+      false);
   }
 
   getUniqueId() {
@@ -361,7 +371,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_GetUniqueId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getCloudIdentifiers() {
@@ -370,7 +381,8 @@ blink.mojom.FileSystemAccessFileHandleRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ParamsSpec,
       blink.mojom.FileSystemAccessFileHandle_GetCloudIdentifiers_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

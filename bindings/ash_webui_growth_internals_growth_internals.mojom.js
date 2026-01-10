@@ -70,7 +70,8 @@ ash.growth.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec,
       ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   clearAllEvents() {
@@ -79,7 +80,8 @@ ash.growth.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

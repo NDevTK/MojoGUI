@@ -66,7 +66,8 @@ blink.mojom.PaidContentMetadataObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec,
       null,
-      [has_paid_content]);
+      [has_paid_content],
+      false);
   }
 
 };
@@ -130,7 +131,8 @@ blink.mojom.MetaTagsObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec,
       null,
-      [meta_tags]);
+      [meta_tags],
+      false);
   }
 
 };
@@ -201,7 +203,8 @@ blink.mojom.FrameMetadataObserverRegistryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   addMetaTagsObserver(names, observer) {
@@ -210,7 +213,8 @@ blink.mojom.FrameMetadataObserverRegistryRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec,
       null,
-      [names, observer]);
+      [names, observer],
+      false);
   }
 
 };

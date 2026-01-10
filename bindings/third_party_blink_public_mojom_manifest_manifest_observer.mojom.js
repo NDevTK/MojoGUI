@@ -58,7 +58,8 @@ blink.mojom.ManifestUrlChangeObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec,
       null,
-      [manifest_url]);
+      [manifest_url],
+      false);
   }
 
 };

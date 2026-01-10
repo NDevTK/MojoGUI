@@ -82,7 +82,8 @@ emoji_search.mojom.EmojiSearchRemoteCallHandler = class {
       0,  // ordinal
       emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec,
       emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec,
-      [query, language_codes]);
+      [query, language_codes],
+      false);
   }
 
   loadEmojiLanguages(language_codes) {
@@ -91,7 +92,8 @@ emoji_search.mojom.EmojiSearchRemoteCallHandler = class {
       1,  // ordinal
       emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec,
       null,
-      [language_codes]);
+      [language_codes],
+      false);
   }
 
 };

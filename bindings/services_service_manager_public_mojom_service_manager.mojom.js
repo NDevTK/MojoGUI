@@ -116,7 +116,8 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
       0,  // ordinal
       service_manager.mojom.ServiceManagerListener_OnInit_ParamsSpec,
       null,
-      [running_services]);
+      [running_services],
+      false);
   }
 
   onServiceCreated(service) {
@@ -125,7 +126,8 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
       1,  // ordinal
       service_manager.mojom.ServiceManagerListener_OnServiceCreated_ParamsSpec,
       null,
-      [service]);
+      [service],
+      false);
   }
 
   onServiceStarted(identity, pid_deprecated) {
@@ -134,7 +136,8 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
       2,  // ordinal
       service_manager.mojom.ServiceManagerListener_OnServiceStarted_ParamsSpec,
       null,
-      [identity, pid_deprecated]);
+      [identity, pid_deprecated],
+      false);
   }
 
   onServicePIDReceived(identity, pid) {
@@ -143,7 +146,8 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
       3,  // ordinal
       service_manager.mojom.ServiceManagerListener_OnServicePIDReceived_ParamsSpec,
       null,
-      [identity, pid]);
+      [identity, pid],
+      false);
   }
 
   onServiceFailedToStart(identity) {
@@ -152,7 +156,8 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
       4,  // ordinal
       service_manager.mojom.ServiceManagerListener_OnServiceFailedToStart_ParamsSpec,
       null,
-      [identity]);
+      [identity],
+      false);
   }
 
   onServiceStopped(identity) {
@@ -161,7 +166,8 @@ service_manager.mojom.ServiceManagerListenerRemoteCallHandler = class {
       5,  // ordinal
       service_manager.mojom.ServiceManagerListener_OnServiceStopped_ParamsSpec,
       null,
-      [identity]);
+      [identity],
+      false);
   }
 
 };
@@ -225,7 +231,8 @@ service_manager.mojom.ServiceManagerRemoteCallHandler = class {
       0,  // ordinal
       service_manager.mojom.ServiceManager_AddListener_ParamsSpec,
       null,
-      [listener]);
+      [listener],
+      false);
   }
 
 };

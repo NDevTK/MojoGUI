@@ -112,7 +112,8 @@ remoting.mojom.WebAuthnRequestCancellerRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec,
       remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -207,7 +208,8 @@ remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
       remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   create(request_data, request_canceller) {
@@ -216,7 +218,8 @@ remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.WebAuthnProxy_Create_ParamsSpec,
       remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec,
-      [request_data, request_canceller]);
+      [request_data, request_canceller],
+      false);
   }
 
   get(request_data, request_canceller) {
@@ -225,7 +228,8 @@ remoting.mojom.WebAuthnProxyRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.WebAuthnProxy_Get_ParamsSpec,
       remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec,
-      [request_data, request_canceller]);
+      [request_data, request_canceller],
+      false);
   }
 
 };

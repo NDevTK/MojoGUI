@@ -489,7 +489,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.MojoEcho_EchoBoolFromUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoBoolFromUnion_ResponseParamsSpec,
-      [test_union]);
+      [test_union],
+      false);
   }
 
   echoInt32FromUnion(test_union) {
@@ -498,7 +499,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.MojoEcho_EchoInt32FromUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoInt32FromUnion_ResponseParamsSpec,
-      [test_union]);
+      [test_union],
+      false);
   }
 
   echoStringFromUnion(test_union) {
@@ -507,7 +509,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.MojoEcho_EchoStringFromUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoStringFromUnion_ResponseParamsSpec,
-      [test_union]);
+      [test_union],
+      false);
   }
 
   echoBoolAsUnion(value) {
@@ -516,7 +519,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.MojoEcho_EchoBoolAsUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoBoolAsUnion_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   echoInt32AsUnion(value) {
@@ -525,7 +529,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       4,  // ordinal
       content.mojom.MojoEcho_EchoInt32AsUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoInt32AsUnion_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   echoStringAsUnion(value) {
@@ -534,7 +539,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       5,  // ordinal
       content.mojom.MojoEcho_EchoStringAsUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoStringAsUnion_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   echoNullFromOptionalUnion(test_union) {
@@ -543,7 +549,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       6,  // ordinal
       content.mojom.MojoEcho_EchoNullFromOptionalUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoNullFromOptionalUnion_ResponseParamsSpec,
-      [test_union]);
+      [test_union],
+      false);
   }
 
   echoBoolFromOptionalUnion(test_union) {
@@ -552,7 +559,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       7,  // ordinal
       content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoBoolFromOptionalUnion_ResponseParamsSpec,
-      [test_union]);
+      [test_union],
+      false);
   }
 
   echoInt32FromOptionalUnion(test_union) {
@@ -561,7 +569,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       8,  // ordinal
       content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoInt32FromOptionalUnion_ResponseParamsSpec,
-      [test_union]);
+      [test_union],
+      false);
   }
 
   echoStringFromOptionalUnion(test_union) {
@@ -570,7 +579,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       9,  // ordinal
       content.mojom.MojoEcho_EchoStringFromOptionalUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoStringFromOptionalUnion_ResponseParamsSpec,
-      [test_union]);
+      [test_union],
+      false);
   }
 
   echoNullAsOptionalUnion() {
@@ -579,7 +589,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       10,  // ordinal
       content.mojom.MojoEcho_EchoNullAsOptionalUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoNullAsOptionalUnion_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   echoBoolAsOptionalUnion(value) {
@@ -588,7 +599,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       11,  // ordinal
       content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoBoolAsOptionalUnion_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   echoInt32AsOptionalUnion(value) {
@@ -597,7 +609,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       12,  // ordinal
       content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoInt32AsOptionalUnion_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   echoStringAsOptionalUnion(value) {
@@ -606,7 +619,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       13,  // ordinal
       content.mojom.MojoEcho_EchoStringAsOptionalUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoStringAsOptionalUnion_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   echoInt8FromNestedUnion(test_union) {
@@ -615,7 +629,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       14,  // ordinal
       content.mojom.MojoEcho_EchoInt8FromNestedUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoInt8FromNestedUnion_ResponseParamsSpec,
-      [test_union]);
+      [test_union],
+      false);
   }
 
   echoBoolFromNestedUnion(test_union) {
@@ -624,7 +639,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       15,  // ordinal
       content.mojom.MojoEcho_EchoBoolFromNestedUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoBoolFromNestedUnion_ResponseParamsSpec,
-      [test_union]);
+      [test_union],
+      false);
   }
 
   echoStringFromNestedUnion(test_union) {
@@ -633,7 +649,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       16,  // ordinal
       content.mojom.MojoEcho_EchoStringFromNestedUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoStringFromNestedUnion_ResponseParamsSpec,
-      [test_union]);
+      [test_union],
+      false);
   }
 
   echoInt8AsNestedUnion(value) {
@@ -642,7 +659,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       17,  // ordinal
       content.mojom.MojoEcho_EchoInt8AsNestedUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoInt8AsNestedUnion_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   echoBoolAsNestedUnion(value) {
@@ -651,7 +669,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       18,  // ordinal
       content.mojom.MojoEcho_EchoBoolAsNestedUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoBoolAsNestedUnion_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   echoStringAsNestedUnion(value) {
@@ -660,7 +679,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       19,  // ordinal
       content.mojom.MojoEcho_EchoStringAsNestedUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoStringAsNestedUnion_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   echoNullFromOptionalNestedUnion(test_union) {
@@ -669,7 +689,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       20,  // ordinal
       content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoNullFromOptionalNestedUnion_ResponseParamsSpec,
-      [test_union]);
+      [test_union],
+      false);
   }
 
   echoInt8FromOptionalNestedUnion(test_union) {
@@ -678,7 +699,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       21,  // ordinal
       content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoInt8FromOptionalNestedUnion_ResponseParamsSpec,
-      [test_union]);
+      [test_union],
+      false);
   }
 
   echoBoolFromOptionalNestedUnion(test_union) {
@@ -687,7 +709,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       22,  // ordinal
       content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoBoolFromOptionalNestedUnion_ResponseParamsSpec,
-      [test_union]);
+      [test_union],
+      false);
   }
 
   echoStringFromOptionalNestedUnion(test_union) {
@@ -696,7 +719,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       23,  // ordinal
       content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoStringFromOptionalNestedUnion_ResponseParamsSpec,
-      [test_union]);
+      [test_union],
+      false);
   }
 
   echoNullAsOptionalNestedUnion() {
@@ -705,7 +729,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       24,  // ordinal
       content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoNullAsOptionalNestedUnion_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   echoInt8AsOptionalNestedUnion(value) {
@@ -714,7 +739,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       25,  // ordinal
       content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoInt8AsOptionalNestedUnion_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   echoBoolAsOptionalNestedUnion(value) {
@@ -723,7 +749,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       26,  // ordinal
       content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoBoolAsOptionalNestedUnion_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   echoStringAsOptionalNestedUnion(value) {
@@ -732,7 +759,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       27,  // ordinal
       content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ParamsSpec,
       content.mojom.MojoEcho_EchoStringAsOptionalNestedUnion_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   echoBoolArray(values) {
@@ -741,7 +769,8 @@ content.mojom.MojoEchoRemoteCallHandler = class {
       28,  // ordinal
       content.mojom.MojoEcho_EchoBoolArray_ParamsSpec,
       content.mojom.MojoEcho_EchoBoolArray_ResponseParamsSpec,
-      [values]);
+      [values],
+      false);
   }
 
 };

@@ -69,7 +69,8 @@ blink.mojom.BrowsingTopicsDocumentServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec,
       null,
-      [observe]);
+      [observe],
+      false);
   }
 
 };

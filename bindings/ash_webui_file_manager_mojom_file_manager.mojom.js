@@ -63,7 +63,8 @@ ash.file_manager.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.file_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };

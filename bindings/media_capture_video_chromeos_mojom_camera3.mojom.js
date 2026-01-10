@@ -403,7 +403,8 @@ cros.mojom.Camera3CallbackOpsRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.Camera3CallbackOps_ProcessCaptureResult_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
   notify(msg) {
@@ -412,7 +413,8 @@ cros.mojom.Camera3CallbackOpsRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.Camera3CallbackOps_Notify_ParamsSpec,
       null,
-      [msg]);
+      [msg],
+      false);
   }
 
   requestStreamBuffers(buffer_reqs) {
@@ -421,7 +423,8 @@ cros.mojom.Camera3CallbackOpsRemoteCallHandler = class {
       2,  // ordinal
       cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ParamsSpec,
       cros.mojom.Camera3CallbackOps_RequestStreamBuffers_ResponseParamsSpec,
-      [buffer_reqs]);
+      [buffer_reqs],
+      false);
   }
 
   returnStreamBuffers(buffers) {
@@ -430,7 +433,8 @@ cros.mojom.Camera3CallbackOpsRemoteCallHandler = class {
       3,  // ordinal
       cros.mojom.Camera3CallbackOps_ReturnStreamBuffers_ParamsSpec,
       null,
-      [buffers]);
+      [buffers],
+      false);
   }
 
 };
@@ -623,7 +627,8 @@ cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.Camera3DeviceOps_Initialize_ParamsSpec,
       cros.mojom.Camera3DeviceOps_Initialize_ResponseParamsSpec,
-      [callback_ops]);
+      [callback_ops],
+      false);
   }
 
   configureStreams(config) {
@@ -632,7 +637,8 @@ cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.Camera3DeviceOps_ConfigureStreams_ParamsSpec,
       cros.mojom.Camera3DeviceOps_ConfigureStreams_ResponseParamsSpec,
-      [config]);
+      [config],
+      false);
   }
 
   constructDefaultRequestSettings(type) {
@@ -641,7 +647,8 @@ cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       2,  // ordinal
       cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ParamsSpec,
       cros.mojom.Camera3DeviceOps_ConstructDefaultRequestSettings_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
   processCaptureRequest(request) {
@@ -650,7 +657,8 @@ cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       3,  // ordinal
       cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ParamsSpec,
       cros.mojom.Camera3DeviceOps_ProcessCaptureRequest_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   dump(fd) {
@@ -659,7 +667,8 @@ cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       4,  // ordinal
       cros.mojom.Camera3DeviceOps_Dump_ParamsSpec,
       null,
-      [fd]);
+      [fd],
+      false);
   }
 
   flush() {
@@ -668,7 +677,8 @@ cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       5,  // ordinal
       cros.mojom.Camera3DeviceOps_Flush_ParamsSpec,
       cros.mojom.Camera3DeviceOps_Flush_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   registerBuffer(buffer_id, type, fds, drm_format, hal_pixel_format, width, height, strides, offsets) {
@@ -677,7 +687,8 @@ cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       6,  // ordinal
       cros.mojom.Camera3DeviceOps_RegisterBuffer_ParamsSpec,
       cros.mojom.Camera3DeviceOps_RegisterBuffer_ResponseParamsSpec,
-      [buffer_id, type, fds, drm_format, hal_pixel_format, width, height, strides, offsets]);
+      [buffer_id, type, fds, drm_format, hal_pixel_format, width, height, strides, offsets],
+      false);
   }
 
   close() {
@@ -686,7 +697,8 @@ cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       7,  // ordinal
       cros.mojom.Camera3DeviceOps_Close_ParamsSpec,
       cros.mojom.Camera3DeviceOps_Close_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   configureStreamsAndGetAllocatedBuffers(config) {
@@ -695,7 +707,8 @@ cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       8,  // ordinal
       cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ParamsSpec,
       cros.mojom.Camera3DeviceOps_ConfigureStreamsAndGetAllocatedBuffers_ResponseParamsSpec,
-      [config]);
+      [config],
+      false);
   }
 
   signalStreamFlush(stream_ids) {
@@ -704,7 +717,8 @@ cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       9,  // ordinal
       cros.mojom.Camera3DeviceOps_SignalStreamFlush_ParamsSpec,
       null,
-      [stream_ids]);
+      [stream_ids],
+      false);
   }
 
   onNewBuffer(buffer) {
@@ -713,7 +727,8 @@ cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       10,  // ordinal
       cros.mojom.Camera3DeviceOps_OnNewBuffer_ParamsSpec,
       cros.mojom.Camera3DeviceOps_OnNewBuffer_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   onBufferRetired(buffer_id) {
@@ -722,7 +737,8 @@ cros.mojom.Camera3DeviceOpsRemoteCallHandler = class {
       11,  // ordinal
       cros.mojom.Camera3DeviceOps_OnBufferRetired_ParamsSpec,
       null,
-      [buffer_id]);
+      [buffer_id],
+      false);
   }
 
 };

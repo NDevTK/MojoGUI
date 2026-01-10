@@ -163,7 +163,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       0,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ParamsSpec,
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_GetApps_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   updateApp(app_id, is_blocked) {
@@ -172,7 +173,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       1,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_UpdateApp_ParamsSpec,
       null,
-      [app_id, is_blocked]);
+      [app_id, is_blocked],
+      false);
   }
 
   addObserver(observer) {
@@ -181,7 +183,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       2,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   onControlsDisabled() {
@@ -190,7 +193,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       3,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_OnControlsDisabled_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   validatePin(pin) {
@@ -199,7 +203,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       4,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ParamsSpec,
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_ValidatePin_ResponseParamsSpec,
-      [pin]);
+      [pin],
+      false);
   }
 
   setUpPin(pin) {
@@ -208,7 +213,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       5,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ParamsSpec,
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_SetUpPin_ResponseParamsSpec,
-      [pin]);
+      [pin],
+      false);
   }
 
   verifyPin(pin) {
@@ -217,7 +223,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       6,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ParamsSpec,
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_VerifyPin_ResponseParamsSpec,
-      [pin]);
+      [pin],
+      false);
   }
 
   isSetupCompleted() {
@@ -226,7 +233,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsHandlerRemoteCallHan
       7,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ParamsSpec,
       ash.settings.app_parental_controls.mojom.AppParentalControlsHandler_IsSetupCompleted_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -296,7 +304,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemoteCallHa
       0,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppInstalledOrUpdated_ParamsSpec,
       null,
-      [app]);
+      [app],
+      false);
   }
 
   onAppUninstalled(app) {
@@ -305,7 +314,8 @@ ash.settings.app_parental_controls.mojom.AppParentalControlsObserverRemoteCallHa
       1,  // ordinal
       ash.settings.app_parental_controls.mojom.AppParentalControlsObserver_OnAppUninstalled_ParamsSpec,
       null,
-      [app]);
+      [app],
+      false);
   }
 
 };

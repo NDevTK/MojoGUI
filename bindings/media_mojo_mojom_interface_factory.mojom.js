@@ -181,7 +181,8 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec,
       null,
-      [audio_decoder]);
+      [audio_decoder],
+      false);
   }
 
   createVideoDecoder(video_decoder, dst_video_decoder) {
@@ -190,7 +191,8 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec,
       null,
-      [video_decoder, dst_video_decoder]);
+      [video_decoder, dst_video_decoder],
+      false);
   }
 
   createVideoDecoderWithTracker(receiver, tracker) {
@@ -199,7 +201,8 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec,
       null,
-      [receiver, tracker]);
+      [receiver, tracker],
+      false);
   }
 
   createAudioEncoder(audio_encoder) {
@@ -208,7 +211,8 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec,
       null,
-      [audio_encoder]);
+      [audio_encoder],
+      false);
   }
 
   createDefaultRenderer(audio_device_id, renderer) {
@@ -217,7 +221,8 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec,
       null,
-      [audio_device_id, renderer]);
+      [audio_device_id, renderer],
+      false);
   }
 
   createCastRenderer(overlay_plane_id, renderer) {
@@ -226,7 +231,8 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec,
       null,
-      [overlay_plane_id, renderer]);
+      [overlay_plane_id, renderer],
+      false);
   }
 
   createMediaFoundationRenderer(media_log, renderer, renderer_extension) {
@@ -235,7 +241,8 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec,
       null,
-      [media_log, renderer, renderer_extension]);
+      [media_log, renderer, renderer_extension],
+      false);
   }
 
   createFlingingRenderer(presentation_id, client_extension, renderer) {
@@ -244,7 +251,8 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.InterfaceFactory_CreateFlingingRenderer_ParamsSpec,
       null,
-      [presentation_id, client_extension, renderer]);
+      [presentation_id, client_extension, renderer],
+      false);
   }
 
   createCdm(cdm_config) {
@@ -253,7 +261,8 @@ media.mojom.InterfaceFactoryRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.InterfaceFactory_CreateCdm_ParamsSpec,
       media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec,
-      [cdm_config]);
+      [cdm_config],
+      false);
   }
 
 };

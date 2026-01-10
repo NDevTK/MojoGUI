@@ -94,7 +94,8 @@ network.mojom.URLLoaderFactoryRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.URLLoaderFactory_CreateLoaderAndStart_ParamsSpec,
       null,
-      [loader, request_id, options, request, client, traffic_annotation]);
+      [loader, request_id, options, request, client, traffic_annotation],
+      false);
   }
 
   clone(factory) {
@@ -103,7 +104,8 @@ network.mojom.URLLoaderFactoryRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.URLLoaderFactory_Clone_ParamsSpec,
       null,
-      [factory]);
+      [factory],
+      false);
   }
 
 };

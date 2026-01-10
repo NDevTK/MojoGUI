@@ -87,7 +87,8 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkSendRequest_ParamsSpec,
       null,
-      [request, timestamp]);
+      [request, timestamp],
+      false);
   }
 
   onNetworkResponseReceived(request_id, loader_id, request_url, headers) {
@@ -96,7 +97,8 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
       1,  // ordinal
       auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkResponseReceived_ParamsSpec,
       null,
-      [request_id, loader_id, request_url, headers]);
+      [request_id, loader_id, request_url, headers],
+      false);
   }
 
   onNetworkRequestComplete(request_id, status) {
@@ -105,7 +107,8 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
       2,  // ordinal
       auction_worklet.mojom.AuctionNetworkEventsHandler_OnNetworkRequestComplete_ParamsSpec,
       null,
-      [request_id, status]);
+      [request_id, status],
+      false);
   }
 
   clone(receiver) {
@@ -114,7 +117,8 @@ auction_worklet.mojom.AuctionNetworkEventsHandlerRemoteCallHandler = class {
       3,  // ordinal
       auction_worklet.mojom.AuctionNetworkEventsHandler_Clone_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

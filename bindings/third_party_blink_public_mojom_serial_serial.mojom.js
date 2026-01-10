@@ -144,7 +144,8 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SerialService_SetClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   getPorts() {
@@ -153,7 +154,8 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SerialService_GetPorts_ParamsSpec,
       blink.mojom.SerialService_GetPorts_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestPort(filters, allowed_bluetooth_service_class_ids) {
@@ -162,7 +164,8 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SerialService_RequestPort_ParamsSpec,
       blink.mojom.SerialService_RequestPort_ResponseParamsSpec,
-      [filters, allowed_bluetooth_service_class_ids]);
+      [filters, allowed_bluetooth_service_class_ids],
+      false);
   }
 
   openPort(token, options, client) {
@@ -171,7 +174,8 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.SerialService_OpenPort_ParamsSpec,
       blink.mojom.SerialService_OpenPort_ResponseParamsSpec,
-      [token, options, client]);
+      [token, options, client],
+      false);
   }
 
   forgetPort(token) {
@@ -180,7 +184,8 @@ blink.mojom.SerialServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.SerialService_ForgetPort_ParamsSpec,
       blink.mojom.SerialService_ForgetPort_ResponseParamsSpec,
-      [token]);
+      [token],
+      false);
   }
 
 };
@@ -244,7 +249,8 @@ blink.mojom.SerialServiceClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec,
       null,
-      [port_info]);
+      [port_info],
+      false);
   }
 
 };

@@ -130,7 +130,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arguments', 16, 0, mojo_base.mojom.WStringSpec, null, false, 0, undefined),
       mojo.internal.StructField('description', 24, 0, mojo_base.mojom.WStringSpec, null, false, 0, undefined),
       mojo.internal.StructField('icon', 32, 0, mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('icon_index', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('icon_index', 40, 0, mojo.internal.Int32, -1, false, 0, undefined),
       mojo.internal.StructField('app_id', 48, 0, mojo_base.mojom.WStringSpec, null, false, 0, undefined),
       mojo.internal.StructField('toast_activator_clsid', 56, 0, chrome.mojom.ClsIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('options', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
@@ -267,7 +267,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec,
       chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   unpinShortcuts(shortcut_paths) {
@@ -276,7 +277,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec,
       chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec,
-      [shortcut_paths]);
+      [shortcut_paths],
+      false);
   }
 
   createOrUpdateShortcuts(shortcut_paths, properties, operation) {
@@ -285,7 +287,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec,
       chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec,
-      [shortcut_paths, properties, operation]);
+      [shortcut_paths, properties, operation],
+      false);
   }
 
   callExecuteSelectFile(type, owner, title, default_path, filter, file_type_index, default_extension) {
@@ -294,7 +297,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
       3,  // ordinal
       chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec,
       chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec,
-      [type, owner, title, default_path, filter, file_type_index, default_extension]);
+      [type, owner, title, default_path, filter, file_type_index, default_extension],
+      false);
   }
 
   inspectModule(module_path) {
@@ -303,7 +307,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
       4,  // ordinal
       chrome.mojom.UtilWin_InspectModule_ParamsSpec,
       chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec,
-      [module_path]);
+      [module_path],
+      false);
   }
 
   getAntiVirusProducts(report_full_names) {
@@ -312,7 +317,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
       5,  // ordinal
       chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec,
       chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec,
-      [report_full_names]);
+      [report_full_names],
+      false);
   }
 
   getTpmIdentifier() {
@@ -321,7 +327,8 @@ chrome.mojom.UtilWinRemoteCallHandler = class {
       6,  // ordinal
       chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec,
       chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -389,7 +396,8 @@ chrome.mojom.ProcessorMetricsRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec,
       chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

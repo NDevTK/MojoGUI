@@ -68,7 +68,8 @@ blink.mojom.InstalledAppProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec,
       blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec,
-      [related_apps, manifest_url, add_saved_related_applications]);
+      [related_apps, manifest_url, add_saved_related_applications],
+      false);
   }
 
 };

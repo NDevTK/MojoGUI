@@ -53,7 +53,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chrome.mojom.DynamicParamsSpec, 'chrome.mojom.DynamicParams', [
       mojo.internal.StructField('bound_session_throttler_params', 0, 0, mojo.internal.Array(chrome.mojom.BoundSessionThrottlerParamsSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('force_safe_search', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('force_safe_search', 8, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('youtube_restrict', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('allowed_domains_for_apps', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -117,7 +117,8 @@ chrome.mojom.BoundSessionRequestThrottledHandlerRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec,
       chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec,
-      [untrusted_request_url]);
+      [untrusted_request_url],
+      false);
   }
 
 };
@@ -180,7 +181,8 @@ chrome.mojom.ChromeOSListenerRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.ChromeOSListener_MergeSessionComplete_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -259,7 +261,8 @@ chrome.mojom.RendererConfigurationRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec,
       null,
-      [is_incognito_process, chromeos_listener, content_settings_manager, bound_session_request_throttled_handler]);
+      [is_incognito_process, chromeos_listener, content_settings_manager, bound_session_request_throttled_handler],
+      false);
   }
 
   setConfiguration(params) {
@@ -268,7 +271,8 @@ chrome.mojom.RendererConfigurationRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   setConfigurationOnProcessLockUpdate(params) {
@@ -277,7 +281,8 @@ chrome.mojom.RendererConfigurationRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
 };

@@ -66,7 +66,8 @@ blink.mojom.AecDumpAgentRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AecDumpAgent_Start_ParamsSpec,
       null,
-      [file]);
+      [file],
+      false);
   }
 
   stop() {
@@ -75,7 +76,8 @@ blink.mojom.AecDumpAgentRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AecDumpAgent_Stop_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -139,7 +141,8 @@ blink.mojom.AecDumpManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AecDumpManager_Add_ParamsSpec,
       null,
-      [agent]);
+      [agent],
+      false);
   }
 
 };

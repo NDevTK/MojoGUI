@@ -75,7 +75,8 @@ file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
       0,  // ordinal
       file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec,
       file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   dismissModule() {
@@ -84,7 +85,8 @@ file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
       1,  // ordinal
       file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   restoreModule() {
@@ -93,7 +95,8 @@ file_suggestion.mojom.DriveSuggestionHandlerRemoteCallHandler = class {
       2,  // ordinal
       file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

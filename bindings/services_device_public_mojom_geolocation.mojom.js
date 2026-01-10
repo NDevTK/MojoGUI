@@ -71,7 +71,8 @@ device.mojom.GeolocationRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec,
       null,
-      [high_accuracy]);
+      [high_accuracy],
+      false);
   }
 
   queryNextPosition() {
@@ -80,7 +81,8 @@ device.mojom.GeolocationRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.Geolocation_QueryNextPosition_ParamsSpec,
       device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

@@ -68,7 +68,8 @@ ash.common.mojom.AcceleratorFetcherObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.common.mojom.AcceleratorFetcherObserver_OnAcceleratorsUpdated_ParamsSpec,
       null,
-      [actionId, accelerators]);
+      [actionId, accelerators],
+      false);
   }
 
 };
@@ -144,7 +145,8 @@ ash.common.mojom.AcceleratorFetcherRemoteCallHandler = class {
       0,  // ordinal
       ash.common.mojom.AcceleratorFetcher_ObserveAcceleratorChanges_ParamsSpec,
       null,
-      [actionIds, observer]);
+      [actionIds, observer],
+      false);
   }
 
   getMetaKeyToDisplay() {
@@ -153,7 +155,8 @@ ash.common.mojom.AcceleratorFetcherRemoteCallHandler = class {
       1,  // ordinal
       ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ParamsSpec,
       ash.common.mojom.AcceleratorFetcher_GetMetaKeyToDisplay_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

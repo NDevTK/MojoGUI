@@ -136,7 +136,8 @@ chromeos.machine_learning.web_platform.mojom.HandwritingRecognizerRemoteCallHand
       0,  // ordinal
       chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ParamsSpec,
       chromeos.machine_learning.web_platform.mojom.HandwritingRecognizer_GetPrediction_ResponseParamsSpec,
-      [strokes, hints]);
+      [strokes, hints],
+      false);
   }
 
 };

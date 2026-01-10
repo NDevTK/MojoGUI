@@ -58,7 +58,8 @@ ui.mojom.ScenicGpuServiceRemoteCallHandler = class {
       0,  // ordinal
       ui.mojom.ScenicGpuService_Initialize_ParamsSpec,
       null,
-      [scenic_gpu_host]);
+      [scenic_gpu_host],
+      false);
   }
 
 };

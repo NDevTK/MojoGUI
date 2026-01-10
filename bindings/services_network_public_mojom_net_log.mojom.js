@@ -107,7 +107,8 @@ network.mojom.NetLogExporterRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetLogExporter_Start_ParamsSpec,
       network.mojom.NetLogExporter_Start_ResponseParamsSpec,
-      [destination, extra_constants, capture_mode, max_file_size]);
+      [destination, extra_constants, capture_mode, max_file_size],
+      false);
   }
 
   stop(polled_values) {
@@ -116,7 +117,8 @@ network.mojom.NetLogExporterRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.NetLogExporter_Stop_ParamsSpec,
       network.mojom.NetLogExporter_Stop_ResponseParamsSpec,
-      [polled_values]);
+      [polled_values],
+      false);
   }
 
 };
@@ -180,7 +182,8 @@ network.mojom.NetLogProxySourceRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec,
       null,
-      [modes]);
+      [modes],
+      false);
   }
 
 };
@@ -248,7 +251,8 @@ network.mojom.NetLogProxySinkRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetLogProxySink_AddEntry_ParamsSpec,
       null,
-      [type, net_log_source, phase, time, params]);
+      [type, net_log_source, phase, time, params],
+      false);
   }
 
 };

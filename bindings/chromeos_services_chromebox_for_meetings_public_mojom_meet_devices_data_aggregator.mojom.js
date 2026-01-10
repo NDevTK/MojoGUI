@@ -88,7 +88,8 @@ ash.cfm.mojom.DataWatchDogRemoteCallHandler = class {
       0,  // ordinal
       ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec,
       null,
-      [data]);
+      [data],
+      false);
   }
 
 };
@@ -175,7 +176,8 @@ ash.cfm.mojom.DataSourceRemoteCallHandler = class {
       0,  // ordinal
       ash.cfm.mojom.DataSource_Fetch_ParamsSpec,
       ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addWatchDog(filter, watch_dog) {
@@ -184,7 +186,8 @@ ash.cfm.mojom.DataSourceRemoteCallHandler = class {
       1,  // ordinal
       ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec,
       ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec,
-      [filter, watch_dog]);
+      [filter, watch_dog],
+      false);
   }
 
   flush() {
@@ -193,7 +196,8 @@ ash.cfm.mojom.DataSourceRemoteCallHandler = class {
       2,  // ordinal
       ash.cfm.mojom.DataSource_Flush_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -289,7 +293,8 @@ ash.cfm.mojom.DataAggregatorRemoteCallHandler = class {
       0,  // ordinal
       ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec,
       ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addDataSource(source_name, data_source) {
@@ -298,7 +303,8 @@ ash.cfm.mojom.DataAggregatorRemoteCallHandler = class {
       1,  // ordinal
       ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec,
       ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec,
-      [source_name, data_source]);
+      [source_name, data_source],
+      false);
   }
 
   addWatchDog(source_name, filter, watch_dog) {
@@ -307,7 +313,8 @@ ash.cfm.mojom.DataAggregatorRemoteCallHandler = class {
       2,  // ordinal
       ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec,
       ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec,
-      [source_name, filter, watch_dog]);
+      [source_name, filter, watch_dog],
+      false);
   }
 
 };

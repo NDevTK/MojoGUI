@@ -147,7 +147,8 @@ chromeos.cfm.mojom.CfmServiceContextRemoteCallHandler = class {
       0,  // ordinal
       chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec,
       chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec,
-      [interface_name, adaptor_remote]);
+      [interface_name, adaptor_remote],
+      false);
   }
 
   requestBindService(interface_name, receiver_pipe) {
@@ -156,7 +157,8 @@ chromeos.cfm.mojom.CfmServiceContextRemoteCallHandler = class {
       1,  // ordinal
       chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec,
       chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec,
-      [interface_name, receiver_pipe]);
+      [interface_name, receiver_pipe],
+      false);
   }
 
 };
@@ -220,7 +222,8 @@ chromeos.cfm.mojom.CfmServiceAdaptorRemoteCallHandler = class {
       0,  // ordinal
       chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec,
       null,
-      [receiver_pipe]);
+      [receiver_pipe],
+      false);
   }
 
 };

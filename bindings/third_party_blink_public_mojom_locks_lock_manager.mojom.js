@@ -144,7 +144,8 @@ blink.mojom.LockRequestRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.LockRequest_Granted_ParamsSpec,
       null,
-      [lock_handle]);
+      [lock_handle],
+      false);
   }
 
   failed() {
@@ -153,7 +154,8 @@ blink.mojom.LockRequestRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.LockRequest_Failed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -232,7 +234,8 @@ blink.mojom.LockManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.LockManager_RequestLock_ParamsSpec,
       null,
-      [name, mode, wait, request]);
+      [name, mode, wait, request],
+      false);
   }
 
   queryState() {
@@ -241,7 +244,8 @@ blink.mojom.LockManagerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.LockManager_QueryState_ParamsSpec,
       blink.mojom.LockManager_QueryState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

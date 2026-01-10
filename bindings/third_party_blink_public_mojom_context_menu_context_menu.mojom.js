@@ -185,7 +185,8 @@ blink.mojom.ContextMenuClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec,
       null,
-      [action]);
+      [action],
+      false);
   }
 
   contextMenuClosed(link_followed, impression) {
@@ -194,7 +195,8 @@ blink.mojom.ContextMenuClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec,
       null,
-      [link_followed, impression]);
+      [link_followed, impression],
+      false);
   }
 
 };

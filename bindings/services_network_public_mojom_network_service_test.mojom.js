@@ -241,7 +241,8 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.SimpleCacheEntry_WriteData_ParamsSpec,
       network.mojom.SimpleCacheEntry_WriteData_ResponseParamsSpec,
-      [index, offset, data, truncate]);
+      [index, offset, data, truncate],
+      false);
   }
 
   readData(index, offset, length) {
@@ -250,7 +251,8 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.SimpleCacheEntry_ReadData_ParamsSpec,
       network.mojom.SimpleCacheEntry_ReadData_ResponseParamsSpec,
-      [index, offset, length]);
+      [index, offset, length],
+      false);
   }
 
   writeSparseData(offset, data) {
@@ -259,7 +261,8 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.SimpleCacheEntry_WriteSparseData_ParamsSpec,
       network.mojom.SimpleCacheEntry_WriteSparseData_ResponseParamsSpec,
-      [offset, data]);
+      [offset, data],
+      false);
   }
 
   readSparseData(offset, length) {
@@ -268,7 +271,8 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.SimpleCacheEntry_ReadSparseData_ParamsSpec,
       network.mojom.SimpleCacheEntry_ReadSparseData_ResponseParamsSpec,
-      [offset, length]);
+      [offset, length],
+      false);
   }
 
   close() {
@@ -277,7 +281,8 @@ network.mojom.SimpleCacheEntryRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.SimpleCacheEntry_Close_ParamsSpec,
       network.mojom.SimpleCacheEntry_Close_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -346,7 +351,8 @@ network.mojom.SimpleCacheEntryEnumeratorRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec,
       network.mojom.SimpleCacheEntryEnumerator_GetNext_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -469,7 +475,8 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.SimpleCache_CreateEntry_ParamsSpec,
       network.mojom.SimpleCache_CreateEntry_ResponseParamsSpec,
-      [key]);
+      [key],
+      false);
   }
 
   openEntry(key) {
@@ -478,7 +485,8 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.SimpleCache_OpenEntry_ParamsSpec,
       network.mojom.SimpleCache_OpenEntry_ResponseParamsSpec,
-      [key]);
+      [key],
+      false);
   }
 
   doomEntry(key) {
@@ -487,7 +495,8 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.SimpleCache_DoomEntry_ParamsSpec,
       network.mojom.SimpleCache_DoomEntry_ResponseParamsSpec,
-      [key]);
+      [key],
+      false);
   }
 
   doomAllEntries() {
@@ -496,7 +505,8 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.SimpleCache_DoomAllEntries_ParamsSpec,
       network.mojom.SimpleCache_DoomAllEntries_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   enumerateEntries(receiver) {
@@ -505,7 +515,8 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.SimpleCache_EnumerateEntries_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   detach() {
@@ -514,7 +525,8 @@ network.mojom.SimpleCacheRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.SimpleCache_Detach_ParamsSpec,
       network.mojom.SimpleCache_Detach_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -882,7 +894,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetworkServiceTest_AddRules_ParamsSpec,
       network.mojom.NetworkServiceTest_AddRules_ResponseParamsSpec,
-      [rules]);
+      [rules],
+      false);
   }
 
   simulateNetworkChange(type) {
@@ -891,7 +904,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.NetworkServiceTest_SimulateNetworkChange_ParamsSpec,
       network.mojom.NetworkServiceTest_SimulateNetworkChange_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
   simulateNetworkQualityChange(type) {
@@ -900,7 +914,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ParamsSpec,
       network.mojom.NetworkServiceTest_SimulateNetworkQualityChange_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
   forceNetworkQualityEstimatorReportWifiAsSlow2G() {
@@ -909,7 +924,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ParamsSpec,
       network.mojom.NetworkServiceTest_ForceNetworkQualityEstimatorReportWifiAsSlow2G_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   simulateCrash() {
@@ -918,7 +934,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.NetworkServiceTest_SimulateCrash_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   mockCertVerifierSetDefaultResult(default_result) {
@@ -927,7 +944,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ParamsSpec,
       network.mojom.NetworkServiceTest_MockCertVerifierSetDefaultResult_ResponseParamsSpec,
-      [default_result]);
+      [default_result],
+      false);
   }
 
   mockCertVerifierAddResultForCertAndHost(cert, host_pattern, verify_result, rv) {
@@ -936,7 +954,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       6,  // ordinal
       network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ParamsSpec,
       network.mojom.NetworkServiceTest_MockCertVerifierAddResultForCertAndHost_ResponseParamsSpec,
-      [cert, host_pattern, verify_result, rv]);
+      [cert, host_pattern, verify_result, rv],
+      false);
   }
 
   setTransportSecurityStateTestSource(enable_unittest_source) {
@@ -945,7 +964,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       7,  // ordinal
       network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ParamsSpec,
       network.mojom.NetworkServiceTest_SetTransportSecurityStateTestSource_ResponseParamsSpec,
-      [enable_unittest_source]);
+      [enable_unittest_source],
+      false);
   }
 
   setAllowNetworkAccessToHostResolutions() {
@@ -954,7 +974,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       8,  // ordinal
       network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ParamsSpec,
       network.mojom.NetworkServiceTest_SetAllowNetworkAccessToHostResolutions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   replaceSystemDnsConfig() {
@@ -963,7 +984,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       9,  // ordinal
       network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ParamsSpec,
       network.mojom.NetworkServiceTest_ReplaceSystemDnsConfig_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setTestDohConfig(secure_dns_mode, doh_config) {
@@ -972,7 +994,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       10,  // ordinal
       network.mojom.NetworkServiceTest_SetTestDohConfig_ParamsSpec,
       network.mojom.NetworkServiceTest_SetTestDohConfig_ResponseParamsSpec,
-      [secure_dns_mode, doh_config]);
+      [secure_dns_mode, doh_config],
+      false);
   }
 
   crashOnResolveHost(host) {
@@ -981,7 +1004,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       11,  // ordinal
       network.mojom.NetworkServiceTest_CrashOnResolveHost_ParamsSpec,
       null,
-      [host]);
+      [host],
+      false);
   }
 
   crashOnGetCookieList() {
@@ -990,7 +1014,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       12,  // ordinal
       network.mojom.NetworkServiceTest_CrashOnGetCookieList_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getLatestMemoryPressureLevel() {
@@ -999,7 +1024,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       13,  // ordinal
       network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ParamsSpec,
       network.mojom.NetworkServiceTest_GetLatestMemoryPressureLevel_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getPeerToPeerConnectionsCountChange() {
@@ -1008,7 +1034,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       14,  // ordinal
       network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ParamsSpec,
       network.mojom.NetworkServiceTest_GetPeerToPeerConnectionsCountChange_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getEnvironmentVariableValue(name) {
@@ -1017,7 +1044,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       15,  // ordinal
       network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ParamsSpec,
       network.mojom.NetworkServiceTest_GetEnvironmentVariableValue_ResponseParamsSpec,
-      [name]);
+      [name],
+      false);
   }
 
   log(message) {
@@ -1026,7 +1054,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       16,  // ordinal
       network.mojom.NetworkServiceTest_Log_ParamsSpec,
       network.mojom.NetworkServiceTest_Log_ResponseParamsSpec,
-      [message]);
+      [message],
+      false);
   }
 
   activateFieldTrial(field_trial_name) {
@@ -1035,7 +1064,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       17,  // ordinal
       network.mojom.NetworkServiceTest_ActivateFieldTrial_ParamsSpec,
       null,
-      [field_trial_name]);
+      [field_trial_name],
+      false);
   }
 
   setSCTAuditingRetryDelay(delay) {
@@ -1044,7 +1074,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       18,  // ordinal
       network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ParamsSpec,
       network.mojom.NetworkServiceTest_SetSCTAuditingRetryDelay_ResponseParamsSpec,
-      [delay]);
+      [delay],
+      false);
   }
 
   openFile(path) {
@@ -1053,7 +1084,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       19,  // ordinal
       network.mojom.NetworkServiceTest_OpenFile_ParamsSpec,
       network.mojom.NetworkServiceTest_OpenFile_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   enumerateFiles(path, factory) {
@@ -1062,7 +1094,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       20,  // ordinal
       network.mojom.NetworkServiceTest_EnumerateFiles_ParamsSpec,
       network.mojom.NetworkServiceTest_EnumerateFiles_ResponseParamsSpec,
-      [path, factory]);
+      [path, factory],
+      false);
   }
 
   createSimpleCache(factory, path, reset) {
@@ -1071,7 +1104,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       21,  // ordinal
       network.mojom.NetworkServiceTest_CreateSimpleCache_ParamsSpec,
       network.mojom.NetworkServiceTest_CreateSimpleCache_ResponseParamsSpec,
-      [factory, path, reset]);
+      [factory, path, reset],
+      false);
   }
 
   makeRequestToServer(s, endpoint) {
@@ -1080,7 +1114,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       22,  // ordinal
       network.mojom.NetworkServiceTest_MakeRequestToServer_ParamsSpec,
       network.mojom.NetworkServiceTest_MakeRequestToServer_ResponseParamsSpec,
-      [s, endpoint]);
+      [s, endpoint],
+      false);
   }
 
   resolveOwnHostnameWithSystemDns() {
@@ -1089,7 +1124,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       23,  // ordinal
       network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ParamsSpec,
       network.mojom.NetworkServiceTest_ResolveOwnHostnameWithSystemDns_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setIPv6ProbeResult(success) {
@@ -1098,7 +1134,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       24,  // ordinal
       network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ParamsSpec,
       network.mojom.NetworkServiceTest_SetIPv6ProbeResult_ResponseParamsSpec,
-      [success]);
+      [success],
+      false);
   }
 
   getAddressMapCacheLinux() {
@@ -1107,7 +1144,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       25,  // ordinal
       network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ParamsSpec,
       network.mojom.NetworkServiceTest_GetAddressMapCacheLinux_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   allowsGSSAPILibraryLoad() {
@@ -1116,7 +1154,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       26,  // ordinal
       network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ParamsSpec,
       network.mojom.NetworkServiceTest_AllowsGSSAPILibraryLoad_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   disableExclusiveCookieDatabaseLockingForTesting() {
@@ -1125,7 +1164,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       27,  // ordinal
       network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ParamsSpec,
       network.mojom.NetworkServiceTest_DisableExclusiveCookieDatabaseLockingForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isHappyEyeballsV3Enabled() {
@@ -1134,7 +1174,8 @@ network.mojom.NetworkServiceTestRemoteCallHandler = class {
       28,  // ordinal
       network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ParamsSpec,
       network.mojom.NetworkServiceTest_IsHappyEyeballsV3Enabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

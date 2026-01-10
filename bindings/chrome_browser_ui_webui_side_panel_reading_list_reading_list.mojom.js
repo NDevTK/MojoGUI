@@ -118,7 +118,8 @@ reading_list.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       reading_list.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -252,7 +253,8 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       reading_list.mojom.PageHandler_GetReadLaterEntries_ParamsSpec,
       reading_list.mojom.PageHandler_GetReadLaterEntries_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openURL(url, mark_as_read, click_modifiers) {
@@ -261,7 +263,8 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       reading_list.mojom.PageHandler_OpenURL_ParamsSpec,
       null,
-      [url, mark_as_read, click_modifiers]);
+      [url, mark_as_read, click_modifiers],
+      false);
   }
 
   updateReadStatus(url, read) {
@@ -270,7 +273,8 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       reading_list.mojom.PageHandler_UpdateReadStatus_ParamsSpec,
       null,
-      [url, read]);
+      [url, read],
+      false);
   }
 
   markCurrentTabAsRead() {
@@ -279,7 +283,8 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       reading_list.mojom.PageHandler_MarkCurrentTabAsRead_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   addCurrentTab() {
@@ -288,7 +293,8 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       reading_list.mojom.PageHandler_AddCurrentTab_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   removeEntry(url) {
@@ -297,7 +303,8 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       reading_list.mojom.PageHandler_RemoveEntry_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   showContextMenuForURL(url, x, y) {
@@ -306,7 +313,8 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       reading_list.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec,
       null,
-      [url, x, y]);
+      [url, x, y],
+      false);
   }
 
   updateCurrentPageActionButtonState() {
@@ -315,7 +323,8 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       reading_list.mojom.PageHandler_UpdateCurrentPageActionButtonState_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   showUI() {
@@ -324,7 +333,8 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       reading_list.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   closeUI() {
@@ -333,7 +343,8 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       reading_list.mojom.PageHandler_CloseUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getWindowData() {
@@ -342,7 +353,8 @@ reading_list.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       reading_list.mojom.PageHandler_GetWindowData_ParamsSpec,
       reading_list.mojom.PageHandler_GetWindowData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -412,7 +424,8 @@ reading_list.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       reading_list.mojom.Page_ItemsChanged_ParamsSpec,
       null,
-      [entries]);
+      [entries],
+      false);
   }
 
   currentPageActionButtonStateChanged(state) {
@@ -421,7 +434,8 @@ reading_list.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       reading_list.mojom.Page_CurrentPageActionButtonStateChanged_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
 };

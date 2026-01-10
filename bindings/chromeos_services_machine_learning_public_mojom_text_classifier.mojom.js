@@ -71,7 +71,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('text', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('default_locales', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('detected_text_language_tags', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('annotation_usecase', 24, 0, chromeos.machine_learning.mojom.AnnotationUsecaseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('annotation_usecase', 24, 0, chromeos.machine_learning.mojom.AnnotationUsecaseSpec, 0, false, 0, undefined),
       mojo.internal.StructField('reference_time', 32, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
       mojo.internal.StructField('reference_timezone', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('enabled_entities', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
@@ -102,7 +102,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('user_selection', 8, 0, chromeos.machine_learning.mojom.CodepointSpanSpec, null, false, 0, undefined),
       mojo.internal.StructField('default_locales', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('detected_text_language_tags', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('annotation_usecase', 32, 0, chromeos.machine_learning.mojom.AnnotationUsecaseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('annotation_usecase', 32, 0, chromeos.machine_learning.mojom.AnnotationUsecaseSpec, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -181,7 +181,8 @@ chromeos.machine_learning.mojom.TextClassifierRemoteCallHandler = class {
       0,  // ordinal
       chromeos.machine_learning.mojom.TextClassifier_Annotate_ParamsSpec,
       chromeos.machine_learning.mojom.TextClassifier_Annotate_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   findLanguages(text) {
@@ -190,7 +191,8 @@ chromeos.machine_learning.mojom.TextClassifierRemoteCallHandler = class {
       2,  // ordinal
       chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ParamsSpec,
       chromeos.machine_learning.mojom.TextClassifier_FindLanguages_ResponseParamsSpec,
-      [text]);
+      [text],
+      false);
   }
 
   rEMOVED_1(request) {
@@ -199,7 +201,8 @@ chromeos.machine_learning.mojom.TextClassifierRemoteCallHandler = class {
       1,  // ordinal
       chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ParamsSpec,
       chromeos.machine_learning.mojom.TextClassifier_REMOVED_1_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
 };

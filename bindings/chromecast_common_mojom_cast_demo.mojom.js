@@ -78,7 +78,8 @@ chromecast.shell.mojom.CastDemoVolumeChangeObserverRemoteCallHandler = class {
       0,  // ordinal
       chromecast.shell.mojom.CastDemoVolumeChangeObserver_VolumeChanged_ParamsSpec,
       null,
-      [level]);
+      [level],
+      false);
   }
 
 };
@@ -239,7 +240,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
       0,  // ordinal
       chromecast.shell.mojom.CastDemo_RecordEvent_ParamsSpec,
       null,
-      [event_name, data]);
+      [event_name, data],
+      false);
   }
 
   setRetailerName(retailer_name) {
@@ -248,7 +250,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
       1,  // ordinal
       chromecast.shell.mojom.CastDemo_SetRetailerName_ParamsSpec,
       null,
-      [retailer_name]);
+      [retailer_name],
+      false);
   }
 
   setStoreId(store_id) {
@@ -257,7 +260,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
       2,  // ordinal
       chromecast.shell.mojom.CastDemo_SetStoreId_ParamsSpec,
       null,
-      [store_id]);
+      [store_id],
+      false);
   }
 
   getRetailerName() {
@@ -266,7 +270,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
       3,  // ordinal
       chromecast.shell.mojom.CastDemo_GetRetailerName_ParamsSpec,
       chromecast.shell.mojom.CastDemo_GetRetailerName_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getStoreId() {
@@ -275,7 +280,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
       4,  // ordinal
       chromecast.shell.mojom.CastDemo_GetStoreId_ParamsSpec,
       chromecast.shell.mojom.CastDemo_GetStoreId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setDefaultVolumeLevel(level) {
@@ -284,7 +290,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
       5,  // ordinal
       chromecast.shell.mojom.CastDemo_SetDefaultVolumeLevel_ParamsSpec,
       null,
-      [level]);
+      [level],
+      false);
   }
 
   getDefaultVolumeLevel() {
@@ -293,7 +300,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
       6,  // ordinal
       chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ParamsSpec,
       chromecast.shell.mojom.CastDemo_GetDefaultVolumeLevel_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   applyDefaultVolume() {
@@ -302,7 +310,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
       7,  // ordinal
       chromecast.shell.mojom.CastDemo_ApplyDefaultVolume_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setWifiCredentials(ssid, psk) {
@@ -311,7 +320,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
       8,  // ordinal
       chromecast.shell.mojom.CastDemo_SetWifiCredentials_ParamsSpec,
       null,
-      [ssid, psk]);
+      [ssid, psk],
+      false);
   }
 
   getAvailableWifiNetworks() {
@@ -320,7 +330,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
       9,  // ordinal
       chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ParamsSpec,
       chromecast.shell.mojom.CastDemo_GetAvailableWifiNetworks_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getConnectionStatus() {
@@ -329,7 +340,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
       10,  // ordinal
       chromecast.shell.mojom.CastDemo_GetConnectionStatus_ParamsSpec,
       chromecast.shell.mojom.CastDemo_GetConnectionStatus_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addVolumeChangeObserver(observer) {
@@ -338,7 +350,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
       11,  // ordinal
       chromecast.shell.mojom.CastDemo_AddVolumeChangeObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   persistLocalStorage() {
@@ -347,7 +360,8 @@ chromecast.shell.mojom.CastDemoRemoteCallHandler = class {
       12,  // ordinal
       chromecast.shell.mojom.CastDemo_PersistLocalStorage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

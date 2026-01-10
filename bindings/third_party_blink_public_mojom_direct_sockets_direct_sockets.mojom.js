@@ -192,7 +192,8 @@ blink.mojom.DirectSocketsServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec,
       blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec,
-      [options, receiver, observer]);
+      [options, receiver, observer],
+      false);
   }
 
   openConnectedUDPSocket(options, receiver, listener) {
@@ -201,7 +202,8 @@ blink.mojom.DirectSocketsServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec,
       blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec,
-      [options, receiver, listener]);
+      [options, receiver, listener],
+      false);
   }
 
   openBoundUDPSocket(options, receiver, listener) {
@@ -210,7 +212,8 @@ blink.mojom.DirectSocketsServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec,
       blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec,
-      [options, receiver, listener]);
+      [options, receiver, listener],
+      false);
   }
 
   openTCPServerSocket(options, receiver) {
@@ -219,7 +222,8 @@ blink.mojom.DirectSocketsServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec,
       blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec,
-      [options, receiver]);
+      [options, receiver],
+      false);
   }
 
 };

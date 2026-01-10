@@ -571,7 +571,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       127,  // ordinal
       arc.mojom.ArcBridgeHost_OnAccessibilityHelperInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onAdbdMonitorInstanceReady(instance_remote) {
@@ -580,7 +581,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       158,  // ordinal
       arc.mojom.ArcBridgeHost_OnAdbdMonitorInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onAppInstanceReady(instance_remote) {
@@ -589,7 +591,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       100,  // ordinal
       arc.mojom.ArcBridgeHost_OnAppInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onAppPermissionsInstanceReady(instance_remote) {
@@ -598,7 +601,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       149,  // ordinal
       arc.mojom.ArcBridgeHost_OnAppPermissionsInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onAppfuseInstanceReady(instance_remote) {
@@ -607,7 +611,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       145,  // ordinal
       arc.mojom.ArcBridgeHost_OnAppfuseInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onArcShellExecutionInstanceReady(instance_remote) {
@@ -616,7 +621,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       174,  // ordinal
       arc.mojom.ArcBridgeHost_OnArcShellExecutionInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onArcWifiInstanceReady(instance_remote) {
@@ -625,7 +631,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       171,  // ordinal
       arc.mojom.ArcBridgeHost_OnArcWifiInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onAudioInstanceReady(instance_remote) {
@@ -634,7 +641,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       115,  // ordinal
       arc.mojom.ArcBridgeHost_OnAudioInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onAuthInstanceReady(instance_remote) {
@@ -643,7 +651,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       106,  // ordinal
       arc.mojom.ArcBridgeHost_OnAuthInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onBackupSettingsInstanceReady(instance_remote) {
@@ -652,7 +661,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       138,  // ordinal
       arc.mojom.ArcBridgeHost_OnBackupSettingsInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onBluetoothInstanceReady(instance_remote) {
@@ -661,7 +671,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       113,  // ordinal
       arc.mojom.ArcBridgeHost_OnBluetoothInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onBootPhaseMonitorInstanceReady(instance_remote) {
@@ -670,7 +681,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       125,  // ordinal
       arc.mojom.ArcBridgeHost_OnBootPhaseMonitorInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onCameraInstanceReady(instance_remote) {
@@ -679,7 +691,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       151,  // ordinal
       arc.mojom.ArcBridgeHost_OnCameraInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onChromeFeatureFlagsInstanceReady(instance_remote) {
@@ -688,7 +701,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       170,  // ordinal
       arc.mojom.ArcBridgeHost_OnChromeFeatureFlagsInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onCompatibilityModeInstanceReady(instance_remote) {
@@ -697,7 +711,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       161,  // ordinal
       arc.mojom.ArcBridgeHost_OnCompatibilityModeInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onCrashCollectorInstanceReady(instance_remote) {
@@ -706,7 +721,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       112,  // ordinal
       arc.mojom.ArcBridgeHost_OnCrashCollectorInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onOnDeviceSafetyInstanceReady(instance_remote) {
@@ -715,7 +731,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       173,  // ordinal
       arc.mojom.ArcBridgeHost_OnOnDeviceSafetyInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onDigitalGoodsInstanceReady(instance_remote) {
@@ -724,7 +741,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       156,  // ordinal
       arc.mojom.ArcBridgeHost_OnDigitalGoodsInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onDiskSpaceInstanceReady(instance_remote) {
@@ -733,7 +751,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       144,  // ordinal
       arc.mojom.ArcBridgeHost_OnDiskSpaceInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onEnterpriseReportingInstanceReady(instance_remote) {
@@ -742,7 +761,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       122,  // ordinal
       arc.mojom.ArcBridgeHost_OnEnterpriseReportingInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onErrorNotificationInstanceReady(instance_remote) {
@@ -751,7 +771,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       172,  // ordinal
       arc.mojom.ArcBridgeHost_OnErrorNotificationInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onFileSystemInstanceReady(instance_remote) {
@@ -760,7 +781,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       119,  // ordinal
       arc.mojom.ArcBridgeHost_OnFileSystemInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onIioSensorInstanceReady(instance_remote) {
@@ -769,7 +791,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       159,  // ordinal
       arc.mojom.ArcBridgeHost_OnIioSensorInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onImeInstanceReady(instance_remote) {
@@ -778,7 +801,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       110,  // ordinal
       arc.mojom.ArcBridgeHost_OnImeInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onInputMethodManagerInstanceReady(instance_remote) {
@@ -787,7 +811,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       143,  // ordinal
       arc.mojom.ArcBridgeHost_OnInputMethodManagerInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onIntentHelperInstanceReady(instance_remote) {
@@ -796,7 +821,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       111,  // ordinal
       arc.mojom.ArcBridgeHost_OnIntentHelperInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onKeymasterInstanceReady(instance_remote) {
@@ -805,7 +831,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       152,  // ordinal
       arc.mojom.ArcBridgeHost_OnKeymasterInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onKeyMintInstanceReady(instance_remote) {
@@ -814,7 +841,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       168,  // ordinal
       arc.mojom.ArcBridgeHost_OnKeyMintInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onKioskInstanceReady(instance_remote) {
@@ -823,7 +851,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       175,  // ordinal
       arc.mojom.ArcBridgeHost_OnKioskInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onMediaSessionInstanceReady(instance_remote) {
@@ -832,7 +861,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       148,  // ordinal
       arc.mojom.ArcBridgeHost_OnMediaSessionInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onMemoryInstanceReady(instance_remote) {
@@ -841,7 +871,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       164,  // ordinal
       arc.mojom.ArcBridgeHost_OnMemoryInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onMetricsInstanceReady(instance_remote) {
@@ -850,7 +881,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       116,  // ordinal
       arc.mojom.ArcBridgeHost_OnMetricsInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onMidisInstanceReady(instance_remote) {
@@ -859,7 +891,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       135,  // ordinal
       arc.mojom.ArcBridgeHost_OnMidisInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onNearbyShareInstanceReady(instance_remote) {
@@ -868,7 +901,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       163,  // ordinal
       arc.mojom.ArcBridgeHost_OnNearbyShareInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onNetInstanceReady(instance_remote) {
@@ -877,7 +911,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       108,  // ordinal
       arc.mojom.ArcBridgeHost_OnNetInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onNotificationsInstanceReady(instance_remote) {
@@ -886,7 +921,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       102,  // ordinal
       arc.mojom.ArcBridgeHost_OnNotificationsInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onObbMounterInstanceReady(instance_remote) {
@@ -895,7 +931,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       120,  // ordinal
       arc.mojom.ArcBridgeHost_OnObbMounterInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onOemCryptoInstanceReady(instance_remote) {
@@ -904,7 +941,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       133,  // ordinal
       arc.mojom.ArcBridgeHost_OnOemCryptoInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onPaymentAppInstanceReady(instance_remote) {
@@ -913,7 +951,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       155,  // ordinal
       arc.mojom.ArcBridgeHost_OnPaymentAppInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onPipInstanceReady(instance_remote) {
@@ -922,7 +961,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       146,  // ordinal
       arc.mojom.ArcBridgeHost_OnPipInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onPolicyInstanceReady(instance_remote) {
@@ -931,7 +971,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       114,  // ordinal
       arc.mojom.ArcBridgeHost_OnPolicyInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onPowerInstanceReady(instance_remote) {
@@ -940,7 +981,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       103,  // ordinal
       arc.mojom.ArcBridgeHost_OnPowerInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onPrintSpoolerInstanceReady(instance_remote) {
@@ -949,7 +991,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       150,  // ordinal
       arc.mojom.ArcBridgeHost_OnPrintSpoolerInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onPrivacyItemsInstanceReady(instance_remote) {
@@ -958,7 +1001,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       166,  // ordinal
       arc.mojom.ArcBridgeHost_OnPrivacyItemsInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onProcessInstanceReady(instance_remote) {
@@ -967,7 +1011,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       104,  // ordinal
       arc.mojom.ArcBridgeHost_OnProcessInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onScreenCaptureInstanceReady(instance_remote) {
@@ -976,7 +1021,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       140,  // ordinal
       arc.mojom.ArcBridgeHost_OnScreenCaptureInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onSharesheetInstanceReady(instance_remote) {
@@ -985,7 +1031,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       157,  // ordinal
       arc.mojom.ArcBridgeHost_OnSharesheetInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onSystemStateInstanceReady(instance_remote) {
@@ -994,7 +1041,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       169,  // ordinal
       arc.mojom.ArcBridgeHost_OnSystemStateInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onSystemUiInstanceReady(instance_remote) {
@@ -1003,7 +1051,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       167,  // ordinal
       arc.mojom.ArcBridgeHost_OnSystemUiInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onTimerInstanceReady(instance_remote) {
@@ -1012,7 +1061,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       141,  // ordinal
       arc.mojom.ArcBridgeHost_OnTimerInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onTracingInstanceReady(instance_remote) {
@@ -1021,7 +1071,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       128,  // ordinal
       arc.mojom.ArcBridgeHost_OnTracingInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onTtsInstanceReady(instance_remote) {
@@ -1030,7 +1081,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       123,  // ordinal
       arc.mojom.ArcBridgeHost_OnTtsInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onUsbHostInstanceReady(instance_remote) {
@@ -1039,7 +1091,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       139,  // ordinal
       arc.mojom.ArcBridgeHost_OnUsbHostInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onVideoInstanceReady(instance_remote) {
@@ -1048,7 +1101,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       107,  // ordinal
       arc.mojom.ArcBridgeHost_OnVideoInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onVolumeMounterInstanceReady(instance_remote) {
@@ -1057,7 +1111,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       131,  // ordinal
       arc.mojom.ArcBridgeHost_OnVolumeMounterInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onWakeLockInstanceReady(instance_remote) {
@@ -1066,7 +1121,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       142,  // ordinal
       arc.mojom.ArcBridgeHost_OnWakeLockInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onWallpaperInstanceReady(instance_remote) {
@@ -1075,7 +1131,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       124,  // ordinal
       arc.mojom.ArcBridgeHost_OnWallpaperInstanceReady_ParamsSpec,
       null,
-      [instance_remote]);
+      [instance_remote],
+      false);
   }
 
   onWebApkInstanceReady(instance_ptr) {
@@ -1084,7 +1141,8 @@ arc.mojom.ArcBridgeHostRemoteCallHandler = class {
       162,  // ordinal
       arc.mojom.ArcBridgeHost_OnWebApkInstanceReady_ParamsSpec,
       null,
-      [instance_ptr]);
+      [instance_ptr],
+      false);
   }
 
 };

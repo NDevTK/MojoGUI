@@ -125,7 +125,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnResumeClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onUpdateClicked() {
@@ -134,7 +135,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnUpdateClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onFinishClicked() {
@@ -143,7 +145,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnFinishClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSkipClicked() {
@@ -152,7 +155,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnSkipClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onReportClicked() {
@@ -161,7 +165,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPageHandler_OnReportClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -256,7 +261,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPage_SetUIState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   setRequiredFreeDiskSpace(required_space) {
@@ -265,7 +271,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPage_SetRequiredFreeDiskSpace_ParamsSpec,
       null,
-      [required_space]);
+      [required_space],
+      false);
   }
 
   setMinimumBatteryPercent(percent) {
@@ -274,7 +281,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
       2,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPage_SetMinimumBatteryPercent_ParamsSpec,
       null,
-      [percent]);
+      [percent],
+      false);
   }
 
   setBatteryState(enough, connected) {
@@ -283,7 +291,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
       3,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPage_SetBatteryState_ParamsSpec,
       null,
-      [enough, connected]);
+      [enough, connected],
+      false);
   }
 
   setMigrationProgress(progress) {
@@ -292,7 +301,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
       4,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPage_SetMigrationProgress_ParamsSpec,
       null,
-      [progress]);
+      [progress],
+      false);
   }
 
   setEstimatedRemainingTime(remaining_time) {
@@ -301,7 +311,8 @@ ash.screens_login.mojom.ArcVmDataMigrationPageRemoteCallHandler = class {
       5,  // ordinal
       ash.screens_login.mojom.ArcVmDataMigrationPage_SetEstimatedRemainingTime_ParamsSpec,
       null,
-      [remaining_time]);
+      [remaining_time],
+      false);
   }
 
 };
@@ -384,7 +395,8 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
       0,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPageHandler_OnStartMigration_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSkipMigration() {
@@ -393,7 +405,8 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
       1,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPageHandler_OnSkipMigration_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onRequestRestartOnLowStorage() {
@@ -402,7 +415,8 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
       2,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnLowStorage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onRequestRestartOnFailure() {
@@ -411,7 +425,8 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
       3,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPageHandler_OnRequestRestartOnFailure_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onOpenFeedbackDialog() {
@@ -420,7 +435,8 @@ ash.screens_login.mojom.EncryptionMigrationPageHandlerRemoteCallHandler = class 
       4,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPageHandler_OnOpenFeedbackDialog_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -517,7 +533,8 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPage_SetUIState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   setMigrationProgress(progress) {
@@ -526,7 +543,8 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPage_SetMigrationProgress_ParamsSpec,
       null,
-      [progress]);
+      [progress],
+      false);
   }
 
   setIsResuming(is_resuming) {
@@ -535,7 +553,8 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
       2,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPage_SetIsResuming_ParamsSpec,
       null,
-      [is_resuming]);
+      [is_resuming],
+      false);
   }
 
   setBatteryState(percent, is_enough, is_charging) {
@@ -544,7 +563,8 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
       3,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPage_SetBatteryState_ParamsSpec,
       null,
-      [percent, is_enough, is_charging]);
+      [percent, is_enough, is_charging],
+      false);
   }
 
   setNecessaryBatteryPercent(percent) {
@@ -553,7 +573,8 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
       4,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPage_SetNecessaryBatteryPercent_ParamsSpec,
       null,
-      [percent]);
+      [percent],
+      false);
   }
 
   setSpaceInfoInString(available_space, required_space) {
@@ -562,7 +583,8 @@ ash.screens_login.mojom.EncryptionMigrationPageRemoteCallHandler = class {
       5,  // ordinal
       ash.screens_login.mojom.EncryptionMigrationPage_SetSpaceInfoInString_ParamsSpec,
       null,
-      [available_space, required_space]);
+      [available_space, required_space],
+      false);
   }
 
 };

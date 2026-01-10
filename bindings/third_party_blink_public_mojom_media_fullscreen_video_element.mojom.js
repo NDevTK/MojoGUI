@@ -56,7 +56,8 @@ blink.mojom.FullscreenVideoElementHandlerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

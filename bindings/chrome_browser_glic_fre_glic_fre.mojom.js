@@ -84,7 +84,8 @@ glic.mojom.FrePageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };
@@ -196,7 +197,8 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.FrePageHandler_AcceptFre_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   rejectFre() {
@@ -205,7 +207,8 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       1,  // ordinal
       glic.mojom.FrePageHandler_RejectFre_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   dismissFre(panel) {
@@ -214,7 +217,8 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       2,  // ordinal
       glic.mojom.FrePageHandler_DismissFre_ParamsSpec,
       null,
-      [panel]);
+      [panel],
+      false);
   }
 
   freReloaded() {
@@ -223,7 +227,8 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       3,  // ordinal
       glic.mojom.FrePageHandler_FreReloaded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   prepareForClient() {
@@ -232,7 +237,8 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       4,  // ordinal
       glic.mojom.FrePageHandler_PrepareForClient_ParamsSpec,
       glic.mojom.FrePageHandler_PrepareForClient_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   validateAndOpenLinkInNewTab(url) {
@@ -241,7 +247,8 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       5,  // ordinal
       glic.mojom.FrePageHandler_ValidateAndOpenLinkInNewTab_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   webUiStateChanged(new_state) {
@@ -250,7 +257,8 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       6,  // ordinal
       glic.mojom.FrePageHandler_WebUiStateChanged_ParamsSpec,
       null,
-      [new_state]);
+      [new_state],
+      false);
   }
 
   exceededTimeoutError() {
@@ -259,7 +267,8 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       7,  // ordinal
       glic.mojom.FrePageHandler_ExceededTimeoutError_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   logWebUiLoadComplete() {
@@ -268,7 +277,8 @@ glic.mojom.FrePageHandlerRemoteCallHandler = class {
       8,  // ordinal
       glic.mojom.FrePageHandler_LogWebUiLoadComplete_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

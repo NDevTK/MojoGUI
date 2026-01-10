@@ -182,7 +182,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('initiator_activation_and_ad_status', 128, 0, blink.mojom.NavigationInitiatorActivationAndAdStatusSpec, null, false, 0, undefined),
       mojo.internal.StructField('is_container_initiated', 132, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('has_rel_opener', 132, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('storage_access_api_status', 136, 0, network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('storage_access_api_status', 136, 0, network.mojom.StorageAccessApiStatusSpec, 0, false, 0, undefined),
     ],
     [[0, 152]]);
 
@@ -370,7 +370,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RemoteFrameHost_SetInheritedEffectiveTouchAction_ParamsSpec,
       null,
-      [touch_action]);
+      [touch_action],
+      false);
   }
 
   updateRenderThrottlingStatus(is_throttled, subtree_throttled, display_locked) {
@@ -379,7 +380,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.RemoteFrameHost_UpdateRenderThrottlingStatus_ParamsSpec,
       null,
-      [is_throttled, subtree_throttled, display_locked]);
+      [is_throttled, subtree_throttled, display_locked],
+      false);
   }
 
   visibilityChanged(visibility) {
@@ -388,7 +390,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.RemoteFrameHost_VisibilityChanged_ParamsSpec,
       null,
-      [visibility]);
+      [visibility],
+      false);
   }
 
   didFocusFrame() {
@@ -397,7 +400,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.RemoteFrameHost_DidFocusFrame_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   checkCompleted() {
@@ -406,7 +410,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.RemoteFrameHost_CheckCompleted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   capturePaintPreviewOfCrossProcessSubframe(clip_rect, guid) {
@@ -415,7 +420,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.RemoteFrameHost_CapturePaintPreviewOfCrossProcessSubframe_ParamsSpec,
       null,
-      [clip_rect, guid]);
+      [clip_rect, guid],
+      false);
   }
 
   setIsInert(inert) {
@@ -424,7 +430,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.RemoteFrameHost_SetIsInert_ParamsSpec,
       null,
-      [inert]);
+      [inert],
+      false);
   }
 
   didChangeOpener(opener_frame) {
@@ -433,7 +440,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.RemoteFrameHost_DidChangeOpener_ParamsSpec,
       null,
-      [opener_frame]);
+      [opener_frame],
+      false);
   }
 
   advanceFocus(focus_type, source_frame_token) {
@@ -442,7 +450,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.RemoteFrameHost_AdvanceFocus_ParamsSpec,
       null,
-      [focus_type, source_frame_token]);
+      [focus_type, source_frame_token],
+      false);
   }
 
   routeMessageEvent(source_frame_token, source_origin, target_origin, message) {
@@ -451,7 +460,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.RemoteFrameHost_RouteMessageEvent_ParamsSpec,
       null,
-      [source_frame_token, source_origin, target_origin, message]);
+      [source_frame_token, source_origin, target_origin, message],
+      false);
   }
 
   printCrossProcessSubframe(frame_content_rect, document_cookie) {
@@ -460,7 +470,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.RemoteFrameHost_PrintCrossProcessSubframe_ParamsSpec,
       null,
-      [frame_content_rect, document_cookie]);
+      [frame_content_rect, document_cookie],
+      false);
   }
 
   detach() {
@@ -469,7 +480,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.RemoteFrameHost_Detach_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateViewportIntersection(intersection_state, visual_properties) {
@@ -478,7 +490,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.RemoteFrameHost_UpdateViewportIntersection_ParamsSpec,
       null,
-      [intersection_state, visual_properties]);
+      [intersection_state, visual_properties],
+      false);
   }
 
   synchronizeVisualProperties(properties) {
@@ -487,7 +500,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       13,  // ordinal
       blink.mojom.RemoteFrameHost_SynchronizeVisualProperties_ParamsSpec,
       null,
-      [properties]);
+      [properties],
+      false);
   }
 
   openURL(params) {
@@ -496,7 +510,8 @@ blink.mojom.RemoteFrameHostRemoteCallHandler = class {
       14,  // ordinal
       blink.mojom.RemoteFrameHost_OpenURL_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
 };
@@ -766,7 +781,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RemoteFrame_WillEnterFullscreen_ParamsSpec,
       null,
-      [options]);
+      [options],
+      false);
   }
 
   enforceInsecureNavigationsSet(set) {
@@ -775,7 +791,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.RemoteFrame_EnforceInsecureNavigationsSet_ParamsSpec,
       null,
-      [set]);
+      [set],
+      false);
   }
 
   setFrameOwnerProperties(properties) {
@@ -784,7 +801,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.RemoteFrame_SetFrameOwnerProperties_ParamsSpec,
       null,
-      [properties]);
+      [properties],
+      false);
   }
 
   enforceInsecureRequestPolicy(policy) {
@@ -793,7 +811,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.RemoteFrame_EnforceInsecureRequestPolicy_ParamsSpec,
       null,
-      [policy]);
+      [policy],
+      false);
   }
 
   setReplicatedOrigin(origin, is_potentially_trustworthy_unique_origin) {
@@ -802,7 +821,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.RemoteFrame_SetReplicatedOrigin_ParamsSpec,
       null,
-      [origin, is_potentially_trustworthy_unique_origin]);
+      [origin, is_potentially_trustworthy_unique_origin],
+      false);
   }
 
   setReplicatedIsAdFrame(is_ad_frame) {
@@ -811,7 +831,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.RemoteFrame_SetReplicatedIsAdFrame_ParamsSpec,
       null,
-      [is_ad_frame]);
+      [is_ad_frame],
+      false);
   }
 
   setReplicatedName(name, unique_name) {
@@ -820,7 +841,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.RemoteFrame_SetReplicatedName_ParamsSpec,
       null,
-      [name, unique_name]);
+      [name, unique_name],
+      false);
   }
 
   dispatchLoadEventForFrameOwner() {
@@ -829,7 +851,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.RemoteFrame_DispatchLoadEventForFrameOwner_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setNeedsOcclusionTracking(needs_tracking) {
@@ -838,7 +861,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.RemoteFrame_SetNeedsOcclusionTracking_ParamsSpec,
       null,
-      [needs_tracking]);
+      [needs_tracking],
+      false);
   }
 
   collapse(collapsed) {
@@ -847,7 +871,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.RemoteFrame_Collapse_ParamsSpec,
       null,
-      [collapsed]);
+      [collapsed],
+      false);
   }
 
   focus() {
@@ -856,7 +881,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.RemoteFrame_Focus_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setHadStickyUserActivationBeforeNavigation(has_gesture) {
@@ -865,7 +891,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.RemoteFrame_SetHadStickyUserActivationBeforeNavigation_ParamsSpec,
       null,
-      [has_gesture]);
+      [has_gesture],
+      false);
   }
 
   bubbleLogicalScroll(direction, granularity) {
@@ -874,7 +901,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.RemoteFrame_BubbleLogicalScroll_ParamsSpec,
       null,
-      [direction, granularity]);
+      [direction, granularity],
+      false);
   }
 
   updateUserActivationState(state_update_type, notification_type) {
@@ -883,7 +911,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       13,  // ordinal
       blink.mojom.RemoteFrame_UpdateUserActivationState_ParamsSpec,
       null,
-      [state_update_type, notification_type]);
+      [state_update_type, notification_type],
+      false);
   }
 
   setEmbeddingToken(embedding_token) {
@@ -892,7 +921,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       14,  // ordinal
       blink.mojom.RemoteFrame_SetEmbeddingToken_ParamsSpec,
       null,
-      [embedding_token]);
+      [embedding_token],
+      false);
   }
 
   setPageFocus(is_focused) {
@@ -901,7 +931,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       15,  // ordinal
       blink.mojom.RemoteFrame_SetPageFocus_ParamsSpec,
       null,
-      [is_focused]);
+      [is_focused],
+      false);
   }
 
   renderFallbackContent() {
@@ -910,7 +941,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       16,  // ordinal
       blink.mojom.RemoteFrame_RenderFallbackContent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   addResourceTimingFromChild(timing) {
@@ -919,7 +951,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       17,  // ordinal
       blink.mojom.RemoteFrame_AddResourceTimingFromChild_ParamsSpec,
       null,
-      [timing]);
+      [timing],
+      false);
   }
 
   scrollRectToVisible(rect, params) {
@@ -928,7 +961,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       18,  // ordinal
       blink.mojom.RemoteFrame_ScrollRectToVisible_ParamsSpec,
       null,
-      [rect, params]);
+      [rect, params],
+      false);
   }
 
   didStartLoading() {
@@ -937,7 +971,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       19,  // ordinal
       blink.mojom.RemoteFrame_DidStartLoading_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   didStopLoading() {
@@ -946,7 +981,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       20,  // ordinal
       blink.mojom.RemoteFrame_DidStopLoading_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   intrinsicSizingInfoOfChildChanged(sizing_info) {
@@ -955,7 +991,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       21,  // ordinal
       blink.mojom.RemoteFrame_IntrinsicSizingInfoOfChildChanged_ParamsSpec,
       null,
-      [sizing_info]);
+      [sizing_info],
+      false);
   }
 
   didSetFramePolicyHeaders(sandbox_flags, parsed_permissions_policy) {
@@ -964,7 +1001,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       22,  // ordinal
       blink.mojom.RemoteFrame_DidSetFramePolicyHeaders_ParamsSpec,
       null,
-      [sandbox_flags, parsed_permissions_policy]);
+      [sandbox_flags, parsed_permissions_policy],
+      false);
   }
 
   didUpdateFramePolicy(frame_policy) {
@@ -973,7 +1011,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       23,  // ordinal
       blink.mojom.RemoteFrame_DidUpdateFramePolicy_ParamsSpec,
       null,
-      [frame_policy]);
+      [frame_policy],
+      false);
   }
 
   updateOpener(opener_frame_token) {
@@ -982,7 +1021,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       24,  // ordinal
       blink.mojom.RemoteFrame_UpdateOpener_ParamsSpec,
       null,
-      [opener_frame_token]);
+      [opener_frame_token],
+      false);
   }
 
   detachAndDispose() {
@@ -991,7 +1031,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       25,  // ordinal
       blink.mojom.RemoteFrame_DetachAndDispose_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   enableAutoResize(min_size, max_size) {
@@ -1000,7 +1041,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       26,  // ordinal
       blink.mojom.RemoteFrame_EnableAutoResize_ParamsSpec,
       null,
-      [min_size, max_size]);
+      [min_size, max_size],
+      false);
   }
 
   disableAutoResize() {
@@ -1009,7 +1051,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       27,  // ordinal
       blink.mojom.RemoteFrame_DisableAutoResize_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   didUpdateVisualProperties(metadata) {
@@ -1018,7 +1061,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       28,  // ordinal
       blink.mojom.RemoteFrame_DidUpdateVisualProperties_ParamsSpec,
       null,
-      [metadata]);
+      [metadata],
+      false);
   }
 
   setFrameSinkId(frame_sink_id, allow_paint_holding) {
@@ -1027,7 +1071,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       29,  // ordinal
       blink.mojom.RemoteFrame_SetFrameSinkId_ParamsSpec,
       null,
-      [frame_sink_id, allow_paint_holding]);
+      [frame_sink_id, allow_paint_holding],
+      false);
   }
 
   childProcessGone() {
@@ -1036,7 +1081,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       30,  // ordinal
       blink.mojom.RemoteFrame_ChildProcessGone_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   createRemoteChild(token, opener_frame_token, tree_scope_type, replication_state, owner_properties, is_loading, devtools_frame_token, remote_frame_interfaces) {
@@ -1045,7 +1091,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       31,  // ordinal
       blink.mojom.RemoteFrame_CreateRemoteChild_ParamsSpec,
       null,
-      [token, opener_frame_token, tree_scope_type, replication_state, owner_properties, is_loading, devtools_frame_token, remote_frame_interfaces]);
+      [token, opener_frame_token, tree_scope_type, replication_state, owner_properties, is_loading, devtools_frame_token, remote_frame_interfaces],
+      false);
   }
 
   createRemoteChildren(params, navigation_metrics_token) {
@@ -1054,7 +1101,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       32,  // ordinal
       blink.mojom.RemoteFrame_CreateRemoteChildren_ParamsSpec,
       null,
-      [params, navigation_metrics_token]);
+      [params, navigation_metrics_token],
+      false);
   }
 
   forwardFencedFrameEventToEmbedder(event_type) {
@@ -1063,7 +1111,8 @@ blink.mojom.RemoteFrameRemoteCallHandler = class {
       33,  // ordinal
       blink.mojom.RemoteFrame_ForwardFencedFrameEventToEmbedder_ParamsSpec,
       null,
-      [event_type]);
+      [event_type],
+      false);
   }
 
 };
@@ -1127,7 +1176,8 @@ blink.mojom.RemoteMainFrameRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RemoteMainFrame_UpdateTextAutosizerPageInfo_ParamsSpec,
       null,
-      [page_info]);
+      [page_info],
+      false);
   }
 
 };
@@ -1212,7 +1262,8 @@ blink.mojom.RemoteMainFrameHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RemoteMainFrameHost_FocusPage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   takeFocus(reverse) {
@@ -1221,7 +1272,8 @@ blink.mojom.RemoteMainFrameHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.RemoteMainFrameHost_TakeFocus_ParamsSpec,
       null,
-      [reverse]);
+      [reverse],
+      false);
   }
 
   updateTargetURL(url) {
@@ -1230,7 +1282,8 @@ blink.mojom.RemoteMainFrameHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ParamsSpec,
       blink.mojom.RemoteMainFrameHost_UpdateTargetURL_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   routeCloseEvent() {
@@ -1239,7 +1292,8 @@ blink.mojom.RemoteMainFrameHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.RemoteMainFrameHost_RouteCloseEvent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -92,7 +92,8 @@ arc.mojom.VideoFramePoolRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.VideoFramePool_Initialize_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   addVideoFrame(video_frame) {
@@ -101,7 +102,8 @@ arc.mojom.VideoFramePoolRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec,
       arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec,
-      [video_frame]);
+      [video_frame],
+      false);
   }
 
 };
@@ -173,7 +175,8 @@ arc.mojom.VideoFramePoolClientRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec,
       arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParamsSpec,
-      [format, coded_size, visible_rect, num_frames]);
+      [format, coded_size, visible_rect, num_frames],
+      false);
   }
 
 };

@@ -83,7 +83,7 @@ mojo.internal.Struct(
     viz.mojom.RootCompositorFrameSinkParamsSpec, 'viz.mojom.RootCompositorFrameSinkParams', [
       mojo.internal.StructField('frame_sink_id', 0, 0, viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('widget', 8, 0, gpu.mojom.SurfaceHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('gpu_compositing', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('gpu_compositing', 16, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('renderer_settings', 24, 0, viz.mojom.RendererSettingsSpec, null, false, 0, undefined),
       mojo.internal.StructField('send_swap_size_notifications', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('disable_frame_rate_limit', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -330,7 +330,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.FrameSinkManager_RegisterFrameSinkId_ParamsSpec,
       null,
-      [frame_sink_id, report_activation]);
+      [frame_sink_id, report_activation],
+      false);
   }
 
   invalidateFrameSinkId(frame_sink_id) {
@@ -339,7 +340,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ParamsSpec,
       viz.mojom.FrameSinkManager_InvalidateFrameSinkId_ResponseParamsSpec,
-      [frame_sink_id]);
+      [frame_sink_id],
+      false);
   }
 
   setFrameSinkDebugLabel(frame_sink_id, debug_label) {
@@ -348,7 +350,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.FrameSinkManager_SetFrameSinkDebugLabel_ParamsSpec,
       null,
-      [frame_sink_id, debug_label]);
+      [frame_sink_id, debug_label],
+      false);
   }
 
   createRootCompositorFrameSink(params) {
@@ -357,7 +360,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.FrameSinkManager_CreateRootCompositorFrameSink_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   createCompositorDisplayLink(params) {
@@ -366,7 +370,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.FrameSinkManager_CreateCompositorDisplayLink_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   createFrameSinkBundle(bundle_id, receiver, client) {
@@ -375,7 +380,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.FrameSinkManager_CreateFrameSinkBundle_ParamsSpec,
       null,
-      [bundle_id, receiver, client]);
+      [bundle_id, receiver, client],
+      false);
   }
 
   createCompositorFrameSink(frame_sink_id, bundle_id, compositor_frame_sink, compositor_frame_sink_client, config) {
@@ -384,7 +390,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       6,  // ordinal
       viz.mojom.FrameSinkManager_CreateCompositorFrameSink_ParamsSpec,
       null,
-      [frame_sink_id, bundle_id, compositor_frame_sink, compositor_frame_sink_client, config]);
+      [frame_sink_id, bundle_id, compositor_frame_sink, compositor_frame_sink_client, config],
+      false);
   }
 
   destroyCompositorFrameSink(frame_sink_id) {
@@ -393,7 +400,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       7,  // ordinal
       viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ParamsSpec,
       viz.mojom.FrameSinkManager_DestroyCompositorFrameSink_ResponseParamsSpec,
-      [frame_sink_id]);
+      [frame_sink_id],
+      false);
   }
 
   registerFrameSinkHierarchy(parent_frame_sink_id, child_frame_sink_id) {
@@ -402,7 +410,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       8,  // ordinal
       viz.mojom.FrameSinkManager_RegisterFrameSinkHierarchy_ParamsSpec,
       null,
-      [parent_frame_sink_id, child_frame_sink_id]);
+      [parent_frame_sink_id, child_frame_sink_id],
+      false);
   }
 
   unregisterFrameSinkHierarchy(parent_frame_sink_id, child_frame_sink_id) {
@@ -411,7 +420,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       9,  // ordinal
       viz.mojom.FrameSinkManager_UnregisterFrameSinkHierarchy_ParamsSpec,
       null,
-      [parent_frame_sink_id, child_frame_sink_id]);
+      [parent_frame_sink_id, child_frame_sink_id],
+      false);
   }
 
   addVideoDetectorObserver(observer) {
@@ -420,7 +430,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       10,  // ordinal
       viz.mojom.FrameSinkManager_AddVideoDetectorObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   createVideoCapturer(receiver, capture_version_source) {
@@ -429,7 +440,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       11,  // ordinal
       viz.mojom.FrameSinkManager_CreateVideoCapturer_ParamsSpec,
       null,
-      [receiver, capture_version_source]);
+      [receiver, capture_version_source],
+      false);
   }
 
   evictSurfaces(surface_ids) {
@@ -438,7 +450,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       12,  // ordinal
       viz.mojom.FrameSinkManager_EvictSurfaces_ParamsSpec,
       null,
-      [surface_ids]);
+      [surface_ids],
+      false);
   }
 
   throttle(frame_sink_ids, interval) {
@@ -447,7 +460,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       13,  // ordinal
       viz.mojom.FrameSinkManager_Throttle_ParamsSpec,
       null,
-      [frame_sink_ids, interval]);
+      [frame_sink_ids, interval],
+      false);
   }
 
   startThrottlingAllFrameSinks(interval) {
@@ -456,7 +470,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       14,  // ordinal
       viz.mojom.FrameSinkManager_StartThrottlingAllFrameSinks_ParamsSpec,
       null,
-      [interval]);
+      [interval],
+      false);
   }
 
   stopThrottlingAllFrameSinks() {
@@ -465,7 +480,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       15,  // ordinal
       viz.mojom.FrameSinkManager_StopThrottlingAllFrameSinks_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   requestCopyOfOutput(surface_id, request, capture_exact_surface_id) {
@@ -474,7 +490,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       16,  // ordinal
       viz.mojom.FrameSinkManager_RequestCopyOfOutput_ParamsSpec,
       null,
-      [surface_id, request, capture_exact_surface_id]);
+      [surface_id, request, capture_exact_surface_id],
+      false);
   }
 
   cacheBackBuffer(cache_id, root_frame_sink_id) {
@@ -483,7 +500,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       17,  // ordinal
       viz.mojom.FrameSinkManager_CacheBackBuffer_ParamsSpec,
       null,
-      [cache_id, root_frame_sink_id]);
+      [cache_id, root_frame_sink_id],
+      false);
   }
 
   evictBackBuffer(cache_id) {
@@ -492,7 +510,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       18,  // ordinal
       viz.mojom.FrameSinkManager_EvictBackBuffer_ParamsSpec,
       viz.mojom.FrameSinkManager_EvictBackBuffer_ResponseParamsSpec,
-      [cache_id]);
+      [cache_id],
+      false);
   }
 
   updateDebugRendererSettings(debug_settings) {
@@ -501,7 +520,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       19,  // ordinal
       viz.mojom.FrameSinkManager_UpdateDebugRendererSettings_ParamsSpec,
       null,
-      [debug_settings]);
+      [debug_settings],
+      false);
   }
 
   clearUnclaimedViewTransitionResources(transition_token) {
@@ -510,7 +530,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       20,  // ordinal
       viz.mojom.FrameSinkManager_ClearUnclaimedViewTransitionResources_ParamsSpec,
       null,
-      [transition_token]);
+      [transition_token],
+      false);
   }
 
   createMetricsRecorderForTest(receiver) {
@@ -519,7 +540,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       21,  // ordinal
       viz.mojom.FrameSinkManager_CreateMetricsRecorderForTest_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   enableFrameSinkManagerTestApi(receiver) {
@@ -528,7 +550,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       22,  // ordinal
       viz.mojom.FrameSinkManager_EnableFrameSinkManagerTestApi_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   setupRendererInputRouterDelegateRegistry(receiver) {
@@ -537,7 +560,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       23,  // ordinal
       viz.mojom.FrameSinkManager_SetupRendererInputRouterDelegateRegistry_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   notifyRendererBlockStateChanged(blocked, render_input_routers) {
@@ -546,7 +570,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       24,  // ordinal
       viz.mojom.FrameSinkManager_NotifyRendererBlockStateChanged_ParamsSpec,
       null,
-      [blocked, render_input_routers]);
+      [blocked, render_input_routers],
+      false);
   }
 
   requestInputBack() {
@@ -555,7 +580,8 @@ viz.mojom.FrameSinkManagerRemoteCallHandler = class {
       25,  // ordinal
       viz.mojom.FrameSinkManager_RequestInputBack_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -665,7 +691,8 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.FrameSinkManagerClient_OnFirstSurfaceActivation_ParamsSpec,
       null,
-      [surface_info]);
+      [surface_info],
+      false);
   }
 
   onAggregatedHitTestRegionListUpdated(frame_sink_id, hit_test_data) {
@@ -674,7 +701,8 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.FrameSinkManagerClient_OnAggregatedHitTestRegionListUpdated_ParamsSpec,
       null,
-      [frame_sink_id, hit_test_data]);
+      [frame_sink_id, hit_test_data],
+      false);
   }
 
   onFrameTokenChanged(frame_sink_id, frame_token, activation_time) {
@@ -683,7 +711,8 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.FrameSinkManagerClient_OnFrameTokenChanged_ParamsSpec,
       null,
-      [frame_sink_id, frame_token, activation_time]);
+      [frame_sink_id, frame_token, activation_time],
+      false);
   }
 
   verifyThreadIdsDoNotBelongToHost(thread_ids) {
@@ -692,7 +721,8 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ParamsSpec,
       viz.mojom.FrameSinkManagerClient_VerifyThreadIdsDoNotBelongToHost_ResponseParamsSpec,
-      [thread_ids]);
+      [thread_ids],
+      false);
   }
 
   onScreenshotCaptured(destination_token, copy_output_result) {
@@ -701,7 +731,8 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.FrameSinkManagerClient_OnScreenshotCaptured_ParamsSpec,
       null,
-      [destination_token, copy_output_result]);
+      [destination_token, copy_output_result],
+      false);
   }
 
   onVizTouchStateAvailable(region) {
@@ -710,7 +741,8 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.FrameSinkManagerClient_OnVizTouchStateAvailable_ParamsSpec,
       null,
-      [region]);
+      [region],
+      false);
   }
 
   onViewTransitionResourcesCaptured(transition_token) {
@@ -719,7 +751,8 @@ viz.mojom.FrameSinkManagerClientRemoteCallHandler = class {
       6,  // ordinal
       viz.mojom.FrameSinkManagerClient_OnViewTransitionResourcesCaptured_ParamsSpec,
       null,
-      [transition_token]);
+      [transition_token],
+      false);
   }
 
 };
@@ -785,7 +818,8 @@ viz.mojom.RendererInputRouterDelegateRegistryRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.RendererInputRouterDelegateRegistry_SetupRenderInputRouterDelegateConnection_ParamsSpec,
       null,
-      [id, rir_delegate_client_remote, rir_delegate_receiver]);
+      [id, rir_delegate_client_remote, rir_delegate_receiver],
+      false);
   }
 
 };

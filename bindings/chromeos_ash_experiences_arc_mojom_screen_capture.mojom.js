@@ -107,7 +107,8 @@ arc.mojom.ScreenCaptureHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec,
       arc.mojom.ScreenCaptureHost_RequestPermission_ResponseParamsSpec,
-      [display_name, package_name]);
+      [display_name, package_name],
+      false);
   }
 
   testModeAcceptPermission(package_name) {
@@ -116,7 +117,8 @@ arc.mojom.ScreenCaptureHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.ScreenCaptureHost_TestModeAcceptPermission_ParamsSpec,
       null,
-      [package_name]);
+      [package_name],
+      false);
   }
 
   openSession(notifier, package_name, size) {
@@ -125,7 +127,8 @@ arc.mojom.ScreenCaptureHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.ScreenCaptureHost_OpenSession_ParamsSpec,
       arc.mojom.ScreenCaptureHost_OpenSession_ResponseParamsSpec,
-      [notifier, package_name, size]);
+      [notifier, package_name, size],
+      false);
   }
 
 };
@@ -209,7 +212,8 @@ arc.mojom.ScreenCaptureSessionRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec,
       arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ResponseParamsSpec,
-      [graphics_buffer, stride]);
+      [graphics_buffer, stride],
+      false);
   }
 
   setOutputBuffer(graphics_buffer, buffer_format, buffer_format_modifier, stride) {
@@ -218,7 +222,8 @@ arc.mojom.ScreenCaptureSessionRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.ScreenCaptureSession_SetOutputBuffer_ParamsSpec,
       arc.mojom.ScreenCaptureSession_SetOutputBuffer_ResponseParamsSpec,
-      [graphics_buffer, buffer_format, buffer_format_modifier, stride]);
+      [graphics_buffer, buffer_format, buffer_format_modifier, stride],
+      false);
   }
 
 };
@@ -287,7 +292,8 @@ arc.mojom.ScreenCaptureInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.ScreenCaptureInstance_Init_ParamsSpec,
       arc.mojom.ScreenCaptureInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };
@@ -350,7 +356,8 @@ arc.mojom.ScreenCaptureSessionNotifierRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

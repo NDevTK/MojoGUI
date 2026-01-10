@@ -376,10 +376,10 @@ mojo.internal.Struct(
 // Struct: XRSessionDeviceConfig
 mojo.internal.Struct(
     device.mojom.XRSessionDeviceConfigSpec, 'device.mojom.XRSessionDeviceConfig', [
-      mojo.internal.StructField('default_framebuffer_scale', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('default_framebuffer_scale', 0, 0, mojo.internal.Float, 1.0, false, 0, undefined),
       mojo.internal.StructField('views', 8, 0, mojo.internal.Array(device.mojom.XRViewSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('supports_viewport_scaling', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_anti_aliasing', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_anti_aliasing', 16, 1, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('depth_configuration', 24, 0, device.mojom.XRDepthConfigSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
@@ -656,7 +656,7 @@ mojo.internal.Struct(
 // Struct: XRCubeMap
 mojo.internal.Struct(
     device.mojom.XRCubeMapSpec, 'device.mojom.XRCubeMap', [
-      mojo.internal.StructField('kNumComponentsPerPixel', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kNumComponentsPerPixel', 0, 0, mojo.internal.Pointer, 4, false, 0, undefined),
       mojo.internal.StructField('width_and_height', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('positive_x', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
       mojo.internal.StructField('negative_x', 24, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
@@ -963,7 +963,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.VRService_SetClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   requestSession(options) {
@@ -972,7 +973,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.VRService_RequestSession_ParamsSpec,
       device.mojom.VRService_RequestSession_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   supportsSession(options) {
@@ -981,7 +983,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.VRService_SupportsSession_ParamsSpec,
       device.mojom.VRService_SupportsSession_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   exitPresent() {
@@ -990,7 +993,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.VRService_ExitPresent_ParamsSpec,
       device.mojom.VRService_ExitPresent_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setFramesThrottled(throttled) {
@@ -999,7 +1003,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.VRService_SetFramesThrottled_ParamsSpec,
       null,
-      [throttled]);
+      [throttled],
+      false);
   }
 
   makeXrCompatible() {
@@ -1008,7 +1013,8 @@ device.mojom.VRServiceRemoteCallHandler = class {
       5,  // ordinal
       device.mojom.VRService_MakeXrCompatible_ParamsSpec,
       device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1072,7 +1078,8 @@ device.mojom.XRSessionMetricsRecorderRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec,
       null,
-      [feature]);
+      [feature],
+      false);
   }
 
 };
@@ -1135,7 +1142,8 @@ device.mojom.VRServiceClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1247,7 +1255,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec,
       device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec,
-      [native_origin_information, entity_types, ray]);
+      [native_origin_information, entity_types, ray],
+      false);
   }
 
   subscribeToHitTestForTransientInput(profile_name, entity_types, ray) {
@@ -1256,7 +1265,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec,
       device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec,
-      [profile_name, entity_types, ray]);
+      [profile_name, entity_types, ray],
+      false);
   }
 
   unsubscribeFromHitTest(subscription_id) {
@@ -1265,7 +1275,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec,
       null,
-      [subscription_id]);
+      [subscription_id],
+      false);
   }
 
   createAnchor(native_origin_information, native_origin_from_anchor, plane_id) {
@@ -1274,7 +1285,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec,
       device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec,
-      [native_origin_information, native_origin_from_anchor, plane_id]);
+      [native_origin_information, native_origin_from_anchor, plane_id],
+      false);
   }
 
   detachAnchor(anchor_id) {
@@ -1283,7 +1295,8 @@ device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec,
       null,
-      [anchor_id]);
+      [anchor_id],
+      false);
   }
 
 };
@@ -1359,7 +1372,8 @@ device.mojom.XRFrameDataProviderRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec,
       device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   getEnvironmentIntegrationProvider(environment_provider) {
@@ -1368,7 +1382,8 @@ device.mojom.XRFrameDataProviderRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec,
       null,
-      [environment_provider]);
+      [environment_provider],
+      false);
   }
 
 };
@@ -1466,7 +1481,8 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec,
       null,
-      [frame_id, left_bounds, right_bounds, source_size]);
+      [frame_id, left_bounds, right_bounds, source_size],
+      false);
   }
 
   submitFrameMissing(frame_id, sync_token) {
@@ -1475,7 +1491,8 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec,
       null,
-      [frame_id, sync_token]);
+      [frame_id, sync_token],
+      false);
   }
 
   submitFrame(frame_id, time_waited) {
@@ -1484,7 +1501,8 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec,
       null,
-      [frame_id, time_waited]);
+      [frame_id, time_waited],
+      false);
   }
 
   submitFrameWithTextureHandle(frame_id, texture, sync_token) {
@@ -1493,7 +1511,8 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec,
       null,
-      [frame_id, texture, sync_token]);
+      [frame_id, texture, sync_token],
+      false);
   }
 
   submitFrameDrawnIntoTexture(frame_id, layer_ids, sync_token, time_waited) {
@@ -1502,7 +1521,8 @@ device.mojom.XRPresentationProviderRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec,
       null,
-      [frame_id, layer_ids, sync_token, time_waited]);
+      [frame_id, layer_ids, sync_token, time_waited],
+      false);
   }
 
 };
@@ -1577,7 +1597,8 @@ device.mojom.XRPresentationClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec,
       null,
-      [success]);
+      [success],
+      false);
   }
 
   onSubmitFrameRendered() {
@@ -1586,7 +1607,8 @@ device.mojom.XRPresentationClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSubmitFrameGpuFence(gpu_fence_handle) {
@@ -1595,7 +1617,8 @@ device.mojom.XRPresentationClientRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec,
       null,
-      [gpu_fence_handle]);
+      [gpu_fence_handle],
+      false);
   }
 
 };
@@ -1664,7 +1687,8 @@ device.mojom.XRSessionClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRSessionClient_OnExitPresent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onVisibilityStateChanged(visibility_state) {
@@ -1673,7 +1697,8 @@ device.mojom.XRSessionClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec,
       null,
-      [visibility_state]);
+      [visibility_state],
+      false);
   }
 
 };
@@ -1762,7 +1787,8 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec,
       device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec,
-      [create_data]);
+      [create_data],
+      false);
   }
 
   destroyCompositionLayer(layer_id) {
@@ -1771,7 +1797,8 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec,
       null,
-      [layer_id]);
+      [layer_id],
+      false);
   }
 
   updateCompositionLayer(layer_id, update_data) {
@@ -1780,7 +1807,8 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec,
       null,
-      [layer_id, update_data]);
+      [layer_id, update_data],
+      false);
   }
 
   setEnabledCompositionLayers(layer_ids) {
@@ -1789,7 +1817,8 @@ device.mojom.XRLayerManagerRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec,
       null,
-      [layer_ids]);
+      [layer_ids],
+      false);
   }
 
 };
@@ -1859,7 +1888,8 @@ device.mojom.WebXrInternalsRendererListenerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec,
       null,
-      [xrframe_statistics]);
+      [xrframe_statistics],
+      false);
   }
 
   onConsoleLog(xrlogging_statistics) {
@@ -1868,7 +1898,8 @@ device.mojom.WebXrInternalsRendererListenerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec,
       null,
-      [xrlogging_statistics]);
+      [xrlogging_statistics],
+      false);
   }
 
 };

@@ -82,7 +82,8 @@ blink.mojom.BlobReaderClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BlobReaderClient_OnCalculatedSize_ParamsSpec,
       null,
-      [total_size, expected_content_size]);
+      [total_size, expected_content_size],
+      false);
   }
 
   onComplete(status, data_length) {
@@ -91,7 +92,8 @@ blink.mojom.BlobReaderClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BlobReaderClient_OnComplete_ParamsSpec,
       null,
-      [status, data_length]);
+      [status, data_length],
+      false);
   }
 
 };
@@ -220,7 +222,8 @@ blink.mojom.BlobRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.Blob_Clone_ParamsSpec,
       null,
-      [blob]);
+      [blob],
+      false);
   }
 
   asDataPipeGetter(data_pipe_getter) {
@@ -229,7 +232,8 @@ blink.mojom.BlobRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.Blob_AsDataPipeGetter_ParamsSpec,
       null,
-      [data_pipe_getter]);
+      [data_pipe_getter],
+      false);
   }
 
   readAll(pipe, client) {
@@ -238,7 +242,8 @@ blink.mojom.BlobRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.Blob_ReadAll_ParamsSpec,
       null,
-      [pipe, client]);
+      [pipe, client],
+      false);
   }
 
   readRange(offset, length, pipe, client) {
@@ -247,7 +252,8 @@ blink.mojom.BlobRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.Blob_ReadRange_ParamsSpec,
       null,
-      [offset, length, pipe, client]);
+      [offset, length, pipe, client],
+      false);
   }
 
   load(loader, request_method, headers, client) {
@@ -256,7 +262,8 @@ blink.mojom.BlobRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.Blob_Load_ParamsSpec,
       null,
-      [loader, request_method, headers, client]);
+      [loader, request_method, headers, client],
+      false);
   }
 
   readSideData() {
@@ -265,7 +272,8 @@ blink.mojom.BlobRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.Blob_ReadSideData_ParamsSpec,
       blink.mojom.Blob_ReadSideData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   captureSnapshot() {
@@ -274,7 +282,8 @@ blink.mojom.BlobRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.Blob_CaptureSnapshot_ParamsSpec,
       blink.mojom.Blob_CaptureSnapshot_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getInternalUUID() {
@@ -283,7 +292,8 @@ blink.mojom.BlobRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.Blob_GetInternalUUID_ParamsSpec,
       blink.mojom.Blob_GetInternalUUID_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

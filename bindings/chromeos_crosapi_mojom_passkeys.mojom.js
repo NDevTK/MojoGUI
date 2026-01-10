@@ -181,7 +181,8 @@ crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.PasskeyAuthenticator_Create_ParamsSpec,
       crosapi.mojom.PasskeyAuthenticator_Create_ResponseParamsSpec,
-      [account, request]);
+      [account, request],
+      false);
   }
 
   assert(account, request) {
@@ -190,7 +191,8 @@ crosapi.mojom.PasskeyAuthenticatorRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.PasskeyAuthenticator_Assert_ParamsSpec,
       crosapi.mojom.PasskeyAuthenticator_Assert_ResponseParamsSpec,
-      [account, request]);
+      [account, request],
+      false);
   }
 
 };

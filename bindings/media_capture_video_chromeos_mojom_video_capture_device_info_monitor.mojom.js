@@ -61,7 +61,8 @@ cros.mojom.VideoCaptureDeviceInfoObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec,
       null,
-      [camera_id, device_id]);
+      [camera_id, device_id],
+      false);
   }
 
 };
@@ -125,7 +126,8 @@ cros.mojom.VideoCaptureDeviceInfoMonitorRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

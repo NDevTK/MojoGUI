@@ -66,7 +66,8 @@ guest_contents.mojom.GuestContentsHostRemoteCallHandler = class {
       0,  // ordinal
       guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec,
       guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec,
-      [frame_to_swap, guest_contents_id]);
+      [frame_to_swap, guest_contents_id],
+      false);
   }
 
 };

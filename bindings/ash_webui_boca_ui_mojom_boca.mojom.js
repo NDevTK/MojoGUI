@@ -851,7 +851,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.boca.mojom.PageHandler_AuthenticateWebview_ParamsSpec,
       ash.boca.mojom.PageHandler_AuthenticateWebview_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getWindowsTabsList() {
@@ -860,7 +861,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.boca.mojom.PageHandler_GetWindowsTabsList_ParamsSpec,
       ash.boca.mojom.PageHandler_GetWindowsTabsList_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   listCourses() {
@@ -869,7 +871,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.boca.mojom.PageHandler_ListCourses_ParamsSpec,
       ash.boca.mojom.PageHandler_ListCourses_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   listStudents(course_id) {
@@ -878,7 +881,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.boca.mojom.PageHandler_ListStudents_ParamsSpec,
       ash.boca.mojom.PageHandler_ListStudents_ResponseParamsSpec,
-      [course_id]);
+      [course_id],
+      false);
   }
 
   listAssignments(course_id) {
@@ -887,7 +891,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.boca.mojom.PageHandler_ListAssignments_ParamsSpec,
       ash.boca.mojom.PageHandler_ListAssignments_ResponseParamsSpec,
-      [course_id]);
+      [course_id],
+      false);
   }
 
   createSession(config) {
@@ -896,7 +901,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.boca.mojom.PageHandler_CreateSession_ParamsSpec,
       ash.boca.mojom.PageHandler_CreateSession_ResponseParamsSpec,
-      [config]);
+      [config],
+      false);
   }
 
   getSession() {
@@ -905,7 +911,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       ash.boca.mojom.PageHandler_GetSession_ParamsSpec,
       ash.boca.mojom.PageHandler_GetSession_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   endSession() {
@@ -914,7 +921,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       ash.boca.mojom.PageHandler_EndSession_ParamsSpec,
       ash.boca.mojom.PageHandler_EndSession_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   extendSessionDuration(extended_duration) {
@@ -923,7 +931,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       ash.boca.mojom.PageHandler_ExtendSessionDuration_ParamsSpec,
       ash.boca.mojom.PageHandler_ExtendSessionDuration_ResponseParamsSpec,
-      [extended_duration]);
+      [extended_duration],
+      false);
   }
 
   removeStudent(student_id) {
@@ -932,7 +941,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       ash.boca.mojom.PageHandler_RemoveStudent_ParamsSpec,
       ash.boca.mojom.PageHandler_RemoveStudent_ResponseParamsSpec,
-      [student_id]);
+      [student_id],
+      false);
   }
 
   renotifyStudent(student_id) {
@@ -941,7 +951,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       ash.boca.mojom.PageHandler_RenotifyStudent_ParamsSpec,
       ash.boca.mojom.PageHandler_RenotifyStudent_ResponseParamsSpec,
-      [student_id]);
+      [student_id],
+      false);
   }
 
   addStudents(students) {
@@ -950,7 +961,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       ash.boca.mojom.PageHandler_AddStudents_ParamsSpec,
       ash.boca.mojom.PageHandler_AddStudents_ResponseParamsSpec,
-      [students]);
+      [students],
+      false);
   }
 
   updateOnTaskConfig(on_task_config) {
@@ -959,7 +971,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ParamsSpec,
       ash.boca.mojom.PageHandler_UpdateOnTaskConfig_ResponseParamsSpec,
-      [on_task_config]);
+      [on_task_config],
+      false);
   }
 
   updateCaptionConfig(caption_config) {
@@ -968,7 +981,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       ash.boca.mojom.PageHandler_UpdateCaptionConfig_ParamsSpec,
       ash.boca.mojom.PageHandler_UpdateCaptionConfig_ResponseParamsSpec,
-      [caption_config]);
+      [caption_config],
+      false);
   }
 
   setFloatMode(is_float_mode) {
@@ -977,7 +991,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       ash.boca.mojom.PageHandler_SetFloatMode_ParamsSpec,
       ash.boca.mojom.PageHandler_SetFloatMode_ResponseParamsSpec,
-      [is_float_mode]);
+      [is_float_mode],
+      false);
   }
 
   submitAccessCode(access_code) {
@@ -986,7 +1001,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       ash.boca.mojom.PageHandler_SubmitAccessCode_ParamsSpec,
       ash.boca.mojom.PageHandler_SubmitAccessCode_ResponseParamsSpec,
-      [access_code]);
+      [access_code],
+      false);
   }
 
   viewStudentScreen(id) {
@@ -995,7 +1011,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       ash.boca.mojom.PageHandler_ViewStudentScreen_ParamsSpec,
       ash.boca.mojom.PageHandler_ViewStudentScreen_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   endViewScreenSession(id) {
@@ -1004,7 +1021,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       17,  // ordinal
       ash.boca.mojom.PageHandler_EndViewScreenSession_ParamsSpec,
       ash.boca.mojom.PageHandler_EndViewScreenSession_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   setViewScreenSessionActive(id) {
@@ -1013,7 +1031,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       18,  // ordinal
       ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ParamsSpec,
       ash.boca.mojom.PageHandler_SetViewScreenSessionActive_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   getUserPref(pref) {
@@ -1022,7 +1041,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       19,  // ordinal
       ash.boca.mojom.PageHandler_GetUserPref_ParamsSpec,
       ash.boca.mojom.PageHandler_GetUserPref_ResponseParamsSpec,
-      [pref]);
+      [pref],
+      false);
   }
 
   setUserPref(pref, value) {
@@ -1031,7 +1051,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       20,  // ordinal
       ash.boca.mojom.PageHandler_SetUserPref_ParamsSpec,
       ash.boca.mojom.PageHandler_SetUserPref_ResponseParamsSpec,
-      [pref, value]);
+      [pref, value],
+      false);
   }
 
   setSitePermission(url, permission, setting) {
@@ -1040,7 +1061,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       21,  // ordinal
       ash.boca.mojom.PageHandler_SetSitePermission_ParamsSpec,
       ash.boca.mojom.PageHandler_SetSitePermission_ResponseParamsSpec,
-      [url, permission, setting]);
+      [url, permission, setting],
+      false);
   }
 
   closeTab(tab_id) {
@@ -1049,7 +1071,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       22,  // ordinal
       ash.boca.mojom.PageHandler_CloseTab_ParamsSpec,
       ash.boca.mojom.PageHandler_CloseTab_ResponseParamsSpec,
-      [tab_id]);
+      [tab_id],
+      false);
   }
 
   openFeedbackDialog() {
@@ -1058,7 +1081,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       23,  // ordinal
       ash.boca.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec,
       ash.boca.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   refreshWorkbook() {
@@ -1067,7 +1091,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       24,  // ordinal
       ash.boca.mojom.PageHandler_RefreshWorkbook_ParamsSpec,
       ash.boca.mojom.PageHandler_RefreshWorkbook_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSpeechRecognitionInstallationStatus() {
@@ -1076,7 +1101,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       25,  // ordinal
       ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ParamsSpec,
       ash.boca.mojom.PageHandler_GetSpeechRecognitionInstallationStatus_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startSpotlight(crd_connection_code) {
@@ -1085,7 +1111,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       26,  // ordinal
       ash.boca.mojom.PageHandler_StartSpotlight_ParamsSpec,
       ash.boca.mojom.PageHandler_StartSpotlight_ResponseParamsSpec,
-      [crd_connection_code]);
+      [crd_connection_code],
+      false);
   }
 
   presentStudentScreen(student, receiver_id) {
@@ -1094,7 +1121,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       27,  // ordinal
       ash.boca.mojom.PageHandler_PresentStudentScreen_ParamsSpec,
       ash.boca.mojom.PageHandler_PresentStudentScreen_ResponseParamsSpec,
-      [student, receiver_id]);
+      [student, receiver_id],
+      false);
   }
 
   stopPresentingStudentScreen() {
@@ -1103,7 +1131,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       28,  // ordinal
       ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ParamsSpec,
       ash.boca.mojom.PageHandler_StopPresentingStudentScreen_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   presentOwnScreen(receiver_id) {
@@ -1112,7 +1141,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       29,  // ordinal
       ash.boca.mojom.PageHandler_PresentOwnScreen_ParamsSpec,
       ash.boca.mojom.PageHandler_PresentOwnScreen_ResponseParamsSpec,
-      [receiver_id]);
+      [receiver_id],
+      false);
   }
 
   stopPresentingOwnScreen() {
@@ -1121,7 +1151,8 @@ ash.boca.mojom.PageHandlerRemoteCallHandler = class {
       30,  // ordinal
       ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ParamsSpec,
       ash.boca.mojom.PageHandler_StopPresentingOwnScreen_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1236,7 +1267,8 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       ash.boca.mojom.Page_OnStudentActivityUpdated_ParamsSpec,
       null,
-      [activities]);
+      [activities],
+      false);
   }
 
   onSessionConfigUpdated(config) {
@@ -1245,7 +1277,8 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       ash.boca.mojom.Page_OnSessionConfigUpdated_ParamsSpec,
       null,
-      [config]);
+      [config],
+      false);
   }
 
   onActiveNetworkStateChanged(active_networks) {
@@ -1254,7 +1287,8 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       ash.boca.mojom.Page_OnActiveNetworkStateChanged_ParamsSpec,
       null,
-      [active_networks]);
+      [active_networks],
+      false);
   }
 
   onLocalCaptionDisabled() {
@@ -1263,7 +1297,8 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       ash.boca.mojom.Page_OnLocalCaptionDisabled_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSpeechRecognitionInstallStateUpdated(state) {
@@ -1272,7 +1307,8 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       4,  // ordinal
       ash.boca.mojom.Page_OnSpeechRecognitionInstallStateUpdated_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   onSessionCaptionDisabled(is_error) {
@@ -1281,7 +1317,8 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       5,  // ordinal
       ash.boca.mojom.Page_OnSessionCaptionDisabled_ParamsSpec,
       null,
-      [is_error]);
+      [is_error],
+      false);
   }
 
   onFrameDataReceived(frame_data) {
@@ -1290,7 +1327,8 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       6,  // ordinal
       ash.boca.mojom.Page_OnFrameDataReceived_ParamsSpec,
       null,
-      [frame_data]);
+      [frame_data],
+      false);
   }
 
   onSpotlightCrdSessionStatusUpdated(state) {
@@ -1299,7 +1337,8 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       7,  // ordinal
       ash.boca.mojom.Page_OnSpotlightCrdSessionStatusUpdated_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   onPresentStudentScreenEnded() {
@@ -1308,7 +1347,8 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       8,  // ordinal
       ash.boca.mojom.Page_OnPresentStudentScreenEnded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onPresentOwnScreenEnded() {
@@ -1317,7 +1357,8 @@ ash.boca.mojom.PageRemoteCallHandler = class {
       9,  // ordinal
       ash.boca.mojom.Page_OnPresentOwnScreenEnded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1382,7 +1423,8 @@ ash.boca.mojom.BocaPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.boca.mojom.BocaPageHandlerFactory_Create_ParamsSpec,
       null,
-      [handler, page]);
+      [handler, page],
+      false);
   }
 
 };

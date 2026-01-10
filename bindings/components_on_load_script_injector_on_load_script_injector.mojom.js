@@ -63,7 +63,8 @@ on_load_script_injector.mojom.OnLoadScriptInjectorRemoteCallHandler = class {
       0,  // ordinal
       on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec,
       null,
-      [script]);
+      [script],
+      false);
   }
 
   clearOnLoadScripts() {
@@ -72,7 +73,8 @@ on_load_script_injector.mojom.OnLoadScriptInjectorRemoteCallHandler = class {
       1,  // ordinal
       on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

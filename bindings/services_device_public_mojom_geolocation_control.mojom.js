@@ -56,7 +56,8 @@ device.mojom.GeolocationControlRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

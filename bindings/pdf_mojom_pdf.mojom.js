@@ -117,7 +117,8 @@ pdf.mojom.SaveDataBufferHandlerRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.SaveDataBufferHandler_Read_ParamsSpec,
       pdf.mojom.SaveDataBufferHandler_Read_ResponseParamsSpec,
-      [offset, block_size]);
+      [offset, block_size],
+      false);
   }
 
 };
@@ -244,7 +245,8 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.PdfListener_SetCaretPosition_ParamsSpec,
       null,
-      [position]);
+      [position],
+      false);
   }
 
   moveRangeSelectionExtent(extent) {
@@ -253,7 +255,8 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
       1,  // ordinal
       pdf.mojom.PdfListener_MoveRangeSelectionExtent_ParamsSpec,
       null,
-      [extent]);
+      [extent],
+      false);
   }
 
   setSelectionBounds(base, extent) {
@@ -262,7 +265,8 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
       2,  // ordinal
       pdf.mojom.PdfListener_SetSelectionBounds_ParamsSpec,
       null,
-      [base, extent]);
+      [base, extent],
+      false);
   }
 
   getPdfBytes(size_limit) {
@@ -271,7 +275,8 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
       3,  // ordinal
       pdf.mojom.PdfListener_GetPdfBytes_ParamsSpec,
       pdf.mojom.PdfListener_GetPdfBytes_ResponseParamsSpec,
-      [size_limit]);
+      [size_limit],
+      false);
   }
 
   getPageText(page_index) {
@@ -280,7 +285,8 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
       4,  // ordinal
       pdf.mojom.PdfListener_GetPageText_ParamsSpec,
       pdf.mojom.PdfListener_GetPageText_ResponseParamsSpec,
-      [page_index]);
+      [page_index],
+      false);
   }
 
   getMostVisiblePageIndex() {
@@ -289,7 +295,8 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
       5,  // ordinal
       pdf.mojom.PdfListener_GetMostVisiblePageIndex_ParamsSpec,
       pdf.mojom.PdfListener_GetMostVisiblePageIndex_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSaveDataBufferHandlerForDrive(request_type) {
@@ -298,7 +305,8 @@ pdf.mojom.PdfListenerRemoteCallHandler = class {
       6,  // ordinal
       pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ParamsSpec,
       pdf.mojom.PdfListener_GetSaveDataBufferHandlerForDrive_ResponseParamsSpec,
-      [request_type]);
+      [request_type],
+      false);
   }
 
 };
@@ -400,7 +408,8 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.PdfHost_SetListener_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   onDocumentLoadComplete() {
@@ -409,7 +418,8 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
       1,  // ordinal
       pdf.mojom.PdfHost_OnDocumentLoadComplete_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateContentRestrictions(restrictions) {
@@ -418,7 +428,8 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
       2,  // ordinal
       pdf.mojom.PdfHost_UpdateContentRestrictions_ParamsSpec,
       null,
-      [restrictions]);
+      [restrictions],
+      false);
   }
 
   saveUrlAs(url, policy) {
@@ -427,7 +438,8 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
       3,  // ordinal
       pdf.mojom.PdfHost_SaveUrlAs_ParamsSpec,
       null,
-      [url, policy]);
+      [url, policy],
+      false);
   }
 
   selectionChanged(left, left_height, right, right_height) {
@@ -436,7 +448,8 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
       4,  // ordinal
       pdf.mojom.PdfHost_SelectionChanged_ParamsSpec,
       null,
-      [left, left_height, right, right_height]);
+      [left, left_height, right, right_height],
+      false);
   }
 
   setPluginCanSave(can_save) {
@@ -445,7 +458,8 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
       5,  // ordinal
       pdf.mojom.PdfHost_SetPluginCanSave_ParamsSpec,
       null,
-      [can_save]);
+      [can_save],
+      false);
   }
 
   onSearchifyStarted() {
@@ -454,7 +468,8 @@ pdf.mojom.PdfHostRemoteCallHandler = class {
       6,  // ordinal
       pdf.mojom.PdfHost_OnSearchifyStarted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

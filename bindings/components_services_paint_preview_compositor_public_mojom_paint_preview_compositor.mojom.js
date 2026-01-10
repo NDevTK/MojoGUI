@@ -187,7 +187,8 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
       0,  // ordinal
       paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ParamsSpec,
       paint_preview.mojom.PaintPreviewCompositor_BeginSeparatedFrameComposite_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   bitmapForSeparatedFrame(frame_guid, clip_rect, scale_factor) {
@@ -196,7 +197,8 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
       1,  // ordinal
       paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ParamsSpec,
       paint_preview.mojom.PaintPreviewCompositor_BitmapForSeparatedFrame_ResponseParamsSpec,
-      [frame_guid, clip_rect, scale_factor]);
+      [frame_guid, clip_rect, scale_factor],
+      false);
   }
 
   beginMainFrameComposite(request) {
@@ -205,7 +207,8 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
       2,  // ordinal
       paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ParamsSpec,
       paint_preview.mojom.PaintPreviewCompositor_BeginMainFrameComposite_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   bitmapForMainFrame(clip_rect, scale_factor) {
@@ -214,7 +217,8 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
       3,  // ordinal
       paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ParamsSpec,
       paint_preview.mojom.PaintPreviewCompositor_BitmapForMainFrame_ResponseParamsSpec,
-      [clip_rect, scale_factor]);
+      [clip_rect, scale_factor],
+      false);
   }
 
   setRootFrameUrl(url) {
@@ -223,7 +227,8 @@ paint_preview.mojom.PaintPreviewCompositorRemoteCallHandler = class {
       4,  // ordinal
       paint_preview.mojom.PaintPreviewCompositor_SetRootFrameUrl_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
 };
@@ -310,7 +315,8 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
       0,  // ordinal
       paint_preview.mojom.PaintPreviewCompositorCollection_SetDiscardableSharedMemoryManager_ParamsSpec,
       null,
-      [manager]);
+      [manager],
+      false);
   }
 
   createCompositor(compositor) {
@@ -319,7 +325,8 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
       1,  // ordinal
       paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ParamsSpec,
       paint_preview.mojom.PaintPreviewCompositorCollection_CreateCompositor_ResponseParamsSpec,
-      [compositor]);
+      [compositor],
+      false);
   }
 
   listCompositors() {
@@ -328,7 +335,8 @@ paint_preview.mojom.PaintPreviewCompositorCollectionRemoteCallHandler = class {
       2,  // ordinal
       paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ParamsSpec,
       paint_preview.mojom.PaintPreviewCompositorCollection_ListCompositors_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

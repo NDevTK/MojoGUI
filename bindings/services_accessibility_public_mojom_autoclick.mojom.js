@@ -64,7 +64,8 @@ ax.mojom.AutoclickRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.Autoclick_RequestScrollableBoundsForPoint_ParamsSpec,
       null,
-      [point]);
+      [point],
+      false);
   }
 
 };
@@ -139,7 +140,8 @@ ax.mojom.AutoclickClientRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.AutoclickClient_HandleScrollableBoundsForPointFound_ParamsSpec,
       null,
-      [bounds]);
+      [bounds],
+      false);
   }
 
   bindAutoclick() {
@@ -148,7 +150,8 @@ ax.mojom.AutoclickClientRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.AutoclickClient_BindAutoclick_ParamsSpec,
       ax.mojom.AutoclickClient_BindAutoclick_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

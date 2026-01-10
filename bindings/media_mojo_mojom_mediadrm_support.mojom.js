@@ -75,7 +75,8 @@ media.mojom.MediaDrmSupportRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec,
       media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec,
-      [key_system, is_secure]);
+      [key_system, is_secure],
+      false);
   }
 
 };

@@ -169,7 +169,8 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.DiskSpaceHost_IsQuotaSupported_ParamsSpec,
       arc.mojom.DiskSpaceHost_IsQuotaSupported_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getQuotaCurrentSpaceForUid(uid) {
@@ -178,7 +179,8 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ParamsSpec,
       arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForUid_ResponseParamsSpec,
-      [uid]);
+      [uid],
+      false);
   }
 
   getQuotaCurrentSpaceForGid(gid) {
@@ -187,7 +189,8 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ParamsSpec,
       arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForGid_ResponseParamsSpec,
-      [gid]);
+      [gid],
+      false);
   }
 
   getQuotaCurrentSpaceForProjectId(project_id) {
@@ -196,7 +199,8 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ParamsSpec,
       arc.mojom.DiskSpaceHost_GetQuotaCurrentSpaceForProjectId_ResponseParamsSpec,
-      [project_id]);
+      [project_id],
+      false);
   }
 
   getQuotaCurrentSpacesForIds(uids, gids, project_ids) {
@@ -205,7 +209,8 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ParamsSpec,
       arc.mojom.DiskSpaceHost_GetQuotaCurrentSpacesForIds_ResponseParamsSpec,
-      [uids, gids, project_ids]);
+      [uids, gids, project_ids],
+      false);
   }
 
   getFreeDiskSpace() {
@@ -214,7 +219,8 @@ arc.mojom.DiskSpaceHostRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ParamsSpec,
       arc.mojom.DiskSpaceHost_GetFreeDiskSpace_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -301,7 +307,8 @@ arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.DiskSpaceInstance_Init_ParamsSpec,
       arc.mojom.DiskSpaceInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   getApplicationsSize() {
@@ -310,7 +317,8 @@ arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.DiskSpaceInstance_GetApplicationsSize_ParamsSpec,
       arc.mojom.DiskSpaceInstance_GetApplicationsSize_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   resizeStorageBalloon(free_space_bytes) {
@@ -319,7 +327,8 @@ arc.mojom.DiskSpaceInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.DiskSpaceInstance_ResizeStorageBalloon_ParamsSpec,
       null,
-      [free_space_bytes]);
+      [free_space_bytes],
+      false);
   }
 
 };

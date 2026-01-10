@@ -64,7 +64,8 @@ blink.mojom.FileUtilitiesHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileUtilitiesHost_GetFileInfo_ParamsSpec,
       blink.mojom.FileUtilitiesHost_GetFileInfo_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
 };

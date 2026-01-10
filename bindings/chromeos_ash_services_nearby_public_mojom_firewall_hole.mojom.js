@@ -118,7 +118,8 @@ sharing.mojom.FirewallHoleFactoryRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec,
       sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec,
-      [port]);
+      [port],
+      false);
   }
 
 };

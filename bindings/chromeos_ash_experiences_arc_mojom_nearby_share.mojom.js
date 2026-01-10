@@ -138,7 +138,8 @@ arc.mojom.NearbyShareSessionInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -210,7 +211,8 @@ arc.mojom.NearbyShareHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec,
       arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec,
-      [task_id, info, instance]);
+      [task_id, info, instance],
+      false);
   }
 
 };
@@ -279,7 +281,8 @@ arc.mojom.NearbyShareInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.NearbyShareInstance_Init_ParamsSpec,
       arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

@@ -47,7 +47,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('trust_anchors_and_leafs', 32, 0, mojo.internal.Array(cert_verifier.mojom.CertWithConstraintsSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('trust_leafs', 40, 0, mojo.internal.Array(cert_verifier.mojom.CertWithConstraintsSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('distrusted_spkis', 48, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('include_system_trust_store', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('include_system_trust_store', 56, 0, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -112,7 +112,8 @@ cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
       0,  // ordinal
       cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec,
       null,
-      [certificates]);
+      [certificates],
+      false);
   }
 
   waitUntilNextUpdateForTesting() {
@@ -121,7 +122,8 @@ cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
       1,  // ordinal
       cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec,
       cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setCTPolicy(ct_policy) {
@@ -130,7 +132,8 @@ cert_verifier.mojom.CertVerifierServiceUpdaterRemoteCallHandler = class {
       2,  // ordinal
       cert_verifier.mojom.CertVerifierServiceUpdater_SetCTPolicy_ParamsSpec,
       null,
-      [ct_policy]);
+      [ct_policy],
+      false);
   }
 
 };

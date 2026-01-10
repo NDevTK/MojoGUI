@@ -257,7 +257,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('request', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('value', 10, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('index', 12, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('kSecurityKeyAOAModel', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kSecurityKeyAOAModel', 16, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -491,7 +491,8 @@ device.mojom.UsbDeviceRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.UsbDevice_Open_ParamsSpec,
       device.mojom.UsbDevice_Open_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   close() {
@@ -500,7 +501,8 @@ device.mojom.UsbDeviceRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.UsbDevice_Close_ParamsSpec,
       device.mojom.UsbDevice_Close_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setConfiguration(value) {
@@ -509,7 +511,8 @@ device.mojom.UsbDeviceRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.UsbDevice_SetConfiguration_ParamsSpec,
       device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   claimInterface(interface_number) {
@@ -518,7 +521,8 @@ device.mojom.UsbDeviceRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.UsbDevice_ClaimInterface_ParamsSpec,
       device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec,
-      [interface_number]);
+      [interface_number],
+      false);
   }
 
   releaseInterface(interface_number) {
@@ -527,7 +531,8 @@ device.mojom.UsbDeviceRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.UsbDevice_ReleaseInterface_ParamsSpec,
       device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec,
-      [interface_number]);
+      [interface_number],
+      false);
   }
 
   setInterfaceAlternateSetting(interface_number, alternate_setting) {
@@ -536,7 +541,8 @@ device.mojom.UsbDeviceRemoteCallHandler = class {
       5,  // ordinal
       device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec,
       device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec,
-      [interface_number, alternate_setting]);
+      [interface_number, alternate_setting],
+      false);
   }
 
   reset() {
@@ -545,7 +551,8 @@ device.mojom.UsbDeviceRemoteCallHandler = class {
       6,  // ordinal
       device.mojom.UsbDevice_Reset_ParamsSpec,
       device.mojom.UsbDevice_Reset_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   clearHalt(direction, endpoint_number) {
@@ -554,7 +561,8 @@ device.mojom.UsbDeviceRemoteCallHandler = class {
       7,  // ordinal
       device.mojom.UsbDevice_ClearHalt_ParamsSpec,
       device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec,
-      [direction, endpoint_number]);
+      [direction, endpoint_number],
+      false);
   }
 
   controlTransferIn(params, length, timeout) {
@@ -563,7 +571,8 @@ device.mojom.UsbDeviceRemoteCallHandler = class {
       8,  // ordinal
       device.mojom.UsbDevice_ControlTransferIn_ParamsSpec,
       device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec,
-      [params, length, timeout]);
+      [params, length, timeout],
+      false);
   }
 
   controlTransferOut(params, data, timeout) {
@@ -572,7 +581,8 @@ device.mojom.UsbDeviceRemoteCallHandler = class {
       9,  // ordinal
       device.mojom.UsbDevice_ControlTransferOut_ParamsSpec,
       device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec,
-      [params, data, timeout]);
+      [params, data, timeout],
+      false);
   }
 
   genericTransferIn(endpoint_number, length, timeout) {
@@ -581,7 +591,8 @@ device.mojom.UsbDeviceRemoteCallHandler = class {
       10,  // ordinal
       device.mojom.UsbDevice_GenericTransferIn_ParamsSpec,
       device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec,
-      [endpoint_number, length, timeout]);
+      [endpoint_number, length, timeout],
+      false);
   }
 
   genericTransferOut(endpoint_number, data, timeout) {
@@ -590,7 +601,8 @@ device.mojom.UsbDeviceRemoteCallHandler = class {
       11,  // ordinal
       device.mojom.UsbDevice_GenericTransferOut_ParamsSpec,
       device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec,
-      [endpoint_number, data, timeout]);
+      [endpoint_number, data, timeout],
+      false);
   }
 
   isochronousTransferIn(endpoint_number, packet_lengths, timeout) {
@@ -599,7 +611,8 @@ device.mojom.UsbDeviceRemoteCallHandler = class {
       12,  // ordinal
       device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec,
       device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec,
-      [endpoint_number, packet_lengths, timeout]);
+      [endpoint_number, packet_lengths, timeout],
+      false);
   }
 
   isochronousTransferOut(endpoint_number, data, packet_lengths, timeout) {
@@ -608,7 +621,8 @@ device.mojom.UsbDeviceRemoteCallHandler = class {
       13,  // ordinal
       device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec,
       device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec,
-      [endpoint_number, data, packet_lengths, timeout]);
+      [endpoint_number, data, packet_lengths, timeout],
+      false);
   }
 
 };
@@ -676,7 +690,8 @@ device.mojom.UsbDeviceClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.UsbDeviceClient_OnDeviceOpened_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onDeviceClosed() {
@@ -685,7 +700,8 @@ device.mojom.UsbDeviceClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.UsbDeviceClient_OnDeviceClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

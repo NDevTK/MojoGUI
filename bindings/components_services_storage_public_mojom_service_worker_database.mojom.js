@@ -43,7 +43,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('scope', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('key', 16, 0, blink.mojom.StorageKeySpec, null, false, 0, undefined),
       mojo.internal.StructField('script', 24, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('script_type', 32, 0, blink.mojom.ScriptTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('script_type', 32, 0, blink.mojom.ScriptTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('version_id', 40, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('is_active', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('last_update_check', 56, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),

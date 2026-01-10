@@ -69,7 +69,8 @@ chromecast.mojom.MessageCallbackRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.MessageCallback_OnMessage_ParamsSpec,
       null,
-      [list]);
+      [list],
+      false);
   }
 
 };
@@ -141,7 +142,8 @@ chromecast.mojom.WebUiRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec,
       null,
-      [message, cb]);
+      [message, cb],
+      false);
   }
 
   callJavascriptFunction(function, args) {
@@ -150,7 +152,8 @@ chromecast.mojom.WebUiRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec,
       null,
-      [function, args]);
+      [function, args],
+      false);
   }
 
 };
@@ -220,7 +223,8 @@ chromecast.mojom.ResourcesRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec,
       chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
 };
@@ -293,7 +297,8 @@ chromecast.mojom.WebUiClientRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.WebUiClient_CreateController_ParamsSpec,
       null,
-      [host, web_ui, resources]);
+      [host, web_ui, resources],
+      false);
   }
 
   createResources(host, resources) {
@@ -302,7 +307,8 @@ chromecast.mojom.WebUiClientRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.WebUiClient_CreateResources_ParamsSpec,
       null,
-      [host, resources]);
+      [host, resources],
+      false);
   }
 
 };

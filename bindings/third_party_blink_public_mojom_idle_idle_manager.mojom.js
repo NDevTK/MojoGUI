@@ -80,7 +80,8 @@ blink.mojom.IdleMonitorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.IdleMonitor_Update_ParamsSpec,
       null,
-      [state, is_overridden_by_devtools]);
+      [state, is_overridden_by_devtools],
+      false);
   }
 
 };
@@ -151,7 +152,8 @@ blink.mojom.IdleManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.IdleManager_AddMonitor_ParamsSpec,
       blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec,
-      [monitor]);
+      [monitor],
+      false);
   }
 
 };

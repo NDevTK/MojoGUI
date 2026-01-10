@@ -57,7 +57,8 @@ test.mojom.MojoFileSystemAccessTestRemoteCallHandler = class {
       0,  // ordinal
       test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec,
       null,
-      [h]);
+      [h],
+      false);
   }
 
 };

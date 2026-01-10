@@ -95,7 +95,8 @@ webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
       0,  // ordinal
       webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec,
       null,
-      [constant_handle, data_type, data]);
+      [constant_handle, data_type, data],
+      false);
   }
 
   createGraph(graph_info) {
@@ -104,7 +105,8 @@ webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
       1,  // ordinal
       webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec,
       null,
-      [graph_info]);
+      [graph_info],
+      false);
   }
 
   isValidGraphForTesting(context_properties, graph_info) {
@@ -113,7 +115,8 @@ webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
       2,  // ordinal
       webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec,
       webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec,
-      [context_properties, graph_info]);
+      [context_properties, graph_info],
+      false);
   }
 
 };

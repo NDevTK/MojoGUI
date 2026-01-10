@@ -120,7 +120,8 @@ heap_profiling.mojom.ProfilingClientRemoteCallHandler = class {
       0,  // ordinal
       heap_profiling.mojom.ProfilingClient_StartProfiling_ParamsSpec,
       heap_profiling.mojom.ProfilingClient_StartProfiling_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
   retrieveHeapProfile() {
@@ -129,7 +130,8 @@ heap_profiling.mojom.ProfilingClientRemoteCallHandler = class {
       1,  // ordinal
       heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ParamsSpec,
       heap_profiling.mojom.ProfilingClient_RetrieveHeapProfile_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

@@ -67,7 +67,8 @@ media.mojom.ProvisionFetcherRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.ProvisionFetcher_Retrieve_ParamsSpec,
       media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec,
-      [default_url, request_data]);
+      [default_url, request_data],
+      false);
   }
 
 };

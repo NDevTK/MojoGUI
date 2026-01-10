@@ -309,7 +309,8 @@ tab_search.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       tab_search.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -601,7 +602,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       tab_search.mojom.PageHandler_CloseTab_ParamsSpec,
       null,
-      [tab_id]);
+      [tab_id],
+      false);
   }
 
   closeWebUiTab() {
@@ -610,7 +612,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       tab_search.mojom.PageHandler_CloseWebUiTab_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   declutterTabs(tab_ids, urls) {
@@ -619,7 +622,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       tab_search.mojom.PageHandler_DeclutterTabs_ParamsSpec,
       null,
-      [tab_ids, urls]);
+      [tab_ids, urls],
+      false);
   }
 
   acceptTabOrganization(session_id, organization_id, tabs) {
@@ -628,7 +632,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       tab_search.mojom.PageHandler_AcceptTabOrganization_ParamsSpec,
       null,
-      [session_id, organization_id, tabs]);
+      [session_id, organization_id, tabs],
+      false);
   }
 
   rejectTabOrganization(session_id, organization_id) {
@@ -637,7 +642,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       tab_search.mojom.PageHandler_RejectTabOrganization_ParamsSpec,
       null,
-      [session_id, organization_id]);
+      [session_id, organization_id],
+      false);
   }
 
   renameTabOrganization(session_id, organization_id, name) {
@@ -646,7 +652,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       tab_search.mojom.PageHandler_RenameTabOrganization_ParamsSpec,
       null,
-      [session_id, organization_id, name]);
+      [session_id, organization_id, name],
+      false);
   }
 
   excludeFromStaleTabs(tab_id) {
@@ -655,7 +662,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       tab_search.mojom.PageHandler_ExcludeFromStaleTabs_ParamsSpec,
       null,
-      [tab_id]);
+      [tab_id],
+      false);
   }
 
   excludeFromDuplicateTabs(url) {
@@ -664,7 +672,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       tab_search.mojom.PageHandler_ExcludeFromDuplicateTabs_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   getProfileData() {
@@ -673,7 +682,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       tab_search.mojom.PageHandler_GetProfileData_ParamsSpec,
       tab_search.mojom.PageHandler_GetProfileData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getUnusedTabs() {
@@ -682,7 +692,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       tab_search.mojom.PageHandler_GetUnusedTabs_ParamsSpec,
       tab_search.mojom.PageHandler_GetUnusedTabs_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getTabSearchSection() {
@@ -691,7 +702,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       tab_search.mojom.PageHandler_GetTabSearchSection_ParamsSpec,
       tab_search.mojom.PageHandler_GetTabSearchSection_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getTabOrganizationFeature() {
@@ -700,7 +712,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       tab_search.mojom.PageHandler_GetTabOrganizationFeature_ParamsSpec,
       tab_search.mojom.PageHandler_GetTabOrganizationFeature_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getTabOrganizationSession() {
@@ -709,7 +722,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       tab_search.mojom.PageHandler_GetTabOrganizationSession_ParamsSpec,
       tab_search.mojom.PageHandler_GetTabOrganizationSession_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getTabOrganizationModelStrategy() {
@@ -718,7 +732,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ParamsSpec,
       tab_search.mojom.PageHandler_GetTabOrganizationModelStrategy_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getIsSplit() {
@@ -727,7 +742,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       tab_search.mojom.PageHandler_GetIsSplit_ParamsSpec,
       tab_search.mojom.PageHandler_GetIsSplit_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   switchToTab(switch_to_tab_info) {
@@ -736,7 +752,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       tab_search.mojom.PageHandler_SwitchToTab_ParamsSpec,
       null,
-      [switch_to_tab_info]);
+      [switch_to_tab_info],
+      false);
   }
 
   openRecentlyClosedEntry(session_id) {
@@ -745,7 +762,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       tab_search.mojom.PageHandler_OpenRecentlyClosedEntry_ParamsSpec,
       null,
-      [session_id]);
+      [session_id],
+      false);
   }
 
   requestTabOrganization() {
@@ -754,7 +772,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       17,  // ordinal
       tab_search.mojom.PageHandler_RequestTabOrganization_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   removeTabFromOrganization(session_id, organization_id, tab) {
@@ -763,7 +782,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       18,  // ordinal
       tab_search.mojom.PageHandler_RemoveTabFromOrganization_ParamsSpec,
       null,
-      [session_id, organization_id, tab]);
+      [session_id, organization_id, tab],
+      false);
   }
 
   rejectSession(session_id) {
@@ -772,7 +792,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       19,  // ordinal
       tab_search.mojom.PageHandler_RejectSession_ParamsSpec,
       null,
-      [session_id]);
+      [session_id],
+      false);
   }
 
   replaceActiveSplitTab(replacement_tab_id) {
@@ -781,7 +802,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       20,  // ordinal
       tab_search.mojom.PageHandler_ReplaceActiveSplitTab_ParamsSpec,
       null,
-      [replacement_tab_id]);
+      [replacement_tab_id],
+      false);
   }
 
   restartSession() {
@@ -790,7 +812,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       21,  // ordinal
       tab_search.mojom.PageHandler_RestartSession_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   saveRecentlyClosedExpandedPref(expanded) {
@@ -799,7 +822,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       22,  // ordinal
       tab_search.mojom.PageHandler_SaveRecentlyClosedExpandedPref_ParamsSpec,
       null,
-      [expanded]);
+      [expanded],
+      false);
   }
 
   setOrganizationFeature(feature) {
@@ -808,7 +832,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       23,  // ordinal
       tab_search.mojom.PageHandler_SetOrganizationFeature_ParamsSpec,
       null,
-      [feature]);
+      [feature],
+      false);
   }
 
   startTabGroupTutorial() {
@@ -817,7 +842,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       24,  // ordinal
       tab_search.mojom.PageHandler_StartTabGroupTutorial_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   triggerFeedback(session_id) {
@@ -826,7 +852,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       25,  // ordinal
       tab_search.mojom.PageHandler_TriggerFeedback_ParamsSpec,
       null,
-      [session_id]);
+      [session_id],
+      false);
   }
 
   triggerSignIn() {
@@ -835,7 +862,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       26,  // ordinal
       tab_search.mojom.PageHandler_TriggerSignIn_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openHelpPage() {
@@ -844,7 +872,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       27,  // ordinal
       tab_search.mojom.PageHandler_OpenHelpPage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setTabOrganizationModelStrategy(strategy) {
@@ -853,7 +882,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       28,  // ordinal
       tab_search.mojom.PageHandler_SetTabOrganizationModelStrategy_ParamsSpec,
       null,
-      [strategy]);
+      [strategy],
+      false);
   }
 
   setTabOrganizationUserInstruction(user_instruction) {
@@ -862,7 +892,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       29,  // ordinal
       tab_search.mojom.PageHandler_SetTabOrganizationUserInstruction_ParamsSpec,
       null,
-      [user_instruction]);
+      [user_instruction],
+      false);
   }
 
   setUserFeedback(session_id, feedback) {
@@ -871,7 +902,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       30,  // ordinal
       tab_search.mojom.PageHandler_SetUserFeedback_ParamsSpec,
       null,
-      [session_id, feedback]);
+      [session_id, feedback],
+      false);
   }
 
   notifyOrganizationUIReadyToShow() {
@@ -880,7 +912,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       31,  // ordinal
       tab_search.mojom.PageHandler_NotifyOrganizationUIReadyToShow_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   notifySearchUIReadyToShow() {
@@ -889,7 +922,8 @@ tab_search.mojom.PageHandlerRemoteCallHandler = class {
       32,  // ordinal
       tab_search.mojom.PageHandler_NotifySearchUIReadyToShow_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1017,7 +1051,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       tab_search.mojom.Page_TabOrganizationSessionUpdated_ParamsSpec,
       null,
-      [session]);
+      [session],
+      false);
   }
 
   tabOrganizationModelStrategyUpdated(strategy) {
@@ -1026,7 +1061,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       tab_search.mojom.Page_TabOrganizationModelStrategyUpdated_ParamsSpec,
       null,
-      [strategy]);
+      [strategy],
+      false);
   }
 
   hostWindowChanged() {
@@ -1035,7 +1071,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       tab_search.mojom.Page_HostWindowChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   tabsChanged(profile_tabs) {
@@ -1044,7 +1081,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       tab_search.mojom.Page_TabsChanged_ParamsSpec,
       null,
-      [profile_tabs]);
+      [profile_tabs],
+      false);
   }
 
   tabUpdated(tabUpdateInfo) {
@@ -1053,7 +1091,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
       4,  // ordinal
       tab_search.mojom.Page_TabUpdated_ParamsSpec,
       null,
-      [tabUpdateInfo]);
+      [tabUpdateInfo],
+      false);
   }
 
   tabsRemoved(tabsRemovedInfo) {
@@ -1062,7 +1101,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
       5,  // ordinal
       tab_search.mojom.Page_TabsRemoved_ParamsSpec,
       null,
-      [tabsRemovedInfo]);
+      [tabsRemovedInfo],
+      false);
   }
 
   tabSearchSectionChanged(section) {
@@ -1071,7 +1111,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
       6,  // ordinal
       tab_search.mojom.Page_TabSearchSectionChanged_ParamsSpec,
       null,
-      [section]);
+      [section],
+      false);
   }
 
   tabOrganizationFeatureChanged(feature) {
@@ -1080,7 +1121,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
       7,  // ordinal
       tab_search.mojom.Page_TabOrganizationFeatureChanged_ParamsSpec,
       null,
-      [feature]);
+      [feature],
+      false);
   }
 
   showFREChanged(show) {
@@ -1089,7 +1131,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
       8,  // ordinal
       tab_search.mojom.Page_ShowFREChanged_ParamsSpec,
       null,
-      [show]);
+      [show],
+      false);
   }
 
   tabOrganizationEnabledChanged(enabled) {
@@ -1098,7 +1141,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
       9,  // ordinal
       tab_search.mojom.Page_TabOrganizationEnabledChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   unusedTabsChanged(tabs) {
@@ -1107,7 +1151,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
       10,  // ordinal
       tab_search.mojom.Page_UnusedTabsChanged_ParamsSpec,
       null,
-      [tabs]);
+      [tabs],
+      false);
   }
 
   tabUnsplit() {
@@ -1116,7 +1161,8 @@ tab_search.mojom.PageRemoteCallHandler = class {
       11,  // ordinal
       tab_search.mojom.Page_TabUnsplit_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

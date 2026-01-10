@@ -85,7 +85,8 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PdfToEmfConverter_ConvertPage_ParamsSpec,
       printing.mojom.PdfToEmfConverter_ConvertPage_ResponseParamsSpec,
-      [page_index]);
+      [page_index],
+      false);
   }
 
   setWebContentsURL(url) {
@@ -94,7 +95,8 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
       1,  // ordinal
       printing.mojom.PdfToEmfConverter_SetWebContentsURL_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   setUseSkiaRendererPolicy(use_skia) {
@@ -103,7 +105,8 @@ printing.mojom.PdfToEmfConverterRemoteCallHandler = class {
       2,  // ordinal
       printing.mojom.PdfToEmfConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      [use_skia]);
+      [use_skia],
+      false);
   }
 
 };
@@ -175,7 +178,8 @@ printing.mojom.PdfToEmfConverterFactoryRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PdfToEmfConverterFactory_CreateConverter_ParamsSpec,
       printing.mojom.PdfToEmfConverterFactory_CreateConverter_ResponseParamsSpec,
-      [pdf_region, render_settings]);
+      [pdf_region, render_settings],
+      false);
   }
 
 };

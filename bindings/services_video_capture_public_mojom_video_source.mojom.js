@@ -161,7 +161,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_Activate_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   suspend() {
@@ -170,7 +171,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_Suspend_ParamsSpec,
       video_capture.mojom.PushVideoStreamSubscription_Suspend_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   resume() {
@@ -179,7 +181,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       2,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_Resume_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getPhotoState() {
@@ -188,7 +191,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       3,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ParamsSpec,
       video_capture.mojom.PushVideoStreamSubscription_GetPhotoState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setPhotoOptions(settings) {
@@ -197,7 +201,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       4,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ParamsSpec,
       video_capture.mojom.PushVideoStreamSubscription_SetPhotoOptions_ResponseParamsSpec,
-      [settings]);
+      [settings],
+      false);
   }
 
   takePhoto() {
@@ -206,7 +211,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       5,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ParamsSpec,
       video_capture.mojom.PushVideoStreamSubscription_TakePhoto_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   close() {
@@ -215,7 +221,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       6,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_Close_ParamsSpec,
       video_capture.mojom.PushVideoStreamSubscription_Close_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   processFeedback(feedback) {
@@ -224,7 +231,8 @@ video_capture.mojom.PushVideoStreamSubscriptionRemoteCallHandler = class {
       7,  // ordinal
       video_capture.mojom.PushVideoStreamSubscription_ProcessFeedback_ParamsSpec,
       null,
-      [feedback]);
+      [feedback],
+      false);
   }
 
 };
@@ -298,7 +306,8 @@ video_capture.mojom.VideoSourceRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.VideoSource_CreatePushSubscription_ParamsSpec,
       video_capture.mojom.VideoSource_CreatePushSubscription_ResponseParamsSpec,
-      [subscriber, requested_settings, force_reopen_with_new_settings, subscription]);
+      [subscriber, requested_settings, force_reopen_with_new_settings, subscription],
+      false);
   }
 
 };

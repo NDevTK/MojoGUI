@@ -69,7 +69,8 @@ data_sharing_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       data_sharing_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -150,7 +151,8 @@ data_sharing_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       data_sharing_internals.mojom.PageHandler_IsEmptyService_ParamsSpec,
       data_sharing_internals.mojom.PageHandler_IsEmptyService_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAllGroups() {
@@ -159,7 +161,8 @@ data_sharing_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       data_sharing_internals.mojom.PageHandler_GetAllGroups_ParamsSpec,
       data_sharing_internals.mojom.PageHandler_GetAllGroups_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -227,7 +230,8 @@ data_sharing_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       data_sharing_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      [event_time, log_source, source_file, source_line, message]);
+      [event_time, log_source, source_file, source_line, message],
+      false);
   }
 
 };

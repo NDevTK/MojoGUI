@@ -62,7 +62,8 @@ prerender.mojom.NoStatePrefetchCancelerRemoteCallHandler = class {
       0,  // ordinal
       prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   cancelNoStatePrefetchAfterSubresourcesDiscovered() {
@@ -71,7 +72,8 @@ prerender.mojom.NoStatePrefetchCancelerRemoteCallHandler = class {
       1,  // ordinal
       prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

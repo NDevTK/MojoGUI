@@ -72,7 +72,8 @@ viz.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec,
       null,
-      [pixel_size, region]);
+      [pixel_size, region],
+      false);
   }
 
   draw() {
@@ -81,7 +82,8 @@ viz.mojom.LayeredWindowUpdaterRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec,
       viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

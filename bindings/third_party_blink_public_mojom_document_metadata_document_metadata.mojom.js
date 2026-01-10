@@ -75,7 +75,8 @@ blink.mojom.DocumentMetadataRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DocumentMetadata_GetEntities_ParamsSpec,
       blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

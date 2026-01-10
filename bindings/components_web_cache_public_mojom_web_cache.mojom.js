@@ -57,7 +57,8 @@ web_cache.mojom.WebCacheRemoteCallHandler = class {
       0,  // ordinal
       web_cache.mojom.WebCache_ClearCache_ParamsSpec,
       null,
-      [on_navigation]);
+      [on_navigation],
+      false);
   }
 
 };

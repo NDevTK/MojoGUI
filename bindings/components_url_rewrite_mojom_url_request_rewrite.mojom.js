@@ -171,7 +171,8 @@ url_rewrite.mojom.UrlRequestRulesReceiverRemoteCallHandler = class {
       0,  // ordinal
       url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec,
       null,
-      [rules]);
+      [rules],
+      false);
   }
 
 };

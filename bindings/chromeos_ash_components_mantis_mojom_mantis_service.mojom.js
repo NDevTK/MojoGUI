@@ -85,7 +85,8 @@ mantis.mojom.PlatformModelProgressObserverRemoteCallHandler = class {
       0,  // ordinal
       mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec,
       null,
-      [progress]);
+      [progress],
+      false);
   }
 
 };
@@ -169,7 +170,8 @@ mantis.mojom.MantisServiceRemoteCallHandler = class {
       1,  // ordinal
       mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec,
       mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   initialize(progress_observer, processor, dlc_uuid, text_classifier) {
@@ -178,7 +180,8 @@ mantis.mojom.MantisServiceRemoteCallHandler = class {
       0,  // ordinal
       mantis.mojom.MantisService_Initialize_ParamsSpec,
       mantis.mojom.MantisService_Initialize_ResponseParamsSpec,
-      [progress_observer, processor, dlc_uuid, text_classifier]);
+      [progress_observer, processor, dlc_uuid, text_classifier],
+      false);
   }
 
 };

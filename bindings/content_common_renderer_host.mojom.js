@@ -98,7 +98,8 @@ content.mojom.RendererHostRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec,
       content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec,
-      [name]);
+      [name],
+      false);
   }
 
   suddenTerminationAllowedChanged(allowed) {
@@ -107,7 +108,8 @@ content.mojom.RendererHostRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec,
       null,
-      [allowed]);
+      [allowed],
+      false);
   }
 
   recordUserMetricsAction(action) {
@@ -116,7 +118,8 @@ content.mojom.RendererHostRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec,
       null,
-      [action]);
+      [action],
+      false);
   }
 
   setPrivateMemoryFootprint(private_memory_footprint_bytes) {
@@ -125,7 +128,8 @@ content.mojom.RendererHostRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.RendererHost_SetPrivateMemoryFootprint_ParamsSpec,
       null,
-      [private_memory_footprint_bytes]);
+      [private_memory_footprint_bytes],
+      false);
   }
 
   hasGpuProcess() {
@@ -134,7 +138,8 @@ content.mojom.RendererHostRemoteCallHandler = class {
       4,  // ordinal
       content.mojom.RendererHost_HasGpuProcess_ParamsSpec,
       content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

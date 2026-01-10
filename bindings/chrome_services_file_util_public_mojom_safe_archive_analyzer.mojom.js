@@ -159,7 +159,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec,
       chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec,
-      [zip_file, password, temp_file_getter]);
+      [zip_file, password, temp_file_getter],
+      false);
   }
 
   analyzeDmgFile(dmg_file, temp_file_getter) {
@@ -168,7 +169,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec,
       chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec,
-      [dmg_file, temp_file_getter]);
+      [dmg_file, temp_file_getter],
+      false);
   }
 
   analyzeRarFile(rar_file, password, temp_file_getter) {
@@ -177,7 +179,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec,
       chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec,
-      [rar_file, password, temp_file_getter]);
+      [rar_file, password, temp_file_getter],
+      false);
   }
 
   analyzeSevenZipFile(seven_zip_file, temp_file_getter) {
@@ -186,7 +189,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
       3,  // ordinal
       chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec,
       chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec,
-      [seven_zip_file, temp_file_getter]);
+      [seven_zip_file, temp_file_getter],
+      false);
   }
 
   analyzeObfuscatedZipFile(zip_file, password, header_data, temp_file_getter) {
@@ -195,7 +199,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
       4,  // ordinal
       chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec,
       chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec,
-      [zip_file, password, header_data, temp_file_getter]);
+      [zip_file, password, header_data, temp_file_getter],
+      false);
   }
 
   analyzeObfuscatedRarFile(rar_file, password, header_data, temp_file_getter) {
@@ -204,7 +209,8 @@ chrome.mojom.SafeArchiveAnalyzerRemoteCallHandler = class {
       5,  // ordinal
       chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec,
       chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec,
-      [rar_file, password, header_data, temp_file_getter]);
+      [rar_file, password, header_data, temp_file_getter],
+      false);
   }
 
 };
@@ -273,7 +279,8 @@ chrome.mojom.TemporaryFileGetterRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec,
       chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

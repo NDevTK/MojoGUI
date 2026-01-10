@@ -230,14 +230,14 @@ mojo.internal.Union(
 // Struct: TelemetryAudioJackEventInfo
 mojo.internal.Struct(
     crosapi.mojom.TelemetryAudioJackEventInfoSpec, 'crosapi.mojom.TelemetryAudioJackEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TelemetryLidEventInfo
 mojo.internal.Struct(
     crosapi.mojom.TelemetryLidEventInfoSpec, 'crosapi.mojom.TelemetryLidEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -249,35 +249,35 @@ mojo.internal.Struct(
       mojo.internal.StructField('vid', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('pid', 18, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('categories', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('kUnmappedEnumField', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 32, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: TelemetryExternalDisplayEventInfo
 mojo.internal.Struct(
     crosapi.mojom.TelemetryExternalDisplayEventInfoSpec, 'crosapi.mojom.TelemetryExternalDisplayEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TelemetrySdCardEventInfo
 mojo.internal.Struct(
     crosapi.mojom.TelemetrySdCardEventInfoSpec, 'crosapi.mojom.TelemetrySdCardEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TelemetryPowerEventInfo
 mojo.internal.Struct(
     crosapi.mojom.TelemetryPowerEventInfoSpec, 'crosapi.mojom.TelemetryPowerEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TelemetryStylusGarageEventInfo
 mojo.internal.Struct(
     crosapi.mojom.TelemetryStylusGarageEventInfoSpec, 'crosapi.mojom.TelemetryStylusGarageEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -285,7 +285,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     crosapi.mojom.TelemetryTouchpadButtonEventInfoSpec, 'crosapi.mojom.TelemetryTouchpadButtonEventInfo', [
       mojo.internal.StructField('button', 0, 0, crosapi.mojom.TelemetryInputTouchButtonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('kUnmappedEnumField', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 8, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -413,7 +413,8 @@ crosapi.mojom.TelemetryEventObserverRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.TelemetryEventObserver_OnEvent_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
 };
@@ -490,7 +491,8 @@ crosapi.mojom.TelemetryEventServiceRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.TelemetryEventService_AddEventObserver_ParamsSpec,
       null,
-      [category, observer]);
+      [category, observer],
+      false);
   }
 
   isEventSupported(category) {
@@ -499,7 +501,8 @@ crosapi.mojom.TelemetryEventServiceRemoteCallHandler = class {
       2,  // ordinal
       crosapi.mojom.TelemetryEventService_IsEventSupported_ParamsSpec,
       crosapi.mojom.TelemetryEventService_IsEventSupported_ResponseParamsSpec,
-      [category]);
+      [category],
+      false);
   }
 
 };

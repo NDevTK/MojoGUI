@@ -78,7 +78,8 @@ blink.mojom.FileBackedBlobFactoryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec,
       null,
-      [blob, uuid, content_type, file]);
+      [blob, uuid, content_type, file],
+      false);
   }
 
   registerBlobSync(blob, uuid, content_type, file) {
@@ -87,7 +88,8 @@ blink.mojom.FileBackedBlobFactoryRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec,
       blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec,
-      [blob, uuid, content_type, file]);
+      [blob, uuid, content_type, file],
+      false);
   }
 
 };

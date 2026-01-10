@@ -59,7 +59,8 @@ ash.common.mojom.WebUiSyslogEmitterRemoteCallHandler = class {
       0,  // ordinal
       ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec,
       null,
-      [prefix, message]);
+      [prefix, message],
+      false);
   }
 
 };

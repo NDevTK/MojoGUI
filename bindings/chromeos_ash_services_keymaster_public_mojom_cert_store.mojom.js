@@ -98,7 +98,8 @@ arc.keymaster.mojom.CertStoreInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec,
       arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec,
-      [keys]);
+      [keys],
+      false);
   }
 
 };

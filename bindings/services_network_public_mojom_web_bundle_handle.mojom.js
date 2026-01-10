@@ -85,7 +85,8 @@ network.mojom.WebBundleHandleRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.WebBundleHandle_Clone_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   onWebBundleError(type, message) {
@@ -94,7 +95,8 @@ network.mojom.WebBundleHandleRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec,
       null,
-      [type, message]);
+      [type, message],
+      false);
   }
 
   onWebBundleLoadFinished(success) {
@@ -103,7 +105,8 @@ network.mojom.WebBundleHandleRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec,
       null,
-      [success]);
+      [success],
+      false);
   }
 
 };

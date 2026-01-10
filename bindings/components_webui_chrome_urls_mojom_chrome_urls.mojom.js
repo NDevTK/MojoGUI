@@ -87,7 +87,8 @@ chrome_urls.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       chrome_urls.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -167,7 +168,8 @@ chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       chrome_urls.mojom.PageHandler_GetUrls_ParamsSpec,
       chrome_urls.mojom.PageHandler_GetUrls_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setDebugPagesEnabled(enabled) {
@@ -176,7 +178,8 @@ chrome_urls.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ParamsSpec,
       chrome_urls.mojom.PageHandler_SetDebugPagesEnabled_ResponseParamsSpec,
-      [enabled]);
+      [enabled],
+      false);
   }
 
 };

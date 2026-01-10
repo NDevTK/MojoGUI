@@ -23,7 +23,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('allow_fullscreen', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('allow_payment_request', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_display_none', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('color_scheme', 24, 0, blink.mojom.ColorSchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('preferred_color_scheme', 28, 0, blink.mojom.PreferredColorSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('color_scheme', 24, 0, blink.mojom.ColorSchemeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('preferred_color_scheme', 28, 0, blink.mojom.PreferredColorSchemeSpec, 0, false, 0, undefined),
     ],
     [[0, 40]]);

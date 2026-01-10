@@ -78,7 +78,8 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
       0,  // ordinal
       dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   handleStoreThemePref(theme) {
@@ -87,7 +88,8 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
       1,  // ordinal
       dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec,
       null,
-      [theme]);
+      [theme],
+      false);
   }
 
   handleStoreFontFamilyPref(font_family) {
@@ -96,7 +98,8 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
       2,  // ordinal
       dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec,
       null,
-      [font_family]);
+      [font_family],
+      false);
   }
 
   handleStoreFontScalingPref(font_scale) {
@@ -105,7 +108,8 @@ dom_distiller.mojom.DistillerJavaScriptServiceRemoteCallHandler = class {
       3,  // ordinal
       dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec,
       null,
-      [font_scale]);
+      [font_scale],
+      false);
   }
 
 };

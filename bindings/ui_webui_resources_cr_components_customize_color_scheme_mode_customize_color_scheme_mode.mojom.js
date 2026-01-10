@@ -73,7 +73,8 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryRemoteCa
       0,  // ordinal
       customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec,
       null,
-      [pending_client, pending_handler]);
+      [pending_client, pending_handler],
+      false);
   }
 
 };
@@ -142,7 +143,8 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandl
       0,  // ordinal
       customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec,
       null,
-      [colorSchemeMode]);
+      [colorSchemeMode],
+      false);
   }
 
   initializeColorSchemeMode() {
@@ -151,7 +153,8 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemoteCallHandl
       1,  // ordinal
       customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -215,7 +218,8 @@ customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemoteCallHandle
       0,  // ordinal
       customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec,
       null,
-      [colorSchemeMode]);
+      [colorSchemeMode],
+      false);
   }
 
 };

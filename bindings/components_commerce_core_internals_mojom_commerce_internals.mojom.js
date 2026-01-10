@@ -119,7 +119,8 @@ commerce.mojom.CommerceInternalsHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       commerce.mojom.CommerceInternalsHandlerFactory_CreateCommerceInternalsHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -243,7 +244,8 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
       0,  // ordinal
       commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ParamsSpec,
       commerce.mojom.CommerceInternalsHandler_GetIsShoppingListEligible_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   resetPriceTrackingEmailPref() {
@@ -252,7 +254,8 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
       1,  // ordinal
       commerce.mojom.CommerceInternalsHandler_ResetPriceTrackingEmailPref_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getProductInfoForUrl(url) {
@@ -261,7 +264,8 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
       2,  // ordinal
       commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ParamsSpec,
       commerce.mojom.CommerceInternalsHandler_GetProductInfoForUrl_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   getSubscriptionDetails() {
@@ -270,7 +274,8 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
       3,  // ordinal
       commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ParamsSpec,
       commerce.mojom.CommerceInternalsHandler_GetSubscriptionDetails_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getProductSpecificationsDetails() {
@@ -279,7 +284,8 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
       4,  // ordinal
       commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ParamsSpec,
       commerce.mojom.CommerceInternalsHandler_GetProductSpecificationsDetails_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   resetProductSpecifications() {
@@ -288,7 +294,8 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
       5,  // ordinal
       commerce.mojom.CommerceInternalsHandler_ResetProductSpecifications_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getShoppingEligibilityDetails() {
@@ -297,7 +304,8 @@ commerce.mojom.CommerceInternalsHandlerRemoteCallHandler = class {
       6,  // ordinal
       commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ParamsSpec,
       commerce.mojom.CommerceInternalsHandler_GetShoppingEligibilityDetails_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -361,7 +369,8 @@ commerce.mojom.CommerceInternalsPageRemoteCallHandler = class {
       0,  // ordinal
       commerce.mojom.CommerceInternalsPage_OnShoppingListEligibilityChanged_ParamsSpec,
       null,
-      [eligible]);
+      [eligible],
+      false);
   }
 
 };

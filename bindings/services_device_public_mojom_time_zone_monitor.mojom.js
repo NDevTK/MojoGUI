@@ -60,7 +60,8 @@ device.mojom.TimeZoneMonitorRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.TimeZoneMonitor_AddClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
 };
@@ -124,7 +125,8 @@ device.mojom.TimeZoneMonitorClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec,
       null,
-      [tz_info]);
+      [tz_info],
+      false);
   }
 
 };

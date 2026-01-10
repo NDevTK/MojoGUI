@@ -96,7 +96,8 @@ extensions.mime_handler.MimeHandlerServiceRemoteCallHandler = class {
       0,  // ordinal
       extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec,
       extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setPdfPluginAttributes(pdf_plugin_attributes) {
@@ -105,7 +106,8 @@ extensions.mime_handler.MimeHandlerServiceRemoteCallHandler = class {
       1,  // ordinal
       extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec,
       null,
-      [pdf_plugin_attributes]);
+      [pdf_plugin_attributes],
+      false);
   }
 
 };
@@ -174,7 +176,8 @@ extensions.mime_handler.BeforeUnloadControlRemoteCallHandler = class {
       0,  // ordinal
       extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec,
       extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec,
-      [show_dialog]);
+      [show_dialog],
+      false);
   }
 
 };

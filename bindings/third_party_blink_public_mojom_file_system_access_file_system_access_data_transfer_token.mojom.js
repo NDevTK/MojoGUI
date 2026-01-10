@@ -70,7 +70,8 @@ blink.mojom.FileSystemAccessDataTransferTokenRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_ParamsSpec,
       blink.mojom.FileSystemAccessDataTransferToken_GetInternalId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   clone(token_clone) {
@@ -79,7 +80,8 @@ blink.mojom.FileSystemAccessDataTransferTokenRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemAccessDataTransferToken_Clone_ParamsSpec,
       null,
-      [token_clone]);
+      [token_clone],
+      false);
   }
 
 };

@@ -568,7 +568,7 @@ mojo.internal.Struct(
 // Struct: JapaneseSettings
 mojo.internal.Struct(
     ash.ime.mojom.JapaneseSettingsSpec, 'ash.ime.mojom.JapaneseSettings', [
-      mojo.internal.StructField('kUnspecified', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnspecified', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -762,7 +762,8 @@ ash.ime.mojom.InputMethodRemoteCallHandler = class {
       0,  // ordinal
       ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec,
       null,
-      [input_field_info, settings]);
+      [input_field_info, settings],
+      false);
   }
 
   onFocus(input_field_info, deprecated_settings) {
@@ -771,7 +772,8 @@ ash.ime.mojom.InputMethodRemoteCallHandler = class {
       6,  // ordinal
       ash.ime.mojom.InputMethod_OnFocus_ParamsSpec,
       ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec,
-      [input_field_info, deprecated_settings]);
+      [input_field_info, deprecated_settings],
+      false);
   }
 
   onBlur() {
@@ -780,7 +782,8 @@ ash.ime.mojom.InputMethodRemoteCallHandler = class {
       1,  // ordinal
       ash.ime.mojom.InputMethod_OnBlur_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   processKeyEvent(event) {
@@ -789,7 +792,8 @@ ash.ime.mojom.InputMethodRemoteCallHandler = class {
       2,  // ordinal
       ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec,
       ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec,
-      [event]);
+      [event],
+      false);
   }
 
   onSurroundingTextChanged(text, offset, selection_range) {
@@ -798,7 +802,8 @@ ash.ime.mojom.InputMethodRemoteCallHandler = class {
       3,  // ordinal
       ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec,
       null,
-      [text, offset, selection_range]);
+      [text, offset, selection_range],
+      false);
   }
 
   onCompositionCanceledBySystem() {
@@ -807,7 +812,8 @@ ash.ime.mojom.InputMethodRemoteCallHandler = class {
       4,  // ordinal
       ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onCandidateSelected(selected_candidate_index) {
@@ -816,7 +822,8 @@ ash.ime.mojom.InputMethodRemoteCallHandler = class {
       5,  // ordinal
       ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec,
       null,
-      [selected_candidate_index]);
+      [selected_candidate_index],
+      false);
   }
 
   onQuickSettingsUpdated(settings) {
@@ -825,7 +832,8 @@ ash.ime.mojom.InputMethodRemoteCallHandler = class {
       7,  // ordinal
       ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec,
       null,
-      [settings]);
+      [settings],
+      false);
   }
 
   isReadyForTesting() {
@@ -834,7 +842,8 @@ ash.ime.mojom.InputMethodRemoteCallHandler = class {
       8,  // ordinal
       ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec,
       ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onAssistiveWindowChanged(window) {
@@ -843,7 +852,8 @@ ash.ime.mojom.InputMethodRemoteCallHandler = class {
       9,  // ordinal
       ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec,
       null,
-      [window]);
+      [window],
+      false);
   }
 
 };

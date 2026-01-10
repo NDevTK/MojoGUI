@@ -115,7 +115,8 @@ translate.mojom.TranslateAgentRemoteCallHandler = class {
       0,  // ordinal
       translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec,
       translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec,
-      [translate_script, source_lang, target_lang]);
+      [translate_script, source_lang, target_lang],
+      false);
   }
 
   revertTranslation() {
@@ -124,7 +125,8 @@ translate.mojom.TranslateAgentRemoteCallHandler = class {
       1,  // ordinal
       translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -190,7 +192,8 @@ translate.mojom.ContentTranslateDriverRemoteCallHandler = class {
       0,  // ordinal
       translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec,
       null,
-      [translate_agent, details, translation_critiera_met]);
+      [translate_agent, details, translation_critiera_met],
+      false);
   }
 
 };

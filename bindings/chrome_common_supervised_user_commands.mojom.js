@@ -94,7 +94,8 @@ supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
       0,  // ordinal
       supervised_user.mojom.SupervisedUserCommands_GoBack_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   requestUrlAccessRemote() {
@@ -103,7 +104,8 @@ supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
       1,  // ordinal
       supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ParamsSpec,
       supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessRemote_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestUrlAccessLocal() {
@@ -112,7 +114,8 @@ supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
       2,  // ordinal
       supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ParamsSpec,
       supervised_user.mojom.SupervisedUserCommands_RequestUrlAccessLocal_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   learnMore() {
@@ -121,7 +124,8 @@ supervised_user.mojom.SupervisedUserCommandsRemoteCallHandler = class {
       3,  // ordinal
       supervised_user.mojom.SupervisedUserCommands_LearnMore_ParamsSpec,
       supervised_user.mojom.SupervisedUserCommands_LearnMore_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

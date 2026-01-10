@@ -33,7 +33,7 @@ blink.mojom.ServiceWorkerClientLifecycleState = {
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerClientQueryOptionsSpec, 'blink.mojom.ServiceWorkerClientQueryOptions', [
       mojo.internal.StructField('include_uncontrolled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('client_type', 4, 0, blink.mojom.ServiceWorkerClientTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('client_type', 4, 0, blink.mojom.ServiceWorkerClientTypeSpec, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -41,12 +41,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerClientInfoSpec, 'blink.mojom.ServiceWorkerClientInfo', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('frame_type', 8, 0, blink.mojom.RequestContextFrameTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('frame_type', 8, 0, blink.mojom.RequestContextFrameTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('client_uuid', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('client_type', 24, 0, blink.mojom.ServiceWorkerClientTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('page_hidden', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('page_hidden', 28, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('is_focused', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('lifecycle_state', 32, 0, blink.mojom.ServiceWorkerClientLifecycleStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('lifecycle_state', 32, 0, blink.mojom.ServiceWorkerClientLifecycleStateSpec, 0, false, 0, undefined),
       mojo.internal.StructField('last_focus_time', 40, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
       mojo.internal.StructField('creation_time', 48, 0, mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
     ],

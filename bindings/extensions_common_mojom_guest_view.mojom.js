@@ -80,7 +80,8 @@ extensions.mojom.GuestViewRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.GuestView_ReadyToCreateMimeHandlerView_ParamsSpec,
       null,
-      [success]);
+      [success],
+      false);
   }
 
   canExecuteContentScript(script_id) {
@@ -89,7 +90,8 @@ extensions.mojom.GuestViewRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.GuestView_CanExecuteContentScript_ParamsSpec,
       extensions.mojom.GuestView_CanExecuteContentScript_ResponseParamsSpec,
-      [script_id]);
+      [script_id],
+      false);
   }
 
 };
@@ -177,7 +179,8 @@ extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.MimeHandlerViewContainerManager_SetInternalId_ParamsSpec,
       null,
-      [token_id]);
+      [token_id],
+      false);
   }
 
   createBeforeUnloadControl() {
@@ -186,7 +189,8 @@ extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ParamsSpec,
       extensions.mojom.MimeHandlerViewContainerManager_CreateBeforeUnloadControl_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   destroyFrameContainer(element_instance_id) {
@@ -195,7 +199,8 @@ extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
       2,  // ordinal
       extensions.mojom.MimeHandlerViewContainerManager_DestroyFrameContainer_ParamsSpec,
       null,
-      [element_instance_id]);
+      [element_instance_id],
+      false);
   }
 
   didLoad(mime_handler_view_guest_element_instance_id, resource_url) {
@@ -204,7 +209,8 @@ extensions.mojom.MimeHandlerViewContainerManagerRemoteCallHandler = class {
       3,  // ordinal
       extensions.mojom.MimeHandlerViewContainerManager_DidLoad_ParamsSpec,
       null,
-      [mime_handler_view_guest_element_instance_id, resource_url]);
+      [mime_handler_view_guest_element_instance_id, resource_url],
+      false);
   }
 
 };

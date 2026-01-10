@@ -65,7 +65,8 @@ metrics.mojom.SingleSampleMetricsProviderRemoteCallHandler = class {
       0,  // ordinal
       metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec,
       null,
-      [histogram_name, min, max, bucket_count, flags, receiver]);
+      [histogram_name, min, max, bucket_count, flags, receiver],
+      false);
   }
 
 };
@@ -129,7 +130,8 @@ metrics.mojom.SingleSampleMetricRemoteCallHandler = class {
       0,  // ordinal
       metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec,
       null,
-      [sample]);
+      [sample],
+      false);
   }
 
 };

@@ -109,7 +109,7 @@ mojo.internal.Union(
 // Struct: RareProperties
 mojo.internal.Struct(
     viz.mojom.RarePropertiesSpec, 'viz.mojom.RareProperties', [
-      mojo.internal.StructField('filter_quality', 0, 0, cc.mojom.FilterQualitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('filter_quality', 0, 0, cc.mojom.FilterQualitySpec, 0, false, 0, undefined),
       mojo.internal.StructField('dynamic_range_limit', 8, 0, cc.mojom.DynamicRangeLimitSpec, null, false, 0, undefined),
       mojo.internal.StructField('capture_bounds', 16, 0, viz.mojom.RegionCaptureBoundsSpec, null, false, 0, undefined),
     ],
@@ -323,9 +323,9 @@ mojo.internal.Struct(
 // Struct: TransformTreeUpdate
 mojo.internal.Struct(
     viz.mojom.TransformTreeUpdateSpec, 'viz.mojom.TransformTreeUpdate', [
-      mojo.internal.StructField('page_scale_factor', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('device_scale_factor', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('device_transform_scale_factor', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('page_scale_factor', 0, 0, mojo.internal.Float, 1.0, false, 0, undefined),
+      mojo.internal.StructField('device_scale_factor', 4, 0, mojo.internal.Float, 1.0, false, 0, undefined),
+      mojo.internal.StructField('device_transform_scale_factor', 8, 0, mojo.internal.Float, 1.0, false, 0, undefined),
       mojo.internal.StructField('nodes_affected_by_outer_viewport_bounds_delta', 16, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
       mojo.internal.StructField('nodes_affected_by_safe_area_bottom', 24, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
       mojo.internal.StructField('sticky_position_data', 32, 0, mojo.internal.Array(viz.mojom.StickyPositionNodeDataSpec, false), null, false, 0, undefined),
@@ -410,7 +410,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('filters', 96, 0, viz.mojom.FilterOperationsSpec, null, false, 0, undefined),
       mojo.internal.StructField('backdrop_filters', 104, 0, viz.mojom.FilterOperationsSpec, null, false, 0, undefined),
       mojo.internal.StructField('backdrop_filter_bounds', 112, 0, skia.mojom.SkPathSpec, null, true, 0, undefined),
-      mojo.internal.StructField('backdrop_filter_quality', 120, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('backdrop_filter_quality', 120, 0, mojo.internal.Float, 1.0, false, 0, undefined),
       mojo.internal.StructField('backdrop_mask_element_id', 128, 0, cc.mojom.ElementIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('mask_filter_info', 136, 0, gfx.mojom.MaskFilterInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('cache_render_surface', 144, 0, mojo.internal.Bool, false, false, 0, undefined),

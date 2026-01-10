@@ -369,7 +369,8 @@ page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
       0,  // ordinal
       page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec,
       null,
-      [page_load_timing, frame_metadata, new_features, resources, render_data, cpu_load_timing, input_timing_delta, subresource_load_metrics, soft_navigation_metrics]);
+      [page_load_timing, frame_metadata, new_features, resources, render_data, cpu_load_timing, input_timing_delta, subresource_load_metrics, soft_navigation_metrics],
+      false);
   }
 
   setUpSharedMemoryForDroppedFrames(dropped_frames_memory) {
@@ -378,7 +379,8 @@ page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
       1,  // ordinal
       page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec,
       null,
-      [dropped_frames_memory]);
+      [dropped_frames_memory],
+      false);
   }
 
   addCustomUserTiming(custom_user_timing) {
@@ -387,7 +389,8 @@ page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
       2,  // ordinal
       page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec,
       null,
-      [custom_user_timing]);
+      [custom_user_timing],
+      false);
   }
 
 };

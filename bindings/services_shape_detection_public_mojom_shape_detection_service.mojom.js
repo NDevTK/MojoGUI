@@ -80,7 +80,8 @@ shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {
       0,  // ordinal
       shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindFaceDetectionProvider(receiver) {
@@ -89,7 +90,8 @@ shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {
       1,  // ordinal
       shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindTextDetection(receiver) {
@@ -98,7 +100,8 @@ shape_detection.mojom.ShapeDetectionServiceRemoteCallHandler = class {
       2,  // ordinal
       shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

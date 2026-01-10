@@ -62,7 +62,8 @@ remoting.mojom.ChromotingHostServicesRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };
@@ -138,7 +139,8 @@ remoting.mojom.ChromotingSessionServicesRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindRemoteUrlOpener(receiver) {
@@ -147,7 +149,8 @@ remoting.mojom.ChromotingSessionServicesRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindSecurityKeyForwarder(receiver) {
@@ -156,7 +159,8 @@ remoting.mojom.ChromotingSessionServicesRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

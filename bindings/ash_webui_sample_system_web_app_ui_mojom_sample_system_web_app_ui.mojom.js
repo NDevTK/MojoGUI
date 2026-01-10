@@ -79,7 +79,8 @@ ash.mojom.sample_swa.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler, page]);
+      [handler, page],
+      false);
   }
 
 };
@@ -159,7 +160,8 @@ ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec,
       ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   send(message) {
@@ -168,7 +170,8 @@ ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.mojom.sample_swa.PageHandler_Send_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
   doSomething() {
@@ -177,7 +180,8 @@ ash.mojom.sample_swa.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -248,7 +252,8 @@ ash.mojom.sample_swa.PageRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec,
       null,
-      [name]);
+      [name],
+      false);
   }
 
   createParentPage(child_untrusted_page, parent_trusted_page) {
@@ -257,7 +262,8 @@ ash.mojom.sample_swa.PageRemoteCallHandler = class {
       1,  // ordinal
       ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec,
       null,
-      [child_untrusted_page, parent_trusted_page]);
+      [child_untrusted_page, parent_trusted_page],
+      false);
   }
 
 };

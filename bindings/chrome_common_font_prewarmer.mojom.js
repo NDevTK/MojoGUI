@@ -61,7 +61,8 @@ chrome.mojom.FontPrewarmerRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec,
       null,
-      [font_names]);
+      [font_names],
+      false);
   }
 
 };
@@ -130,7 +131,8 @@ chrome.mojom.RenderFrameFontFamilyAccessorRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec,
       chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

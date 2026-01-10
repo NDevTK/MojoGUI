@@ -68,7 +68,8 @@ blink.mojom.ProgressClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ProgressClient_OnProgress_ParamsSpec,
       null,
-      [delta]);
+      [delta],
+      false);
   }
 
 };
@@ -157,7 +158,8 @@ blink.mojom.BlobRegistryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BlobRegistry_Register_ParamsSpec,
       blink.mojom.BlobRegistry_Register_ResponseParamsSpec,
-      [blob, uuid, content_type, content_disposition, elements]);
+      [blob, uuid, content_type, content_disposition, elements],
+      false);
   }
 
   registerFromStream(content_type, content_disposition, length_hint, data, progress_client) {
@@ -166,7 +168,8 @@ blink.mojom.BlobRegistryRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec,
       blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec,
-      [content_type, content_disposition, length_hint, data, progress_client]);
+      [content_type, content_disposition, length_hint, data, progress_client],
+      false);
   }
 
 };

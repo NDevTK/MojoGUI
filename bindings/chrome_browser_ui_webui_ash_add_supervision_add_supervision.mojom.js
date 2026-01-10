@@ -116,7 +116,8 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
       0,  // ordinal
       add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec,
       add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getInstalledArcApps() {
@@ -125,7 +126,8 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
       1,  // ordinal
       add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec,
       add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getOAuthToken() {
@@ -134,7 +136,8 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
       2,  // ordinal
       add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec,
       add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   logOut() {
@@ -143,7 +146,8 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
       3,  // ordinal
       add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   notifySupervisionEnabled() {
@@ -152,7 +156,8 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
       4,  // ordinal
       add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setCloseOnEscape(enabled) {
@@ -161,7 +166,8 @@ add_supervision.mojom.AddSupervisionHandlerRemoteCallHandler = class {
       5,  // ordinal
       add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
 };

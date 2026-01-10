@@ -89,7 +89,8 @@ media.mojom.CdmContextEventCallbackRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmContextEventCallback_EventCallback_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
 };
@@ -232,7 +233,8 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmContextForOOPVD_GetHwKeyData_ParamsSpec,
       media.mojom.CdmContextForOOPVD_GetHwKeyData_ResponseParamsSpec,
-      [decrypt_config, hw_identifier]);
+      [decrypt_config, hw_identifier],
+      false);
   }
 
   registerEventCallback(callback) {
@@ -241,7 +243,8 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.CdmContextForOOPVD_RegisterEventCallback_ParamsSpec,
       null,
-      [callback]);
+      [callback],
+      false);
   }
 
   getHwConfigData() {
@@ -250,7 +253,8 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.CdmContextForOOPVD_GetHwConfigData_ParamsSpec,
       media.mojom.CdmContextForOOPVD_GetHwConfigData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getScreenResolutions() {
@@ -259,7 +263,8 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.CdmContextForOOPVD_GetScreenResolutions_ParamsSpec,
       media.mojom.CdmContextForOOPVD_GetScreenResolutions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   allocateSecureBuffer(size) {
@@ -268,7 +273,8 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ParamsSpec,
       media.mojom.CdmContextForOOPVD_AllocateSecureBuffer_ResponseParamsSpec,
-      [size]);
+      [size],
+      false);
   }
 
   parseEncryptedSliceHeader(secure_handle, offset, stream_data) {
@@ -277,7 +283,8 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ParamsSpec,
       media.mojom.CdmContextForOOPVD_ParseEncryptedSliceHeader_ResponseParamsSpec,
-      [secure_handle, offset, stream_data]);
+      [secure_handle, offset, stream_data],
+      false);
   }
 
   decryptVideoBuffer(buffer, bytes) {
@@ -286,7 +293,8 @@ media.mojom.CdmContextForOOPVDRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ParamsSpec,
       media.mojom.CdmContextForOOPVD_DecryptVideoBuffer_ResponseParamsSpec,
-      [buffer, bytes]);
+      [buffer, bytes],
+      false);
   }
 
 };

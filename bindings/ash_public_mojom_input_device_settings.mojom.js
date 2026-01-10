@@ -199,12 +199,12 @@ mojo.internal.Union(
 // Struct: SixPackKeyInfo
 mojo.internal.Struct(
     ash.mojom.SixPackKeyInfoSpec, 'ash.mojom.SixPackKeyInfo', [
-      mojo.internal.StructField('home', 0, 0, ui.mojom.SixPackShortcutModifierSpec, null, false, 0, undefined),
-      mojo.internal.StructField('page_up', 4, 0, ui.mojom.SixPackShortcutModifierSpec, null, false, 0, undefined),
-      mojo.internal.StructField('page_down', 8, 0, ui.mojom.SixPackShortcutModifierSpec, null, false, 0, undefined),
-      mojo.internal.StructField('del', 12, 0, ui.mojom.SixPackShortcutModifierSpec, null, false, 0, undefined),
-      mojo.internal.StructField('insert', 16, 0, ui.mojom.SixPackShortcutModifierSpec, null, false, 0, undefined),
-      mojo.internal.StructField('end', 20, 0, ui.mojom.SixPackShortcutModifierSpec, null, false, 0, undefined),
+      mojo.internal.StructField('home', 0, 0, ui.mojom.SixPackShortcutModifierSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('page_up', 4, 0, ui.mojom.SixPackShortcutModifierSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('page_down', 8, 0, ui.mojom.SixPackShortcutModifierSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('del', 12, 0, ui.mojom.SixPackShortcutModifierSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('insert', 16, 0, ui.mojom.SixPackShortcutModifierSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('end', 20, 0, ui.mojom.SixPackShortcutModifierSpec, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

@@ -131,7 +131,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaDrmStorage_Initialize_ParamsSpec,
       media.mojom.MediaDrmStorage_Initialize_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onProvisioned() {
@@ -140,7 +141,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.MediaDrmStorage_OnProvisioned_ParamsSpec,
       media.mojom.MediaDrmStorage_OnProvisioned_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   savePersistentSession(session_id, session_data) {
@@ -149,7 +151,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.MediaDrmStorage_SavePersistentSession_ParamsSpec,
       media.mojom.MediaDrmStorage_SavePersistentSession_ResponseParamsSpec,
-      [session_id, session_data]);
+      [session_id, session_data],
+      false);
   }
 
   loadPersistentSession(session_id) {
@@ -158,7 +161,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.MediaDrmStorage_LoadPersistentSession_ParamsSpec,
       media.mojom.MediaDrmStorage_LoadPersistentSession_ResponseParamsSpec,
-      [session_id]);
+      [session_id],
+      false);
   }
 
   removePersistentSession(session_id) {
@@ -167,7 +171,8 @@ media.mojom.MediaDrmStorageRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.MediaDrmStorage_RemovePersistentSession_ParamsSpec,
       media.mojom.MediaDrmStorage_RemovePersistentSession_ResponseParamsSpec,
-      [session_id]);
+      [session_id],
+      false);
   }
 
 };

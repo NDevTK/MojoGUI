@@ -80,7 +80,8 @@ gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec,
       gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec,
-      [p]);
+      [p],
+      false);
   }
 
   echoRangeF(p) {
@@ -89,7 +90,8 @@ gfx.mojom.RangeTraitsTestServiceRemoteCallHandler = class {
       1,  // ordinal
       gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec,
       gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec,
-      [p]);
+      [p],
+      false);
   }
 
 };

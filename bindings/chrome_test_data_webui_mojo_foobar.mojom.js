@@ -71,7 +71,8 @@ test.mojom.FooRemoteCallHandler = class {
       0,  // ordinal
       test.mojom.Foo_GetFoo_ParamsSpec,
       test.mojom.Foo_GetFoo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -140,7 +141,8 @@ test.mojom.BarRemoteCallHandler = class {
       0,  // ordinal
       test.mojom.Bar_GetBar_ParamsSpec,
       test.mojom.Bar_GetBar_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -209,7 +211,8 @@ test.mojom.BazRemoteCallHandler = class {
       0,  // ordinal
       test.mojom.Baz_GetBaz_ParamsSpec,
       test.mojom.Baz_GetBaz_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

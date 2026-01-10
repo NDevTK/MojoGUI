@@ -100,7 +100,8 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
       0,  // ordinal
       ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec,
       null,
-      [jpeg, page_index]);
+      [jpeg, page_index],
+      false);
   }
 
   addPageInline(jpeg, page_index) {
@@ -109,7 +110,8 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
       1,  // ordinal
       ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec,
       null,
-      [jpeg, page_index]);
+      [jpeg, page_index],
+      false);
   }
 
   deletePage(page_index) {
@@ -118,7 +120,8 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
       2,  // ordinal
       ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec,
       null,
-      [page_index]);
+      [page_index],
+      false);
   }
 
   save() {
@@ -127,7 +130,8 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
       3,  // ordinal
       ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec,
       ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   saveInline() {
@@ -136,7 +140,8 @@ ash.camera_app.mojom.PdfBuilderRemoteCallHandler = class {
       4,  // ordinal
       ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec,
       ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

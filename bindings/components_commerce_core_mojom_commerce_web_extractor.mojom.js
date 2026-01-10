@@ -63,7 +63,8 @@ commerce_web_extractor.mojom.CommerceWebExtractorRemoteCallHandler = class {
       0,  // ordinal
       commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ParamsSpec,
       commerce_web_extractor.mojom.CommerceWebExtractor_ExtractMetaInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

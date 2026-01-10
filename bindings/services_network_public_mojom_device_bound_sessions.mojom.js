@@ -453,7 +453,8 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec,
       network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   deleteSession(reason, session) {
@@ -462,7 +463,8 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec,
       null,
-      [reason, session]);
+      [reason, session],
+      false);
   }
 
   deleteAllSessions(reason, created_after_time, created_before_time, filter) {
@@ -471,7 +473,8 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec,
       network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParamsSpec,
-      [reason, created_after_time, created_before_time, filter]);
+      [reason, created_after_time, created_before_time, filter],
+      false);
   }
 
   addObserver(url, observer) {
@@ -480,7 +483,8 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec,
       null,
-      [url, observer]);
+      [url, observer],
+      false);
   }
 
   addEventObserver(observer) {
@@ -489,7 +493,8 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   createBoundSessions(params, wrapped_key, cookies_to_set, cookie_options) {
@@ -498,7 +503,8 @@ network.mojom.DeviceBoundSessionManagerRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec,
       network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec,
-      [params, wrapped_key, cookies_to_set, cookie_options]);
+      [params, wrapped_key, cookies_to_set, cookie_options],
+      false);
   }
 
 };
@@ -568,7 +574,8 @@ network.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec,
       null,
-      [access]);
+      [access],
+      false);
   }
 
   clone(observer) {
@@ -577,7 +584,8 @@ network.mojom.DeviceBoundSessionAccessObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };
@@ -647,7 +655,8 @@ network.mojom.DeviceBoundSessionEventObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
   addDeviceBoundSessionDisplays(session_displays) {
@@ -656,7 +665,8 @@ network.mojom.DeviceBoundSessionEventObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec,
       null,
-      [session_displays]);
+      [session_displays],
+      false);
   }
 
 };

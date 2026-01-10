@@ -30,7 +30,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('idle_timeout_in_seconds', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('ping_interval_in_seconds', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('enable_connection_keep_alive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('quic_connection_options', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('quic_connection_options', 16, 0, mojo.internal.String, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -89,7 +89,8 @@ network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onNetworkEvent(event) {
@@ -98,7 +99,8 @@ network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
   onConnectionFailed() {
@@ -107,7 +109,8 @@ network.mojom.ConnectionChangeObserverClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

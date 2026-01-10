@@ -37,6 +37,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('mmd', 32, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('current_operator', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('previous_operators', 48, 0, mojo.internal.Array(network.mojom.PreviousOperatorEntrySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('kUnspecified', 56, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnspecified', 56, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 72]]);

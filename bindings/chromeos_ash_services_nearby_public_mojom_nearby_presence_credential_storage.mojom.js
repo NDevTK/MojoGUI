@@ -114,7 +114,8 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = cla
       0,  // ordinal
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ParamsSpec,
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_SaveCredentials_ResponseParamsSpec,
-      [local_credentials, shared_credentials, public_credential_type]);
+      [local_credentials, shared_credentials, public_credential_type],
+      false);
   }
 
   getPublicCredentials(public_credential_type) {
@@ -123,7 +124,8 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = cla
       1,  // ordinal
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ParamsSpec,
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPublicCredentials_ResponseParamsSpec,
-      [public_credential_type]);
+      [public_credential_type],
+      false);
   }
 
   getPrivateCredentials() {
@@ -132,7 +134,8 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = cla
       2,  // ordinal
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ParamsSpec,
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_GetPrivateCredentials_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   updateLocalCredential(local_credential) {
@@ -141,7 +144,8 @@ ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemoteCallHandler = cla
       3,  // ordinal
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ParamsSpec,
       ash.nearby.presence.mojom.NearbyPresenceCredentialStorage_UpdateLocalCredential_ResponseParamsSpec,
-      [local_credential]);
+      [local_credential],
+      false);
   }
 
 };

@@ -118,7 +118,8 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec,
       blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec,
-      [cache_type]);
+      [cache_type],
+      false);
   }
 
   didGenerateCacheableMetadata(cache_type, url, expected_response_time, data) {
@@ -127,7 +128,8 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec,
       null,
-      [cache_type, url, expected_response_time, data]);
+      [cache_type, url, expected_response_time, data],
+      false);
   }
 
   fetchCachedCode(cache_type, url) {
@@ -136,7 +138,8 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec,
       blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec,
-      [cache_type, url]);
+      [cache_type, url],
+      false);
   }
 
   clearCodeCacheEntry(cache_type, url) {
@@ -145,7 +148,8 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec,
       null,
-      [cache_type, url]);
+      [cache_type, url],
+      false);
   }
 
   didGenerateCacheableMetadataInCacheStorage(url, expected_response_time, data, cache_storage_cache_name) {
@@ -154,7 +158,8 @@ blink.mojom.CodeCacheHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec,
       null,
-      [url, expected_response_time, data, cache_storage_cache_name]);
+      [url, expected_response_time, data, cache_storage_cache_name],
+      false);
   }
 
 };

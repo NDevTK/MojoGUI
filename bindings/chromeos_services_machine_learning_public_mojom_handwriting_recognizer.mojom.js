@@ -128,7 +128,7 @@ mojo.internal.Struct(
 // Struct: HandwritingRecognizerResult
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.HandwritingRecognizerResultSpec, 'chromeos.machine_learning.mojom.HandwritingRecognizerResult', [
-      mojo.internal.StructField('OK', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('OK', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -192,7 +192,8 @@ chromeos.machine_learning.mojom.HandwritingRecognizerRemoteCallHandler = class {
       0,  // ordinal
       chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ParamsSpec,
       chromeos.machine_learning.mojom.HandwritingRecognizer_Recognize_ResponseParamsSpec,
-      [query]);
+      [query],
+      false);
   }
 
 };

@@ -66,7 +66,8 @@ cros.mojom.JpegAcceleratorProviderRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec,
       null,
-      [jea]);
+      [jea],
+      false);
   }
 
   getMjpegDecodeAccelerator(jda) {
@@ -75,7 +76,8 @@ cros.mojom.JpegAcceleratorProviderRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec,
       null,
-      [jda]);
+      [jda],
+      false);
   }
 
 };

@@ -244,7 +244,8 @@ content.mojom.InputInjectorRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec,
       content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec,
-      [drag]);
+      [drag],
+      false);
   }
 
   queueSyntheticSmoothScroll(scroll) {
@@ -253,7 +254,8 @@ content.mojom.InputInjectorRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec,
       content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec,
-      [scroll]);
+      [scroll],
+      false);
   }
 
   queueSyntheticPinch(pinch) {
@@ -262,7 +264,8 @@ content.mojom.InputInjectorRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec,
       content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec,
-      [pinch]);
+      [pinch],
+      false);
   }
 
   queueSyntheticTap(tap) {
@@ -271,7 +274,8 @@ content.mojom.InputInjectorRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec,
       content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec,
-      [tap]);
+      [tap],
+      false);
   }
 
   queueSyntheticPointerAction(pointer_action) {
@@ -280,7 +284,8 @@ content.mojom.InputInjectorRemoteCallHandler = class {
       4,  // ordinal
       content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec,
       content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec,
-      [pointer_action]);
+      [pointer_action],
+      false);
   }
 
 };

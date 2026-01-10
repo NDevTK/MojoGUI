@@ -99,7 +99,8 @@ blink.mojom.WidgetCompositorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec,
       blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -215,7 +216,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WidgetHost_SetCursor_ParamsSpec,
       null,
-      [cursor]);
+      [cursor],
+      false);
   }
 
   updateTooltipUnderCursor(tooltip_text, text_direction_hint) {
@@ -224,7 +226,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec,
       null,
-      [tooltip_text, text_direction_hint]);
+      [tooltip_text, text_direction_hint],
+      false);
   }
 
   updateTooltipFromKeyboard(tooltip_text, text_direction_hint, bounds) {
@@ -233,7 +236,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec,
       null,
-      [tooltip_text, text_direction_hint, bounds]);
+      [tooltip_text, text_direction_hint, bounds],
+      false);
   }
 
   clearKeyboardTriggeredTooltip() {
@@ -242,7 +246,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   textInputStateChanged(state) {
@@ -251,7 +256,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   selectionBoundsChanged(anchor_rect, anchor_dir, focus_rect, focus_dir, bounding_box_rect, is_anchor_first) {
@@ -260,7 +266,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec,
       null,
-      [anchor_rect, anchor_dir, focus_rect, focus_dir, bounding_box_rect, is_anchor_first]);
+      [anchor_rect, anchor_dir, focus_rect, focus_dir, bounding_box_rect, is_anchor_first],
+      false);
   }
 
   createFrameSink(compositor_frame_sink_receiver, compositor_frame_sink_client, render_input_router_client) {
@@ -269,7 +276,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec,
       null,
-      [compositor_frame_sink_receiver, compositor_frame_sink_client, render_input_router_client]);
+      [compositor_frame_sink_receiver, compositor_frame_sink_client, render_input_router_client],
+      false);
   }
 
   registerRenderFrameMetadataObserver(render_frame_metadata_observer_client_receiver, render_frame_metadata_observer) {
@@ -278,7 +286,8 @@ blink.mojom.WidgetHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec,
       null,
-      [render_frame_metadata_observer_client_receiver, render_frame_metadata_observer]);
+      [render_frame_metadata_observer_client_receiver, render_frame_metadata_observer],
+      false);
   }
 
 };
@@ -393,7 +402,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.Widget_ForceRedraw_ParamsSpec,
       blink.mojom.Widget_ForceRedraw_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   updateVisualProperties(visual_properties) {
@@ -402,7 +412,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.Widget_UpdateVisualProperties_ParamsSpec,
       null,
-      [visual_properties]);
+      [visual_properties],
+      false);
   }
 
   updateScreenRects(widget_screen_rect, window_screen_rect) {
@@ -411,7 +422,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.Widget_UpdateScreenRects_ParamsSpec,
       blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec,
-      [widget_screen_rect, window_screen_rect]);
+      [widget_screen_rect, window_screen_rect],
+      false);
   }
 
   wasHidden() {
@@ -420,7 +432,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.Widget_WasHidden_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   wasShown(was_evicted, record_tab_switch_time_request) {
@@ -429,7 +442,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.Widget_WasShown_ParamsSpec,
       null,
-      [was_evicted, record_tab_switch_time_request]);
+      [was_evicted, record_tab_switch_time_request],
+      false);
   }
 
   requestSuccessfulPresentationTimeForNextFrame(visible_time_request) {
@@ -438,7 +452,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec,
       null,
-      [visible_time_request]);
+      [visible_time_request],
+      false);
   }
 
   cancelSuccessfulPresentationTimeRequest() {
@@ -447,7 +462,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setupBrowserRenderInputRouterConnections(browser_client) {
@@ -456,7 +472,8 @@ blink.mojom.WidgetRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec,
       null,
-      [browser_client]);
+      [browser_client],
+      false);
   }
 
 };
@@ -535,7 +552,8 @@ blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec,
       null,
-      [request, host, from_viz]);
+      [request, host, from_viz],
+      false);
   }
 
   showContextMenu(source_type, location) {
@@ -544,7 +562,8 @@ blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec,
       null,
-      [source_type, location]);
+      [source_type, location],
+      false);
   }
 
   bindInputTargetClient(host) {
@@ -553,7 +572,8 @@ blink.mojom.RenderInputRouterClientRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec,
       null,
-      [host]);
+      [host],
+      false);
   }
 
 };

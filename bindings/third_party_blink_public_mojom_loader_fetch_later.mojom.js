@@ -74,7 +74,8 @@ blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec,
       null,
-      [loader, request_id, options, request, traffic_annotation]);
+      [loader, request_id, options, request, traffic_annotation],
+      false);
   }
 
   clone(factory) {
@@ -83,7 +84,8 @@ blink.mojom.FetchLaterLoaderFactoryRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FetchLaterLoaderFactory_Clone_ParamsSpec,
       null,
-      [factory]);
+      [factory],
+      false);
   }
 
 };
@@ -151,7 +153,8 @@ blink.mojom.FetchLaterLoaderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FetchLaterLoader_SendNow_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   cancel() {
@@ -160,7 +163,8 @@ blink.mojom.FetchLaterLoaderRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FetchLaterLoader_Cancel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -133,7 +133,8 @@ ash.diagnostics.mojom.RoutineRunnerRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
 };
@@ -209,7 +210,8 @@ ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec,
       ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runRoutine(type, runner) {
@@ -218,7 +220,8 @@ ash.diagnostics.mojom.SystemRoutineControllerRemoteCallHandler = class {
       1,  // ordinal
       ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec,
       null,
-      [type, runner]);
+      [type, runner],
+      false);
   }
 
 };

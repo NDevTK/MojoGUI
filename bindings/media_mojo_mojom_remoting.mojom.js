@@ -97,7 +97,8 @@ media.mojom.RemoterFactoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.RemoterFactory_Create_ParamsSpec,
       null,
-      [source, remoter]);
+      [source, remoter],
+      false);
   }
 
 };
@@ -171,7 +172,8 @@ media.mojom.RemotingDataStreamSenderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.RemotingDataStreamSender_SendFrame_ParamsSpec,
       media.mojom.RemotingDataStreamSender_SendFrame_ResponseParamsSpec,
-      [frame]);
+      [frame],
+      false);
   }
 
   cancelInFlightData() {
@@ -180,7 +182,8 @@ media.mojom.RemotingDataStreamSenderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.RemotingDataStreamSender_CancelInFlightData_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -280,7 +283,8 @@ media.mojom.RemoterRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.Remoter_Start_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   startWithPermissionAlreadyGranted() {
@@ -289,7 +293,8 @@ media.mojom.RemoterRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.Remoter_StartWithPermissionAlreadyGranted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   startDataStreams(audio_pipe, video_pipe, audio_sender, video_sender) {
@@ -298,7 +303,8 @@ media.mojom.RemoterRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.Remoter_StartDataStreams_ParamsSpec,
       null,
-      [audio_pipe, video_pipe, audio_sender, video_sender]);
+      [audio_pipe, video_pipe, audio_sender, video_sender],
+      false);
   }
 
   stop(reason) {
@@ -307,7 +313,8 @@ media.mojom.RemoterRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.Remoter_Stop_ParamsSpec,
       null,
-      [reason]);
+      [reason],
+      false);
   }
 
   sendMessageToSink(message) {
@@ -316,7 +323,8 @@ media.mojom.RemoterRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.Remoter_SendMessageToSink_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
   estimateTransmissionCapacity() {
@@ -325,7 +333,8 @@ media.mojom.RemoterRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.Remoter_EstimateTransmissionCapacity_ParamsSpec,
       media.mojom.Remoter_EstimateTransmissionCapacity_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -417,7 +426,8 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.RemotingSource_OnSinkAvailable_ParamsSpec,
       null,
-      [metadata]);
+      [metadata],
+      false);
   }
 
   onSinkGone() {
@@ -426,7 +436,8 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.RemotingSource_OnSinkGone_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onStarted() {
@@ -435,7 +446,8 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.RemotingSource_OnStarted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onStartFailed(reason) {
@@ -444,7 +456,8 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.RemotingSource_OnStartFailed_ParamsSpec,
       null,
-      [reason]);
+      [reason],
+      false);
   }
 
   onMessageFromSink(message) {
@@ -453,7 +466,8 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.RemotingSource_OnMessageFromSink_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
   onStopped(reason) {
@@ -462,7 +476,8 @@ media.mojom.RemotingSourceRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.RemotingSource_OnStopped_ParamsSpec,
       null,
-      [reason]);
+      [reason],
+      false);
   }
 
 };
@@ -552,7 +567,8 @@ media.mojom.RemoteeRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.Remotee_OnRemotingSinkReady_ParamsSpec,
       null,
-      [sink]);
+      [sink],
+      false);
   }
 
   sendMessageToSource(message) {
@@ -561,7 +577,8 @@ media.mojom.RemoteeRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.Remotee_SendMessageToSource_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
   startDataStreams(audio_stream, video_stream) {
@@ -570,7 +587,8 @@ media.mojom.RemoteeRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.Remotee_StartDataStreams_ParamsSpec,
       null,
-      [audio_stream, video_stream]);
+      [audio_stream, video_stream],
+      false);
   }
 
   onFlushUntil(audio_frame_count, video_frame_count) {
@@ -579,7 +597,8 @@ media.mojom.RemoteeRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.Remotee_OnFlushUntil_ParamsSpec,
       null,
-      [audio_frame_count, video_frame_count]);
+      [audio_frame_count, video_frame_count],
+      false);
   }
 
   onVideoNaturalSizeChange(size) {
@@ -588,7 +607,8 @@ media.mojom.RemoteeRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.Remotee_OnVideoNaturalSizeChange_ParamsSpec,
       null,
-      [size]);
+      [size],
+      false);
   }
 
 };
@@ -652,7 +672,8 @@ media.mojom.RemotingSinkRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.RemotingSink_OnMessageFromSource_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };
@@ -729,7 +750,8 @@ media.mojom.RemotingDataStreamReceiverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.RemotingDataStreamReceiver_InitializeDataPipe_ParamsSpec,
       null,
-      [data_pipe]);
+      [data_pipe],
+      false);
   }
 
   receiveFrame(frame_count, buffer) {
@@ -738,7 +760,8 @@ media.mojom.RemotingDataStreamReceiverRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.RemotingDataStreamReceiver_ReceiveFrame_ParamsSpec,
       null,
-      [frame_count, buffer]);
+      [frame_count, buffer],
+      false);
   }
 
   flushUntil(frame_count) {
@@ -747,7 +770,8 @@ media.mojom.RemotingDataStreamReceiverRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.RemotingDataStreamReceiver_FlushUntil_ParamsSpec,
       null,
-      [frame_count]);
+      [frame_count],
+      false);
   }
 
 };

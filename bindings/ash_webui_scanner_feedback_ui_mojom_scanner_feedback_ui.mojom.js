@@ -87,7 +87,8 @@ ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec,
       ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   closeDialog() {
@@ -96,7 +97,8 @@ ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   sendFeedback(user_description) {
@@ -105,7 +107,8 @@ ash.mojom.scanner_feedback_ui.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec,
       null,
-      [user_description]);
+      [user_description],
+      false);
   }
 
 };

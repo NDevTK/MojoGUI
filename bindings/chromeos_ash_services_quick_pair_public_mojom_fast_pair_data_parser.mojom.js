@@ -293,7 +293,8 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
       0,  // ordinal
       ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec,
       ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec,
-      [service_data]);
+      [service_data],
+      false);
   }
 
   parseDecryptedResponse(aes_key, encrypted_response_bytes) {
@@ -302,7 +303,8 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
       1,  // ordinal
       ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec,
       ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec,
-      [aes_key, encrypted_response_bytes]);
+      [aes_key, encrypted_response_bytes],
+      false);
   }
 
   parseDecryptedPasskey(aes_key, encrypted_passkey_bytes) {
@@ -311,7 +313,8 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
       2,  // ordinal
       ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec,
       ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec,
-      [aes_key, encrypted_passkey_bytes]);
+      [aes_key, encrypted_passkey_bytes],
+      false);
   }
 
   parseNotDiscoverableAdvertisement(service_data, address) {
@@ -320,7 +323,8 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
       3,  // ordinal
       ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec,
       ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec,
-      [service_data, address]);
+      [service_data, address],
+      false);
   }
 
   parseMessageStreamMessages(message_bytes) {
@@ -329,7 +333,8 @@ ash.quick_pair.mojom.FastPairDataParserRemoteCallHandler = class {
       4,  // ordinal
       ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec,
       ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec,
-      [message_bytes]);
+      [message_bytes],
+      false);
   }
 
 };

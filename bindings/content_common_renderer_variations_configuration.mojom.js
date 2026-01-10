@@ -66,7 +66,8 @@ content.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec,
       null,
-      [variations_headers]);
+      [variations_headers],
+      false);
   }
 
   setFieldTrialGroup(trial_name, group_name) {
@@ -75,7 +76,8 @@ content.mojom.RendererVariationsConfigurationRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec,
       null,
-      [trial_name, group_name]);
+      [trial_name, group_name],
+      false);
   }
 
 };

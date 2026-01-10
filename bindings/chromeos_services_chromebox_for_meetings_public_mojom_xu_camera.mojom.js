@@ -201,7 +201,8 @@ ash.cfm.mojom.XuCameraRemoteCallHandler = class {
       0,  // ordinal
       ash.cfm.mojom.XuCamera_GetUnitId_ParamsSpec,
       ash.cfm.mojom.XuCamera_GetUnitId_ResponseParamsSpec,
-      [id, guid]);
+      [id, guid],
+      false);
   }
 
   mapCtrl(id, mapping_ctrl) {
@@ -210,7 +211,8 @@ ash.cfm.mojom.XuCameraRemoteCallHandler = class {
       1,  // ordinal
       ash.cfm.mojom.XuCamera_MapCtrl_ParamsSpec,
       ash.cfm.mojom.XuCamera_MapCtrl_ResponseParamsSpec,
-      [id, mapping_ctrl]);
+      [id, mapping_ctrl],
+      false);
   }
 
   getCtrl(id, ctrl, fn) {
@@ -219,7 +221,8 @@ ash.cfm.mojom.XuCameraRemoteCallHandler = class {
       2,  // ordinal
       ash.cfm.mojom.XuCamera_GetCtrl_ParamsSpec,
       ash.cfm.mojom.XuCamera_GetCtrl_ResponseParamsSpec,
-      [id, ctrl, fn]);
+      [id, ctrl, fn],
+      false);
   }
 
   setCtrl(id, ctrl, data) {
@@ -228,7 +231,8 @@ ash.cfm.mojom.XuCameraRemoteCallHandler = class {
       3,  // ordinal
       ash.cfm.mojom.XuCamera_SetCtrl_ParamsSpec,
       ash.cfm.mojom.XuCamera_SetCtrl_ResponseParamsSpec,
-      [id, ctrl, data]);
+      [id, ctrl, data],
+      false);
   }
 
 };

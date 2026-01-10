@@ -257,7 +257,8 @@ media.mojom.ImageCaptureRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.ImageCapture_GetPhotoState_ParamsSpec,
       media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec,
-      [source_id]);
+      [source_id],
+      false);
   }
 
   setPhotoOptions(source_id, settings) {
@@ -266,7 +267,8 @@ media.mojom.ImageCaptureRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec,
       media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec,
-      [source_id, settings]);
+      [source_id, settings],
+      false);
   }
 
   takePhoto(source_id) {
@@ -275,7 +277,8 @@ media.mojom.ImageCaptureRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.ImageCapture_TakePhoto_ParamsSpec,
       media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec,
-      [source_id]);
+      [source_id],
+      false);
   }
 
 };

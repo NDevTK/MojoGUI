@@ -65,7 +65,8 @@ mojom.UsbInternalsPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindTestInterface(receiver) {
@@ -74,7 +75,8 @@ mojom.UsbInternalsPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

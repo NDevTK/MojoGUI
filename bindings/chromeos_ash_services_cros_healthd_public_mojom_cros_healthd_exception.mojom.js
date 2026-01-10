@@ -63,7 +63,7 @@ mojo.internal.Union(
 // Struct: Exception
 mojo.internal.Struct(
     ash.cros_healthd.mojom.ExceptionSpec, 'ash.cros_healthd.mojom.Exception', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 1, false, 0, undefined),
     ],
     [[0, 16]]);
 

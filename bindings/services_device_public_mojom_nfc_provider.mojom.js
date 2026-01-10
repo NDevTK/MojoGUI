@@ -71,7 +71,8 @@ device.mojom.NFCProviderRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.NFCProvider_GetNFCForHost_ParamsSpec,
       null,
-      [host_id, receiver]);
+      [host_id, receiver],
+      false);
   }
 
   suspendNFCOperations() {
@@ -80,7 +81,8 @@ device.mojom.NFCProviderRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   resumeNFCOperations() {
@@ -89,7 +91,8 @@ device.mojom.NFCProviderRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

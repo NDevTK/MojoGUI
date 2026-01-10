@@ -74,7 +74,8 @@ reload_button.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       reload_button.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -151,7 +152,8 @@ reload_button.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       reload_button.mojom.PageHandler_Reload_ParamsSpec,
       null,
-      [ignore_cache, flags]);
+      [ignore_cache, flags],
+      false);
   }
 
   stopReload() {
@@ -160,7 +162,8 @@ reload_button.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       reload_button.mojom.PageHandler_StopReload_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   showContextMenu(offset_x, offset_y) {
@@ -169,7 +172,8 @@ reload_button.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       reload_button.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
-      [offset_x, offset_y]);
+      [offset_x, offset_y],
+      false);
   }
 
 };
@@ -234,7 +238,8 @@ reload_button.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       reload_button.mojom.Page_SetReloadButtonState_ParamsSpec,
       null,
-      [is_loading, is_menu_enabled]);
+      [is_loading, is_menu_enabled],
+      false);
   }
 
 };

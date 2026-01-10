@@ -63,7 +63,8 @@ android_webview.mojom.RendererRemoteCallHandler = class {
       0,  // ordinal
       android_webview.mojom.Renderer_ClearCache_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setJsOnlineProperty(network_up) {
@@ -72,7 +73,8 @@ android_webview.mojom.RendererRemoteCallHandler = class {
       1,  // ordinal
       android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec,
       null,
-      [network_up]);
+      [network_up],
+      false);
   }
 
 };

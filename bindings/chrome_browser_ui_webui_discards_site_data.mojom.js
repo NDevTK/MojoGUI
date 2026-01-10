@@ -135,7 +135,8 @@ discards.mojom.SiteDataProviderRemoteCallHandler = class {
       0,  // ordinal
       discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec,
       discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec,
-      [explicitly_requested_origins]);
+      [explicitly_requested_origins],
+      false);
   }
 
   getSiteDataDatabaseSize() {
@@ -144,7 +145,8 @@ discards.mojom.SiteDataProviderRemoteCallHandler = class {
       1,  // ordinal
       discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec,
       discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

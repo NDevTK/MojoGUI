@@ -94,7 +94,8 @@ action_chips.mojom.ActionChipsHandlerRemoteCallHandler = class {
       0,  // ordinal
       action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -158,7 +159,8 @@ action_chips.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec,
       null,
-      [action_chips]);
+      [action_chips],
+      false);
   }
 
 };
@@ -223,7 +225,8 @@ action_chips.mojom.ActionChipsHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec,
       null,
-      [handler, page]);
+      [handler, page],
+      false);
   }
 
 };

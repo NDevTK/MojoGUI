@@ -136,7 +136,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
       0,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsHandler_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   getApps() {
@@ -145,7 +146,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
       1,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ParamsSpec,
       ash.settings.app_permission.mojom.AppPermissionsHandler_GetApps_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSystemAppsThatUseCamera() {
@@ -154,7 +156,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
       2,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ParamsSpec,
       ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseCamera_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSystemAppsThatUseMicrophone() {
@@ -163,7 +166,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
       3,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ParamsSpec,
       ash.settings.app_permission.mojom.AppPermissionsHandler_GetSystemAppsThatUseMicrophone_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openBrowserPermissionSettings(permission_type) {
@@ -172,7 +176,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
       4,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsHandler_OpenBrowserPermissionSettings_ParamsSpec,
       null,
-      [permission_type]);
+      [permission_type],
+      false);
   }
 
   openNativeSettings(app_id) {
@@ -181,7 +186,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
       5,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsHandler_OpenNativeSettings_ParamsSpec,
       null,
-      [app_id]);
+      [app_id],
+      false);
   }
 
   setPermission(app_id, permission) {
@@ -190,7 +196,8 @@ ash.settings.app_permission.mojom.AppPermissionsHandlerRemoteCallHandler = class
       6,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsHandler_SetPermission_ParamsSpec,
       null,
-      [app_id, permission]);
+      [app_id, permission],
+      false);
   }
 
 };
@@ -260,7 +267,8 @@ ash.settings.app_permission.mojom.AppPermissionsObserverRemoteCallHandler = clas
       0,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppRemoved_ParamsSpec,
       null,
-      [app_id]);
+      [app_id],
+      false);
   }
 
   onAppUpdated(app) {
@@ -269,7 +277,8 @@ ash.settings.app_permission.mojom.AppPermissionsObserverRemoteCallHandler = clas
       1,  // ordinal
       ash.settings.app_permission.mojom.AppPermissionsObserver_OnAppUpdated_ParamsSpec,
       null,
-      [app]);
+      [app],
+      false);
   }
 
 };

@@ -99,7 +99,8 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioOutputStream_Play_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   pause() {
@@ -108,7 +109,8 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioOutputStream_Pause_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   flush() {
@@ -117,7 +119,8 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.AudioOutputStream_Flush_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setVolume(volume) {
@@ -126,7 +129,8 @@ media.mojom.AudioOutputStreamRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.AudioOutputStream_SetVolume_ParamsSpec,
       null,
-      [volume]);
+      [volume],
+      false);
   }
 
 };
@@ -200,7 +204,8 @@ media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   didStopPlaying() {
@@ -209,7 +214,8 @@ media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   didChangeAudibleState(is_audible) {
@@ -218,7 +224,8 @@ media.mojom.AudioOutputStreamObserverRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec,
       null,
-      [is_audible]);
+      [is_audible],
+      false);
   }
 
 };
@@ -283,7 +290,8 @@ media.mojom.AudioOutputStreamProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec,
       null,
-      [params, client]);
+      [params, client],
+      false);
   }
 
 };
@@ -348,7 +356,8 @@ media.mojom.AudioOutputStreamProviderClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec,
       null,
-      [stream, data_pipe]);
+      [stream, data_pipe],
+      false);
   }
 
 };
@@ -412,7 +421,8 @@ media.mojom.DeviceSwitchInterfaceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec,
       null,
-      [output_device_id]);
+      [output_device_id],
+      false);
   }
 
 };

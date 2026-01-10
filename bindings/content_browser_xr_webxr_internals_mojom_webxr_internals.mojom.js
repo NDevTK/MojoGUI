@@ -154,7 +154,8 @@ webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
       0,  // ordinal
       webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ParamsSpec,
       webxr.mojom.WebXrInternalsHandler_GetDeviceInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getActiveRuntimes() {
@@ -163,7 +164,8 @@ webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
       1,  // ordinal
       webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ParamsSpec,
       webxr.mojom.WebXrInternalsHandler_GetActiveRuntimes_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   subscribeToEvents(listener) {
@@ -172,7 +174,8 @@ webxr.mojom.WebXrInternalsHandlerRemoteCallHandler = class {
       2,  // ordinal
       webxr.mojom.WebXrInternalsHandler_SubscribeToEvents_ParamsSpec,
       null,
-      [listener]);
+      [listener],
+      false);
   }
 
 };
@@ -278,7 +281,8 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       0,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogXrSessionRequested_ParamsSpec,
       null,
-      [session_requested_record]);
+      [session_requested_record],
+      false);
   }
 
   logXrSessionRejected(session_rejected_record) {
@@ -287,7 +291,8 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       1,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogXrSessionRejected_ParamsSpec,
       null,
-      [session_rejected_record]);
+      [session_rejected_record],
+      false);
   }
 
   logXrSessionStarted(session_started_record) {
@@ -296,7 +301,8 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       2,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogXrSessionStarted_ParamsSpec,
       null,
-      [session_started_record]);
+      [session_started_record],
+      false);
   }
 
   logXrSessionStopped(session_stopped_record) {
@@ -305,7 +311,8 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       3,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogXrSessionStopped_ParamsSpec,
       null,
-      [session_stopped_record]);
+      [session_stopped_record],
+      false);
   }
 
   logXrRuntimeAdded(runtime_added_record) {
@@ -314,7 +321,8 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       4,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogXrRuntimeAdded_ParamsSpec,
       null,
-      [runtime_added_record]);
+      [runtime_added_record],
+      false);
   }
 
   logXrRuntimeRemoved(device_id) {
@@ -323,7 +331,8 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       5,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogXrRuntimeRemoved_ParamsSpec,
       null,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   logFrameData(xrframe_statistics) {
@@ -332,7 +341,8 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       6,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogFrameData_ParamsSpec,
       null,
-      [xrframe_statistics]);
+      [xrframe_statistics],
+      false);
   }
 
   logConsoleMessages(xrlogging_statistics) {
@@ -341,7 +351,8 @@ webxr.mojom.XRInternalsSessionListenerRemoteCallHandler = class {
       7,  // ordinal
       webxr.mojom.XRInternalsSessionListener_LogConsoleMessages_ParamsSpec,
       null,
-      [xrlogging_statistics]);
+      [xrlogging_statistics],
+      false);
   }
 
 };

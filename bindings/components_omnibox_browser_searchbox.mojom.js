@@ -238,8 +238,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     searchbox.mojom.SuggestionGroupSpec, 'searchbox.mojom.SuggestionGroup', [
       mojo.internal.StructField('header', 0, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('render_type', 8, 0, searchbox.mojom.RenderTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('side_type', 12, 0, searchbox.mojom.SideTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('render_type', 8, 0, searchbox.mojom.RenderTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('side_type', 12, 0, searchbox.mojom.SideTypeSpec, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -495,7 +495,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       searchbox.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
   onFocusChanged(focused) {
@@ -504,7 +505,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec,
       null,
-      [focused]);
+      [focused],
+      false);
   }
 
   queryAutocomplete(input, prevent_inline_autocomplete) {
@@ -513,7 +515,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec,
       null,
-      [input, prevent_inline_autocomplete]);
+      [input, prevent_inline_autocomplete],
+      false);
   }
 
   stopAutocomplete(clear_result) {
@@ -522,7 +525,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec,
       null,
-      [clear_result]);
+      [clear_result],
+      false);
   }
 
   openAutocompleteMatch(line, url, are_matches_showing, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
@@ -531,7 +535,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec,
       null,
-      [line, url, are_matches_showing, mouse_button, alt_key, ctrl_key, meta_key, shift_key]);
+      [line, url, are_matches_showing, mouse_button, alt_key, ctrl_key, meta_key, shift_key],
+      false);
   }
 
   onNavigationLikely(line, url, navigation_predictor) {
@@ -540,7 +545,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec,
       null,
-      [line, url, navigation_predictor]);
+      [line, url, navigation_predictor],
+      false);
   }
 
   deleteAutocompleteMatch(line, url) {
@@ -549,7 +555,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec,
       null,
-      [line, url]);
+      [line, url],
+      false);
   }
 
   activateKeyword(line, url, match_selection_timestamp, is_mouse_event) {
@@ -558,7 +565,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec,
       null,
-      [line, url, match_selection_timestamp, is_mouse_event]);
+      [line, url, match_selection_timestamp, is_mouse_event],
+      false);
   }
 
   showContextMenu(point) {
@@ -567,7 +575,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
-      [point]);
+      [point],
+      false);
   }
 
   executeAction(line, action_index, url, match_selection_timestamp, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
@@ -576,7 +585,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec,
       null,
-      [line, action_index, url, match_selection_timestamp, mouse_button, alt_key, ctrl_key, meta_key, shift_key]);
+      [line, action_index, url, match_selection_timestamp, mouse_button, alt_key, ctrl_key, meta_key, shift_key],
+      false);
   }
 
   onThumbnailRemoved() {
@@ -585,7 +595,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getPlaceholderConfig() {
@@ -594,7 +605,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec,
       searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getRecentTabs() {
@@ -603,7 +615,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec,
       searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getTabPreview(tab_id) {
@@ -612,7 +625,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec,
       searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec,
-      [tab_id]);
+      [tab_id],
+      false);
   }
 
   notifySessionStarted() {
@@ -621,7 +635,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   notifySessionAbandoned() {
@@ -630,7 +645,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   addFileContext(file_info, file_bytes) {
@@ -639,7 +655,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       searchbox.mojom.PageHandler_AddFileContext_ParamsSpec,
       searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec,
-      [file_info, file_bytes]);
+      [file_info, file_bytes],
+      false);
   }
 
   addTabContext(tab_id, delay_upload) {
@@ -648,7 +665,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       17,  // ordinal
       searchbox.mojom.PageHandler_AddTabContext_ParamsSpec,
       searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec,
-      [tab_id, delay_upload]);
+      [tab_id, delay_upload],
+      false);
   }
 
   deleteContext(token, from_automatic_chip) {
@@ -657,7 +675,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       18,  // ordinal
       searchbox.mojom.PageHandler_DeleteContext_ParamsSpec,
       null,
-      [token, from_automatic_chip]);
+      [token, from_automatic_chip],
+      false);
   }
 
   clearFiles() {
@@ -666,7 +685,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       19,  // ordinal
       searchbox.mojom.PageHandler_ClearFiles_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   submitQuery(query_text, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
@@ -675,7 +695,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       20,  // ordinal
       searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec,
       null,
-      [query_text, mouse_button, alt_key, ctrl_key, meta_key, shift_key]);
+      [query_text, mouse_button, alt_key, ctrl_key, meta_key, shift_key],
+      false);
   }
 
   openLensSearch() {
@@ -684,7 +705,8 @@ searchbox.mojom.PageHandlerRemoteCallHandler = class {
       21,  // ordinal
       searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -829,7 +851,8 @@ searchbox.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
   updateSelection(old_selection, selection) {
@@ -838,7 +861,8 @@ searchbox.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       searchbox.mojom.Page_UpdateSelection_ParamsSpec,
       null,
-      [old_selection, selection]);
+      [old_selection, selection],
+      false);
   }
 
   setKeywordSelected(is_keyword_selected) {
@@ -847,7 +871,8 @@ searchbox.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       searchbox.mojom.Page_SetKeywordSelected_ParamsSpec,
       null,
-      [is_keyword_selected]);
+      [is_keyword_selected],
+      false);
   }
 
   onShow() {
@@ -856,7 +881,8 @@ searchbox.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       searchbox.mojom.Page_OnShow_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setInputText(input) {
@@ -865,7 +891,8 @@ searchbox.mojom.PageRemoteCallHandler = class {
       4,  // ordinal
       searchbox.mojom.Page_SetInputText_ParamsSpec,
       null,
-      [input]);
+      [input],
+      false);
   }
 
   setThumbnail(thumbnail_url, is_deletable) {
@@ -874,7 +901,8 @@ searchbox.mojom.PageRemoteCallHandler = class {
       5,  // ordinal
       searchbox.mojom.Page_SetThumbnail_ParamsSpec,
       null,
-      [thumbnail_url, is_deletable]);
+      [thumbnail_url, is_deletable],
+      false);
   }
 
   onContextualInputStatusChanged(token, status, error_type) {
@@ -883,7 +911,8 @@ searchbox.mojom.PageRemoteCallHandler = class {
       6,  // ordinal
       searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec,
       null,
-      [token, status, error_type]);
+      [token, status, error_type],
+      false);
   }
 
   onTabStripChanged() {
@@ -892,7 +921,8 @@ searchbox.mojom.PageRemoteCallHandler = class {
       7,  // ordinal
       searchbox.mojom.Page_OnTabStripChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   addFileContext(token, file_info) {
@@ -901,7 +931,8 @@ searchbox.mojom.PageRemoteCallHandler = class {
       8,  // ordinal
       searchbox.mojom.Page_AddFileContext_ParamsSpec,
       null,
-      [token, file_info]);
+      [token, file_info],
+      false);
   }
 
   updateAutoSuggestedTabContext(tab) {
@@ -910,7 +941,8 @@ searchbox.mojom.PageRemoteCallHandler = class {
       9,  // ordinal
       searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec,
       null,
-      [tab]);
+      [tab],
+      false);
   }
 
   updateLensSearchEligibility(eligible) {
@@ -919,7 +951,8 @@ searchbox.mojom.PageRemoteCallHandler = class {
       10,  // ordinal
       searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec,
       null,
-      [eligible]);
+      [eligible],
+      false);
   }
 
   updateContentSharingPolicy(enabled) {
@@ -928,7 +961,8 @@ searchbox.mojom.PageRemoteCallHandler = class {
       11,  // ordinal
       searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   updateAimEligibility(eligible) {
@@ -937,7 +971,8 @@ searchbox.mojom.PageRemoteCallHandler = class {
       12,  // ordinal
       searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec,
       null,
-      [eligible]);
+      [eligible],
+      false);
   }
 
   onShowAiModePrefChanged(canShow) {
@@ -946,7 +981,8 @@ searchbox.mojom.PageRemoteCallHandler = class {
       13,  // ordinal
       searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec,
       null,
-      [canShow]);
+      [canShow],
+      false);
   }
 
 };

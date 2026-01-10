@@ -58,7 +58,8 @@ arc.mojom.BackupSettingsInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec,
       null,
-      [enabled, managed]);
+      [enabled, managed],
+      false);
   }
 
 };

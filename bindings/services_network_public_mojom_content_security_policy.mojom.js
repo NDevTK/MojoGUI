@@ -109,8 +109,8 @@ mojo.internal.Union(
 mojo.internal.Struct(
     network.mojom.ContentSecurityPolicyHeaderSpec, 'network.mojom.ContentSecurityPolicyHeader', [
       mojo.internal.StructField('header_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('type', 8, 0, network.mojom.ContentSecurityPolicyTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('source', 12, 0, network.mojom.ContentSecurityPolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 8, 0, network.mojom.ContentSecurityPolicyTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('source', 12, 0, network.mojom.ContentSecurityPolicySourceSpec, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -119,7 +119,7 @@ mojo.internal.Struct(
     network.mojom.CSPSourceSpec, 'network.mojom.CSPSource', [
       mojo.internal.StructField('scheme', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('host', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('port', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('port', 16, 0, mojo.internal.Int32, -1, false, 0, undefined),
       mojo.internal.StructField('path', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('is_host_wildcard', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_port_wildcard', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
@@ -168,7 +168,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('upgrade_insecure_requests', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('treat_as_public_address', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('block_all_mixed_content', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('sandbox', 28, 0, network.mojom.WebSandboxFlagsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sandbox', 28, 0, network.mojom.WebSandboxFlagsSpec, 0, false, 0, undefined),
       mojo.internal.StructField('header', 32, 0, network.mojom.ContentSecurityPolicyHeaderSpec, null, false, 0, undefined),
       mojo.internal.StructField('use_reporting_api', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('report_endpoints', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),

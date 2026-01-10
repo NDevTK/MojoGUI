@@ -100,7 +100,8 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       legion_internals.mojom.LegionInternalsPageHandler_Connect_ParamsSpec,
       legion_internals.mojom.LegionInternalsPageHandler_Connect_ResponseParamsSpec,
-      [url, api_key]);
+      [url, api_key],
+      false);
   }
 
   close() {
@@ -109,7 +110,8 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       legion_internals.mojom.LegionInternalsPageHandler_Close_ParamsSpec,
       legion_internals.mojom.LegionInternalsPageHandler_Close_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   sendRequest(feature_name, request) {
@@ -118,7 +120,8 @@ legion_internals.mojom.LegionInternalsPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ParamsSpec,
       legion_internals.mojom.LegionInternalsPageHandler_SendRequest_ResponseParamsSpec,
-      [feature_name, request]);
+      [feature_name, request],
+      false);
   }
 
 };

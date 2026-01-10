@@ -91,7 +91,8 @@ arc.mojom.TracingInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.TracingInstance_QueryAvailableCategories_ParamsSpec,
       arc.mojom.TracingInstance_QueryAvailableCategories_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startTracing(categories, socket) {
@@ -100,7 +101,8 @@ arc.mojom.TracingInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.TracingInstance_StartTracing_ParamsSpec,
       arc.mojom.TracingInstance_StartTracing_ResponseParamsSpec,
-      [categories, socket]);
+      [categories, socket],
+      false);
   }
 
   stopTracing() {
@@ -109,7 +111,8 @@ arc.mojom.TracingInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.TracingInstance_StopTracing_ParamsSpec,
       arc.mojom.TracingInstance_StopTracing_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

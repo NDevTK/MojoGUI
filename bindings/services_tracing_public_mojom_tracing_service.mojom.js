@@ -86,7 +86,8 @@ tracing.mojom.TracingServiceRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.TracingService_Initialize_ParamsSpec,
       null,
-      [clients]);
+      [clients],
+      false);
   }
 
   addClient(client) {
@@ -95,7 +96,8 @@ tracing.mojom.TracingServiceRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.TracingService_AddClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   bindConsumerHost(receiver) {
@@ -104,7 +106,8 @@ tracing.mojom.TracingServiceRemoteCallHandler = class {
       2,  // ordinal
       tracing.mojom.TracingService_BindConsumerHost_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

@@ -112,7 +112,8 @@ mojom.app_service_internals.AppServiceInternalsPageHandlerRemoteCallHandler = cl
       0,  // ordinal
       mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ParamsSpec,
       mojom.app_service_internals.AppServiceInternalsPageHandler_GetDebugInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

@@ -332,7 +332,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FederatedAuthRequest_RequestToken_ParamsSpec,
       blink.mojom.FederatedAuthRequest_RequestToken_ResponseParamsSpec,
-      [idp_get_params, requirement]);
+      [idp_get_params, requirement],
+      false);
   }
 
   requestUserInfo(provider) {
@@ -341,7 +342,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FederatedAuthRequest_RequestUserInfo_ParamsSpec,
       blink.mojom.FederatedAuthRequest_RequestUserInfo_ResponseParamsSpec,
-      [provider]);
+      [provider],
+      false);
   }
 
   cancelTokenRequest() {
@@ -350,7 +352,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FederatedAuthRequest_CancelTokenRequest_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   resolveTokenRequest(account_id, token) {
@@ -359,7 +362,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ParamsSpec,
       blink.mojom.FederatedAuthRequest_ResolveTokenRequest_ResponseParamsSpec,
-      [account_id, token]);
+      [account_id, token],
+      false);
   }
 
   setIdpSigninStatus(origin, status, options) {
@@ -368,7 +372,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ParamsSpec,
       blink.mojom.FederatedAuthRequest_SetIdpSigninStatus_ResponseParamsSpec,
-      [origin, status, options]);
+      [origin, status, options],
+      false);
   }
 
   registerIdP(url) {
@@ -377,7 +382,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.FederatedAuthRequest_RegisterIdP_ParamsSpec,
       blink.mojom.FederatedAuthRequest_RegisterIdP_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   unregisterIdP(url) {
@@ -386,7 +392,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.FederatedAuthRequest_UnregisterIdP_ParamsSpec,
       blink.mojom.FederatedAuthRequest_UnregisterIdP_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   closeModalDialogView() {
@@ -395,7 +402,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.FederatedAuthRequest_CloseModalDialogView_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   preventSilentAccess() {
@@ -404,7 +412,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.FederatedAuthRequest_PreventSilentAccess_ParamsSpec,
       blink.mojom.FederatedAuthRequest_PreventSilentAccess_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   disconnect(options) {
@@ -413,7 +422,8 @@ blink.mojom.FederatedAuthRequestRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.FederatedAuthRequest_Disconnect_ParamsSpec,
       blink.mojom.FederatedAuthRequest_Disconnect_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
 };

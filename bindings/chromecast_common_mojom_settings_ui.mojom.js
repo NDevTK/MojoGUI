@@ -89,7 +89,8 @@ chromecast.mojom.SettingsClientRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec,
       null,
-      [event, origin, touch_location]);
+      [event, origin, touch_location],
+      false);
   }
 
   sendPlatformInfo(platform_info_json) {
@@ -98,7 +99,8 @@ chromecast.mojom.SettingsClientRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec,
       null,
-      [platform_info_json]);
+      [platform_info_json],
+      false);
   }
 
 };
@@ -168,7 +170,8 @@ chromecast.mojom.SettingsPlatformRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.SettingsPlatform_Connect_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   requestVisible(visible) {
@@ -177,7 +180,8 @@ chromecast.mojom.SettingsPlatformRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec,
       null,
-      [visible]);
+      [visible],
+      false);
   }
 
 };

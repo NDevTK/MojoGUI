@@ -625,7 +625,8 @@ ash.shimless_rma.mojom.ErrorObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.shimless_rma.mojom.ErrorObserver_OnError_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
 };
@@ -691,7 +692,8 @@ ash.shimless_rma.mojom.OsUpdateObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.shimless_rma.mojom.OsUpdateObserver_OnOsUpdateProgressUpdated_ParamsSpec,
       null,
-      [operation, progress, update_error_code]);
+      [operation, progress, update_error_code],
+      false);
   }
 
 };
@@ -761,7 +763,8 @@ ash.shimless_rma.mojom.CalibrationObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationUpdated_ParamsSpec,
       null,
-      [componentStatus]);
+      [componentStatus],
+      false);
   }
 
   onCalibrationStepComplete(status) {
@@ -770,7 +773,8 @@ ash.shimless_rma.mojom.CalibrationObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.shimless_rma.mojom.CalibrationObserver_OnCalibrationStepComplete_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
 };
@@ -836,7 +840,8 @@ ash.shimless_rma.mojom.ProvisioningObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.shimless_rma.mojom.ProvisioningObserver_OnProvisioningUpdated_ParamsSpec,
       null,
-      [status, progress, error]);
+      [status, progress, error],
+      false);
   }
 
 };
@@ -900,7 +905,8 @@ ash.shimless_rma.mojom.HardwareWriteProtectionStateObserverRemoteCallHandler = c
       0,  // ordinal
       ash.shimless_rma.mojom.HardwareWriteProtectionStateObserver_OnHardwareWriteProtectionStateChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
 };
@@ -964,7 +970,8 @@ ash.shimless_rma.mojom.PowerCableStateObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.shimless_rma.mojom.PowerCableStateObserver_OnPowerCableStateChanged_ParamsSpec,
       null,
-      [plugged_in]);
+      [plugged_in],
+      false);
   }
 
 };
@@ -1028,7 +1035,8 @@ ash.shimless_rma.mojom.ExternalDiskStateObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.shimless_rma.mojom.ExternalDiskStateObserver_OnExternalDiskStateChanged_ParamsSpec,
       null,
-      [detected]);
+      [detected],
+      false);
   }
 
 };
@@ -1092,7 +1100,8 @@ ash.shimless_rma.mojom.HardwareVerificationStatusObserverRemoteCallHandler = cla
       0,  // ordinal
       ash.shimless_rma.mojom.HardwareVerificationStatusObserver_OnHardwareVerificationResult_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
 };
@@ -1158,7 +1167,8 @@ ash.shimless_rma.mojom.FinalizationObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.shimless_rma.mojom.FinalizationObserver_OnFinalizationUpdated_ParamsSpec,
       null,
-      [status, progress, error]);
+      [status, progress, error],
+      false);
   }
 
 };
@@ -1222,7 +1232,8 @@ ash.shimless_rma.mojom.UpdateRoFirmwareObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.shimless_rma.mojom.UpdateRoFirmwareObserver_OnUpdateRoFirmwareStatusChanged_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
 };
@@ -2041,7 +2052,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getStateProperties() {
@@ -2050,7 +2062,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetStateProperties_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   transitionPreviousState() {
@@ -2059,7 +2072,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_TransitionPreviousState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   abortRma() {
@@ -2068,7 +2082,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       3,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_AbortRma_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   beginFinalization() {
@@ -2077,7 +2092,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       4,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_BeginFinalization_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   trackConfiguredNetworks() {
@@ -2086,7 +2102,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       5,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_TrackConfiguredNetworks_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   networkSelectionComplete() {
@@ -2095,7 +2112,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       6,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_NetworkSelectionComplete_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getCurrentOsVersion() {
@@ -2104,7 +2122,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       7,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetCurrentOsVersion_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   checkForOsUpdates() {
@@ -2113,7 +2132,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       8,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_CheckForOsUpdates_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   updateOs() {
@@ -2122,7 +2142,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       9,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_UpdateOs_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   updateOsSkipped() {
@@ -2131,7 +2152,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       10,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_UpdateOsSkipped_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setSameOwner() {
@@ -2140,7 +2162,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       11,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetSameOwner_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setDifferentOwner() {
@@ -2149,7 +2172,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       12,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetDifferentOwner_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setWipeDevice(should_wipe_device) {
@@ -2158,7 +2182,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       13,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetWipeDevice_ResponseParamsSpec,
-      [should_wipe_device]);
+      [should_wipe_device],
+      false);
   }
 
   setManuallyDisableWriteProtect() {
@@ -2167,7 +2192,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       14,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetManuallyDisableWriteProtect_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setRsuDisableWriteProtect() {
@@ -2176,7 +2202,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       15,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtect_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getRsuDisableWriteProtectChallenge() {
@@ -2185,7 +2212,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       16,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallenge_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getRsuDisableWriteProtectHwid() {
@@ -2194,7 +2222,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       17,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectHwid_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getRsuDisableWriteProtectChallengeQrCode() {
@@ -2203,7 +2232,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       18,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetRsuDisableWriteProtectChallengeQrCode_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setRsuDisableWriteProtectCode(code) {
@@ -2212,7 +2242,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       19,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetRsuDisableWriteProtectCode_ResponseParamsSpec,
-      [code]);
+      [code],
+      false);
   }
 
   writeProtectManuallyDisabled() {
@@ -2221,7 +2252,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       20,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyDisabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getWriteProtectDisableCompleteAction() {
@@ -2230,7 +2262,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       21,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetWriteProtectDisableCompleteAction_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   confirmManualWpDisableComplete() {
@@ -2239,7 +2272,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       22,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_ConfirmManualWpDisableComplete_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getComponentList() {
@@ -2248,7 +2282,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       23,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetComponentList_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setComponentList(components) {
@@ -2257,7 +2292,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       24,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetComponentList_ResponseParamsSpec,
-      [components]);
+      [components],
+      false);
   }
 
   reworkMainboard() {
@@ -2266,7 +2302,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       25,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_ReworkMainboard_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   roFirmwareUpdateComplete() {
@@ -2275,7 +2312,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       26,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_RoFirmwareUpdateComplete_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   shutdownForRestock() {
@@ -2284,7 +2322,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       27,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_ShutdownForRestock_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   continueFinalizationAfterRestock() {
@@ -2293,7 +2332,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       28,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_ContinueFinalizationAfterRestock_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getRegionList() {
@@ -2302,7 +2342,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       29,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetRegionList_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSkuList() {
@@ -2311,7 +2352,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       30,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetSkuList_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getCustomLabelList() {
@@ -2320,7 +2362,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       31,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetCustomLabelList_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSkuDescriptionList() {
@@ -2329,7 +2372,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       32,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetSkuDescriptionList_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getOriginalSerialNumber() {
@@ -2338,7 +2382,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       33,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSerialNumber_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getOriginalRegion() {
@@ -2347,7 +2392,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       34,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalRegion_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getOriginalSku() {
@@ -2356,7 +2402,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       35,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalSku_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getOriginalCustomLabel() {
@@ -2365,7 +2412,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       36,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalCustomLabel_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getOriginalDramPartNumber() {
@@ -2374,7 +2422,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       37,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalDramPartNumber_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getOriginalFeatureLevel() {
@@ -2383,7 +2432,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       38,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetOriginalFeatureLevel_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setDeviceInformation(serial_number, region_index, sku_index, custom_label_index, dram_part_number, is_chassis_branded, hw_compliance_version) {
@@ -2392,7 +2442,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       39,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SetDeviceInformation_ResponseParamsSpec,
-      [serial_number, region_index, sku_index, custom_label_index, dram_part_number, is_chassis_branded, hw_compliance_version]);
+      [serial_number, region_index, sku_index, custom_label_index, dram_part_number, is_chassis_branded, hw_compliance_version],
+      false);
   }
 
   getCalibrationComponentList() {
@@ -2401,7 +2452,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       40,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationComponentList_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getCalibrationSetupInstructions() {
@@ -2410,7 +2462,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       41,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetCalibrationSetupInstructions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startCalibration(components) {
@@ -2419,7 +2472,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       42,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_StartCalibration_ResponseParamsSpec,
-      [components]);
+      [components],
+      false);
   }
 
   runCalibrationStep() {
@@ -2428,7 +2482,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       43,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_RunCalibrationStep_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   continueCalibration() {
@@ -2437,7 +2492,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       44,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_ContinueCalibration_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   calibrationComplete() {
@@ -2446,7 +2502,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       45,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_CalibrationComplete_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   retryProvisioning() {
@@ -2455,7 +2512,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       46,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_RetryProvisioning_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   provisioningComplete() {
@@ -2464,7 +2522,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       47,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_ProvisioningComplete_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   retryFinalization() {
@@ -2473,7 +2532,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       48,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_RetryFinalization_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   finalizationComplete() {
@@ -2482,7 +2542,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       49,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_FinalizationComplete_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   writeProtectManuallyEnabled() {
@@ -2491,7 +2552,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       50,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_WriteProtectManuallyEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getLog() {
@@ -2500,7 +2562,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       51,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetLog_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   saveLog() {
@@ -2509,7 +2572,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       52,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_SaveLog_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getPowerwashRequired() {
@@ -2518,7 +2582,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       53,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetPowerwashRequired_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   launchDiagnostics() {
@@ -2527,7 +2592,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       54,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_LaunchDiagnostics_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   endRma(shutdown_method) {
@@ -2536,7 +2602,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       55,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_EndRma_ResponseParamsSpec,
-      [shutdown_method]);
+      [shutdown_method],
+      false);
   }
 
   shutDownAfterHardwareError() {
@@ -2545,7 +2612,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       56,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ShutDownAfterHardwareError_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   criticalErrorExitToLogin() {
@@ -2554,7 +2622,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       57,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorExitToLogin_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   criticalErrorReboot() {
@@ -2563,7 +2632,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       58,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_CriticalErrorReboot_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   get3pDiagnosticsProvider() {
@@ -2572,7 +2642,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       59,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_Get3pDiagnosticsProvider_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getInstallable3pDiagnosticsAppPath() {
@@ -2581,7 +2652,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       60,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_GetInstallable3pDiagnosticsAppPath_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   installLastFound3pDiagnosticsApp() {
@@ -2590,7 +2662,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       61,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_InstallLastFound3pDiagnosticsApp_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   completeLast3pDiagnosticsInstallation(is_approved) {
@@ -2599,7 +2672,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       62,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_CompleteLast3pDiagnosticsInstallation_ResponseParamsSpec,
-      [is_approved]);
+      [is_approved],
+      false);
   }
 
   show3pDiagnosticsApp() {
@@ -2608,7 +2682,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       63,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ParamsSpec,
       ash.shimless_rma.mojom.ShimlessRmaService_Show3pDiagnosticsApp_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   observeError(observer) {
@@ -2617,7 +2692,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       64,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveError_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeOsUpdateProgress(observer) {
@@ -2626,7 +2702,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       65,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveOsUpdateProgress_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeCalibrationProgress(observer) {
@@ -2635,7 +2712,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       66,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveCalibrationProgress_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeProvisioningProgress(observer) {
@@ -2644,7 +2722,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       67,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveProvisioningProgress_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeHardwareWriteProtectionState(observer) {
@@ -2653,7 +2732,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       68,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareWriteProtectionState_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observePowerCableState(observer) {
@@ -2662,7 +2742,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       69,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObservePowerCableState_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeExternalDiskState(observer) {
@@ -2671,7 +2752,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       70,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveExternalDiskState_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeHardwareVerificationStatus(observer) {
@@ -2680,7 +2762,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       71,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveHardwareVerificationStatus_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeFinalizationStatus(observer) {
@@ -2689,7 +2772,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       72,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveFinalizationStatus_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeRoFirmwareUpdateProgress(observer) {
@@ -2698,7 +2782,8 @@ ash.shimless_rma.mojom.ShimlessRmaServiceRemoteCallHandler = class {
       73,  // ordinal
       ash.shimless_rma.mojom.ShimlessRmaService_ObserveRoFirmwareUpdateProgress_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

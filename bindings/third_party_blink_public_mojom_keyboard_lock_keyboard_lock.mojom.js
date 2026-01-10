@@ -110,7 +110,8 @@ blink.mojom.KeyboardLockServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec,
       blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec,
-      [key_codes]);
+      [key_codes],
+      false);
   }
 
   cancelKeyboardLock() {
@@ -119,7 +120,8 @@ blink.mojom.KeyboardLockServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getKeyboardLayoutMap() {
@@ -128,7 +130,8 @@ blink.mojom.KeyboardLockServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec,
       blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

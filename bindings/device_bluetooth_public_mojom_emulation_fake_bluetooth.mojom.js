@@ -260,7 +260,8 @@ bluetooth.mojom.FakeBluetoothRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.FakeBluetooth_SetLESupported_ParamsSpec,
       bluetooth.mojom.FakeBluetooth_SetLESupported_ResponseParamsSpec,
-      [available]);
+      [available],
+      false);
   }
 
   simulateCentral(state) {
@@ -269,7 +270,8 @@ bluetooth.mojom.FakeBluetoothRemoteCallHandler = class {
       1,  // ordinal
       bluetooth.mojom.FakeBluetooth_SimulateCentral_ParamsSpec,
       bluetooth.mojom.FakeBluetooth_SimulateCentral_ResponseParamsSpec,
-      [state]);
+      [state],
+      false);
   }
 
   allResponsesConsumed() {
@@ -278,7 +280,8 @@ bluetooth.mojom.FakeBluetoothRemoteCallHandler = class {
       2,  // ordinal
       bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ParamsSpec,
       bluetooth.mojom.FakeBluetooth_AllResponsesConsumed_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -703,7 +706,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ParamsSpec,
       bluetooth.mojom.FakeCentral_SimulatePreconnectedPeripheral_ResponseParamsSpec,
-      [address, name, manufacturer_data, known_service_uuids]);
+      [address, name, manufacturer_data, known_service_uuids],
+      false);
   }
 
   simulateAdvertisementReceived(result) {
@@ -712,7 +716,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       1,  // ordinal
       bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ParamsSpec,
       bluetooth.mojom.FakeCentral_SimulateAdvertisementReceived_ResponseParamsSpec,
-      [result]);
+      [result],
+      false);
   }
 
   setState(state) {
@@ -721,7 +726,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       2,  // ordinal
       bluetooth.mojom.FakeCentral_SetState_ParamsSpec,
       bluetooth.mojom.FakeCentral_SetState_ResponseParamsSpec,
-      [state]);
+      [state],
+      false);
   }
 
   setNextGATTConnectionResponse(address, code) {
@@ -730,7 +736,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       3,  // ordinal
       bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ParamsSpec,
       bluetooth.mojom.FakeCentral_SetNextGATTConnectionResponse_ResponseParamsSpec,
-      [address, code]);
+      [address, code],
+      false);
   }
 
   setNextGATTDiscoveryResponse(address, code) {
@@ -739,7 +746,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       4,  // ordinal
       bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ParamsSpec,
       bluetooth.mojom.FakeCentral_SetNextGATTDiscoveryResponse_ResponseParamsSpec,
-      [address, code]);
+      [address, code],
+      false);
   }
 
   simulateGATTOperationResponse(type, address, code) {
@@ -748,7 +756,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       5,  // ordinal
       bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ParamsSpec,
       bluetooth.mojom.FakeCentral_SimulateGATTOperationResponse_ResponseParamsSpec,
-      [type, address, code]);
+      [type, address, code],
+      false);
   }
 
   simulateGATTDisconnection(address) {
@@ -757,7 +766,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       6,  // ordinal
       bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec,
       bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec,
-      [address]);
+      [address],
+      false);
   }
 
   simulateGATTServicesChanged(address) {
@@ -766,7 +776,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       7,  // ordinal
       bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec,
       bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec,
-      [address]);
+      [address],
+      false);
   }
 
   simulateCharacteristicOperationResponse(type, characteristic_id, service_id, peripheral_address, code, data) {
@@ -775,7 +786,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       8,  // ordinal
       bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec,
       bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ResponseParamsSpec,
-      [type, characteristic_id, service_id, peripheral_address, code, data]);
+      [type, characteristic_id, service_id, peripheral_address, code, data],
+      false);
   }
 
   simulateDescriptorOperationResponse(type, descriptor_id, characteristic_id, service_id, peripheral_address, code, data) {
@@ -784,7 +796,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       9,  // ordinal
       bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec,
       bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponseParamsSpec,
-      [type, descriptor_id, characteristic_id, service_id, peripheral_address, code, data]);
+      [type, descriptor_id, characteristic_id, service_id, peripheral_address, code, data],
+      false);
   }
 
   addFakeService(peripheral_address, service_uuid) {
@@ -793,7 +806,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       10,  // ordinal
       bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec,
       bluetooth.mojom.FakeCentral_AddFakeService_ResponseParamsSpec,
-      [peripheral_address, service_uuid]);
+      [peripheral_address, service_uuid],
+      false);
   }
 
   removeFakeService(service_id, peripheral_address) {
@@ -802,7 +816,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       11,  // ordinal
       bluetooth.mojom.FakeCentral_RemoveFakeService_ParamsSpec,
       bluetooth.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec,
-      [service_id, peripheral_address]);
+      [service_id, peripheral_address],
+      false);
   }
 
   addFakeCharacteristic(characteristic_uuid, properties, service_id, peripheral_address) {
@@ -811,7 +826,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       12,  // ordinal
       bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec,
       bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec,
-      [characteristic_uuid, properties, service_id, peripheral_address]);
+      [characteristic_uuid, properties, service_id, peripheral_address],
+      false);
   }
 
   removeFakeCharacteristic(identifier, service_id, peripheral_address) {
@@ -820,7 +836,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       13,  // ordinal
       bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec,
       bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec,
-      [identifier, service_id, peripheral_address]);
+      [identifier, service_id, peripheral_address],
+      false);
   }
 
   addFakeDescriptor(descriptor_uuid, characteristic_id, service_id, peripheral_address) {
@@ -829,7 +846,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       14,  // ordinal
       bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec,
       bluetooth.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec,
-      [descriptor_uuid, characteristic_id, service_id, peripheral_address]);
+      [descriptor_uuid, characteristic_id, service_id, peripheral_address],
+      false);
   }
 
   removeFakeDescriptor(descriptor_id, characteristic_id, service_id, peripheral_address) {
@@ -838,7 +856,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       15,  // ordinal
       bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec,
       bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec,
-      [descriptor_id, characteristic_id, service_id, peripheral_address]);
+      [descriptor_id, characteristic_id, service_id, peripheral_address],
+      false);
   }
 
   setNextReadCharacteristicResponse(gatt_code, value, characteristic_id, service_id, peripheral_address) {
@@ -847,7 +866,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       16,  // ordinal
       bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec,
       bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponseParamsSpec,
-      [gatt_code, value, characteristic_id, service_id, peripheral_address]);
+      [gatt_code, value, characteristic_id, service_id, peripheral_address],
+      false);
   }
 
   setNextWriteCharacteristicResponse(gatt_code, characteristic_id, service_id, peripheral_address) {
@@ -856,7 +876,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       17,  // ordinal
       bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec,
       bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponseParamsSpec,
-      [gatt_code, characteristic_id, service_id, peripheral_address]);
+      [gatt_code, characteristic_id, service_id, peripheral_address],
+      false);
   }
 
   setNextSubscribeToNotificationsResponse(gatt_code, characteristic_id, service_id, peripheral_address) {
@@ -865,7 +886,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       18,  // ordinal
       bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec,
       bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ResponseParamsSpec,
-      [gatt_code, characteristic_id, service_id, peripheral_address]);
+      [gatt_code, characteristic_id, service_id, peripheral_address],
+      false);
   }
 
   setNextUnsubscribeFromNotificationsResponse(gatt_code, characteristic_id, service_id, peripheral_address) {
@@ -874,7 +896,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       19,  // ordinal
       bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec,
       bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ResponseParamsSpec,
-      [gatt_code, characteristic_id, service_id, peripheral_address]);
+      [gatt_code, characteristic_id, service_id, peripheral_address],
+      false);
   }
 
   isNotifying(characteristic_id, service_id, peripheral_address) {
@@ -883,7 +906,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       20,  // ordinal
       bluetooth.mojom.FakeCentral_IsNotifying_ParamsSpec,
       bluetooth.mojom.FakeCentral_IsNotifying_ResponseParamsSpec,
-      [characteristic_id, service_id, peripheral_address]);
+      [characteristic_id, service_id, peripheral_address],
+      false);
   }
 
   getLastWrittenCharacteristicValue(characteristic_id, service_id, peripheral_address) {
@@ -892,7 +916,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       21,  // ordinal
       bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec,
       bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec,
-      [characteristic_id, service_id, peripheral_address]);
+      [characteristic_id, service_id, peripheral_address],
+      false);
   }
 
   setNextReadDescriptorResponse(gatt_code, value, descriptor_id, characteristic_id, service_id, peripheral_address) {
@@ -901,7 +926,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       22,  // ordinal
       bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec,
       bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSpec,
-      [gatt_code, value, descriptor_id, characteristic_id, service_id, peripheral_address]);
+      [gatt_code, value, descriptor_id, characteristic_id, service_id, peripheral_address],
+      false);
   }
 
   setNextWriteDescriptorResponse(gatt_code, descriptor_id, characteristic_id, service_id, peripheral_address) {
@@ -910,7 +936,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       23,  // ordinal
       bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec,
       bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsSpec,
-      [gatt_code, descriptor_id, characteristic_id, service_id, peripheral_address]);
+      [gatt_code, descriptor_id, characteristic_id, service_id, peripheral_address],
+      false);
   }
 
   getLastWrittenDescriptorValue(descriptor_id, characteristic_id, service_id, peripheral_address) {
@@ -919,7 +946,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       24,  // ordinal
       bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec,
       bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec,
-      [descriptor_id, characteristic_id, service_id, peripheral_address]);
+      [descriptor_id, characteristic_id, service_id, peripheral_address],
+      false);
   }
 
   setClient(client) {
@@ -928,7 +956,8 @@ bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       25,  // ordinal
       bluetooth.mojom.FakeCentral_SetClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
 };
@@ -1010,7 +1039,8 @@ bluetooth.mojom.FakeCentralClientRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.FakeCentralClient_DispatchGATTOperationEvent_ParamsSpec,
       null,
-      [type, peripheral_address]);
+      [type, peripheral_address],
+      false);
   }
 
   dispatchCharacteristicOperationEvent(type, data, write_type, characteristic_id) {
@@ -1019,7 +1049,8 @@ bluetooth.mojom.FakeCentralClientRemoteCallHandler = class {
       1,  // ordinal
       bluetooth.mojom.FakeCentralClient_DispatchCharacteristicOperationEvent_ParamsSpec,
       null,
-      [type, data, write_type, characteristic_id]);
+      [type, data, write_type, characteristic_id],
+      false);
   }
 
   dispatchDescriptorOperationEvent(type, data, descriptor_id) {
@@ -1028,7 +1059,8 @@ bluetooth.mojom.FakeCentralClientRemoteCallHandler = class {
       2,  // ordinal
       bluetooth.mojom.FakeCentralClient_DispatchDescriptorOperationEvent_ParamsSpec,
       null,
-      [type, data, descriptor_id]);
+      [type, data, descriptor_id],
+      false);
   }
 
 };

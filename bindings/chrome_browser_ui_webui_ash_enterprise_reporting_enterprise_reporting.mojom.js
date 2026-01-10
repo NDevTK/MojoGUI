@@ -96,7 +96,8 @@ enterprise_reporting.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -182,7 +183,8 @@ enterprise_reporting.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   getDebugState() {
@@ -191,7 +193,8 @@ enterprise_reporting.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec,
       enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getErpHistoryData() {
@@ -200,7 +203,8 @@ enterprise_reporting.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec,
       enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -264,7 +268,8 @@ enterprise_reporting.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec,
       null,
-      [history_data]);
+      [history_data],
+      false);
   }
 
 };

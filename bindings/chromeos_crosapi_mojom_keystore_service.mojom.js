@@ -674,7 +674,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       20,  // ordinal
       crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ParamsSpec,
       crosapi.mojom.KeystoreService_ChallengeAttestationOnlyKeystore_ResponseParamsSpec,
-      [type, challenge, migrate, algorithm]);
+      [type, challenge, migrate, algorithm],
+      false);
   }
 
   getKeyStores() {
@@ -683,7 +684,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       16,  // ordinal
       crosapi.mojom.KeystoreService_GetKeyStores_ParamsSpec,
       crosapi.mojom.KeystoreService_GetKeyStores_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   selectClientCertificates(certificate_authorities) {
@@ -692,7 +694,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       11,  // ordinal
       crosapi.mojom.KeystoreService_SelectClientCertificates_ParamsSpec,
       crosapi.mojom.KeystoreService_SelectClientCertificates_ResponseParamsSpec,
-      [certificate_authorities]);
+      [certificate_authorities],
+      false);
   }
 
   getCertificates(keystore) {
@@ -701,7 +704,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       17,  // ordinal
       crosapi.mojom.KeystoreService_GetCertificates_ParamsSpec,
       crosapi.mojom.KeystoreService_GetCertificates_ResponseParamsSpec,
-      [keystore]);
+      [keystore],
+      false);
   }
 
   addCertificate(keystore, certificate) {
@@ -710,7 +714,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       18,  // ordinal
       crosapi.mojom.KeystoreService_AddCertificate_ParamsSpec,
       crosapi.mojom.KeystoreService_AddCertificate_ResponseParamsSpec,
-      [keystore, certificate]);
+      [keystore, certificate],
+      false);
   }
 
   removeCertificate(keystore, certificate) {
@@ -719,7 +724,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       19,  // ordinal
       crosapi.mojom.KeystoreService_RemoveCertificate_ParamsSpec,
       crosapi.mojom.KeystoreService_RemoveCertificate_ResponseParamsSpec,
-      [keystore, certificate]);
+      [keystore, certificate],
+      false);
   }
 
   getPublicKey(certificate, algorithm_name) {
@@ -728,7 +734,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       15,  // ordinal
       crosapi.mojom.KeystoreService_GetPublicKey_ParamsSpec,
       crosapi.mojom.KeystoreService_GetPublicKey_ResponseParamsSpec,
-      [certificate, algorithm_name]);
+      [certificate, algorithm_name],
+      false);
   }
 
   generateKey(keystore, algorithm) {
@@ -737,7 +744,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       8,  // ordinal
       crosapi.mojom.KeystoreService_GenerateKey_ParamsSpec,
       crosapi.mojom.KeystoreService_GenerateKey_ResponseParamsSpec,
-      [keystore, algorithm]);
+      [keystore, algorithm],
+      false);
   }
 
   removeKey(keystore, public_key) {
@@ -746,7 +754,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       10,  // ordinal
       crosapi.mojom.KeystoreService_RemoveKey_ParamsSpec,
       crosapi.mojom.KeystoreService_RemoveKey_ResponseParamsSpec,
-      [keystore, public_key]);
+      [keystore, public_key],
+      false);
   }
 
   sign(is_keystore_provided, keystore, public_key, scheme, data) {
@@ -755,7 +764,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       9,  // ordinal
       crosapi.mojom.KeystoreService_Sign_ParamsSpec,
       crosapi.mojom.KeystoreService_Sign_ResponseParamsSpec,
-      [is_keystore_provided, keystore, public_key, scheme, data]);
+      [is_keystore_provided, keystore, public_key, scheme, data],
+      false);
   }
 
   getKeyTags(public_key) {
@@ -764,7 +774,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       12,  // ordinal
       crosapi.mojom.KeystoreService_GetKeyTags_ParamsSpec,
       crosapi.mojom.KeystoreService_GetKeyTags_ResponseParamsSpec,
-      [public_key]);
+      [public_key],
+      false);
   }
 
   addKeyTags(public_key, tags) {
@@ -773,7 +784,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       13,  // ordinal
       crosapi.mojom.KeystoreService_AddKeyTags_ParamsSpec,
       crosapi.mojom.KeystoreService_AddKeyTags_ResponseParamsSpec,
-      [public_key, tags]);
+      [public_key, tags],
+      false);
   }
 
   canUserGrantPermissionForKey(public_key) {
@@ -782,7 +794,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       14,  // ordinal
       crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ParamsSpec,
       crosapi.mojom.KeystoreService_CanUserGrantPermissionForKey_ResponseParamsSpec,
-      [public_key]);
+      [public_key],
+      false);
   }
 
   setAttributeForKey(keystore, public_key, attribute_type, attribute_value) {
@@ -791,7 +804,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       21,  // ordinal
       crosapi.mojom.KeystoreService_SetAttributeForKey_ParamsSpec,
       crosapi.mojom.KeystoreService_SetAttributeForKey_ResponseParamsSpec,
-      [keystore, public_key, attribute_type, attribute_value]);
+      [keystore, public_key, attribute_type, attribute_value],
+      false);
   }
 
   dEPRECATED_ExtensionGenerateKey(keystore, algorithm, extension_id) {
@@ -800,7 +814,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       3,  // ordinal
       crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ParamsSpec,
       crosapi.mojom.KeystoreService_DEPRECATED_ExtensionGenerateKey_ResponseParamsSpec,
-      [keystore, algorithm, extension_id]);
+      [keystore, algorithm, extension_id],
+      false);
   }
 
   dEPRECATED_ExtensionSign(keystore, public_key, scheme, data, extension_id) {
@@ -809,7 +824,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       7,  // ordinal
       crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ParamsSpec,
       crosapi.mojom.KeystoreService_DEPRECATED_ExtensionSign_ResponseParamsSpec,
-      [keystore, public_key, scheme, data, extension_id]);
+      [keystore, public_key, scheme, data, extension_id],
+      false);
   }
 
   dEPRECATED_GetPublicKey(certificate, algorithm_name) {
@@ -818,7 +834,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       6,  // ordinal
       crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ParamsSpec,
       crosapi.mojom.KeystoreService_DEPRECATED_GetPublicKey_ResponseParamsSpec,
-      [certificate, algorithm_name]);
+      [certificate, algorithm_name],
+      false);
   }
 
   dEPRECATED_GetKeyStores() {
@@ -827,7 +844,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ParamsSpec,
       crosapi.mojom.KeystoreService_DEPRECATED_GetKeyStores_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   dEPRECATED_GetCertificates(keystore) {
@@ -836,7 +854,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       2,  // ordinal
       crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ParamsSpec,
       crosapi.mojom.KeystoreService_DEPRECATED_GetCertificates_ResponseParamsSpec,
-      [keystore]);
+      [keystore],
+      false);
   }
 
   dEPRECATED_AddCertificate(keystore, certificate) {
@@ -845,7 +864,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       4,  // ordinal
       crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ParamsSpec,
       crosapi.mojom.KeystoreService_DEPRECATED_AddCertificate_ResponseParamsSpec,
-      [keystore, certificate]);
+      [keystore, certificate],
+      false);
   }
 
   dEPRECATED_RemoveCertificate(keystore, certificate) {
@@ -854,7 +874,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       5,  // ordinal
       crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ParamsSpec,
       crosapi.mojom.KeystoreService_DEPRECATED_RemoveCertificate_ResponseParamsSpec,
-      [keystore, certificate]);
+      [keystore, certificate],
+      false);
   }
 
   dEPRECATED_ChallengeAttestationOnlyKeystore(challenge, type, migrate) {
@@ -863,7 +884,8 @@ crosapi.mojom.KeystoreServiceRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ParamsSpec,
       crosapi.mojom.KeystoreService_DEPRECATED_ChallengeAttestationOnlyKeystore_ResponseParamsSpec,
-      [challenge, type, migrate]);
+      [challenge, type, migrate],
+      false);
   }
 
 };

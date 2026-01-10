@@ -213,7 +213,8 @@ nearby_share.mojom.NearbyShareSettingsObserverRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.NearbyShareSettingsObserver_OnEnabledChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   onFastInitiationNotificationStateChanged(state) {
@@ -222,7 +223,8 @@ nearby_share.mojom.NearbyShareSettingsObserverRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.NearbyShareSettingsObserver_OnFastInitiationNotificationStateChanged_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   onIsFastInitiationHardwareSupportedChanged(is_supported) {
@@ -231,7 +233,8 @@ nearby_share.mojom.NearbyShareSettingsObserverRemoteCallHandler = class {
       2,  // ordinal
       nearby_share.mojom.NearbyShareSettingsObserver_OnIsFastInitiationHardwareSupportedChanged_ParamsSpec,
       null,
-      [is_supported]);
+      [is_supported],
+      false);
   }
 
   onDeviceNameChanged(device_name) {
@@ -240,7 +243,8 @@ nearby_share.mojom.NearbyShareSettingsObserverRemoteCallHandler = class {
       3,  // ordinal
       nearby_share.mojom.NearbyShareSettingsObserver_OnDeviceNameChanged_ParamsSpec,
       null,
-      [device_name]);
+      [device_name],
+      false);
   }
 
   onDataUsageChanged(data_usage) {
@@ -249,7 +253,8 @@ nearby_share.mojom.NearbyShareSettingsObserverRemoteCallHandler = class {
       4,  // ordinal
       nearby_share.mojom.NearbyShareSettingsObserver_OnDataUsageChanged_ParamsSpec,
       null,
-      [data_usage]);
+      [data_usage],
+      false);
   }
 
   onVisibilityChanged(visibility) {
@@ -258,7 +263,8 @@ nearby_share.mojom.NearbyShareSettingsObserverRemoteCallHandler = class {
       5,  // ordinal
       nearby_share.mojom.NearbyShareSettingsObserver_OnVisibilityChanged_ParamsSpec,
       null,
-      [visibility]);
+      [visibility],
+      false);
   }
 
   onAllowedContactsChanged(visible_contact_ids) {
@@ -267,7 +273,8 @@ nearby_share.mojom.NearbyShareSettingsObserverRemoteCallHandler = class {
       6,  // ordinal
       nearby_share.mojom.NearbyShareSettingsObserver_OnAllowedContactsChanged_ParamsSpec,
       null,
-      [visible_contact_ids]);
+      [visible_contact_ids],
+      false);
   }
 
   onIsOnboardingCompleteChanged(is_complete) {
@@ -276,7 +283,8 @@ nearby_share.mojom.NearbyShareSettingsObserverRemoteCallHandler = class {
       7,  // ordinal
       nearby_share.mojom.NearbyShareSettingsObserver_OnIsOnboardingCompleteChanged_ParamsSpec,
       null,
-      [is_complete]);
+      [is_complete],
+      false);
   }
 
 };
@@ -488,7 +496,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.NearbyShareSettings_AddSettingsObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   getEnabled() {
@@ -497,7 +506,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.NearbyShareSettings_GetEnabled_ParamsSpec,
       nearby_share.mojom.NearbyShareSettings_GetEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setEnabled(enabled) {
@@ -506,7 +516,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       2,  // ordinal
       nearby_share.mojom.NearbyShareSettings_SetEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   isOnboardingComplete() {
@@ -515,7 +526,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       3,  // ordinal
       nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ParamsSpec,
       nearby_share.mojom.NearbyShareSettings_IsOnboardingComplete_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setIsOnboardingComplete(completed) {
@@ -524,7 +536,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       4,  // ordinal
       nearby_share.mojom.NearbyShareSettings_SetIsOnboardingComplete_ParamsSpec,
       null,
-      [completed]);
+      [completed],
+      false);
   }
 
   getFastInitiationNotificationState() {
@@ -533,7 +546,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       5,  // ordinal
       nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ParamsSpec,
       nearby_share.mojom.NearbyShareSettings_GetFastInitiationNotificationState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setFastInitiationNotificationState(state) {
@@ -542,7 +556,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       6,  // ordinal
       nearby_share.mojom.NearbyShareSettings_SetFastInitiationNotificationState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   getIsFastInitiationHardwareSupported() {
@@ -551,7 +566,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       7,  // ordinal
       nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ParamsSpec,
       nearby_share.mojom.NearbyShareSettings_GetIsFastInitiationHardwareSupported_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getDeviceName() {
@@ -560,7 +576,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       8,  // ordinal
       nearby_share.mojom.NearbyShareSettings_GetDeviceName_ParamsSpec,
       nearby_share.mojom.NearbyShareSettings_GetDeviceName_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   validateDeviceName(device_name) {
@@ -569,7 +586,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       9,  // ordinal
       nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ParamsSpec,
       nearby_share.mojom.NearbyShareSettings_ValidateDeviceName_ResponseParamsSpec,
-      [device_name]);
+      [device_name],
+      false);
   }
 
   setDeviceName(device_name) {
@@ -578,7 +596,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       10,  // ordinal
       nearby_share.mojom.NearbyShareSettings_SetDeviceName_ParamsSpec,
       nearby_share.mojom.NearbyShareSettings_SetDeviceName_ResponseParamsSpec,
-      [device_name]);
+      [device_name],
+      false);
   }
 
   getDataUsage() {
@@ -587,7 +606,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       11,  // ordinal
       nearby_share.mojom.NearbyShareSettings_GetDataUsage_ParamsSpec,
       nearby_share.mojom.NearbyShareSettings_GetDataUsage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setDataUsage(data_usage) {
@@ -596,7 +616,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       12,  // ordinal
       nearby_share.mojom.NearbyShareSettings_SetDataUsage_ParamsSpec,
       null,
-      [data_usage]);
+      [data_usage],
+      false);
   }
 
   getVisibility() {
@@ -605,7 +626,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       13,  // ordinal
       nearby_share.mojom.NearbyShareSettings_GetVisibility_ParamsSpec,
       nearby_share.mojom.NearbyShareSettings_GetVisibility_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setVisibility(visibility) {
@@ -614,7 +636,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       14,  // ordinal
       nearby_share.mojom.NearbyShareSettings_SetVisibility_ParamsSpec,
       null,
-      [visibility]);
+      [visibility],
+      false);
   }
 
   getAllowedContacts() {
@@ -623,7 +646,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       15,  // ordinal
       nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ParamsSpec,
       nearby_share.mojom.NearbyShareSettings_GetAllowedContacts_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setAllowedContacts(allowed_contacts) {
@@ -632,7 +656,8 @@ nearby_share.mojom.NearbyShareSettingsRemoteCallHandler = class {
       16,  // ordinal
       nearby_share.mojom.NearbyShareSettings_SetAllowedContacts_ParamsSpec,
       null,
-      [allowed_contacts]);
+      [allowed_contacts],
+      false);
   }
 
 };
@@ -703,7 +728,8 @@ nearby_share.mojom.DownloadContactsObserverRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.DownloadContactsObserver_OnContactsDownloaded_ParamsSpec,
       null,
-      [allowed_contacts, contacts, num_unreachable_contacts_filtered_out]);
+      [allowed_contacts, contacts, num_unreachable_contacts_filtered_out],
+      false);
   }
 
   onContactsDownloadFailed() {
@@ -712,7 +738,8 @@ nearby_share.mojom.DownloadContactsObserverRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.DownloadContactsObserver_OnContactsDownloadFailed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -787,7 +814,8 @@ nearby_share.mojom.ContactManagerRemoteCallHandler = class {
       0,  // ordinal
       nearby_share.mojom.ContactManager_AddDownloadContactsObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   downloadContacts() {
@@ -796,7 +824,8 @@ nearby_share.mojom.ContactManagerRemoteCallHandler = class {
       1,  // ordinal
       nearby_share.mojom.ContactManager_DownloadContacts_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setAllowedContacts(allowed_contacts) {
@@ -805,7 +834,8 @@ nearby_share.mojom.ContactManagerRemoteCallHandler = class {
       2,  // ordinal
       nearby_share.mojom.ContactManager_SetAllowedContacts_ParamsSpec,
       null,
-      [allowed_contacts]);
+      [allowed_contacts],
+      false);
   }
 
 };

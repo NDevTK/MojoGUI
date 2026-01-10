@@ -57,7 +57,8 @@ mojom.LocationInternalsHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

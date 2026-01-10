@@ -110,7 +110,8 @@ user_data_importer.mojom.BookmarkHtmlParserRemoteCallHandler = class {
       0,  // ordinal
       user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec,
       user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec,
-      [raw_html]);
+      [raw_html],
+      false);
   }
 
 };

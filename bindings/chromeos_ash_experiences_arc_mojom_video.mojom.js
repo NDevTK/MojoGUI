@@ -99,7 +99,8 @@ arc.mojom.VideoHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec,
       arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   createVideoAcceleratorFactory() {
@@ -108,7 +109,8 @@ arc.mojom.VideoHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec,
       arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -177,7 +179,8 @@ arc.mojom.VideoInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.VideoInstance_Init_ParamsSpec,
       arc.mojom.VideoInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };
@@ -261,7 +264,8 @@ arc.mojom.VideoAcceleratorFactoryRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec,
       null,
-      [video_encoder]);
+      [video_encoder],
+      false);
   }
 
   createDecodeAccelerator(video_decoder, protected_buffer_manager, browser_cdm_factory) {
@@ -270,7 +274,8 @@ arc.mojom.VideoAcceleratorFactoryRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec,
       null,
-      [video_decoder, protected_buffer_manager, browser_cdm_factory]);
+      [video_decoder, protected_buffer_manager, browser_cdm_factory],
+      false);
   }
 
   createVideoDecoder(video_decoder) {
@@ -279,7 +284,8 @@ arc.mojom.VideoAcceleratorFactoryRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec,
       null,
-      [video_decoder]);
+      [video_decoder],
+      false);
   }
 
   createProtectedBufferAllocator(video_protected_buffer_allocator) {
@@ -288,7 +294,8 @@ arc.mojom.VideoAcceleratorFactoryRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec,
       null,
-      [video_protected_buffer_allocator]);
+      [video_protected_buffer_allocator],
+      false);
   }
 
 };

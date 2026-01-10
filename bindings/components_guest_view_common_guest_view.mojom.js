@@ -125,7 +125,8 @@ guest_view.mojom.GuestViewHostRemoteCallHandler = class {
       0,  // ordinal
       guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec,
       guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec,
-      [element_instance_id, guest_instance_id, params]);
+      [element_instance_id, guest_instance_id, params],
+      false);
   }
 
   viewCreated(view_instance_id, view_type, keep_alive_handle_receiver) {
@@ -134,7 +135,8 @@ guest_view.mojom.GuestViewHostRemoteCallHandler = class {
       1,  // ordinal
       guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec,
       null,
-      [view_instance_id, view_type, keep_alive_handle_receiver]);
+      [view_instance_id, view_type, keep_alive_handle_receiver],
+      false);
   }
 
 };

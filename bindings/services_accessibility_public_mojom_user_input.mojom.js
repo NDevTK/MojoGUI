@@ -100,7 +100,8 @@ ax.mojom.UserInputRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec,
       null,
-      [key_event]);
+      [key_event],
+      false);
   }
 
   sendSyntheticMouseEvent(mouse_event) {
@@ -109,7 +110,8 @@ ax.mojom.UserInputRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec,
       null,
-      [mouse_event]);
+      [mouse_event],
+      false);
   }
 
 };

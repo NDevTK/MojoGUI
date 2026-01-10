@@ -188,7 +188,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactoryRemoteCallHandler = class
       0,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec,
       null,
-      [client_handler, handler, dialog]);
+      [client_handler, handler, dialog],
+      false);
   }
 
 };
@@ -374,7 +375,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   compose(input, mode, edited) {
@@ -383,7 +385,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_Compose_ParamsSpec,
       null,
-      [input, mode, edited]);
+      [input, mode, edited],
+      false);
   }
 
   rewrite(style) {
@@ -392,7 +395,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_Rewrite_ParamsSpec,
       null,
-      [style]);
+      [style],
+      false);
   }
 
   logEditInput() {
@@ -401,7 +405,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_LogEditInput_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   saveWebUIState(webui_state) {
@@ -410,7 +415,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_SaveWebUIState_ParamsSpec,
       null,
-      [webui_state]);
+      [webui_state],
+      false);
   }
 
   acceptComposeResult() {
@@ -419,7 +425,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       5,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ParamsSpec,
       compose.mojom.ComposeSessionUntrustedPageHandler_AcceptComposeResult_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestInitialState() {
@@ -428,7 +435,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       6,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ParamsSpec,
       compose.mojom.ComposeSessionUntrustedPageHandler_RequestInitialState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   undo() {
@@ -437,7 +445,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       7,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ParamsSpec,
       compose.mojom.ComposeSessionUntrustedPageHandler_Undo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   recoverFromErrorState() {
@@ -446,7 +455,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       8,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ParamsSpec,
       compose.mojom.ComposeSessionUntrustedPageHandler_RecoverFromErrorState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   redo() {
@@ -455,7 +465,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       9,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ParamsSpec,
       compose.mojom.ComposeSessionUntrustedPageHandler_Redo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openBugReportingLink() {
@@ -464,7 +475,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       10,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_OpenBugReportingLink_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openComposeLearnMorePage() {
@@ -473,7 +485,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       11,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_OpenComposeLearnMorePage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openEnterpriseComposeLearnMorePage() {
@@ -482,7 +495,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       12,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_OpenEnterpriseComposeLearnMorePage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openFeedbackSurveyLink() {
@@ -491,7 +505,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       13,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_OpenFeedbackSurveyLink_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openSignInPage() {
@@ -500,7 +515,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       14,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_OpenSignInPage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setUserFeedback(feedback) {
@@ -509,7 +525,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       15,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_SetUserFeedback_ParamsSpec,
       null,
-      [feedback]);
+      [feedback],
+      false);
   }
 
   editResult(new_result) {
@@ -518,7 +535,8 @@ compose.mojom.ComposeSessionUntrustedPageHandlerRemoteCallHandler = class {
       16,  // ordinal
       compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ParamsSpec,
       compose.mojom.ComposeSessionUntrustedPageHandler_EditResult_ResponseParamsSpec,
-      [new_result]);
+      [new_result],
+      false);
   }
 
 };
@@ -597,7 +615,8 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   closeUI(reason) {
@@ -606,7 +625,8 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       compose.mojom.ComposeClientUntrustedPageHandler_CloseUI_ParamsSpec,
       null,
-      [reason]);
+      [reason],
+      false);
   }
 
   completeFirstRun() {
@@ -615,7 +635,8 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       compose.mojom.ComposeClientUntrustedPageHandler_CompleteFirstRun_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openComposeSettings() {
@@ -624,7 +645,8 @@ compose.mojom.ComposeClientUntrustedPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       compose.mojom.ComposeClientUntrustedPageHandler_OpenComposeSettings_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -694,7 +716,8 @@ compose.mojom.ComposeUntrustedDialogRemoteCallHandler = class {
       0,  // ordinal
       compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec,
       null,
-      [response]);
+      [response],
+      false);
   }
 
   partialResponseReceived(partial_response) {
@@ -703,7 +726,8 @@ compose.mojom.ComposeUntrustedDialogRemoteCallHandler = class {
       1,  // ordinal
       compose.mojom.ComposeUntrustedDialog_PartialResponseReceived_ParamsSpec,
       null,
-      [partial_response]);
+      [partial_response],
+      false);
   }
 
 };

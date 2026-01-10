@@ -499,7 +499,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebBluetoothService_GetAvailability_ParamsSpec,
       blink.mojom.WebBluetoothService_GetAvailability_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestDevice(options) {
@@ -508,7 +509,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WebBluetoothService_RequestDevice_ParamsSpec,
       blink.mojom.WebBluetoothService_RequestDevice_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   getDevices() {
@@ -517,7 +519,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.WebBluetoothService_GetDevices_ParamsSpec,
       blink.mojom.WebBluetoothService_GetDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   forgetDevice(device_id) {
@@ -526,7 +529,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.WebBluetoothService_ForgetDevice_ParamsSpec,
       blink.mojom.WebBluetoothService_ForgetDevice_ResponseParamsSpec,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   remoteServerConnect(device_id, client) {
@@ -535,7 +539,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.WebBluetoothService_RemoteServerConnect_ParamsSpec,
       blink.mojom.WebBluetoothService_RemoteServerConnect_ResponseParamsSpec,
-      [device_id, client]);
+      [device_id, client],
+      false);
   }
 
   remoteServerDisconnect(device_id) {
@@ -544,7 +549,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.WebBluetoothService_RemoteServerDisconnect_ParamsSpec,
       null,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   remoteServerGetPrimaryServices(device_id, quantity, services_uuid) {
@@ -553,7 +559,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ParamsSpec,
       blink.mojom.WebBluetoothService_RemoteServerGetPrimaryServices_ResponseParamsSpec,
-      [device_id, quantity, services_uuid]);
+      [device_id, quantity, services_uuid],
+      false);
   }
 
   remoteServiceGetCharacteristics(service_instance_id, quantity, characteristics_uuid) {
@@ -562,7 +569,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ParamsSpec,
       blink.mojom.WebBluetoothService_RemoteServiceGetCharacteristics_ResponseParamsSpec,
-      [service_instance_id, quantity, characteristics_uuid]);
+      [service_instance_id, quantity, characteristics_uuid],
+      false);
   }
 
   remoteCharacteristicReadValue(characteristic_instance_id) {
@@ -571,7 +579,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ParamsSpec,
       blink.mojom.WebBluetoothService_RemoteCharacteristicReadValue_ResponseParamsSpec,
-      [characteristic_instance_id]);
+      [characteristic_instance_id],
+      false);
   }
 
   remoteCharacteristicWriteValue(characteristic_instance_id, value, write_type) {
@@ -580,7 +589,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ParamsSpec,
       blink.mojom.WebBluetoothService_RemoteCharacteristicWriteValue_ResponseParamsSpec,
-      [characteristic_instance_id, value, write_type]);
+      [characteristic_instance_id, value, write_type],
+      false);
   }
 
   remoteCharacteristicStartNotifications(characteristic_instance_id, client) {
@@ -589,7 +599,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ParamsSpec,
       blink.mojom.WebBluetoothService_RemoteCharacteristicStartNotifications_ResponseParamsSpec,
-      [characteristic_instance_id, client]);
+      [characteristic_instance_id, client],
+      false);
   }
 
   remoteCharacteristicStopNotifications(characteristic_instance_id) {
@@ -598,7 +609,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ParamsSpec,
       blink.mojom.WebBluetoothService_RemoteCharacteristicStopNotifications_ResponseParamsSpec,
-      [characteristic_instance_id]);
+      [characteristic_instance_id],
+      false);
   }
 
   remoteCharacteristicGetDescriptors(characteristics_instance_id, quantity, descriptor_uuid) {
@@ -607,7 +619,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ParamsSpec,
       blink.mojom.WebBluetoothService_RemoteCharacteristicGetDescriptors_ResponseParamsSpec,
-      [characteristics_instance_id, quantity, descriptor_uuid]);
+      [characteristics_instance_id, quantity, descriptor_uuid],
+      false);
   }
 
   remoteDescriptorReadValue(descriptor_instance_id) {
@@ -616,7 +629,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       13,  // ordinal
       blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ParamsSpec,
       blink.mojom.WebBluetoothService_RemoteDescriptorReadValue_ResponseParamsSpec,
-      [descriptor_instance_id]);
+      [descriptor_instance_id],
+      false);
   }
 
   remoteDescriptorWriteValue(descriptor_instance_id, value) {
@@ -625,7 +639,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       14,  // ordinal
       blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ParamsSpec,
       blink.mojom.WebBluetoothService_RemoteDescriptorWriteValue_ResponseParamsSpec,
-      [descriptor_instance_id, value]);
+      [descriptor_instance_id, value],
+      false);
   }
 
   requestScanningStart(client, options) {
@@ -634,7 +649,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       15,  // ordinal
       blink.mojom.WebBluetoothService_RequestScanningStart_ParamsSpec,
       blink.mojom.WebBluetoothService_RequestScanningStart_ResponseParamsSpec,
-      [client, options]);
+      [client, options],
+      false);
   }
 
   watchAdvertisementsForDevice(device_id, client) {
@@ -643,7 +659,8 @@ blink.mojom.WebBluetoothServiceRemoteCallHandler = class {
       16,  // ordinal
       blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ParamsSpec,
       blink.mojom.WebBluetoothService_WatchAdvertisementsForDevice_ResponseParamsSpec,
-      [device_id, client]);
+      [device_id, client],
+      false);
   }
 
 };
@@ -706,7 +723,8 @@ blink.mojom.WebBluetoothServerClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -770,7 +788,8 @@ blink.mojom.WebBluetoothCharacteristicClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec,
       null,
-      [value]);
+      [value],
+      false);
   }
 
 };
@@ -834,7 +853,8 @@ blink.mojom.WebBluetoothAdvertisementClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
 };

@@ -74,7 +74,8 @@ ash.settings.one_drive.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.one_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -176,7 +177,8 @@ ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ParamsSpec,
       ash.settings.one_drive.mojom.PageHandler_GetUserEmailAddress_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   connectToOneDrive() {
@@ -185,7 +187,8 @@ ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ParamsSpec,
       ash.settings.one_drive.mojom.PageHandler_ConnectToOneDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   disconnectFromOneDrive() {
@@ -194,7 +197,8 @@ ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ParamsSpec,
       ash.settings.one_drive.mojom.PageHandler_DisconnectFromOneDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openOneDriveFolder() {
@@ -203,7 +207,8 @@ ash.settings.one_drive.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ParamsSpec,
       ash.settings.one_drive.mojom.PageHandler_OpenOneDriveFolder_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -272,7 +277,8 @@ ash.settings.one_drive.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.one_drive.mojom.Page_OnODFSMountOrUnmount_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onAllowUserToRemoveODFSChanged(is_allowed) {
@@ -281,7 +287,8 @@ ash.settings.one_drive.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.one_drive.mojom.Page_OnAllowUserToRemoveODFSChanged_ParamsSpec,
       null,
-      [is_allowed]);
+      [is_allowed],
+      false);
   }
 
 };

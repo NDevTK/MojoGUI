@@ -75,7 +75,8 @@ device.mojom.ScreenOrientationRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.ScreenOrientation_LockOrientation_ParamsSpec,
       device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec,
-      [orientation]);
+      [orientation],
+      false);
   }
 
   unlockOrientation() {
@@ -84,7 +85,8 @@ device.mojom.ScreenOrientationRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -153,7 +155,8 @@ device.mojom.ScreenOrientationListenerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec,
       device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

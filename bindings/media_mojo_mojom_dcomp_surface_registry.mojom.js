@@ -71,7 +71,8 @@ media.mojom.DCOMPSurfaceRegistryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ParamsSpec,
       media.mojom.DCOMPSurfaceRegistry_RegisterDCOMPSurfaceHandle_ResponseParamsSpec,
-      [surface_handle]);
+      [surface_handle],
+      false);
   }
 
   unregisterDCOMPSurfaceHandle(token) {
@@ -80,7 +81,8 @@ media.mojom.DCOMPSurfaceRegistryRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.DCOMPSurfaceRegistry_UnregisterDCOMPSurfaceHandle_ParamsSpec,
       null,
-      [token]);
+      [token],
+      false);
   }
 
 };

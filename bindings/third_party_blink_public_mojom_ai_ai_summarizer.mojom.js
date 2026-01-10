@@ -115,7 +115,8 @@ blink.mojom.AISummarizerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AISummarizer_Summarize_ParamsSpec,
       null,
-      [input, context, pending_responder]);
+      [input, context, pending_responder],
+      false);
   }
 
   measureUsage(input, context) {
@@ -124,7 +125,8 @@ blink.mojom.AISummarizerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AISummarizer_MeasureUsage_ParamsSpec,
       blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec,
-      [input, context]);
+      [input, context],
+      false);
   }
 
 };

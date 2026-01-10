@@ -385,7 +385,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('paper_size_default', 16, 0, gfx.mojom.SizeSpec, null, true, 0, undefined),
       mojo.internal.StructField('max_sheets_allowed', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('max_sheets_allowed_has_value', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('kUnset', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnset', 32, 0, mojo.internal.Pointer, 0, false, 0, undefined),
       mojo.internal.StructField('allowed_color_modes', 40, 0, mojo.internal.Uint32, 0, false, 1, undefined),
       mojo.internal.StructField('allowed_duplex_modes', 44, 0, mojo.internal.Uint32, 0, false, 1, undefined),
       mojo.internal.StructField('allowed_pin_modes', 48, 0, printing.mojom.PinModeRestrictionSpec, null, false, 1, undefined),
@@ -473,7 +473,8 @@ crosapi.mojom.PrintServerObserverRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.PrintServerObserver_OnPrintServersChanged_ParamsSpec,
       null,
-      [config]);
+      [config],
+      false);
   }
 
   onServerPrintersChanged() {
@@ -482,7 +483,8 @@ crosapi.mojom.PrintServerObserverRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.PrintServerObserver_OnServerPrintersChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -556,7 +558,8 @@ crosapi.mojom.PrintJobObserverRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.PrintJobObserver_OnPrintJobUpdateDeprecated_ParamsSpec,
       null,
-      [printer_id, job_id, status]);
+      [printer_id, job_id, status],
+      false);
   }
 
   onPrintJobUpdate(printer_id, job_id, update) {
@@ -565,7 +568,8 @@ crosapi.mojom.PrintJobObserverRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.PrintJobObserver_OnPrintJobUpdate_ParamsSpec,
       null,
-      [printer_id, job_id, update]);
+      [printer_id, job_id, update],
+      false);
   }
 
 };
@@ -629,7 +633,8 @@ crosapi.mojom.LocalPrintersObserverRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_ParamsSpec,
       null,
-      [printers]);
+      [printers],
+      false);
   }
 
 };
@@ -882,7 +887,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.LocalPrinter_GetPrinters_ParamsSpec,
       crosapi.mojom.LocalPrinter_GetPrinters_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getCapability(printer_id) {
@@ -891,7 +897,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.LocalPrinter_GetCapability_ParamsSpec,
       crosapi.mojom.LocalPrinter_GetCapability_ResponseParamsSpec,
-      [printer_id]);
+      [printer_id],
+      false);
   }
 
   getEulaUrl(printer_id) {
@@ -900,7 +907,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       2,  // ordinal
       crosapi.mojom.LocalPrinter_GetEulaUrl_ParamsSpec,
       crosapi.mojom.LocalPrinter_GetEulaUrl_ResponseParamsSpec,
-      [printer_id]);
+      [printer_id],
+      false);
   }
 
   getStatus(printer_id) {
@@ -909,7 +917,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       3,  // ordinal
       crosapi.mojom.LocalPrinter_GetStatus_ParamsSpec,
       crosapi.mojom.LocalPrinter_GetStatus_ResponseParamsSpec,
-      [printer_id]);
+      [printer_id],
+      false);
   }
 
   showSystemPrintSettings() {
@@ -918,7 +927,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       4,  // ordinal
       crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ParamsSpec,
       crosapi.mojom.LocalPrinter_ShowSystemPrintSettings_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   createPrintJob(job) {
@@ -927,7 +937,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       5,  // ordinal
       crosapi.mojom.LocalPrinter_CreatePrintJob_ParamsSpec,
       crosapi.mojom.LocalPrinter_CreatePrintJob_ResponseParamsSpec,
-      [job]);
+      [job],
+      false);
   }
 
   cancelPrintJob(printer_id, job_id) {
@@ -936,7 +947,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       12,  // ordinal
       crosapi.mojom.LocalPrinter_CancelPrintJob_ParamsSpec,
       crosapi.mojom.LocalPrinter_CancelPrintJob_ResponseParamsSpec,
-      [printer_id, job_id]);
+      [printer_id, job_id],
+      false);
   }
 
   getPrintServersConfig() {
@@ -945,7 +957,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       6,  // ordinal
       crosapi.mojom.LocalPrinter_GetPrintServersConfig_ParamsSpec,
       crosapi.mojom.LocalPrinter_GetPrintServersConfig_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   choosePrintServers(print_server_ids) {
@@ -954,7 +967,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       7,  // ordinal
       crosapi.mojom.LocalPrinter_ChoosePrintServers_ParamsSpec,
       crosapi.mojom.LocalPrinter_ChoosePrintServers_ResponseParamsSpec,
-      [print_server_ids]);
+      [print_server_ids],
+      false);
   }
 
   addPrintServerObserver(observer) {
@@ -963,7 +977,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       8,  // ordinal
       crosapi.mojom.LocalPrinter_AddPrintServerObserver_ParamsSpec,
       crosapi.mojom.LocalPrinter_AddPrintServerObserver_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
   getPolicies() {
@@ -972,7 +987,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       9,  // ordinal
       crosapi.mojom.LocalPrinter_GetPolicies_ParamsSpec,
       crosapi.mojom.LocalPrinter_GetPolicies_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getUsernamePerPolicy() {
@@ -981,7 +997,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       10,  // ordinal
       crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ParamsSpec,
       crosapi.mojom.LocalPrinter_GetUsernamePerPolicy_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getPrinterTypeDenyList() {
@@ -990,7 +1007,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       11,  // ordinal
       crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ParamsSpec,
       crosapi.mojom.LocalPrinter_GetPrinterTypeDenyList_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addPrintJobObserver(observer, source) {
@@ -999,7 +1017,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       13,  // ordinal
       crosapi.mojom.LocalPrinter_AddPrintJobObserver_ParamsSpec,
       crosapi.mojom.LocalPrinter_AddPrintJobObserver_ResponseParamsSpec,
-      [observer, source]);
+      [observer, source],
+      false);
   }
 
   getOAuthAccessToken(printer_id) {
@@ -1008,7 +1027,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       14,  // ordinal
       crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ParamsSpec,
       crosapi.mojom.LocalPrinter_GetOAuthAccessToken_ResponseParamsSpec,
-      [printer_id]);
+      [printer_id],
+      false);
   }
 
   getIppClientInfo(printer_id) {
@@ -1017,7 +1037,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       15,  // ordinal
       crosapi.mojom.LocalPrinter_GetIppClientInfo_ParamsSpec,
       crosapi.mojom.LocalPrinter_GetIppClientInfo_ResponseParamsSpec,
-      [printer_id]);
+      [printer_id],
+      false);
   }
 
   addLocalPrintersObserver(observer) {
@@ -1026,7 +1047,8 @@ crosapi.mojom.LocalPrinterRemoteCallHandler = class {
       16,  // ordinal
       crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ParamsSpec,
       crosapi.mojom.LocalPrinter_AddLocalPrintersObserver_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

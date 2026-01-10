@@ -78,7 +78,8 @@ mojom.DebugLogsChangeHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec,
       null,
-      [should_debug_logs_be_enabled]);
+      [should_debug_logs_be_enabled],
+      false);
   }
 
 };
@@ -225,7 +226,8 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec,
       mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getDebugLogsChangeHandler() {
@@ -234,7 +236,8 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       1,  // ordinal
       mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec,
       mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   checkSystemPermissions() {
@@ -243,7 +246,8 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       2,  // ordinal
       mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec,
       mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestSystemPermissions() {
@@ -252,7 +256,8 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       3,  // ordinal
       mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec,
       mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestLocationServices() {
@@ -261,7 +266,8 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       4,  // ordinal
       mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec,
       mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   restartSystemBluetooth() {
@@ -270,7 +276,8 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       5,  // ordinal
       mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ParamsSpec,
       mojom.BluetoothInternalsHandler_RestartSystemBluetooth_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startBtsnoop() {
@@ -279,7 +286,8 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       6,  // ordinal
       mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec,
       mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isBtsnoopFeatureEnabled() {
@@ -288,7 +296,8 @@ mojom.BluetoothInternalsHandlerRemoteCallHandler = class {
       7,  // ordinal
       mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec,
       mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -357,7 +366,8 @@ mojom.BluetoothBtsnoopRemoteCallHandler = class {
       0,  // ordinal
       mojom.BluetoothBtsnoop_Stop_ParamsSpec,
       mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

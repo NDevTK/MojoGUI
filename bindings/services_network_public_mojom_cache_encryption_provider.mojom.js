@@ -64,7 +64,8 @@ network.mojom.CacheEncryptionProviderRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.CacheEncryptionProvider_GetEncryptor_ParamsSpec,
       network.mojom.CacheEncryptionProvider_GetEncryptor_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

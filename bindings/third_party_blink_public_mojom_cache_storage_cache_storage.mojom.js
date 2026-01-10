@@ -231,7 +231,8 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.CacheStorageCache_Match_ParamsSpec,
       null,
-      [request, query_options, in_related_fetch_event, in_range_fetch_event, trace_id]);
+      [request, query_options, in_related_fetch_event, in_range_fetch_event, trace_id],
+      false);
   }
 
   matchAll(request, query_options, trace_id) {
@@ -240,7 +241,8 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.CacheStorageCache_MatchAll_ParamsSpec,
       null,
-      [request, query_options, trace_id]);
+      [request, query_options, trace_id],
+      false);
   }
 
   getAllMatchedEntries(request, query_options, trace_id) {
@@ -249,7 +251,8 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.CacheStorageCache_GetAllMatchedEntries_ParamsSpec,
       null,
-      [request, query_options, trace_id]);
+      [request, query_options, trace_id],
+      false);
   }
 
   keys(request, query_options, trace_id) {
@@ -258,7 +261,8 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.CacheStorageCache_Keys_ParamsSpec,
       null,
-      [request, query_options, trace_id]);
+      [request, query_options, trace_id],
+      false);
   }
 
   batch(batch_operations, trace_id) {
@@ -267,7 +271,8 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.CacheStorageCache_Batch_ParamsSpec,
       blink.mojom.CacheStorageCache_Batch_ResponseParamsSpec,
-      [batch_operations, trace_id]);
+      [batch_operations, trace_id],
+      false);
   }
 
   writeSideData(url, expected_response_time, data, trace_id) {
@@ -276,7 +281,8 @@ blink.mojom.CacheStorageCacheRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.CacheStorageCache_WriteSideData_ParamsSpec,
       blink.mojom.CacheStorageCache_WriteSideData_ResponseParamsSpec,
-      [url, expected_response_time, data, trace_id]);
+      [url, expected_response_time, data, trace_id],
+      false);
   }
 
 };
@@ -389,7 +395,8 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.CacheStorage_Has_ParamsSpec,
       blink.mojom.CacheStorage_Has_ResponseParamsSpec,
-      [cache_name, trace_id]);
+      [cache_name, trace_id],
+      false);
   }
 
   delete(cache_name, trace_id) {
@@ -398,7 +405,8 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.CacheStorage_Delete_ParamsSpec,
       blink.mojom.CacheStorage_Delete_ResponseParamsSpec,
-      [cache_name, trace_id]);
+      [cache_name, trace_id],
+      false);
   }
 
   keys(trace_id) {
@@ -407,7 +415,8 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.CacheStorage_Keys_ParamsSpec,
       blink.mojom.CacheStorage_Keys_ResponseParamsSpec,
-      [trace_id]);
+      [trace_id],
+      false);
   }
 
   match(request, match_options, in_related_fetch_event, in_range_fetch_event, trace_id) {
@@ -416,7 +425,8 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.CacheStorage_Match_ParamsSpec,
       null,
-      [request, match_options, in_related_fetch_event, in_range_fetch_event, trace_id]);
+      [request, match_options, in_related_fetch_event, in_range_fetch_event, trace_id],
+      false);
   }
 
   open(cache_name, trace_id) {
@@ -425,7 +435,8 @@ blink.mojom.CacheStorageRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.CacheStorage_Open_ParamsSpec,
       null,
-      [cache_name, trace_id]);
+      [cache_name, trace_id],
+      false);
   }
 
 };

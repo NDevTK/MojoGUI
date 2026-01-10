@@ -79,7 +79,8 @@ actor_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec,
       null,
-      [entry]);
+      [entry],
+      false);
   }
 
 };
@@ -147,7 +148,8 @@ actor_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       actor_internals.mojom.PageHandler_StartLogging_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   stopLogging() {
@@ -156,7 +158,8 @@ actor_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       actor_internals.mojom.PageHandler_StopLogging_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -221,7 +224,8 @@ actor_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };

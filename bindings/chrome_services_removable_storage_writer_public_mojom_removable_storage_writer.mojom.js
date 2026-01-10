@@ -84,7 +84,8 @@ chrome.mojom.RemovableStorageWriterRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.RemovableStorageWriter_Write_ParamsSpec,
       null,
-      [source, target, client]);
+      [source, target, client],
+      false);
   }
 
   verify(source, target, client) {
@@ -93,7 +94,8 @@ chrome.mojom.RemovableStorageWriterRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.RemovableStorageWriter_Verify_ParamsSpec,
       null,
-      [source, target, client]);
+      [source, target, client],
+      false);
   }
 
 };
@@ -163,7 +165,8 @@ chrome.mojom.RemovableStorageWriterClientRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec,
       null,
-      [progress]);
+      [progress],
+      false);
   }
 
   complete(error) {
@@ -172,7 +175,8 @@ chrome.mojom.RemovableStorageWriterClientRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.RemovableStorageWriterClient_Complete_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
 };

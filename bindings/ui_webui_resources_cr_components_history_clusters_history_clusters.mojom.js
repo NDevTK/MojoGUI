@@ -254,7 +254,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec,
       null,
-      [url, click_modifiers]);
+      [url, click_modifiers],
+      false);
   }
 
   setPage(page) {
@@ -263,7 +264,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       history_clusters.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
   showContextMenuForSearchbox(query, point) {
@@ -272,7 +274,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec,
       null,
-      [query, point]);
+      [query, point],
+      false);
   }
 
   showContextMenuForURL(url, point) {
@@ -281,7 +284,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec,
       null,
-      [url, point]);
+      [url, point],
+      false);
   }
 
   showSidePanelUI() {
@@ -290,7 +294,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   toggleVisibility(visible) {
@@ -299,7 +304,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec,
       history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec,
-      [visible]);
+      [visible],
+      false);
   }
 
   startQueryClusters(query, begin_time, recluster) {
@@ -308,7 +314,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec,
       null,
-      [query, begin_time, recluster]);
+      [query, begin_time, recluster],
+      false);
   }
 
   loadMoreClusters(query) {
@@ -317,7 +324,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec,
       null,
-      [query]);
+      [query],
+      false);
   }
 
   hideVisits(visits) {
@@ -326,7 +334,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       history_clusters.mojom.PageHandler_HideVisits_ParamsSpec,
       history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec,
-      [visits]);
+      [visits],
+      false);
   }
 
   removeVisits(visits) {
@@ -335,7 +344,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec,
       history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec,
-      [visits]);
+      [visits],
+      false);
   }
 
   removeVisitByUrlAndTime(url, timestamp) {
@@ -344,7 +354,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec,
       history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec,
-      [url, timestamp]);
+      [url, timestamp],
+      false);
   }
 
   openVisitUrlsInTabGroup(visits, tab_group_name) {
@@ -353,7 +364,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec,
       null,
-      [visits, tab_group_name]);
+      [visits, tab_group_name],
+      false);
   }
 
   recordVisitAction(visit_action, visit_index, visit_type) {
@@ -362,7 +374,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec,
       null,
-      [visit_action, visit_index, visit_type]);
+      [visit_action, visit_index, visit_type],
+      false);
   }
 
   recordRelatedSearchAction(action, visit_index) {
@@ -371,7 +384,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec,
       null,
-      [action, visit_index]);
+      [action, visit_index],
+      false);
   }
 
   recordClusterAction(cluster_action, cluster_index) {
@@ -380,7 +394,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec,
       null,
-      [cluster_action, cluster_index]);
+      [cluster_action, cluster_index],
+      false);
   }
 
   recordToggledVisibility(visible) {
@@ -389,7 +404,8 @@ history_clusters.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec,
       null,
-      [visible]);
+      [visible],
+      false);
   }
 
 };
@@ -483,7 +499,8 @@ history_clusters.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
   onClusterImageUpdated(cluster_index, image_url) {
@@ -492,7 +509,8 @@ history_clusters.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec,
       null,
-      [cluster_index, image_url]);
+      [cluster_index, image_url],
+      false);
   }
 
   onVisitsHidden(hidden_visits) {
@@ -501,7 +519,8 @@ history_clusters.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec,
       null,
-      [hidden_visits]);
+      [hidden_visits],
+      false);
   }
 
   onVisitsRemoved(removed_visits) {
@@ -510,7 +529,8 @@ history_clusters.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec,
       null,
-      [removed_visits]);
+      [removed_visits],
+      false);
   }
 
   onHistoryDeleted() {
@@ -519,7 +539,8 @@ history_clusters.mojom.PageRemoteCallHandler = class {
       4,  // ordinal
       history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onQueryChangedByUser(query) {
@@ -528,7 +549,8 @@ history_clusters.mojom.PageRemoteCallHandler = class {
       5,  // ordinal
       history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec,
       null,
-      [query]);
+      [query],
+      false);
   }
 
 };

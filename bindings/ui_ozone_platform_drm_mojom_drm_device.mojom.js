@@ -278,7 +278,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       0,  // ordinal
       ui.ozone.mojom.DrmDevice_CreateWindow_ParamsSpec,
       null,
-      [widget, initial_bounds]);
+      [widget, initial_bounds],
+      false);
   }
 
   destroyWindow(widget) {
@@ -287,7 +288,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       1,  // ordinal
       ui.ozone.mojom.DrmDevice_DestroyWindow_ParamsSpec,
       null,
-      [widget]);
+      [widget],
+      false);
   }
 
   setWindowBounds(widget, bounds) {
@@ -296,7 +298,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       2,  // ordinal
       ui.ozone.mojom.DrmDevice_SetWindowBounds_ParamsSpec,
       null,
-      [widget, bounds]);
+      [widget, bounds],
+      false);
   }
 
   takeDisplayControl() {
@@ -305,7 +308,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       3,  // ordinal
       ui.ozone.mojom.DrmDevice_TakeDisplayControl_ParamsSpec,
       ui.ozone.mojom.DrmDevice_TakeDisplayControl_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   relinquishDisplayControl() {
@@ -314,7 +318,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       4,  // ordinal
       ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ParamsSpec,
       ui.ozone.mojom.DrmDevice_RelinquishDisplayControl_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   refreshNativeDisplays() {
@@ -323,7 +328,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       5,  // ordinal
       ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ParamsSpec,
       ui.ozone.mojom.DrmDevice_RefreshNativeDisplays_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addGraphicsDevice(path, fd_mojo_handle) {
@@ -332,7 +338,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       6,  // ordinal
       ui.ozone.mojom.DrmDevice_AddGraphicsDevice_ParamsSpec,
       null,
-      [path, fd_mojo_handle]);
+      [path, fd_mojo_handle],
+      false);
   }
 
   removeGraphicsDevice(path) {
@@ -341,7 +348,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       7,  // ordinal
       ui.ozone.mojom.DrmDevice_RemoveGraphicsDevice_ParamsSpec,
       null,
-      [path]);
+      [path],
+      false);
   }
 
   shouldDisplayEventTriggerConfiguration(event_props) {
@@ -350,7 +358,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       8,  // ordinal
       ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ParamsSpec,
       ui.ozone.mojom.DrmDevice_ShouldDisplayEventTriggerConfiguration_ResponseParamsSpec,
-      [event_props]);
+      [event_props],
+      false);
   }
 
   configureNativeDisplays(config_requests, modeset_flags) {
@@ -359,7 +368,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       9,  // ordinal
       ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ParamsSpec,
       ui.ozone.mojom.DrmDevice_ConfigureNativeDisplays_ResponseParamsSpec,
-      [config_requests, modeset_flags]);
+      [config_requests, modeset_flags],
+      false);
   }
 
   setHdcpKeyProp(display_id, key) {
@@ -368,7 +378,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       10,  // ordinal
       ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ParamsSpec,
       ui.ozone.mojom.DrmDevice_SetHdcpKeyProp_ResponseParamsSpec,
-      [display_id, key]);
+      [display_id, key],
+      false);
   }
 
   getHDCPState(display_id) {
@@ -377,7 +388,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       11,  // ordinal
       ui.ozone.mojom.DrmDevice_GetHDCPState_ParamsSpec,
       ui.ozone.mojom.DrmDevice_GetHDCPState_ResponseParamsSpec,
-      [display_id]);
+      [display_id],
+      false);
   }
 
   setHDCPState(display_id, state, protection_method) {
@@ -386,7 +398,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       12,  // ordinal
       ui.ozone.mojom.DrmDevice_SetHDCPState_ParamsSpec,
       ui.ozone.mojom.DrmDevice_SetHDCPState_ResponseParamsSpec,
-      [display_id, state, protection_method]);
+      [display_id, state, protection_method],
+      false);
   }
 
   setColorTemperatureAdjustment(display_id, cta) {
@@ -395,7 +408,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       13,  // ordinal
       ui.ozone.mojom.DrmDevice_SetColorTemperatureAdjustment_ParamsSpec,
       null,
-      [display_id, cta]);
+      [display_id, cta],
+      false);
   }
 
   setColorCalibration(display_id, calibration) {
@@ -404,7 +418,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       14,  // ordinal
       ui.ozone.mojom.DrmDevice_SetColorCalibration_ParamsSpec,
       null,
-      [display_id, calibration]);
+      [display_id, calibration],
+      false);
   }
 
   setGammaAdjustment(display_id, adjustment) {
@@ -413,7 +428,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       15,  // ordinal
       ui.ozone.mojom.DrmDevice_SetGammaAdjustment_ParamsSpec,
       null,
-      [display_id, adjustment]);
+      [display_id, adjustment],
+      false);
   }
 
   setPrivacyScreen(display_id, enabled) {
@@ -422,7 +438,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       16,  // ordinal
       ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ParamsSpec,
       ui.ozone.mojom.DrmDevice_SetPrivacyScreen_ResponseParamsSpec,
-      [display_id, enabled]);
+      [display_id, enabled],
+      false);
   }
 
   getSeamlessRefreshRates(display_id) {
@@ -431,7 +448,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       17,  // ordinal
       ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ParamsSpec,
       ui.ozone.mojom.DrmDevice_GetSeamlessRefreshRates_ResponseParamsSpec,
-      [display_id]);
+      [display_id],
+      false);
   }
 
   getDeviceCursor(cursor) {
@@ -440,7 +458,8 @@ ui.ozone.mojom.DrmDeviceRemoteCallHandler = class {
       18,  // ordinal
       ui.ozone.mojom.DrmDevice_GetDeviceCursor_ParamsSpec,
       null,
-      [cursor]);
+      [cursor],
+      false);
   }
 
 };

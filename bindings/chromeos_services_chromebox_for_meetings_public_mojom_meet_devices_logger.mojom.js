@@ -110,7 +110,8 @@ chromeos.cfm.mojom.LoggerStateObserverRemoteCallHandler = class {
       0,  // ordinal
       chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
 };
@@ -187,7 +188,8 @@ chromeos.cfm.mojom.MeetDevicesLoggerRemoteCallHandler = class {
       0,  // ordinal
       chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec,
       chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ResponseParamsSpec,
-      [record, priority]);
+      [record, priority],
+      false);
   }
 
   addStateObserver(pending_observer) {
@@ -196,7 +198,8 @@ chromeos.cfm.mojom.MeetDevicesLoggerRemoteCallHandler = class {
       1,  // ordinal
       chromeos.cfm.mojom.MeetDevicesLogger_AddStateObserver_ParamsSpec,
       null,
-      [pending_observer]);
+      [pending_observer],
+      false);
   }
 
 };

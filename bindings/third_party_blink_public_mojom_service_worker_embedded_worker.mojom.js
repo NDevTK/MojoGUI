@@ -150,7 +150,8 @@ blink.mojom.EmbeddedWorkerInstanceClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   stopWorker() {
@@ -159,7 +160,8 @@ blink.mojom.EmbeddedWorkerInstanceClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -286,7 +288,8 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec,
       blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   countFeature(feature) {
@@ -295,7 +298,8 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec,
       null,
-      [feature]);
+      [feature],
+      false);
   }
 
   onReadyForInspection(agent, agent_host) {
@@ -304,7 +308,8 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec,
       null,
-      [agent, agent_host]);
+      [agent, agent_host],
+      false);
   }
 
   onScriptLoaded() {
@@ -313,7 +318,8 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onScriptEvaluationStart() {
@@ -322,7 +328,8 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onStarted(status, fetch_handler_type, has_hid_event_handlers, has_usb_event_handlers, thread_id, start_timing) {
@@ -331,7 +338,8 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec,
       null,
-      [status, fetch_handler_type, has_hid_event_handlers, has_usb_event_handlers, thread_id, start_timing]);
+      [status, fetch_handler_type, has_hid_event_handlers, has_usb_event_handlers, thread_id, start_timing],
+      false);
   }
 
   onReportException(error_message, line_number, column_number, source_url) {
@@ -340,7 +348,8 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec,
       null,
-      [error_message, line_number, column_number, source_url]);
+      [error_message, line_number, column_number, source_url],
+      false);
   }
 
   onReportConsoleMessage(source, message_level, message, line_number, source_url) {
@@ -349,7 +358,8 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec,
       null,
-      [source, message_level, message, line_number, source_url]);
+      [source, message_level, message, line_number, source_url],
+      false);
   }
 
   onStopped() {
@@ -358,7 +368,8 @@ blink.mojom.EmbeddedWorkerInstanceHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

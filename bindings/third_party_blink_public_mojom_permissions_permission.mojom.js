@@ -231,7 +231,8 @@ blink.mojom.PermissionObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PermissionObserver_OnPermissionStatusChange_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
 };
@@ -296,7 +297,8 @@ blink.mojom.EmbeddedPermissionControlClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.EmbeddedPermissionControlClient_OnEmbeddedPermissionControlRegistered_ParamsSpec,
       null,
-      [allow, statuses]);
+      [allow, statuses],
+      false);
   }
 
 };
@@ -449,7 +451,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PermissionService_HasPermission_ParamsSpec,
       blink.mojom.PermissionService_HasPermission_ResponseParamsSpec,
-      [permission]);
+      [permission],
+      false);
   }
 
   registerPageEmbeddedPermissionControl(permissions, descriptor, client) {
@@ -458,7 +461,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PermissionService_RegisterPageEmbeddedPermissionControl_ParamsSpec,
       null,
-      [permissions, descriptor, client]);
+      [permissions, descriptor, client],
+      false);
   }
 
   requestPageEmbeddedPermission(permissions, descriptor) {
@@ -467,7 +471,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PermissionService_RequestPageEmbeddedPermission_ParamsSpec,
       blink.mojom.PermissionService_RequestPageEmbeddedPermission_ResponseParamsSpec,
-      [permissions, descriptor]);
+      [permissions, descriptor],
+      false);
   }
 
   requestPermission(permission, user_gesture) {
@@ -476,7 +481,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.PermissionService_RequestPermission_ParamsSpec,
       blink.mojom.PermissionService_RequestPermission_ResponseParamsSpec,
-      [permission, user_gesture]);
+      [permission, user_gesture],
+      false);
   }
 
   requestPermissions(permission, user_gesture) {
@@ -485,7 +491,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.PermissionService_RequestPermissions_ParamsSpec,
       blink.mojom.PermissionService_RequestPermissions_ResponseParamsSpec,
-      [permission, user_gesture]);
+      [permission, user_gesture],
+      false);
   }
 
   revokePermission(permission) {
@@ -494,7 +501,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.PermissionService_RevokePermission_ParamsSpec,
       blink.mojom.PermissionService_RevokePermission_ResponseParamsSpec,
-      [permission]);
+      [permission],
+      false);
   }
 
   addPermissionObserver(permission, last_known_status, observer) {
@@ -503,7 +511,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.PermissionService_AddPermissionObserver_ParamsSpec,
       null,
-      [permission, last_known_status, observer]);
+      [permission, last_known_status, observer],
+      false);
   }
 
   addPageEmbeddedPermissionObserver(permission, last_known_status, observer) {
@@ -512,7 +521,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.PermissionService_AddPageEmbeddedPermissionObserver_ParamsSpec,
       null,
-      [permission, last_known_status, observer]);
+      [permission, last_known_status, observer],
+      false);
   }
 
   notifyEventListener(permission, event_type, is_added) {
@@ -521,7 +531,8 @@ blink.mojom.PermissionServiceRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.PermissionService_NotifyEventListener_ParamsSpec,
       null,
-      [permission, event_type, is_added]);
+      [permission, event_type, is_added],
+      false);
   }
 
 };

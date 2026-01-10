@@ -181,7 +181,8 @@ viz.mojom.LayerContextRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.LayerContext_SetVisible_ParamsSpec,
       null,
-      [visible]);
+      [visible],
+      false);
   }
 
   updateDisplayTree(update) {
@@ -190,7 +191,8 @@ viz.mojom.LayerContextRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec,
       null,
-      [update]);
+      [update],
+      false);
   }
 
   updateDisplayTiling(tiling) {
@@ -199,7 +201,8 @@ viz.mojom.LayerContextRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec,
       null,
-      [tiling]);
+      [tiling],
+      false);
   }
 
 };
@@ -270,7 +273,8 @@ viz.mojom.LayerContextClientRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec,
       null,
-      [args]);
+      [args],
+      false);
   }
 
   onTilingsReadyForCleanup(layer_id, tiling_scales_to_clean_up) {
@@ -279,7 +283,8 @@ viz.mojom.LayerContextClientRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec,
       null,
-      [layer_id, tiling_scales_to_clean_up]);
+      [layer_id, tiling_scales_to_clean_up],
+      false);
   }
 
 };

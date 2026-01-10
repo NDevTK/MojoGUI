@@ -88,7 +88,8 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SharedWorkerClient_OnCreated_ParamsSpec,
       null,
-      [creation_context_type]);
+      [creation_context_type],
+      false);
   }
 
   onConnected(features_used) {
@@ -97,7 +98,8 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SharedWorkerClient_OnConnected_ParamsSpec,
       null,
-      [features_used]);
+      [features_used],
+      false);
   }
 
   onScriptLoadFailed(error_message) {
@@ -106,7 +108,8 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SharedWorkerClient_OnScriptLoadFailed_ParamsSpec,
       null,
-      [error_message]);
+      [error_message],
+      false);
   }
 
   onReportException(details) {
@@ -115,7 +118,8 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.SharedWorkerClient_OnReportException_ParamsSpec,
       null,
-      [details]);
+      [details],
+      false);
   }
 
   onFeatureUsed(feature) {
@@ -124,7 +128,8 @@ blink.mojom.SharedWorkerClientRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.SharedWorkerClient_OnFeatureUsed_ParamsSpec,
       null,
-      [feature]);
+      [feature],
+      false);
   }
 
 };

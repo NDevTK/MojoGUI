@@ -136,7 +136,8 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.UserInterface_DarkenScreen_ParamsSpec,
       null,
-      [darken]);
+      [darken],
+      false);
   }
 
   openSettingsSubpage(subpage) {
@@ -145,7 +146,8 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec,
       null,
-      [subpage]);
+      [subpage],
+      false);
   }
 
   showConfirmationDialog(title, description, cancelName) {
@@ -154,7 +156,8 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
       2,  // ordinal
       ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec,
       ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec,
-      [title, description, cancelName]);
+      [title, description, cancelName],
+      false);
   }
 
   setFocusRings(focus_rings, at_type) {
@@ -163,7 +166,8 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
       3,  // ordinal
       ax.mojom.UserInterface_SetFocusRings_ParamsSpec,
       null,
-      [focus_rings, at_type]);
+      [focus_rings, at_type],
+      false);
   }
 
   setHighlights(rects, color) {
@@ -172,7 +176,8 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
       4,  // ordinal
       ax.mojom.UserInterface_SetHighlights_ParamsSpec,
       null,
-      [rects, color]);
+      [rects, color],
+      false);
   }
 
   setVirtualKeyboardVisible(is_visible) {
@@ -181,7 +186,8 @@ ax.mojom.UserInterfaceRemoteCallHandler = class {
       5,  // ordinal
       ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec,
       null,
-      [is_visible]);
+      [is_visible],
+      false);
   }
 
 };

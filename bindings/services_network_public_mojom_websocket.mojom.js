@@ -128,7 +128,8 @@ network.mojom.WebSocketAuthenticationHandlerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec,
       network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ResponseParamsSpec,
-      [info, headers, remote_endpoint]);
+      [info, headers, remote_endpoint],
+      false);
   }
 
 };
@@ -210,7 +211,8 @@ network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec,
       null,
-      [request]);
+      [request],
+      false);
   }
 
   onFailure(message, net_error, response_code) {
@@ -219,7 +221,8 @@ network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.WebSocketHandshakeClient_OnFailure_ParamsSpec,
       null,
-      [message, net_error, response_code]);
+      [message, net_error, response_code],
+      false);
   }
 
   onConnectionEstablished(socket, client_receiver, response, readable, writable) {
@@ -228,7 +231,8 @@ network.mojom.WebSocketHandshakeClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.WebSocketHandshakeClient_OnConnectionEstablished_ParamsSpec,
       null,
-      [socket, client_receiver, response, readable, writable]);
+      [socket, client_receiver, response, readable, writable],
+      false);
   }
 
 };
@@ -307,7 +311,8 @@ network.mojom.WebSocketClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.WebSocketClient_OnDataFrame_ParamsSpec,
       null,
-      [fin, type, data_length]);
+      [fin, type, data_length],
+      false);
   }
 
   onDropChannel(was_clean, code, reason) {
@@ -316,7 +321,8 @@ network.mojom.WebSocketClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.WebSocketClient_OnDropChannel_ParamsSpec,
       null,
-      [was_clean, code, reason]);
+      [was_clean, code, reason],
+      false);
   }
 
   onClosingHandshake() {
@@ -325,7 +331,8 @@ network.mojom.WebSocketClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.WebSocketClient_OnClosingHandshake_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -402,7 +409,8 @@ network.mojom.WebSocketRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.WebSocket_SendMessage_ParamsSpec,
       null,
-      [type, data_length]);
+      [type, data_length],
+      false);
   }
 
   startReceiving() {
@@ -411,7 +419,8 @@ network.mojom.WebSocketRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.WebSocket_StartReceiving_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   startClosingHandshake(code, reason) {
@@ -420,7 +429,8 @@ network.mojom.WebSocketRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.WebSocket_StartClosingHandshake_ParamsSpec,
       null,
-      [code, reason]);
+      [code, reason],
+      false);
   }
 
 };

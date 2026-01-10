@@ -140,7 +140,8 @@ sharing.mojom.SharingRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.Sharing_Connect_ParamsSpec,
       null,
-      [deps, nearby_connections, nearby_presence, decoder, quick_start_decoder]);
+      [deps, nearby_connections, nearby_presence, decoder, quick_start_decoder],
+      false);
   }
 
   shutDown() {
@@ -149,7 +150,8 @@ sharing.mojom.SharingRemoteCallHandler = class {
       1,  // ordinal
       sharing.mojom.Sharing_ShutDown_ParamsSpec,
       sharing.mojom.Sharing_ShutDown_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

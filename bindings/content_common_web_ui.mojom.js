@@ -61,7 +61,8 @@ content.mojom.WebUIHostRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.WebUIHost_Send_ParamsSpec,
       null,
-      [message, args]);
+      [message, args],
+      false);
   }
 
 };
@@ -126,7 +127,8 @@ content.mojom.WebUIRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.WebUI_SetProperty_ParamsSpec,
       null,
-      [property_name, property_value_json]);
+      [property_name, property_value_json],
+      false);
   }
 
 };

@@ -92,7 +92,8 @@ arc.mojom.VideoProtectedBufferAllocatorRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ParamsSpec,
       arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedSharedMemory_ResponseParamsSpec,
-      [handle_fd, size]);
+      [handle_fd, size],
+      false);
   }
 
   allocateProtectedNativePixmap(handle_fd, pixel_format, picture_size) {
@@ -101,7 +102,8 @@ arc.mojom.VideoProtectedBufferAllocatorRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ParamsSpec,
       arc.mojom.VideoProtectedBufferAllocator_AllocateProtectedNativePixmap_ResponseParamsSpec,
-      [handle_fd, pixel_format, picture_size]);
+      [handle_fd, pixel_format, picture_size],
+      false);
   }
 
   releaseProtectedBuffer(handle_fd) {
@@ -110,7 +112,8 @@ arc.mojom.VideoProtectedBufferAllocatorRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.VideoProtectedBufferAllocator_ReleaseProtectedBuffer_ParamsSpec,
       null,
-      [handle_fd]);
+      [handle_fd],
+      false);
   }
 
 };

@@ -71,7 +71,8 @@ blink.mojom.DomStorageProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DomStorageProvider_BindDomStorage_ParamsSpec,
       null,
-      [receiver, client]);
+      [receiver, client],
+      false);
   }
 
 };
@@ -153,7 +154,8 @@ blink.mojom.DomStorageRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DomStorage_OpenLocalStorage_ParamsSpec,
       null,
-      [storage_key, local_frame_token, area]);
+      [storage_key, local_frame_token, area],
+      false);
   }
 
   bindSessionStorageNamespace(namespace_id, receiver) {
@@ -162,7 +164,8 @@ blink.mojom.DomStorageRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DomStorage_BindSessionStorageNamespace_ParamsSpec,
       null,
-      [namespace_id, receiver]);
+      [namespace_id, receiver],
+      false);
   }
 
   bindSessionStorageArea(storage_key, local_frame_token, namespace_id, session_namespace) {
@@ -171,7 +174,8 @@ blink.mojom.DomStorageRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.DomStorage_BindSessionStorageArea_ParamsSpec,
       null,
-      [storage_key, local_frame_token, namespace_id, session_namespace]);
+      [storage_key, local_frame_token, namespace_id, session_namespace],
+      false);
   }
 
 };
@@ -239,7 +243,8 @@ blink.mojom.DomStorageClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DomStorageClient_ResetSessionStorageConnections_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   resetLocalStorageConnections() {
@@ -248,7 +253,8 @@ blink.mojom.DomStorageClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DomStorageClient_ResetLocalStorageConnections_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -61,7 +61,8 @@ blink.mojom.BroadcastChannelClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };
@@ -127,7 +128,8 @@ blink.mojom.BroadcastChannelProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec,
       null,
-      [name, client, connection]);
+      [name, client, connection],
+      false);
   }
 
 };

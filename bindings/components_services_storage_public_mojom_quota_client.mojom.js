@@ -107,7 +107,8 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec,
       storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec,
-      [bucket]);
+      [bucket],
+      false);
   }
 
   getDefaultStorageKeys() {
@@ -116,7 +117,8 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec,
       storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   deleteBucketData(bucket) {
@@ -125,7 +127,8 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec,
       storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec,
-      [bucket]);
+      [bucket],
+      false);
   }
 
   performStorageCleanup() {
@@ -134,7 +137,8 @@ storage.mojom.QuotaClientRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec,
       storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

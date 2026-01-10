@@ -70,7 +70,8 @@ blink.mojom.FileSystemAccessFileModificationHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec,
       blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec,
-      [capacity_delta]);
+      [capacity_delta],
+      false);
   }
 
   onContentsModified() {
@@ -79,7 +80,8 @@ blink.mojom.FileSystemAccessFileModificationHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -366,7 +366,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       0,  // ordinal
       media_router.mojom.MediaRouteProvider_CreateRoute_ParamsSpec,
       media_router.mojom.MediaRouteProvider_CreateRoute_ResponseParamsSpec,
-      [media_source, sink_id, original_presentation_id, origin, frame_tree_node_id, timeout]);
+      [media_source, sink_id, original_presentation_id, origin, frame_tree_node_id, timeout],
+      false);
   }
 
   joinRoute(media_source, presentation_id, origin, frame_tree_node_id, timeout) {
@@ -375,7 +376,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       1,  // ordinal
       media_router.mojom.MediaRouteProvider_JoinRoute_ParamsSpec,
       media_router.mojom.MediaRouteProvider_JoinRoute_ResponseParamsSpec,
-      [media_source, presentation_id, origin, frame_tree_node_id, timeout]);
+      [media_source, presentation_id, origin, frame_tree_node_id, timeout],
+      false);
   }
 
   terminateRoute(route_id) {
@@ -384,7 +386,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       2,  // ordinal
       media_router.mojom.MediaRouteProvider_TerminateRoute_ParamsSpec,
       media_router.mojom.MediaRouteProvider_TerminateRoute_ResponseParamsSpec,
-      [route_id]);
+      [route_id],
+      false);
   }
 
   sendRouteMessage(media_route_id, message) {
@@ -393,7 +396,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       3,  // ordinal
       media_router.mojom.MediaRouteProvider_SendRouteMessage_ParamsSpec,
       null,
-      [media_route_id, message]);
+      [media_route_id, message],
+      false);
   }
 
   sendRouteBinaryMessage(media_route_id, data) {
@@ -402,7 +406,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       4,  // ordinal
       media_router.mojom.MediaRouteProvider_SendRouteBinaryMessage_ParamsSpec,
       null,
-      [media_route_id, data]);
+      [media_route_id, data],
+      false);
   }
 
   startObservingMediaSinks(media_source) {
@@ -411,7 +416,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       5,  // ordinal
       media_router.mojom.MediaRouteProvider_StartObservingMediaSinks_ParamsSpec,
       null,
-      [media_source]);
+      [media_source],
+      false);
   }
 
   stopObservingMediaSinks(media_source) {
@@ -420,7 +426,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       6,  // ordinal
       media_router.mojom.MediaRouteProvider_StopObservingMediaSinks_ParamsSpec,
       null,
-      [media_source]);
+      [media_source],
+      false);
   }
 
   startObservingMediaRoutes() {
@@ -429,7 +436,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       7,  // ordinal
       media_router.mojom.MediaRouteProvider_StartObservingMediaRoutes_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   detachRoute(route_id) {
@@ -438,7 +446,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       8,  // ordinal
       media_router.mojom.MediaRouteProvider_DetachRoute_ParamsSpec,
       null,
-      [route_id]);
+      [route_id],
+      false);
   }
 
   discoverSinksNow() {
@@ -447,7 +456,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       9,  // ordinal
       media_router.mojom.MediaRouteProvider_DiscoverSinksNow_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   bindMediaController(route_id, media_controller, observer) {
@@ -456,7 +466,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       10,  // ordinal
       media_router.mojom.MediaRouteProvider_BindMediaController_ParamsSpec,
       media_router.mojom.MediaRouteProvider_BindMediaController_ResponseParamsSpec,
-      [route_id, media_controller, observer]);
+      [route_id, media_controller, observer],
+      false);
   }
 
   getState() {
@@ -465,7 +476,8 @@ media_router.mojom.MediaRouteProviderRemoteCallHandler = class {
       11,  // ordinal
       media_router.mojom.MediaRouteProvider_GetState_ParamsSpec,
       media_router.mojom.MediaRouteProvider_GetState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -614,7 +626,8 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       0,  // ordinal
       media_router.mojom.MediaRouter_RegisterMediaRouteProvider_ParamsSpec,
       null,
-      [provider_id, media_router_provider]);
+      [provider_id, media_router_provider],
+      false);
   }
 
   onSinksReceived(provider_id, media_source, sinks, origins) {
@@ -623,7 +636,8 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       1,  // ordinal
       media_router.mojom.MediaRouter_OnSinksReceived_ParamsSpec,
       null,
-      [provider_id, media_source, sinks, origins]);
+      [provider_id, media_source, sinks, origins],
+      false);
   }
 
   onIssue(issue) {
@@ -632,7 +646,8 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       2,  // ordinal
       media_router.mojom.MediaRouter_OnIssue_ParamsSpec,
       null,
-      [issue]);
+      [issue],
+      false);
   }
 
   clearTopIssueForSink(sink_id) {
@@ -641,7 +656,8 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       3,  // ordinal
       media_router.mojom.MediaRouter_ClearTopIssueForSink_ParamsSpec,
       null,
-      [sink_id]);
+      [sink_id],
+      false);
   }
 
   onRoutesUpdated(provider_id, routes) {
@@ -650,7 +666,8 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       4,  // ordinal
       media_router.mojom.MediaRouter_OnRoutesUpdated_ParamsSpec,
       null,
-      [provider_id, routes]);
+      [provider_id, routes],
+      false);
   }
 
   onPresentationConnectionStateChanged(route_id, state) {
@@ -659,7 +676,8 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       5,  // ordinal
       media_router.mojom.MediaRouter_OnPresentationConnectionStateChanged_ParamsSpec,
       null,
-      [route_id, state]);
+      [route_id, state],
+      false);
   }
 
   onPresentationConnectionClosed(route_id, reason, message) {
@@ -668,7 +686,8 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       6,  // ordinal
       media_router.mojom.MediaRouter_OnPresentationConnectionClosed_ParamsSpec,
       null,
-      [route_id, reason, message]);
+      [route_id, reason, message],
+      false);
   }
 
   onRouteMessagesReceived(route_id, messages) {
@@ -677,7 +696,8 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       7,  // ordinal
       media_router.mojom.MediaRouter_OnRouteMessagesReceived_ParamsSpec,
       null,
-      [route_id, messages]);
+      [route_id, messages],
+      false);
   }
 
   getMediaSinkServiceStatus() {
@@ -686,7 +706,8 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       8,  // ordinal
       media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ParamsSpec,
       media_router.mojom.MediaRouter_GetMediaSinkServiceStatus_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getLogger(receiver) {
@@ -695,7 +716,8 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       9,  // ordinal
       media_router.mojom.MediaRouter_GetLogger_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   getDebugger(receiver) {
@@ -704,7 +726,8 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       10,  // ordinal
       media_router.mojom.MediaRouter_GetDebugger_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   getLogsAsString() {
@@ -713,7 +736,8 @@ media_router.mojom.MediaRouterRemoteCallHandler = class {
       11,  // ordinal
       media_router.mojom.MediaRouter_GetLogsAsString_ParamsSpec,
       media_router.mojom.MediaRouter_GetLogsAsString_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

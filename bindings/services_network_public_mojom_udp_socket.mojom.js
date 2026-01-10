@@ -46,8 +46,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('allow_broadcast', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('allow_address_sharing_for_multicast', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('multicast_interface', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('multicast_time_to_live', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('multicast_loopback_mode', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('multicast_time_to_live', 8, 0, mojo.internal.Uint32, 1, false, 0, undefined),
+      mojo.internal.StructField('multicast_loopback_mode', 12, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('send_buffer_size', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('receive_buffer_size', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('ipv6_only_$flag', 24, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'ipv6_only_$value', originalFieldName: 'ipv6_only' }),
@@ -227,7 +227,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.UDPSocket_Bind_ParamsSpec,
       network.mojom.UDPSocket_Bind_ResponseParamsSpec,
-      [local_addr, socket_options]);
+      [local_addr, socket_options],
+      false);
   }
 
   connect(remote_addr, socket_options) {
@@ -236,7 +237,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.UDPSocket_Connect_ParamsSpec,
       network.mojom.UDPSocket_Connect_ResponseParamsSpec,
-      [remote_addr, socket_options]);
+      [remote_addr, socket_options],
+      false);
   }
 
   setBroadcast(broadcast) {
@@ -245,7 +247,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.UDPSocket_SetBroadcast_ParamsSpec,
       network.mojom.UDPSocket_SetBroadcast_ResponseParamsSpec,
-      [broadcast]);
+      [broadcast],
+      false);
   }
 
   setSendBufferSize(send_buffer_size) {
@@ -254,7 +257,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.UDPSocket_SetSendBufferSize_ParamsSpec,
       network.mojom.UDPSocket_SetSendBufferSize_ResponseParamsSpec,
-      [send_buffer_size]);
+      [send_buffer_size],
+      false);
   }
 
   setReceiveBufferSize(receive_buffer_size) {
@@ -263,7 +267,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.UDPSocket_SetReceiveBufferSize_ParamsSpec,
       network.mojom.UDPSocket_SetReceiveBufferSize_ResponseParamsSpec,
-      [receive_buffer_size]);
+      [receive_buffer_size],
+      false);
   }
 
   joinGroup(group_address) {
@@ -272,7 +277,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.UDPSocket_JoinGroup_ParamsSpec,
       network.mojom.UDPSocket_JoinGroup_ResponseParamsSpec,
-      [group_address]);
+      [group_address],
+      false);
   }
 
   leaveGroup(group_address) {
@@ -281,7 +287,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
       6,  // ordinal
       network.mojom.UDPSocket_LeaveGroup_ParamsSpec,
       network.mojom.UDPSocket_LeaveGroup_ResponseParamsSpec,
-      [group_address]);
+      [group_address],
+      false);
   }
 
   receiveMore(num_additional_datagrams) {
@@ -290,7 +297,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
       7,  // ordinal
       network.mojom.UDPSocket_ReceiveMore_ParamsSpec,
       null,
-      [num_additional_datagrams]);
+      [num_additional_datagrams],
+      false);
   }
 
   receiveMoreWithBufferSize(num_additional_datagrams, buffer_size) {
@@ -299,7 +307,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
       8,  // ordinal
       network.mojom.UDPSocket_ReceiveMoreWithBufferSize_ParamsSpec,
       null,
-      [num_additional_datagrams, buffer_size]);
+      [num_additional_datagrams, buffer_size],
+      false);
   }
 
   sendTo(dest_addr, data, traffic_annotation) {
@@ -308,7 +317,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
       9,  // ordinal
       network.mojom.UDPSocket_SendTo_ParamsSpec,
       network.mojom.UDPSocket_SendTo_ResponseParamsSpec,
-      [dest_addr, data, traffic_annotation]);
+      [dest_addr, data, traffic_annotation],
+      false);
   }
 
   send(data, traffic_annotation) {
@@ -317,7 +327,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
       10,  // ordinal
       network.mojom.UDPSocket_Send_ParamsSpec,
       network.mojom.UDPSocket_Send_ResponseParamsSpec,
-      [data, traffic_annotation]);
+      [data, traffic_annotation],
+      false);
   }
 
   close() {
@@ -326,7 +337,8 @@ network.mojom.UDPSocketRemoteCallHandler = class {
       11,  // ordinal
       network.mojom.UDPSocket_Close_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -392,7 +404,8 @@ network.mojom.UDPSocketListenerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.UDPSocketListener_OnReceived_ParamsSpec,
       null,
-      [result, src_addr, data]);
+      [result, src_addr, data],
+      false);
   }
 
 };

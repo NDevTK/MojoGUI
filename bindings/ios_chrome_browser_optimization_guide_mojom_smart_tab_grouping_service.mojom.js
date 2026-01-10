@@ -79,7 +79,8 @@ ai.mojom.SmartTabGroupingServiceRemoteCallHandler = class {
       0,  // ordinal
       ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec,
       ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

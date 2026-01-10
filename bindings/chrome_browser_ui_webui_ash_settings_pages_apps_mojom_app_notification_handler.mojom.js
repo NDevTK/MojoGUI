@@ -137,7 +137,8 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
       0,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsHandler_SetQuietMode_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   addObserver(observer) {
@@ -146,7 +147,8 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
       1,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsHandler_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   setNotificationPermission(app_id, permission) {
@@ -155,7 +157,8 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
       2,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsHandler_SetNotificationPermission_ParamsSpec,
       null,
-      [app_id, permission]);
+      [app_id, permission],
+      false);
   }
 
   getApps() {
@@ -164,7 +167,8 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
       3,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ParamsSpec,
       ash.settings.app_notification.mojom.AppNotificationsHandler_GetApps_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getQuietMode() {
@@ -173,7 +177,8 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
       4,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ParamsSpec,
       ash.settings.app_notification.mojom.AppNotificationsHandler_GetQuietMode_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openBrowserNotificationSettings() {
@@ -182,7 +187,8 @@ ash.settings.app_notification.mojom.AppNotificationsHandlerRemoteCallHandler = c
       5,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsHandler_OpenBrowserNotificationSettings_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -252,7 +258,8 @@ ash.settings.app_notification.mojom.AppNotificationsObserverRemoteCallHandler = 
       0,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsObserver_OnNotificationAppChanged_ParamsSpec,
       null,
-      [app]);
+      [app],
+      false);
   }
 
   onQuietModeChanged(enabled) {
@@ -261,7 +268,8 @@ ash.settings.app_notification.mojom.AppNotificationsObserverRemoteCallHandler = 
       1,  // ordinal
       ash.settings.app_notification.mojom.AppNotificationsObserver_OnQuietModeChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
 };

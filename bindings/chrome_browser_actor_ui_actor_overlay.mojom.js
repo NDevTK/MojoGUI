@@ -87,7 +87,8 @@ actor.ui.mojom.ActorOverlayPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, receiver]);
+      [page, receiver],
+      false);
   }
 
 };
@@ -162,7 +163,8 @@ actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec,
       null,
-      [is_hovering]);
+      [is_hovering],
+      false);
   }
 
   getCurrentBorderGlowVisibility() {
@@ -171,7 +173,8 @@ actor.ui.mojom.ActorOverlayPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec,
       actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -268,7 +271,8 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
       0,  // ordinal
       actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec,
       null,
-      [is_visible]);
+      [is_visible],
+      false);
   }
 
   setBorderGlowVisibility(is_visible) {
@@ -277,7 +281,8 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
       1,  // ordinal
       actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec,
       null,
-      [is_visible]);
+      [is_visible],
+      false);
   }
 
   setTheme(theme) {
@@ -286,7 +291,8 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
       2,  // ordinal
       actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec,
       null,
-      [theme]);
+      [theme],
+      false);
   }
 
   moveCursorTo(point) {
@@ -295,7 +301,8 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
       3,  // ordinal
       actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec,
       actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec,
-      [point]);
+      [point],
+      false);
   }
 
   triggerClickAnimation() {
@@ -304,7 +311,8 @@ actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
       4,  // ordinal
       actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec,
       actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

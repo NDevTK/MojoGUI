@@ -76,7 +76,8 @@ chrome.mojom.NetworkEasterEggRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec,
       chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   updateHighScore(high_score) {
@@ -85,7 +86,8 @@ chrome.mojom.NetworkEasterEggRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec,
       null,
-      [high_score]);
+      [high_score],
+      false);
   }
 
   resetHighScore() {
@@ -94,7 +96,8 @@ chrome.mojom.NetworkEasterEggRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

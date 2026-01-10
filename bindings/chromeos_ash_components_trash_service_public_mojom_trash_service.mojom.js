@@ -67,7 +67,8 @@ ash.trash_service.mojom.TrashServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec,
       ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec,
-      [trash_info_file]);
+      [trash_info_file],
+      false);
   }
 
 };

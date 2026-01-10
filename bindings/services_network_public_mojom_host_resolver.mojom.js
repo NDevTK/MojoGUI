@@ -164,8 +164,8 @@ mojo.internal.Struct(
 // Struct: ResolveHostParameters
 mojo.internal.Struct(
     network.mojom.ResolveHostParametersSpec, 'network.mojom.ResolveHostParameters', [
-      mojo.internal.StructField('dns_query_type', 0, 0, network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('initial_priority', 4, 0, network.mojom.RequestPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('dns_query_type', 0, 0, network.mojom.DnsQueryTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('initial_priority', 4, 0, network.mojom.RequestPrioritySpec, 0, false, 0, undefined),
       mojo.internal.StructField('ANY', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -215,7 +215,8 @@ network.mojom.ResolveHostHandleRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ResolveHostHandle_Cancel_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
 };
@@ -294,7 +295,8 @@ network.mojom.ResolveHostClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ResolveHostClient_OnComplete_ParamsSpec,
       null,
-      [result, resolve_error_info, resolved_addresses, alternative_endpoints]);
+      [result, resolve_error_info, resolved_addresses, alternative_endpoints],
+      false);
   }
 
   onTextResults(text_results) {
@@ -303,7 +305,8 @@ network.mojom.ResolveHostClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.ResolveHostClient_OnTextResults_ParamsSpec,
       null,
-      [text_results]);
+      [text_results],
+      false);
   }
 
   onHostnameResults(hosts) {
@@ -312,7 +315,8 @@ network.mojom.ResolveHostClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec,
       null,
-      [hosts]);
+      [hosts],
+      false);
   }
 
 };
@@ -401,7 +405,8 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec,
       null,
-      [update_type, query_type, endpoint]);
+      [update_type, query_type, endpoint],
+      false);
   }
 
   onTextResult(update_type, query_type, text_records) {
@@ -410,7 +415,8 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.MdnsListenClient_OnTextResult_ParamsSpec,
       null,
-      [update_type, query_type, text_records]);
+      [update_type, query_type, text_records],
+      false);
   }
 
   onHostnameResult(update_type, query_type, host) {
@@ -419,7 +425,8 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec,
       null,
-      [update_type, query_type, host]);
+      [update_type, query_type, host],
+      false);
   }
 
   onUnhandledResult(update_type, query_type) {
@@ -428,7 +435,8 @@ network.mojom.MdnsListenClientRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec,
       null,
-      [update_type, query_type]);
+      [update_type, query_type],
+      false);
   }
 
 };
@@ -509,7 +517,8 @@ network.mojom.HostResolverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.HostResolver_ResolveHost_ParamsSpec,
       null,
-      [host, network_anonymization_key, optional_parameters, response_client]);
+      [host, network_anonymization_key, optional_parameters, response_client],
+      false);
   }
 
   mdnsListen(host, query_type, response_client) {
@@ -518,7 +527,8 @@ network.mojom.HostResolverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.HostResolver_MdnsListen_ParamsSpec,
       network.mojom.HostResolver_MdnsListen_ResponseParamsSpec,
-      [host, query_type, response_client]);
+      [host, query_type, response_client],
+      false);
   }
 
 };
@@ -581,7 +591,8 @@ network.mojom.DnsConfigChangeManagerClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -645,7 +656,8 @@ network.mojom.DnsConfigChangeManagerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
 };

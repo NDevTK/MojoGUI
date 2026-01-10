@@ -219,7 +219,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       7,  // ordinal
       crosapi.mojom.Crosapi_BindAccountManager_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindBrowserCdmFactory(receiver) {
@@ -228,7 +229,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       47,  // ordinal
       crosapi.mojom.Crosapi_BindBrowserCdmFactory_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindCfmServiceContext(receiver) {
@@ -237,7 +239,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       142,  // ordinal
       crosapi.mojom.Crosapi_BindCfmServiceContext_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindCrosDisplayConfigController(receiver) {
@@ -246,7 +249,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       93,  // ordinal
       crosapi.mojom.Crosapi_BindCrosDisplayConfigController_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindDiagnosticsService(receiver) {
@@ -255,7 +259,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       99,  // ordinal
       crosapi.mojom.Crosapi_BindDiagnosticsService_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindDocumentScan(receiver) {
@@ -264,7 +269,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       80,  // ordinal
       crosapi.mojom.Crosapi_BindDocumentScan_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindInSessionAuth(receiver) {
@@ -273,7 +279,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       96,  // ordinal
       crosapi.mojom.Crosapi_BindInSessionAuth_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindKeystoreService(receiver) {
@@ -282,7 +289,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       2,  // ordinal
       crosapi.mojom.Crosapi_BindKeystoreService_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindLocalPrinter(receiver) {
@@ -291,7 +299,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       30,  // ordinal
       crosapi.mojom.Crosapi_BindLocalPrinter_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindMachineLearningService(receiver) {
@@ -300,7 +309,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       22,  // ordinal
       crosapi.mojom.Crosapi_BindMachineLearningService_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindSensorHalClient(receiver) {
@@ -309,7 +319,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       19,  // ordinal
       crosapi.mojom.Crosapi_BindSensorHalClient_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindHidManager(receiver) {
@@ -318,7 +329,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       4,  // ordinal
       crosapi.mojom.Crosapi_BindHidManager_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindMediaSessionController(receiver) {
@@ -327,7 +339,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       9,  // ordinal
       crosapi.mojom.Crosapi_BindMediaSessionController_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindMediaSessionAudioFocus(receiver) {
@@ -336,7 +349,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       10,  // ordinal
       crosapi.mojom.Crosapi_BindMediaSessionAudioFocus_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindMediaSessionAudioFocusDebug(receiver) {
@@ -345,7 +359,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       11,  // ordinal
       crosapi.mojom.Crosapi_BindMediaSessionAudioFocusDebug_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindTelemetryDiagnosticRoutinesService(receiver) {
@@ -354,7 +369,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       115,  // ordinal
       crosapi.mojom.Crosapi_BindTelemetryDiagnosticRoutinesService_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindTelemetryManagementService(receiver) {
@@ -363,7 +379,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       129,  // ordinal
       crosapi.mojom.Crosapi_BindTelemetryManagementService_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindTelemetryProbeService(receiver) {
@@ -372,7 +389,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       97,  // ordinal
       crosapi.mojom.Crosapi_BindTelemetryProbeService_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindVideoCaptureDeviceFactory(receiver) {
@@ -381,7 +399,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       25,  // ordinal
       crosapi.mojom.Crosapi_BindVideoCaptureDeviceFactory_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindGuestOsSkForwarderFactory(receiver) {
@@ -390,7 +409,8 @@ crosapi.mojom.CrosapiRemoteCallHandler = class {
       123,  // ordinal
       crosapi.mojom.Crosapi_BindGuestOsSkForwarderFactory_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

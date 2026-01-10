@@ -82,7 +82,8 @@ optimization_guide.mojom.PageTextConsumerRemoteCallHandler = class {
       0,  // ordinal
       optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec,
       null,
-      [chunk]);
+      [chunk],
+      false);
   }
 
   onChunksEnd() {
@@ -91,7 +92,8 @@ optimization_guide.mojom.PageTextConsumerRemoteCallHandler = class {
       1,  // ordinal
       optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -156,7 +158,8 @@ optimization_guide.mojom.PageTextServiceRemoteCallHandler = class {
       0,  // ordinal
       optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec,
       null,
-      [request, consumer]);
+      [request, consumer],
+      false);
   }
 
 };

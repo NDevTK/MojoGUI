@@ -149,7 +149,8 @@ ash.recorder_app.mojom.ModelStateMonitorRemoteCallHandler = class {
       0,  // ordinal
       ash.recorder_app.mojom.ModelStateMonitor_Update_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
 };
@@ -213,7 +214,8 @@ ash.recorder_app.mojom.QuietModeMonitorRemoteCallHandler = class {
       0,  // ordinal
       ash.recorder_app.mojom.QuietModeMonitor_Update_ParamsSpec,
       null,
-      [in_quiet_mode]);
+      [in_quiet_mode],
+      false);
   }
 
 };
@@ -463,7 +465,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.recorder_app.mojom.PageHandler_GetModelInfo_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_GetModelInfo_ResponseParamsSpec,
-      [feature]);
+      [feature],
+      false);
   }
 
   loadModel(model_id, model) {
@@ -472,7 +475,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.recorder_app.mojom.PageHandler_LoadModel_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_LoadModel_ResponseParamsSpec,
-      [model_id, model]);
+      [model_id, model],
+      false);
   }
 
   formatModelInput(uuid, feature, fields) {
@@ -481,7 +485,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.recorder_app.mojom.PageHandler_FormatModelInput_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_FormatModelInput_ResponseParamsSpec,
-      [uuid, feature, fields]);
+      [uuid, feature, fields],
+      false);
   }
 
   validateSafetyResult(safety_feature, text, safety_info) {
@@ -490,7 +495,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_ValidateSafetyResult_ResponseParamsSpec,
-      [safety_feature, text, safety_info]);
+      [safety_feature, text, safety_info],
+      false);
   }
 
   addModelMonitor(model_id, monitor) {
@@ -499,7 +505,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.recorder_app.mojom.PageHandler_AddModelMonitor_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_AddModelMonitor_ResponseParamsSpec,
-      [model_id, monitor]);
+      [model_id, monitor],
+      false);
   }
 
   getAvailableLangPacks() {
@@ -508,7 +515,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_GetAvailableLangPacks_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getDefaultLanguage() {
@@ -517,7 +525,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_GetDefaultLanguage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addSodaMonitor(language, monitor) {
@@ -526,7 +535,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_AddSodaMonitor_ResponseParamsSpec,
-      [language, monitor]);
+      [language, monitor],
+      false);
   }
 
   installSoda(language) {
@@ -535,7 +545,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       ash.recorder_app.mojom.PageHandler_InstallSoda_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_InstallSoda_ResponseParamsSpec,
-      [language]);
+      [language],
+      false);
   }
 
   loadSpeechRecognizer(language, soda_client, soda_recognizer) {
@@ -544,7 +555,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_LoadSpeechRecognizer_ResponseParamsSpec,
-      [language, soda_client, soda_recognizer]);
+      [language, soda_client, soda_recognizer],
+      false);
   }
 
   openAiFeedbackDialog(description_template) {
@@ -553,7 +565,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       ash.recorder_app.mojom.PageHandler_OpenAiFeedbackDialog_ParamsSpec,
       null,
-      [description_template]);
+      [description_template],
+      false);
   }
 
   getMicrophoneInfo(source_id) {
@@ -562,7 +575,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_GetMicrophoneInfo_ResponseParamsSpec,
-      [source_id]);
+      [source_id],
+      false);
   }
 
   addQuietModeMonitor(monitor) {
@@ -571,7 +585,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_AddQuietModeMonitor_ResponseParamsSpec,
-      [monitor]);
+      [monitor],
+      false);
   }
 
   setQuietMode(quiet_mode) {
@@ -580,7 +595,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       ash.recorder_app.mojom.PageHandler_SetQuietMode_ParamsSpec,
       null,
-      [quiet_mode]);
+      [quiet_mode],
+      false);
   }
 
   canUseSpeakerLabel() {
@@ -589,7 +605,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_CanUseSpeakerLabel_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   recordSpeakerLabelConsent(consent_given, consent_description_names, consent_confirmation_name) {
@@ -598,7 +615,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       ash.recorder_app.mojom.PageHandler_RecordSpeakerLabelConsent_ParamsSpec,
       null,
-      [consent_given, consent_description_names, consent_confirmation_name]);
+      [consent_given, consent_description_names, consent_confirmation_name],
+      false);
   }
 
   canCaptureSystemAudioWithLoopback() {
@@ -607,7 +625,8 @@ ash.recorder_app.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ParamsSpec,
       ash.recorder_app.mojom.PageHandler_CanCaptureSystemAudioWithLoopback_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

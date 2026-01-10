@@ -91,7 +91,8 @@ prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
       0,  // ordinal
       prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec,
       null,
-      [pref_path, value, value_state, external_validation_value_state, is_personal]);
+      [pref_path, value, value_state, external_validation_value_state, is_personal],
+      false);
   }
 
   onSplitPreferenceValidation(pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal) {
@@ -100,7 +101,8 @@ prefs.mojom.TrackedPreferenceValidationDelegateRemoteCallHandler = class {
       1,  // ordinal
       prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec,
       null,
-      [pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal]);
+      [pref_path, invalid_keys, external_validation_invalid_keys, value_state, external_validation_value_state, is_personal],
+      false);
   }
 
 };

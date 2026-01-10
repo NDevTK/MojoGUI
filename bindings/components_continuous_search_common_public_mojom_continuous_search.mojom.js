@@ -58,7 +58,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     continuous_search.mojom.CategoryResultsSpec, 'continuous_search.mojom.CategoryResults', [
       mojo.internal.StructField('document_url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('category_type', 8, 0, continuous_search.mojom.CategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('category_type', 8, 0, continuous_search.mojom.CategorySpec, 0, false, 0, undefined),
       mojo.internal.StructField('groups', 16, 0, mojo.internal.Array(continuous_search.mojom.ResultGroupSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -115,7 +115,8 @@ continuous_search.mojom.SearchResultExtractorRemoteCallHandler = class {
       0,  // ordinal
       continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec,
       continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec,
-      [result_types]);
+      [result_types],
+      false);
   }
 
 };

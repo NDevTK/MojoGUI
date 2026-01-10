@@ -129,7 +129,8 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.StorageAccessHandle_BindIndexedDB_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindLocks(receiver) {
@@ -138,7 +139,8 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.StorageAccessHandle_BindLocks_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindCaches(receiver) {
@@ -147,7 +149,8 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.StorageAccessHandle_BindCaches_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   getDirectory() {
@@ -156,7 +159,8 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.StorageAccessHandle_GetDirectory_ParamsSpec,
       blink.mojom.StorageAccessHandle_GetDirectory_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   estimate() {
@@ -165,7 +169,8 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.StorageAccessHandle_Estimate_ParamsSpec,
       blink.mojom.StorageAccessHandle_Estimate_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   bindBlobStorage(receiver) {
@@ -174,7 +179,8 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.StorageAccessHandle_BindBlobStorage_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindBroadcastChannel(receiver) {
@@ -183,7 +189,8 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.StorageAccessHandle_BindBroadcastChannel_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindSharedWorker(receiver) {
@@ -192,7 +199,8 @@ blink.mojom.StorageAccessHandleRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.StorageAccessHandle_BindSharedWorker_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

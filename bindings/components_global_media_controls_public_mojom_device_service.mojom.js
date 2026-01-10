@@ -109,7 +109,8 @@ global_media_controls.mojom.DeviceListHostRemoteCallHandler = class {
       0,  // ordinal
       global_media_controls.mojom.DeviceListHost_SelectDevice_ParamsSpec,
       null,
-      [device_id]);
+      [device_id],
+      false);
   }
 
 };
@@ -178,7 +179,8 @@ global_media_controls.mojom.DeviceListClientRemoteCallHandler = class {
       0,  // ordinal
       global_media_controls.mojom.DeviceListClient_OnDevicesUpdated_ParamsSpec,
       null,
-      [devices]);
+      [devices],
+      false);
   }
 
   onPermissionRejected() {
@@ -187,7 +189,8 @@ global_media_controls.mojom.DeviceListClientRemoteCallHandler = class {
       1,  // ordinal
       global_media_controls.mojom.DeviceListClient_OnPermissionRejected_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -266,7 +269,8 @@ global_media_controls.mojom.DeviceServiceRemoteCallHandler = class {
       0,  // ordinal
       global_media_controls.mojom.DeviceService_GetDeviceListHostForSession_ParamsSpec,
       null,
-      [session_id, host_receiver, client_remote]);
+      [session_id, host_receiver, client_remote],
+      false);
   }
 
   getDeviceListHostForPresentation(host_receiver, client_remote) {
@@ -275,7 +279,8 @@ global_media_controls.mojom.DeviceServiceRemoteCallHandler = class {
       1,  // ordinal
       global_media_controls.mojom.DeviceService_GetDeviceListHostForPresentation_ParamsSpec,
       null,
-      [host_receiver, client_remote]);
+      [host_receiver, client_remote],
+      false);
   }
 
   setDevicePickerProvider(provider_remote) {
@@ -284,7 +289,8 @@ global_media_controls.mojom.DeviceServiceRemoteCallHandler = class {
       2,  // ordinal
       global_media_controls.mojom.DeviceService_SetDevicePickerProvider_ParamsSpec,
       null,
-      [provider_remote]);
+      [provider_remote],
+      false);
   }
 
 };
@@ -392,7 +398,8 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
       0,  // ordinal
       global_media_controls.mojom.DevicePickerProvider_CreateItem_ParamsSpec,
       null,
-      [source_id]);
+      [source_id],
+      false);
   }
 
   deleteItem() {
@@ -401,7 +408,8 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
       1,  // ordinal
       global_media_controls.mojom.DevicePickerProvider_DeleteItem_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   showItem() {
@@ -410,7 +418,8 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
       2,  // ordinal
       global_media_controls.mojom.DevicePickerProvider_ShowItem_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   hideItem() {
@@ -419,7 +428,8 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
       3,  // ordinal
       global_media_controls.mojom.DevicePickerProvider_HideItem_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onMetadataChanged(metadata) {
@@ -428,7 +438,8 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
       4,  // ordinal
       global_media_controls.mojom.DevicePickerProvider_OnMetadataChanged_ParamsSpec,
       null,
-      [metadata]);
+      [metadata],
+      false);
   }
 
   onArtworkImageChanged(artwork_image) {
@@ -437,7 +448,8 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
       5,  // ordinal
       global_media_controls.mojom.DevicePickerProvider_OnArtworkImageChanged_ParamsSpec,
       null,
-      [artwork_image]);
+      [artwork_image],
+      false);
   }
 
   onFaviconImageChanged(favicon_image) {
@@ -446,7 +458,8 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
       6,  // ordinal
       global_media_controls.mojom.DevicePickerProvider_OnFaviconImageChanged_ParamsSpec,
       null,
-      [favicon_image]);
+      [favicon_image],
+      false);
   }
 
   addObserver(observer) {
@@ -455,7 +468,8 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
       7,  // ordinal
       global_media_controls.mojom.DevicePickerProvider_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   hideMediaUI() {
@@ -464,7 +478,8 @@ global_media_controls.mojom.DevicePickerProviderRemoteCallHandler = class {
       8,  // ordinal
       global_media_controls.mojom.DevicePickerProvider_HideMediaUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -542,7 +557,8 @@ global_media_controls.mojom.DevicePickerObserverRemoteCallHandler = class {
       0,  // ordinal
       global_media_controls.mojom.DevicePickerObserver_OnMediaUIOpened_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onMediaUIClosed() {
@@ -551,7 +567,8 @@ global_media_controls.mojom.DevicePickerObserverRemoteCallHandler = class {
       1,  // ordinal
       global_media_controls.mojom.DevicePickerObserver_OnMediaUIClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onMediaUIUpdated() {
@@ -560,7 +577,8 @@ global_media_controls.mojom.DevicePickerObserverRemoteCallHandler = class {
       2,  // ordinal
       global_media_controls.mojom.DevicePickerObserver_OnMediaUIUpdated_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onPickerDismissed() {
@@ -569,7 +587,8 @@ global_media_controls.mojom.DevicePickerObserverRemoteCallHandler = class {
       3,  // ordinal
       global_media_controls.mojom.DevicePickerObserver_OnPickerDismissed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

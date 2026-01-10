@@ -133,7 +133,8 @@ blink.mojom.PushMessagingRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PushMessaging_Subscribe_ParamsSpec,
       blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec,
-      [service_worker_registration_id, options, user_gesture]);
+      [service_worker_registration_id, options, user_gesture],
+      false);
   }
 
   unsubscribe(service_worker_registration_id) {
@@ -142,7 +143,8 @@ blink.mojom.PushMessagingRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PushMessaging_Unsubscribe_ParamsSpec,
       blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec,
-      [service_worker_registration_id]);
+      [service_worker_registration_id],
+      false);
   }
 
   getSubscription(service_worker_registration_id) {
@@ -151,7 +153,8 @@ blink.mojom.PushMessagingRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PushMessaging_GetSubscription_ParamsSpec,
       blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec,
-      [service_worker_registration_id]);
+      [service_worker_registration_id],
+      false);
   }
 
 };

@@ -202,7 +202,8 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       feed_internals.mojom.PageHandler_GetGeneralProperties_ParamsSpec,
       feed_internals.mojom.PageHandler_GetGeneralProperties_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getLastFetchProperties() {
@@ -211,7 +212,8 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       feed_internals.mojom.PageHandler_GetLastFetchProperties_ParamsSpec,
       feed_internals.mojom.PageHandler_GetLastFetchProperties_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   refreshForYouFeed() {
@@ -220,7 +222,8 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       feed_internals.mojom.PageHandler_RefreshForYouFeed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   refreshFollowingFeed() {
@@ -229,7 +232,8 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       feed_internals.mojom.PageHandler_RefreshFollowingFeed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   refreshWebFeedSuggestions() {
@@ -238,7 +242,8 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       feed_internals.mojom.PageHandler_RefreshWebFeedSuggestions_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getFeedProcessScopeDump() {
@@ -247,7 +252,8 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ParamsSpec,
       feed_internals.mojom.PageHandler_GetFeedProcessScopeDump_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getFeedHistograms() {
@@ -256,7 +262,8 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       feed_internals.mojom.PageHandler_GetFeedHistograms_ParamsSpec,
       feed_internals.mojom.PageHandler_GetFeedHistograms_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   overrideFeedHost(host) {
@@ -265,7 +272,8 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       feed_internals.mojom.PageHandler_OverrideFeedHost_ParamsSpec,
       null,
-      [host]);
+      [host],
+      false);
   }
 
   overrideDiscoverApiEndpoint(endpoint_url) {
@@ -274,7 +282,8 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       feed_internals.mojom.PageHandler_OverrideDiscoverApiEndpoint_ParamsSpec,
       null,
-      [endpoint_url]);
+      [endpoint_url],
+      false);
   }
 
   overrideFeedStreamData(data) {
@@ -283,7 +292,8 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       feed_internals.mojom.PageHandler_OverrideFeedStreamData_ParamsSpec,
       null,
-      [data]);
+      [data],
+      false);
   }
 
   setWebFeedFollowIntroDebugEnabled(enabled) {
@@ -292,7 +302,8 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       feed_internals.mojom.PageHandler_SetWebFeedFollowIntroDebugEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setUseFeedQueryRequests(use_legacy) {
@@ -301,7 +312,8 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       feed_internals.mojom.PageHandler_SetUseFeedQueryRequests_ParamsSpec,
       null,
-      [use_legacy]);
+      [use_legacy],
+      false);
   }
 
   setFollowingFeedOrder(order) {
@@ -310,7 +322,8 @@ feed_internals.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       feed_internals.mojom.PageHandler_SetFollowingFeedOrder_ParamsSpec,
       null,
-      [order]);
+      [order],
+      false);
   }
 
 };

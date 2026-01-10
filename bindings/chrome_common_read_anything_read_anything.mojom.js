@@ -242,7 +242,8 @@ read_anything.mojom.UntrustedPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       read_anything.mojom.UntrustedPageHandlerFactory_CreateUntrustedPageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
   shouldShowUI() {
@@ -251,7 +252,8 @@ read_anything.mojom.UntrustedPageHandlerFactoryRemoteCallHandler = class {
       1,  // ordinal
       read_anything.mojom.UntrustedPageHandlerFactory_ShouldShowUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -506,7 +508,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ParamsSpec,
       read_anything.mojom.UntrustedPageHandler_GetDependencyParserModel_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getPresentationState() {
@@ -515,7 +518,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       read_anything.mojom.UntrustedPageHandler_GetPresentationState_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getVoicePackInfo(language) {
@@ -524,7 +528,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       read_anything.mojom.UntrustedPageHandler_GetVoicePackInfo_ParamsSpec,
       null,
-      [language]);
+      [language],
+      false);
   }
 
   installVoicePack(language) {
@@ -533,7 +538,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       read_anything.mojom.UntrustedPageHandler_InstallVoicePack_ParamsSpec,
       null,
-      [language]);
+      [language],
+      false);
   }
 
   uninstallVoice(language) {
@@ -542,7 +548,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       read_anything.mojom.UntrustedPageHandler_UninstallVoice_ParamsSpec,
       null,
-      [language]);
+      [language],
+      false);
   }
 
   onCopy() {
@@ -551,7 +558,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       5,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnCopy_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onLineSpaceChange(line_spacing) {
@@ -560,7 +568,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       6,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnLineSpaceChange_ParamsSpec,
       null,
-      [line_spacing]);
+      [line_spacing],
+      false);
   }
 
   onLetterSpaceChange(letter_spacing) {
@@ -569,7 +578,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       7,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnLetterSpaceChange_ParamsSpec,
       null,
-      [letter_spacing]);
+      [letter_spacing],
+      false);
   }
 
   onFontChange(font) {
@@ -578,7 +588,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       8,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnFontChange_ParamsSpec,
       null,
-      [font]);
+      [font],
+      false);
   }
 
   onFontSizeChange(font_size) {
@@ -587,7 +598,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       9,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnFontSizeChange_ParamsSpec,
       null,
-      [font_size]);
+      [font_size],
+      false);
   }
 
   onLinksEnabledChanged(enabled) {
@@ -596,7 +608,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       10,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnLinksEnabledChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   onImagesEnabledChanged(enabled) {
@@ -605,7 +618,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       11,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnImagesEnabledChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   onColorChange(color) {
@@ -614,7 +628,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       12,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnColorChange_ParamsSpec,
       null,
-      [color]);
+      [color],
+      false);
   }
 
   onSpeechRateChange(rate) {
@@ -623,7 +638,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       13,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnSpeechRateChange_ParamsSpec,
       null,
-      [rate]);
+      [rate],
+      false);
   }
 
   onVoiceChange(voice, lang) {
@@ -632,7 +648,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       14,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnVoiceChange_ParamsSpec,
       null,
-      [voice, lang]);
+      [voice, lang],
+      false);
   }
 
   onLanguagePrefChange(lang, enabled) {
@@ -641,7 +658,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       15,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnLanguagePrefChange_ParamsSpec,
       null,
-      [lang, enabled]);
+      [lang, enabled],
+      false);
   }
 
   logExtensionState() {
@@ -650,7 +668,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       16,  // ordinal
       read_anything.mojom.UntrustedPageHandler_LogExtensionState_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onHighlightGranularityChanged(granularity) {
@@ -659,7 +678,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       17,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnHighlightGranularityChanged_ParamsSpec,
       null,
-      [granularity]);
+      [granularity],
+      false);
   }
 
   onLineFocusChanged(granularity) {
@@ -668,7 +688,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       18,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnLineFocusChanged_ParamsSpec,
       null,
-      [granularity]);
+      [granularity],
+      false);
   }
 
   onReadAloudAudioStateChange(playing) {
@@ -677,7 +698,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       19,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnReadAloudAudioStateChange_ParamsSpec,
       null,
-      [playing]);
+      [playing],
+      false);
   }
 
   onLinkClicked(target_tree_id, target_node_id) {
@@ -686,7 +708,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       20,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnLinkClicked_ParamsSpec,
       null,
-      [target_tree_id, target_node_id]);
+      [target_tree_id, target_node_id],
+      false);
   }
 
   onImageDataRequested(target_tree_id, target_node_id) {
@@ -695,7 +718,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       21,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec,
       null,
-      [target_tree_id, target_node_id]);
+      [target_tree_id, target_node_id],
+      false);
   }
 
   onSelectionChange(target_tree_id, anchor_node_id, anchor_offset, focus_node_id, focus_offset) {
@@ -704,7 +728,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       22,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec,
       null,
-      [target_tree_id, anchor_node_id, anchor_offset, focus_node_id, focus_offset]);
+      [target_tree_id, anchor_node_id, anchor_offset, focus_node_id, focus_offset],
+      false);
   }
 
   onCollapseSelection() {
@@ -713,7 +738,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       23,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onScreenshotRequested() {
@@ -722,7 +748,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       24,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnScreenshotRequested_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onDistillationStatus(status, word_count) {
@@ -731,7 +758,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       25,  // ordinal
       read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec,
       null,
-      [status, word_count]);
+      [status, word_count],
+      false);
   }
 
   scrollToTargetNode(target_tree_id, target_node_id) {
@@ -740,7 +768,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       26,  // ordinal
       read_anything.mojom.UntrustedPageHandler_ScrollToTargetNode_ParamsSpec,
       null,
-      [target_tree_id, target_node_id]);
+      [target_tree_id, target_node_id],
+      false);
   }
 
   closeUI() {
@@ -749,7 +778,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       27,  // ordinal
       read_anything.mojom.UntrustedPageHandler_CloseUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   togglePinState() {
@@ -758,7 +788,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       28,  // ordinal
       read_anything.mojom.UntrustedPageHandler_TogglePinState_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   sendPinStateRequest() {
@@ -767,7 +798,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       29,  // ordinal
       read_anything.mojom.UntrustedPageHandler_SendPinStateRequest_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   togglePresentation() {
@@ -776,7 +808,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       30,  // ordinal
       read_anything.mojom.UntrustedPageHandler_TogglePresentation_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   ackReadingModeHidden() {
@@ -785,7 +818,8 @@ read_anything.mojom.UntrustedPageHandlerRemoteCallHandler = class {
       31,  // ordinal
       read_anything.mojom.UntrustedPageHandler_AckReadingModeHidden_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -959,7 +993,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       0,  // ordinal
       read_anything.mojom.UntrustedPage_AccessibilityEventReceived_ParamsSpec,
       null,
-      [tree_id, updates, events]);
+      [tree_id, updates, events],
+      false);
   }
 
   onGetPresentationState(presentation_state) {
@@ -968,7 +1003,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       1,  // ordinal
       read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec,
       null,
-      [presentation_state]);
+      [presentation_state],
+      false);
   }
 
   onGetVoicePackInfo(voice_pack_info) {
@@ -977,7 +1013,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       2,  // ordinal
       read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec,
       null,
-      [voice_pack_info]);
+      [voice_pack_info],
+      false);
   }
 
   accessibilityLocationChangesReceived(tree_id, details) {
@@ -986,7 +1023,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       3,  // ordinal
       read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec,
       null,
-      [tree_id, details]);
+      [tree_id, details],
+      false);
   }
 
   onActiveAXTreeIDChanged(tree_id, ukm_source_id, is_pdf) {
@@ -995,7 +1033,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       4,  // ordinal
       read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec,
       null,
-      [tree_id, ukm_source_id, is_pdf]);
+      [tree_id, ukm_source_id, is_pdf],
+      false);
   }
 
   onAXTreeDestroyed(tree_id) {
@@ -1004,7 +1043,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       5,  // ordinal
       read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec,
       null,
-      [tree_id]);
+      [tree_id],
+      false);
   }
 
   setLanguageCode(code) {
@@ -1013,7 +1053,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       6,  // ordinal
       read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec,
       null,
-      [code]);
+      [code],
+      false);
   }
 
   onDeviceLocked() {
@@ -1022,7 +1063,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       7,  // ordinal
       read_anything.mojom.UntrustedPage_OnDeviceLocked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onTtsEngineInstalled() {
@@ -1031,7 +1073,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       8,  // ordinal
       read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setDefaultLanguageCode(code) {
@@ -1040,7 +1083,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       9,  // ordinal
       read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec,
       null,
-      [code]);
+      [code],
+      false);
   }
 
   onSettingsRestoredFromPrefs(line_spacing, letter_spacing, font, font_size, links_enabled, images_enabled, color, speech_rate, voices, languages_enabled_in_pref, granularity, line_focus) {
@@ -1049,7 +1093,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       10,  // ordinal
       read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec,
       null,
-      [line_spacing, letter_spacing, font, font_size, links_enabled, images_enabled, color, speech_rate, voices, languages_enabled_in_pref, granularity, line_focus]);
+      [line_spacing, letter_spacing, font, font_size, links_enabled, images_enabled, color, speech_rate, voices, languages_enabled_in_pref, granularity, line_focus],
+      false);
   }
 
   screenAIServiceReady() {
@@ -1058,7 +1103,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       11,  // ordinal
       read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onReadingModeHidden(tab_active) {
@@ -1067,7 +1113,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       12,  // ordinal
       read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec,
       null,
-      [tab_active]);
+      [tab_active],
+      false);
   }
 
   onTabWillDetach() {
@@ -1076,7 +1123,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       13,  // ordinal
       read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onTabMuteStateChange(muted) {
@@ -1085,7 +1133,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       14,  // ordinal
       read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec,
       null,
-      [muted]);
+      [muted],
+      false);
   }
 
   onImageDataDownloaded(tree_id, node_id, image) {
@@ -1094,7 +1143,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       15,  // ordinal
       read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec,
       null,
-      [tree_id, node_id, image]);
+      [tree_id, node_id, image],
+      false);
   }
 
   onPinStatusReceived(new_pin_state) {
@@ -1103,7 +1153,8 @@ read_anything.mojom.UntrustedPageRemoteCallHandler = class {
       16,  // ordinal
       read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec,
       null,
-      [new_pin_state]);
+      [new_pin_state],
+      false);
   }
 
 };

@@ -78,7 +78,8 @@ on_device_translation.mojom.TranslatorRemoteCallHandler = class {
       0,  // ordinal
       on_device_translation.mojom.Translator_Translate_ParamsSpec,
       on_device_translation.mojom.Translator_Translate_ResponseParamsSpec,
-      [input]);
+      [input],
+      false);
   }
 
   splitSentences(input) {
@@ -87,7 +88,8 @@ on_device_translation.mojom.TranslatorRemoteCallHandler = class {
       1,  // ordinal
       on_device_translation.mojom.Translator_SplitSentences_ParamsSpec,
       on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec,
-      [input]);
+      [input],
+      false);
   }
 
 };

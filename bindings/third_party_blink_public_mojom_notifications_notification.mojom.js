@@ -54,10 +54,10 @@ mojo.internal.Struct(
 // Struct: NotificationData
 mojo.internal.Struct(
     blink.mojom.NotificationDataSpec, 'blink.mojom.NotificationData', [
-      mojo.internal.StructField('kMaximumDeveloperDataSize', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
-      mojo.internal.StructField('kMaximumActions', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kMaximumDeveloperDataSize', 0, 0, mojo.internal.Pointer, 1048576, false, 0, undefined),
+      mojo.internal.StructField('kMaximumActions', 8, 0, mojo.internal.Pointer, 2, false, 0, undefined),
       mojo.internal.StructField('title', 16, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('direction', 24, 0, blink.mojom.NotificationDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('direction', 24, 0, blink.mojom.NotificationDirectionSpec, 0, false, 0, undefined),
       mojo.internal.StructField('lang', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('body', 40, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('tag', 48, 0, mojo.internal.String, null, false, 0, undefined),
@@ -72,7 +72,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('data', 104, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
       mojo.internal.StructField('actions', 112, 0, mojo.internal.Array(blink.mojom.NotificationActionSpec, false), null, true, 0, undefined),
       mojo.internal.StructField('show_trigger_timestamp', 120, 0, mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('scenario', 128, 0, blink.mojom.NotificationScenarioSpec, null, false, 0, undefined),
+      mojo.internal.StructField('scenario', 128, 0, blink.mojom.NotificationScenarioSpec, 0, false, 0, undefined),
     ],
     [[0, 144]]);
 

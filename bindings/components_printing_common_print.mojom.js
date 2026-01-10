@@ -87,8 +87,8 @@ printing.mojom.PrintFailureReason = {
 // Struct: PreviewIds
 mojo.internal.Struct(
     printing.mojom.PreviewIdsSpec, 'printing.mojom.PreviewIds', [
-      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('ui_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('request_id', 0, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('ui_id', 4, 0, mojo.internal.Int32, -1, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -165,15 +165,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('printable_area', 16, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
       mojo.internal.StructField('margin_top', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('margin_left', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('page_orientation', 32, 0, printing.mojom.PageOrientationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('page_orientation', 32, 0, printing.mojom.PageOrientationSpec, 0, false, 0, undefined),
       mojo.internal.StructField('dpi', 40, 0, gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scale_factor', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('scale_factor', 48, 0, mojo.internal.Double, 1.0, false, 0, undefined),
       mojo.internal.StructField('document_cookie', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('selection_only', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('preview_ui_id', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('preview_ui_id', 64, 0, mojo.internal.Int32, -1, false, 0, undefined),
       mojo.internal.StructField('preview_request_id', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('is_first_request', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('print_scaling_option', 76, 0, printing.mojom.PrintScalingOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('print_scaling_option', 76, 0, printing.mojom.PrintScalingOptionSpec, 0, false, 0, undefined),
       mojo.internal.StructField('print_to_pdf', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('display_header_footer', 80, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('title', 88, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
@@ -183,12 +183,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('rasterize_pdf', 120, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('rasterize_pdf_dpi', 124, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('should_print_backgrounds', 128, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('printed_doc_type', 132, 0, printing.mojom.SkiaDocumentTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('printed_doc_type', 132, 0, printing.mojom.SkiaDocumentTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('prefer_css_page_size', 136, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('pages_per_sheet', 140, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('pages_per_sheet', 140, 0, mojo.internal.Uint32, 1, false, 0, undefined),
       mojo.internal.StructField('generate_tagged_pdf_$flag', 144, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'generate_tagged_pdf_$value', originalFieldName: 'generate_tagged_pdf' }),
       mojo.internal.StructField('generate_tagged_pdf_$value', 144, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'generate_tagged_pdf_$flag', originalFieldName: 'generate_tagged_pdf' }),
-      mojo.internal.StructField('generate_document_outline', 148, 0, printing.mojom.GenerateDocumentOutlineSpec, null, false, 0, undefined),
+      mojo.internal.StructField('generate_document_outline', 148, 0, printing.mojom.GenerateDocumentOutlineSpec, 0, false, 0, undefined),
     ],
     [[0, 160]]);
 
@@ -227,7 +227,7 @@ mojo.internal.Struct(
     printing.mojom.PrintWithParamsResultDataSpec, 'printing.mojom.PrintWithParamsResultData', [
       mojo.internal.StructField('params', 0, 0, printing.mojom.DidPrintDocumentParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('accessibility_tree', 8, 0, ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('generate_document_outline', 16, 0, printing.mojom.GenerateDocumentOutlineSpec, null, false, 0, undefined),
+      mojo.internal.StructField('generate_document_outline', 16, 0, printing.mojom.GenerateDocumentOutlineSpec, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -282,7 +282,8 @@ printing.mojom.PrintRendererRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec,
       printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec,
-      [job_settings]);
+      [job_settings],
+      false);
   }
 
 };
@@ -406,7 +407,8 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec,
       null,
-      [params, request_id]);
+      [params, request_id],
+      false);
   }
 
   didPrepareDocumentForPreview(document_cookie, request_id) {
@@ -415,7 +417,8 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       1,  // ordinal
       printing.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_ParamsSpec,
       null,
-      [document_cookie, request_id]);
+      [document_cookie, request_id],
+      false);
   }
 
   didPreviewPage(params, request_id) {
@@ -424,7 +427,8 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       2,  // ordinal
       printing.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec,
       null,
-      [params, request_id]);
+      [params, request_id],
+      false);
   }
 
   metafileReadyForPrinting(params, request_id) {
@@ -433,7 +437,8 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       3,  // ordinal
       printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec,
       null,
-      [params, request_id]);
+      [params, request_id],
+      false);
   }
 
   printPreviewFailed(document_cookie, request_id) {
@@ -442,7 +447,8 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       4,  // ordinal
       printing.mojom.PrintPreviewUI_PrintPreviewFailed_ParamsSpec,
       null,
-      [document_cookie, request_id]);
+      [document_cookie, request_id],
+      false);
   }
 
   printPreviewCancelled(document_cookie, request_id) {
@@ -451,7 +457,8 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       5,  // ordinal
       printing.mojom.PrintPreviewUI_PrintPreviewCancelled_ParamsSpec,
       null,
-      [document_cookie, request_id]);
+      [document_cookie, request_id],
+      false);
   }
 
   printerSettingsInvalid(document_cookie, request_id) {
@@ -460,7 +467,8 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       6,  // ordinal
       printing.mojom.PrintPreviewUI_PrinterSettingsInvalid_ParamsSpec,
       null,
-      [document_cookie, request_id]);
+      [document_cookie, request_id],
+      false);
   }
 
   didGetDefaultPageLayout(page_layout_in_points, printable_area_in_points, all_pages_have_custom_size, all_pages_have_custom_orientation, request_id) {
@@ -469,7 +477,8 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       7,  // ordinal
       printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec,
       null,
-      [page_layout_in_points, printable_area_in_points, all_pages_have_custom_size, all_pages_have_custom_orientation, request_id]);
+      [page_layout_in_points, printable_area_in_points, all_pages_have_custom_size, all_pages_have_custom_orientation, request_id],
+      false);
   }
 
   didStartPreview(params, request_id) {
@@ -478,7 +487,8 @@ printing.mojom.PrintPreviewUIRemoteCallHandler = class {
       8,  // ordinal
       printing.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec,
       null,
-      [params, request_id]);
+      [params, request_id],
+      false);
   }
 
 };
@@ -605,7 +615,8 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PrintRenderFrame_PrintRequestedPages_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   printWithParams(params) {
@@ -614,7 +625,8 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
       1,  // ordinal
       printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   printForSystemDialog() {
@@ -623,7 +635,8 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
       2,  // ordinal
       printing.mojom.PrintRenderFrame_PrintForSystemDialog_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   initiatePrintPreview(print_renderer, has_selection) {
@@ -632,7 +645,8 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
       3,  // ordinal
       printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec,
       null,
-      [print_renderer, has_selection]);
+      [print_renderer, has_selection],
+      false);
   }
 
   setPrintPreviewUI(preview) {
@@ -641,7 +655,8 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
       4,  // ordinal
       printing.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec,
       null,
-      [preview]);
+      [preview],
+      false);
   }
 
   printPreview(settings) {
@@ -650,7 +665,8 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
       5,  // ordinal
       printing.mojom.PrintRenderFrame_PrintPreview_ParamsSpec,
       null,
-      [settings]);
+      [settings],
+      false);
   }
 
   onPrintPreviewDialogClosed() {
@@ -659,7 +675,8 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
       6,  // ordinal
       printing.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   printFrameContent(params) {
@@ -668,7 +685,8 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
       7,  // ordinal
       printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec,
       printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
   connectToPdfRenderer() {
@@ -677,7 +695,8 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
       8,  // ordinal
       printing.mojom.PrintRenderFrame_ConnectToPdfRenderer_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   printingDone(success) {
@@ -686,7 +705,8 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
       9,  // ordinal
       printing.mojom.PrintRenderFrame_PrintingDone_ParamsSpec,
       null,
-      [success]);
+      [success],
+      false);
   }
 
   printNodeUnderContextMenu() {
@@ -695,7 +715,8 @@ printing.mojom.PrintRenderFrameRemoteCallHandler = class {
       10,  // ordinal
       printing.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -872,7 +893,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PrintManagerHost_DidGetPrintedPagesCount_ParamsSpec,
       null,
-      [cookie, number_pages]);
+      [cookie, number_pages],
+      false);
   }
 
   getDefaultPrintSettings() {
@@ -881,7 +903,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
       1,  // ordinal
       printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ParamsSpec,
       printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   didShowPrintDialog() {
@@ -890,7 +913,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
       2,  // ordinal
       printing.mojom.PrintManagerHost_DidShowPrintDialog_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   didPrintDocument(params) {
@@ -899,7 +923,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
       3,  // ordinal
       printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec,
       printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
   isPrintingEnabled() {
@@ -908,7 +933,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
       4,  // ordinal
       printing.mojom.PrintManagerHost_IsPrintingEnabled_ParamsSpec,
       printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   scriptedPrint(params) {
@@ -917,7 +943,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
       5,  // ordinal
       printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec,
       printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
   printingFailed(cookie, reason) {
@@ -926,7 +953,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
       6,  // ordinal
       printing.mojom.PrintManagerHost_PrintingFailed_ParamsSpec,
       null,
-      [cookie, reason]);
+      [cookie, reason],
+      false);
   }
 
   updatePrintSettings(job_settings) {
@@ -935,7 +963,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
       7,  // ordinal
       printing.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec,
       printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec,
-      [job_settings]);
+      [job_settings],
+      false);
   }
 
   setupScriptedPrintPreview() {
@@ -944,7 +973,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
       8,  // ordinal
       printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ParamsSpec,
       printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   showScriptedPrintPreview(is_modifiable) {
@@ -953,7 +983,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
       9,  // ordinal
       printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec,
       null,
-      [is_modifiable]);
+      [is_modifiable],
+      false);
   }
 
   requestPrintPreview(params) {
@@ -962,7 +993,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
       10,  // ordinal
       printing.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   checkForCancel(preview_ui_id, request_id) {
@@ -971,7 +1003,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
       11,  // ordinal
       printing.mojom.PrintManagerHost_CheckForCancel_ParamsSpec,
       printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec,
-      [preview_ui_id, request_id]);
+      [preview_ui_id, request_id],
+      false);
   }
 
   setAccessibilityTree(cookie, accessibility_tree) {
@@ -980,7 +1013,8 @@ printing.mojom.PrintManagerHostRemoteCallHandler = class {
       12,  // ordinal
       printing.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec,
       null,
-      [cookie, accessibility_tree]);
+      [cookie, accessibility_tree],
+      false);
   }
 
 };

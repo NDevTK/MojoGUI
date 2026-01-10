@@ -236,7 +236,8 @@ auction_worklet.mojom.GenerateBidClientRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ParamsSpec,
       auction_worklet.mojom.GenerateBidClient_OnBiddingSignalsReceived_ResponseParamsSpec,
-      [priority_vector, trusted_signals_fetch_latency, update_if_older_than]);
+      [priority_vector, trusted_signals_fetch_latency, update_if_older_than],
+      false);
   }
 
   onGenerateBidComplete(bids, bidding_signals_data_version, debug_loss_report_url, debug_win_report_url, set_priority, update_priority_signals_overrides, pa_requests, non_kanon_pa_requests, real_time_contributions, generate_bid_timing_metrics, generate_bid_dependency_latencies, reject_reason, errors) {
@@ -245,7 +246,8 @@ auction_worklet.mojom.GenerateBidClientRemoteCallHandler = class {
       1,  // ordinal
       auction_worklet.mojom.GenerateBidClient_OnGenerateBidComplete_ParamsSpec,
       null,
-      [bids, bidding_signals_data_version, debug_loss_report_url, debug_win_report_url, set_priority, update_priority_signals_overrides, pa_requests, non_kanon_pa_requests, real_time_contributions, generate_bid_timing_metrics, generate_bid_dependency_latencies, reject_reason, errors]);
+      [bids, bidding_signals_data_version, debug_loss_report_url, debug_win_report_url, set_priority, update_priority_signals_overrides, pa_requests, non_kanon_pa_requests, real_time_contributions, generate_bid_timing_metrics, generate_bid_dependency_latencies, reject_reason, errors],
+      false);
   }
 
 };
@@ -316,7 +318,8 @@ auction_worklet.mojom.GenerateBidFinalizerRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.GenerateBidFinalizer_FinishGenerateBid_ParamsSpec,
       null,
-      [auction_signals_json, per_buyer_signals_json, per_buyer_timeout, expected_buyer_currency, direct_from_seller_per_buyer_signals, direct_from_seller_per_buyer_signals_header_ad_slot, direct_from_seller_auction_signals, direct_from_seller_auction_signals_header_ad_slot]);
+      [auction_signals_json, per_buyer_signals_json, per_buyer_timeout, expected_buyer_currency, direct_from_seller_per_buyer_signals, direct_from_seller_per_buyer_signals_header_ad_slot, direct_from_seller_auction_signals, direct_from_seller_auction_signals_header_ad_slot],
+      false);
   }
 
 };
@@ -458,7 +461,8 @@ auction_worklet.mojom.BidderWorkletRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.BidderWorklet_BeginGenerateBid_ParamsSpec,
       null,
-      [bidder_worklet_non_shared_params, key_value_signals_cache_key, kanon_mode, interest_group_join_origin, direct_from_seller_per_buyer_signals, direct_from_seller_auction_signals, browser_signal_seller_origin, browser_signal_top_level_seller_origin, browser_signal_recency, browser_signal_for_debugging_only_sampling, bidding_browser_signals, auction_start_time, requested_ad_size, multi_bid_limit, group_by_origin_id, trace_id, generate_bid_client, bid_finalizer]);
+      [bidder_worklet_non_shared_params, key_value_signals_cache_key, kanon_mode, interest_group_join_origin, direct_from_seller_per_buyer_signals, direct_from_seller_auction_signals, browser_signal_seller_origin, browser_signal_top_level_seller_origin, browser_signal_recency, browser_signal_for_debugging_only_sampling, bidding_browser_signals, auction_start_time, requested_ad_size, multi_bid_limit, group_by_origin_id, trace_id, generate_bid_client, bid_finalizer],
+      false);
   }
 
   sendPendingSignalsRequests() {
@@ -467,7 +471,8 @@ auction_worklet.mojom.BidderWorkletRemoteCallHandler = class {
       1,  // ordinal
       auction_worklet.mojom.BidderWorklet_SendPendingSignalsRequests_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   reportWin(is_for_additional_bid, interest_group_name_reporting_id, buyer_reporting_id, buyer_and_seller_reporting_id, selected_buyer_and_seller_reporting_id, auction_signals_json, per_buyer_signals_json, direct_from_seller_per_buyer_signals, direct_from_seller_per_buyer_signals_header_ad_slot, direct_from_seller_auction_signals, direct_from_seller_auction_signals_header_ad_slot, seller_signals_json, kanon_status, browser_signal_render_url, browser_signal_bid, browser_signal_bid_currency, browser_signal_highest_scoring_other_bid, browser_signal_highest_scoring_other_bid_currency, browser_signal_made_highest_scoring_other_bid, browser_signal_ad_cost, browser_signal_modeling_signals, browser_signal_join_count, browser_signal_recency, browser_signal_seller_origin, browser_signal_top_level_seller_origin, browser_signal_reporting_timeout, bidding_signals_data_version, aggregate_win_signals, trace_id) {
@@ -476,7 +481,8 @@ auction_worklet.mojom.BidderWorkletRemoteCallHandler = class {
       2,  // ordinal
       auction_worklet.mojom.BidderWorklet_ReportWin_ParamsSpec,
       auction_worklet.mojom.BidderWorklet_ReportWin_ResponseParamsSpec,
-      [is_for_additional_bid, interest_group_name_reporting_id, buyer_reporting_id, buyer_and_seller_reporting_id, selected_buyer_and_seller_reporting_id, auction_signals_json, per_buyer_signals_json, direct_from_seller_per_buyer_signals, direct_from_seller_per_buyer_signals_header_ad_slot, direct_from_seller_auction_signals, direct_from_seller_auction_signals_header_ad_slot, seller_signals_json, kanon_status, browser_signal_render_url, browser_signal_bid, browser_signal_bid_currency, browser_signal_highest_scoring_other_bid, browser_signal_highest_scoring_other_bid_currency, browser_signal_made_highest_scoring_other_bid, browser_signal_ad_cost, browser_signal_modeling_signals, browser_signal_join_count, browser_signal_recency, browser_signal_seller_origin, browser_signal_top_level_seller_origin, browser_signal_reporting_timeout, bidding_signals_data_version, aggregate_win_signals, trace_id]);
+      [is_for_additional_bid, interest_group_name_reporting_id, buyer_reporting_id, buyer_and_seller_reporting_id, selected_buyer_and_seller_reporting_id, auction_signals_json, per_buyer_signals_json, direct_from_seller_per_buyer_signals, direct_from_seller_per_buyer_signals_header_ad_slot, direct_from_seller_auction_signals, direct_from_seller_auction_signals_header_ad_slot, seller_signals_json, kanon_status, browser_signal_render_url, browser_signal_bid, browser_signal_bid_currency, browser_signal_highest_scoring_other_bid, browser_signal_highest_scoring_other_bid_currency, browser_signal_made_highest_scoring_other_bid, browser_signal_ad_cost, browser_signal_modeling_signals, browser_signal_join_count, browser_signal_recency, browser_signal_seller_origin, browser_signal_top_level_seller_origin, browser_signal_reporting_timeout, bidding_signals_data_version, aggregate_win_signals, trace_id],
+      false);
   }
 
   connectDevToolsAgent(agent, thread_index) {
@@ -485,7 +491,8 @@ auction_worklet.mojom.BidderWorkletRemoteCallHandler = class {
       3,  // ordinal
       auction_worklet.mojom.BidderWorklet_ConnectDevToolsAgent_ParamsSpec,
       null,
-      [agent, thread_index]);
+      [agent, thread_index],
+      false);
   }
 
 };

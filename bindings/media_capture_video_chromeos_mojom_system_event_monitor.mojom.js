@@ -96,7 +96,8 @@ cros.mojom.CrosDisplayObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec,
       null,
-      [rotation]);
+      [rotation],
+      false);
   }
 
 };
@@ -160,7 +161,8 @@ cros.mojom.CrosLidObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec,
       null,
-      [new_state]);
+      [new_state],
+      false);
   }
 
 };
@@ -233,7 +235,8 @@ cros.mojom.CrosPowerObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec,
       cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onSystemResume() {
@@ -242,7 +245,8 @@ cros.mojom.CrosPowerObserverRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -325,7 +329,8 @@ cros.mojom.CrosSystemEventMonitorRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   addLidObserver(observer) {
@@ -334,7 +339,8 @@ cros.mojom.CrosSystemEventMonitorRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   addPowerObserver(client_name, observer) {
@@ -343,7 +349,8 @@ cros.mojom.CrosSystemEventMonitorRemoteCallHandler = class {
       2,  // ordinal
       cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec,
       null,
-      [client_name, observer]);
+      [client_name, observer],
+      false);
   }
 
   notifyDeviceChanged(type) {
@@ -352,7 +359,8 @@ cros.mojom.CrosSystemEventMonitorRemoteCallHandler = class {
       3,  // ordinal
       cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec,
       null,
-      [type]);
+      [type],
+      false);
   }
 
 };

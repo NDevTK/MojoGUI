@@ -106,7 +106,8 @@ arc.mojom.ProtectedBufferManagerRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ParamsSpec,
       arc.mojom.ProtectedBufferManager_DeprecatedGetProtectedSharedMemoryFromHandle_ResponseParamsSpec,
-      [dummy_handle]);
+      [dummy_handle],
+      false);
   }
 
   getProtectedSharedMemoryFromHandle(dummy_handle) {
@@ -115,7 +116,8 @@ arc.mojom.ProtectedBufferManagerRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ParamsSpec,
       arc.mojom.ProtectedBufferManager_GetProtectedSharedMemoryFromHandle_ResponseParamsSpec,
-      [dummy_handle]);
+      [dummy_handle],
+      false);
   }
 
   getProtectedNativePixmapHandleFromHandle(dummy_handle) {
@@ -124,7 +126,8 @@ arc.mojom.ProtectedBufferManagerRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ParamsSpec,
       arc.mojom.ProtectedBufferManager_GetProtectedNativePixmapHandleFromHandle_ResponseParamsSpec,
-      [dummy_handle]);
+      [dummy_handle],
+      false);
   }
 
   isProtectedNativePixmapHandle(dummy_handle) {
@@ -133,7 +136,8 @@ arc.mojom.ProtectedBufferManagerRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ParamsSpec,
       arc.mojom.ProtectedBufferManager_IsProtectedNativePixmapHandle_ResponseParamsSpec,
-      [dummy_handle]);
+      [dummy_handle],
+      false);
   }
 
 };

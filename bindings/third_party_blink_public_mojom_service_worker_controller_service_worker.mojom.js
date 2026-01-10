@@ -46,7 +46,7 @@ mojo.internal.Struct(
 // Struct: ControllerServiceWorkerInfo
 mojo.internal.Struct(
     blink.mojom.ControllerServiceWorkerInfoSpec, 'blink.mojom.ControllerServiceWorkerInfo', [
-      mojo.internal.StructField('fetch_handler_bypass_option', 0, 0, blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('fetch_handler_bypass_option', 0, 0, blink.mojom.ServiceWorkerFetchHandlerBypassOptionSpec, 0, false, 0, undefined),
       mojo.internal.StructField('sha256_script_checksum', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('need_router_evaluate', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('router_data', 24, 0, blink.mojom.ServiceWorkerRouterDataSpec, null, true, 0, undefined),
@@ -120,7 +120,8 @@ blink.mojom.ControllerServiceWorkerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec,
       blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ResponseParamsSpec,
-      [params, response_callback]);
+      [params, response_callback],
+      false);
   }
 
   clone(receiver, cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter) {
@@ -129,7 +130,8 @@ blink.mojom.ControllerServiceWorkerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ControllerServiceWorker_Clone_ParamsSpec,
       null,
-      [receiver, cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter]);
+      [receiver, cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter],
+      false);
   }
 
 };
@@ -193,7 +195,8 @@ blink.mojom.ControllerServiceWorkerConnectorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec,
       null,
-      [controller]);
+      [controller],
+      false);
   }
 
 };

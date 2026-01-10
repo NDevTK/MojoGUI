@@ -104,7 +104,8 @@ password_manager.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       password_manager.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -279,7 +280,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       password_manager.mojom.PageHandler_ExtendAuthValidity_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   deleteAllPasswordManagerData() {
@@ -288,7 +290,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ParamsSpec,
       password_manager.mojom.PageHandler_DeleteAllPasswordManagerData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   copyPlaintextBackupPassword(id) {
@@ -297,7 +300,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ParamsSpec,
       password_manager.mojom.PageHandler_CopyPlaintextBackupPassword_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   removeBackupPassword(id) {
@@ -306,7 +310,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       password_manager.mojom.PageHandler_RemoveBackupPassword_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   getActorLoginPermissions() {
@@ -315,7 +320,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       password_manager.mojom.PageHandler_GetActorLoginPermissions_ParamsSpec,
       password_manager.mojom.PageHandler_GetActorLoginPermissions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   revokeActorLoginPermission(site) {
@@ -324,7 +330,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       password_manager.mojom.PageHandler_RevokeActorLoginPermission_ParamsSpec,
       null,
-      [site]);
+      [site],
+      false);
   }
 
   changePasswordManagerPin() {
@@ -333,7 +340,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       password_manager.mojom.PageHandler_ChangePasswordManagerPin_ParamsSpec,
       password_manager.mojom.PageHandler_ChangePasswordManagerPin_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   showAddShortcutDialog() {
@@ -342,7 +350,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       password_manager.mojom.PageHandler_ShowAddShortcutDialog_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   isAccountStorageEnabled() {
@@ -351,7 +360,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       password_manager.mojom.PageHandler_IsAccountStorageEnabled_ParamsSpec,
       password_manager.mojom.PageHandler_IsAccountStorageEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setAccountStorageEnabled(enabled) {
@@ -360,7 +370,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       password_manager.mojom.PageHandler_SetAccountStorageEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   shouldShowAccountStorageSettingToggle() {
@@ -369,7 +380,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ParamsSpec,
       password_manager.mojom.PageHandler_ShouldShowAccountStorageSettingToggle_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isPasswordManagerPinAvailable() {
@@ -378,7 +390,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ParamsSpec,
       password_manager.mojom.PageHandler_IsPasswordManagerPinAvailable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   switchBiometricAuthBeforeFillingState() {
@@ -387,7 +400,8 @@ password_manager.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ParamsSpec,
       password_manager.mojom.PageHandler_SwitchBiometricAuthBeforeFillingState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

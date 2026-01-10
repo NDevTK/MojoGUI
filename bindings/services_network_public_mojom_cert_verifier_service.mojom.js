@@ -94,7 +94,8 @@ cert_verifier.mojom.URLLoaderFactoryConnectorRemoteCallHandler = class {
       0,  // ordinal
       cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec,
       null,
-      [url_loader_factory]);
+      [url_loader_factory],
+      false);
   }
 
 };
@@ -188,7 +189,8 @@ cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
       0,  // ordinal
       cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec,
       null,
-      [url_loader_factory, reconnector]);
+      [url_loader_factory, reconnector],
+      false);
   }
 
   verify(params, net_log_source, cert_verifier_request) {
@@ -197,7 +199,8 @@ cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
       1,  // ordinal
       cert_verifier.mojom.CertVerifierService_Verify_ParamsSpec,
       null,
-      [params, net_log_source, cert_verifier_request]);
+      [params, net_log_source, cert_verifier_request],
+      false);
   }
 
   verify2QwacBinding(binding, hostname, tls_certificate, net_log_source) {
@@ -206,7 +209,8 @@ cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
       2,  // ordinal
       cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ParamsSpec,
       cert_verifier.mojom.CertVerifierService_Verify2QwacBinding_ResponseParamsSpec,
-      [binding, hostname, tls_certificate, net_log_source]);
+      [binding, hostname, tls_certificate, net_log_source],
+      false);
   }
 
   setConfig(config) {
@@ -215,7 +219,8 @@ cert_verifier.mojom.CertVerifierServiceRemoteCallHandler = class {
       3,  // ordinal
       cert_verifier.mojom.CertVerifierService_SetConfig_ParamsSpec,
       null,
-      [config]);
+      [config],
+      false);
   }
 
 };
@@ -278,7 +283,8 @@ cert_verifier.mojom.CertVerifierServiceClientRemoteCallHandler = class {
       0,  // ordinal
       cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -343,7 +349,8 @@ cert_verifier.mojom.CertVerifierRequestRemoteCallHandler = class {
       0,  // ordinal
       cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec,
       null,
-      [result, net_error]);
+      [result, net_error],
+      false);
   }
 
 };

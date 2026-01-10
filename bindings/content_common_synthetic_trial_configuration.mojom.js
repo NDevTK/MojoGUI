@@ -73,7 +73,8 @@ content.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec,
       null,
-      [groups]);
+      [groups],
+      false);
   }
 
   removeSyntheticTrialGroups(groups) {
@@ -82,7 +83,8 @@ content.mojom.SyntheticTrialConfigurationRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec,
       null,
-      [groups]);
+      [groups],
+      false);
   }
 
 };

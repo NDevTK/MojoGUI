@@ -85,7 +85,8 @@ media_router.mojom.MediaStatusObserverRemoteCallHandler = class {
       0,  // ordinal
       media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
 };

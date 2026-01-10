@@ -124,7 +124,8 @@ chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       0,  // ordinal
       chromeos.cdm.mojom.CdmStorage_Read_ParamsSpec,
       chromeos.cdm.mojom.CdmStorage_Read_ResponseParamsSpec,
-      [file_name]);
+      [file_name],
+      false);
   }
 
   write(file_name, data) {
@@ -133,7 +134,8 @@ chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       1,  // ordinal
       chromeos.cdm.mojom.CdmStorage_Write_ParamsSpec,
       chromeos.cdm.mojom.CdmStorage_Write_ResponseParamsSpec,
-      [file_name, data]);
+      [file_name, data],
+      false);
   }
 
   exists(file_name) {
@@ -142,7 +144,8 @@ chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       2,  // ordinal
       chromeos.cdm.mojom.CdmStorage_Exists_ParamsSpec,
       chromeos.cdm.mojom.CdmStorage_Exists_ResponseParamsSpec,
-      [file_name]);
+      [file_name],
+      false);
   }
 
   getSize(file_name) {
@@ -151,7 +154,8 @@ chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       3,  // ordinal
       chromeos.cdm.mojom.CdmStorage_GetSize_ParamsSpec,
       chromeos.cdm.mojom.CdmStorage_GetSize_ResponseParamsSpec,
-      [file_name]);
+      [file_name],
+      false);
   }
 
   remove(file_name) {
@@ -160,7 +164,8 @@ chromeos.cdm.mojom.CdmStorageRemoteCallHandler = class {
       4,  // ordinal
       chromeos.cdm.mojom.CdmStorage_Remove_ParamsSpec,
       chromeos.cdm.mojom.CdmStorage_Remove_ResponseParamsSpec,
-      [file_name]);
+      [file_name],
+      false);
   }
 
 };

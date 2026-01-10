@@ -77,7 +77,8 @@ blink.mojom.FontUniqueNameLookupRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ParamsSpec,
       blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTableIfAvailable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getUniqueNameLookupTable() {
@@ -86,7 +87,8 @@ blink.mojom.FontUniqueNameLookupRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ParamsSpec,
       blink.mojom.FontUniqueNameLookup_GetUniqueNameLookupTable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

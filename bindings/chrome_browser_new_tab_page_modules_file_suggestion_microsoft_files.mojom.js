@@ -75,7 +75,8 @@ file_suggestion.mojom.MicrosoftFilesPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec,
       file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   dismissModule() {
@@ -84,7 +85,8 @@ file_suggestion.mojom.MicrosoftFilesPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       file_suggestion.mojom.MicrosoftFilesPageHandler_DismissModule_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   restoreModule() {
@@ -93,7 +95,8 @@ file_suggestion.mojom.MicrosoftFilesPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       file_suggestion.mojom.MicrosoftFilesPageHandler_RestoreModule_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -71,7 +71,8 @@ content.mojom.TestInterfaceForDeferRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.TestInterfaceForDefer_Ping_ParamsSpec,
       content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -281,7 +282,8 @@ content.mojom.MojoContextProviderRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.MojoContextProvider_GrantAll_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

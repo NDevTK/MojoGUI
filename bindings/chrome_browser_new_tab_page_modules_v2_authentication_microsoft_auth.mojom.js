@@ -76,7 +76,8 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   restoreModule() {
@@ -85,7 +86,8 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   shouldShowModule() {
@@ -94,7 +96,8 @@ ntp.authentication.mojom.MicrosoftAuthPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec,
       ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

@@ -68,7 +68,8 @@ chromeos.media_perception.mojom.MediaPerceptionServiceRemoteCallHandler = class 
       0,  // ordinal
       chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec,
       null,
-      [receiver, client]);
+      [receiver, client],
+      false);
   }
 
 };
@@ -132,7 +133,8 @@ chromeos.media_perception.mojom.MediaPerceptionControllerRemoteCallHandler = cla
       0,  // ordinal
       chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };
@@ -196,7 +198,8 @@ chromeos.media_perception.mojom.MediaPerceptionControllerClientRemoteCallHandler
       0,  // ordinal
       chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

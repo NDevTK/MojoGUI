@@ -234,8 +234,8 @@ mojo.internal.Struct(
 // Struct: SelectionModel
 mojo.internal.Struct(
     tab_strip_internals.mojom.SelectionModelSpec, 'tab_strip_internals.mojom.SelectionModel', [
-      mojo.internal.StructField('active_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('anchor_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('active_index', 0, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('anchor_index', 4, 0, mojo.internal.Int32, -1, false, 0, undefined),
       mojo.internal.StructField('selected_indices', 8, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -338,7 +338,8 @@ tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -407,7 +408,8 @@ tab_strip_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec,
       tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -471,7 +473,8 @@ tab_strip_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec,
       null,
-      [data]);
+      [data],
+      false);
   }
 
 };

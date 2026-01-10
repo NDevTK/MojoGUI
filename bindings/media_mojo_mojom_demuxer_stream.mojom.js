@@ -89,7 +89,8 @@ media.mojom.DemuxerStreamRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.DemuxerStream_Initialize_ParamsSpec,
       media.mojom.DemuxerStream_Initialize_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   read(count) {
@@ -98,7 +99,8 @@ media.mojom.DemuxerStreamRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.DemuxerStream_Read_ParamsSpec,
       media.mojom.DemuxerStream_Read_ResponseParamsSpec,
-      [count]);
+      [count],
+      false);
   }
 
   enableBitstreamConverter() {
@@ -107,7 +109,8 @@ media.mojom.DemuxerStreamRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

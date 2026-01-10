@@ -145,7 +145,8 @@ ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.SpeechRecognitionEventObserver_OnStop_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onResult(event) {
@@ -154,7 +155,8 @@ ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.SpeechRecognitionEventObserver_OnResult_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
   onError(event) {
@@ -163,7 +165,8 @@ ax.mojom.SpeechRecognitionEventObserverRemoteCallHandler = class {
       2,  // ordinal
       ax.mojom.SpeechRecognitionEventObserver_OnError_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
 };
@@ -245,7 +248,8 @@ ax.mojom.SpeechRecognitionRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.SpeechRecognition_Start_ParamsSpec,
       ax.mojom.SpeechRecognition_Start_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   stop(options) {
@@ -254,7 +258,8 @@ ax.mojom.SpeechRecognitionRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.SpeechRecognition_Stop_ParamsSpec,
       ax.mojom.SpeechRecognition_Stop_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
 };

@@ -107,7 +107,8 @@ media.mojom.SpeechRecognizerRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SpeechRecognizer_Start_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
 };
@@ -189,7 +190,8 @@ media.mojom.OnDeviceSpeechRecognitionRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.OnDeviceSpeechRecognition_Available_ParamsSpec,
       media.mojom.OnDeviceSpeechRecognition_Available_ResponseParamsSpec,
-      [languages]);
+      [languages],
+      false);
   }
 
   install(languages) {
@@ -198,7 +200,8 @@ media.mojom.OnDeviceSpeechRecognitionRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.OnDeviceSpeechRecognition_Install_ParamsSpec,
       media.mojom.OnDeviceSpeechRecognition_Install_ResponseParamsSpec,
-      [languages]);
+      [languages],
+      false);
   }
 
 };
@@ -272,7 +275,8 @@ media.mojom.SpeechRecognitionSessionRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SpeechRecognitionSession_Abort_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   stopCapture() {
@@ -281,7 +285,8 @@ media.mojom.SpeechRecognitionSessionRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.SpeechRecognitionSession_StopCapture_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateRecognitionContext(recognition_context) {
@@ -290,7 +295,8 @@ media.mojom.SpeechRecognitionSessionRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.SpeechRecognitionSession_UpdateRecognitionContext_ParamsSpec,
       null,
-      [recognition_context]);
+      [recognition_context],
+      false);
   }
 
 };
@@ -390,7 +396,8 @@ media.mojom.SpeechRecognitionSessionClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SpeechRecognitionSessionClient_ResultRetrieved_ParamsSpec,
       null,
-      [results]);
+      [results],
+      false);
   }
 
   errorOccurred(error) {
@@ -399,7 +406,8 @@ media.mojom.SpeechRecognitionSessionClientRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.SpeechRecognitionSessionClient_ErrorOccurred_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
   started() {
@@ -408,7 +416,8 @@ media.mojom.SpeechRecognitionSessionClientRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.SpeechRecognitionSessionClient_Started_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   audioStarted() {
@@ -417,7 +426,8 @@ media.mojom.SpeechRecognitionSessionClientRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.SpeechRecognitionSessionClient_AudioStarted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   soundStarted() {
@@ -426,7 +436,8 @@ media.mojom.SpeechRecognitionSessionClientRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.SpeechRecognitionSessionClient_SoundStarted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   soundEnded() {
@@ -435,7 +446,8 @@ media.mojom.SpeechRecognitionSessionClientRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.SpeechRecognitionSessionClient_SoundEnded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   audioEnded() {
@@ -444,7 +456,8 @@ media.mojom.SpeechRecognitionSessionClientRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.SpeechRecognitionSessionClient_AudioEnded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   ended() {
@@ -453,7 +466,8 @@ media.mojom.SpeechRecognitionSessionClientRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.SpeechRecognitionSessionClient_Ended_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

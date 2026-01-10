@@ -70,9 +70,9 @@ mojo.internal.Struct(
 // Struct: TtsOptions
 mojo.internal.Struct(
     ax.mojom.TtsOptionsSpec, 'ax.mojom.TtsOptions', [
-      mojo.internal.StructField('pitch', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('rate', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('volume', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('pitch', 0, 0, mojo.internal.Double, 1.0, false, 0, undefined),
+      mojo.internal.StructField('rate', 8, 0, mojo.internal.Double, 1.0, false, 0, undefined),
+      mojo.internal.StructField('volume', 16, 0, mojo.internal.Double, 1.0, false, 0, undefined),
       mojo.internal.StructField('enqueue', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('voice_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('engine_id', 40, 0, mojo.internal.String, null, true, 0, undefined),
@@ -95,7 +95,7 @@ mojo.internal.Struct(
 // Struct: TtsSpeakResult
 mojo.internal.Struct(
     ax.mojom.TtsSpeakResultSpec, 'ax.mojom.TtsSpeakResult', [
-      mojo.internal.StructField('error', 0, 0, ax.mojom.TtsErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, ax.mojom.TtsErrorSpec, 0, false, 0, undefined),
       mojo.internal.StructField('utterance_client', 8, 0, mojo.internal.InterfaceRequest(ax.mojom.TtsUtteranceClientRemote), null, true, 0, undefined),
     ],
     [[0, 24]]);
@@ -145,7 +145,8 @@ ax.mojom.TtsUtteranceClientRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.TtsUtteranceClient_OnEvent_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
 };
@@ -253,7 +254,8 @@ ax.mojom.TtsRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.Tts_Speak_ParamsSpec,
       ax.mojom.Tts_Speak_ResponseParamsSpec,
-      [utterance, options]);
+      [utterance, options],
+      false);
   }
 
   stop() {
@@ -262,7 +264,8 @@ ax.mojom.TtsRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.Tts_Stop_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   pause() {
@@ -271,7 +274,8 @@ ax.mojom.TtsRemoteCallHandler = class {
       2,  // ordinal
       ax.mojom.Tts_Pause_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   resume() {
@@ -280,7 +284,8 @@ ax.mojom.TtsRemoteCallHandler = class {
       3,  // ordinal
       ax.mojom.Tts_Resume_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   isSpeaking() {
@@ -289,7 +294,8 @@ ax.mojom.TtsRemoteCallHandler = class {
       4,  // ordinal
       ax.mojom.Tts_IsSpeaking_ParamsSpec,
       ax.mojom.Tts_IsSpeaking_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getVoices() {
@@ -298,7 +304,8 @@ ax.mojom.TtsRemoteCallHandler = class {
       5,  // ordinal
       ax.mojom.Tts_GetVoices_ParamsSpec,
       ax.mojom.Tts_GetVoices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

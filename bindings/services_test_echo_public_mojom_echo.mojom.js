@@ -131,7 +131,8 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
       0,  // ordinal
       echo.mojom.EchoService_EchoString_ParamsSpec,
       echo.mojom.EchoService_EchoString_ResponseParamsSpec,
-      [input]);
+      [input],
+      false);
   }
 
   echoStringToSharedMemory(input, region) {
@@ -140,7 +141,8 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
       1,  // ordinal
       echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec,
       null,
-      [input, region]);
+      [input, region],
+      false);
   }
 
   quit() {
@@ -149,7 +151,8 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
       2,  // ordinal
       echo.mojom.EchoService_Quit_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   crash() {
@@ -158,7 +161,8 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
       3,  // ordinal
       echo.mojom.EchoService_Crash_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   delayLoad() {
@@ -167,7 +171,8 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
       4,  // ordinal
       echo.mojom.EchoService_DelayLoad_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   loadNativeLibrary(library, call_winmm_delayload) {
@@ -176,7 +181,8 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
       5,  // ordinal
       echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec,
       echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec,
-      [library, call_winmm_delayload]);
+      [library, call_winmm_delayload],
+      false);
   }
 
   decryptEncrypt(encryptor, input) {
@@ -185,7 +191,8 @@ echo.mojom.EchoServiceRemoteCallHandler = class {
       6,  // ordinal
       echo.mojom.EchoService_DecryptEncrypt_ParamsSpec,
       echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec,
-      [encryptor, input]);
+      [encryptor, input],
+      false);
   }
 
 };

@@ -100,7 +100,8 @@ browser_command.mojom.CommandHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -183,7 +184,8 @@ browser_command.mojom.CommandHandlerRemoteCallHandler = class {
       0,  // ordinal
       browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec,
       browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec,
-      [command_id]);
+      [command_id],
+      false);
   }
 
   executeCommand(command_id, click_info) {
@@ -192,7 +194,8 @@ browser_command.mojom.CommandHandlerRemoteCallHandler = class {
       1,  // ordinal
       browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec,
       browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec,
-      [command_id, click_info]);
+      [command_id, click_info],
+      false);
   }
 
 };

@@ -91,7 +91,8 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHandler = class {
       0,  // ordinal
       chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayALSBrightness_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   getExternalDisplayALSBrightness() {
@@ -100,7 +101,8 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHandler = class {
       1,  // ordinal
       chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ParamsSpec,
       chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayALSBrightness_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setExternalDisplayBrightnessPercent(percent) {
@@ -109,7 +111,8 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHandler = class {
       2,  // ordinal
       chromeos.cfm.mojom.ExternalDisplayBrightness_SetExternalDisplayBrightnessPercent_ParamsSpec,
       null,
-      [percent]);
+      [percent],
+      false);
   }
 
   getExternalDisplayBrightnessPercent() {
@@ -118,7 +121,8 @@ chromeos.cfm.mojom.ExternalDisplayBrightnessRemoteCallHandler = class {
       3,  // ordinal
       chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ParamsSpec,
       chromeos.cfm.mojom.ExternalDisplayBrightness_GetExternalDisplayBrightnessPercent_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

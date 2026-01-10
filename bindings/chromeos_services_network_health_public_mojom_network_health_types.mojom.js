@@ -57,7 +57,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('signal_strength', 32, 0, chromeos.network_health.mojom.UInt32ValueSpec, null, true, 0, undefined),
       mojo.internal.StructField('ipv4_address', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('ipv6_addresses', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('portal_state', 56, 0, chromeos.network_config.mojom.PortalStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('portal_state', 56, 0, chromeos.network_config.mojom.PortalStateSpec, 0, false, 0, undefined),
       mojo.internal.StructField('signal_strength_stats', 64, 0, chromeos.network_health.mojom.SignalStrengthStatsSpec, null, true, 1, undefined),
       mojo.internal.StructField('portal_probe_url', 72, 0, url.mojom.UrlSpec, null, true, 3, undefined),
     ],

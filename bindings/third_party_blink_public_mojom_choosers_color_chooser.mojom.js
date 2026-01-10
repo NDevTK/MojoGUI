@@ -79,7 +79,8 @@ blink.mojom.ColorChooserFactoryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec,
       null,
-      [chooser, client, color, suggestions]);
+      [chooser, client, color, suggestions],
+      false);
   }
 
 };
@@ -143,7 +144,8 @@ blink.mojom.ColorChooserRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec,
       null,
-      [color]);
+      [color],
+      false);
   }
 
 };
@@ -207,7 +209,8 @@ blink.mojom.ColorChooserClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec,
       null,
-      [color]);
+      [color],
+      false);
   }
 
 };
@@ -277,7 +280,8 @@ blink.mojom.EyeDropperChooserRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.EyeDropperChooser_Choose_ParamsSpec,
       blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

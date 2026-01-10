@@ -65,7 +65,8 @@ media_router.mojom.MediaRouterTraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec,
       media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
 };

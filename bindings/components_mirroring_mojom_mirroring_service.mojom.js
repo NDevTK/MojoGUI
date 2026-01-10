@@ -93,7 +93,8 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
       0,  // ordinal
       mirroring.mojom.MirroringService_Start_ParamsSpec,
       null,
-      [params, max_resolution, observer, resource_provider, outbound_channel, inbound_channel]);
+      [params, max_resolution, observer, resource_provider, outbound_channel, inbound_channel],
+      false);
   }
 
   switchMirroringSourceTab() {
@@ -102,7 +103,8 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
       1,  // ordinal
       mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getMirroringStats() {
@@ -111,7 +113,8 @@ mirroring.mojom.MirroringServiceRemoteCallHandler = class {
       2,  // ordinal
       mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec,
       mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

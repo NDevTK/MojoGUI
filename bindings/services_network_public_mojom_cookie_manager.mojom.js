@@ -241,23 +241,23 @@ mojo.internal.Struct(
       mojo.internal.StructField('matching_scheme_cookies_allowed_schemes', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('third_party_cookies_allowed_schemes', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('allow_file_scheme_cookies', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('cookie_access_delegate_type', 44, 0, network.mojom.CookieAccessDelegateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cookie_access_delegate_type', 44, 0, network.mojom.CookieAccessDelegateTypeSpec, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 
 // Struct: CookieSameSiteContextMetadata
 mojo.internal.Struct(
     network.mojom.CookieSameSiteContextMetadataSpec, 'network.mojom.CookieSameSiteContextMetadata', [
-      mojo.internal.StructField('cross_site_redirect_downgrade', 0, 0, network.mojom.CookieSameSiteContextMetadataDowngradeTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('redirect_type_bug_1221316', 4, 0, network.mojom.ContextRedirectTypeBug1221316Spec, null, false, 0, undefined),
+      mojo.internal.StructField('cross_site_redirect_downgrade', 0, 0, network.mojom.CookieSameSiteContextMetadataDowngradeTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('redirect_type_bug_1221316', 4, 0, network.mojom.ContextRedirectTypeBug1221316Spec, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: CookieSameSiteContext
 mojo.internal.Struct(
     network.mojom.CookieSameSiteContextSpec, 'network.mojom.CookieSameSiteContext', [
-      mojo.internal.StructField('context', 0, 0, network.mojom.ContextTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('schemeful_context', 4, 0, network.mojom.ContextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('context', 0, 0, network.mojom.ContextTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('schemeful_context', 4, 0, network.mojom.ContextTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('metadata', 8, 0, network.mojom.CookieSameSiteContextMetadataSpec, null, false, 0, undefined),
       mojo.internal.StructField('schemeful_metadata', 16, 0, network.mojom.CookieSameSiteContextMetadataSpec, null, false, 0, undefined),
     ],
@@ -266,9 +266,9 @@ mojo.internal.Struct(
 // Struct: CookieOptions
 mojo.internal.Struct(
     network.mojom.CookieOptionsSpec, 'network.mojom.CookieOptions', [
-      mojo.internal.StructField('exclude_httponly', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('exclude_httponly', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('same_site_cookie_context', 8, 0, network.mojom.CookieSameSiteContextSpec, null, false, 0, undefined),
-      mojo.internal.StructField('update_access_time', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('update_access_time', 16, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('return_excluded_cookies', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -286,12 +286,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('last_update', 56, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('secure', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('httponly', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('site_restrictions', 68, 0, network.mojom.CookieSameSiteSpec, null, false, 0, undefined),
-      mojo.internal.StructField('priority', 72, 0, network.mojom.CookiePrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('source_scheme', 76, 0, network.mojom.CookieSourceSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('site_restrictions', 68, 0, network.mojom.CookieSameSiteSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('priority', 72, 0, network.mojom.CookiePrioritySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('source_scheme', 76, 0, network.mojom.CookieSourceSchemeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('partition_key', 80, 0, network.mojom.CookiePartitionKeySpec, null, true, 0, undefined),
-      mojo.internal.StructField('source_port', 88, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('source_type', 92, 0, network.mojom.CookieSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('source_port', 88, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('source_type', 92, 0, network.mojom.CookieSourceTypeSpec, 0, false, 0, undefined),
     ],
     [[0, 104]]);
 
@@ -373,7 +373,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('cookie_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('host_name', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('url', 48, 0, url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('session_control', 56, 0, network.mojom.CookieDeletionSessionControlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('session_control', 56, 0, network.mojom.CookieDeletionSessionControlSpec, 0, false, 0, undefined),
       mojo.internal.StructField('cookie_partition_key_collection', 64, 0, network.mojom.CookiePartitionKeyCollectionSpec, null, true, 0, undefined),
       mojo.internal.StructField('partitioned_state_only', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -424,7 +424,8 @@ network.mojom.CookieChangeListenerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.CookieChangeListener_OnCookieChange_ParamsSpec,
       null,
-      [change]);
+      [change],
+      false);
   }
 
 };
@@ -663,7 +664,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.CookieManager_GetAllCookies_ParamsSpec,
       network.mojom.CookieManager_GetAllCookies_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAllCookiesWithAccessSemantics() {
@@ -672,7 +674,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ParamsSpec,
       network.mojom.CookieManager_GetAllCookiesWithAccessSemantics_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getCookieList(url, cookie_options, cookie_partition_key_collection) {
@@ -681,7 +684,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.CookieManager_GetCookieList_ParamsSpec,
       network.mojom.CookieManager_GetCookieList_ResponseParamsSpec,
-      [url, cookie_options, cookie_partition_key_collection]);
+      [url, cookie_options, cookie_partition_key_collection],
+      false);
   }
 
   setCanonicalCookie(cookie, source_url, cookie_options) {
@@ -690,7 +694,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.CookieManager_SetCanonicalCookie_ParamsSpec,
       network.mojom.CookieManager_SetCanonicalCookie_ResponseParamsSpec,
-      [cookie, source_url, cookie_options]);
+      [cookie, source_url, cookie_options],
+      false);
   }
 
   deleteCanonicalCookie(cookie) {
@@ -699,7 +704,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.CookieManager_DeleteCanonicalCookie_ParamsSpec,
       network.mojom.CookieManager_DeleteCanonicalCookie_ResponseParamsSpec,
-      [cookie]);
+      [cookie],
+      false);
   }
 
   deleteCookies(filter) {
@@ -708,7 +714,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.CookieManager_DeleteCookies_ParamsSpec,
       network.mojom.CookieManager_DeleteCookies_ResponseParamsSpec,
-      [filter]);
+      [filter],
+      false);
   }
 
   deleteSessionOnlyCookies() {
@@ -717,7 +724,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       6,  // ordinal
       network.mojom.CookieManager_DeleteSessionOnlyCookies_ParamsSpec,
       network.mojom.CookieManager_DeleteSessionOnlyCookies_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   deleteStaleSessionOnlyCookies() {
@@ -726,7 +734,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       7,  // ordinal
       network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ParamsSpec,
       network.mojom.CookieManager_DeleteStaleSessionOnlyCookies_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addCookieChangeListener(url, name, listener) {
@@ -735,7 +744,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       8,  // ordinal
       network.mojom.CookieManager_AddCookieChangeListener_ParamsSpec,
       null,
-      [url, name, listener]);
+      [url, name, listener],
+      false);
   }
 
   addGlobalChangeListener(notification_pointer) {
@@ -744,7 +754,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       9,  // ordinal
       network.mojom.CookieManager_AddGlobalChangeListener_ParamsSpec,
       null,
-      [notification_pointer]);
+      [notification_pointer],
+      false);
   }
 
   cloneInterface(new_interface) {
@@ -753,7 +764,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       10,  // ordinal
       network.mojom.CookieManager_CloneInterface_ParamsSpec,
       null,
-      [new_interface]);
+      [new_interface],
+      false);
   }
 
   flushCookieStore() {
@@ -762,7 +774,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       11,  // ordinal
       network.mojom.CookieManager_FlushCookieStore_ParamsSpec,
       network.mojom.CookieManager_FlushCookieStore_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   allowFileSchemeCookies(allow) {
@@ -771,7 +784,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       12,  // ordinal
       network.mojom.CookieManager_AllowFileSchemeCookies_ParamsSpec,
       network.mojom.CookieManager_AllowFileSchemeCookies_ResponseParamsSpec,
-      [allow]);
+      [allow],
+      false);
   }
 
   setContentSettings(content_settings_type, settings) {
@@ -780,7 +794,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       13,  // ordinal
       network.mojom.CookieManager_SetContentSettings_ParamsSpec,
       network.mojom.CookieManager_SetContentSettings_ResponseParamsSpec,
-      [content_settings_type, settings]);
+      [content_settings_type, settings],
+      false);
   }
 
   setForceKeepSessionState() {
@@ -789,7 +804,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       14,  // ordinal
       network.mojom.CookieManager_SetForceKeepSessionState_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   blockThirdPartyCookies(block) {
@@ -798,7 +814,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       15,  // ordinal
       network.mojom.CookieManager_BlockThirdPartyCookies_ParamsSpec,
       null,
-      [block]);
+      [block],
+      false);
   }
 
   setMitigationsEnabledFor3pcd(enable) {
@@ -807,7 +824,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       16,  // ordinal
       network.mojom.CookieManager_SetMitigationsEnabledFor3pcd_ParamsSpec,
       null,
-      [enable]);
+      [enable],
+      false);
   }
 
   setTrackingProtectionEnabledFor3pcd(enable) {
@@ -816,7 +834,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       17,  // ordinal
       network.mojom.CookieManager_SetTrackingProtectionEnabledFor3pcd_ParamsSpec,
       null,
-      [enable]);
+      [enable],
+      false);
   }
 
   setPreCommitCallbackDelayForTesting(delay) {
@@ -825,7 +844,8 @@ network.mojom.CookieManagerRemoteCallHandler = class {
       18,  // ordinal
       network.mojom.CookieManager_SetPreCommitCallbackDelayForTesting_ParamsSpec,
       null,
-      [delay]);
+      [delay],
+      false);
   }
 
 };

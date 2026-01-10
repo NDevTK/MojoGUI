@@ -108,7 +108,8 @@ arc.mojom.TtsHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec,
       null,
-      [voices]);
+      [voices],
+      false);
   }
 
   onTtsEvent(utteranceId, event_type, char_index, length, error_msg) {
@@ -117,7 +118,8 @@ arc.mojom.TtsHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.TtsHost_OnTtsEvent_ParamsSpec,
       null,
-      [utteranceId, event_type, char_index, length, error_msg]);
+      [utteranceId, event_type, char_index, length, error_msg],
+      false);
   }
 
 };
@@ -202,7 +204,8 @@ arc.mojom.TtsInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.TtsInstance_Init_ParamsSpec,
       arc.mojom.TtsInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   speak(utterance) {
@@ -211,7 +214,8 @@ arc.mojom.TtsInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.TtsInstance_Speak_ParamsSpec,
       null,
-      [utterance]);
+      [utterance],
+      false);
   }
 
   stop() {
@@ -220,7 +224,8 @@ arc.mojom.TtsInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.TtsInstance_Stop_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   refreshVoices() {
@@ -229,7 +234,8 @@ arc.mojom.TtsInstanceRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.TtsInstance_RefreshVoices_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

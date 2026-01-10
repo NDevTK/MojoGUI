@@ -73,7 +73,8 @@ arc.mojom.SystemStateHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
 };
@@ -142,7 +143,8 @@ arc.mojom.SystemStateInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.SystemStateInstance_Init_ParamsSpec,
       arc.mojom.SystemStateInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

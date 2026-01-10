@@ -102,7 +102,8 @@ content.mojom.FakeBluetoothChooserRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec,
       null,
-      [peripheral_address]);
+      [peripheral_address],
+      false);
   }
 
   cancel() {
@@ -111,7 +112,8 @@ content.mojom.FakeBluetoothChooserRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   rescan() {
@@ -120,7 +122,8 @@ content.mojom.FakeBluetoothChooserRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -190,7 +193,8 @@ content.mojom.FakeBluetoothChooserFactoryRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec,
       content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec,
-      [fake_chooser, client]);
+      [fake_chooser, client],
+      false);
   }
 
 };
@@ -254,7 +258,8 @@ content.mojom.FakeBluetoothChooserClientRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
 };

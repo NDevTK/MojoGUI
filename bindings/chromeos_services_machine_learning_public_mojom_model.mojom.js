@@ -65,7 +65,7 @@ mojo.internal.Struct(
     chromeos.machine_learning.mojom.GraphExecutorOptionsSpec, 'chromeos.machine_learning.mojom.GraphExecutorOptions', [
       mojo.internal.StructField('use_nnapi', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('use_gpu', 0, 1, mojo.internal.Bool, false, false, 1, undefined),
-      mojo.internal.StructField('gpu_delegate_api', 4, 0, chromeos.machine_learning.mojom.GpuDelegateApiSpec, null, false, 2, undefined),
+      mojo.internal.StructField('gpu_delegate_api', 4, 0, chromeos.machine_learning.mojom.GpuDelegateApiSpec, 0, false, 2, undefined),
     ],
     [[0, 16], [1, 16], [2, 16]]);
 
@@ -150,7 +150,8 @@ chromeos.machine_learning.mojom.ModelRemoteCallHandler = class {
       0,  // ordinal
       chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec,
       chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   createGraphExecutor(options, receiver) {
@@ -159,7 +160,8 @@ chromeos.machine_learning.mojom.ModelRemoteCallHandler = class {
       1,  // ordinal
       chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec,
       chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec,
-      [options, receiver]);
+      [options, receiver],
+      false);
   }
 
 };

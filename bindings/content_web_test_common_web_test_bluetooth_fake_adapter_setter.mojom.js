@@ -63,7 +63,8 @@ content.mojom.WebTestBluetoothFakeAdapterSetterRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec,
       content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec,
-      [adapter_name]);
+      [adapter_name],
+      false);
   }
 
 };

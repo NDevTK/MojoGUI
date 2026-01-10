@@ -90,7 +90,8 @@ blink.mojom.AttributionHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec,
       null,
-      [data_host, registration_eligibility, is_for_background_requests, reporting_origins]);
+      [data_host, registration_eligibility, is_for_background_requests, reporting_origins],
+      false);
   }
 
   registerNavigationDataHost(data_host, attribution_src_token) {
@@ -99,7 +100,8 @@ blink.mojom.AttributionHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec,
       null,
-      [data_host, attribution_src_token]);
+      [data_host, attribution_src_token],
+      false);
   }
 
   notifyNavigationWithBackgroundRegistrationsWillStart(attribution_src_token, expected_registrations) {
@@ -108,7 +110,8 @@ blink.mojom.AttributionHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec,
       null,
-      [attribution_src_token, expected_registrations]);
+      [attribution_src_token, expected_registrations],
+      false);
   }
 
 };

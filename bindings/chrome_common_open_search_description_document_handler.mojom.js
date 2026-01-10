@@ -59,7 +59,8 @@ chrome.mojom.OpenSearchDescriptionDocumentHandlerRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec,
       null,
-      [page_url, osdd_url]);
+      [page_url, osdd_url],
+      false);
   }
 
 };

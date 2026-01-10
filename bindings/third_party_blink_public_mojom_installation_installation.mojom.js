@@ -56,7 +56,8 @@ blink.mojom.InstallationServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.InstallationService_OnInstall_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

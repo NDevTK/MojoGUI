@@ -70,7 +70,8 @@ ash.settings.date_time.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.date_time.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -149,7 +150,8 @@ ash.settings.date_time.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.date_time.mojom.PageHandler_ShowParentAccessForTimezone_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getTimezones() {
@@ -158,7 +160,8 @@ ash.settings.date_time.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.date_time.mojom.PageHandler_GetTimezones_ParamsSpec,
       ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   showSetDateTimeUI() {
@@ -167,7 +170,8 @@ ash.settings.date_time.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -237,7 +241,8 @@ ash.settings.date_time.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.date_time.mojom.Page_OnSystemClockCanSetTimeChanged_ParamsSpec,
       null,
-      [is_allowed]);
+      [is_allowed],
+      false);
   }
 
   onParentAccessValidationComplete(success) {
@@ -246,7 +251,8 @@ ash.settings.date_time.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.date_time.mojom.Page_OnParentAccessValidationComplete_ParamsSpec,
       null,
-      [success]);
+      [success],
+      false);
   }
 
 };

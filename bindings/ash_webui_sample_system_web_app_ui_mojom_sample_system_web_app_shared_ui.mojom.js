@@ -62,7 +62,8 @@ ash.mojom.sample_swa.ChildUntrustedPageRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec,
       null,
-      [task]);
+      [task],
+      false);
   }
 
 };
@@ -132,7 +133,8 @@ ash.mojom.sample_swa.ParentTrustedPageRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec,
       ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec,
-      [task]);
+      [task],
+      false);
   }
 
 };

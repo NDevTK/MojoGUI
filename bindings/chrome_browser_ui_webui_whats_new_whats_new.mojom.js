@@ -112,7 +112,8 @@ whats_new.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       whats_new.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -311,7 +312,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       whats_new.mojom.PageHandler_GetServerUrl_ParamsSpec,
       whats_new.mojom.PageHandler_GetServerUrl_ResponseParamsSpec,
-      [is_staging]);
+      [is_staging],
+      false);
   }
 
   recordTimeToLoadContent(time) {
@@ -320,7 +322,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       whats_new.mojom.PageHandler_RecordTimeToLoadContent_ParamsSpec,
       null,
-      [time]);
+      [time],
+      false);
   }
 
   recordVersionPageLoaded(is_auto_open) {
@@ -329,7 +332,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       whats_new.mojom.PageHandler_RecordVersionPageLoaded_ParamsSpec,
       null,
-      [is_auto_open]);
+      [is_auto_open],
+      false);
   }
 
   recordEditionPageLoaded(page_uid, is_auto_open) {
@@ -338,7 +342,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       whats_new.mojom.PageHandler_RecordEditionPageLoaded_ParamsSpec,
       null,
-      [page_uid, is_auto_open]);
+      [page_uid, is_auto_open],
+      false);
   }
 
   recordModuleImpression(module_name, position) {
@@ -347,7 +352,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       whats_new.mojom.PageHandler_RecordModuleImpression_ParamsSpec,
       null,
-      [module_name, position]);
+      [module_name, position],
+      false);
   }
 
   recordExploreMoreToggled(expanded) {
@@ -356,7 +362,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       whats_new.mojom.PageHandler_RecordExploreMoreToggled_ParamsSpec,
       null,
-      [expanded]);
+      [expanded],
+      false);
   }
 
   recordScrollDepth(depth) {
@@ -365,7 +372,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       whats_new.mojom.PageHandler_RecordScrollDepth_ParamsSpec,
       null,
-      [depth]);
+      [depth],
+      false);
   }
 
   recordTimeOnPage(time) {
@@ -374,7 +382,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       whats_new.mojom.PageHandler_RecordTimeOnPage_ParamsSpec,
       null,
-      [time]);
+      [time],
+      false);
   }
 
   recordModuleLinkClicked(module_name, position) {
@@ -383,7 +392,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       whats_new.mojom.PageHandler_RecordModuleLinkClicked_ParamsSpec,
       null,
-      [module_name, position]);
+      [module_name, position],
+      false);
   }
 
   recordModuleVideoStarted(module_name, position) {
@@ -392,7 +402,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       whats_new.mojom.PageHandler_RecordModuleVideoStarted_ParamsSpec,
       null,
-      [module_name, position]);
+      [module_name, position],
+      false);
   }
 
   recordModuleVideoEnded(module_name, position) {
@@ -401,7 +412,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       whats_new.mojom.PageHandler_RecordModuleVideoEnded_ParamsSpec,
       null,
-      [module_name, position]);
+      [module_name, position],
+      false);
   }
 
   recordModulePlayClicked(module_name, position) {
@@ -410,7 +422,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       whats_new.mojom.PageHandler_RecordModulePlayClicked_ParamsSpec,
       null,
-      [module_name, position]);
+      [module_name, position],
+      false);
   }
 
   recordModulePauseClicked(module_name, position) {
@@ -419,7 +432,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       whats_new.mojom.PageHandler_RecordModulePauseClicked_ParamsSpec,
       null,
-      [module_name, position]);
+      [module_name, position],
+      false);
   }
 
   recordModuleRestartClicked(module_name, position) {
@@ -428,7 +442,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       whats_new.mojom.PageHandler_RecordModuleRestartClicked_ParamsSpec,
       null,
-      [module_name, position]);
+      [module_name, position],
+      false);
   }
 
   recordBrowserCommandExecuted() {
@@ -437,7 +452,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       whats_new.mojom.PageHandler_RecordBrowserCommandExecuted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordQrCodeToggled(expanded) {
@@ -446,7 +462,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       whats_new.mojom.PageHandler_RecordQrCodeToggled_ParamsSpec,
       null,
-      [expanded]);
+      [expanded],
+      false);
   }
 
   recordNavClick() {
@@ -455,7 +472,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       whats_new.mojom.PageHandler_RecordNavClick_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordFeatureTileNavigation() {
@@ -464,7 +482,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       17,  // ordinal
       whats_new.mojom.PageHandler_RecordFeatureTileNavigation_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordCarouselScrollButtonClick() {
@@ -473,7 +492,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       18,  // ordinal
       whats_new.mojom.PageHandler_RecordCarouselScrollButtonClick_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordExpandMediaToggled(module_name, expanded) {
@@ -482,7 +502,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       19,  // ordinal
       whats_new.mojom.PageHandler_RecordExpandMediaToggled_ParamsSpec,
       null,
-      [module_name, expanded]);
+      [module_name, expanded],
+      false);
   }
 
   recordCtaClick() {
@@ -491,7 +512,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       20,  // ordinal
       whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordNextButtonClick() {
@@ -500,7 +522,8 @@ whats_new.mojom.PageHandlerRemoteCallHandler = class {
       21,  // ordinal
       whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

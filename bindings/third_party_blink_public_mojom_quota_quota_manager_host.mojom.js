@@ -67,7 +67,8 @@ blink.mojom.QuotaManagerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec,
       blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

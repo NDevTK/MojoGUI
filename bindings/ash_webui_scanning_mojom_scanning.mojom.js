@@ -200,7 +200,8 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec,
       null,
-      [page_number, progress_percent]);
+      [page_number, progress_percent],
+      false);
   }
 
   onPageComplete(page_data, new_page_index) {
@@ -209,7 +210,8 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.scanning.mojom.ScanJobObserver_OnPageComplete_ParamsSpec,
       null,
-      [page_data, new_page_index]);
+      [page_data, new_page_index],
+      false);
   }
 
   onScanComplete(result, scanned_file_paths) {
@@ -218,7 +220,8 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.scanning.mojom.ScanJobObserver_OnScanComplete_ParamsSpec,
       null,
-      [result, scanned_file_paths]);
+      [result, scanned_file_paths],
+      false);
   }
 
   onCancelComplete(success) {
@@ -227,7 +230,8 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.scanning.mojom.ScanJobObserver_OnCancelComplete_ParamsSpec,
       null,
-      [success]);
+      [success],
+      false);
   }
 
   onMultiPageScanFail(result) {
@@ -236,7 +240,8 @@ ash.scanning.mojom.ScanJobObserverRemoteCallHandler = class {
       4,  // ordinal
       ash.scanning.mojom.ScanJobObserver_OnMultiPageScanFail_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
 };
@@ -350,7 +355,8 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.scanning.mojom.ScanService_GetScanners_ParamsSpec,
       ash.scanning.mojom.ScanService_GetScanners_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getScannerCapabilities(scanner_id) {
@@ -359,7 +365,8 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.scanning.mojom.ScanService_GetScannerCapabilities_ParamsSpec,
       ash.scanning.mojom.ScanService_GetScannerCapabilities_ResponseParamsSpec,
-      [scanner_id]);
+      [scanner_id],
+      false);
   }
 
   startScan(scanner_id, settings, observer) {
@@ -368,7 +375,8 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.scanning.mojom.ScanService_StartScan_ParamsSpec,
       ash.scanning.mojom.ScanService_StartScan_ResponseParamsSpec,
-      [scanner_id, settings, observer]);
+      [scanner_id, settings, observer],
+      false);
   }
 
   startMultiPageScan(scanner_id, settings, observer) {
@@ -377,7 +385,8 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       3,  // ordinal
       ash.scanning.mojom.ScanService_StartMultiPageScan_ParamsSpec,
       ash.scanning.mojom.ScanService_StartMultiPageScan_ResponseParamsSpec,
-      [scanner_id, settings, observer]);
+      [scanner_id, settings, observer],
+      false);
   }
 
   cancelScan() {
@@ -386,7 +395,8 @@ ash.scanning.mojom.ScanServiceRemoteCallHandler = class {
       4,  // ordinal
       ash.scanning.mojom.ScanService_CancelScan_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -482,7 +492,8 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
       0,  // ordinal
       ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec,
       ash.scanning.mojom.MultiPageScanController_ScanNextPage_ResponseParamsSpec,
-      [scanner_id, settings]);
+      [scanner_id, settings],
+      false);
   }
 
   removePage(page_index) {
@@ -491,7 +502,8 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
       1,  // ordinal
       ash.scanning.mojom.MultiPageScanController_RemovePage_ParamsSpec,
       null,
-      [page_index]);
+      [page_index],
+      false);
   }
 
   rescanPage(scanner_id, settings, page_index) {
@@ -500,7 +512,8 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
       2,  // ordinal
       ash.scanning.mojom.MultiPageScanController_RescanPage_ParamsSpec,
       ash.scanning.mojom.MultiPageScanController_RescanPage_ResponseParamsSpec,
-      [scanner_id, settings, page_index]);
+      [scanner_id, settings, page_index],
+      false);
   }
 
   completeMultiPageScan() {
@@ -509,7 +522,8 @@ ash.scanning.mojom.MultiPageScanControllerRemoteCallHandler = class {
       3,  // ordinal
       ash.scanning.mojom.MultiPageScanController_CompleteMultiPageScan_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

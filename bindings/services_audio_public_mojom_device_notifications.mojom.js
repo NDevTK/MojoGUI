@@ -59,7 +59,8 @@ audio.mojom.DeviceListenerRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.DeviceListener_DevicesChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -123,7 +124,8 @@ audio.mojom.DeviceNotifierRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec,
       null,
-      [listener]);
+      [listener],
+      false);
   }
 
 };

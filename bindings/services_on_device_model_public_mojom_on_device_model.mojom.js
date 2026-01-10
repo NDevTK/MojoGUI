@@ -346,7 +346,8 @@ on_device_model.mojom.StreamingResponderRemoteCallHandler = class {
       0,  // ordinal
       on_device_model.mojom.StreamingResponder_OnResponse_ParamsSpec,
       null,
-      [chunk]);
+      [chunk],
+      false);
   }
 
   onComplete(summary) {
@@ -355,7 +356,8 @@ on_device_model.mojom.StreamingResponderRemoteCallHandler = class {
       1,  // ordinal
       on_device_model.mojom.StreamingResponder_OnComplete_ParamsSpec,
       null,
-      [summary]);
+      [summary],
+      false);
   }
 
 };
@@ -419,7 +421,8 @@ on_device_model.mojom.ContextClientRemoteCallHandler = class {
       0,  // ordinal
       on_device_model.mojom.ContextClient_OnComplete_ParamsSpec,
       null,
-      [tokens_processed]);
+      [tokens_processed],
+      false);
   }
 
 };
@@ -547,7 +550,8 @@ on_device_model.mojom.SessionRemoteCallHandler = class {
       6,  // ordinal
       on_device_model.mojom.Session_Append_ParamsSpec,
       null,
-      [options, client]);
+      [options, client],
+      false);
   }
 
   generate(options, responder) {
@@ -556,7 +560,8 @@ on_device_model.mojom.SessionRemoteCallHandler = class {
       7,  // ordinal
       on_device_model.mojom.Session_Generate_ParamsSpec,
       null,
-      [options, responder]);
+      [options, responder],
+      false);
   }
 
   getSizeInTokens(input) {
@@ -565,7 +570,8 @@ on_device_model.mojom.SessionRemoteCallHandler = class {
       5,  // ordinal
       on_device_model.mojom.Session_GetSizeInTokens_ParamsSpec,
       on_device_model.mojom.Session_GetSizeInTokens_ResponseParamsSpec,
-      [input]);
+      [input],
+      false);
   }
 
   score(text) {
@@ -574,7 +580,8 @@ on_device_model.mojom.SessionRemoteCallHandler = class {
       3,  // ordinal
       on_device_model.mojom.Session_Score_ParamsSpec,
       on_device_model.mojom.Session_Score_ResponseParamsSpec,
-      [text]);
+      [text],
+      false);
   }
 
   clone(session) {
@@ -583,7 +590,8 @@ on_device_model.mojom.SessionRemoteCallHandler = class {
       4,  // ordinal
       on_device_model.mojom.Session_Clone_ParamsSpec,
       null,
-      [session]);
+      [session],
+      false);
   }
 
   getProbabilitiesBlocking(text) {
@@ -592,7 +600,8 @@ on_device_model.mojom.SessionRemoteCallHandler = class {
       8,  // ordinal
       on_device_model.mojom.Session_GetProbabilitiesBlocking_ParamsSpec,
       on_device_model.mojom.Session_GetProbabilitiesBlocking_ResponseParamsSpec,
-      [text]);
+      [text],
+      false);
   }
 
   setPriority(priority) {
@@ -601,7 +610,8 @@ on_device_model.mojom.SessionRemoteCallHandler = class {
       9,  // ordinal
       on_device_model.mojom.Session_SetPriority_ParamsSpec,
       null,
-      [priority]);
+      [priority],
+      false);
   }
 
   asrStream(options, stream, responder) {
@@ -610,7 +620,8 @@ on_device_model.mojom.SessionRemoteCallHandler = class {
       10,  // ordinal
       on_device_model.mojom.Session_AsrStream_ParamsSpec,
       null,
-      [options, stream, responder]);
+      [options, stream, responder],
+      false);
   }
 
 };
@@ -712,7 +723,8 @@ on_device_model.mojom.OnDeviceModelRemoteCallHandler = class {
       0,  // ordinal
       on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec,
       null,
-      [session, params]);
+      [session, params],
+      false);
   }
 
   classifyTextSafety(text) {
@@ -721,7 +733,8 @@ on_device_model.mojom.OnDeviceModelRemoteCallHandler = class {
       1,  // ordinal
       on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ParamsSpec,
       on_device_model.mojom.OnDeviceModel_ClassifyTextSafety_ResponseParamsSpec,
-      [text]);
+      [text],
+      false);
   }
 
   detectLanguage(text) {
@@ -730,7 +743,8 @@ on_device_model.mojom.OnDeviceModelRemoteCallHandler = class {
       2,  // ordinal
       on_device_model.mojom.OnDeviceModel_DetectLanguage_ParamsSpec,
       on_device_model.mojom.OnDeviceModel_DetectLanguage_ResponseParamsSpec,
-      [text]);
+      [text],
+      false);
   }
 
   loadAdaptation(params, model) {
@@ -739,7 +753,8 @@ on_device_model.mojom.OnDeviceModelRemoteCallHandler = class {
       3,  // ordinal
       on_device_model.mojom.OnDeviceModel_LoadAdaptation_ParamsSpec,
       on_device_model.mojom.OnDeviceModel_LoadAdaptation_ResponseParamsSpec,
-      [params, model]);
+      [params, model],
+      false);
   }
 
 };
@@ -827,7 +842,8 @@ on_device_model.mojom.TextSafetySessionRemoteCallHandler = class {
       1,  // ordinal
       on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ParamsSpec,
       on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ResponseParamsSpec,
-      [text]);
+      [text],
+      false);
   }
 
   detectLanguage(text) {
@@ -836,7 +852,8 @@ on_device_model.mojom.TextSafetySessionRemoteCallHandler = class {
       2,  // ordinal
       on_device_model.mojom.TextSafetySession_DetectLanguage_ParamsSpec,
       on_device_model.mojom.TextSafetySession_DetectLanguage_ResponseParamsSpec,
-      [text]);
+      [text],
+      false);
   }
 
   clone(session) {
@@ -845,7 +862,8 @@ on_device_model.mojom.TextSafetySessionRemoteCallHandler = class {
       3,  // ordinal
       on_device_model.mojom.TextSafetySession_Clone_ParamsSpec,
       null,
-      [session]);
+      [session],
+      false);
   }
 
 };
@@ -909,7 +927,8 @@ on_device_model.mojom.TextSafetyModelRemoteCallHandler = class {
       0,  // ordinal
       on_device_model.mojom.TextSafetyModel_StartSession_ParamsSpec,
       null,
-      [session]);
+      [session],
+      false);
   }
 
 };
@@ -973,7 +992,8 @@ on_device_model.mojom.AsrStreamResponderRemoteCallHandler = class {
       0,  // ordinal
       on_device_model.mojom.AsrStreamResponder_OnResponse_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
 };
@@ -1037,7 +1057,8 @@ on_device_model.mojom.AsrStreamInputRemoteCallHandler = class {
       0,  // ordinal
       on_device_model.mojom.AsrStreamInput_AddAudioChunk_ParamsSpec,
       null,
-      [data]);
+      [data],
+      false);
   }
 
 };

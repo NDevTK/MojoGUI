@@ -57,7 +57,8 @@ media.mojom.SpeechRecognitionAudioForwarderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec,
       null,
-      [buffer]);
+      [buffer],
+      false);
   }
 
 };

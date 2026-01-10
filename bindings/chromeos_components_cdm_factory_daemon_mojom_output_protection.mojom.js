@@ -101,7 +101,8 @@ chromeos.cdm.mojom.OutputProtectionRemoteCallHandler = class {
       0,  // ordinal
       chromeos.cdm.mojom.OutputProtection_QueryStatus_ParamsSpec,
       chromeos.cdm.mojom.OutputProtection_QueryStatus_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   enableProtection(desired_protection) {
@@ -110,7 +111,8 @@ chromeos.cdm.mojom.OutputProtectionRemoteCallHandler = class {
       1,  // ordinal
       chromeos.cdm.mojom.OutputProtection_EnableProtection_ParamsSpec,
       chromeos.cdm.mojom.OutputProtection_EnableProtection_ResponseParamsSpec,
-      [desired_protection]);
+      [desired_protection],
+      false);
   }
 
 };

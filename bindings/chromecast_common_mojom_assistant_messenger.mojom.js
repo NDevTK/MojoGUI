@@ -63,7 +63,8 @@ chromecast.mojom.AssistantMessagePipeRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };
@@ -127,7 +128,8 @@ chromecast.mojom.AssistantMessageClientRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };
@@ -193,7 +195,8 @@ chromecast.mojom.AssistantMessageServiceRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec,
       null,
-      [client_id, client, pipe]);
+      [client_id, client, pipe],
+      false);
   }
 
 };

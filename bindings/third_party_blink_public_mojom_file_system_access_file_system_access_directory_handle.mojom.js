@@ -116,7 +116,8 @@ blink.mojom.FileSystemAccessDirectoryEntriesListenerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec,
       null,
-      [result, entries, has_more_entries]);
+      [result, entries, has_more_entries],
+      false);
   }
 
 };
@@ -326,7 +327,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec,
       blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ResponseParamsSpec,
-      [mode]);
+      [mode],
+      false);
   }
 
   requestPermission(mode) {
@@ -335,7 +337,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ParamsSpec,
       blink.mojom.FileSystemAccessDirectoryHandle_RequestPermission_ResponseParamsSpec,
-      [mode]);
+      [mode],
+      false);
   }
 
   getFile(basename, create) {
@@ -344,7 +347,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ParamsSpec,
       blink.mojom.FileSystemAccessDirectoryHandle_GetFile_ResponseParamsSpec,
-      [basename, create]);
+      [basename, create],
+      false);
   }
 
   getDirectory(basename, create) {
@@ -353,7 +357,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ParamsSpec,
       blink.mojom.FileSystemAccessDirectoryHandle_GetDirectory_ResponseParamsSpec,
-      [basename, create]);
+      [basename, create],
+      false);
   }
 
   getEntries(listener) {
@@ -362,7 +367,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.FileSystemAccessDirectoryHandle_GetEntries_ParamsSpec,
       null,
-      [listener]);
+      [listener],
+      false);
   }
 
   rename(new_entry_name) {
@@ -371,7 +377,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.FileSystemAccessDirectoryHandle_Rename_ParamsSpec,
       blink.mojom.FileSystemAccessDirectoryHandle_Rename_ResponseParamsSpec,
-      [new_entry_name]);
+      [new_entry_name],
+      false);
   }
 
   move(destination_directory, new_entry_name) {
@@ -380,7 +387,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.FileSystemAccessDirectoryHandle_Move_ParamsSpec,
       blink.mojom.FileSystemAccessDirectoryHandle_Move_ResponseParamsSpec,
-      [destination_directory, new_entry_name]);
+      [destination_directory, new_entry_name],
+      false);
   }
 
   remove(recurse) {
@@ -389,7 +397,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.FileSystemAccessDirectoryHandle_Remove_ParamsSpec,
       blink.mojom.FileSystemAccessDirectoryHandle_Remove_ResponseParamsSpec,
-      [recurse]);
+      [recurse],
+      false);
   }
 
   removeEntry(basename, recurse) {
@@ -398,7 +407,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ParamsSpec,
       blink.mojom.FileSystemAccessDirectoryHandle_RemoveEntry_ResponseParamsSpec,
-      [basename, recurse]);
+      [basename, recurse],
+      false);
   }
 
   resolve(possible_child) {
@@ -407,7 +417,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ParamsSpec,
       blink.mojom.FileSystemAccessDirectoryHandle_Resolve_ResponseParamsSpec,
-      [possible_child]);
+      [possible_child],
+      false);
   }
 
   transfer(token) {
@@ -416,7 +427,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.FileSystemAccessDirectoryHandle_Transfer_ParamsSpec,
       null,
-      [token]);
+      [token],
+      false);
   }
 
   getUniqueId() {
@@ -425,7 +437,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ParamsSpec,
       blink.mojom.FileSystemAccessDirectoryHandle_GetUniqueId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getCloudIdentifiers() {
@@ -434,7 +447,8 @@ blink.mojom.FileSystemAccessDirectoryHandleRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ParamsSpec,
       blink.mojom.FileSystemAccessDirectoryHandle_GetCloudIdentifiers_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

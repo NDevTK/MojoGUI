@@ -603,7 +603,8 @@ arc.mojom.RfcommListeningSocketClientRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.RfcommListeningSocketClient_OnAccepted_ParamsSpec,
       null,
-      [connection]);
+      [connection],
+      false);
   }
 
 };
@@ -672,7 +673,8 @@ arc.mojom.RfcommConnectingSocketClientRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.RfcommConnectingSocketClient_OnConnected_ParamsSpec,
       null,
-      [connection]);
+      [connection],
+      false);
   }
 
   onConnectFailed() {
@@ -681,7 +683,8 @@ arc.mojom.RfcommConnectingSocketClientRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.RfcommConnectingSocketClient_OnConnectFailed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -745,7 +748,8 @@ arc.mojom.BluetoothListenSocketClientRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.BluetoothListenSocketClient_OnAccepted_ParamsSpec,
       null,
-      [connection]);
+      [connection],
+      false);
   }
 
 };
@@ -814,7 +818,8 @@ arc.mojom.BluetoothConnectSocketClientRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.BluetoothConnectSocketClient_OnConnected_ParamsSpec,
       null,
-      [connection]);
+      [connection],
+      false);
   }
 
   onConnectFailed() {
@@ -823,7 +828,8 @@ arc.mojom.BluetoothConnectSocketClientRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.BluetoothConnectSocketClient_OnConnectFailed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1309,7 +1315,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.BluetoothHost_EnableAdapter_ParamsSpec,
       arc.mojom.BluetoothHost_EnableAdapter_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   disableAdapter() {
@@ -1318,7 +1325,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.BluetoothHost_DisableAdapter_ParamsSpec,
       arc.mojom.BluetoothHost_DisableAdapter_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAdapterProperty(type) {
@@ -1327,7 +1335,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.BluetoothHost_GetAdapterProperty_ParamsSpec,
       null,
-      [type]);
+      [type],
+      false);
   }
 
   setAdapterProperty(property) {
@@ -1336,7 +1345,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.BluetoothHost_SetAdapterProperty_ParamsSpec,
       null,
-      [property]);
+      [property],
+      false);
   }
 
   startDiscovery() {
@@ -1345,7 +1355,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.BluetoothHost_StartDiscovery_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   cancelDiscovery() {
@@ -1354,7 +1365,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.BluetoothHost_CancelDiscovery_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   createBond(addr, transport) {
@@ -1363,7 +1375,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.BluetoothHost_CreateBond_ParamsSpec,
       null,
-      [addr, transport]);
+      [addr, transport],
+      false);
   }
 
   removeBond(addr) {
@@ -1372,7 +1385,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.BluetoothHost_RemoveBond_ParamsSpec,
       null,
-      [addr]);
+      [addr],
+      false);
   }
 
   cancelBond(addr) {
@@ -1381,7 +1395,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       12,  // ordinal
       arc.mojom.BluetoothHost_CancelBond_ParamsSpec,
       null,
-      [addr]);
+      [addr],
+      false);
   }
 
   getConnectionState(addr) {
@@ -1390,7 +1405,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       13,  // ordinal
       arc.mojom.BluetoothHost_GetConnectionState_ParamsSpec,
       arc.mojom.BluetoothHost_GetConnectionState_ResponseParamsSpec,
-      [addr]);
+      [addr],
+      false);
   }
 
   startLEScan() {
@@ -1399,7 +1415,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       14,  // ordinal
       arc.mojom.BluetoothHost_StartLEScan_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   stopLEScan() {
@@ -1408,7 +1425,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       15,  // ordinal
       arc.mojom.BluetoothHost_StopLEScan_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   connectLEDevice(remote_addr) {
@@ -1417,7 +1435,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       16,  // ordinal
       arc.mojom.BluetoothHost_ConnectLEDevice_ParamsSpec,
       null,
-      [remote_addr]);
+      [remote_addr],
+      false);
   }
 
   disconnectLEDevice(remote_addr) {
@@ -1426,7 +1445,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       17,  // ordinal
       arc.mojom.BluetoothHost_DisconnectLEDevice_ParamsSpec,
       null,
-      [remote_addr]);
+      [remote_addr],
+      false);
   }
 
   searchService(remote_addr) {
@@ -1435,7 +1455,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       18,  // ordinal
       arc.mojom.BluetoothHost_SearchService_ParamsSpec,
       null,
-      [remote_addr]);
+      [remote_addr],
+      false);
   }
 
   getGattDB(remote_addr) {
@@ -1444,7 +1465,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       19,  // ordinal
       arc.mojom.BluetoothHost_GetGattDB_ParamsSpec,
       null,
-      [remote_addr]);
+      [remote_addr],
+      false);
   }
 
   readGattCharacteristic(remote_addr, service_id, char_id) {
@@ -1453,7 +1475,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       22,  // ordinal
       arc.mojom.BluetoothHost_ReadGattCharacteristic_ParamsSpec,
       arc.mojom.BluetoothHost_ReadGattCharacteristic_ResponseParamsSpec,
-      [remote_addr, service_id, char_id]);
+      [remote_addr, service_id, char_id],
+      false);
   }
 
   writeGattCharacteristic(remote_addr, service_id, char_id, value, prepare) {
@@ -1462,7 +1485,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       23,  // ordinal
       arc.mojom.BluetoothHost_WriteGattCharacteristic_ParamsSpec,
       arc.mojom.BluetoothHost_WriteGattCharacteristic_ResponseParamsSpec,
-      [remote_addr, service_id, char_id, value, prepare]);
+      [remote_addr, service_id, char_id, value, prepare],
+      false);
   }
 
   readGattDescriptor(remote_addr, service_id, char_id, desc_id) {
@@ -1471,7 +1495,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       24,  // ordinal
       arc.mojom.BluetoothHost_ReadGattDescriptor_ParamsSpec,
       arc.mojom.BluetoothHost_ReadGattDescriptor_ResponseParamsSpec,
-      [remote_addr, service_id, char_id, desc_id]);
+      [remote_addr, service_id, char_id, desc_id],
+      false);
   }
 
   writeGattDescriptor(remote_addr, service_id, char_id, desc_id, value) {
@@ -1480,7 +1505,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       25,  // ordinal
       arc.mojom.BluetoothHost_WriteGattDescriptor_ParamsSpec,
       arc.mojom.BluetoothHost_WriteGattDescriptor_ResponseParamsSpec,
-      [remote_addr, service_id, char_id, desc_id, value]);
+      [remote_addr, service_id, char_id, desc_id, value],
+      false);
   }
 
   executeWrite(remote_addr, execute) {
@@ -1489,7 +1515,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       44,  // ordinal
       arc.mojom.BluetoothHost_ExecuteWrite_ParamsSpec,
       arc.mojom.BluetoothHost_ExecuteWrite_ResponseParamsSpec,
-      [remote_addr, execute]);
+      [remote_addr, execute],
+      false);
   }
 
   registerForGattNotification(remote_addr, service_id, char_id) {
@@ -1498,7 +1525,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       26,  // ordinal
       arc.mojom.BluetoothHost_RegisterForGattNotification_ParamsSpec,
       arc.mojom.BluetoothHost_RegisterForGattNotification_ResponseParamsSpec,
-      [remote_addr, service_id, char_id]);
+      [remote_addr, service_id, char_id],
+      false);
   }
 
   deregisterForGattNotification(remote_addr, service_id, char_id) {
@@ -1507,7 +1535,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       27,  // ordinal
       arc.mojom.BluetoothHost_DeregisterForGattNotification_ParamsSpec,
       arc.mojom.BluetoothHost_DeregisterForGattNotification_ResponseParamsSpec,
-      [remote_addr, service_id, char_id]);
+      [remote_addr, service_id, char_id],
+      false);
   }
 
   readRemoteRssi(remote_addr) {
@@ -1516,7 +1545,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       28,  // ordinal
       arc.mojom.BluetoothHost_ReadRemoteRssi_ParamsSpec,
       arc.mojom.BluetoothHost_ReadRemoteRssi_ResponseParamsSpec,
-      [remote_addr]);
+      [remote_addr],
+      false);
   }
 
   addService(service_id, num_handles) {
@@ -1525,7 +1555,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       30,  // ordinal
       arc.mojom.BluetoothHost_AddService_ParamsSpec,
       arc.mojom.BluetoothHost_AddService_ResponseParamsSpec,
-      [service_id, num_handles]);
+      [service_id, num_handles],
+      false);
   }
 
   addCharacteristic(service_handle, uuid, properties, permissions) {
@@ -1534,7 +1565,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       31,  // ordinal
       arc.mojom.BluetoothHost_AddCharacteristic_ParamsSpec,
       arc.mojom.BluetoothHost_AddCharacteristic_ResponseParamsSpec,
-      [service_handle, uuid, properties, permissions]);
+      [service_handle, uuid, properties, permissions],
+      false);
   }
 
   addDescriptor(service_handle, uuid, permissions) {
@@ -1543,7 +1575,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       32,  // ordinal
       arc.mojom.BluetoothHost_AddDescriptor_ParamsSpec,
       arc.mojom.BluetoothHost_AddDescriptor_ResponseParamsSpec,
-      [service_handle, uuid, permissions]);
+      [service_handle, uuid, permissions],
+      false);
   }
 
   startService(service_handle) {
@@ -1552,7 +1585,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       33,  // ordinal
       arc.mojom.BluetoothHost_StartService_ParamsSpec,
       arc.mojom.BluetoothHost_StartService_ResponseParamsSpec,
-      [service_handle]);
+      [service_handle],
+      false);
   }
 
   stopService(service_handle) {
@@ -1561,7 +1595,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       34,  // ordinal
       arc.mojom.BluetoothHost_StopService_ParamsSpec,
       arc.mojom.BluetoothHost_StopService_ResponseParamsSpec,
-      [service_handle]);
+      [service_handle],
+      false);
   }
 
   deleteService(service_handle) {
@@ -1570,7 +1605,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       35,  // ordinal
       arc.mojom.BluetoothHost_DeleteService_ParamsSpec,
       arc.mojom.BluetoothHost_DeleteService_ResponseParamsSpec,
-      [service_handle]);
+      [service_handle],
+      false);
   }
 
   sendIndication(attribute_handle, address, confirm, value) {
@@ -1579,7 +1615,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       36,  // ordinal
       arc.mojom.BluetoothHost_SendIndication_ParamsSpec,
       arc.mojom.BluetoothHost_SendIndication_ResponseParamsSpec,
-      [attribute_handle, address, confirm, value]);
+      [attribute_handle, address, confirm, value],
+      false);
   }
 
   getSdpRecords(remote_addr, target_uuid) {
@@ -1588,7 +1625,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       37,  // ordinal
       arc.mojom.BluetoothHost_GetSdpRecords_ParamsSpec,
       null,
-      [remote_addr, target_uuid]);
+      [remote_addr, target_uuid],
+      false);
   }
 
   createSdpRecord(record) {
@@ -1597,7 +1635,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       38,  // ordinal
       arc.mojom.BluetoothHost_CreateSdpRecord_ParamsSpec,
       arc.mojom.BluetoothHost_CreateSdpRecord_ResponseParamsSpec,
-      [record]);
+      [record],
+      false);
   }
 
   removeSdpRecord(service_handle) {
@@ -1606,7 +1645,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       39,  // ordinal
       arc.mojom.BluetoothHost_RemoveSdpRecord_ParamsSpec,
       arc.mojom.BluetoothHost_RemoveSdpRecord_ResponseParamsSpec,
-      [service_handle]);
+      [service_handle],
+      false);
   }
 
   reserveAdvertisementHandle() {
@@ -1615,7 +1655,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       40,  // ordinal
       arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ParamsSpec,
       arc.mojom.BluetoothHost_ReserveAdvertisementHandle_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   enableAdvertisement(adv_handle, adv) {
@@ -1624,7 +1665,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       41,  // ordinal
       arc.mojom.BluetoothHost_EnableAdvertisement_ParamsSpec,
       arc.mojom.BluetoothHost_EnableAdvertisement_ResponseParamsSpec,
-      [adv_handle, adv]);
+      [adv_handle, adv],
+      false);
   }
 
   releaseAdvertisementHandle(adv_handle) {
@@ -1633,7 +1675,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       42,  // ordinal
       arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ParamsSpec,
       arc.mojom.BluetoothHost_ReleaseAdvertisementHandle_ResponseParamsSpec,
-      [adv_handle]);
+      [adv_handle],
+      false);
   }
 
   disableAdvertisement(adv_handle) {
@@ -1642,7 +1685,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       43,  // ordinal
       arc.mojom.BluetoothHost_DisableAdvertisement_ParamsSpec,
       arc.mojom.BluetoothHost_DisableAdvertisement_ResponseParamsSpec,
-      [adv_handle]);
+      [adv_handle],
+      false);
   }
 
   bluetoothSocketListen(sock_type, sock_flags, port) {
@@ -1651,7 +1695,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       47,  // ordinal
       arc.mojom.BluetoothHost_BluetoothSocketListen_ParamsSpec,
       arc.mojom.BluetoothHost_BluetoothSocketListen_ResponseParamsSpec,
-      [sock_type, sock_flags, port]);
+      [sock_type, sock_flags, port],
+      false);
   }
 
   bluetoothSocketConnect(sock_type, sock_flags, remote_addr, remote_port) {
@@ -1660,7 +1705,8 @@ arc.mojom.BluetoothHostRemoteCallHandler = class {
       48,  // ordinal
       arc.mojom.BluetoothHost_BluetoothSocketConnect_ParamsSpec,
       arc.mojom.BluetoothHost_BluetoothSocketConnect_ResponseParamsSpec,
-      [sock_type, sock_flags, remote_addr, remote_port]);
+      [sock_type, sock_flags, remote_addr, remote_port],
+      false);
   }
 
 };
@@ -1886,7 +1932,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       18,  // ordinal
       arc.mojom.BluetoothInstance_Init_ParamsSpec,
       arc.mojom.BluetoothInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   onAdapterProperties(status, properties) {
@@ -1895,7 +1942,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.BluetoothInstance_OnAdapterProperties_ParamsSpec,
       null,
-      [status, properties]);
+      [status, properties],
+      false);
   }
 
   onDeviceFound(properties) {
@@ -1904,7 +1952,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.BluetoothInstance_OnDeviceFound_ParamsSpec,
       null,
-      [properties]);
+      [properties],
+      false);
   }
 
   onDevicePropertiesChanged(remote_addr, properties) {
@@ -1913,7 +1962,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       22,  // ordinal
       arc.mojom.BluetoothInstance_OnDevicePropertiesChanged_ParamsSpec,
       null,
-      [remote_addr, properties]);
+      [remote_addr, properties],
+      false);
   }
 
   onDiscoveryStateChanged(state) {
@@ -1922,7 +1972,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.BluetoothInstance_OnDiscoveryStateChanged_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   onBondStateChanged(status, remote_addr, state) {
@@ -1931,7 +1982,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.BluetoothInstance_OnBondStateChanged_ParamsSpec,
       null,
-      [status, remote_addr, state]);
+      [status, remote_addr, state],
+      false);
   }
 
   onConnectionStateChanged(remote_addr, device_type, connected) {
@@ -1940,7 +1992,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       23,  // ordinal
       arc.mojom.BluetoothInstance_OnConnectionStateChanged_ParamsSpec,
       null,
-      [remote_addr, device_type, connected]);
+      [remote_addr, device_type, connected],
+      false);
   }
 
   onLEDeviceFound(addr, rssi, eir) {
@@ -1949,7 +2002,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       21,  // ordinal
       arc.mojom.BluetoothInstance_OnLEDeviceFound_ParamsSpec,
       null,
-      [addr, rssi, eir]);
+      [addr, rssi, eir],
+      false);
   }
 
   onLEConnectionStateChange(remote_addr, connected) {
@@ -1958,7 +2012,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.BluetoothInstance_OnLEConnectionStateChange_ParamsSpec,
       null,
-      [remote_addr, connected]);
+      [remote_addr, connected],
+      false);
   }
 
   onLEDeviceAddressChange(old_addr, new_addr) {
@@ -1967,7 +2022,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       16,  // ordinal
       arc.mojom.BluetoothInstance_OnLEDeviceAddressChange_ParamsSpec,
       null,
-      [old_addr, new_addr]);
+      [old_addr, new_addr],
+      false);
   }
 
   onSearchComplete(remote_addr, status) {
@@ -1976,7 +2032,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.BluetoothInstance_OnSearchComplete_ParamsSpec,
       null,
-      [remote_addr, status]);
+      [remote_addr, status],
+      false);
   }
 
   onGetGattDB(remote_addr, db) {
@@ -1985,7 +2042,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.BluetoothInstance_OnGetGattDB_ParamsSpec,
       null,
-      [remote_addr, db]);
+      [remote_addr, db],
+      false);
   }
 
   onGattNotify(remote_addr, service_id, char_id, is_notify, value) {
@@ -1994,7 +2052,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       13,  // ordinal
       arc.mojom.BluetoothInstance_OnGattNotify_ParamsSpec,
       null,
-      [remote_addr, service_id, char_id, is_notify, value]);
+      [remote_addr, service_id, char_id, is_notify, value],
+      false);
   }
 
   onServiceChanged(remote_addr) {
@@ -2003,7 +2062,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       24,  // ordinal
       arc.mojom.BluetoothInstance_OnServiceChanged_ParamsSpec,
       null,
-      [remote_addr]);
+      [remote_addr],
+      false);
   }
 
   requestGattRead(address, attribute_handle, offset, is_long, attribute_type) {
@@ -2012,7 +2072,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       14,  // ordinal
       arc.mojom.BluetoothInstance_RequestGattRead_ParamsSpec,
       arc.mojom.BluetoothInstance_RequestGattRead_ResponseParamsSpec,
-      [address, attribute_handle, offset, is_long, attribute_type]);
+      [address, attribute_handle, offset, is_long, attribute_type],
+      false);
   }
 
   requestGattWrite(address, attribute_handle, offset, value, attribute_type, is_prepare) {
@@ -2021,7 +2082,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       15,  // ordinal
       arc.mojom.BluetoothInstance_RequestGattWrite_ParamsSpec,
       arc.mojom.BluetoothInstance_RequestGattWrite_ResponseParamsSpec,
-      [address, attribute_handle, offset, value, attribute_type, is_prepare]);
+      [address, attribute_handle, offset, value, attribute_type, is_prepare],
+      false);
   }
 
   requestGattExecuteWrite(address, execute) {
@@ -2030,7 +2092,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       20,  // ordinal
       arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ParamsSpec,
       arc.mojom.BluetoothInstance_RequestGattExecuteWrite_ResponseParamsSpec,
-      [address, execute]);
+      [address, execute],
+      false);
   }
 
   onMTUReceived(remote_addr, mtu) {
@@ -2039,7 +2102,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       19,  // ordinal
       arc.mojom.BluetoothInstance_OnMTUReceived_ParamsSpec,
       null,
-      [remote_addr, mtu]);
+      [remote_addr, mtu],
+      false);
   }
 
   onGetSdpRecords(status, remote_addr, target_uuid, records) {
@@ -2048,7 +2112,8 @@ arc.mojom.BluetoothInstanceRemoteCallHandler = class {
       17,  // ordinal
       arc.mojom.BluetoothInstance_OnGetSdpRecords_ParamsSpec,
       null,
-      [status, remote_addr, target_uuid, records]);
+      [status, remote_addr, target_uuid, records],
+      false);
   }
 
 };

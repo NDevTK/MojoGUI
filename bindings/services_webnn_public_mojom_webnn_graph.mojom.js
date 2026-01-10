@@ -547,8 +547,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('output_operand_id', 24, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('scale_operand_id', 32, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
       mojo.internal.StructField('bias_operand_id', 40, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('axis', 48, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('epsilon', 52, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('axis', 48, 0, mojo.internal.Uint32, 1, false, 0, undefined),
+      mojo.internal.StructField('epsilon', 52, 0, mojo.internal.Float, 1e-5, false, 0, undefined),
       mojo.internal.StructField('label', 56, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 72]]);
@@ -669,7 +669,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('scale_operand_id', 16, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
       mojo.internal.StructField('bias_operand_id', 24, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('epsilon', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('epsilon', 32, 0, mojo.internal.Float, 1e-5, false, 0, undefined),
       mojo.internal.StructField('label', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -734,7 +734,7 @@ mojo.internal.Struct(
     webnn.mojom.EluSpec, 'webnn.mojom.Elu', [
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('alpha', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('alpha', 16, 0, mojo.internal.Float, 1.0, false, 0, undefined),
       mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -826,8 +826,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('b_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 16, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('c_operand_id', 24, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('alpha', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('beta', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('alpha', 32, 0, mojo.internal.Float, 1.0, false, 0, undefined),
+      mojo.internal.StructField('beta', 36, 0, mojo.internal.Float, 1.0, false, 0, undefined),
       mojo.internal.StructField('a_transpose', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('b_transpose', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('label', 48, 0, mojo.internal.String, null, false, 0, undefined),
@@ -839,8 +839,8 @@ mojo.internal.Struct(
     webnn.mojom.HardSigmoidSpec, 'webnn.mojom.HardSigmoid', [
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('alpha', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('beta', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('alpha', 16, 0, mojo.internal.Float, 0.2, false, 0, undefined),
+      mojo.internal.StructField('beta', 20, 0, mojo.internal.Float, 0.5, false, 0, undefined),
       mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -862,7 +862,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('scale_operand_id', 16, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
       mojo.internal.StructField('bias_operand_id', 24, 0, webnn.mojom.OperandIdSpec, null, true, 0, undefined),
       mojo.internal.StructField('axes', 32, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('epsilon', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('epsilon', 40, 0, mojo.internal.Float, 1e-5, false, 0, undefined),
       mojo.internal.StructField('label', 48, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 64]]);
@@ -872,7 +872,7 @@ mojo.internal.Struct(
     webnn.mojom.LeakyReluSpec, 'webnn.mojom.LeakyRelu', [
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('alpha', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('alpha', 16, 0, mojo.internal.Float, 0.01, false, 0, undefined),
       mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
@@ -882,7 +882,7 @@ mojo.internal.Struct(
     webnn.mojom.LinearSpec, 'webnn.mojom.Linear', [
       mojo.internal.StructField('input_operand_id', 0, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('output_operand_id', 8, 0, webnn.mojom.OperandIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('alpha', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('alpha', 16, 0, mojo.internal.Float, 1.0, false, 0, undefined),
       mojo.internal.StructField('beta', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('label', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -1166,7 +1166,8 @@ webnn.mojom.WebNNGraphRemoteCallHandler = class {
       0,  // ordinal
       webnn.mojom.WebNNGraph_Dispatch_ParamsSpec,
       null,
-      [named_inputs, named_outputs]);
+      [named_inputs, named_outputs],
+      false);
   }
 
 };

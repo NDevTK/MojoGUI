@@ -67,7 +67,8 @@ chromecast.shell.mojom.FeatureManagerRemoteCallHandler = class {
       0,  // ordinal
       chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec,
       null,
-      [features]);
+      [features],
+      false);
   }
 
 };

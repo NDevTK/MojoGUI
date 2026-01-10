@@ -155,7 +155,8 @@ arc.mojom.VideoDecoderRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.VideoDecoder_Initialize_ParamsSpec,
       arc.mojom.VideoDecoder_Initialize_ResponseParamsSpec,
-      [config, client, video_frame_pool]);
+      [config, client, video_frame_pool],
+      false);
   }
 
   decode(buffer) {
@@ -164,7 +165,8 @@ arc.mojom.VideoDecoderRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.VideoDecoder_Decode_ParamsSpec,
       arc.mojom.VideoDecoder_Decode_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   reset() {
@@ -173,7 +175,8 @@ arc.mojom.VideoDecoderRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.VideoDecoder_Reset_ParamsSpec,
       arc.mojom.VideoDecoder_Reset_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   releaseVideoFrame(video_frame_id) {
@@ -182,7 +185,8 @@ arc.mojom.VideoDecoderRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.VideoDecoder_ReleaseVideoFrame_ParamsSpec,
       null,
-      [video_frame_id]);
+      [video_frame_id],
+      false);
   }
 
 };
@@ -254,7 +258,8 @@ arc.mojom.VideoDecoderClientRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec,
       null,
-      [video_frame_id, visible_rect, timestamp]);
+      [video_frame_id, visible_rect, timestamp],
+      false);
   }
 
   onError(status) {
@@ -263,7 +268,8 @@ arc.mojom.VideoDecoderClientRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.VideoDecoderClient_OnError_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
 };

@@ -91,7 +91,8 @@ signout_confirmation.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -177,7 +178,8 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec,
       null,
-      [height]);
+      [height],
+      false);
   }
 
   accept(uninstall_account_extensions) {
@@ -186,7 +188,8 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       signout_confirmation.mojom.PageHandler_Accept_ParamsSpec,
       null,
-      [uninstall_account_extensions]);
+      [uninstall_account_extensions],
+      false);
   }
 
   cancel(uninstall_account_extensions) {
@@ -195,7 +198,8 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec,
       null,
-      [uninstall_account_extensions]);
+      [uninstall_account_extensions],
+      false);
   }
 
   performReauth() {
@@ -204,7 +208,8 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   close() {
@@ -213,7 +218,8 @@ signout_confirmation.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       signout_confirmation.mojom.PageHandler_Close_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -277,7 +283,8 @@ signout_confirmation.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec,
       null,
-      [data]);
+      [data],
+      false);
   }
 
 };

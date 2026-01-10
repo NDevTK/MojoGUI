@@ -96,7 +96,8 @@ chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec,
       null,
-      [visibility_type]);
+      [visibility_type],
+      false);
   }
 
   onWindowDestroyed() {
@@ -105,7 +106,8 @@ chromecast.mojom.CastContentWindowObserverRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -198,7 +200,8 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec,
       null,
-      [z_order, priority]);
+      [z_order, priority],
+      false);
   }
 
   addObserver(observer) {
@@ -207,7 +210,8 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   grantScreenAccess() {
@@ -216,7 +220,8 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
       2,  // ordinal
       chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   revokeScreenAccess() {
@@ -225,7 +230,8 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
       3,  // ordinal
       chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   requestVisibility(priority) {
@@ -234,7 +240,8 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
       4,  // ordinal
       chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec,
       null,
-      [priority]);
+      [priority],
+      false);
   }
 
   enableTouchInput(enabled) {
@@ -243,7 +250,8 @@ chromecast.mojom.CastContentWindowRemoteCallHandler = class {
       5,  // ordinal
       chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
 };

@@ -199,7 +199,8 @@ chromeos.mojo_service_manager.mojom.ServiceManagerRemoteCallHandler = class {
       0,  // ordinal
       chromeos.mojo_service_manager.mojom.ServiceManager_Register_ParamsSpec,
       null,
-      [service_name, service_provider]);
+      [service_name, service_provider],
+      false);
   }
 
   request(service_name, timeout, receiver) {
@@ -208,7 +209,8 @@ chromeos.mojo_service_manager.mojom.ServiceManagerRemoteCallHandler = class {
       1,  // ordinal
       chromeos.mojo_service_manager.mojom.ServiceManager_Request_ParamsSpec,
       null,
-      [service_name, timeout, receiver]);
+      [service_name, timeout, receiver],
+      false);
   }
 
   query(service_name) {
@@ -217,7 +219,8 @@ chromeos.mojo_service_manager.mojom.ServiceManagerRemoteCallHandler = class {
       2,  // ordinal
       chromeos.mojo_service_manager.mojom.ServiceManager_Query_ParamsSpec,
       chromeos.mojo_service_manager.mojom.ServiceManager_Query_ResponseParamsSpec,
-      [service_name]);
+      [service_name],
+      false);
   }
 
   addServiceObserver(observer) {
@@ -226,7 +229,8 @@ chromeos.mojo_service_manager.mojom.ServiceManagerRemoteCallHandler = class {
       3,  // ordinal
       chromeos.mojo_service_manager.mojom.ServiceManager_AddServiceObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };
@@ -291,7 +295,8 @@ chromeos.mojo_service_manager.mojom.ServiceProviderRemoteCallHandler = class {
       0,  // ordinal
       chromeos.mojo_service_manager.mojom.ServiceProvider_Request_ParamsSpec,
       null,
-      [client_identity, receiver]);
+      [client_identity, receiver],
+      false);
   }
 
 };
@@ -355,7 +360,8 @@ chromeos.mojo_service_manager.mojom.ServiceObserverRemoteCallHandler = class {
       0,  // ordinal
       chromeos.mojo_service_manager.mojom.ServiceObserver_OnServiceEvent_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
 };

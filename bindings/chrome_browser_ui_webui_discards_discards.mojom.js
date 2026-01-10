@@ -247,7 +247,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       0,  // ordinal
       discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec,
       discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setAutoDiscardable(tab_id, is_auto_discardable) {
@@ -256,7 +257,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       1,  // ordinal
       discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec,
       discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec,
-      [tab_id, is_auto_discardable]);
+      [tab_id, is_auto_discardable],
+      false);
   }
 
   discardById(tab_id, reason) {
@@ -265,7 +267,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       2,  // ordinal
       discards.mojom.DetailsProvider_DiscardById_ParamsSpec,
       discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec,
-      [tab_id, reason]);
+      [tab_id, reason],
+      false);
   }
 
   freezeById(tab_id) {
@@ -274,7 +277,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       3,  // ordinal
       discards.mojom.DetailsProvider_FreezeById_ParamsSpec,
       null,
-      [tab_id]);
+      [tab_id],
+      false);
   }
 
   loadById(tab_id) {
@@ -283,7 +287,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       4,  // ordinal
       discards.mojom.DetailsProvider_LoadById_ParamsSpec,
       null,
-      [tab_id]);
+      [tab_id],
+      false);
   }
 
   discard() {
@@ -292,7 +297,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       5,  // ordinal
       discards.mojom.DetailsProvider_Discard_ParamsSpec,
       discards.mojom.DetailsProvider_Discard_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   toggleBatterySaverMode() {
@@ -301,7 +307,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       6,  // ordinal
       discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   refreshPerformanceTabCpuMeasurements() {
@@ -310,7 +317,8 @@ discards.mojom.DetailsProviderRemoteCallHandler = class {
       7,  // ordinal
       discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -428,7 +436,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       0,  // ordinal
       discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec,
       null,
-      [frame]);
+      [frame],
+      false);
   }
 
   pageCreated(pages) {
@@ -437,7 +446,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       1,  // ordinal
       discards.mojom.GraphChangeStream_PageCreated_ParamsSpec,
       null,
-      [pages]);
+      [pages],
+      false);
   }
 
   processCreated(process) {
@@ -446,7 +456,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       2,  // ordinal
       discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec,
       null,
-      [process]);
+      [process],
+      false);
   }
 
   workerCreated(worker) {
@@ -455,7 +466,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       3,  // ordinal
       discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec,
       null,
-      [worker]);
+      [worker],
+      false);
   }
 
   frameChanged(frame) {
@@ -464,7 +476,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       4,  // ordinal
       discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec,
       null,
-      [frame]);
+      [frame],
+      false);
   }
 
   pageChanged(page) {
@@ -473,7 +486,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       5,  // ordinal
       discards.mojom.GraphChangeStream_PageChanged_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
   processChanged(process) {
@@ -482,7 +496,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       6,  // ordinal
       discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec,
       null,
-      [process]);
+      [process],
+      false);
   }
 
   workerChanged(worker) {
@@ -491,7 +506,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       7,  // ordinal
       discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec,
       null,
-      [worker]);
+      [worker],
+      false);
   }
 
   favIconDataAvailable(favicon) {
@@ -500,7 +516,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       8,  // ordinal
       discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec,
       null,
-      [favicon]);
+      [favicon],
+      false);
   }
 
   nodeDeleted(node_id) {
@@ -509,7 +526,8 @@ discards.mojom.GraphChangeStreamRemoteCallHandler = class {
       9,  // ordinal
       discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec,
       null,
-      [node_id]);
+      [node_id],
+      false);
   }
 
 };
@@ -585,7 +603,8 @@ discards.mojom.GraphDumpRemoteCallHandler = class {
       0,  // ordinal
       discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec,
       null,
-      [change_subscriber]);
+      [change_subscriber],
+      false);
   }
 
   requestNodeDescriptions(node_ids) {
@@ -594,7 +613,8 @@ discards.mojom.GraphDumpRemoteCallHandler = class {
       1,  // ordinal
       discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec,
       discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec,
-      [node_ids]);
+      [node_ids],
+      false);
   }
 
 };

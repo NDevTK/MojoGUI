@@ -151,7 +151,8 @@ ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler = class {
       0,  // ordinal
       ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ParamsSpec,
       ash.wifi_direct.mojom.WifiDirectManager_CreateWifiDirectGroup_ResponseParamsSpec,
-      [credentials]);
+      [credentials],
+      false);
   }
 
   connectToWifiDirectGroup(credentials, frequency) {
@@ -160,7 +161,8 @@ ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler = class {
       1,  // ordinal
       ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ParamsSpec,
       ash.wifi_direct.mojom.WifiDirectManager_ConnectToWifiDirectGroup_ResponseParamsSpec,
-      [credentials, frequency]);
+      [credentials, frequency],
+      false);
   }
 
   getWifiP2PCapabilities() {
@@ -169,7 +171,8 @@ ash.wifi_direct.mojom.WifiDirectManagerRemoteCallHandler = class {
       2,  // ordinal
       ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ParamsSpec,
       ash.wifi_direct.mojom.WifiDirectManager_GetWifiP2PCapabilities_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -250,7 +253,8 @@ ash.wifi_direct.mojom.WifiDirectConnectionRemoteCallHandler = class {
       0,  // ordinal
       ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ParamsSpec,
       ash.wifi_direct.mojom.WifiDirectConnection_GetProperties_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   associateSocket(socket) {
@@ -259,7 +263,8 @@ ash.wifi_direct.mojom.WifiDirectConnectionRemoteCallHandler = class {
       1,  // ordinal
       ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ParamsSpec,
       ash.wifi_direct.mojom.WifiDirectConnection_AssociateSocket_ResponseParamsSpec,
-      [socket]);
+      [socket],
+      false);
   }
 
 };

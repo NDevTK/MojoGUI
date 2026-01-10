@@ -97,7 +97,8 @@ arc.mojom.ArcShellExecutionInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec,
       arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
 };

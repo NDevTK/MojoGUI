@@ -79,7 +79,8 @@ chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec,
       chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec,
-      [user_requested]);
+      [user_requested],
+      false);
   }
 
   cancelSchedule() {
@@ -88,7 +89,8 @@ chrome.mojom.OfflinePageAutoFetcherRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

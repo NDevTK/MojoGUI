@@ -79,7 +79,8 @@ viz.mojom.InfoCollectionGpuServiceRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec,
       viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getGpuSupportedVulkanVersionInfo() {
@@ -88,7 +89,8 @@ viz.mojom.InfoCollectionGpuServiceRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec,
       viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

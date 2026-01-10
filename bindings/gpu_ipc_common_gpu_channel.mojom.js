@@ -275,10 +275,10 @@ mojo.internal.Struct(
 // Struct: GLESCreationAttribs
 mojo.internal.Struct(
     gpu.mojom.GLESCreationAttribsSpec, 'gpu.mojom.GLESCreationAttribs', [
-      mojo.internal.StructField('gpu_preference', 0, 0, gl.mojom.GpuPreferenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('gpu_preference', 0, 0, gl.mojom.GpuPreferenceSpec, 0, false, 0, undefined),
       mojo.internal.StructField('fail_if_major_perf_caveat', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('lose_context_when_out_of_memory', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('context_type', 8, 0, gpu.mojom.ContextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('context_type', 8, 0, gpu.mojom.ContextTypeSpec, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -662,7 +662,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       0,  // ordinal
       gpu.mojom.GpuChannel_CrashForTesting_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   terminateForTesting() {
@@ -671,7 +672,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       1,  // ordinal
       gpu.mojom.GpuChannel_TerminateForTesting_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getChannelToken() {
@@ -680,7 +682,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       2,  // ordinal
       gpu.mojom.GpuChannel_GetChannelToken_ParamsSpec,
       gpu.mojom.GpuChannel_GetChannelToken_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   flush() {
@@ -689,7 +692,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       3,  // ordinal
       gpu.mojom.GpuChannel_Flush_ParamsSpec,
       gpu.mojom.GpuChannel_Flush_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSharedMemoryForFlushId() {
@@ -698,7 +702,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       4,  // ordinal
       gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ParamsSpec,
       gpu.mojom.GpuChannel_GetSharedMemoryForFlushId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   createCommandBuffer(params, routing_id, shared_state, receiver, client) {
@@ -707,7 +712,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       5,  // ordinal
       gpu.mojom.GpuChannel_CreateCommandBuffer_ParamsSpec,
       gpu.mojom.GpuChannel_CreateCommandBuffer_ResponseParamsSpec,
-      [params, routing_id, shared_state, receiver, client]);
+      [params, routing_id, shared_state, receiver, client],
+      false);
   }
 
   destroyCommandBuffer(routing_id) {
@@ -716,7 +722,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       6,  // ordinal
       gpu.mojom.GpuChannel_DestroyCommandBuffer_ParamsSpec,
       gpu.mojom.GpuChannel_DestroyCommandBuffer_ResponseParamsSpec,
-      [routing_id]);
+      [routing_id],
+      false);
   }
 
   flushDeferredRequests(requests, flushed_deferred_message_id) {
@@ -725,7 +732,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       7,  // ordinal
       gpu.mojom.GpuChannel_FlushDeferredRequests_ParamsSpec,
       null,
-      [requests, flushed_deferred_message_id]);
+      [requests, flushed_deferred_message_id],
+      false);
   }
 
   createGpuMemoryBuffer(size, format, buffer_usage) {
@@ -734,7 +742,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       8,  // ordinal
       gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec,
       gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec,
-      [size, format, buffer_usage]);
+      [size, format, buffer_usage],
+      false);
   }
 
   createDCOMPTexture(route_id, receiver) {
@@ -743,7 +752,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       9,  // ordinal
       gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec,
       gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec,
-      [route_id, receiver]);
+      [route_id, receiver],
+      false);
   }
 
   registerOverlayStateObserver(promotion_hint_observer, mailbox) {
@@ -752,7 +762,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       10,  // ordinal
       gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ParamsSpec,
       gpu.mojom.GpuChannel_RegisterOverlayStateObserver_ResponseParamsSpec,
-      [promotion_hint_observer, mailbox]);
+      [promotion_hint_observer, mailbox],
+      false);
   }
 
   waitForTokenInRange(routing_id, start, end) {
@@ -761,7 +772,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       11,  // ordinal
       gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec,
       gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec,
-      [routing_id, start, end]);
+      [routing_id, start, end],
+      false);
   }
 
   waitForGetOffsetInRange(routing_id, set_get_buffer_count, start, end) {
@@ -770,7 +782,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       12,  // ordinal
       gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec,
       gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec,
-      [routing_id, set_get_buffer_count, start, end]);
+      [routing_id, set_get_buffer_count, start, end],
+      false);
   }
 
   registerSysmemBufferCollection(service_handle, sysmem_token, format, usage, register_with_image_pipe) {
@@ -779,7 +792,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       13,  // ordinal
       gpu.mojom.GpuChannel_RegisterSysmemBufferCollection_ParamsSpec,
       null,
-      [service_handle, sysmem_token, format, usage, register_with_image_pipe]);
+      [service_handle, sysmem_token, format, usage, register_with_image_pipe],
+      false);
   }
 
   copyToGpuMemoryBufferAsync(mailbox, sync_token_dependencies, release_count) {
@@ -788,7 +802,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       14,  // ordinal
       gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec,
       gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec,
-      [mailbox, sync_token_dependencies, release_count]);
+      [mailbox, sync_token_dependencies, release_count],
+      false);
   }
 
   copyNativeGmbToSharedMemoryAsync(buffer_handle, shared_memory) {
@@ -797,7 +812,8 @@ gpu.mojom.GpuChannelRemoteCallHandler = class {
       15,  // ordinal
       gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec,
       gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec,
-      [buffer_handle, shared_memory]);
+      [buffer_handle, shared_memory],
+      false);
   }
 
 };
@@ -901,7 +917,8 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
       0,  // ordinal
       gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec,
       null,
-      [shm_id]);
+      [shm_id],
+      false);
   }
 
   registerTransferBuffer(id, buffer) {
@@ -910,7 +927,8 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
       1,  // ordinal
       gpu.mojom.CommandBuffer_RegisterTransferBuffer_ParamsSpec,
       null,
-      [id, buffer]);
+      [id, buffer],
+      false);
   }
 
   createGpuFenceFromHandle(gpu_fence_id, fence_handle) {
@@ -919,7 +937,8 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
       2,  // ordinal
       gpu.mojom.CommandBuffer_CreateGpuFenceFromHandle_ParamsSpec,
       null,
-      [gpu_fence_id, fence_handle]);
+      [gpu_fence_id, fence_handle],
+      false);
   }
 
   getGpuFenceHandle(id) {
@@ -928,7 +947,8 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
       3,  // ordinal
       gpu.mojom.CommandBuffer_GetGpuFenceHandle_ParamsSpec,
       gpu.mojom.CommandBuffer_GetGpuFenceHandle_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   signalSyncToken(sync_token, signal_id) {
@@ -937,7 +957,8 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
       4,  // ordinal
       gpu.mojom.CommandBuffer_SignalSyncToken_ParamsSpec,
       null,
-      [sync_token, signal_id]);
+      [sync_token, signal_id],
+      false);
   }
 
   signalQuery(query, signal_id) {
@@ -946,7 +967,8 @@ gpu.mojom.CommandBufferRemoteCallHandler = class {
       5,  // ordinal
       gpu.mojom.CommandBuffer_SignalQuery_ParamsSpec,
       null,
-      [query, signal_id]);
+      [query, signal_id],
+      false);
   }
 
 };
@@ -1035,7 +1057,8 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       0,  // ordinal
       gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
   onGpuSwitched() {
@@ -1044,7 +1067,8 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       1,  // ordinal
       gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onDestroyed(reason, error) {
@@ -1053,7 +1077,8 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       2,  // ordinal
       gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec,
       null,
-      [reason, error]);
+      [reason, error],
+      false);
   }
 
   onReturnData(data) {
@@ -1062,7 +1087,8 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       3,  // ordinal
       gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec,
       null,
-      [data]);
+      [data],
+      false);
   }
 
   onSignalAck(signal_id, state) {
@@ -1071,7 +1097,8 @@ gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       4,  // ordinal
       gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec,
       null,
-      [signal_id, state]);
+      [signal_id, state],
+      false);
   }
 
 };
@@ -1153,7 +1180,8 @@ gpu.mojom.DCOMPTextureRemoteCallHandler = class {
       0,  // ordinal
       gpu.mojom.DCOMPTexture_StartListening_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   setTextureSize(size) {
@@ -1162,7 +1190,8 @@ gpu.mojom.DCOMPTextureRemoteCallHandler = class {
       1,  // ordinal
       gpu.mojom.DCOMPTexture_SetTextureSize_ParamsSpec,
       null,
-      [size]);
+      [size],
+      false);
   }
 
   setDCOMPSurfaceHandle(token) {
@@ -1171,7 +1200,8 @@ gpu.mojom.DCOMPTextureRemoteCallHandler = class {
       2,  // ordinal
       gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ParamsSpec,
       gpu.mojom.DCOMPTexture_SetDCOMPSurfaceHandle_ResponseParamsSpec,
-      [token]);
+      [token],
+      false);
   }
 
 };
@@ -1241,7 +1271,8 @@ gpu.mojom.DCOMPTextureClientRemoteCallHandler = class {
       0,  // ordinal
       gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec,
       null,
-      [mailbox]);
+      [mailbox],
+      false);
   }
 
   onOutputRectChange(output_rect) {
@@ -1250,7 +1281,8 @@ gpu.mojom.DCOMPTextureClientRemoteCallHandler = class {
       1,  // ordinal
       gpu.mojom.DCOMPTextureClient_OnOutputRectChange_ParamsSpec,
       null,
-      [output_rect]);
+      [output_rect],
+      false);
   }
 
 };
@@ -1314,7 +1346,8 @@ gpu.mojom.OverlayStateObserverRemoteCallHandler = class {
       0,  // ordinal
       gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec,
       null,
-      [promoted]);
+      [promoted],
+      false);
   }
 
 };

@@ -234,7 +234,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaMetricsProvider_Initialize_ParamsSpec,
       null,
-      [is_mse, url_scheme, stream_type]);
+      [is_mse, url_scheme, stream_type],
+      false);
   }
 
   onStarted(status) {
@@ -243,7 +244,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.MediaMetricsProvider_OnStarted_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   onError(status) {
@@ -252,7 +254,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.MediaMetricsProvider_OnError_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   onFallback(status) {
@@ -261,7 +264,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.MediaMetricsProvider_OnFallback_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   setHasPlayed() {
@@ -270,7 +274,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.MediaMetricsProvider_SetHasPlayed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setHaveEnough() {
@@ -279,7 +284,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.MediaMetricsProvider_SetHaveEnough_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setIsEME() {
@@ -288,7 +294,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.MediaMetricsProvider_SetIsEME_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setTimeToMetadata(elapsed) {
@@ -297,7 +304,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.MediaMetricsProvider_SetTimeToMetadata_ParamsSpec,
       null,
-      [elapsed]);
+      [elapsed],
+      false);
   }
 
   setTimeToFirstFrame(elapsed) {
@@ -306,7 +314,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.MediaMetricsProvider_SetTimeToFirstFrame_ParamsSpec,
       null,
-      [elapsed]);
+      [elapsed],
+      false);
   }
 
   setTimeToPlayReady(elapsed) {
@@ -315,7 +324,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       9,  // ordinal
       media.mojom.MediaMetricsProvider_SetTimeToPlayReady_ParamsSpec,
       null,
-      [elapsed]);
+      [elapsed],
+      false);
   }
 
   setRendererType(renderer_type) {
@@ -324,7 +334,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       10,  // ordinal
       media.mojom.MediaMetricsProvider_SetRendererType_ParamsSpec,
       null,
-      [renderer_type]);
+      [renderer_type],
+      false);
   }
 
   setDemuxerType(demuxer_type) {
@@ -333,7 +344,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       11,  // ordinal
       media.mojom.MediaMetricsProvider_SetDemuxerType_ParamsSpec,
       null,
-      [demuxer_type]);
+      [demuxer_type],
+      false);
   }
 
   setKeySystem(key_system) {
@@ -342,7 +354,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       12,  // ordinal
       media.mojom.MediaMetricsProvider_SetKeySystem_ParamsSpec,
       null,
-      [key_system]);
+      [key_system],
+      false);
   }
 
   setHasWaitingForKey() {
@@ -351,7 +364,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       13,  // ordinal
       media.mojom.MediaMetricsProvider_SetHasWaitingForKey_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setIsHardwareSecure() {
@@ -360,7 +374,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       14,  // ordinal
       media.mojom.MediaMetricsProvider_SetIsHardwareSecure_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setHasTrackChange() {
@@ -369,7 +384,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       15,  // ordinal
       media.mojom.MediaMetricsProvider_SetHasTrackChange_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setContainerName(container_name) {
@@ -378,7 +394,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       16,  // ordinal
       media.mojom.MediaMetricsProvider_SetContainerName_ParamsSpec,
       null,
-      [container_name]);
+      [container_name],
+      false);
   }
 
   acquireWatchTimeRecorder(properties, recorder) {
@@ -387,7 +404,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       17,  // ordinal
       media.mojom.MediaMetricsProvider_AcquireWatchTimeRecorder_ParamsSpec,
       null,
-      [properties, recorder]);
+      [properties, recorder],
+      false);
   }
 
   acquireVideoDecodeStatsRecorder(recorder) {
@@ -396,7 +414,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       18,  // ordinal
       media.mojom.MediaMetricsProvider_AcquireVideoDecodeStatsRecorder_ParamsSpec,
       null,
-      [recorder]);
+      [recorder],
+      false);
   }
 
   acquirePlaybackEventsRecorder(receiver) {
@@ -405,7 +424,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       19,  // ordinal
       media.mojom.MediaMetricsProvider_AcquirePlaybackEventsRecorder_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   setHasAudio(codec) {
@@ -414,7 +434,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       20,  // ordinal
       media.mojom.MediaMetricsProvider_SetHasAudio_ParamsSpec,
       null,
-      [codec]);
+      [codec],
+      false);
   }
 
   setHasVideo(codec) {
@@ -423,7 +444,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       21,  // ordinal
       media.mojom.MediaMetricsProvider_SetHasVideo_ParamsSpec,
       null,
-      [codec]);
+      [codec],
+      false);
   }
 
   setVideoPipelineInfo(info) {
@@ -432,7 +454,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       22,  // ordinal
       media.mojom.MediaMetricsProvider_SetVideoPipelineInfo_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
   setAudioPipelineInfo(info) {
@@ -441,7 +464,8 @@ media.mojom.MediaMetricsProviderRemoteCallHandler = class {
       23,  // ordinal
       media.mojom.MediaMetricsProvider_SetAudioPipelineInfo_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
 };

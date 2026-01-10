@@ -75,7 +75,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     help_bubble.mojom.HelpBubbleParamsSpec, 'help_bubble.mojom.HelpBubbleParams', [
       mojo.internal.StructField('native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('position', 8, 0, help_bubble.mojom.HelpBubbleArrowPositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('position', 8, 0, help_bubble.mojom.HelpBubbleArrowPositionSpec, 0, false, 0, undefined),
       mojo.internal.StructField('title_text', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('body_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('close_button_alt_text', 32, 0, mojo.internal.String, null, false, 0, undefined),
@@ -135,7 +135,8 @@ help_bubble.mojom.HelpBubbleHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec,
       null,
-      [client, handler]);
+      [client, handler],
+      false);
   }
 
 };
@@ -200,7 +201,8 @@ help_bubble.mojom.PdfHelpBubbleHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec,
       null,
-      [client, handler]);
+      [client, handler],
+      false);
   }
 
 };
@@ -278,7 +280,8 @@ help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
       0,  // ordinal
       help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
   helpBubbleButtonPressed(native_identifier, button_index) {
@@ -287,7 +290,8 @@ help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
       1,  // ordinal
       help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec,
       null,
-      [native_identifier, button_index]);
+      [native_identifier, button_index],
+      false);
   }
 
   helpBubbleClosed(native_identifier, reason) {
@@ -296,7 +300,8 @@ help_bubble.mojom.HelpBubbleHandlerRemoteCallHandler = class {
       2,  // ordinal
       help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec,
       null,
-      [native_identifier, reason]);
+      [native_identifier, reason],
+      false);
   }
 
 };
@@ -379,7 +384,8 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
       0,  // ordinal
       help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   toggleFocusForAccessibility(native_identifier) {
@@ -388,7 +394,8 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
       1,  // ordinal
       help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec,
       null,
-      [native_identifier]);
+      [native_identifier],
+      false);
   }
 
   hideHelpBubble(native_identifier) {
@@ -397,7 +404,8 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
       2,  // ordinal
       help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec,
       null,
-      [native_identifier]);
+      [native_identifier],
+      false);
   }
 
   externalHelpBubbleUpdated(native_identifier, shown) {
@@ -406,7 +414,8 @@ help_bubble.mojom.HelpBubbleClientRemoteCallHandler = class {
       3,  // ordinal
       help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec,
       null,
-      [native_identifier, shown]);
+      [native_identifier, shown],
+      false);
   }
 
 };

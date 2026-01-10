@@ -142,7 +142,8 @@ viz.mojom.FrameSinkBundleRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec,
       null,
-      [sink_id, needs_begin_frame]);
+      [sink_id, needs_begin_frame],
+      false);
   }
 
   submit(submissions) {
@@ -151,7 +152,8 @@ viz.mojom.FrameSinkBundleRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.FrameSinkBundle_Submit_ParamsSpec,
       null,
-      [submissions]);
+      [submissions],
+      false);
   }
 
   setThreads(sink_id, threads) {
@@ -160,7 +162,8 @@ viz.mojom.FrameSinkBundleRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.FrameSinkBundle_SetThreads_ParamsSpec,
       null,
-      [sink_id, threads]);
+      [sink_id, threads],
+      false);
   }
 
 };
@@ -240,7 +243,8 @@ viz.mojom.FrameSinkBundleClientRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec,
       null,
-      [acks, begin_frames, reclaimed_resources]);
+      [acks, begin_frames, reclaimed_resources],
+      false);
   }
 
   onBeginFramePausedChanged(sink_id, paused) {
@@ -249,7 +253,8 @@ viz.mojom.FrameSinkBundleClientRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.FrameSinkBundleClient_OnBeginFramePausedChanged_ParamsSpec,
       null,
-      [sink_id, paused]);
+      [sink_id, paused],
+      false);
   }
 
   onCompositorFrameTransitionDirectiveProcessed(sink_id, sequence_id) {
@@ -258,7 +263,8 @@ viz.mojom.FrameSinkBundleClientRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.FrameSinkBundleClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
-      [sink_id, sequence_id]);
+      [sink_id, sequence_id],
+      false);
   }
 
 };

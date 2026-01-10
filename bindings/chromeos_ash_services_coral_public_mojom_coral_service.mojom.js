@@ -230,7 +230,8 @@ coral.mojom.TitleObserverRemoteCallHandler = class {
       0,  // ordinal
       coral.mojom.TitleObserver_TitleUpdated_ParamsSpec,
       null,
-      [group_id, title]);
+      [group_id, title],
+      false);
   }
 
 };
@@ -313,7 +314,8 @@ coral.mojom.CoralProcessorRemoteCallHandler = class {
       0,  // ordinal
       coral.mojom.CoralProcessor_Group_ParamsSpec,
       coral.mojom.CoralProcessor_Group_ResponseParamsSpec,
-      [request, observer]);
+      [request, observer],
+      false);
   }
 
   cacheEmbeddings(request) {
@@ -322,7 +324,8 @@ coral.mojom.CoralProcessorRemoteCallHandler = class {
       1,  // ordinal
       coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec,
       coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
 };
@@ -418,7 +421,8 @@ coral.mojom.CoralServiceRemoteCallHandler = class {
       0,  // ordinal
       coral.mojom.CoralService_GroupDeprecated_ParamsSpec,
       coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec,
-      [request, observer]);
+      [request, observer],
+      false);
   }
 
   cacheEmbeddingsDeprecated(request) {
@@ -427,7 +431,8 @@ coral.mojom.CoralServiceRemoteCallHandler = class {
       1,  // ordinal
       coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec,
       coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   prepareResource() {
@@ -436,7 +441,8 @@ coral.mojom.CoralServiceRemoteCallHandler = class {
       2,  // ordinal
       coral.mojom.CoralService_PrepareResource_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   initialize(ml_service, processor, language_code) {
@@ -445,7 +451,8 @@ coral.mojom.CoralServiceRemoteCallHandler = class {
       3,  // ordinal
       coral.mojom.CoralService_Initialize_ParamsSpec,
       null,
-      [ml_service, processor, language_code]);
+      [ml_service, processor, language_code],
+      false);
   }
 
 };

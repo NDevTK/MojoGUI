@@ -34,7 +34,7 @@ device.mojom.PressureManagerAddClientResult = {
 // Struct: VirtualPressureSourceMetadata
 mojo.internal.Struct(
     device.mojom.VirtualPressureSourceMetadataSpec, 'device.mojom.VirtualPressureSourceMetadata', [
-      mojo.internal.StructField('available', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('available', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -130,7 +130,8 @@ device.mojom.PressureManagerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.PressureManager_AddVirtualPressureSource_ParamsSpec,
       device.mojom.PressureManager_AddVirtualPressureSource_ResponseParamsSpec,
-      [token, source, metadata]);
+      [token, source, metadata],
+      false);
   }
 
   removeVirtualPressureSource(token, source) {
@@ -139,7 +140,8 @@ device.mojom.PressureManagerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.PressureManager_RemoveVirtualPressureSource_ParamsSpec,
       device.mojom.PressureManager_RemoveVirtualPressureSource_ResponseParamsSpec,
-      [token, source]);
+      [token, source],
+      false);
   }
 
   updateVirtualPressureSourceData(token, source, state, own_contribution_estimate) {
@@ -148,7 +150,8 @@ device.mojom.PressureManagerRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.PressureManager_UpdateVirtualPressureSourceData_ParamsSpec,
       device.mojom.PressureManager_UpdateVirtualPressureSourceData_ResponseParamsSpec,
-      [token, source, state, own_contribution_estimate]);
+      [token, source, state, own_contribution_estimate],
+      false);
   }
 
   addClient(source, token, client) {
@@ -157,7 +160,8 @@ device.mojom.PressureManagerRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.PressureManager_AddClient_ParamsSpec,
       device.mojom.PressureManager_AddClient_ResponseParamsSpec,
-      [source, token, client]);
+      [source, token, client],
+      false);
   }
 
 };
@@ -221,7 +225,8 @@ device.mojom.PressureClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.PressureClient_OnPressureUpdated_ParamsSpec,
       null,
-      [update]);
+      [update],
+      false);
   }
 
 };

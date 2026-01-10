@@ -13,6 +13,6 @@ on_device_model.mojom.DownloaderParamsSpec = { $: {} };
 // Struct: DownloaderParams
 mojo.internal.Struct(
     on_device_model.mojom.DownloaderParamsSpec, 'on_device_model.mojom.DownloaderParams', [
-      mojo.internal.StructField('require_persistent_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('require_persistent_mode', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 16]]);

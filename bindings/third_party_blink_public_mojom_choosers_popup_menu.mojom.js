@@ -81,7 +81,8 @@ blink.mojom.PopupMenuClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec,
       null,
-      [indices]);
+      [indices],
+      false);
   }
 
   didCancel() {
@@ -90,7 +91,8 @@ blink.mojom.PopupMenuClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PopupMenuClient_DidCancel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

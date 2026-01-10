@@ -68,7 +68,8 @@ quick_answers.mojom.SpellCheckServiceRemoteCallHandler = class {
       0,  // ordinal
       quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec,
       quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec,
-      [dictionary_file]);
+      [dictionary_file],
+      false);
   }
 
 };
@@ -138,7 +139,8 @@ quick_answers.mojom.SpellCheckDictionaryRemoteCallHandler = class {
       0,  // ordinal
       quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec,
       quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec,
-      [word]);
+      [word],
+      false);
   }
 
 };

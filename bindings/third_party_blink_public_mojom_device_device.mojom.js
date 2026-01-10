@@ -89,7 +89,8 @@ blink.mojom.ManagedConfigurationObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ManagedConfigurationObserver_OnConfigurationChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -202,7 +203,8 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DeviceAPIService_GetDirectoryId_ParamsSpec,
       blink.mojom.DeviceAPIService_GetDirectoryId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getHostname() {
@@ -211,7 +213,8 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DeviceAPIService_GetHostname_ParamsSpec,
       blink.mojom.DeviceAPIService_GetHostname_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSerialNumber() {
@@ -220,7 +223,8 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.DeviceAPIService_GetSerialNumber_ParamsSpec,
       blink.mojom.DeviceAPIService_GetSerialNumber_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAnnotatedAssetId() {
@@ -229,7 +233,8 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ParamsSpec,
       blink.mojom.DeviceAPIService_GetAnnotatedAssetId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAnnotatedLocation() {
@@ -238,7 +243,8 @@ blink.mojom.DeviceAPIServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.DeviceAPIService_GetAnnotatedLocation_ParamsSpec,
       blink.mojom.DeviceAPIService_GetAnnotatedLocation_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -314,7 +320,8 @@ blink.mojom.ManagedConfigurationServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ParamsSpec,
       blink.mojom.ManagedConfigurationService_GetManagedConfiguration_ResponseParamsSpec,
-      [keys]);
+      [keys],
+      false);
   }
 
   subscribeToManagedConfiguration(observer) {
@@ -323,7 +330,8 @@ blink.mojom.ManagedConfigurationServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ManagedConfigurationService_SubscribeToManagedConfiguration_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

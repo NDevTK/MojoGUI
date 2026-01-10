@@ -901,7 +901,8 @@ crosapi.mojom.TelemetryProbeServiceRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ParamsSpec,
       crosapi.mojom.TelemetryProbeService_ProbeTelemetryInfo_ResponseParamsSpec,
-      [categories]);
+      [categories],
+      false);
   }
 
   getOemData() {
@@ -910,7 +911,8 @@ crosapi.mojom.TelemetryProbeServiceRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.TelemetryProbeService_GetOemData_ParamsSpec,
       crosapi.mojom.TelemetryProbeService_GetOemData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

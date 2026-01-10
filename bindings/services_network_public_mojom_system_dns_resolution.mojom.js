@@ -71,7 +71,8 @@ network.mojom.SystemDnsResolverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.SystemDnsResolver_Resolve_ParamsSpec,
       network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec,
-      [hostname, addr_family, flags, network]);
+      [hostname, addr_family, flags, network],
+      false);
   }
 
 };

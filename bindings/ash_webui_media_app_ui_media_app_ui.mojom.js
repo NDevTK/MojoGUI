@@ -76,7 +76,8 @@ ash.media_app_ui.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -214,7 +215,8 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec,
       ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   toggleBrowserFullscreenMode() {
@@ -223,7 +225,8 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec,
       ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   maybeTriggerPdfHats() {
@@ -232,7 +235,8 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec,
       ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isFileArcWritable(token) {
@@ -241,7 +245,8 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec,
       ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec,
-      [token]);
+      [token],
+      false);
   }
 
   isFileBrowserWritable(token) {
@@ -250,7 +255,8 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec,
       ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec,
-      [token]);
+      [token],
+      false);
   }
 
   editInPhotos(token, mime_type) {
@@ -259,7 +265,8 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec,
       ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec,
-      [token, mime_type]);
+      [token, mime_type],
+      false);
   }
 
   submitForm(url, payload, header) {
@@ -268,7 +275,8 @@ ash.media_app_ui.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec,
       ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec,
-      [url, payload, header]);
+      [url, payload, header],
+      false);
   }
 
 };

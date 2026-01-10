@@ -60,7 +60,8 @@ lens.mojom.LensGhostLoaderPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
 };
@@ -123,7 +124,8 @@ lens.mojom.LensGhostLoaderPageRemoteCallHandler = class {
       0,  // ordinal
       lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

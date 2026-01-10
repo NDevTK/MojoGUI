@@ -64,7 +64,8 @@ webapps.mojom.WebPageMetadataAgentRemoteCallHandler = class {
       0,  // ordinal
       webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec,
       webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

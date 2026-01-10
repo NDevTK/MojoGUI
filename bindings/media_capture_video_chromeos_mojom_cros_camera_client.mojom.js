@@ -58,7 +58,8 @@ cros.mojom.CameraHalClientRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec,
       null,
-      [camera_module]);
+      [camera_module],
+      false);
   }
 
 };

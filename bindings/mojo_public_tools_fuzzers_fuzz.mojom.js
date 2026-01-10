@@ -219,7 +219,8 @@ fuzz.mojom.FuzzDummyInterfaceRemoteCallHandler = class {
       0,  // ordinal
       fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -339,7 +340,8 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       0,  // ordinal
       fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   fuzzBasicResp() {
@@ -348,7 +350,8 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       1,  // ordinal
       fuzz.mojom.FuzzInterface_FuzzBasicResp_ParamsSpec,
       fuzz.mojom.FuzzInterface_FuzzBasicResp_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   fuzzBasicSyncResp() {
@@ -357,7 +360,8 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       2,  // ordinal
       fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ParamsSpec,
       fuzz.mojom.FuzzInterface_FuzzBasicSyncResp_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   fuzzArgs(a, b) {
@@ -366,7 +370,8 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       3,  // ordinal
       fuzz.mojom.FuzzInterface_FuzzArgs_ParamsSpec,
       null,
-      [a, b]);
+      [a, b],
+      false);
   }
 
   fuzzArgsResp(a, b) {
@@ -375,7 +380,8 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       4,  // ordinal
       fuzz.mojom.FuzzInterface_FuzzArgsResp_ParamsSpec,
       fuzz.mojom.FuzzInterface_FuzzArgsResp_ResponseParamsSpec,
-      [a, b]);
+      [a, b],
+      false);
   }
 
   fuzzArgsSyncResp(a, b) {
@@ -384,7 +390,8 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       5,  // ordinal
       fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ParamsSpec,
       fuzz.mojom.FuzzInterface_FuzzArgsSyncResp_ResponseParamsSpec,
-      [a, b]);
+      [a, b],
+      false);
   }
 
   fuzzAssociated(receiver) {
@@ -393,7 +400,8 @@ fuzz.mojom.FuzzInterfaceRemoteCallHandler = class {
       6,  // ordinal
       fuzz.mojom.FuzzInterface_FuzzAssociated_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

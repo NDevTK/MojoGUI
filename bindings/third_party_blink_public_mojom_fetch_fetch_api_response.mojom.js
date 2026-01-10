@@ -35,10 +35,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('side_data_blob_for_cache_put', 96, 0, blink.mojom.SerializedBlobSpec, null, true, 0, undefined),
       mojo.internal.StructField('parsed_headers', 104, 0, network.mojom.ParsedHeadersSpec, null, true, 0, undefined),
       mojo.internal.StructField('connection_info', 112, 0, network.mojom.ConnectionInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('alpn_negotiated_protocol', 120, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('alpn_negotiated_protocol', 120, 0, mojo.internal.String, 0, false, 0, undefined),
       mojo.internal.StructField('was_fetched_via_spdy', 128, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('has_range_requested', 128, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('auth_challenge_info', 136, 0, network.mojom.AuthChallengeInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('request_include_credentials', 144, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('request_include_credentials', 144, 0, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 160]]);

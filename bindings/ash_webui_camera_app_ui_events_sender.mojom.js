@@ -574,7 +574,8 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       0,  // ordinal
       ash.camera_app.mojom.EventsSender_SendStartSessionEvent_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   sendCaptureEvent(params) {
@@ -583,7 +584,8 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       1,  // ordinal
       ash.camera_app.mojom.EventsSender_SendCaptureEvent_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   sendAndroidIntentEvent(params) {
@@ -592,7 +594,8 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       2,  // ordinal
       ash.camera_app.mojom.EventsSender_SendAndroidIntentEvent_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   sendOpenPTZPanelEvent(params) {
@@ -601,7 +604,8 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       3,  // ordinal
       ash.camera_app.mojom.EventsSender_SendOpenPTZPanelEvent_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   sendDocScanActionEvent(params) {
@@ -610,7 +614,8 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       4,  // ordinal
       ash.camera_app.mojom.EventsSender_SendDocScanActionEvent_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   sendDocScanResultEvent(params) {
@@ -619,7 +624,8 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       5,  // ordinal
       ash.camera_app.mojom.EventsSender_SendDocScanResultEvent_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   sendOpenCameraEvent(params) {
@@ -628,7 +634,8 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       6,  // ordinal
       ash.camera_app.mojom.EventsSender_SendOpenCameraEvent_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   sendLowStorageActionEvent(params) {
@@ -637,7 +644,8 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       7,  // ordinal
       ash.camera_app.mojom.EventsSender_SendLowStorageActionEvent_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   sendBarcodeDetectedEvent(params) {
@@ -646,7 +654,8 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       8,  // ordinal
       ash.camera_app.mojom.EventsSender_SendBarcodeDetectedEvent_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   sendPerfEvent(params) {
@@ -655,7 +664,8 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       9,  // ordinal
       ash.camera_app.mojom.EventsSender_SendPerfEvent_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   sendUnsupportedProtocolEvent() {
@@ -664,7 +674,8 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       10,  // ordinal
       ash.camera_app.mojom.EventsSender_SendUnsupportedProtocolEvent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateMemoryUsageEventParams(params) {
@@ -673,7 +684,8 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       11,  // ordinal
       ash.camera_app.mojom.EventsSender_UpdateMemoryUsageEventParams_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   sendOcrEvent(params) {
@@ -682,7 +694,8 @@ ash.camera_app.mojom.EventsSenderRemoteCallHandler = class {
       12,  // ordinal
       ash.camera_app.mojom.EventsSender_SendOcrEvent_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
 };

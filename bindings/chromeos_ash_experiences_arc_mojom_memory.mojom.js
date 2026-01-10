@@ -101,7 +101,8 @@ arc.mojom.MemoryInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.MemoryInstance_DropCaches_ParamsSpec,
       arc.mojom.MemoryInstance_DropCaches_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   reclaim(request) {
@@ -110,7 +111,8 @@ arc.mojom.MemoryInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.MemoryInstance_Reclaim_ParamsSpec,
       arc.mojom.MemoryInstance_Reclaim_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
 };

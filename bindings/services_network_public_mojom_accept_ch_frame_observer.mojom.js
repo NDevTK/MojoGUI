@@ -75,7 +75,8 @@ network.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec,
       network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec,
-      [origin, accept_ch_frame]);
+      [origin, accept_ch_frame],
+      false);
   }
 
   clone(listener) {
@@ -84,7 +85,8 @@ network.mojom.AcceptCHFrameObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec,
       null,
-      [listener]);
+      [listener],
+      false);
   }
 
 };

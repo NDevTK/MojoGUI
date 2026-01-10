@@ -109,7 +109,8 @@ ax.mojom.AutomationRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec,
       null,
-      [tree_id]);
+      [tree_id],
+      false);
   }
 
   dispatchActionResult(data, result) {
@@ -118,7 +119,8 @@ ax.mojom.AutomationRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.Automation_DispatchActionResult_ParamsSpec,
       null,
-      [data, result]);
+      [data, result],
+      false);
   }
 
   dispatchAccessibilityEvents(tree_id, updates, mouse_location, events) {
@@ -127,7 +129,8 @@ ax.mojom.AutomationRemoteCallHandler = class {
       2,  // ordinal
       ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec,
       null,
-      [tree_id, updates, mouse_location, events]);
+      [tree_id, updates, mouse_location, events],
+      false);
   }
 
   dispatchAccessibilityLocationChange(tree_id, node_id, bounds) {
@@ -136,7 +139,8 @@ ax.mojom.AutomationRemoteCallHandler = class {
       3,  // ordinal
       ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec,
       null,
-      [tree_id, node_id, bounds]);
+      [tree_id, node_id, bounds],
+      false);
   }
 
   dispatchAccessibilityScrollChange(tree_id, node_id, scroll_x, scroll_y) {
@@ -145,7 +149,8 @@ ax.mojom.AutomationRemoteCallHandler = class {
       4,  // ordinal
       ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec,
       null,
-      [tree_id, node_id, scroll_x, scroll_y]);
+      [tree_id, node_id, scroll_x, scroll_y],
+      false);
   }
 
   dispatchGetTextLocationResult(data, rect) {
@@ -154,7 +159,8 @@ ax.mojom.AutomationRemoteCallHandler = class {
       5,  // ordinal
       ax.mojom.Automation_DispatchGetTextLocationResult_ParamsSpec,
       null,
-      [data, rect]);
+      [data, rect],
+      false);
   }
 
 };

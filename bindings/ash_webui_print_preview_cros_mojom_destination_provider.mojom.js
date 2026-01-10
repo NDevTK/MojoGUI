@@ -68,7 +68,8 @@ ash.printing.print_preview.mojom.DestinationProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec,
       ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec,
-      [destination_id, printer_type]);
+      [destination_id, printer_type],
+      false);
   }
 
 };

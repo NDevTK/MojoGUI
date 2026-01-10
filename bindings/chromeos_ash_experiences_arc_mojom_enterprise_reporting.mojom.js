@@ -85,7 +85,8 @@ arc.mojom.EnterpriseReportingHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec,
       null,
-      [time_ms, op, success]);
+      [time_ms, op, success],
+      false);
   }
 
 };
@@ -166,7 +167,8 @@ arc.mojom.EnterpriseReportingInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec,
       arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   getStatus() {
@@ -175,7 +177,8 @@ arc.mojom.EnterpriseReportingInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec,
       arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

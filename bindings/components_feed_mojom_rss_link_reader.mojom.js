@@ -73,7 +73,8 @@ feed.mojom.RssLinkReaderRemoteCallHandler = class {
       0,  // ordinal
       feed.mojom.RssLinkReader_GetRssLinks_ParamsSpec,
       feed.mojom.RssLinkReader_GetRssLinks_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

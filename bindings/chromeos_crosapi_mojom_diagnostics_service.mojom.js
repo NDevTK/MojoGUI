@@ -639,7 +639,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ParamsSpec,
       crosapi.mojom.DiagnosticsService_GetAvailableRoutines_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getRoutineUpdate(id, command, include_output) {
@@ -648,7 +649,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ParamsSpec,
       crosapi.mojom.DiagnosticsService_GetRoutineUpdate_ResponseParamsSpec,
-      [id, command, include_output]);
+      [id, command, include_output],
+      false);
   }
 
   runBatteryCapacityRoutine() {
@@ -657,7 +659,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       2,  // ordinal
       crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runBatteryHealthRoutine() {
@@ -666,7 +669,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       3,  // ordinal
       crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runSmartctlCheckRoutine(percentage_used_threshold) {
@@ -675,7 +679,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       4,  // ordinal
       crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec,
-      [percentage_used_threshold]);
+      [percentage_used_threshold],
+      false);
   }
 
   runAcPowerRoutine(expected_status, expected_power_type) {
@@ -684,7 +689,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       5,  // ordinal
       crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec,
-      [expected_status, expected_power_type]);
+      [expected_status, expected_power_type],
+      false);
   }
 
   runCpuCacheRoutine(length_seconds) {
@@ -693,7 +699,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       6,  // ordinal
       crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec,
-      [length_seconds]);
+      [length_seconds],
+      false);
   }
 
   runCpuStressRoutine(length_seconds) {
@@ -702,7 +709,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       7,  // ordinal
       crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec,
-      [length_seconds]);
+      [length_seconds],
+      false);
   }
 
   runFloatingPointAccuracyRoutine(length_seconds) {
@@ -711,7 +719,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       8,  // ordinal
       crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec,
-      [length_seconds]);
+      [length_seconds],
+      false);
   }
 
   dEPRECATED_RunNvmeWearLevelRoutine(wear_level_threshold) {
@@ -720,7 +729,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       9,  // ordinal
       crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec,
-      [wear_level_threshold]);
+      [wear_level_threshold],
+      false);
   }
 
   runNvmeSelfTestRoutine(nvme_self_test_type) {
@@ -729,7 +739,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       10,  // ordinal
       crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec,
-      [nvme_self_test_type]);
+      [nvme_self_test_type],
+      false);
   }
 
   runDiskReadRoutine(type, length_seconds, file_size_mb) {
@@ -738,7 +749,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       11,  // ordinal
       crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec,
-      [type, length_seconds, file_size_mb]);
+      [type, length_seconds, file_size_mb],
+      false);
   }
 
   runPrimeSearchRoutine(length_seconds) {
@@ -747,7 +759,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       12,  // ordinal
       crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec,
-      [length_seconds]);
+      [length_seconds],
+      false);
   }
 
   runBatteryDischargeRoutine(length_seconds, maximum_discharge_percent_allowed) {
@@ -756,7 +769,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       13,  // ordinal
       crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec,
-      [length_seconds, maximum_discharge_percent_allowed]);
+      [length_seconds, maximum_discharge_percent_allowed],
+      false);
   }
 
   runBatteryChargeRoutine(length_seconds, minimum_charge_percent_required) {
@@ -765,7 +779,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       14,  // ordinal
       crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec,
-      [length_seconds, minimum_charge_percent_required]);
+      [length_seconds, minimum_charge_percent_required],
+      false);
   }
 
   runMemoryRoutine() {
@@ -774,7 +789,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       15,  // ordinal
       crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunMemoryRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runLanConnectivityRoutine() {
@@ -783,7 +799,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       16,  // ordinal
       crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runDnsResolutionRoutine() {
@@ -792,7 +809,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       17,  // ordinal
       crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runSignalStrengthRoutine() {
@@ -801,7 +819,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       18,  // ordinal
       crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runGatewayCanBePingedRoutine() {
@@ -810,7 +829,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       19,  // ordinal
       crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runDnsResolverPresentRoutine() {
@@ -819,7 +839,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       20,  // ordinal
       crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runSensitiveSensorRoutine() {
@@ -828,7 +849,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       21,  // ordinal
       crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runFingerprintAliveRoutine() {
@@ -837,7 +859,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       22,  // ordinal
       crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runEmmcLifetimeRoutine() {
@@ -846,7 +869,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       23,  // ordinal
       crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runBluetoothPowerRoutine() {
@@ -855,7 +879,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       24,  // ordinal
       crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runUfsLifetimeRoutine() {
@@ -864,7 +889,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       25,  // ordinal
       crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runPowerButtonRoutine(timeout_seconds) {
@@ -873,7 +899,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       26,  // ordinal
       crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec,
-      [timeout_seconds]);
+      [timeout_seconds],
+      false);
   }
 
   runAudioDriverRoutine() {
@@ -882,7 +909,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       27,  // ordinal
       crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runBluetoothDiscoveryRoutine() {
@@ -891,7 +919,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       28,  // ordinal
       crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runBluetoothScanningRoutine(length_seconds) {
@@ -900,7 +929,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       29,  // ordinal
       crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec,
-      [length_seconds]);
+      [length_seconds],
+      false);
   }
 
   runBluetoothPairingRoutine(peripheral_id) {
@@ -909,7 +939,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       30,  // ordinal
       crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec,
-      [peripheral_id]);
+      [peripheral_id],
+      false);
   }
 
   runFanRoutine() {
@@ -918,7 +949,8 @@ crosapi.mojom.DiagnosticsServiceRemoteCallHandler = class {
       31,  // ordinal
       crosapi.mojom.DiagnosticsService_RunFanRoutine_ParamsSpec,
       crosapi.mojom.DiagnosticsService_RunFanRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

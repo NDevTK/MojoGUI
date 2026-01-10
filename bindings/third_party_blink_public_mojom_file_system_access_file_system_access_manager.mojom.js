@@ -242,7 +242,8 @@ blink.mojom.FileSystemAccessManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ParamsSpec,
       blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSandboxedFileSystemForDevtools(directory_path_components) {
@@ -251,7 +252,8 @@ blink.mojom.FileSystemAccessManagerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ParamsSpec,
       blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec,
-      [directory_path_components]);
+      [directory_path_components],
+      false);
   }
 
   chooseEntries(options) {
@@ -260,7 +262,8 @@ blink.mojom.FileSystemAccessManagerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FileSystemAccessManager_ChooseEntries_ParamsSpec,
       blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   getFileHandleFromToken(token, file_handle) {
@@ -269,7 +272,8 @@ blink.mojom.FileSystemAccessManagerRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_ParamsSpec,
       null,
-      [token, file_handle]);
+      [token, file_handle],
+      false);
   }
 
   getDirectoryHandleFromToken(token, directory_handle) {
@@ -278,7 +282,8 @@ blink.mojom.FileSystemAccessManagerRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_ParamsSpec,
       null,
-      [token, directory_handle]);
+      [token, directory_handle],
+      false);
   }
 
   getEntryFromDataTransferToken(token) {
@@ -287,7 +292,8 @@ blink.mojom.FileSystemAccessManagerRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ParamsSpec,
       blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec,
-      [token]);
+      [token],
+      false);
   }
 
   bindObserverHost(observer_host) {
@@ -296,7 +302,8 @@ blink.mojom.FileSystemAccessManagerRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.FileSystemAccessManager_BindObserverHost_ParamsSpec,
       null,
-      [observer_host]);
+      [observer_host],
+      false);
   }
 
 };

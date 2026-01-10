@@ -93,7 +93,8 @@ history_sync_optin.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -172,7 +173,8 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       history_sync_optin.mojom.PageHandler_Accept_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   reject() {
@@ -181,7 +183,8 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       history_sync_optin.mojom.PageHandler_Reject_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   requestAccountInfo() {
@@ -190,7 +193,8 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateDialogHeight(height) {
@@ -199,7 +203,8 @@ history_sync_optin.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec,
       null,
-      [height]);
+      [height],
+      false);
   }
 
 };
@@ -269,7 +274,8 @@ history_sync_optin.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec,
       null,
-      [account_info]);
+      [account_info],
+      false);
   }
 
   sendScreenMode(screen_mode) {
@@ -278,7 +284,8 @@ history_sync_optin.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec,
       null,
-      [screen_mode]);
+      [screen_mode],
+      false);
   }
 
 };

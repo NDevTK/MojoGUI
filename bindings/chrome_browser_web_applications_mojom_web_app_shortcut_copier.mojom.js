@@ -65,7 +65,8 @@ web_app.mojom.WebAppShortcutCopierRemoteCallHandler = class {
       0,  // ordinal
       web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec,
       web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec,
-      [source_path, destination_path]);
+      [source_path, destination_path],
+      false);
   }
 
 };

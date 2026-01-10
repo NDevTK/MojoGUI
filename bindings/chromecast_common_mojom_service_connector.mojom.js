@@ -58,7 +58,8 @@ chromecast.mojom.ServiceConnectorRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.ServiceConnector_Connect_ParamsSpec,
       null,
-      [service_name, receiver]);
+      [service_name, receiver],
+      false);
   }
 
 };

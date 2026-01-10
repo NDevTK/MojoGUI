@@ -67,19 +67,19 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chrome.mojom.MediaMetadataSpec, 'chrome.mojom.MediaMetadata', [
       mojo.internal.StructField('mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('height', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('width', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('duration', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('height', 8, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('width', 12, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('duration', 16, 0, mojo.internal.Double, -1, false, 0, undefined),
       mojo.internal.StructField('rotation', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('album', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('artist', 40, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('comment', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('copyright', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('disc', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('disc', 64, 0, mojo.internal.Int32, -1, false, 0, undefined),
       mojo.internal.StructField('genre', 72, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('language', 80, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('title', 88, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('track', 96, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('track', 96, 0, mojo.internal.Int32, -1, false, 0, undefined),
       mojo.internal.StructField('raw_tags', 104, 0, mojo.internal.Array(chrome.mojom.MediaStreamInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 120]]);
@@ -187,7 +187,8 @@ chrome.mojom.MediaParserRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec,
       chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec,
-      [mime_type, total_size, get_attached_images, media_data_source]);
+      [mime_type, total_size, get_attached_images, media_data_source],
+      false);
   }
 
   extractVideoFrame(mime_type, total_size, media_data_source) {
@@ -196,7 +197,8 @@ chrome.mojom.MediaParserRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.MediaParser_ExtractVideoFrame_ParamsSpec,
       chrome.mojom.MediaParser_ExtractVideoFrame_ResponseParamsSpec,
-      [mime_type, total_size, media_data_source]);
+      [mime_type, total_size, media_data_source],
+      false);
   }
 
   checkMediaFile(decode_time, file) {
@@ -205,7 +207,8 @@ chrome.mojom.MediaParserRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec,
       chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec,
-      [decode_time, file]);
+      [decode_time, file],
+      false);
   }
 
   getCpuInfo() {
@@ -214,7 +217,8 @@ chrome.mojom.MediaParserRemoteCallHandler = class {
       3,  // ordinal
       chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec,
       chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -285,7 +289,8 @@ chrome.mojom.MediaParserFactoryRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec,
       chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec,
-      [libyuv_cpu_flags, libavutil_cpu_flags]);
+      [libyuv_cpu_flags, libavutil_cpu_flags],
+      false);
   }
 
 };
@@ -356,7 +361,8 @@ chrome.mojom.MediaDataSourceRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.MediaDataSource_Read_ParamsSpec,
       chrome.mojom.MediaDataSource_Read_ResponseParamsSpec,
-      [position, length]);
+      [position, length],
+      false);
   }
 
 };

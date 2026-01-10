@@ -132,7 +132,8 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
   onNewBuffer(buffer_id, buffer_handle) {
@@ -141,7 +142,8 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.VideoCaptureObserver_OnNewBuffer_ParamsSpec,
       null,
-      [buffer_id, buffer_handle]);
+      [buffer_id, buffer_handle],
+      false);
   }
 
   onBufferReady(buffer) {
@@ -150,7 +152,8 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.VideoCaptureObserver_OnBufferReady_ParamsSpec,
       null,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   onBufferDestroyed(buffer_id) {
@@ -159,7 +162,8 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.VideoCaptureObserver_OnBufferDestroyed_ParamsSpec,
       null,
-      [buffer_id]);
+      [buffer_id],
+      false);
   }
 
   onFrameDropped(reason) {
@@ -168,7 +172,8 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.VideoCaptureObserver_OnFrameDropped_ParamsSpec,
       null,
-      [reason]);
+      [reason],
+      false);
   }
 
   onNewCaptureVersion(capture_version) {
@@ -177,7 +182,8 @@ media.mojom.VideoCaptureObserverRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.VideoCaptureObserver_OnNewCaptureVersion_ParamsSpec,
       null,
-      [capture_version]);
+      [capture_version],
+      false);
   }
 
 };
@@ -311,7 +317,8 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoCaptureHost_Start_ParamsSpec,
       null,
-      [device_id, session_id, params, observer]);
+      [device_id, session_id, params, observer],
+      false);
   }
 
   stop(device_id) {
@@ -320,7 +327,8 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.VideoCaptureHost_Stop_ParamsSpec,
       null,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   pause(device_id) {
@@ -329,7 +337,8 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.VideoCaptureHost_Pause_ParamsSpec,
       null,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   resume(device_id, session_id, params) {
@@ -338,7 +347,8 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.VideoCaptureHost_Resume_ParamsSpec,
       null,
-      [device_id, session_id, params]);
+      [device_id, session_id, params],
+      false);
   }
 
   requestRefreshFrame(device_id) {
@@ -347,7 +357,8 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.VideoCaptureHost_RequestRefreshFrame_ParamsSpec,
       null,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   releaseBuffer(device_id, buffer_id, feedback) {
@@ -356,7 +367,8 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.VideoCaptureHost_ReleaseBuffer_ParamsSpec,
       null,
-      [device_id, buffer_id, feedback]);
+      [device_id, buffer_id, feedback],
+      false);
   }
 
   getDeviceSupportedFormats(device_id, session_id) {
@@ -365,7 +377,8 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ParamsSpec,
       media.mojom.VideoCaptureHost_GetDeviceSupportedFormats_ResponseParamsSpec,
-      [device_id, session_id]);
+      [device_id, session_id],
+      false);
   }
 
   getDeviceFormatsInUse(device_id, session_id) {
@@ -374,7 +387,8 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ParamsSpec,
       media.mojom.VideoCaptureHost_GetDeviceFormatsInUse_ResponseParamsSpec,
-      [device_id, session_id]);
+      [device_id, session_id],
+      false);
   }
 
   onLog(device_id, message) {
@@ -383,7 +397,8 @@ media.mojom.VideoCaptureHostRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.VideoCaptureHost_OnLog_ParamsSpec,
       null,
-      [device_id, message]);
+      [device_id, message],
+      false);
   }
 
 };

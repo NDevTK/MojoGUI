@@ -142,7 +142,8 @@ blink.mojom.FileChooserRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileChooser_OpenFileChooser_ParamsSpec,
       blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
   enumerateChosenDirectory(directory_path) {
@@ -151,7 +152,8 @@ blink.mojom.FileChooserRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec,
       blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec,
-      [directory_path]);
+      [directory_path],
+      false);
   }
 
 };

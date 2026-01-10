@@ -133,7 +133,8 @@ network.mojom.NetworkChangeManagerClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetworkChangeManagerClient_OnInitialConnectionType_ParamsSpec,
       null,
-      [type]);
+      [type],
+      false);
   }
 
   onNetworkChanged(type) {
@@ -142,7 +143,8 @@ network.mojom.NetworkChangeManagerClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.NetworkChangeManagerClient_OnNetworkChanged_ParamsSpec,
       null,
-      [type]);
+      [type],
+      false);
   }
 
 };
@@ -223,7 +225,8 @@ network.mojom.NetworkChangeManagerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetworkChangeManager_RequestNotifications_ParamsSpec,
       null,
-      [client_remote]);
+      [client_remote],
+      false);
   }
 
   onNetworkChanged(dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype) {
@@ -232,7 +235,8 @@ network.mojom.NetworkChangeManagerRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.NetworkChangeManager_OnNetworkChanged_ParamsSpec,
       null,
-      [dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype]);
+      [dns_changed, ip_address_change_type, connection_type_changed, new_connection_type, connection_subtype_changed, new_connection_subtype],
+      false);
   }
 
   bindNetworkInterfaceChangeListener(notifier) {
@@ -241,7 +245,8 @@ network.mojom.NetworkChangeManagerRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.NetworkChangeManager_BindNetworkInterfaceChangeListener_ParamsSpec,
       null,
-      [notifier]);
+      [notifier],
+      false);
   }
 
 };

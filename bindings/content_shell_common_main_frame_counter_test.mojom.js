@@ -63,7 +63,8 @@ content.mojom.MainFrameCounterTestRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec,
       content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

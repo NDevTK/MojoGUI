@@ -56,7 +56,8 @@ video_capture.mojom.TestingControlsRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.TestingControls_Crash_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

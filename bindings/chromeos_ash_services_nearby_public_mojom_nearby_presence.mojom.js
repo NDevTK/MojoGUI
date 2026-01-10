@@ -282,7 +282,8 @@ ash.nearby.presence.mojom.ScanObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec,
       null,
-      [device]);
+      [device],
+      false);
   }
 
   onDeviceChanged(device) {
@@ -291,7 +292,8 @@ ash.nearby.presence.mojom.ScanObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec,
       null,
-      [device]);
+      [device],
+      false);
   }
 
   onDeviceLost(device) {
@@ -300,7 +302,8 @@ ash.nearby.presence.mojom.ScanObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec,
       null,
-      [device]);
+      [device],
+      false);
   }
 
 };
@@ -422,7 +425,8 @@ ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
       0,  // ordinal
       ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec,
       ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec,
-      [scan_request]);
+      [scan_request],
+      false);
   }
 
   setScanObserver(scan_observer) {
@@ -431,7 +435,8 @@ ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
       1,  // ordinal
       ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec,
       null,
-      [scan_observer]);
+      [scan_observer],
+      false);
   }
 
   updateLocalDeviceMetadata(metadata) {
@@ -440,7 +445,8 @@ ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
       2,  // ordinal
       ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec,
       null,
-      [metadata]);
+      [metadata],
+      false);
   }
 
   updateLocalDeviceMetadataAndGenerateCredentials(metadata) {
@@ -449,7 +455,8 @@ ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
       3,  // ordinal
       ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec,
       ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec,
-      [metadata]);
+      [metadata],
+      false);
   }
 
   updateRemoteSharedCredentials(shared_credentials, account_name) {
@@ -458,7 +465,8 @@ ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
       4,  // ordinal
       ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec,
       ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec,
-      [shared_credentials, account_name]);
+      [shared_credentials, account_name],
+      false);
   }
 
   getLocalSharedCredentials(account_name) {
@@ -467,7 +475,8 @@ ash.nearby.presence.mojom.NearbyPresenceRemoteCallHandler = class {
       5,  // ordinal
       ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec,
       ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec,
-      [account_name]);
+      [account_name],
+      false);
   }
 
 };

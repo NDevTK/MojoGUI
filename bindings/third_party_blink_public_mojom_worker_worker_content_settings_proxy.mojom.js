@@ -102,7 +102,8 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ParamsSpec,
       blink.mojom.WorkerContentSettingsProxy_AllowIndexedDB_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   allowCacheStorage() {
@@ -111,7 +112,8 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ParamsSpec,
       blink.mojom.WorkerContentSettingsProxy_AllowCacheStorage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   allowWebLocks() {
@@ -120,7 +122,8 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ParamsSpec,
       blink.mojom.WorkerContentSettingsProxy_AllowWebLocks_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestFileSystemAccessSync() {
@@ -129,7 +132,8 @@ blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ParamsSpec,
       blink.mojom.WorkerContentSettingsProxy_RequestFileSystemAccessSync_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

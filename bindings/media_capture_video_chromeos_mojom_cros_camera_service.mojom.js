@@ -200,7 +200,8 @@ cros.mojom.KioskVisionObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec,
       null,
-      [detection]);
+      [detection],
+      false);
   }
 
   onTrackCompleted(track) {
@@ -209,7 +210,8 @@ cros.mojom.KioskVisionObserverRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.KioskVisionObserver_OnTrackCompleted_ParamsSpec,
       null,
-      [track]);
+      [track],
+      false);
   }
 
   onError(error) {
@@ -218,7 +220,8 @@ cros.mojom.KioskVisionObserverRemoteCallHandler = class {
       2,  // ordinal
       cros.mojom.KioskVisionObserver_OnError_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
 };
@@ -290,7 +293,8 @@ cros.mojom.CameraHalDispatcherRemoteCallHandler = class {
       5,  // ordinal
       cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec,
       cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ResponseParamsSpec,
-      [client, type, auth_token]);
+      [client, type, auth_token],
+      false);
   }
 
 };
@@ -381,7 +385,8 @@ cros.mojom.CrosCameraServiceObserverRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec,
       null,
-      [camera_id, opened, type]);
+      [camera_id, opened, type],
+      false);
   }
 
   cameraPrivacySwitchStateChange(state, camera_id) {
@@ -390,7 +395,8 @@ cros.mojom.CrosCameraServiceObserverRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.CrosCameraServiceObserver_CameraPrivacySwitchStateChange_ParamsSpec,
       null,
-      [state, camera_id]);
+      [state, camera_id],
+      false);
   }
 
   cameraSWPrivacySwitchStateChange(state) {
@@ -399,7 +405,8 @@ cros.mojom.CrosCameraServiceObserverRemoteCallHandler = class {
       2,  // ordinal
       cros.mojom.CrosCameraServiceObserver_CameraSWPrivacySwitchStateChange_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   cameraEffectChange(config) {
@@ -408,7 +415,8 @@ cros.mojom.CrosCameraServiceObserverRemoteCallHandler = class {
       3,  // ordinal
       cros.mojom.CrosCameraServiceObserver_CameraEffectChange_ParamsSpec,
       null,
-      [config]);
+      [config],
+      false);
   }
 
   autoFramingStateChange(state) {
@@ -417,7 +425,8 @@ cros.mojom.CrosCameraServiceObserverRemoteCallHandler = class {
       4,  // ordinal
       cros.mojom.CrosCameraServiceObserver_AutoFramingStateChange_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
 };
@@ -552,7 +561,8 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec,
       cros.mojom.CrosCameraService_GetCameraModule_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
   setTracingEnabled(enabled) {
@@ -561,7 +571,8 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.CrosCameraService_SetTracingEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setAutoFramingState(state) {
@@ -570,7 +581,8 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       2,  // ordinal
       cros.mojom.CrosCameraService_SetAutoFramingState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   getCameraSWPrivacySwitchState() {
@@ -579,7 +591,8 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       3,  // ordinal
       cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ParamsSpec,
       cros.mojom.CrosCameraService_GetCameraSWPrivacySwitchState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setCameraSWPrivacySwitchState(state) {
@@ -588,7 +601,8 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       4,  // ordinal
       cros.mojom.CrosCameraService_SetCameraSWPrivacySwitchState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   getAutoFramingSupported() {
@@ -597,7 +611,8 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       5,  // ordinal
       cros.mojom.CrosCameraService_GetAutoFramingSupported_ParamsSpec,
       cros.mojom.CrosCameraService_GetAutoFramingSupported_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setCameraEffect(config) {
@@ -606,7 +621,8 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       6,  // ordinal
       cros.mojom.CrosCameraService_SetCameraEffect_ParamsSpec,
       cros.mojom.CrosCameraService_SetCameraEffect_ResponseParamsSpec,
-      [config]);
+      [config],
+      false);
   }
 
   addCrosCameraServiceObserver(observer) {
@@ -615,7 +631,8 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       7,  // ordinal
       cros.mojom.CrosCameraService_AddCrosCameraServiceObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   startKioskVisionDetection(dlc_path, observer) {
@@ -624,7 +641,8 @@ cros.mojom.CrosCameraServiceRemoteCallHandler = class {
       8,  // ordinal
       cros.mojom.CrosCameraService_StartKioskVisionDetection_ParamsSpec,
       null,
-      [dlc_path, observer]);
+      [dlc_path, observer],
+      false);
   }
 
 };

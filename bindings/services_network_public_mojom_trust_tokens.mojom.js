@@ -110,10 +110,10 @@ network.mojom.DeleteStoredTrustTokensStatus = {
 mojo.internal.Struct(
     network.mojom.TrustTokenParamsSpec, 'network.mojom.TrustTokenParams', [
       mojo.internal.StructField('operation', 0, 0, network.mojom.TrustTokenOperationTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('refresh_policy', 4, 0, network.mojom.TrustTokenRefreshPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('refresh_policy', 4, 0, network.mojom.TrustTokenRefreshPolicySpec, 0, false, 0, undefined),
       mojo.internal.StructField('custom_key_commitment', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('custom_issuer', 16, 0, url.mojom.OriginSpec, null, true, 0, undefined),
-      mojo.internal.StructField('sign_request_data', 24, 0, network.mojom.TrustTokenSignRequestDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sign_request_data', 24, 0, network.mojom.TrustTokenSignRequestDataSpec, 0, false, 0, undefined),
       mojo.internal.StructField('include_timestamp_header', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('issuers', 32, 0, mojo.internal.Array(url.mojom.OriginSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('additional_signed_headers', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
@@ -261,7 +261,8 @@ network.mojom.TrustTokenQueryAnswererRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ParamsSpec,
       network.mojom.TrustTokenQueryAnswerer_HasTrustTokens_ResponseParamsSpec,
-      [issuer]);
+      [issuer],
+      false);
   }
 
   hasRedemptionRecord(issuer) {
@@ -270,7 +271,8 @@ network.mojom.TrustTokenQueryAnswererRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ParamsSpec,
       network.mojom.TrustTokenQueryAnswerer_HasRedemptionRecord_ResponseParamsSpec,
-      [issuer]);
+      [issuer],
+      false);
   }
 
 };

@@ -88,7 +88,8 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec,
       chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec,
-      [gaia_id, encryption_keys]);
+      [gaia_id, encryption_keys],
+      false);
   }
 
   addTrustedRecoveryMethod(gaia_id, public_key, method_type_hint) {
@@ -97,7 +98,8 @@ chrome.mojom.TrustedVaultEncryptionKeysExtensionRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec,
       chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec,
-      [gaia_id, public_key, method_type_hint]);
+      [gaia_id, public_key, method_type_hint],
+      false);
   }
 
 };

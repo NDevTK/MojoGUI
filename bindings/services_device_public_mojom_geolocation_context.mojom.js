@@ -94,7 +94,8 @@ device.mojom.GeolocationContextRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.GeolocationContext_BindGeolocation_ParamsSpec,
       null,
-      [receiver, requesting_url, client_id, has_precise_permission]);
+      [receiver, requesting_url, client_id, has_precise_permission],
+      false);
   }
 
   onPermissionUpdated(origin, permission_level) {
@@ -103,7 +104,8 @@ device.mojom.GeolocationContextRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.GeolocationContext_OnPermissionUpdated_ParamsSpec,
       null,
-      [origin, permission_level]);
+      [origin, permission_level],
+      false);
   }
 
   setOverride(result) {
@@ -112,7 +114,8 @@ device.mojom.GeolocationContextRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.GeolocationContext_SetOverride_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
   clearOverride() {
@@ -121,7 +124,8 @@ device.mojom.GeolocationContextRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.GeolocationContext_ClearOverride_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -108,7 +108,8 @@ blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec,
       null,
-      [context_info]);
+      [context_info],
+      false);
   }
 
   onError(status, quota_error_info) {
@@ -117,7 +118,8 @@ blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ModelStreamingResponder_OnError_ParamsSpec,
       null,
-      [status, quota_error_info]);
+      [status, quota_error_info],
+      false);
   }
 
   onStreaming(text) {
@@ -126,7 +128,8 @@ blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec,
       null,
-      [text]);
+      [text],
+      false);
   }
 
   onQuotaOverflow() {
@@ -135,7 +138,8 @@ blink.mojom.ModelStreamingResponderRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

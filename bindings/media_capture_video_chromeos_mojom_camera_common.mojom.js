@@ -160,7 +160,8 @@ cros.mojom.CameraModuleCallbacksRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec,
       null,
-      [camera_id, new_status]);
+      [camera_id, new_status],
+      false);
   }
 
   torchModeStatusChange(camera_id, new_status) {
@@ -169,7 +170,8 @@ cros.mojom.CameraModuleCallbacksRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.CameraModuleCallbacks_TorchModeStatusChange_ParamsSpec,
       null,
-      [camera_id, new_status]);
+      [camera_id, new_status],
+      false);
   }
 
 };
@@ -285,7 +287,8 @@ cros.mojom.VendorTagOpsRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.VendorTagOps_GetTagCount_ParamsSpec,
       cros.mojom.VendorTagOps_GetTagCount_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAllTags() {
@@ -294,7 +297,8 @@ cros.mojom.VendorTagOpsRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.VendorTagOps_GetAllTags_ParamsSpec,
       cros.mojom.VendorTagOps_GetAllTags_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSectionName(tag) {
@@ -303,7 +307,8 @@ cros.mojom.VendorTagOpsRemoteCallHandler = class {
       2,  // ordinal
       cros.mojom.VendorTagOps_GetSectionName_ParamsSpec,
       cros.mojom.VendorTagOps_GetSectionName_ResponseParamsSpec,
-      [tag]);
+      [tag],
+      false);
   }
 
   getTagName(tag) {
@@ -312,7 +317,8 @@ cros.mojom.VendorTagOpsRemoteCallHandler = class {
       3,  // ordinal
       cros.mojom.VendorTagOps_GetTagName_ParamsSpec,
       cros.mojom.VendorTagOps_GetTagName_ResponseParamsSpec,
-      [tag]);
+      [tag],
+      false);
   }
 
   getTagType(tag) {
@@ -321,7 +327,8 @@ cros.mojom.VendorTagOpsRemoteCallHandler = class {
       4,  // ordinal
       cros.mojom.VendorTagOps_GetTagType_ParamsSpec,
       cros.mojom.VendorTagOps_GetTagType_ResponseParamsSpec,
-      [tag]);
+      [tag],
+      false);
   }
 
 };
@@ -475,7 +482,8 @@ cros.mojom.CameraModuleRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CameraModule_OpenDevice_ParamsSpec,
       cros.mojom.CameraModule_OpenDevice_ResponseParamsSpec,
-      [camera_id, device_ops_receiver]);
+      [camera_id, device_ops_receiver],
+      false);
   }
 
   getNumberOfCameras() {
@@ -484,7 +492,8 @@ cros.mojom.CameraModuleRemoteCallHandler = class {
       1,  // ordinal
       cros.mojom.CameraModule_GetNumberOfCameras_ParamsSpec,
       cros.mojom.CameraModule_GetNumberOfCameras_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getCameraInfo(camera_id) {
@@ -493,7 +502,8 @@ cros.mojom.CameraModuleRemoteCallHandler = class {
       2,  // ordinal
       cros.mojom.CameraModule_GetCameraInfo_ParamsSpec,
       cros.mojom.CameraModule_GetCameraInfo_ResponseParamsSpec,
-      [camera_id]);
+      [camera_id],
+      false);
   }
 
   setCallbacks(callbacks) {
@@ -502,7 +512,8 @@ cros.mojom.CameraModuleRemoteCallHandler = class {
       3,  // ordinal
       cros.mojom.CameraModule_SetCallbacks_ParamsSpec,
       cros.mojom.CameraModule_SetCallbacks_ResponseParamsSpec,
-      [callbacks]);
+      [callbacks],
+      false);
   }
 
   setTorchMode(camera_id, enabled) {
@@ -511,7 +522,8 @@ cros.mojom.CameraModuleRemoteCallHandler = class {
       4,  // ordinal
       cros.mojom.CameraModule_SetTorchMode_ParamsSpec,
       cros.mojom.CameraModule_SetTorchMode_ResponseParamsSpec,
-      [camera_id, enabled]);
+      [camera_id, enabled],
+      false);
   }
 
   init() {
@@ -520,7 +532,8 @@ cros.mojom.CameraModuleRemoteCallHandler = class {
       5,  // ordinal
       cros.mojom.CameraModule_Init_ParamsSpec,
       cros.mojom.CameraModule_Init_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getVendorTagOps(vendor_tag_ops_receiver) {
@@ -529,7 +542,8 @@ cros.mojom.CameraModuleRemoteCallHandler = class {
       6,  // ordinal
       cros.mojom.CameraModule_GetVendorTagOps_ParamsSpec,
       cros.mojom.CameraModule_GetVendorTagOps_ResponseParamsSpec,
-      [vendor_tag_ops_receiver]);
+      [vendor_tag_ops_receiver],
+      false);
   }
 
   setCallbacksAssociated(callbacks) {
@@ -538,7 +552,8 @@ cros.mojom.CameraModuleRemoteCallHandler = class {
       7,  // ordinal
       cros.mojom.CameraModule_SetCallbacksAssociated_ParamsSpec,
       cros.mojom.CameraModule_SetCallbacksAssociated_ResponseParamsSpec,
-      [callbacks]);
+      [callbacks],
+      false);
   }
 
 };

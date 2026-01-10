@@ -56,13 +56,13 @@ blink.mojom.SpeculationInjectionType = {
 mojo.internal.Struct(
     blink.mojom.SpeculationCandidateSpec, 'blink.mojom.SpeculationCandidate', [
       mojo.internal.StructField('url', 0, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('action', 8, 0, blink.mojom.SpeculationActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('action', 8, 0, blink.mojom.SpeculationActionSpec, 0, false, 0, undefined),
       mojo.internal.StructField('referrer', 16, 0, blink.mojom.ReferrerSpec, null, false, 0, undefined),
       mojo.internal.StructField('requires_anonymous_client_ip_when_cross_origin', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('target_browsing_context_name_hint', 32, 0, blink.mojom.SpeculationTargetHintSpec, null, false, 0, undefined),
-      mojo.internal.StructField('eagerness', 40, 0, blink.mojom.SpeculationEagernessSpec, null, false, 0, undefined),
+      mojo.internal.StructField('target_browsing_context_name_hint', 32, 0, blink.mojom.SpeculationTargetHintSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('eagerness', 40, 0, blink.mojom.SpeculationEagernessSpec, 0, false, 0, undefined),
       mojo.internal.StructField('no_vary_search_hint', 48, 0, network.mojom.NoVarySearchSpec, null, true, 0, undefined),
-      mojo.internal.StructField('injection_type', 56, 0, blink.mojom.SpeculationInjectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('injection_type', 56, 0, blink.mojom.SpeculationInjectionTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('tags', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('form_submission', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -125,7 +125,8 @@ blink.mojom.SpeculationHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec,
       null,
-      [candidates, enable_cross_origin_prerender_iframes]);
+      [candidates, enable_cross_origin_prerender_iframes],
+      false);
   }
 
   onLCPPredicted() {
@@ -134,7 +135,8 @@ blink.mojom.SpeculationHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   initiatePreview(url) {
@@ -143,7 +145,8 @@ blink.mojom.SpeculationHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
 };

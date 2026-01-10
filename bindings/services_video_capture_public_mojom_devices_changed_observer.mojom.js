@@ -56,7 +56,8 @@ video_capture.mojom.DevicesChangedObserverRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

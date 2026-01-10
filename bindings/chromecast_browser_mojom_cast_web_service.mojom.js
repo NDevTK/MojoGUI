@@ -54,34 +54,34 @@ chromecast.mojom.GesturePriority = {
 // Struct: CastWebViewParams
 mojo.internal.Struct(
     chromecast.mojom.CastWebViewParamsSpec, 'chromecast.mojom.CastWebViewParams', [
-      mojo.internal.StructField('activity_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('sdk_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('activity_id', 0, 0, mojo.internal.String, 0, false, 0, undefined),
+      mojo.internal.StructField('session_id', 8, 0, mojo.internal.String, 0, false, 0, undefined),
+      mojo.internal.StructField('sdk_version', 16, 0, mojo.internal.String, 0, false, 0, undefined),
       mojo.internal.StructField('allow_media_access', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('force_720p_resolution', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('managed', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('managed', 24, 2, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('log_js_console_messages', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('log_prefix', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('log_prefix', 32, 0, mojo.internal.String, 0, false, 0, undefined),
       mojo.internal.StructField('shutdown_delay', 40, 0, mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('renderer_pool', 48, 0, chromecast.mojom.RendererPoolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('renderer_pool', 48, 0, chromecast.mojom.RendererPoolSpec, 0, false, 0, undefined),
       mojo.internal.StructField('prelaunch_url', 56, 0, url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('enabled_for_dev', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('renderer_type', 68, 0, chromecast.mojom.RendererTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('renderer_type', 68, 0, chromecast.mojom.RendererTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('is_root_window', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('handle_inner_contents', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('use_media_blocker', 72, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('background_color', 76, 0, chromecast.mojom.BackgroundColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('background_color', 76, 0, chromecast.mojom.BackgroundColorSpec, 0, false, 0, undefined),
       mojo.internal.StructField('enable_websql', 80, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('enable_mixer_audio', 80, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('url_filters', 88, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('webrtc_allow_legacy_tls_protocols', 96, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('enable_touch_input', 96, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_remote_control_mode', 96, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('turn_on_screen', 96, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('keep_screen_on', 96, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('gesture_priority', 100, 0, chromecast.mojom.GesturePrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('turn_on_screen', 96, 3, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('keep_screen_on', 96, 4, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('gesture_priority', 100, 0, chromecast.mojom.GesturePrioritySpec, 0, false, 0, undefined),
       mojo.internal.StructField('enable_webui_bindings_permission', 104, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_url_rewrite_rules', 104, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_url_rewrite_rules', 104, 1, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 120]]);
 
@@ -154,7 +154,8 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.CastWebService_CreateWebView_ParamsSpec,
       null,
-      [params, web_contents, window]);
+      [params, web_contents, window],
+      false);
   }
 
   registerWebUiClient(client, hosts) {
@@ -163,7 +164,8 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec,
       null,
-      [client, hosts]);
+      [client, hosts],
+      false);
   }
 
   flushDomLocalStorage() {
@@ -172,7 +174,8 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
       2,  // ordinal
       chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   clearLocalStorage() {
@@ -181,7 +184,8 @@ chromecast.mojom.CastWebServiceRemoteCallHandler = class {
       3,  // ordinal
       chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec,
       chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

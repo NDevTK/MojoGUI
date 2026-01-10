@@ -190,7 +190,8 @@ chromeos.sensors.mojom.SensorServiceRemoteCallHandler = class {
       0,  // ordinal
       chromeos.sensors.mojom.SensorService_GetDeviceIds_ParamsSpec,
       chromeos.sensors.mojom.SensorService_GetDeviceIds_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
   getAllDeviceIds() {
@@ -199,7 +200,8 @@ chromeos.sensors.mojom.SensorServiceRemoteCallHandler = class {
       1,  // ordinal
       chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ParamsSpec,
       chromeos.sensors.mojom.SensorService_GetAllDeviceIds_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getDevice(iio_device_id, device_request) {
@@ -208,7 +210,8 @@ chromeos.sensors.mojom.SensorServiceRemoteCallHandler = class {
       2,  // ordinal
       chromeos.sensors.mojom.SensorService_GetDevice_ParamsSpec,
       null,
-      [iio_device_id, device_request]);
+      [iio_device_id, device_request],
+      false);
   }
 
 };
@@ -343,7 +346,8 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
       0,  // ordinal
       chromeos.sensors.mojom.SensorDevice_SetTimeout_ParamsSpec,
       null,
-      [timeout]);
+      [timeout],
+      false);
   }
 
   getAttributes(attr_names) {
@@ -352,7 +356,8 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
       1,  // ordinal
       chromeos.sensors.mojom.SensorDevice_GetAttributes_ParamsSpec,
       chromeos.sensors.mojom.SensorDevice_GetAttributes_ResponseParamsSpec,
-      [attr_names]);
+      [attr_names],
+      false);
   }
 
   setFrequency(frequency) {
@@ -361,7 +366,8 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
       2,  // ordinal
       chromeos.sensors.mojom.SensorDevice_SetFrequency_ParamsSpec,
       chromeos.sensors.mojom.SensorDevice_SetFrequency_ResponseParamsSpec,
-      [frequency]);
+      [frequency],
+      false);
   }
 
   startReadingSamples(observer) {
@@ -370,7 +376,8 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
       3,  // ordinal
       chromeos.sensors.mojom.SensorDevice_StartReadingSamples_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   stopReadingSamples() {
@@ -379,7 +386,8 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
       4,  // ordinal
       chromeos.sensors.mojom.SensorDevice_StopReadingSamples_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getAllChannelIds() {
@@ -388,7 +396,8 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
       5,  // ordinal
       chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ParamsSpec,
       chromeos.sensors.mojom.SensorDevice_GetAllChannelIds_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getChannelsEnabled(iio_chn_indices) {
@@ -397,7 +406,8 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
       7,  // ordinal
       chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ParamsSpec,
       chromeos.sensors.mojom.SensorDevice_GetChannelsEnabled_ResponseParamsSpec,
-      [iio_chn_indices]);
+      [iio_chn_indices],
+      false);
   }
 
   getChannelsAttributes(iio_chn_indices, attr_name) {
@@ -406,7 +416,8 @@ chromeos.sensors.mojom.SensorDeviceRemoteCallHandler = class {
       8,  // ordinal
       chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ParamsSpec,
       chromeos.sensors.mojom.SensorDevice_GetChannelsAttributes_ResponseParamsSpec,
-      [iio_chn_indices, attr_name]);
+      [iio_chn_indices, attr_name],
+      false);
   }
 
 };
@@ -476,7 +487,8 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverRemoteCallHandler = class {
       0,  // ordinal
       chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnSampleUpdated_ParamsSpec,
       null,
-      [sample]);
+      [sample],
+      false);
   }
 
   onErrorOccurred(type) {
@@ -485,7 +497,8 @@ chromeos.sensors.mojom.SensorDeviceSamplesObserverRemoteCallHandler = class {
       1,  // ordinal
       chromeos.sensors.mojom.SensorDeviceSamplesObserver_OnErrorOccurred_ParamsSpec,
       null,
-      [type]);
+      [type],
+      false);
   }
 
 };
@@ -550,7 +563,8 @@ chromeos.sensors.mojom.SensorServiceNewDevicesObserverRemoteCallHandler = class 
       0,  // ordinal
       chromeos.sensors.mojom.SensorServiceNewDevicesObserver_OnNewDeviceAdded_ParamsSpec,
       null,
-      [iio_device_id, types]);
+      [iio_device_id, types],
+      false);
   }
 
 };

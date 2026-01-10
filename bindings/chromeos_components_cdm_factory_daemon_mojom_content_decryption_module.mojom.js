@@ -341,7 +341,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       1,  // ordinal
       chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec,
       chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec,
-      [certificate_data]);
+      [certificate_data],
+      false);
   }
 
   getStatusForPolicy(min_hdcp_version) {
@@ -350,7 +351,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       2,  // ordinal
       chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec,
       chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec,
-      [min_hdcp_version]);
+      [min_hdcp_version],
+      false);
   }
 
   createSessionAndGenerateRequest(session_type, init_data_type, init_data) {
@@ -359,7 +361,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       3,  // ordinal
       chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec,
       chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec,
-      [session_type, init_data_type, init_data]);
+      [session_type, init_data_type, init_data],
+      false);
   }
 
   loadSession(session_type, session_id) {
@@ -368,7 +371,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       4,  // ordinal
       chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec,
       chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec,
-      [session_type, session_id]);
+      [session_type, session_id],
+      false);
   }
 
   updateSession(session_id, response) {
@@ -377,7 +381,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       5,  // ordinal
       chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec,
       chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec,
-      [session_id, response]);
+      [session_id, response],
+      false);
   }
 
   closeSession(session_id) {
@@ -386,7 +391,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       6,  // ordinal
       chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec,
       chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec,
-      [session_id]);
+      [session_id],
+      false);
   }
 
   removeSession(session_id) {
@@ -395,7 +401,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       7,  // ordinal
       chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec,
       chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec,
-      [session_id]);
+      [session_id],
+      false);
   }
 
   decryptDeprecated(encrypted_data, decrypt_config) {
@@ -404,7 +411,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       8,  // ordinal
       chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec,
       chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec,
-      [encrypted_data, decrypt_config]);
+      [encrypted_data, decrypt_config],
+      false);
   }
 
   getHwKeyData(decrypt_config, hw_identifier) {
@@ -413,7 +421,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       9,  // ordinal
       chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec,
       chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec,
-      [decrypt_config, hw_identifier]);
+      [decrypt_config, hw_identifier],
+      false);
   }
 
   decrypt(encrypted_data, decrypt_config_in, is_video, secure_handle) {
@@ -422,7 +431,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleRemoteCallHandler = class {
       10,  // ordinal
       chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec,
       chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec,
-      [encrypted_data, decrypt_config_in, is_video, secure_handle]);
+      [encrypted_data, decrypt_config_in, is_video, secure_handle],
+      false);
   }
 
 };
@@ -509,7 +519,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
       0,  // ordinal
       chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec,
       null,
-      [session_id, message_type, message]);
+      [session_id, message_type, message],
+      false);
   }
 
   onSessionClosed(session_id) {
@@ -518,7 +529,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
       1,  // ordinal
       chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec,
       null,
-      [session_id]);
+      [session_id],
+      false);
   }
 
   onSessionKeysChange(session_id, has_additional_usable_key, keys_info) {
@@ -527,7 +539,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
       2,  // ordinal
       chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec,
       null,
-      [session_id, has_additional_usable_key, keys_info]);
+      [session_id, has_additional_usable_key, keys_info],
+      false);
   }
 
   onSessionExpirationUpdate(session_id, new_expiry_time_sec) {
@@ -536,7 +549,8 @@ chromeos.cdm.mojom.ContentDecryptionModuleClientRemoteCallHandler = class {
       3,  // ordinal
       chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec,
       null,
-      [session_id, new_expiry_time_sec]);
+      [session_id, new_expiry_time_sec],
+      false);
   }
 
 };

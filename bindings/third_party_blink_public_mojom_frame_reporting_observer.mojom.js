@@ -85,7 +85,8 @@ blink.mojom.ReportingObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ReportingObserver_Notify_ParamsSpec,
       null,
-      [report]);
+      [report],
+      false);
   }
 
 };

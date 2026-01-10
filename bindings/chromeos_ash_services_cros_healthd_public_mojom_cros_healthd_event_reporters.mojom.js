@@ -59,7 +59,8 @@ ash.cros_healthd.mojom.AshEventReporterRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
 };

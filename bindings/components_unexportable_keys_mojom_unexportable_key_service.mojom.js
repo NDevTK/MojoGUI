@@ -155,7 +155,8 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
       0,  // ordinal
       unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec,
       null,
-      [acceptable_algorithms, priority]);
+      [acceptable_algorithms, priority],
+      false);
   }
 
   fromWrappedSigningKey(wrapped_key, priority) {
@@ -164,7 +165,8 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
       1,  // ordinal
       unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec,
       null,
-      [wrapped_key, priority]);
+      [wrapped_key, priority],
+      false);
   }
 
   sign(key_id, data, priority) {
@@ -173,7 +175,8 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
       2,  // ordinal
       unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec,
       null,
-      [key_id, data, priority]);
+      [key_id, data, priority],
+      false);
   }
 
   getAllSigningKeysForGarbageCollection(priority) {
@@ -182,7 +185,8 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
       3,  // ordinal
       unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec,
       null,
-      [priority]);
+      [priority],
+      false);
   }
 
   deleteKey(key_id, priority) {
@@ -191,7 +195,8 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
       4,  // ordinal
       unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ParamsSpec,
       unexportable_keys.mojom.UnexportableKeyService_DeleteKey_ResponseParamsSpec,
-      [key_id, priority]);
+      [key_id, priority],
+      false);
   }
 
   deleteAllKeys(priority) {
@@ -200,7 +205,8 @@ unexportable_keys.mojom.UnexportableKeyServiceRemoteCallHandler = class {
       5,  // ordinal
       unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec,
       null,
-      [priority]);
+      [priority],
+      false);
   }
 
 };

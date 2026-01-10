@@ -106,10 +106,10 @@ mojo.internal.Struct(
 // Struct: FetchAPIRequest
 mojo.internal.Struct(
     blink.mojom.FetchAPIRequestSpec, 'blink.mojom.FetchAPIRequest', [
-      mojo.internal.StructField('mode', 0, 0, network.mojom.RequestModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mode', 0, 0, network.mojom.RequestModeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('is_main_resource_load', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('destination', 8, 0, network.mojom.RequestDestinationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('frame_type', 12, 0, blink.mojom.RequestContextFrameTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('destination', 8, 0, network.mojom.RequestDestinationSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('frame_type', 12, 0, blink.mojom.RequestContextFrameTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('method', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('headers', 32, 0, blink.mojom.FetchAPIRequestHeadersSpec, null, false, 0, undefined),
@@ -118,16 +118,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('request_initiator', 56, 0, url.mojom.OriginSpec, null, true, 0, undefined),
       mojo.internal.StructField('navigation_redirect_chain', 64, 0, mojo.internal.Array(url.mojom.UrlSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('referrer', 72, 0, blink.mojom.ReferrerSpec, null, true, 0, undefined),
-      mojo.internal.StructField('cache_mode', 80, 0, blink.mojom.FetchCacheModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('cache_mode', 80, 0, blink.mojom.FetchCacheModeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('integrity', 88, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('priority', 96, 0, network.mojom.RequestPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('priority', 96, 0, network.mojom.RequestPrioritySpec, 0, false, 0, undefined),
       mojo.internal.StructField('fetch_window_id', 104, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
       mojo.internal.StructField('keepalive', 112, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_reload', 112, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('is_history_navigation', 112, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('devtools_stack_id', 120, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('trust_token_params', 128, 0, network.mojom.TrustTokenParamsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('target_address_space', 136, 0, network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('target_address_space', 136, 0, network.mojom.IPAddressSpaceSpec, 0, false, 0, undefined),
       mojo.internal.StructField('service_worker_race_network_request_token', 144, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
     ],
     [[0, 160]]);

@@ -132,7 +132,8 @@ js_injection.mojom.JsToBrowserMessagingRemoteCallHandler = class {
       0,  // ordinal
       js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec,
       null,
-      [message, ports]);
+      [message, ports],
+      false);
   }
 
   setBrowserToJsMessaging(browser_to_js_messaging) {
@@ -141,7 +142,8 @@ js_injection.mojom.JsToBrowserMessagingRemoteCallHandler = class {
       1,  // ordinal
       js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec,
       null,
-      [browser_to_js_messaging]);
+      [browser_to_js_messaging],
+      false);
   }
 
 };
@@ -204,7 +206,8 @@ js_injection.mojom.JsObjectsClientRemoteCallHandler = class {
       0,  // ordinal
       js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -268,7 +271,8 @@ js_injection.mojom.BrowserToJsMessagingFactoryRemoteCallHandler = class {
       0,  // ordinal
       js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec,
       null,
-      [browser_to_js_messaging]);
+      [browser_to_js_messaging],
+      false);
   }
 
 };
@@ -332,7 +336,8 @@ js_injection.mojom.BrowserToJsMessagingRemoteCallHandler = class {
       0,  // ordinal
       js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };
@@ -409,7 +414,8 @@ js_injection.mojom.JsCommunicationRemoteCallHandler = class {
       0,  // ordinal
       js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec,
       null,
-      [js_objects, client]);
+      [js_objects, client],
+      false);
   }
 
   addPersistentJavaScript(script) {
@@ -418,7 +424,8 @@ js_injection.mojom.JsCommunicationRemoteCallHandler = class {
       1,  // ordinal
       js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec,
       null,
-      [script]);
+      [script],
+      false);
   }
 
   removePersistentJavaScript(script_id) {
@@ -427,7 +434,8 @@ js_injection.mojom.JsCommunicationRemoteCallHandler = class {
       2,  // ordinal
       js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec,
       null,
-      [script_id]);
+      [script_id],
+      false);
   }
 
 };

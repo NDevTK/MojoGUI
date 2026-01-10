@@ -1527,7 +1527,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.OemCryptoService_InitializeDeprecated_ParamsSpec,
       arc.mojom.OemCryptoService_InitializeDeprecated_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   initialize(oemcrypto_version) {
@@ -1536,7 +1537,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       36,  // ordinal
       arc.mojom.OemCryptoService_Initialize_ParamsSpec,
       arc.mojom.OemCryptoService_Initialize_ResponseParamsSpec,
-      [oemcrypto_version]);
+      [oemcrypto_version],
+      false);
   }
 
   terminate() {
@@ -1545,7 +1547,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.OemCryptoService_Terminate_ParamsSpec,
       arc.mojom.OemCryptoService_Terminate_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openSession() {
@@ -1554,7 +1557,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.OemCryptoService_OpenSession_ParamsSpec,
       arc.mojom.OemCryptoService_OpenSession_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   closeSession(session) {
@@ -1563,7 +1567,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.OemCryptoService_CloseSession_ParamsSpec,
       arc.mojom.OemCryptoService_CloseSession_ResponseParamsSpec,
-      [session]);
+      [session],
+      false);
   }
 
   generateDerivedKeys(session, mac_key_context, enc_key_context) {
@@ -1572,7 +1577,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.OemCryptoService_GenerateDerivedKeys_ParamsSpec,
       arc.mojom.OemCryptoService_GenerateDerivedKeys_ResponseParamsSpec,
-      [session, mac_key_context, enc_key_context]);
+      [session, mac_key_context, enc_key_context],
+      false);
   }
 
   generateNonce(session) {
@@ -1581,7 +1587,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.OemCryptoService_GenerateNonce_ParamsSpec,
       arc.mojom.OemCryptoService_GenerateNonce_ResponseParamsSpec,
-      [session]);
+      [session],
+      false);
   }
 
   generateSignature(session, message) {
@@ -1590,7 +1597,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.OemCryptoService_GenerateSignature_ParamsSpec,
       arc.mojom.OemCryptoService_GenerateSignature_ResponseParamsSpec,
-      [session, message]);
+      [session, message],
+      false);
   }
 
   loadKeysV11OrV12(session, message, signature, has_enc_mac_keys, enc_mac_keys_iv_offset, enc_mac_keys_offset, key_array, pst_offset, pst_length) {
@@ -1599,7 +1607,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.OemCryptoService_LoadKeysV11OrV12_ParamsSpec,
       arc.mojom.OemCryptoService_LoadKeysV11OrV12_ResponseParamsSpec,
-      [session, message, signature, has_enc_mac_keys, enc_mac_keys_iv_offset, enc_mac_keys_offset, key_array, pst_offset, pst_length]);
+      [session, message, signature, has_enc_mac_keys, enc_mac_keys_iv_offset, enc_mac_keys_offset, key_array, pst_offset, pst_length],
+      false);
   }
 
   refreshKeysV14(session, message, signature, key_array) {
@@ -1608,7 +1617,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.OemCryptoService_RefreshKeysV14_ParamsSpec,
       arc.mojom.OemCryptoService_RefreshKeysV14_ResponseParamsSpec,
-      [session, message, signature, key_array]);
+      [session, message, signature, key_array],
+      false);
   }
 
   queryKeyControl(session, key_id) {
@@ -1617,7 +1627,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.OemCryptoService_QueryKeyControl_ParamsSpec,
       arc.mojom.OemCryptoService_QueryKeyControl_ResponseParamsSpec,
-      [session, key_id]);
+      [session, key_id],
+      false);
   }
 
   selectKeyV13(session, key_id) {
@@ -1626,7 +1637,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.OemCryptoService_SelectKeyV13_ParamsSpec,
       arc.mojom.OemCryptoService_SelectKeyV13_ResponseParamsSpec,
-      [session, key_id]);
+      [session, key_id],
+      false);
   }
 
   decryptCencV15(session, data, is_encrypted, iv, block_offset, secure_buffer, pattern) {
@@ -1635,7 +1647,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.OemCryptoService_DecryptCencV15_ParamsSpec,
       arc.mojom.OemCryptoService_DecryptCencV15_ResponseParamsSpec,
-      [session, data, is_encrypted, iv, block_offset, secure_buffer, pattern]);
+      [session, data, is_encrypted, iv, block_offset, secure_buffer, pattern],
+      false);
   }
 
   genericEncrypt(session, data, iv, algorithm) {
@@ -1644,7 +1657,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       12,  // ordinal
       arc.mojom.OemCryptoService_GenericEncrypt_ParamsSpec,
       arc.mojom.OemCryptoService_GenericEncrypt_ResponseParamsSpec,
-      [session, data, iv, algorithm]);
+      [session, data, iv, algorithm],
+      false);
   }
 
   genericDecrypt(session, data, iv, algorithm) {
@@ -1653,7 +1667,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       13,  // ordinal
       arc.mojom.OemCryptoService_GenericDecrypt_ParamsSpec,
       arc.mojom.OemCryptoService_GenericDecrypt_ResponseParamsSpec,
-      [session, data, iv, algorithm]);
+      [session, data, iv, algorithm],
+      false);
   }
 
   genericSign(session, data, algorithm) {
@@ -1662,7 +1677,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       14,  // ordinal
       arc.mojom.OemCryptoService_GenericSign_ParamsSpec,
       arc.mojom.OemCryptoService_GenericSign_ResponseParamsSpec,
-      [session, data, algorithm]);
+      [session, data, algorithm],
+      false);
   }
 
   genericVerify(session, data, algorithm, signature) {
@@ -1671,7 +1687,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       15,  // ordinal
       arc.mojom.OemCryptoService_GenericVerify_ParamsSpec,
       arc.mojom.OemCryptoService_GenericVerify_ResponseParamsSpec,
-      [session, data, algorithm, signature]);
+      [session, data, algorithm, signature],
+      false);
   }
 
   copyBufferV14(data, out_buffer) {
@@ -1680,7 +1697,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       16,  // ordinal
       arc.mojom.OemCryptoService_CopyBufferV14_ParamsSpec,
       arc.mojom.OemCryptoService_CopyBufferV14_ResponseParamsSpec,
-      [data, out_buffer]);
+      [data, out_buffer],
+      false);
   }
 
   loadTestKeyboxV13() {
@@ -1689,7 +1707,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       17,  // ordinal
       arc.mojom.OemCryptoService_LoadTestKeyboxV13_ParamsSpec,
       arc.mojom.OemCryptoService_LoadTestKeyboxV13_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isRootKeyCertificateValid() {
@@ -1698,7 +1717,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       18,  // ordinal
       arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ParamsSpec,
       arc.mojom.OemCryptoService_IsRootKeyCertificateValid_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getDeviceId() {
@@ -1707,7 +1727,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       19,  // ordinal
       arc.mojom.OemCryptoService_GetDeviceId_ParamsSpec,
       arc.mojom.OemCryptoService_GetDeviceId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getKeyData() {
@@ -1716,7 +1737,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       20,  // ordinal
       arc.mojom.OemCryptoService_GetKeyData_ParamsSpec,
       arc.mojom.OemCryptoService_GetKeyData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getRandom(length) {
@@ -1725,7 +1747,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       21,  // ordinal
       arc.mojom.OemCryptoService_GetRandom_ParamsSpec,
       arc.mojom.OemCryptoService_GetRandom_ResponseParamsSpec,
-      [length]);
+      [length],
+      false);
   }
 
   getNumberOfOpenSessions() {
@@ -1734,7 +1757,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       22,  // ordinal
       arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ParamsSpec,
       arc.mojom.OemCryptoService_GetNumberOfOpenSessions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getMaxNumberOfSessions() {
@@ -1743,7 +1767,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       23,  // ordinal
       arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ParamsSpec,
       arc.mojom.OemCryptoService_GetMaxNumberOfSessions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   rewrapDeviceRsaKey(session, message, signature, nonce_offset, enc_rsa_key_offset, enc_rsa_key_length, enc_rsa_key_iv_offset) {
@@ -1752,7 +1777,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       24,  // ordinal
       arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ParamsSpec,
       arc.mojom.OemCryptoService_RewrapDeviceRsaKey_ResponseParamsSpec,
-      [session, message, signature, nonce_offset, enc_rsa_key_offset, enc_rsa_key_length, enc_rsa_key_iv_offset]);
+      [session, message, signature, nonce_offset, enc_rsa_key_offset, enc_rsa_key_length, enc_rsa_key_iv_offset],
+      false);
   }
 
   loadDeviceRsaKey(session, wrapped_rsa_key) {
@@ -1761,7 +1787,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       25,  // ordinal
       arc.mojom.OemCryptoService_LoadDeviceRsaKey_ParamsSpec,
       arc.mojom.OemCryptoService_LoadDeviceRsaKey_ResponseParamsSpec,
-      [session, wrapped_rsa_key]);
+      [session, wrapped_rsa_key],
+      false);
   }
 
   generateRsaSignature(session, message, padding_scheme) {
@@ -1770,7 +1797,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       26,  // ordinal
       arc.mojom.OemCryptoService_GenerateRsaSignature_ParamsSpec,
       arc.mojom.OemCryptoService_GenerateRsaSignature_ResponseParamsSpec,
-      [session, message, padding_scheme]);
+      [session, message, padding_scheme],
+      false);
   }
 
   deriveKeysFromSessionKey(session, enc_session_key, mac_key_context, enc_key_context) {
@@ -1779,7 +1807,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       27,  // ordinal
       arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ParamsSpec,
       arc.mojom.OemCryptoService_DeriveKeysFromSessionKey_ResponseParamsSpec,
-      [session, enc_session_key, mac_key_context, enc_key_context]);
+      [session, enc_session_key, mac_key_context, enc_key_context],
+      false);
   }
 
   securityPatchLevel() {
@@ -1788,7 +1817,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       28,  // ordinal
       arc.mojom.OemCryptoService_SecurityPatchLevel_ParamsSpec,
       arc.mojom.OemCryptoService_SecurityPatchLevel_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getHdcpCapability() {
@@ -1797,7 +1827,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       29,  // ordinal
       arc.mojom.OemCryptoService_GetHdcpCapability_ParamsSpec,
       arc.mojom.OemCryptoService_GetHdcpCapability_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   updateUsageTable() {
@@ -1806,7 +1837,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       30,  // ordinal
       arc.mojom.OemCryptoService_UpdateUsageTable_ParamsSpec,
       arc.mojom.OemCryptoService_UpdateUsageTable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   deactivateUsageEntryV12(pst) {
@@ -1815,7 +1847,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       31,  // ordinal
       arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ParamsSpec,
       arc.mojom.OemCryptoService_DeactivateUsageEntryV12_ResponseParamsSpec,
-      [pst]);
+      [pst],
+      false);
   }
 
   reportUsage(session, pst) {
@@ -1824,7 +1857,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       32,  // ordinal
       arc.mojom.OemCryptoService_ReportUsage_ParamsSpec,
       arc.mojom.OemCryptoService_ReportUsage_ResponseParamsSpec,
-      [session, pst]);
+      [session, pst],
+      false);
   }
 
   deleteUsageEntry(session, pst_offset, pst_length, message, signature) {
@@ -1833,7 +1867,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       33,  // ordinal
       arc.mojom.OemCryptoService_DeleteUsageEntry_ParamsSpec,
       arc.mojom.OemCryptoService_DeleteUsageEntry_ResponseParamsSpec,
-      [session, pst_offset, pst_length, message, signature]);
+      [session, pst_offset, pst_length, message, signature],
+      false);
   }
 
   forceDeleteUsageEntry(pst) {
@@ -1842,7 +1877,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       34,  // ordinal
       arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ParamsSpec,
       arc.mojom.OemCryptoService_ForceDeleteUsageEntry_ResponseParamsSpec,
-      [pst]);
+      [pst],
+      false);
   }
 
   deleteOldUsageTable() {
@@ -1851,7 +1887,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       35,  // ordinal
       arc.mojom.OemCryptoService_DeleteOldUsageTable_ParamsSpec,
       arc.mojom.OemCryptoService_DeleteOldUsageTable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getProvisioningMethod() {
@@ -1860,7 +1897,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       37,  // ordinal
       arc.mojom.OemCryptoService_GetProvisioningMethod_ParamsSpec,
       arc.mojom.OemCryptoService_GetProvisioningMethod_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   supportedCertificates() {
@@ -1869,7 +1907,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       38,  // ordinal
       arc.mojom.OemCryptoService_SupportedCertificates_ParamsSpec,
       arc.mojom.OemCryptoService_SupportedCertificates_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isSrmUpdateSupported() {
@@ -1878,7 +1917,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       39,  // ordinal
       arc.mojom.OemCryptoService_IsSrmUpdateSupported_ParamsSpec,
       arc.mojom.OemCryptoService_IsSrmUpdateSupported_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getCurrentSrmVersion() {
@@ -1887,7 +1927,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       40,  // ordinal
       arc.mojom.OemCryptoService_GetCurrentSrmVersion_ParamsSpec,
       arc.mojom.OemCryptoService_GetCurrentSrmVersion_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   loadSrm(buffer) {
@@ -1896,7 +1937,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       41,  // ordinal
       arc.mojom.OemCryptoService_LoadSrm_ParamsSpec,
       arc.mojom.OemCryptoService_LoadSrm_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   removeSrm() {
@@ -1905,7 +1947,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       42,  // ordinal
       arc.mojom.OemCryptoService_RemoveSrm_ParamsSpec,
       arc.mojom.OemCryptoService_RemoveSrm_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   createUsageTableHeader(avail_header_length) {
@@ -1914,7 +1957,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       43,  // ordinal
       arc.mojom.OemCryptoService_CreateUsageTableHeader_ParamsSpec,
       arc.mojom.OemCryptoService_CreateUsageTableHeader_ResponseParamsSpec,
-      [avail_header_length]);
+      [avail_header_length],
+      false);
   }
 
   loadUsageTableHeader(buffer) {
@@ -1923,7 +1967,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       44,  // ordinal
       arc.mojom.OemCryptoService_LoadUsageTableHeader_ParamsSpec,
       arc.mojom.OemCryptoService_LoadUsageTableHeader_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   createNewUsageEntry(session) {
@@ -1932,7 +1977,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       45,  // ordinal
       arc.mojom.OemCryptoService_CreateNewUsageEntry_ParamsSpec,
       arc.mojom.OemCryptoService_CreateNewUsageEntry_ResponseParamsSpec,
-      [session]);
+      [session],
+      false);
   }
 
   loadUsageEntry(session, index, buffer) {
@@ -1941,7 +1987,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       46,  // ordinal
       arc.mojom.OemCryptoService_LoadUsageEntry_ParamsSpec,
       arc.mojom.OemCryptoService_LoadUsageEntry_ResponseParamsSpec,
-      [session, index, buffer]);
+      [session, index, buffer],
+      false);
   }
 
   updateUsageEntry(session, avail_header_length, avail_entry_length) {
@@ -1950,7 +1997,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       47,  // ordinal
       arc.mojom.OemCryptoService_UpdateUsageEntry_ParamsSpec,
       arc.mojom.OemCryptoService_UpdateUsageEntry_ResponseParamsSpec,
-      [session, avail_header_length, avail_entry_length]);
+      [session, avail_header_length, avail_entry_length],
+      false);
   }
 
   deactivateUsageEntry(session, pst) {
@@ -1959,7 +2007,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       48,  // ordinal
       arc.mojom.OemCryptoService_DeactivateUsageEntry_ParamsSpec,
       arc.mojom.OemCryptoService_DeactivateUsageEntry_ResponseParamsSpec,
-      [session, pst]);
+      [session, pst],
+      false);
   }
 
   shrinkUsageTableHeader(new_entry_count, avail_header_length) {
@@ -1968,7 +2017,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       49,  // ordinal
       arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ParamsSpec,
       arc.mojom.OemCryptoService_ShrinkUsageTableHeader_ResponseParamsSpec,
-      [new_entry_count, avail_header_length]);
+      [new_entry_count, avail_header_length],
+      false);
   }
 
   moveEntry(session, new_index) {
@@ -1977,7 +2027,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       50,  // ordinal
       arc.mojom.OemCryptoService_MoveEntry_ParamsSpec,
       arc.mojom.OemCryptoService_MoveEntry_ResponseParamsSpec,
-      [session, new_index]);
+      [session, new_index],
+      false);
   }
 
   copyOldUsageEntry(session, pst) {
@@ -1986,7 +2037,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       51,  // ordinal
       arc.mojom.OemCryptoService_CopyOldUsageEntry_ParamsSpec,
       arc.mojom.OemCryptoService_CopyOldUsageEntry_ResponseParamsSpec,
-      [session, pst]);
+      [session, pst],
+      false);
   }
 
   createOldUsageEntry(time_since_license_received, time_since_first_decrypt, time_since_last_decrypt, status, server_mac_key, client_mac_key, pst) {
@@ -1995,7 +2047,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       52,  // ordinal
       arc.mojom.OemCryptoService_CreateOldUsageEntry_ParamsSpec,
       arc.mojom.OemCryptoService_CreateOldUsageEntry_ResponseParamsSpec,
-      [time_since_license_received, time_since_first_decrypt, time_since_last_decrypt, status, server_mac_key, client_mac_key, pst]);
+      [time_since_license_received, time_since_first_decrypt, time_since_last_decrypt, status, server_mac_key, client_mac_key, pst],
+      false);
   }
 
   getAnalogOutputFlags() {
@@ -2004,7 +2057,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       53,  // ordinal
       arc.mojom.OemCryptoService_GetAnalogOutputFlags_ParamsSpec,
       arc.mojom.OemCryptoService_GetAnalogOutputFlags_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   loadTestKeybox(buffer) {
@@ -2013,7 +2067,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       54,  // ordinal
       arc.mojom.OemCryptoService_LoadTestKeybox_ParamsSpec,
       arc.mojom.OemCryptoService_LoadTestKeybox_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   loadEntitledContentKeysV14(session, key_array) {
@@ -2022,7 +2077,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       55,  // ordinal
       arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ParamsSpec,
       arc.mojom.OemCryptoService_LoadEntitledContentKeysV14_ResponseParamsSpec,
-      [session, key_array]);
+      [session, key_array],
+      false);
   }
 
   selectKey(session, content_key_id, cipher_mode) {
@@ -2031,7 +2087,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       56,  // ordinal
       arc.mojom.OemCryptoService_SelectKey_ParamsSpec,
       arc.mojom.OemCryptoService_SelectKey_ResponseParamsSpec,
-      [session, content_key_id, cipher_mode]);
+      [session, content_key_id, cipher_mode],
+      false);
   }
 
   loadKeysV14(session, message, signature, has_enc_mac_keys, enc_mac_keys_iv_offset, enc_mac_keys_offset, key_array, pst_offset, pst_length, srm_requirement, license_type) {
@@ -2040,7 +2097,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       57,  // ordinal
       arc.mojom.OemCryptoService_LoadKeysV14_ParamsSpec,
       arc.mojom.OemCryptoService_LoadKeysV14_ResponseParamsSpec,
-      [session, message, signature, has_enc_mac_keys, enc_mac_keys_iv_offset, enc_mac_keys_offset, key_array, pst_offset, pst_length, srm_requirement, license_type]);
+      [session, message, signature, has_enc_mac_keys, enc_mac_keys_iv_offset, enc_mac_keys_offset, key_array, pst_offset, pst_length, srm_requirement, license_type],
+      false);
   }
 
   loadKeys(session, message, signature, enc_mac_keys_iv, enc_mac_keys, key_array, pst, srm_restriction_data, license_type) {
@@ -2049,7 +2107,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       58,  // ordinal
       arc.mojom.OemCryptoService_LoadKeys_ParamsSpec,
       arc.mojom.OemCryptoService_LoadKeys_ResponseParamsSpec,
-      [session, message, signature, enc_mac_keys_iv, enc_mac_keys, key_array, pst, srm_restriction_data, license_type]);
+      [session, message, signature, enc_mac_keys_iv, enc_mac_keys, key_array, pst, srm_restriction_data, license_type],
+      false);
   }
 
   resourceRatingTier() {
@@ -2058,7 +2117,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       59,  // ordinal
       arc.mojom.OemCryptoService_ResourceRatingTier_ParamsSpec,
       arc.mojom.OemCryptoService_ResourceRatingTier_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   buildInformation() {
@@ -2067,7 +2127,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       60,  // ordinal
       arc.mojom.OemCryptoService_BuildInformation_ParamsSpec,
       arc.mojom.OemCryptoService_BuildInformation_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   refreshKeys(session, message, signature, key_array) {
@@ -2076,7 +2137,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       61,  // ordinal
       arc.mojom.OemCryptoService_RefreshKeys_ParamsSpec,
       arc.mojom.OemCryptoService_RefreshKeys_ResponseParamsSpec,
-      [session, message, signature, key_array]);
+      [session, message, signature, key_array],
+      false);
   }
 
   loadEntitledContentKeys(session, message, key_array) {
@@ -2085,7 +2147,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       62,  // ordinal
       arc.mojom.OemCryptoService_LoadEntitledContentKeys_ParamsSpec,
       arc.mojom.OemCryptoService_LoadEntitledContentKeys_ResponseParamsSpec,
-      [session, message, key_array]);
+      [session, message, key_array],
+      false);
   }
 
   getOemPublicCertificate() {
@@ -2094,7 +2157,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       63,  // ordinal
       arc.mojom.OemCryptoService_GetOemPublicCertificate_ParamsSpec,
       arc.mojom.OemCryptoService_GetOemPublicCertificate_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   maximumUsageTableHeaderSize() {
@@ -2103,7 +2167,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       64,  // ordinal
       arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ParamsSpec,
       arc.mojom.OemCryptoService_MaximumUsageTableHeaderSize_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isAntiRollbackHwPresent() {
@@ -2112,7 +2177,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       65,  // ordinal
       arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ParamsSpec,
       arc.mojom.OemCryptoService_IsAntiRollbackHwPresent_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   minorApiVersion() {
@@ -2121,7 +2187,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       66,  // ordinal
       arc.mojom.OemCryptoService_MinorApiVersion_ParamsSpec,
       arc.mojom.OemCryptoService_MinorApiVersion_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   prepAndSignLicenseRequest(session, message, core_message_size, avail_signature_size) {
@@ -2130,7 +2197,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       67,  // ordinal
       arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ParamsSpec,
       arc.mojom.OemCryptoService_PrepAndSignLicenseRequest_ResponseParamsSpec,
-      [session, message, core_message_size, avail_signature_size]);
+      [session, message, core_message_size, avail_signature_size],
+      false);
   }
 
   prepAndSignRenewalRequest(session, message, core_message_size, avail_signature_size) {
@@ -2139,7 +2207,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       68,  // ordinal
       arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ParamsSpec,
       arc.mojom.OemCryptoService_PrepAndSignRenewalRequest_ResponseParamsSpec,
-      [session, message, core_message_size, avail_signature_size]);
+      [session, message, core_message_size, avail_signature_size],
+      false);
   }
 
   prepAndSignProvisioningRequest(session, message, core_message_size, avail_signature_size) {
@@ -2148,7 +2217,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       69,  // ordinal
       arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ParamsSpec,
       arc.mojom.OemCryptoService_PrepAndSignProvisioningRequest_ResponseParamsSpec,
-      [session, message, core_message_size, avail_signature_size]);
+      [session, message, core_message_size, avail_signature_size],
+      false);
   }
 
   loadLicense(session, message, core_message_length, signature) {
@@ -2157,7 +2227,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       70,  // ordinal
       arc.mojom.OemCryptoService_LoadLicense_ParamsSpec,
       arc.mojom.OemCryptoService_LoadLicense_ResponseParamsSpec,
-      [session, message, core_message_length, signature]);
+      [session, message, core_message_length, signature],
+      false);
   }
 
   loadRenewal(session, message, core_message_length, signature) {
@@ -2166,7 +2237,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       71,  // ordinal
       arc.mojom.OemCryptoService_LoadRenewal_ParamsSpec,
       arc.mojom.OemCryptoService_LoadRenewal_ResponseParamsSpec,
-      [session, message, core_message_length, signature]);
+      [session, message, core_message_length, signature],
+      false);
   }
 
   loadProvisioning(session, message, core_message_length, signature, avail_wrapped_private_key_size) {
@@ -2175,7 +2247,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       72,  // ordinal
       arc.mojom.OemCryptoService_LoadProvisioning_ParamsSpec,
       arc.mojom.OemCryptoService_LoadProvisioning_ResponseParamsSpec,
-      [session, message, core_message_length, signature, avail_wrapped_private_key_size]);
+      [session, message, core_message_length, signature, avail_wrapped_private_key_size],
+      false);
   }
 
   loadOemPrivateKey(session) {
@@ -2184,7 +2257,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       73,  // ordinal
       arc.mojom.OemCryptoService_LoadOemPrivateKey_ParamsSpec,
       arc.mojom.OemCryptoService_LoadOemPrivateKey_ResponseParamsSpec,
-      [session]);
+      [session],
+      false);
   }
 
   loadDrmPrivateKey(session, key_type, wrapped_private_key) {
@@ -2193,7 +2267,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       74,  // ordinal
       arc.mojom.OemCryptoService_LoadDrmPrivateKey_ParamsSpec,
       arc.mojom.OemCryptoService_LoadDrmPrivateKey_ResponseParamsSpec,
-      [session, key_type, wrapped_private_key]);
+      [session, key_type, wrapped_private_key],
+      false);
   }
 
   decryptCenc(session, data, iv, sub_samples, pattern, secure_buffer) {
@@ -2202,7 +2277,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       75,  // ordinal
       arc.mojom.OemCryptoService_DecryptCenc_ParamsSpec,
       arc.mojom.OemCryptoService_DecryptCenc_ResponseParamsSpec,
-      [session, data, iv, sub_samples, pattern, secure_buffer]);
+      [session, data, iv, sub_samples, pattern, secure_buffer],
+      false);
   }
 
   copyBuffer(session, data, out_buffer, subsample_flags) {
@@ -2211,7 +2287,8 @@ arc.mojom.OemCryptoServiceRemoteCallHandler = class {
       76,  // ordinal
       arc.mojom.OemCryptoService_CopyBuffer_ParamsSpec,
       arc.mojom.OemCryptoService_CopyBuffer_ResponseParamsSpec,
-      [session, data, out_buffer, subsample_flags]);
+      [session, data, out_buffer, subsample_flags],
+      false);
   }
 
 };
@@ -2275,7 +2352,8 @@ arc.mojom.OemCryptoHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.OemCryptoHost_Connect_ParamsSpec,
       null,
-      [oemcryptor]);
+      [oemcryptor],
+      false);
   }
 
 };
@@ -2344,7 +2422,8 @@ arc.mojom.OemCryptoInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.OemCryptoInstance_Init_ParamsSpec,
       arc.mojom.OemCryptoInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

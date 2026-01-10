@@ -112,7 +112,8 @@ payments.mojom.DigitalGoodsRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.DigitalGoods_GetDetails_ParamsSpec,
       payments.mojom.DigitalGoods_GetDetails_ResponseParamsSpec,
-      [item_ids]);
+      [item_ids],
+      false);
   }
 
   listPurchases() {
@@ -121,7 +122,8 @@ payments.mojom.DigitalGoodsRemoteCallHandler = class {
       1,  // ordinal
       payments.mojom.DigitalGoods_ListPurchases_ParamsSpec,
       payments.mojom.DigitalGoods_ListPurchases_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   listPurchaseHistory() {
@@ -130,7 +132,8 @@ payments.mojom.DigitalGoodsRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.DigitalGoods_ListPurchaseHistory_ParamsSpec,
       payments.mojom.DigitalGoods_ListPurchaseHistory_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   consume(purchase_token) {
@@ -139,7 +142,8 @@ payments.mojom.DigitalGoodsRemoteCallHandler = class {
       3,  // ordinal
       payments.mojom.DigitalGoods_Consume_ParamsSpec,
       payments.mojom.DigitalGoods_Consume_ResponseParamsSpec,
-      [purchase_token]);
+      [purchase_token],
+      false);
   }
 
 };
@@ -210,7 +214,8 @@ payments.mojom.DigitalGoodsFactoryRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ParamsSpec,
       payments.mojom.DigitalGoodsFactory_CreateDigitalGoods_ResponseParamsSpec,
-      [payment_method]);
+      [payment_method],
+      false);
   }
 
 };

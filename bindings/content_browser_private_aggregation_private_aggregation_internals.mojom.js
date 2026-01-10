@@ -116,7 +116,8 @@ private_aggregation_internals.mojom.ObserverRemoteCallHandler = class {
       0,  // ordinal
       private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onReportHandled(report) {
@@ -125,7 +126,8 @@ private_aggregation_internals.mojom.ObserverRemoteCallHandler = class {
       1,  // ordinal
       private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec,
       null,
-      [report]);
+      [report],
+      false);
   }
 
 };
@@ -215,7 +217,8 @@ private_aggregation_internals.mojom.HandlerRemoteCallHandler = class {
       0,  // ordinal
       private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec,
       private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   sendReports(ids) {
@@ -224,7 +227,8 @@ private_aggregation_internals.mojom.HandlerRemoteCallHandler = class {
       1,  // ordinal
       private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec,
       private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec,
-      [ids]);
+      [ids],
+      false);
   }
 
   clearStorage() {
@@ -233,7 +237,8 @@ private_aggregation_internals.mojom.HandlerRemoteCallHandler = class {
       2,  // ordinal
       private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec,
       private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -298,7 +303,8 @@ private_aggregation_internals.mojom.FactoryRemoteCallHandler = class {
       0,  // ordinal
       private_aggregation_internals.mojom.Factory_Create_ParamsSpec,
       null,
-      [observer, handler]);
+      [observer, handler],
+      false);
   }
 
 };

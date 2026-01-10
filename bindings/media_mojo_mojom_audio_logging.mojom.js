@@ -114,7 +114,8 @@ media.mojom.AudioLogRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioLog_OnCreated_ParamsSpec,
       null,
-      [params, device_id]);
+      [params, device_id],
+      false);
   }
 
   onStarted() {
@@ -123,7 +124,8 @@ media.mojom.AudioLogRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioLog_OnStarted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onStopped() {
@@ -132,7 +134,8 @@ media.mojom.AudioLogRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.AudioLog_OnStopped_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onClosed() {
@@ -141,7 +144,8 @@ media.mojom.AudioLogRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.AudioLog_OnClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onError() {
@@ -150,7 +154,8 @@ media.mojom.AudioLogRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.AudioLog_OnError_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSetVolume(volume) {
@@ -159,7 +164,8 @@ media.mojom.AudioLogRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.AudioLog_OnSetVolume_ParamsSpec,
       null,
-      [volume]);
+      [volume],
+      false);
   }
 
   onProcessingStateChanged(message) {
@@ -168,7 +174,8 @@ media.mojom.AudioLogRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
   onLogMessage(message) {
@@ -177,7 +184,8 @@ media.mojom.AudioLogRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.AudioLog_OnLogMessage_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };
@@ -243,7 +251,8 @@ media.mojom.AudioLogFactoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec,
       null,
-      [component, component_id, audio_log_receiver]);
+      [component, component_id, audio_log_receiver],
+      false);
   }
 
 };

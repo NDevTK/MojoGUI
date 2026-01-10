@@ -156,7 +156,8 @@ blink.mojom.FileSystemAccessObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec,
       null,
-      [changes]);
+      [changes],
+      false);
   }
 
 };

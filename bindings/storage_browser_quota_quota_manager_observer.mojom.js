@@ -68,7 +68,8 @@ storage.mojom.QuotaManagerObserverRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec,
       null,
-      [bucket_info]);
+      [bucket_info],
+      false);
   }
 
   onDeleteBucket(bucket_locator) {
@@ -77,7 +78,8 @@ storage.mojom.QuotaManagerObserverRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec,
       null,
-      [bucket_locator]);
+      [bucket_locator],
+      false);
   }
 
 };

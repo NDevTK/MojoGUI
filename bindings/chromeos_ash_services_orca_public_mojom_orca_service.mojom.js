@@ -348,7 +348,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       0,  // ordinal
       ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec,
       ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestPresetRewrite(text_query_id, text_override) {
@@ -357,7 +358,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       1,  // ordinal
       ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec,
       ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec,
-      [text_query_id, text_override]);
+      [text_query_id, text_override],
+      false);
   }
 
   requestFreeformRewrite(input, text_override) {
@@ -366,7 +368,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       2,  // ordinal
       ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec,
       ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec,
-      [input, text_override]);
+      [input, text_override],
+      false);
   }
 
   requestFreeformWrite(input) {
@@ -375,7 +378,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       3,  // ordinal
       ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec,
       ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec,
-      [input]);
+      [input],
+      false);
   }
 
   insertText(text) {
@@ -384,7 +388,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       4,  // ordinal
       ash.orca.mojom.EditorClient_InsertText_ParamsSpec,
       null,
-      [text]);
+      [text],
+      false);
   }
 
   approveConsent() {
@@ -393,7 +398,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       5,  // ordinal
       ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   declineConsent() {
@@ -402,7 +408,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       6,  // ordinal
       ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   dismissConsent() {
@@ -411,7 +418,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       7,  // ordinal
       ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openUrlInNewWindow(url) {
@@ -420,7 +428,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       8,  // ordinal
       ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   showUI() {
@@ -429,7 +438,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       9,  // ordinal
       ash.orca.mojom.EditorClient_ShowUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   closeUI() {
@@ -438,7 +448,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       10,  // ordinal
       ash.orca.mojom.EditorClient_CloseUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   appendText(text) {
@@ -447,7 +458,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       11,  // ordinal
       ash.orca.mojom.EditorClient_AppendText_ParamsSpec,
       null,
-      [text]);
+      [text],
+      false);
   }
 
   previewFeedback(result_id) {
@@ -456,7 +468,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       12,  // ordinal
       ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec,
       ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec,
-      [result_id]);
+      [result_id],
+      false);
   }
 
   submitFeedback(result_id, user_description) {
@@ -465,7 +478,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       13,  // ordinal
       ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec,
       null,
-      [result_id, user_description]);
+      [result_id, user_description],
+      false);
   }
 
   onTrigger(trigger_context) {
@@ -474,7 +488,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       14,  // ordinal
       ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec,
       null,
-      [trigger_context]);
+      [trigger_context],
+      false);
   }
 
   emitMetricEvent(metric_event) {
@@ -483,7 +498,8 @@ ash.orca.mojom.EditorClientRemoteCallHandler = class {
       15,  // ordinal
       ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec,
       null,
-      [metric_event]);
+      [metric_event],
+      false);
   }
 
 };
@@ -547,7 +563,8 @@ ash.orca.mojom.EditorClientConnectorRemoteCallHandler = class {
       0,  // ordinal
       ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec,
       null,
-      [editor_client]);
+      [editor_client],
+      false);
   }
 
 };
@@ -611,7 +628,8 @@ ash.orca.mojom.EditorEventSinkRemoteCallHandler = class {
       0,  // ordinal
       ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec,
       null,
-      [context]);
+      [context],
+      false);
   }
 
 };
@@ -719,7 +737,8 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       0,  // ordinal
       ash.orca.mojom.SystemActuator_InsertText_ParamsSpec,
       null,
-      [text]);
+      [text],
+      false);
   }
 
   approveConsent() {
@@ -728,7 +747,8 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       1,  // ordinal
       ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   declineConsent() {
@@ -737,7 +757,8 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       2,  // ordinal
       ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openUrlInNewWindow(url) {
@@ -746,7 +767,8 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       3,  // ordinal
       ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   showUI() {
@@ -755,7 +777,8 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       4,  // ordinal
       ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   closeUI() {
@@ -764,7 +787,8 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       5,  // ordinal
       ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   submitFeedback(description) {
@@ -773,7 +797,8 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       6,  // ordinal
       ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec,
       null,
-      [description]);
+      [description],
+      false);
   }
 
   onTrigger(trigger_context) {
@@ -782,7 +807,8 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       7,  // ordinal
       ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec,
       null,
-      [trigger_context]);
+      [trigger_context],
+      false);
   }
 
   emitMetricEvent(metric_event) {
@@ -791,7 +817,8 @@ ash.orca.mojom.SystemActuatorRemoteCallHandler = class {
       8,  // ordinal
       ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec,
       null,
-      [metric_event]);
+      [metric_event],
+      false);
   }
 
 };
@@ -861,7 +888,8 @@ ash.orca.mojom.TextQueryProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.orca.mojom.TextQueryProvider_Process_ParamsSpec,
       ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
 };
@@ -929,7 +957,8 @@ ash.orca.mojom.OrcaServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.orca.mojom.OrcaService_BindEditor_ParamsSpec,
       null,
-      [system_actuator, text_query_provider, client_connector, event_sink, editor_config]);
+      [system_actuator, text_query_provider, client_connector, event_sink, editor_config],
+      false);
   }
 
 };

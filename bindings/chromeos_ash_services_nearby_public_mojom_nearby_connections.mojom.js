@@ -132,7 +132,8 @@ nearby.connections.mojom.EndpointDiscoveryListenerRemoteCallHandler = class {
       0,  // ordinal
       nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointFound_ParamsSpec,
       null,
-      [endpoint_id, info]);
+      [endpoint_id, info],
+      false);
   }
 
   onEndpointLost(endpoint_id) {
@@ -141,7 +142,8 @@ nearby.connections.mojom.EndpointDiscoveryListenerRemoteCallHandler = class {
       1,  // ordinal
       nearby.connections.mojom.EndpointDiscoveryListener_OnEndpointLost_ParamsSpec,
       null,
-      [endpoint_id]);
+      [endpoint_id],
+      false);
   }
 
 };
@@ -232,7 +234,8 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
       0,  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionInitiated_ParamsSpec,
       null,
-      [endpoint_id, info]);
+      [endpoint_id, info],
+      false);
   }
 
   onConnectionAccepted(endpoint_id) {
@@ -241,7 +244,8 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
       1,  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionAccepted_ParamsSpec,
       null,
-      [endpoint_id]);
+      [endpoint_id],
+      false);
   }
 
   onConnectionRejected(endpoint_id, status) {
@@ -250,7 +254,8 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
       2,  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnConnectionRejected_ParamsSpec,
       null,
-      [endpoint_id, status]);
+      [endpoint_id, status],
+      false);
   }
 
   onDisconnected(endpoint_id) {
@@ -259,7 +264,8 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
       3,  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnDisconnected_ParamsSpec,
       null,
-      [endpoint_id]);
+      [endpoint_id],
+      false);
   }
 
   onBandwidthChanged(endpoint_id, medium) {
@@ -268,7 +274,8 @@ nearby.connections.mojom.ConnectionLifecycleListenerRemoteCallHandler = class {
       4,  // ordinal
       nearby.connections.mojom.ConnectionLifecycleListener_OnBandwidthChanged_ParamsSpec,
       null,
-      [endpoint_id, medium]);
+      [endpoint_id, medium],
+      false);
   }
 
 };
@@ -340,7 +347,8 @@ nearby.connections.mojom.PayloadListenerRemoteCallHandler = class {
       0,  // ordinal
       nearby.connections.mojom.PayloadListener_OnPayloadReceived_ParamsSpec,
       null,
-      [endpoint_id, payload]);
+      [endpoint_id, payload],
+      false);
   }
 
   onPayloadTransferUpdate(endpoint_id, update) {
@@ -349,7 +357,8 @@ nearby.connections.mojom.PayloadListenerRemoteCallHandler = class {
       1,  // ordinal
       nearby.connections.mojom.PayloadListener_OnPayloadTransferUpdate_ParamsSpec,
       null,
-      [endpoint_id, update]);
+      [endpoint_id, update],
+      false);
   }
 
 };
@@ -434,7 +443,8 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
       0,  // ordinal
       nearby.connections.mojom.ConnectionListenerV3_OnConnectionInitiatedV3_ParamsSpec,
       null,
-      [endpoint_id, info]);
+      [endpoint_id, info],
+      false);
   }
 
   onConnectionResultV3(endpoint_id, resolution) {
@@ -443,7 +453,8 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
       1,  // ordinal
       nearby.connections.mojom.ConnectionListenerV3_OnConnectionResultV3_ParamsSpec,
       null,
-      [endpoint_id, resolution]);
+      [endpoint_id, resolution],
+      false);
   }
 
   onDisconnectedV3(endpoint_id) {
@@ -452,7 +463,8 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
       2,  // ordinal
       nearby.connections.mojom.ConnectionListenerV3_OnDisconnectedV3_ParamsSpec,
       null,
-      [endpoint_id]);
+      [endpoint_id],
+      false);
   }
 
   onBandwidthChangedV3(endpoint_id, bandwidth_info) {
@@ -461,7 +473,8 @@ nearby.connections.mojom.ConnectionListenerV3RemoteCallHandler = class {
       3,  // ordinal
       nearby.connections.mojom.ConnectionListenerV3_OnBandwidthChangedV3_ParamsSpec,
       null,
-      [endpoint_id, bandwidth_info]);
+      [endpoint_id, bandwidth_info],
+      false);
   }
 
 };
@@ -533,7 +546,8 @@ nearby.connections.mojom.PayloadListenerV3RemoteCallHandler = class {
       0,  // ordinal
       nearby.connections.mojom.PayloadListenerV3_OnPayloadReceivedV3_ParamsSpec,
       null,
-      [endpoint_id, payload]);
+      [endpoint_id, payload],
+      false);
   }
 
   onPayloadTransferUpdateV3(endpoint_id, update) {
@@ -542,7 +556,8 @@ nearby.connections.mojom.PayloadListenerV3RemoteCallHandler = class {
       1,  // ordinal
       nearby.connections.mojom.PayloadListenerV3_OnPayloadTransferUpdateV3_ParamsSpec,
       null,
-      [endpoint_id, update]);
+      [endpoint_id, update],
+      false);
   }
 
 };
@@ -852,7 +867,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       0,  // ordinal
       nearby.connections.mojom.NearbyConnections_StartAdvertising_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StartAdvertising_ResponseParamsSpec,
-      [service_id, endpoint_info, options, listener]);
+      [service_id, endpoint_info, options, listener],
+      false);
   }
 
   stopAdvertising(service_id) {
@@ -861,7 +877,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       1,  // ordinal
       nearby.connections.mojom.NearbyConnections_StopAdvertising_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StopAdvertising_ResponseParamsSpec,
-      [service_id]);
+      [service_id],
+      false);
   }
 
   startDiscovery(service_id, options, listener) {
@@ -870,7 +887,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       2,  // ordinal
       nearby.connections.mojom.NearbyConnections_StartDiscovery_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StartDiscovery_ResponseParamsSpec,
-      [service_id, options, listener]);
+      [service_id, options, listener],
+      false);
   }
 
   stopDiscovery(service_id) {
@@ -879,7 +897,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       3,  // ordinal
       nearby.connections.mojom.NearbyConnections_StopDiscovery_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StopDiscovery_ResponseParamsSpec,
-      [service_id]);
+      [service_id],
+      false);
   }
 
   injectBluetoothEndpoint(service_id, endpoint_id, endpoint_info, remote_bluetooth_mac_address) {
@@ -888,7 +907,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       4,  // ordinal
       nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_InjectBluetoothEndpoint_ResponseParamsSpec,
-      [service_id, endpoint_id, endpoint_info, remote_bluetooth_mac_address]);
+      [service_id, endpoint_id, endpoint_info, remote_bluetooth_mac_address],
+      false);
   }
 
   requestConnection(service_id, endpoint_info, endpoint_id, options, listener) {
@@ -897,7 +917,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       5,  // ordinal
       nearby.connections.mojom.NearbyConnections_RequestConnection_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RequestConnection_ResponseParamsSpec,
-      [service_id, endpoint_info, endpoint_id, options, listener]);
+      [service_id, endpoint_info, endpoint_id, options, listener],
+      false);
   }
 
   acceptConnection(service_id, endpoint_id, listener) {
@@ -906,7 +927,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       6,  // ordinal
       nearby.connections.mojom.NearbyConnections_AcceptConnection_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_AcceptConnection_ResponseParamsSpec,
-      [service_id, endpoint_id, listener]);
+      [service_id, endpoint_id, listener],
+      false);
   }
 
   rejectConnection(service_id, endpoint_id) {
@@ -915,7 +937,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       7,  // ordinal
       nearby.connections.mojom.NearbyConnections_RejectConnection_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RejectConnection_ResponseParamsSpec,
-      [service_id, endpoint_id]);
+      [service_id, endpoint_id],
+      false);
   }
 
   disconnectFromEndpoint(service_id, endpoint_id) {
@@ -924,7 +947,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       8,  // ordinal
       nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_DisconnectFromEndpoint_ResponseParamsSpec,
-      [service_id, endpoint_id]);
+      [service_id, endpoint_id],
+      false);
   }
 
   sendPayload(service_id, endpoint_ids, payload) {
@@ -933,7 +957,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       9,  // ordinal
       nearby.connections.mojom.NearbyConnections_SendPayload_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_SendPayload_ResponseParamsSpec,
-      [service_id, endpoint_ids, payload]);
+      [service_id, endpoint_ids, payload],
+      false);
   }
 
   cancelPayload(service_id, payload_id) {
@@ -942,7 +967,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       10,  // ordinal
       nearby.connections.mojom.NearbyConnections_CancelPayload_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_CancelPayload_ResponseParamsSpec,
-      [service_id, payload_id]);
+      [service_id, payload_id],
+      false);
   }
 
   stopAllEndpoints(service_id) {
@@ -951,7 +977,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       11,  // ordinal
       nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_StopAllEndpoints_ResponseParamsSpec,
-      [service_id]);
+      [service_id],
+      false);
   }
 
   initiateBandwidthUpgrade(service_id, endpoint_id) {
@@ -960,7 +987,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       12,  // ordinal
       nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_InitiateBandwidthUpgrade_ResponseParamsSpec,
-      [service_id, endpoint_id]);
+      [service_id, endpoint_id],
+      false);
   }
 
   registerPayloadFile(service_id, payload_id, input_file, output_file) {
@@ -969,7 +997,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       13,  // ordinal
       nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RegisterPayloadFile_ResponseParamsSpec,
-      [service_id, payload_id, input_file, output_file]);
+      [service_id, payload_id, input_file, output_file],
+      false);
   }
 
   requestConnectionV3(service_id, remote_device, connection_options, listener) {
@@ -978,7 +1007,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       14,  // ordinal
       nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RequestConnectionV3_ResponseParamsSpec,
-      [service_id, remote_device, connection_options, listener]);
+      [service_id, remote_device, connection_options, listener],
+      false);
   }
 
   acceptConnectionV3(service_id, remote_device, listener) {
@@ -987,7 +1017,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       15,  // ordinal
       nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_AcceptConnectionV3_ResponseParamsSpec,
-      [service_id, remote_device, listener]);
+      [service_id, remote_device, listener],
+      false);
   }
 
   rejectConnectionV3(service_id, remote_device) {
@@ -996,7 +1027,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       16,  // ordinal
       nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_RejectConnectionV3_ResponseParamsSpec,
-      [service_id, remote_device]);
+      [service_id, remote_device],
+      false);
   }
 
   disconnectFromDeviceV3(service_id, remote_device) {
@@ -1005,7 +1037,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       17,  // ordinal
       nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ParamsSpec,
       nearby.connections.mojom.NearbyConnections_DisconnectFromDeviceV3_ResponseParamsSpec,
-      [service_id, remote_device]);
+      [service_id, remote_device],
+      false);
   }
 
   registerServiceWithPresenceDeviceProvider(service_id) {
@@ -1014,7 +1047,8 @@ nearby.connections.mojom.NearbyConnectionsRemoteCallHandler = class {
       18,  // ordinal
       nearby.connections.mojom.NearbyConnections_RegisterServiceWithPresenceDeviceProvider_ParamsSpec,
       null,
-      [service_id]);
+      [service_id],
+      false);
   }
 
 };

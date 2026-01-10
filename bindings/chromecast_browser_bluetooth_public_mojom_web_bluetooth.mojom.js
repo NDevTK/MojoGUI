@@ -61,7 +61,8 @@ chromecast.mojom.BluetoothDeviceAccessProviderRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
 };
@@ -130,7 +131,8 @@ chromecast.mojom.BluetoothDeviceAccessProviderClientRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec,
       null,
-      [address]);
+      [address],
+      false);
   }
 
   grantAccessToAllDevices() {
@@ -139,7 +141,8 @@ chromecast.mojom.BluetoothDeviceAccessProviderClientRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

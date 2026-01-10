@@ -143,7 +143,8 @@ ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
       0,  // ordinal
       ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec,
       ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   launchApp() {
@@ -152,7 +153,8 @@ ash.app_install.mojom.AppInfoActionsRemoteCallHandler = class {
       1,  // ordinal
       ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -215,7 +217,8 @@ ash.app_install.mojom.ConnectionErrorActionsRemoteCallHandler = class {
       0,  // ordinal
       ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -279,7 +282,8 @@ ash.app_install.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -353,7 +357,8 @@ ash.app_install.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec,
       ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   closeDialog() {
@@ -362,7 +367,8 @@ ash.app_install.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -609,7 +609,7 @@ mojo.internal.Struct(
 // Struct: VolumeButtonRoutineArgument
 mojo.internal.Struct(
     ash.cros_healthd.mojom.VolumeButtonRoutineArgumentSpec, 'ash.cros_healthd.mojom.VolumeButtonRoutineArgument', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -731,14 +731,14 @@ mojo.internal.Struct(
 // Struct: NetworkBandwidthRoutineRunningInfo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.NetworkBandwidthRoutineRunningInfoSpec, 'ash.cros_healthd.mojom.NetworkBandwidthRoutineRunningInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: RoutineStateWaiting
 mojo.internal.Struct(
     ash.cros_healthd.mojom.RoutineStateWaitingSpec, 'ash.cros_healthd.mojom.RoutineStateWaiting', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -751,7 +751,7 @@ mojo.internal.Struct(
 // Struct: CheckLedLitUpStateReply
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CheckLedLitUpStateReplySpec, 'ash.cros_healthd.mojom.CheckLedLitUpStateReply', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -776,7 +776,7 @@ mojo.internal.Struct(
 // Struct: CheckKeyboardBacklightStateReply
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CheckKeyboardBacklightStateReplySpec, 'ash.cros_healthd.mojom.CheckKeyboardBacklightStateReply', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -873,7 +873,7 @@ mojo.internal.Struct(
 // Struct: BluetoothPairingPeripheralInfo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.BluetoothPairingPeripheralInfoSpec, 'ash.cros_healthd.mojom.BluetoothPairingPeripheralInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -920,7 +920,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ash.cros_healthd.mojom.SensitiveSensorInfoSpec, 'ash.cros_healthd.mojom.SensitiveSensorInfo', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('kUnmappedEnumField', 8, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 8, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -950,7 +950,7 @@ mojo.internal.Struct(
 // Struct: CameraFrameAnalysisRoutineDetail
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CameraFrameAnalysisRoutineDetailSpec, 'ash.cros_healthd.mojom.CameraFrameAnalysisRoutineDetail', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1013,7 +1013,8 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec,
       null,
-      [routine_argument, routine_receiver, routine_observer]);
+      [routine_argument, routine_receiver, routine_observer],
+      false);
   }
 
   isRoutineArgumentSupported(routine_argument) {
@@ -1022,7 +1023,8 @@ ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec,
-      [routine_argument]);
+      [routine_argument],
+      false);
   }
 
 };
@@ -1102,7 +1104,8 @@ ash.cros_healthd.mojom.RoutineControlRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec,
       ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   start() {
@@ -1111,7 +1114,8 @@ ash.cros_healthd.mojom.RoutineControlRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   replyInquiry(reply) {
@@ -1120,7 +1124,8 @@ ash.cros_healthd.mojom.RoutineControlRemoteCallHandler = class {
       2,  // ordinal
       ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec,
       null,
-      [reply]);
+      [reply],
+      false);
   }
 
 };
@@ -1184,7 +1189,8 @@ ash.cros_healthd.mojom.RoutineObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
 };

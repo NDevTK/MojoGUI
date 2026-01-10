@@ -60,7 +60,8 @@ dom_distiller.mojom.DistillabilityServiceRemoteCallHandler = class {
       0,  // ordinal
       dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec,
       null,
-      [page_is_distillable, is_last_update, is_long_article, is_mobile_friendly]);
+      [page_is_distillable, is_last_update, is_long_article, is_mobile_friendly],
+      false);
   }
 
 };

@@ -216,7 +216,8 @@ device.mojom.NFCRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.NFC_SetClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   push(message, options) {
@@ -225,7 +226,8 @@ device.mojom.NFCRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.NFC_Push_ParamsSpec,
       device.mojom.NFC_Push_ResponseParamsSpec,
-      [message, options]);
+      [message, options],
+      false);
   }
 
   cancelPush() {
@@ -234,7 +236,8 @@ device.mojom.NFCRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.NFC_CancelPush_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   makeReadOnly() {
@@ -243,7 +246,8 @@ device.mojom.NFCRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.NFC_MakeReadOnly_ParamsSpec,
       device.mojom.NFC_MakeReadOnly_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   cancelMakeReadOnly() {
@@ -252,7 +256,8 @@ device.mojom.NFCRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.NFC_CancelMakeReadOnly_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   watch(id) {
@@ -261,7 +266,8 @@ device.mojom.NFCRemoteCallHandler = class {
       5,  // ordinal
       device.mojom.NFC_Watch_ParamsSpec,
       device.mojom.NFC_Watch_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   cancelWatch(id) {
@@ -270,7 +276,8 @@ device.mojom.NFCRemoteCallHandler = class {
       6,  // ordinal
       device.mojom.NFC_CancelWatch_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
 };
@@ -342,7 +349,8 @@ device.mojom.NFCClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.NFCClient_OnWatch_ParamsSpec,
       null,
-      [watch_ids, serial_number, message]);
+      [watch_ids, serial_number, message],
+      false);
   }
 
   onError(error) {
@@ -351,7 +359,8 @@ device.mojom.NFCClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.NFCClient_OnError_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
 };
@@ -422,7 +431,8 @@ device.mojom.RawNFCClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.RawNFCClient_OnWatch_ParamsSpec,
       null,
-      [watch_ids, message]);
+      [watch_ids, message],
+      false);
   }
 
   onError(error) {
@@ -431,7 +441,8 @@ device.mojom.RawNFCClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.RawNFCClient_OnError_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
 };

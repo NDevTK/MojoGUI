@@ -28,7 +28,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('options', 8, 0, blink.mojom.WorkerOptionsSpec, null, false, 0, undefined),
       mojo.internal.StructField('content_security_policies', 16, 0, mojo.internal.Array(network.mojom.ContentSecurityPolicySpec, false), null, false, 0, undefined),
       mojo.internal.StructField('outside_fetch_client_settings_object', 24, 0, blink.mojom.FetchClientSettingsObjectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('same_site_cookies', 32, 0, blink.mojom.SharedWorkerSameSiteCookiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('same_site_cookies', 32, 0, blink.mojom.SharedWorkerSameSiteCookiesSpec, 0, false, 0, undefined),
       mojo.internal.StructField('extended_lifetime', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);

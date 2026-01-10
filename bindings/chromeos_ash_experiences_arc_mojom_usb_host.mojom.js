@@ -103,7 +103,8 @@ arc.mojom.UsbHostHostRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.UsbHostHost_OpenDevice_ParamsSpec,
       arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec,
-      [guid, pkg_name]);
+      [guid, pkg_name],
+      false);
   }
 
   getDeviceInfo(guid) {
@@ -112,7 +113,8 @@ arc.mojom.UsbHostHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec,
       arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec,
-      [guid]);
+      [guid],
+      false);
   }
 
   requestPermission(guid, pkg_name, interactive) {
@@ -121,7 +123,8 @@ arc.mojom.UsbHostHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.UsbHostHost_RequestPermission_ParamsSpec,
       arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec,
-      [guid, pkg_name, interactive]);
+      [guid, pkg_name, interactive],
+      false);
   }
 
 };
@@ -204,7 +207,8 @@ arc.mojom.UsbHostInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.UsbHostInstance_Init_ParamsSpec,
       arc.mojom.UsbHostInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   onDeviceAdded(guid, event_receiver_packages) {
@@ -213,7 +217,8 @@ arc.mojom.UsbHostInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec,
       null,
-      [guid, event_receiver_packages]);
+      [guid, event_receiver_packages],
+      false);
   }
 
   onDeviceRemoved(guid, event_receiver_packages) {
@@ -222,7 +227,8 @@ arc.mojom.UsbHostInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec,
       null,
-      [guid, event_receiver_packages]);
+      [guid, event_receiver_packages],
+      false);
   }
 
 };

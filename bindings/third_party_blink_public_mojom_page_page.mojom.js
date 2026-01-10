@@ -217,7 +217,8 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec,
       blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec,
-      [state, page_restore_params]);
+      [state, page_restore_params],
+      false);
   }
 
   audioStateChanged(is_audio_playing) {
@@ -226,7 +227,8 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec,
       null,
-      [is_audio_playing]);
+      [is_audio_playing],
+      false);
   }
 
   activatePrerenderedPage(prerender_page_activation_params) {
@@ -235,7 +237,8 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec,
       blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec,
-      [prerender_page_activation_params]);
+      [prerender_page_activation_params],
+      false);
   }
 
   updateWebPreferences(preferences) {
@@ -244,7 +247,8 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec,
       null,
-      [preferences]);
+      [preferences],
+      false);
   }
 
   updateRendererPreferences(preferences) {
@@ -253,7 +257,8 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec,
       null,
-      [preferences]);
+      [preferences],
+      false);
   }
 
   setHistoryIndexAndLength(index, length) {
@@ -262,7 +267,8 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec,
       null,
-      [index, length]);
+      [index, length],
+      false);
   }
 
   setPageBaseBackgroundColor(color) {
@@ -271,7 +277,8 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec,
       null,
-      [color]);
+      [color],
+      false);
   }
 
   createRemoteMainFrame(token, opener_frame_token, replication_state, is_loading, devtools_frame_token, navigation_metrics_token, remote_frame_interfaces, remote_main_frame_interfaces) {
@@ -280,7 +287,8 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec,
       null,
-      [token, opener_frame_token, replication_state, is_loading, devtools_frame_token, navigation_metrics_token, remote_frame_interfaces, remote_main_frame_interfaces]);
+      [token, opener_frame_token, replication_state, is_loading, devtools_frame_token, navigation_metrics_token, remote_frame_interfaces, remote_main_frame_interfaces],
+      false);
   }
 
   updatePageBrowsingContextGroup(browsing_context_group_token) {
@@ -289,7 +297,8 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec,
       null,
-      [browsing_context_group_token]);
+      [browsing_context_group_token],
+      false);
   }
 
   setPageAttributionSupport(support) {
@@ -298,7 +307,8 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec,
       null,
-      [support]);
+      [support],
+      false);
   }
 
   updateColorProviders(color_provider_colors) {
@@ -307,7 +317,8 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec,
       null,
-      [color_provider_colors]);
+      [color_provider_colors],
+      false);
   }
 
   setSupportsDraggableRegions(supports_draggable_regions) {
@@ -316,7 +327,8 @@ blink.mojom.PageBroadcastRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec,
       null,
-      [supports_draggable_regions]);
+      [supports_draggable_regions],
+      false);
   }
 
 };

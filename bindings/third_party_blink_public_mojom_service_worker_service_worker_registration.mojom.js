@@ -161,7 +161,8 @@ blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ParamsSpec,
       blink.mojom.ServiceWorkerRegistrationObjectHost_Update_ResponseParamsSpec,
-      [outside_fetch_client_settings_object]);
+      [outside_fetch_client_settings_object],
+      false);
   }
 
   unregister() {
@@ -170,7 +171,8 @@ blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ParamsSpec,
       blink.mojom.ServiceWorkerRegistrationObjectHost_Unregister_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   enableNavigationPreload(enable) {
@@ -179,7 +181,8 @@ blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ParamsSpec,
       blink.mojom.ServiceWorkerRegistrationObjectHost_EnableNavigationPreload_ResponseParamsSpec,
-      [enable]);
+      [enable],
+      false);
   }
 
   getNavigationPreloadState() {
@@ -188,7 +191,8 @@ blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ParamsSpec,
       blink.mojom.ServiceWorkerRegistrationObjectHost_GetNavigationPreloadState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setNavigationPreloadHeader(value) {
@@ -197,7 +201,8 @@ blink.mojom.ServiceWorkerRegistrationObjectHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ParamsSpec,
       blink.mojom.ServiceWorkerRegistrationObjectHost_SetNavigationPreloadHeader_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
 };
@@ -275,7 +280,8 @@ blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObject_SetServiceWorkerObjects_ParamsSpec,
       null,
-      [changed_mask, installing, waiting, active]);
+      [changed_mask, installing, waiting, active],
+      false);
   }
 
   setUpdateViaCache(update_via_cache) {
@@ -284,7 +290,8 @@ blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObject_SetUpdateViaCache_ParamsSpec,
       null,
-      [update_via_cache]);
+      [update_via_cache],
+      false);
   }
 
   updateFound() {
@@ -293,7 +300,8 @@ blink.mojom.ServiceWorkerRegistrationObjectRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ServiceWorkerRegistrationObject_UpdateFound_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

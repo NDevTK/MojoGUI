@@ -102,7 +102,8 @@ network.mojom.CrossOriginOpenerPolicyReporterRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.CrossOriginOpenerPolicyReporter_QueueAccessReport_ParamsSpec,
       null,
-      [report_type, property, source_location, reported_window_url]);
+      [report_type, property, source_location, reported_window_url],
+      false);
   }
 
 };

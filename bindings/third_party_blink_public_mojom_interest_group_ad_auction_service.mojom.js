@@ -196,7 +196,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec,
       null,
-      [auction, field, json_value]);
+      [auction, field, json_value],
+      false);
   }
 
   resolvedPerBuyerSignalsPromise(auction, per_buyer_signals) {
@@ -205,7 +206,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec,
       null,
-      [auction, per_buyer_signals]);
+      [auction, per_buyer_signals],
+      false);
   }
 
   resolvedBuyerTkvSignalsPromise(auction, buyer, json_value) {
@@ -214,7 +216,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec,
       null,
-      [auction, buyer, json_value]);
+      [auction, buyer, json_value],
+      false);
   }
 
   resolvedBuyerTimeoutsPromise(auction, field, buyer_timeouts) {
@@ -223,7 +226,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec,
       null,
-      [auction, field, buyer_timeouts]);
+      [auction, field, buyer_timeouts],
+      false);
   }
 
   resolvedBuyerCurrenciesPromise(auction, per_buyer_currencies) {
@@ -232,7 +236,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec,
       null,
-      [auction, per_buyer_currencies]);
+      [auction, per_buyer_currencies],
+      false);
   }
 
   resolvedDirectFromSellerSignalsPromise(auction, direct_from_seller_signals) {
@@ -241,7 +246,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec,
       null,
-      [auction, direct_from_seller_signals]);
+      [auction, direct_from_seller_signals],
+      false);
   }
 
   resolvedDirectFromSellerSignalsHeaderAdSlotPromise(auction, direct_from_seller_signals_header_ad_slot) {
@@ -250,7 +256,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec,
       null,
-      [auction, direct_from_seller_signals_header_ad_slot]);
+      [auction, direct_from_seller_signals_header_ad_slot],
+      false);
   }
 
   resolvedDeprecatedRenderURLReplacementsPromise(auction, deprecated_render_url_replacements) {
@@ -259,7 +266,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec,
       null,
-      [auction, deprecated_render_url_replacements]);
+      [auction, deprecated_render_url_replacements],
+      false);
   }
 
   resolvedAuctionAdResponsePromise(auction, result) {
@@ -268,7 +276,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec,
       null,
-      [auction, result]);
+      [auction, result],
+      false);
   }
 
   resolvedAdditionalBids(auction) {
@@ -277,7 +286,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec,
       null,
-      [auction]);
+      [auction],
+      false);
   }
 
   abort() {
@@ -286,7 +296,8 @@ blink.mojom.AbortableAdAuctionRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.AbortableAdAuction_Abort_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -470,7 +481,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec,
       blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec,
-      [config]);
+      [config],
+      false);
   }
 
   finalizeAd(ads_guid, config) {
@@ -479,7 +491,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec,
       blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec,
-      [ads_guid, config]);
+      [ads_guid, config],
+      false);
   }
 
   runAdAuction(config, abort_receiver) {
@@ -488,7 +501,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec,
       blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec,
-      [config, abort_receiver]);
+      [config, abort_receiver],
+      false);
   }
 
   joinInterestGroup(group) {
@@ -497,7 +511,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec,
       blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec,
-      [group]);
+      [group],
+      false);
   }
 
   leaveInterestGroup(owner, name) {
@@ -506,7 +521,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec,
       blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec,
-      [owner, name]);
+      [owner, name],
+      false);
   }
 
   leaveInterestGroupForDocument() {
@@ -515,7 +531,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   clearOriginJoinedInterestGroups(owner, interest_groups_to_keep) {
@@ -524,7 +541,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec,
       blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec,
-      [owner, interest_groups_to_keep]);
+      [owner, interest_groups_to_keep],
+      false);
   }
 
   updateAdInterestGroups() {
@@ -533,7 +551,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   deprecatedGetURLFromURN(uuid_url, send_reports) {
@@ -542,7 +561,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec,
       blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec,
-      [uuid_url, send_reports]);
+      [uuid_url, send_reports],
+      false);
   }
 
   deprecatedReplaceInURN(uuid_url, replacements) {
@@ -551,7 +571,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec,
       blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParamsSpec,
-      [uuid_url, replacements]);
+      [uuid_url, replacements],
+      false);
   }
 
   getInterestGroupAdAuctionData(sellers, config) {
@@ -560,7 +581,8 @@ blink.mojom.AdAuctionServiceRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec,
       blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec,
-      [sellers, config]);
+      [sellers, config],
+      false);
   }
 
 };

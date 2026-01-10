@@ -107,7 +107,8 @@ blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessFileWriter_Write_ParamsSpec,
       blink.mojom.FileSystemAccessFileWriter_Write_ResponseParamsSpec,
-      [offset, stream]);
+      [offset, stream],
+      false);
   }
 
   truncate(length) {
@@ -116,7 +117,8 @@ blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemAccessFileWriter_Truncate_ParamsSpec,
       blink.mojom.FileSystemAccessFileWriter_Truncate_ResponseParamsSpec,
-      [length]);
+      [length],
+      false);
   }
 
   close() {
@@ -125,7 +127,8 @@ blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FileSystemAccessFileWriter_Close_ParamsSpec,
       blink.mojom.FileSystemAccessFileWriter_Close_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   abort() {
@@ -134,7 +137,8 @@ blink.mojom.FileSystemAccessFileWriterRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FileSystemAccessFileWriter_Abort_ParamsSpec,
       blink.mojom.FileSystemAccessFileWriter_Abort_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

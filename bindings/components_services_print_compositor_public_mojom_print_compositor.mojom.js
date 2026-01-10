@@ -191,7 +191,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec,
       null,
-      [frame_guid]);
+      [frame_guid],
+      false);
   }
 
   addSubframeContent(frame_guid, serialized_content, subframe_content_info) {
@@ -200,7 +201,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
       1,  // ordinal
       printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec,
       null,
-      [frame_guid, serialized_content, subframe_content_info]);
+      [frame_guid, serialized_content, subframe_content_info],
+      false);
   }
 
   setAccessibilityTree(accessibility_tree) {
@@ -209,7 +211,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
       2,  // ordinal
       printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec,
       null,
-      [accessibility_tree]);
+      [accessibility_tree],
+      false);
   }
 
   compositePage(frame_guid, sk_region, subframe_content_info) {
@@ -218,7 +221,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
       3,  // ordinal
       printing.mojom.PrintCompositor_CompositePage_ParamsSpec,
       printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec,
-      [frame_guid, sk_region, subframe_content_info]);
+      [frame_guid, sk_region, subframe_content_info],
+      false);
   }
 
   compositeDocument(frame_guid, sk_region, subframe_content_info, document_type) {
@@ -227,7 +231,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
       4,  // ordinal
       printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec,
       printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec,
-      [frame_guid, sk_region, subframe_content_info, document_type]);
+      [frame_guid, sk_region, subframe_content_info, document_type],
+      false);
   }
 
   prepareToCompositeDocument(document_type) {
@@ -236,7 +241,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
       5,  // ordinal
       printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec,
       printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec,
-      [document_type]);
+      [document_type],
+      false);
   }
 
   finishDocumentComposition(pages_count) {
@@ -245,7 +251,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
       6,  // ordinal
       printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec,
       printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec,
-      [pages_count]);
+      [pages_count],
+      false);
   }
 
   setWebContentsURL(url) {
@@ -254,7 +261,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
       7,  // ordinal
       printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   setUserAgent(user_agent) {
@@ -263,7 +271,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
       8,  // ordinal
       printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec,
       null,
-      [user_agent]);
+      [user_agent],
+      false);
   }
 
   setGenerateDocumentOutline(generate_document_outline) {
@@ -272,7 +281,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
       9,  // ordinal
       printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec,
       null,
-      [generate_document_outline]);
+      [generate_document_outline],
+      false);
   }
 
   setTitle(title) {
@@ -281,7 +291,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
       10,  // ordinal
       printing.mojom.PrintCompositor_SetTitle_ParamsSpec,
       null,
-      [title]);
+      [title],
+      false);
   }
 
   setWatermarkBlock(watermark_block) {
@@ -290,7 +301,8 @@ printing.mojom.PrintCompositorRemoteCallHandler = class {
       11,  // ordinal
       printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec,
       null,
-      [watermark_block]);
+      [watermark_block],
+      false);
   }
 
 };

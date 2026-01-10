@@ -276,7 +276,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.Renderer_ActivateExtension_ParamsSpec,
       null,
-      [extension_id]);
+      [extension_id],
+      false);
   }
 
   setActivityLoggingEnabled(enabled) {
@@ -285,7 +286,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.Renderer_SetActivityLoggingEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   loadExtensions(params) {
@@ -294,7 +296,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       2,  // ordinal
       extensions.mojom.Renderer_LoadExtensions_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   unloadExtension(extension_id) {
@@ -303,7 +306,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       3,  // ordinal
       extensions.mojom.Renderer_UnloadExtension_ParamsSpec,
       null,
-      [extension_id]);
+      [extension_id],
+      false);
   }
 
   suspendExtension(extension_id) {
@@ -312,7 +316,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       4,  // ordinal
       extensions.mojom.Renderer_SuspendExtension_ParamsSpec,
       extensions.mojom.Renderer_SuspendExtension_ResponseParamsSpec,
-      [extension_id]);
+      [extension_id],
+      false);
   }
 
   cancelSuspendExtension(extension_id) {
@@ -321,7 +326,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       5,  // ordinal
       extensions.mojom.Renderer_CancelSuspendExtension_ParamsSpec,
       null,
-      [extension_id]);
+      [extension_id],
+      false);
   }
 
   setDeveloperMode(developer_mode_only) {
@@ -330,7 +336,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       6,  // ordinal
       extensions.mojom.Renderer_SetDeveloperMode_ParamsSpec,
       null,
-      [developer_mode_only]);
+      [developer_mode_only],
+      false);
   }
 
   setUserScriptsAllowed(extension_id, allowed) {
@@ -339,7 +346,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       7,  // ordinal
       extensions.mojom.Renderer_SetUserScriptsAllowed_ParamsSpec,
       null,
-      [extension_id, allowed]);
+      [extension_id, allowed],
+      false);
   }
 
   setSessionInfo(channel, session) {
@@ -348,7 +356,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       8,  // ordinal
       extensions.mojom.Renderer_SetSessionInfo_ParamsSpec,
       null,
-      [channel, session]);
+      [channel, session],
+      false);
   }
 
   setSystemFont(font_family, font_size) {
@@ -357,7 +366,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       9,  // ordinal
       extensions.mojom.Renderer_SetSystemFont_ParamsSpec,
       null,
-      [font_family, font_size]);
+      [font_family, font_size],
+      false);
   }
 
   setWebViewPartitionID(partition_id) {
@@ -366,7 +376,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       10,  // ordinal
       extensions.mojom.Renderer_SetWebViewPartitionID_ParamsSpec,
       null,
-      [partition_id]);
+      [partition_id],
+      false);
   }
 
   setScriptingAllowlist(extension_ids) {
@@ -375,7 +386,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       11,  // ordinal
       extensions.mojom.Renderer_SetScriptingAllowlist_ParamsSpec,
       null,
-      [extension_ids]);
+      [extension_ids],
+      false);
   }
 
   updateUserScriptWorlds(infos) {
@@ -384,7 +396,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       12,  // ordinal
       extensions.mojom.Renderer_UpdateUserScriptWorlds_ParamsSpec,
       null,
-      [infos]);
+      [infos],
+      false);
   }
 
   clearUserScriptWorldConfig(extension_id, world_id) {
@@ -393,7 +406,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       13,  // ordinal
       extensions.mojom.Renderer_ClearUserScriptWorldConfig_ParamsSpec,
       null,
-      [extension_id, world_id]);
+      [extension_id, world_id],
+      false);
   }
 
   shouldSuspend() {
@@ -402,7 +416,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       14,  // ordinal
       extensions.mojom.Renderer_ShouldSuspend_ParamsSpec,
       extensions.mojom.Renderer_ShouldSuspend_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   transferBlobs() {
@@ -411,7 +426,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       15,  // ordinal
       extensions.mojom.Renderer_TransferBlobs_ParamsSpec,
       extensions.mojom.Renderer_TransferBlobs_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   updatePermissions(extension_id, active_permissions, withheld_permissions, policy_blocked_hosts, policy_allowed_hosts, uses_default_policy_host_restrictions) {
@@ -420,7 +436,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       16,  // ordinal
       extensions.mojom.Renderer_UpdatePermissions_ParamsSpec,
       null,
-      [extension_id, active_permissions, withheld_permissions, policy_blocked_hosts, policy_allowed_hosts, uses_default_policy_host_restrictions]);
+      [extension_id, active_permissions, withheld_permissions, policy_blocked_hosts, policy_allowed_hosts, uses_default_policy_host_restrictions],
+      false);
   }
 
   updateDefaultPolicyHostRestrictions(default_policy_blocked_hosts, default_policy_allowed_hosts) {
@@ -429,7 +446,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       17,  // ordinal
       extensions.mojom.Renderer_UpdateDefaultPolicyHostRestrictions_ParamsSpec,
       null,
-      [default_policy_blocked_hosts, default_policy_allowed_hosts]);
+      [default_policy_blocked_hosts, default_policy_allowed_hosts],
+      false);
   }
 
   updateUserHostRestrictions(user_blocked_hosts, user_allowed_hosts) {
@@ -438,7 +456,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       18,  // ordinal
       extensions.mojom.Renderer_UpdateUserHostRestrictions_ParamsSpec,
       null,
-      [user_blocked_hosts, user_allowed_hosts]);
+      [user_blocked_hosts, user_allowed_hosts],
+      false);
   }
 
   updateTabSpecificPermissions(extension_id, new_hosts, tab_id, update_origin_allowlist) {
@@ -447,7 +466,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       19,  // ordinal
       extensions.mojom.Renderer_UpdateTabSpecificPermissions_ParamsSpec,
       null,
-      [extension_id, new_hosts, tab_id, update_origin_allowlist]);
+      [extension_id, new_hosts, tab_id, update_origin_allowlist],
+      false);
   }
 
   updateUserScripts(region, owner) {
@@ -456,7 +476,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       20,  // ordinal
       extensions.mojom.Renderer_UpdateUserScripts_ParamsSpec,
       null,
-      [region, owner]);
+      [region, owner],
+      false);
   }
 
   clearTabSpecificPermissions(extension_ids, tab_id, update_origin_allowlist) {
@@ -465,7 +486,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       21,  // ordinal
       extensions.mojom.Renderer_ClearTabSpecificPermissions_ParamsSpec,
       null,
-      [extension_ids, tab_id, update_origin_allowlist]);
+      [extension_ids, tab_id, update_origin_allowlist],
+      false);
   }
 
   watchPages(css_selectors) {
@@ -474,7 +496,8 @@ extensions.mojom.RendererRemoteCallHandler = class {
       22,  // ordinal
       extensions.mojom.Renderer_WatchPages_ParamsSpec,
       null,
-      [css_selectors]);
+      [css_selectors],
+      false);
   }
 
 };

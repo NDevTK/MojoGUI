@@ -108,7 +108,8 @@ passage_embeddings.mojom.PassageEmbedderRemoteCallHandler = class {
       0,  // ordinal
       passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ParamsSpec,
       passage_embeddings.mojom.PassageEmbedder_GenerateEmbeddings_ResponseParamsSpec,
-      [passages, priority]);
+      [passages, priority],
+      false);
   }
 
 };
@@ -180,7 +181,8 @@ passage_embeddings.mojom.PassageEmbeddingsServiceRemoteCallHandler = class {
       0,  // ordinal
       passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ParamsSpec,
       passage_embeddings.mojom.PassageEmbeddingsService_LoadModels_ResponseParamsSpec,
-      [model_params, params, model]);
+      [model_params, params, model],
+      false);
   }
 
 };

@@ -82,7 +82,8 @@ ax.mojom.AssistiveTechnologyControllerRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.AssistiveTechnologyController_EnableAssistiveTechnology_ParamsSpec,
       null,
-      [enabled_features]);
+      [enabled_features],
+      false);
   }
 
 };
@@ -160,7 +161,8 @@ ax.mojom.AccessibilityServiceRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.AccessibilityService_BindAccessibilityServiceClient_ParamsSpec,
       null,
-      [accessibility_service_client]);
+      [accessibility_service_client],
+      false);
   }
 
   bindAssistiveTechnologyController(at_controller, enabled_features) {
@@ -169,7 +171,8 @@ ax.mojom.AccessibilityServiceRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.AccessibilityService_BindAssistiveTechnologyController_ParamsSpec,
       null,
-      [at_controller, enabled_features]);
+      [at_controller, enabled_features],
+      false);
   }
 
   connectDevToolsAgent(agent, type) {
@@ -178,7 +181,8 @@ ax.mojom.AccessibilityServiceRemoteCallHandler = class {
       2,  // ordinal
       ax.mojom.AccessibilityService_ConnectDevToolsAgent_ParamsSpec,
       null,
-      [agent, type]);
+      [agent, type],
+      false);
   }
 
 };
@@ -284,7 +288,8 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindAutomation_ParamsSpec,
       null,
-      [automation]);
+      [automation],
+      false);
   }
 
   bindAutomationClient(automation_client) {
@@ -293,7 +298,8 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       1,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindAutomationClient_ParamsSpec,
       null,
-      [automation_client]);
+      [automation_client],
+      false);
   }
 
   bindAutoclickClient(autoclick_client) {
@@ -302,7 +308,8 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       2,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindAutoclickClient_ParamsSpec,
       null,
-      [autoclick_client]);
+      [autoclick_client],
+      false);
   }
 
   bindSpeechRecognition(sr_receiver) {
@@ -311,7 +318,8 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       3,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindSpeechRecognition_ParamsSpec,
       null,
-      [sr_receiver]);
+      [sr_receiver],
+      false);
   }
 
   bindTts(tts_receiver) {
@@ -320,7 +328,8 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       4,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindTts_ParamsSpec,
       null,
-      [tts_receiver]);
+      [tts_receiver],
+      false);
   }
 
   bindUserInput(user_input_receiver) {
@@ -329,7 +338,8 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       5,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindUserInput_ParamsSpec,
       null,
-      [user_input_receiver]);
+      [user_input_receiver],
+      false);
   }
 
   bindUserInterface(user_interface_receiver) {
@@ -338,7 +348,8 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       6,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindUserInterface_ParamsSpec,
       null,
-      [user_interface_receiver]);
+      [user_interface_receiver],
+      false);
   }
 
   bindAccessibilityFileLoader(file_loader_receiver) {
@@ -347,7 +358,8 @@ ax.mojom.AccessibilityServiceClientRemoteCallHandler = class {
       7,  // ordinal
       ax.mojom.AccessibilityServiceClient_BindAccessibilityFileLoader_ParamsSpec,
       null,
-      [file_loader_receiver]);
+      [file_loader_receiver],
+      false);
   }
 
 };

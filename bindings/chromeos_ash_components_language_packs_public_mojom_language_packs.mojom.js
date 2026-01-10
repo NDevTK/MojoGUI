@@ -121,7 +121,8 @@ ash.language.mojom.LanguagePacksObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.language.mojom.LanguagePacksObserver_OnPackStateChanged_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
 };
@@ -235,7 +236,8 @@ ash.language.mojom.LanguagePacksRemoteCallHandler = class {
       0,  // ordinal
       ash.language.mojom.LanguagePacks_GetPackInfo_ParamsSpec,
       ash.language.mojom.LanguagePacks_GetPackInfo_ResponseParamsSpec,
-      [feature_id, language]);
+      [feature_id, language],
+      false);
   }
 
   installPack(feature_id, language) {
@@ -244,7 +246,8 @@ ash.language.mojom.LanguagePacksRemoteCallHandler = class {
       1,  // ordinal
       ash.language.mojom.LanguagePacks_InstallPack_ParamsSpec,
       ash.language.mojom.LanguagePacks_InstallPack_ResponseParamsSpec,
-      [feature_id, language]);
+      [feature_id, language],
+      false);
   }
 
   installBasePack(feature_id) {
@@ -253,7 +256,8 @@ ash.language.mojom.LanguagePacksRemoteCallHandler = class {
       2,  // ordinal
       ash.language.mojom.LanguagePacks_InstallBasePack_ParamsSpec,
       ash.language.mojom.LanguagePacks_InstallBasePack_ResponseParamsSpec,
-      [feature_id]);
+      [feature_id],
+      false);
   }
 
   uninstallPack(feature_id, language) {
@@ -262,7 +266,8 @@ ash.language.mojom.LanguagePacksRemoteCallHandler = class {
       3,  // ordinal
       ash.language.mojom.LanguagePacks_UninstallPack_ParamsSpec,
       ash.language.mojom.LanguagePacks_UninstallPack_ResponseParamsSpec,
-      [feature_id, language]);
+      [feature_id, language],
+      false);
   }
 
   addObserver(observer) {
@@ -271,7 +276,8 @@ ash.language.mojom.LanguagePacksRemoteCallHandler = class {
       4,  // ordinal
       ash.language.mojom.LanguagePacks_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

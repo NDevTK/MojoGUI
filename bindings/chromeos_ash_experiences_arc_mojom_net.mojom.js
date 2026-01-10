@@ -768,7 +768,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec,
       arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startScan() {
@@ -777,7 +778,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.NetHost_StartScan_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setWifiEnabledState(is_enabled) {
@@ -786,7 +788,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec,
       arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec,
-      [is_enabled]);
+      [is_enabled],
+      false);
   }
 
   createNetwork(cfg) {
@@ -795,7 +798,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.NetHost_CreateNetwork_ParamsSpec,
       arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec,
-      [cfg]);
+      [cfg],
+      false);
   }
 
   forgetNetwork(guid) {
@@ -804,7 +808,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.NetHost_ForgetNetwork_ParamsSpec,
       arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec,
-      [guid]);
+      [guid],
+      false);
   }
 
   updateWifiNetwork(guid, cfg) {
@@ -813,7 +818,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       20,  // ordinal
       arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec,
       arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec,
-      [guid, cfg]);
+      [guid, cfg],
+      false);
   }
 
   startConnect(guid) {
@@ -822,7 +828,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.NetHost_StartConnect_ParamsSpec,
       arc.mojom.NetHost_StartConnect_ResponseParamsSpec,
-      [guid]);
+      [guid],
+      false);
   }
 
   startDisconnect(guid) {
@@ -831,7 +838,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.NetHost_StartDisconnect_ParamsSpec,
       arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec,
-      [guid]);
+      [guid],
+      false);
   }
 
   getNetworks(type) {
@@ -840,7 +848,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.NetHost_GetNetworks_ParamsSpec,
       arc.mojom.NetHost_GetNetworks_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
   androidVpnConnected(cfg) {
@@ -849,7 +858,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec,
       null,
-      [cfg]);
+      [cfg],
+      false);
   }
 
   androidVpnUpdated(cfg) {
@@ -858,7 +868,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       25,  // ordinal
       arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec,
       null,
-      [cfg]);
+      [cfg],
+      false);
   }
 
   dEPRECATED_AndroidVpnStateChanged(state) {
@@ -867,7 +878,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       12,  // ordinal
       arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   androidVpnDisconnected() {
@@ -876,7 +888,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       26,  // ordinal
       arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setAlwaysOnVpn(vpnPackage, lockdown) {
@@ -885,7 +898,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       13,  // ordinal
       arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec,
       null,
-      [vpnPackage, lockdown]);
+      [vpnPackage, lockdown],
+      false);
   }
 
   requestPasspointAppApproval(request) {
@@ -894,7 +908,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       21,  // ordinal
       arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec,
       arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   addPasspointCredentials(credentials) {
@@ -903,7 +918,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       14,  // ordinal
       arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec,
       null,
-      [credentials]);
+      [credentials],
+      false);
   }
 
   removePasspointCredentials(properties) {
@@ -912,7 +928,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       16,  // ordinal
       arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec,
       null,
-      [properties]);
+      [properties],
+      false);
   }
 
   disconnectHostVpn() {
@@ -921,7 +938,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       17,  // ordinal
       arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   startLohs(config) {
@@ -930,7 +948,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       18,  // ordinal
       arc.mojom.NetHost_StartLohs_ParamsSpec,
       arc.mojom.NetHost_StartLohs_ResponseParamsSpec,
-      [config]);
+      [config],
+      false);
   }
 
   stopLohs() {
@@ -939,7 +958,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       19,  // ordinal
       arc.mojom.NetHost_StopLohs_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   notifyAndroidWifiMulticastLockChange(is_held) {
@@ -948,7 +968,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       22,  // ordinal
       arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec,
       null,
-      [is_held]);
+      [is_held],
+      false);
   }
 
   notifySocketConnectionEvent(msg) {
@@ -957,7 +978,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       23,  // ordinal
       arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec,
       null,
-      [msg]);
+      [msg],
+      false);
   }
 
   notifyARCVPNSocketConnectionEvent(msg) {
@@ -966,7 +988,8 @@ arc.mojom.NetHostRemoteCallHandler = class {
       24,  // ordinal
       arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec,
       null,
-      [msg]);
+      [msg],
+      false);
   }
 
 };
@@ -1108,7 +1131,8 @@ arc.mojom.NetInstanceRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.NetInstance_Init_ParamsSpec,
       arc.mojom.NetInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   scanCompleted() {
@@ -1117,7 +1141,8 @@ arc.mojom.NetInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.NetInstance_ScanCompleted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   wifiEnabledStateChanged(is_enabled) {
@@ -1126,7 +1151,8 @@ arc.mojom.NetInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec,
       null,
-      [is_enabled]);
+      [is_enabled],
+      false);
   }
 
   disconnectAndroidVpn() {
@@ -1135,7 +1161,8 @@ arc.mojom.NetInstanceRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   configureAndroidVpn() {
@@ -1144,7 +1171,8 @@ arc.mojom.NetInstanceRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   activeNetworksChanged(network) {
@@ -1153,7 +1181,8 @@ arc.mojom.NetInstanceRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec,
       null,
-      [network]);
+      [network],
+      false);
   }
 
   dnsResolutionTest(transport_name, host_name) {
@@ -1162,7 +1191,8 @@ arc.mojom.NetInstanceRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec,
       arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec,
-      [transport_name, host_name]);
+      [transport_name, host_name],
+      false);
   }
 
   httpTest(transport_name, url) {
@@ -1171,7 +1201,8 @@ arc.mojom.NetInstanceRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.NetInstance_HttpTest_ParamsSpec,
       arc.mojom.NetInstance_HttpTest_ResponseParamsSpec,
-      [transport_name, url]);
+      [transport_name, url],
+      false);
   }
 
   pingTest(transport_name, ip_address) {
@@ -1180,7 +1211,8 @@ arc.mojom.NetInstanceRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.NetInstance_PingTest_ParamsSpec,
       arc.mojom.NetInstance_PingTest_ResponseParamsSpec,
-      [transport_name, ip_address]);
+      [transport_name, ip_address],
+      false);
   }
 
   setUpFlag(flag, value) {
@@ -1189,7 +1221,8 @@ arc.mojom.NetInstanceRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.NetInstance_SetUpFlag_ParamsSpec,
       null,
-      [flag, value]);
+      [flag, value],
+      false);
   }
 
 };

@@ -106,7 +106,8 @@ device.mojom.InputDeviceManagerClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec,
       null,
-      [device_info]);
+      [device_info],
+      false);
   }
 
   inputDeviceRemoved(id) {
@@ -115,7 +116,8 @@ device.mojom.InputDeviceManagerClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
 };
@@ -196,7 +198,8 @@ device.mojom.InputDeviceManagerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec,
       device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec,
-      [client]);
+      [client],
+      false);
   }
 
   getDevices() {
@@ -205,7 +208,8 @@ device.mojom.InputDeviceManagerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.InputDeviceManager_GetDevices_ParamsSpec,
       device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

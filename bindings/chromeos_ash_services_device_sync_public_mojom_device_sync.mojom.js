@@ -191,7 +191,8 @@ ash.device_sync.mojom.DeviceSyncObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.device_sync.mojom.DeviceSyncObserver_OnEnrollmentFinished_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onNewDevicesSynced() {
@@ -200,7 +201,8 @@ ash.device_sync.mojom.DeviceSyncObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.device_sync.mojom.DeviceSyncObserver_OnNewDevicesSynced_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -414,7 +416,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
       0,  // ordinal
       ash.device_sync.mojom.DeviceSync_AddObserver_ParamsSpec,
       ash.device_sync.mojom.DeviceSync_AddObserver_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
   forceEnrollmentNow() {
@@ -423,7 +426,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
       1,  // ordinal
       ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ParamsSpec,
       ash.device_sync.mojom.DeviceSync_ForceEnrollmentNow_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   forceSyncNow() {
@@ -432,7 +436,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
       2,  // ordinal
       ash.device_sync.mojom.DeviceSync_ForceSyncNow_ParamsSpec,
       ash.device_sync.mojom.DeviceSync_ForceSyncNow_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getGroupPrivateKeyStatus() {
@@ -441,7 +446,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
       3,  // ordinal
       ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ParamsSpec,
       ash.device_sync.mojom.DeviceSync_GetGroupPrivateKeyStatus_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getBetterTogetherMetadataStatus() {
@@ -450,7 +456,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
       4,  // ordinal
       ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ParamsSpec,
       ash.device_sync.mojom.DeviceSync_GetBetterTogetherMetadataStatus_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSyncedDevices() {
@@ -459,7 +466,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
       5,  // ordinal
       ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ParamsSpec,
       ash.device_sync.mojom.DeviceSync_GetSyncedDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getLocalDeviceMetadata() {
@@ -468,7 +476,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
       6,  // ordinal
       ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ParamsSpec,
       ash.device_sync.mojom.DeviceSync_GetLocalDeviceMetadata_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setSoftwareFeatureState(device_public_key, software_feature, enabled, is_exclusive) {
@@ -477,7 +486,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
       7,  // ordinal
       ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ParamsSpec,
       ash.device_sync.mojom.DeviceSync_SetSoftwareFeatureState_ResponseParamsSpec,
-      [device_public_key, software_feature, enabled, is_exclusive]);
+      [device_public_key, software_feature, enabled, is_exclusive],
+      false);
   }
 
   setFeatureStatus(device_instance_id, feature, status_change) {
@@ -486,7 +496,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
       8,  // ordinal
       ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ParamsSpec,
       ash.device_sync.mojom.DeviceSync_SetFeatureStatus_ResponseParamsSpec,
-      [device_instance_id, feature, status_change]);
+      [device_instance_id, feature, status_change],
+      false);
   }
 
   findEligibleDevices(software_feature) {
@@ -495,7 +506,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
       9,  // ordinal
       ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ParamsSpec,
       ash.device_sync.mojom.DeviceSync_FindEligibleDevices_ResponseParamsSpec,
-      [software_feature]);
+      [software_feature],
+      false);
   }
 
   notifyDevices(device_instance_ids, cryptauth_service, feature) {
@@ -504,7 +516,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
       10,  // ordinal
       ash.device_sync.mojom.DeviceSync_NotifyDevices_ParamsSpec,
       ash.device_sync.mojom.DeviceSync_NotifyDevices_ResponseParamsSpec,
-      [device_instance_ids, cryptauth_service, feature]);
+      [device_instance_ids, cryptauth_service, feature],
+      false);
   }
 
   getDevicesActivityStatus() {
@@ -513,7 +526,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
       11,  // ordinal
       ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ParamsSpec,
       ash.device_sync.mojom.DeviceSync_GetDevicesActivityStatus_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getDebugInfo() {
@@ -522,7 +536,8 @@ ash.device_sync.mojom.DeviceSyncRemoteCallHandler = class {
       12,  // ordinal
       ash.device_sync.mojom.DeviceSync_GetDebugInfo_ParamsSpec,
       ash.device_sync.mojom.DeviceSync_GetDebugInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

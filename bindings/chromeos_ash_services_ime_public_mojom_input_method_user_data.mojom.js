@@ -225,7 +225,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ParamsSpec,
       ash.ime.mojom.InputMethodUserDataService_FetchJapaneseDictionary_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addJapaneseDictionaryEntry(dict_id, entry) {
@@ -234,7 +235,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ParamsSpec,
       ash.ime.mojom.InputMethodUserDataService_AddJapaneseDictionaryEntry_ResponseParamsSpec,
-      [dict_id, entry]);
+      [dict_id, entry],
+      false);
   }
 
   editJapaneseDictionaryEntry(dict_id, entry_index, entry) {
@@ -243,7 +245,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ParamsSpec,
       ash.ime.mojom.InputMethodUserDataService_EditJapaneseDictionaryEntry_ResponseParamsSpec,
-      [dict_id, entry_index, entry]);
+      [dict_id, entry_index, entry],
+      false);
   }
 
   deleteJapaneseDictionaryEntry(dict_id, entry_index) {
@@ -252,7 +255,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
       3,  // ordinal
       ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ParamsSpec,
       ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionaryEntry_ResponseParamsSpec,
-      [dict_id, entry_index]);
+      [dict_id, entry_index],
+      false);
   }
 
   createJapaneseDictionary(dictionary_name) {
@@ -261,7 +265,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
       4,  // ordinal
       ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ParamsSpec,
       ash.ime.mojom.InputMethodUserDataService_CreateJapaneseDictionary_ResponseParamsSpec,
-      [dictionary_name]);
+      [dictionary_name],
+      false);
   }
 
   renameJapaneseDictionary(dict_id, dictionary_name) {
@@ -270,7 +275,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
       5,  // ordinal
       ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ParamsSpec,
       ash.ime.mojom.InputMethodUserDataService_RenameJapaneseDictionary_ResponseParamsSpec,
-      [dict_id, dictionary_name]);
+      [dict_id, dictionary_name],
+      false);
   }
 
   deleteJapaneseDictionary(dict_id) {
@@ -279,7 +285,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
       6,  // ordinal
       ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ParamsSpec,
       ash.ime.mojom.InputMethodUserDataService_DeleteJapaneseDictionary_ResponseParamsSpec,
-      [dict_id]);
+      [dict_id],
+      false);
   }
 
   exportJapaneseDictionary(dict_id) {
@@ -288,7 +295,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
       7,  // ordinal
       ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ParamsSpec,
       ash.ime.mojom.InputMethodUserDataService_ExportJapaneseDictionary_ResponseParamsSpec,
-      [dict_id]);
+      [dict_id],
+      false);
   }
 
   importJapaneseDictionary(dict_id, tsv_data) {
@@ -297,7 +305,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
       8,  // ordinal
       ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ParamsSpec,
       ash.ime.mojom.InputMethodUserDataService_ImportJapaneseDictionary_ResponseParamsSpec,
-      [dict_id, tsv_data]);
+      [dict_id, tsv_data],
+      false);
   }
 
   clearJapanesePersonalizationData(clear_conversion_history, clear_suggestion_history) {
@@ -306,7 +315,8 @@ ash.ime.mojom.InputMethodUserDataServiceRemoteCallHandler = class {
       9,  // ordinal
       ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ParamsSpec,
       ash.ime.mojom.InputMethodUserDataService_ClearJapanesePersonalizationData_ResponseParamsSpec,
-      [clear_conversion_history, clear_suggestion_history]);
+      [clear_conversion_history, clear_suggestion_history],
+      false);
   }
 
 };

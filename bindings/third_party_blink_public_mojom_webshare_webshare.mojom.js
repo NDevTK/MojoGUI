@@ -79,7 +79,8 @@ blink.mojom.ShareServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ShareService_Share_ParamsSpec,
       blink.mojom.ShareService_Share_ResponseParamsSpec,
-      [title, text, url, files]);
+      [title, text, url, files],
+      false);
   }
 
 };

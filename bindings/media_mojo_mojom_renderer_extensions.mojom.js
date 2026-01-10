@@ -91,7 +91,8 @@ media.mojom.FlingingRendererClientExtensionRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
 };
@@ -179,7 +180,8 @@ media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec,
       media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setVideoStreamEnabled(enabled) {
@@ -188,7 +190,8 @@ media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setOutputRect(rect) {
@@ -197,7 +200,8 @@ media.mojom.MediaFoundationRendererExtensionRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec,
       media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec,
-      [rect]);
+      [rect],
+      false);
   }
 
 };
@@ -310,7 +314,8 @@ media.mojom.MediaFoundationRendererNotifierRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

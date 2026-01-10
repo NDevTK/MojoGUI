@@ -138,7 +138,8 @@ device.mojom.XRSessionControllerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec,
       null,
-      [restricted]);
+      [restricted],
+      false);
   }
 
 };
@@ -207,7 +208,8 @@ device.mojom.XRRuntimeEventListenerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec,
       null,
-      [visibility_state]);
+      [visibility_state],
+      false);
   }
 
   onExitPresent() {
@@ -216,7 +218,8 @@ device.mojom.XRRuntimeEventListenerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.XRRuntimeEventListener_OnExitPresent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -302,7 +305,8 @@ device.mojom.XRRuntimeRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRRuntime_RequestSession_ParamsSpec,
       device.mojom.XRRuntime_RequestSession_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   shutdownSession() {
@@ -311,7 +315,8 @@ device.mojom.XRRuntimeRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.XRRuntime_ShutdownSession_ParamsSpec,
       device.mojom.XRRuntime_ShutdownSession_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   listenToDeviceChanges(listener) {
@@ -320,7 +325,8 @@ device.mojom.XRRuntimeRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.XRRuntime_ListenToDeviceChanges_ParamsSpec,
       null,
-      [listener]);
+      [listener],
+      false);
   }
 
 };
@@ -422,7 +428,8 @@ device.mojom.ImmersiveOverlayRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec,
       device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   submitOverlayTexture(frame_id, texture, sync_token, left_bounds, right_bounds) {
@@ -431,7 +438,8 @@ device.mojom.ImmersiveOverlayRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ParamsSpec,
       device.mojom.ImmersiveOverlay_SubmitOverlayTexture_ResponseParamsSpec,
-      [frame_id, texture, sync_token, left_bounds, right_bounds]);
+      [frame_id, texture, sync_token, left_bounds, right_bounds],
+      false);
   }
 
   setOverlayAndWebXRVisibility(overlay_visible, webxr_visible) {
@@ -440,7 +448,8 @@ device.mojom.ImmersiveOverlayRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.ImmersiveOverlay_SetOverlayAndWebXRVisibility_ParamsSpec,
       null,
-      [overlay_visible, webxr_visible]);
+      [overlay_visible, webxr_visible],
+      false);
   }
 
   requestNotificationOnWebXrSubmitted() {
@@ -449,7 +458,8 @@ device.mojom.ImmersiveOverlayRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ParamsSpec,
       device.mojom.ImmersiveOverlay_RequestNotificationOnWebXrSubmitted_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -526,7 +536,8 @@ device.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec,
       null,
-      [runtime, device_data, device_id]);
+      [runtime, device_data, device_id],
+      false);
   }
 
   onDeviceRemoved(device_index) {
@@ -535,7 +546,8 @@ device.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceRemoved_ParamsSpec,
       null,
-      [device_index]);
+      [device_index],
+      false);
   }
 
   onDevicesEnumerated() {
@@ -544,7 +556,8 @@ device.mojom.IsolatedXRRuntimeProviderClientRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.IsolatedXRRuntimeProviderClient_OnDevicesEnumerated_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -608,7 +621,8 @@ device.mojom.IsolatedXRRuntimeProviderRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
 };
@@ -679,7 +693,8 @@ device.mojom.XRDeviceServiceRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec,
       null,
-      [receiver, host]);
+      [receiver, host],
+      false);
   }
 
   bindTestHook(receiver) {
@@ -688,7 +703,8 @@ device.mojom.XRDeviceServiceRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.XRDeviceService_BindTestHook_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };
@@ -752,7 +768,8 @@ device.mojom.XRDeviceServiceHostRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

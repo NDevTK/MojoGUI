@@ -224,7 +224,8 @@ ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
       0,  // ordinal
       ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec,
       ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec,
-      [message]);
+      [message],
+      false);
   }
 
   registerPayloadFile(payload_id, payload_files, listener) {
@@ -233,7 +234,8 @@ ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
       1,  // ordinal
       ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec,
       ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec,
-      [payload_id, payload_files, listener]);
+      [payload_id, payload_files, listener],
+      false);
   }
 
   getConnectionMetadata() {
@@ -242,7 +244,8 @@ ash.secure_channel.mojom.ChannelRemoteCallHandler = class {
       2,  // ordinal
       ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec,
       ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -306,7 +309,8 @@ ash.secure_channel.mojom.MessageReceiverRemoteCallHandler = class {
       0,  // ordinal
       ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };
@@ -378,7 +382,8 @@ ash.secure_channel.mojom.ConnectionDelegateRemoteCallHandler = class {
       0,  // ordinal
       ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec,
       null,
-      [reason]);
+      [reason],
+      false);
   }
 
   onConnection(channel, message_receiver_receiver, nearby_connection_state_listener_receiver) {
@@ -387,7 +392,8 @@ ash.secure_channel.mojom.ConnectionDelegateRemoteCallHandler = class {
       1,  // ordinal
       ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec,
       null,
-      [channel, message_receiver_receiver, nearby_connection_state_listener_receiver]);
+      [channel, message_receiver_receiver, nearby_connection_state_listener_receiver],
+      false);
   }
 
 };
@@ -465,7 +471,8 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler =
       0,  // ordinal
       ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec,
       null,
-      [result, error_code]);
+      [result, error_code],
+      false);
   }
 
   logNearbyConnectionState(step, status) {
@@ -474,7 +481,8 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler =
       1,  // ordinal
       ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec,
       null,
-      [step, status]);
+      [step, status],
+      false);
   }
 
   logSecureChannelState(state) {
@@ -483,7 +491,8 @@ ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemoteCallHandler =
       2,  // ordinal
       ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
 };
@@ -582,7 +591,8 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
       0,  // ordinal
       ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec,
       null,
-      [device_to_connect, local_device, feature, connection_medium, connection_priority, delegate]);
+      [device_to_connect, local_device, feature, connection_medium, connection_priority, delegate],
+      false);
   }
 
   initiateConnectionToDevice(device_to_connect, local_device, feature, connection_medium, connection_priority, delegate, secure_channel_structured_metrics_logger) {
@@ -591,7 +601,8 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
       1,  // ordinal
       ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec,
       null,
-      [device_to_connect, local_device, feature, connection_medium, connection_priority, delegate, secure_channel_structured_metrics_logger]);
+      [device_to_connect, local_device, feature, connection_medium, connection_priority, delegate, secure_channel_structured_metrics_logger],
+      false);
   }
 
   setNearbyConnector(nearby_connector) {
@@ -600,7 +611,8 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
       2,  // ordinal
       ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec,
       null,
-      [nearby_connector]);
+      [nearby_connector],
+      false);
   }
 
   getLastSeenTimestamp(remote_device_id) {
@@ -609,7 +621,8 @@ ash.secure_channel.mojom.SecureChannelRemoteCallHandler = class {
       3,  // ordinal
       ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec,
       ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec,
-      [remote_device_id]);
+      [remote_device_id],
+      false);
   }
 
 };

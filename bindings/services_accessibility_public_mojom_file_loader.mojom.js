@@ -64,7 +64,8 @@ ax.mojom.AccessibilityFileLoaderRemoteCallHandler = class {
       0,  // ordinal
       ax.mojom.AccessibilityFileLoader_Load_ParamsSpec,
       ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
 };

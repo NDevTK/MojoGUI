@@ -86,7 +86,8 @@ printing.mojom.PrintingServiceRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindPdfToPwgRasterConverter(receiver) {
@@ -95,7 +96,8 @@ printing.mojom.PrintingServiceRemoteCallHandler = class {
       1,  // ordinal
       printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindPdfFlattener(receiver) {
@@ -104,7 +106,8 @@ printing.mojom.PrintingServiceRemoteCallHandler = class {
       2,  // ordinal
       printing.mojom.PrintingService_BindPdfFlattener_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindPdfToEmfConverterFactory(receiver) {
@@ -113,7 +116,8 @@ printing.mojom.PrintingServiceRemoteCallHandler = class {
       3,  // ordinal
       printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

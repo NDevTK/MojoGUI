@@ -65,7 +65,8 @@ device.mojom.UsbDeviceManagerClientRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec,
       null,
-      [device_info]);
+      [device_info],
+      false);
   }
 
   onDeviceRemoved(device_info) {
@@ -74,7 +75,8 @@ device.mojom.UsbDeviceManagerClientRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec,
       null,
-      [device_info]);
+      [device_info],
+      false);
   }
 
 };

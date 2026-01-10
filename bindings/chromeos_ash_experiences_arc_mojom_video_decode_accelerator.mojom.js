@@ -192,7 +192,8 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.VideoDecodeAccelerator_Initialize_ParamsSpec,
       arc.mojom.VideoDecodeAccelerator_Initialize_ResponseParamsSpec,
-      [config, client]);
+      [config, client],
+      false);
   }
 
   decode(bitstream_buffer) {
@@ -201,7 +202,8 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.VideoDecodeAccelerator_Decode_ParamsSpec,
       null,
-      [bitstream_buffer]);
+      [bitstream_buffer],
+      false);
   }
 
   assignPictureBuffers(count) {
@@ -210,7 +212,8 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.VideoDecodeAccelerator_AssignPictureBuffers_ParamsSpec,
       null,
-      [count]);
+      [count],
+      false);
   }
 
   importBufferForPicture(picture_buffer_id, format, handle_fd, planes, modifier) {
@@ -219,7 +222,8 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.VideoDecodeAccelerator_ImportBufferForPicture_ParamsSpec,
       null,
-      [picture_buffer_id, format, handle_fd, planes, modifier]);
+      [picture_buffer_id, format, handle_fd, planes, modifier],
+      false);
   }
 
   reusePictureBuffer(picture_buffer_id) {
@@ -228,7 +232,8 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.VideoDecodeAccelerator_ReusePictureBuffer_ParamsSpec,
       null,
-      [picture_buffer_id]);
+      [picture_buffer_id],
+      false);
   }
 
   reset() {
@@ -237,7 +242,8 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.VideoDecodeAccelerator_Reset_ParamsSpec,
       arc.mojom.VideoDecodeAccelerator_Reset_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   flush() {
@@ -246,7 +252,8 @@ arc.mojom.VideoDecodeAcceleratorRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.VideoDecodeAccelerator_Flush_ParamsSpec,
       arc.mojom.VideoDecodeAccelerator_Flush_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -329,7 +336,8 @@ arc.mojom.VideoDecodeClientRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.VideoDecodeClient_PictureReady_ParamsSpec,
       null,
-      [picture]);
+      [picture],
+      false);
   }
 
   notifyEndOfBitstreamBuffer(bitstream_id) {
@@ -338,7 +346,8 @@ arc.mojom.VideoDecodeClientRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.VideoDecodeClient_NotifyEndOfBitstreamBuffer_ParamsSpec,
       null,
-      [bitstream_id]);
+      [bitstream_id],
+      false);
   }
 
   notifyError(error) {
@@ -347,7 +356,8 @@ arc.mojom.VideoDecodeClientRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.VideoDecodeClient_NotifyError_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
   providePictureBuffers(format, visible_rect) {
@@ -356,7 +366,8 @@ arc.mojom.VideoDecodeClientRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.VideoDecodeClient_ProvidePictureBuffers_ParamsSpec,
       null,
-      [format, visible_rect]);
+      [format, visible_rect],
+      false);
   }
 
 };

@@ -114,7 +114,8 @@ gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       gfx.mojom.TraitsTestService_EchoSelectionBound_ParamsSpec,
       gfx.mojom.TraitsTestService_EchoSelectionBound_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
   echoTransform(t) {
@@ -123,7 +124,8 @@ gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       1,  // ordinal
       gfx.mojom.TraitsTestService_EchoTransform_ParamsSpec,
       gfx.mojom.TraitsTestService_EchoTransform_ResponseParamsSpec,
-      [t]);
+      [t],
+      false);
   }
 
   echoGpuMemoryBufferHandle(g) {
@@ -132,7 +134,8 @@ gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       2,  // ordinal
       gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ParamsSpec,
       gfx.mojom.TraitsTestService_EchoGpuMemoryBufferHandle_ResponseParamsSpec,
-      [g]);
+      [g],
+      false);
   }
 
   echoRRectF(t) {
@@ -141,7 +144,8 @@ gfx.mojom.TraitsTestServiceRemoteCallHandler = class {
       3,  // ordinal
       gfx.mojom.TraitsTestService_EchoRRectF_ParamsSpec,
       gfx.mojom.TraitsTestService_EchoRRectF_ResponseParamsSpec,
-      [t]);
+      [t],
+      false);
   }
 
 };

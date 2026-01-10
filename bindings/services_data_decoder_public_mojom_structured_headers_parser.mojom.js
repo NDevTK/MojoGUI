@@ -93,7 +93,8 @@ data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
       0,  // ordinal
       data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec,
       data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec,
-      [header]);
+      [header],
+      false);
   }
 
   parseList(header) {
@@ -102,7 +103,8 @@ data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
       1,  // ordinal
       data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec,
       data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec,
-      [header]);
+      [header],
+      false);
   }
 
   parseDictionary(header) {
@@ -111,7 +113,8 @@ data_decoder.mojom.StructuredHeadersParserRemoteCallHandler = class {
       2,  // ordinal
       data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec,
       data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec,
-      [header]);
+      [header],
+      false);
   }
 
 };

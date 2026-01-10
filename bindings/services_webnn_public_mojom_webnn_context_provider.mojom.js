@@ -114,7 +114,8 @@ webnn.mojom.WebNNContextProviderRemoteCallHandler = class {
       0,  // ordinal
       webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec,
       webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
 };

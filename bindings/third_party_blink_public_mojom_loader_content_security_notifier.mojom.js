@@ -71,7 +71,8 @@ blink.mojom.ContentSecurityNotifierRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsRan_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   notifyContentWithCertificateErrorsDisplayed() {
@@ -80,7 +81,8 @@ blink.mojom.ContentSecurityNotifierRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ContentSecurityNotifier_NotifyContentWithCertificateErrorsDisplayed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   notifyInsecureContentRan(origin, insecure_url) {
@@ -89,7 +91,8 @@ blink.mojom.ContentSecurityNotifierRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ContentSecurityNotifier_NotifyInsecureContentRan_ParamsSpec,
       null,
-      [origin, insecure_url]);
+      [origin, insecure_url],
+      false);
   }
 
 };

@@ -122,7 +122,8 @@ ash.help_app.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.help_app.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -261,7 +262,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec,
       ash.help_app.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   showOnDeviceAppControls() {
@@ -270,7 +272,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.help_app.mojom.PageHandler_ShowOnDeviceAppControls_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   showParentalControls() {
@@ -279,7 +282,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.help_app.mojom.PageHandler_ShowParentalControls_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   triggerWelcomeTipCallToAction(action_type_id) {
@@ -288,7 +292,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.help_app.mojom.PageHandler_TriggerWelcomeTipCallToAction_ParamsSpec,
       null,
-      [action_type_id]);
+      [action_type_id],
+      false);
   }
 
   isLauncherSearchEnabled() {
@@ -297,7 +302,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ParamsSpec,
       ash.help_app.mojom.PageHandler_IsLauncherSearchEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   launchMicrosoft365Setup() {
@@ -306,7 +312,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.help_app.mojom.PageHandler_LaunchMicrosoft365Setup_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   maybeShowReleaseNotesNotification() {
@@ -315,7 +322,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       ash.help_app.mojom.PageHandler_MaybeShowReleaseNotesNotification_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getDeviceInfo() {
@@ -324,7 +332,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       ash.help_app.mojom.PageHandler_GetDeviceInfo_ParamsSpec,
       ash.help_app.mojom.PageHandler_GetDeviceInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openUrlInBrowserAndTriggerInstallDialog(url) {
@@ -333,7 +342,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       ash.help_app.mojom.PageHandler_OpenUrlInBrowserAndTriggerInstallDialog_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   openSettings(component) {
@@ -342,7 +352,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       ash.help_app.mojom.PageHandler_OpenSettings_ParamsSpec,
       null,
-      [component]);
+      [component],
+      false);
   }
 
   setHasCompletedNewDeviceChecklist() {
@@ -351,7 +362,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       ash.help_app.mojom.PageHandler_SetHasCompletedNewDeviceChecklist_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setHasVisitedHowToPage() {
@@ -360,7 +372,8 @@ ash.help_app.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       ash.help_app.mojom.PageHandler_SetHasVisitedHowToPage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

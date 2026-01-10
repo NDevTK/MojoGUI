@@ -98,7 +98,8 @@ content.mojom.ChildProcessHostRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.ChildProcessHost_Ping_ParamsSpec,
       content.mojom.ChildProcessHost_Ping_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   bindHostReceiver(receiver) {
@@ -107,7 +108,8 @@ content.mojom.ChildProcessHostRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.ChildProcessHost_BindHostReceiver_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };
@@ -256,7 +258,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.ChildProcess_ProcessShutdown_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getTaskPort() {
@@ -265,7 +268,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.ChildProcess_GetTaskPort_ParamsSpec,
       content.mojom.ChildProcess_GetTaskPort_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setIPCLoggingEnabled(on) {
@@ -274,7 +278,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.ChildProcess_SetIPCLoggingEnabled_ParamsSpec,
       null,
-      [on]);
+      [on],
+      false);
   }
 
   getBackgroundTracingAgentProvider(receiver) {
@@ -283,7 +288,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.ChildProcess_GetBackgroundTracingAgentProvider_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   enableSystemTracingService(remote) {
@@ -292,7 +298,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       4,  // ordinal
       content.mojom.ChildProcess_EnableSystemTracingService_ParamsSpec,
       null,
-      [remote]);
+      [remote],
+      false);
   }
 
   crashHungProcess() {
@@ -301,7 +308,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       5,  // ordinal
       content.mojom.ChildProcess_CrashHungProcess_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   bindServiceInterface(receiver) {
@@ -310,7 +318,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       6,  // ordinal
       content.mojom.ChildProcess_BindServiceInterface_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindReceiver(receiver) {
@@ -319,7 +328,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       7,  // ordinal
       content.mojom.ChildProcess_BindReceiver_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   setProfilingFile(file) {
@@ -328,7 +338,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       8,  // ordinal
       content.mojom.ChildProcess_SetProfilingFile_ParamsSpec,
       null,
-      [file]);
+      [file],
+      false);
   }
 
   writeClangProfilingProfile() {
@@ -337,7 +348,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       9,  // ordinal
       content.mojom.ChildProcess_WriteClangProfilingProfile_ParamsSpec,
       content.mojom.ChildProcess_WriteClangProfilingProfile_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setPseudonymizationSalt(salt) {
@@ -346,7 +358,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       10,  // ordinal
       content.mojom.ChildProcess_SetPseudonymizationSalt_ParamsSpec,
       null,
-      [salt]);
+      [salt],
+      false);
   }
 
   reinitializeLogging(settings) {
@@ -355,7 +368,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       11,  // ordinal
       content.mojom.ChildProcess_ReinitializeLogging_ParamsSpec,
       null,
-      [settings]);
+      [settings],
+      false);
   }
 
   onMemoryPressure(memory_pressure_level) {
@@ -364,7 +378,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       12,  // ordinal
       content.mojom.ChildProcess_OnMemoryPressure_ParamsSpec,
       null,
-      [memory_pressure_level]);
+      [memory_pressure_level],
+      false);
   }
 
   setBatterySaverMode(battery_saver_mode_enabled) {
@@ -373,7 +388,8 @@ content.mojom.ChildProcessRemoteCallHandler = class {
       13,  // ordinal
       content.mojom.ChildProcess_SetBatterySaverMode_ParamsSpec,
       null,
-      [battery_saver_mode_enabled]);
+      [battery_saver_mode_enabled],
+      false);
   }
 
 };

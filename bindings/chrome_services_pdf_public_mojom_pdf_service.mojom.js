@@ -74,7 +74,8 @@ pdf.mojom.OcrRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.Ocr_PerformOcr_ParamsSpec,
       pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec,
-      [image]);
+      [image],
+      false);
   }
 
 };
@@ -152,7 +153,8 @@ pdf.mojom.PdfServiceRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.PdfService_BindPdfProgressiveSearchifier_ParamsSpec,
       null,
-      [receiver, ocr]);
+      [receiver, ocr],
+      false);
   }
 
   bindPdfSearchifier(receiver, ocr) {
@@ -161,7 +163,8 @@ pdf.mojom.PdfServiceRemoteCallHandler = class {
       1,  // ordinal
       pdf.mojom.PdfService_BindPdfSearchifier_ParamsSpec,
       null,
-      [receiver, ocr]);
+      [receiver, ocr],
+      false);
   }
 
   bindPdfThumbnailer(receiver) {
@@ -170,7 +173,8 @@ pdf.mojom.PdfServiceRemoteCallHandler = class {
       2,  // ordinal
       pdf.mojom.PdfService_BindPdfThumbnailer_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

@@ -81,7 +81,8 @@ zero_state_promo.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -145,7 +146,8 @@ zero_state_promo.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec,
       null,
-      [link]);
+      [link],
+      false);
   }
 
 };

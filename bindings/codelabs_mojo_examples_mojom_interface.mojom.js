@@ -68,7 +68,8 @@ codelabs.mojom.ObjectARemoteCallHandler = class {
       0,  // ordinal
       codelabs.mojom.ObjectA_DoA_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -131,7 +132,8 @@ codelabs.mojom.ObjectBRemoteCallHandler = class {
       0,  // ordinal
       codelabs.mojom.ObjectB_DoB_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -195,7 +197,8 @@ codelabs.mojom.AssociatedProcessRemoteCallHandler = class {
       0,  // ordinal
       codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec,
       null,
-      [process]);
+      [process],
+      false);
   }
 
 };
@@ -314,7 +317,8 @@ codelabs.mojom.ProcessRemoteCallHandler = class {
       0,  // ordinal
       codelabs.mojom.Process_SayHello_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getAssociatedInterface(name, receiver) {
@@ -323,7 +327,8 @@ codelabs.mojom.ProcessRemoteCallHandler = class {
       1,  // ordinal
       codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec,
       null,
-      [name, receiver]);
+      [name, receiver],
+      false);
   }
 
 };

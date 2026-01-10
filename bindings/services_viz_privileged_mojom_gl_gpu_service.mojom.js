@@ -354,7 +354,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec,
       viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec,
-      [client_id, client_tracing_id, is_gpu_host, enable_extra_handles_validation]);
+      [client_id, client_tracing_id, is_gpu_host, enable_extra_handles_validation],
+      false);
   }
 
   setChannelClientPid(client_id, client_pid) {
@@ -363,7 +364,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.GpuService_SetChannelClientPid_ParamsSpec,
       null,
-      [client_id, client_pid]);
+      [client_id, client_pid],
+      false);
   }
 
   setChannelDiskCacheHandle(client_id, cache_handle) {
@@ -372,7 +374,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.GpuService_SetChannelDiskCacheHandle_ParamsSpec,
       null,
-      [client_id, cache_handle]);
+      [client_id, cache_handle],
+      false);
   }
 
   setChannelPersistentCachePendingBackend(client_id, cache_handle, pending_backend) {
@@ -381,7 +384,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.GpuService_SetChannelPersistentCachePendingBackend_ParamsSpec,
       null,
-      [client_id, cache_handle, pending_backend]);
+      [client_id, cache_handle, pending_backend],
+      false);
   }
 
   onDiskCacheHandleDestoyed(cache_handle) {
@@ -390,7 +394,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.GpuService_OnDiskCacheHandleDestoyed_ParamsSpec,
       null,
-      [cache_handle]);
+      [cache_handle],
+      false);
   }
 
   closeChannel(client_id) {
@@ -399,7 +404,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.GpuService_CloseChannel_ParamsSpec,
       null,
-      [client_id]);
+      [client_id],
+      false);
   }
 
   createJpegDecodeAccelerator(jda) {
@@ -408,7 +414,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       6,  // ordinal
       viz.mojom.GpuService_CreateJpegDecodeAccelerator_ParamsSpec,
       null,
-      [jda]);
+      [jda],
+      false);
   }
 
   createJpegEncodeAccelerator(jea) {
@@ -417,7 +424,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       7,  // ordinal
       viz.mojom.GpuService_CreateJpegEncodeAccelerator_ParamsSpec,
       null,
-      [jea]);
+      [jea],
+      false);
   }
 
   registerDCOMPSurfaceHandle(surface_handle) {
@@ -426,7 +434,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       8,  // ordinal
       viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ParamsSpec,
       viz.mojom.GpuService_RegisterDCOMPSurfaceHandle_ResponseParamsSpec,
-      [surface_handle]);
+      [surface_handle],
+      false);
   }
 
   unregisterDCOMPSurfaceHandle(token) {
@@ -435,7 +444,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       9,  // ordinal
       viz.mojom.GpuService_UnregisterDCOMPSurfaceHandle_ParamsSpec,
       null,
-      [token]);
+      [token],
+      false);
   }
 
   createVideoEncodeAcceleratorProvider(vea_provider) {
@@ -444,7 +454,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       10,  // ordinal
       viz.mojom.GpuService_CreateVideoEncodeAcceleratorProvider_ParamsSpec,
       null,
-      [vea_provider]);
+      [vea_provider],
+      false);
   }
 
   bindWebNNContextProvider(receiver, client_id) {
@@ -453,7 +464,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       11,  // ordinal
       viz.mojom.GpuService_BindWebNNContextProvider_ParamsSpec,
       null,
-      [receiver, client_id]);
+      [receiver, client_id],
+      false);
   }
 
   getVideoMemoryUsageStats() {
@@ -462,7 +474,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       12,  // ordinal
       viz.mojom.GpuService_GetVideoMemoryUsageStats_ParamsSpec,
       viz.mojom.GpuService_GetVideoMemoryUsageStats_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startPeakMemoryMonitor(sequence_num) {
@@ -471,7 +484,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       13,  // ordinal
       viz.mojom.GpuService_StartPeakMemoryMonitor_ParamsSpec,
       null,
-      [sequence_num]);
+      [sequence_num],
+      false);
   }
 
   getPeakMemoryUsage(sequence_num) {
@@ -480,7 +494,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       14,  // ordinal
       viz.mojom.GpuService_GetPeakMemoryUsage_ParamsSpec,
       viz.mojom.GpuService_GetPeakMemoryUsage_ResponseParamsSpec,
-      [sequence_num]);
+      [sequence_num],
+      false);
   }
 
   requestDXGIInfo() {
@@ -489,7 +504,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       15,  // ordinal
       viz.mojom.GpuService_RequestDXGIInfo_ParamsSpec,
       viz.mojom.GpuService_RequestDXGIInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   loadedBlob(cache_handle, key, data) {
@@ -498,7 +514,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       16,  // ordinal
       viz.mojom.GpuService_LoadedBlob_ParamsSpec,
       null,
-      [cache_handle, key, data]);
+      [cache_handle, key, data],
+      false);
   }
 
   wakeUpGpu() {
@@ -507,7 +524,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       17,  // ordinal
       viz.mojom.GpuService_WakeUpGpu_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   gpuSwitched() {
@@ -516,7 +534,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       18,  // ordinal
       viz.mojom.GpuService_GpuSwitched_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   displayAdded() {
@@ -525,7 +544,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       19,  // ordinal
       viz.mojom.GpuService_DisplayAdded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   displayRemoved() {
@@ -534,7 +554,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       20,  // ordinal
       viz.mojom.GpuService_DisplayRemoved_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   displayMetricsChanged() {
@@ -543,7 +564,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       21,  // ordinal
       viz.mojom.GpuService_DisplayMetricsChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   destroyAllChannels() {
@@ -552,7 +574,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       22,  // ordinal
       viz.mojom.GpuService_DestroyAllChannels_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onBackgroundCleanup() {
@@ -561,7 +584,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       23,  // ordinal
       viz.mojom.GpuService_OnBackgroundCleanup_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onBackgrounded() {
@@ -570,7 +594,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       24,  // ordinal
       viz.mojom.GpuService_OnBackgrounded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onForegrounded() {
@@ -579,7 +604,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       25,  // ordinal
       viz.mojom.GpuService_OnForegrounded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   beginCATransaction() {
@@ -588,7 +614,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       26,  // ordinal
       viz.mojom.GpuService_BeginCATransaction_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   commitCATransaction() {
@@ -597,7 +624,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       27,  // ordinal
       viz.mojom.GpuService_CommitCATransaction_ParamsSpec,
       viz.mojom.GpuService_CommitCATransaction_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   writeClangProfilingProfile() {
@@ -606,7 +634,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       28,  // ordinal
       viz.mojom.GpuService_WriteClangProfilingProfile_ParamsSpec,
       viz.mojom.GpuService_WriteClangProfilingProfile_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getDawnInfo(collect_metrics) {
@@ -615,7 +644,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       29,  // ordinal
       viz.mojom.GpuService_GetDawnInfo_ParamsSpec,
       viz.mojom.GpuService_GetDawnInfo_ResponseParamsSpec,
-      [collect_metrics]);
+      [collect_metrics],
+      false);
   }
 
   crash() {
@@ -624,7 +654,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       30,  // ordinal
       viz.mojom.GpuService_Crash_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   hang() {
@@ -633,7 +664,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       31,  // ordinal
       viz.mojom.GpuService_Hang_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   throwJavaException() {
@@ -642,7 +674,8 @@ viz.mojom.GpuServiceRemoteCallHandler = class {
       32,  // ordinal
       viz.mojom.GpuService_ThrowJavaException_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

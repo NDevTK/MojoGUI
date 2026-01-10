@@ -355,7 +355,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       0,  // ordinal
       ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec,
       null,
-      [text, cursor_behavior]);
+      [text, cursor_behavior],
+      false);
   }
 
   dEPRECATED_SetComposition(text, spans) {
@@ -364,7 +365,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       1,  // ordinal
       ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec,
       null,
-      [text, spans]);
+      [text, spans],
+      false);
   }
 
   setComposition(text, spans, new_cursor_position) {
@@ -373,7 +375,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       12,  // ordinal
       ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec,
       null,
-      [text, spans, new_cursor_position]);
+      [text, spans, new_cursor_position],
+      false);
   }
 
   setCompositionRange(start_index, end_index) {
@@ -382,7 +385,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       2,  // ordinal
       ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec,
       null,
-      [start_index, end_index]);
+      [start_index, end_index],
+      false);
   }
 
   finishComposition() {
@@ -391,7 +395,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       3,  // ordinal
       ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   deleteSurroundingText(num_before_cursor, num_after_cursor) {
@@ -400,7 +405,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       4,  // ordinal
       ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec,
       null,
-      [num_before_cursor, num_after_cursor]);
+      [num_before_cursor, num_after_cursor],
+      false);
   }
 
   replaceSurroundingText(num_before_cursor, num_after_cursor, text) {
@@ -409,7 +415,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       16,  // ordinal
       ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec,
       null,
-      [num_before_cursor, num_after_cursor, text]);
+      [num_before_cursor, num_after_cursor, text],
+      false);
   }
 
   handleAutocorrect(autocorrect_span) {
@@ -418,7 +425,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       5,  // ordinal
       ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec,
       null,
-      [autocorrect_span]);
+      [autocorrect_span],
+      false);
   }
 
   displaySuggestions(suggestions, context) {
@@ -427,7 +435,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       6,  // ordinal
       ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec,
       null,
-      [suggestions, context]);
+      [suggestions, context],
+      false);
   }
 
   updateCandidatesWindow(window) {
@@ -436,7 +445,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       9,  // ordinal
       ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec,
       null,
-      [window]);
+      [window],
+      false);
   }
 
   requestSuggestions(request) {
@@ -445,7 +455,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       7,  // ordinal
       ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec,
       ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   updateQuickSettings(settings) {
@@ -454,7 +465,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       13,  // ordinal
       ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec,
       null,
-      [settings]);
+      [settings],
+      false);
   }
 
   recordUkm(entry) {
@@ -463,7 +475,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       8,  // ordinal
       ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec,
       null,
-      [entry]);
+      [entry],
+      false);
   }
 
   dEPRECATED_ReportKoreanAction(action) {
@@ -472,7 +485,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       10,  // ordinal
       ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec,
       null,
-      [action]);
+      [action],
+      false);
   }
 
   dEPRECATED_ReportKoreanSettings(settings) {
@@ -481,7 +495,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       11,  // ordinal
       ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec,
       null,
-      [settings]);
+      [settings],
+      false);
   }
 
   dEPRECATED_ReportSuggestionOpportunity(mode) {
@@ -490,7 +505,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       14,  // ordinal
       ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec,
       null,
-      [mode]);
+      [mode],
+      false);
   }
 
   dEPRECATED_ReportHistogramSample(histogram, value) {
@@ -499,7 +515,8 @@ ash.ime.mojom.InputMethodHostRemoteCallHandler = class {
       15,  // ordinal
       ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec,
       null,
-      [histogram, value]);
+      [histogram, value],
+      false);
   }
 
 };

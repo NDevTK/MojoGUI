@@ -160,7 +160,8 @@ blink.mojom.ContentIndexServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec,
       blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec,
-      [category]);
+      [category],
+      false);
   }
 
   add(service_worker_registration_id, description, icon, launchUrl) {
@@ -169,7 +170,8 @@ blink.mojom.ContentIndexServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ContentIndexService_Add_ParamsSpec,
       blink.mojom.ContentIndexService_Add_ResponseParamsSpec,
-      [service_worker_registration_id, description, icon, launchUrl]);
+      [service_worker_registration_id, description, icon, launchUrl],
+      false);
   }
 
   delete(service_worker_registration_id, id) {
@@ -178,7 +180,8 @@ blink.mojom.ContentIndexServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ContentIndexService_Delete_ParamsSpec,
       blink.mojom.ContentIndexService_Delete_ResponseParamsSpec,
-      [service_worker_registration_id, id]);
+      [service_worker_registration_id, id],
+      false);
   }
 
   getDescriptions(service_worker_registration_id) {
@@ -187,7 +190,8 @@ blink.mojom.ContentIndexServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec,
       blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec,
-      [service_worker_registration_id]);
+      [service_worker_registration_id],
+      false);
   }
 
 };

@@ -187,7 +187,8 @@ arc.mojom.ImeHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.ImeHost_OnTextInputTypeChanged_ParamsSpec,
       null,
-      [type, is_personalized_learning_allowed, flags]);
+      [type, is_personalized_learning_allowed, flags],
+      false);
   }
 
   onCursorRectChanged(rect, coordinateSpace) {
@@ -196,7 +197,8 @@ arc.mojom.ImeHostRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.ImeHost_OnCursorRectChanged_ParamsSpec,
       null,
-      [rect, coordinateSpace]);
+      [rect, coordinateSpace],
+      false);
   }
 
   onCancelComposition() {
@@ -205,7 +207,8 @@ arc.mojom.ImeHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.ImeHost_OnCancelComposition_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   showVirtualKeyboardIfEnabled() {
@@ -214,7 +217,8 @@ arc.mojom.ImeHostRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.ImeHost_ShowVirtualKeyboardIfEnabled_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onCursorRectChangedWithSurroundingText(rect, text_range, text_in_range, selection_range, coordinateSpace) {
@@ -223,7 +227,8 @@ arc.mojom.ImeHostRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.ImeHost_OnCursorRectChangedWithSurroundingText_ParamsSpec,
       null,
-      [rect, text_range, text_in_range, selection_range, coordinateSpace]);
+      [rect, text_range, text_in_range, selection_range, coordinateSpace],
+      false);
   }
 
   sendKeyEvent(key_event_data) {
@@ -232,7 +237,8 @@ arc.mojom.ImeHostRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.ImeHost_SendKeyEvent_ParamsSpec,
       arc.mojom.ImeHost_SendKeyEvent_ResponseParamsSpec,
-      [key_event_data]);
+      [key_event_data],
+      false);
   }
 
 };
@@ -347,7 +353,8 @@ arc.mojom.ImeInstanceRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.ImeInstance_Init_ParamsSpec,
       arc.mojom.ImeInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   setCompositionText(text, segments, selection_range) {
@@ -356,7 +363,8 @@ arc.mojom.ImeInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.ImeInstance_SetCompositionText_ParamsSpec,
       null,
-      [text, segments, selection_range]);
+      [text, segments, selection_range],
+      false);
   }
 
   setSelectionText(selection) {
@@ -365,7 +373,8 @@ arc.mojom.ImeInstanceRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.ImeInstance_SetSelectionText_ParamsSpec,
       null,
-      [selection]);
+      [selection],
+      false);
   }
 
   confirmCompositionText() {
@@ -374,7 +383,8 @@ arc.mojom.ImeInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.ImeInstance_ConfirmCompositionText_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   insertText(text, new_cursor_position) {
@@ -383,7 +393,8 @@ arc.mojom.ImeInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.ImeInstance_InsertText_ParamsSpec,
       null,
-      [text, new_cursor_position]);
+      [text, new_cursor_position],
+      false);
   }
 
   onKeyboardAppearanceChanging(new_bounds, is_available) {
@@ -392,7 +403,8 @@ arc.mojom.ImeInstanceRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.ImeInstance_OnKeyboardAppearanceChanging_ParamsSpec,
       null,
-      [new_bounds, is_available]);
+      [new_bounds, is_available],
+      false);
   }
 
   extendSelectionAndDelete(before, after) {
@@ -401,7 +413,8 @@ arc.mojom.ImeInstanceRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.ImeInstance_ExtendSelectionAndDelete_ParamsSpec,
       null,
-      [before, after]);
+      [before, after],
+      false);
   }
 
   setComposingRegion(range) {
@@ -410,7 +423,8 @@ arc.mojom.ImeInstanceRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.ImeInstance_SetComposingRegion_ParamsSpec,
       null,
-      [range]);
+      [range],
+      false);
   }
 
 };

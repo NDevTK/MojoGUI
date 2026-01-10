@@ -65,7 +65,8 @@ metrics.mojom.CallStackProfileCollectorTestRemoteCallHandler = class {
       0,  // ordinal
       metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec,
       metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec,
-      [in]);
+      [in],
+      false);
   }
 
 };

@@ -109,7 +109,8 @@ storage.mojom.IndexedDBObserverRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.IndexedDBObserver_OnIndexedDBListChanged_ParamsSpec,
       null,
-      [bucket_locator]);
+      [bucket_locator],
+      false);
   }
 
   onIndexedDBContentChanged(bucket_locator, database_name, object_store_name) {
@@ -118,7 +119,8 @@ storage.mojom.IndexedDBObserverRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.IndexedDBObserver_OnIndexedDBContentChanged_ParamsSpec,
       null,
-      [bucket_locator, database_name, object_store_name]);
+      [bucket_locator, database_name, object_store_name],
+      false);
   }
 
 };
@@ -269,7 +271,8 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.IndexedDBControl_BindIndexedDB_ParamsSpec,
       null,
-      [bucket_locator, client_info, client_state_checker_remote, receiver]);
+      [bucket_locator, client_info, client_state_checker_remote, receiver],
+      false);
   }
 
   forceClose(bucket_id, reason) {
@@ -278,7 +281,8 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.IndexedDBControl_ForceClose_ParamsSpec,
       storage.mojom.IndexedDBControl_ForceClose_ResponseParamsSpec,
-      [bucket_id, reason]);
+      [bucket_id, reason],
+      false);
   }
 
   downloadBucketData(bucket_id) {
@@ -287,7 +291,8 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.IndexedDBControl_DownloadBucketData_ParamsSpec,
       storage.mojom.IndexedDBControl_DownloadBucketData_ResponseParamsSpec,
-      [bucket_id]);
+      [bucket_id],
+      false);
   }
 
   getAllBucketsDetails() {
@@ -296,7 +301,8 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.IndexedDBControl_GetAllBucketsDetails_ParamsSpec,
       storage.mojom.IndexedDBControl_GetAllBucketsDetails_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startMetadataRecording(bucket_id) {
@@ -305,7 +311,8 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       4,  // ordinal
       storage.mojom.IndexedDBControl_StartMetadataRecording_ParamsSpec,
       storage.mojom.IndexedDBControl_StartMetadataRecording_ResponseParamsSpec,
-      [bucket_id]);
+      [bucket_id],
+      false);
   }
 
   stopMetadataRecording(bucket_id) {
@@ -314,7 +321,8 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       5,  // ordinal
       storage.mojom.IndexedDBControl_StopMetadataRecording_ParamsSpec,
       storage.mojom.IndexedDBControl_StopMetadataRecording_ResponseParamsSpec,
-      [bucket_id]);
+      [bucket_id],
+      false);
   }
 
   setForceKeepSessionState() {
@@ -323,7 +331,8 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       6,  // ordinal
       storage.mojom.IndexedDBControl_SetForceKeepSessionState_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   addObserver(observer) {
@@ -332,7 +341,8 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       7,  // ordinal
       storage.mojom.IndexedDBControl_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   applyPolicyUpdates(policy_updates) {
@@ -341,7 +351,8 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       8,  // ordinal
       storage.mojom.IndexedDBControl_ApplyPolicyUpdates_ParamsSpec,
       null,
-      [policy_updates]);
+      [policy_updates],
+      false);
   }
 
   bindTestInterfaceForTesting(receiver) {
@@ -350,7 +361,8 @@ storage.mojom.IndexedDBControlRemoteCallHandler = class {
       9,  // ordinal
       storage.mojom.IndexedDBControl_BindTestInterfaceForTesting_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

@@ -46,7 +46,7 @@ mojo.internal.Union(
 // Struct: DataElementBytes
 mojo.internal.Struct(
     blink.mojom.DataElementBytesSpec, 'blink.mojom.DataElementBytes', [
-      mojo.internal.StructField('kMaximumEmbeddedDataSize', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kMaximumEmbeddedDataSize', 0, 0, mojo.internal.Pointer, 256000, false, 0, undefined),
       mojo.internal.StructField('length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('embedded_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
       mojo.internal.StructField('data', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.BytesProviderRemote), null, false, 0, undefined),
@@ -143,7 +143,8 @@ blink.mojom.BytesProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BytesProvider_RequestAsReply_ParamsSpec,
       blink.mojom.BytesProvider_RequestAsReply_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestAsStream(pipe) {
@@ -152,7 +153,8 @@ blink.mojom.BytesProviderRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BytesProvider_RequestAsStream_ParamsSpec,
       null,
-      [pipe]);
+      [pipe],
+      false);
   }
 
   requestAsFile(source_offset, source_size, file, file_offset) {
@@ -161,7 +163,8 @@ blink.mojom.BytesProviderRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.BytesProvider_RequestAsFile_ParamsSpec,
       blink.mojom.BytesProvider_RequestAsFile_ResponseParamsSpec,
-      [source_offset, source_size, file, file_offset]);
+      [source_offset, source_size, file, file_offset],
+      false);
   }
 
 };

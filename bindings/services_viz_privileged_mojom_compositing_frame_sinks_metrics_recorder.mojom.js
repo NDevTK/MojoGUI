@@ -122,7 +122,8 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec,
       null,
-      [start_time, bucket_size]);
+      [start_time, bucket_size],
+      false);
   }
 
   stopFrameCounting() {
@@ -131,7 +132,8 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec,
       viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startOverdrawTracking(root_frame_sink_id, bucket_size) {
@@ -140,7 +142,8 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec,
       null,
-      [root_frame_sink_id, bucket_size]);
+      [root_frame_sink_id, bucket_size],
+      false);
   }
 
   stopOverdrawTracking(root_frame_sink_id) {
@@ -149,7 +152,8 @@ viz.mojom.FrameSinksMetricsRecorderRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec,
       viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec,
-      [root_frame_sink_id]);
+      [root_frame_sink_id],
+      false);
   }
 
 };

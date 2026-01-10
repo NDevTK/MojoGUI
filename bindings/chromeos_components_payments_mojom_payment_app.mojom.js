@@ -109,7 +109,8 @@ chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandler = class {
       0,  // ordinal
       chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ParamsSpec,
       chromeos.payments.mojom.PaymentAppInstance_IsPaymentImplemented_ResponseParamsSpec,
-      [package_name]);
+      [package_name],
+      false);
   }
 
   isReadyToPay(parameters) {
@@ -118,7 +119,8 @@ chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandler = class {
       1,  // ordinal
       chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ParamsSpec,
       chromeos.payments.mojom.PaymentAppInstance_IsReadyToPay_ResponseParamsSpec,
-      [parameters]);
+      [parameters],
+      false);
   }
 
   invokePaymentApp(parameters) {
@@ -127,7 +129,8 @@ chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandler = class {
       2,  // ordinal
       chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ParamsSpec,
       chromeos.payments.mojom.PaymentAppInstance_InvokePaymentApp_ResponseParamsSpec,
-      [parameters]);
+      [parameters],
+      false);
   }
 
   abortPaymentApp(request_token) {
@@ -136,7 +139,8 @@ chromeos.payments.mojom.PaymentAppInstanceRemoteCallHandler = class {
       3,  // ordinal
       chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ParamsSpec,
       chromeos.payments.mojom.PaymentAppInstance_AbortPaymentApp_ResponseParamsSpec,
-      [request_token]);
+      [request_token],
+      false);
   }
 
 };

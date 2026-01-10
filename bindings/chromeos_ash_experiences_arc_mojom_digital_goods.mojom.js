@@ -170,7 +170,8 @@ arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec,
       arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec,
-      [package_name, scope, item_ids]);
+      [package_name, scope, item_ids],
+      false);
   }
 
   acknowledge(package_name, scope, purchase_token, make_available_again) {
@@ -179,7 +180,8 @@ arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec,
       arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec,
-      [package_name, scope, purchase_token, make_available_again]);
+      [package_name, scope, purchase_token, make_available_again],
+      false);
   }
 
   deprecatedListPurchases(package_name, scope) {
@@ -188,7 +190,8 @@ arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec,
       arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec,
-      [package_name, scope]);
+      [package_name, scope],
+      false);
   }
 
   listPurchases(package_name, scope) {
@@ -197,7 +200,8 @@ arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec,
       arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec,
-      [package_name, scope]);
+      [package_name, scope],
+      false);
   }
 
   listPurchaseHistory(package_name, scope) {
@@ -206,7 +210,8 @@ arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec,
       arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec,
-      [package_name, scope]);
+      [package_name, scope],
+      false);
   }
 
   consume(package_name, scope, purchase_token) {
@@ -215,7 +220,8 @@ arc.mojom.DigitalGoodsInstanceRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec,
       arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec,
-      [package_name, scope, purchase_token]);
+      [package_name, scope, purchase_token],
+      false);
   }
 
 };

@@ -82,7 +82,8 @@ storage.mojom.FileSystemAccessContextRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec,
       storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec,
-      [token]);
+      [token],
+      false);
   }
 
   deserializeHandle(storage_key, bits, token) {
@@ -91,7 +92,8 @@ storage.mojom.FileSystemAccessContextRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec,
       null,
-      [storage_key, bits, token]);
+      [storage_key, bits, token],
+      false);
   }
 
   clone(receiever) {
@@ -100,7 +102,8 @@ storage.mojom.FileSystemAccessContextRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.FileSystemAccessContext_Clone_ParamsSpec,
       null,
-      [receiever]);
+      [receiever],
+      false);
   }
 
 };

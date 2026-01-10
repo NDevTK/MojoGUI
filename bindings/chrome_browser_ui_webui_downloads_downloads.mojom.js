@@ -182,7 +182,8 @@ downloads.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       downloads.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -384,7 +385,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       downloads.mojom.PageHandler_GetDownloads_ParamsSpec,
       null,
-      [search_terms]);
+      [search_terms],
+      false);
   }
 
   openFileRequiringGesture(id) {
@@ -393,7 +395,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       downloads.mojom.PageHandler_OpenFileRequiringGesture_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   drag(id) {
@@ -402,7 +405,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       downloads.mojom.PageHandler_Drag_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   saveSuspiciousRequiringGesture(id) {
@@ -411,7 +415,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       downloads.mojom.PageHandler_SaveSuspiciousRequiringGesture_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   recordOpenBypassWarningDialog(id) {
@@ -420,7 +425,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       downloads.mojom.PageHandler_RecordOpenBypassWarningDialog_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   saveDangerousFromDialogRequiringGesture(id) {
@@ -429,7 +435,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       downloads.mojom.PageHandler_SaveDangerousFromDialogRequiringGesture_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   recordCancelBypassWarningDialog(id) {
@@ -438,7 +445,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       downloads.mojom.PageHandler_RecordCancelBypassWarningDialog_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   discardDangerous(id) {
@@ -447,7 +455,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       downloads.mojom.PageHandler_DiscardDangerous_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   retryDownload(id) {
@@ -456,7 +465,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       downloads.mojom.PageHandler_RetryDownload_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   show(id) {
@@ -465,7 +475,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       downloads.mojom.PageHandler_Show_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   pause(id) {
@@ -474,7 +485,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       downloads.mojom.PageHandler_Pause_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   resume(id) {
@@ -483,7 +495,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       downloads.mojom.PageHandler_Resume_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   remove(id) {
@@ -492,7 +505,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       downloads.mojom.PageHandler_Remove_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   undo() {
@@ -501,7 +515,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       downloads.mojom.PageHandler_Undo_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   cancel(id) {
@@ -510,7 +525,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       downloads.mojom.PageHandler_Cancel_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   clearAll() {
@@ -519,7 +535,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       downloads.mojom.PageHandler_ClearAll_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openDownloadsFolderRequiringGesture() {
@@ -528,7 +545,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       downloads.mojom.PageHandler_OpenDownloadsFolderRequiringGesture_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openEsbSettings() {
@@ -537,7 +555,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       17,  // ordinal
       downloads.mojom.PageHandler_OpenEsbSettings_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   logEsbPromotionRowViewed() {
@@ -546,7 +565,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       18,  // ordinal
       downloads.mojom.PageHandler_LogEsbPromotionRowViewed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openDuringScanningRequiringGesture(id) {
@@ -555,7 +575,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       19,  // ordinal
       downloads.mojom.PageHandler_OpenDuringScanningRequiringGesture_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   reviewDangerousRequiringGesture(id) {
@@ -564,7 +585,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       20,  // ordinal
       downloads.mojom.PageHandler_ReviewDangerousRequiringGesture_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   deepScan(id) {
@@ -573,7 +595,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       21,  // ordinal
       downloads.mojom.PageHandler_DeepScan_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   bypassDeepScanRequiringGesture(id) {
@@ -582,7 +605,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       22,  // ordinal
       downloads.mojom.PageHandler_BypassDeepScanRequiringGesture_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   isEligibleForEsbPromo() {
@@ -591,7 +615,8 @@ downloads.mojom.PageHandlerRemoteCallHandler = class {
       23,  // ordinal
       downloads.mojom.PageHandler_IsEligibleForEsbPromo_ParamsSpec,
       downloads.mojom.PageHandler_IsEligibleForEsbPromo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -674,7 +699,8 @@ downloads.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       downloads.mojom.Page_RemoveItem_ParamsSpec,
       null,
-      [index]);
+      [index],
+      false);
   }
 
   updateItem(index, data) {
@@ -683,7 +709,8 @@ downloads.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       downloads.mojom.Page_UpdateItem_ParamsSpec,
       null,
-      [index, data]);
+      [index, data],
+      false);
   }
 
   insertItems(index, items) {
@@ -692,7 +719,8 @@ downloads.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       downloads.mojom.Page_InsertItems_ParamsSpec,
       null,
-      [index, items]);
+      [index, items],
+      false);
   }
 
   clearAll() {
@@ -701,7 +729,8 @@ downloads.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       downloads.mojom.Page_ClearAll_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -135,7 +135,8 @@ network.mojom.NetworkContextClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetworkContextClient_OnFileUploadRequested_ParamsSpec,
       network.mojom.NetworkContextClient_OnFileUploadRequested_ResponseParamsSpec,
-      [process_id, async, file_paths, destination_url]);
+      [process_id, async, file_paths, destination_url],
+      false);
   }
 
   onCanSendReportingReports(origins) {
@@ -144,7 +145,8 @@ network.mojom.NetworkContextClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.NetworkContextClient_OnCanSendReportingReports_ParamsSpec,
       network.mojom.NetworkContextClient_OnCanSendReportingReports_ResponseParamsSpec,
-      [origins]);
+      [origins],
+      false);
   }
 
   onCanSendDomainReliabilityUpload(origin) {
@@ -153,7 +155,8 @@ network.mojom.NetworkContextClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ParamsSpec,
       network.mojom.NetworkContextClient_OnCanSendDomainReliabilityUpload_ResponseParamsSpec,
-      [origin]);
+      [origin],
+      false);
   }
 
   onGenerateHttpNegotiateAuthToken(server_auth_token, can_delegate, auth_negotiate_android_account_type, spn) {
@@ -162,7 +165,8 @@ network.mojom.NetworkContextClientRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ParamsSpec,
       network.mojom.NetworkContextClient_OnGenerateHttpNegotiateAuthToken_ResponseParamsSpec,
-      [server_auth_token, can_delegate, auth_negotiate_android_account_type, spn]);
+      [server_auth_token, can_delegate, auth_negotiate_android_account_type, spn],
+      false);
   }
 
   onCanSendSCTAuditingReport() {
@@ -171,7 +175,8 @@ network.mojom.NetworkContextClientRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ParamsSpec,
       network.mojom.NetworkContextClient_OnCanSendSCTAuditingReport_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onNewSCTAuditingReportSent() {
@@ -180,7 +185,8 @@ network.mojom.NetworkContextClientRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.NetworkContextClient_OnNewSCTAuditingReportSent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

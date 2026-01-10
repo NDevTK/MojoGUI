@@ -164,7 +164,8 @@ lens.mojom.LensPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       lens.mojom.LensPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler, page]);
+      [handler, page],
+      false);
   }
 
 };
@@ -403,7 +404,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       lens.mojom.LensPageHandler_ActivityRequestedByOverlay_ParamsSpec,
       null,
-      [click_modifiers]);
+      [click_modifiers],
+      false);
   }
 
   closeRequestedByOverlayCloseButton() {
@@ -412,7 +414,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       lens.mojom.LensPageHandler_CloseRequestedByOverlayCloseButton_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   closeRequestedByOverlayBackgroundClick() {
@@ -421,7 +424,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       lens.mojom.LensPageHandler_CloseRequestedByOverlayBackgroundClick_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   notifyOverlayInitialized() {
@@ -430,7 +434,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       lens.mojom.LensPageHandler_NotifyOverlayInitialized_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   addBackgroundBlur() {
@@ -439,7 +444,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       lens.mojom.LensPageHandler_AddBackgroundBlur_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setLiveBlur(enabled) {
@@ -448,7 +454,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       5,  // ordinal
       lens.mojom.LensPageHandler_SetLiveBlur_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   feedbackRequestedByOverlay() {
@@ -457,7 +464,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       6,  // ordinal
       lens.mojom.LensPageHandler_FeedbackRequestedByOverlay_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getOverlayInvocationSource() {
@@ -466,7 +474,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       7,  // ordinal
       lens.mojom.LensPageHandler_GetOverlayInvocationSource_ParamsSpec,
       lens.mojom.LensPageHandler_GetOverlayInvocationSource_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   infoRequestedByOverlay(click_modifiers) {
@@ -475,7 +484,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       8,  // ordinal
       lens.mojom.LensPageHandler_InfoRequestedByOverlay_ParamsSpec,
       null,
-      [click_modifiers]);
+      [click_modifiers],
+      false);
   }
 
   issueLensRegionRequest(region, is_click) {
@@ -484,7 +494,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       9,  // ordinal
       lens.mojom.LensPageHandler_IssueLensRegionRequest_ParamsSpec,
       null,
-      [region, is_click]);
+      [region, is_click],
+      false);
   }
 
   issueLensObjectRequest(region, is_mask_click) {
@@ -493,7 +504,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       10,  // ordinal
       lens.mojom.LensPageHandler_IssueLensObjectRequest_ParamsSpec,
       null,
-      [region, is_mask_click]);
+      [region, is_mask_click],
+      false);
   }
 
   issueTextSelectionRequest(query, selection_start_index, selection_end_index, is_translate) {
@@ -502,7 +514,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       11,  // ordinal
       lens.mojom.LensPageHandler_IssueTextSelectionRequest_ParamsSpec,
       null,
-      [query, selection_start_index, selection_end_index, is_translate]);
+      [query, selection_start_index, selection_end_index, is_translate],
+      false);
   }
 
   issueTranslateSelectionRequest(query, content_language, selection_start_index, selection_end_index) {
@@ -511,7 +524,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       12,  // ordinal
       lens.mojom.LensPageHandler_IssueTranslateSelectionRequest_ParamsSpec,
       null,
-      [query, content_language, selection_start_index, selection_end_index]);
+      [query, content_language, selection_start_index, selection_end_index],
+      false);
   }
 
   issueMathSelectionRequest(query, formula, selection_start_index, selection_end_index) {
@@ -520,7 +534,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       13,  // ordinal
       lens.mojom.LensPageHandler_IssueMathSelectionRequest_ParamsSpec,
       null,
-      [query, formula, selection_start_index, selection_end_index]);
+      [query, formula, selection_start_index, selection_end_index],
+      false);
   }
 
   issueTranslateFullPageRequest(source_language, target_language) {
@@ -529,7 +544,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       14,  // ordinal
       lens.mojom.LensPageHandler_IssueTranslateFullPageRequest_ParamsSpec,
       null,
-      [source_language, target_language]);
+      [source_language, target_language],
+      false);
   }
 
   issueEndTranslateModeRequest() {
@@ -538,7 +554,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       15,  // ordinal
       lens.mojom.LensPageHandler_IssueEndTranslateModeRequest_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   copyText(text) {
@@ -547,7 +564,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       16,  // ordinal
       lens.mojom.LensPageHandler_CopyText_ParamsSpec,
       null,
-      [text]);
+      [text],
+      false);
   }
 
   copyImage(region) {
@@ -556,7 +574,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       17,  // ordinal
       lens.mojom.LensPageHandler_CopyImage_ParamsSpec,
       null,
-      [region]);
+      [region],
+      false);
   }
 
   saveAsImage(region) {
@@ -565,7 +584,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       18,  // ordinal
       lens.mojom.LensPageHandler_SaveAsImage_ParamsSpec,
       null,
-      [region]);
+      [region],
+      false);
   }
 
   closePreselectionBubble() {
@@ -574,7 +594,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       19,  // ordinal
       lens.mojom.LensPageHandler_ClosePreselectionBubble_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordUkmAndTaskCompletionForLensOverlayInteraction(user_action) {
@@ -583,7 +604,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       20,  // ordinal
       lens.mojom.LensPageHandler_RecordUkmAndTaskCompletionForLensOverlayInteraction_ParamsSpec,
       null,
-      [user_action]);
+      [user_action],
+      false);
   }
 
   recordLensOverlaySemanticEvent(event) {
@@ -592,7 +614,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       21,  // ordinal
       lens.mojom.LensPageHandler_RecordLensOverlaySemanticEvent_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
   maybeShowTranslateFeaturePromo() {
@@ -601,7 +624,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       22,  // ordinal
       lens.mojom.LensPageHandler_MaybeShowTranslateFeaturePromo_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   maybeCloseTranslateFeaturePromo(feature_engaged) {
@@ -610,7 +634,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       23,  // ordinal
       lens.mojom.LensPageHandler_MaybeCloseTranslateFeaturePromo_ParamsSpec,
       null,
-      [feature_engaged]);
+      [feature_engaged],
+      false);
   }
 
   fetchSupportedLanguages() {
@@ -619,7 +644,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       24,  // ordinal
       lens.mojom.LensPageHandler_FetchSupportedLanguages_ParamsSpec,
       lens.mojom.LensPageHandler_FetchSupportedLanguages_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   finishReshowOverlay() {
@@ -628,7 +654,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       25,  // ordinal
       lens.mojom.LensPageHandler_FinishReshowOverlay_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   acceptPrivacyNotice() {
@@ -637,7 +664,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       26,  // ordinal
       lens.mojom.LensPageHandler_AcceptPrivacyNotice_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   dismissPrivacyNotice() {
@@ -646,7 +674,8 @@ lens.mojom.LensPageHandlerRemoteCallHandler = class {
       27,  // ordinal
       lens.mojom.LensPageHandler_DismissPrivacyNotice_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -814,7 +843,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       0,  // ordinal
       lens.mojom.LensPage_ScreenshotDataReceived_ParamsSpec,
       null,
-      [screenshot_data, is_side_panel_open]);
+      [screenshot_data, is_side_panel_open],
+      false);
   }
 
   notifyHandshakeComplete() {
@@ -823,7 +853,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       1,  // ordinal
       lens.mojom.LensPage_NotifyHandshakeComplete_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   notifyResultsPanelOpened() {
@@ -832,7 +863,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       2,  // ordinal
       lens.mojom.LensPage_NotifyResultsPanelOpened_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   notifyOverlayClosing() {
@@ -841,7 +873,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       3,  // ordinal
       lens.mojom.LensPage_NotifyOverlayClosing_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   objectsReceived(objects) {
@@ -850,7 +883,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       4,  // ordinal
       lens.mojom.LensPage_ObjectsReceived_ParamsSpec,
       null,
-      [objects]);
+      [objects],
+      false);
   }
 
   textReceived(text) {
@@ -859,7 +893,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       5,  // ordinal
       lens.mojom.LensPage_TextReceived_ParamsSpec,
       null,
-      [text]);
+      [text],
+      false);
   }
 
   regionTextReceived(text, is_injected_image) {
@@ -868,7 +903,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       6,  // ordinal
       lens.mojom.LensPage_RegionTextReceived_ParamsSpec,
       null,
-      [text, is_injected_image]);
+      [text, is_injected_image],
+      false);
   }
 
   themeReceived(theme) {
@@ -877,7 +913,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       7,  // ordinal
       lens.mojom.LensPage_ThemeReceived_ParamsSpec,
       null,
-      [theme]);
+      [theme],
+      false);
   }
 
   shouldShowContextualSearchBox(should_show) {
@@ -886,7 +923,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       8,  // ordinal
       lens.mojom.LensPage_ShouldShowContextualSearchBox_ParamsSpec,
       null,
-      [should_show]);
+      [should_show],
+      false);
   }
 
   pageContentTypeChanged(new_page_content_type) {
@@ -895,7 +933,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       9,  // ordinal
       lens.mojom.LensPage_PageContentTypeChanged_ParamsSpec,
       null,
-      [new_page_content_type]);
+      [new_page_content_type],
+      false);
   }
 
   setPostRegionSelection(region) {
@@ -904,7 +943,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       10,  // ordinal
       lens.mojom.LensPage_SetPostRegionSelection_ParamsSpec,
       null,
-      [region]);
+      [region],
+      false);
   }
 
   setTextSelection(selection_start_index, selection_end_index) {
@@ -913,7 +953,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       11,  // ordinal
       lens.mojom.LensPage_SetTextSelection_ParamsSpec,
       null,
-      [selection_start_index, selection_end_index]);
+      [selection_start_index, selection_end_index],
+      false);
   }
 
   setTranslateMode(source_language, target_language) {
@@ -922,7 +963,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       12,  // ordinal
       lens.mojom.LensPage_SetTranslateMode_ParamsSpec,
       null,
-      [source_language, target_language]);
+      [source_language, target_language],
+      false);
   }
 
   clearRegionSelection() {
@@ -931,7 +973,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       13,  // ordinal
       lens.mojom.LensPage_ClearRegionSelection_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   clearTextSelection() {
@@ -940,7 +983,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       14,  // ordinal
       lens.mojom.LensPage_ClearTextSelection_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   clearAllSelections() {
@@ -949,7 +993,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       15,  // ordinal
       lens.mojom.LensPage_ClearAllSelections_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onCopyCommand() {
@@ -958,7 +1003,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       16,  // ordinal
       lens.mojom.LensPage_OnCopyCommand_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   suppressGhostLoader() {
@@ -967,7 +1013,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       17,  // ordinal
       lens.mojom.LensPage_SuppressGhostLoader_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onOverlayReshown(screenshot_data) {
@@ -976,7 +1023,8 @@ lens.mojom.LensPageRemoteCallHandler = class {
       18,  // ordinal
       lens.mojom.LensPage_OnOverlayReshown_ParamsSpec,
       null,
-      [screenshot_data]);
+      [screenshot_data],
+      false);
   }
 
 };

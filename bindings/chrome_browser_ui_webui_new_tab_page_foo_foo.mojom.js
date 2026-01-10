@@ -73,7 +73,8 @@ foo.mojom.FooHandlerRemoteCallHandler = class {
       0,  // ordinal
       foo.mojom.FooHandler_GetData_ParamsSpec,
       foo.mojom.FooHandler_GetData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

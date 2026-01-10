@@ -164,7 +164,8 @@ device.mojom.FingerprintObserverRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.FingerprintObserver_OnRestarted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onStatusChanged(status) {
@@ -173,7 +174,8 @@ device.mojom.FingerprintObserverRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.FingerprintObserver_OnStatusChanged_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   onEnrollScanDone(scan_result, is_complete, percent_complete) {
@@ -182,7 +184,8 @@ device.mojom.FingerprintObserverRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.FingerprintObserver_OnEnrollScanDone_ParamsSpec,
       null,
-      [scan_result, is_complete, percent_complete]);
+      [scan_result, is_complete, percent_complete],
+      false);
   }
 
   onAuthScanDone(msg, matches) {
@@ -191,7 +194,8 @@ device.mojom.FingerprintObserverRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.FingerprintObserver_OnAuthScanDone_ParamsSpec,
       null,
-      [msg, matches]);
+      [msg, matches],
+      false);
   }
 
   onSessionFailed() {
@@ -200,7 +204,8 @@ device.mojom.FingerprintObserverRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.FingerprintObserver_OnSessionFailed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -370,7 +375,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.Fingerprint_GetRecordsForUser_ParamsSpec,
       device.mojom.Fingerprint_GetRecordsForUser_ResponseParamsSpec,
-      [user_id]);
+      [user_id],
+      false);
   }
 
   startEnrollSession(user_id, label) {
@@ -379,7 +385,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.Fingerprint_StartEnrollSession_ParamsSpec,
       null,
-      [user_id, label]);
+      [user_id, label],
+      false);
   }
 
   cancelCurrentEnrollSession() {
@@ -388,7 +395,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.Fingerprint_CancelCurrentEnrollSession_ParamsSpec,
       device.mojom.Fingerprint_CancelCurrentEnrollSession_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestRecordLabel(record_path) {
@@ -397,7 +405,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.Fingerprint_RequestRecordLabel_ParamsSpec,
       device.mojom.Fingerprint_RequestRecordLabel_ResponseParamsSpec,
-      [record_path]);
+      [record_path],
+      false);
   }
 
   setRecordLabel(record_path, new_label) {
@@ -406,7 +415,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.Fingerprint_SetRecordLabel_ParamsSpec,
       device.mojom.Fingerprint_SetRecordLabel_ResponseParamsSpec,
-      [record_path, new_label]);
+      [record_path, new_label],
+      false);
   }
 
   removeRecord(record_path) {
@@ -415,7 +425,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
       5,  // ordinal
       device.mojom.Fingerprint_RemoveRecord_ParamsSpec,
       device.mojom.Fingerprint_RemoveRecord_ResponseParamsSpec,
-      [record_path]);
+      [record_path],
+      false);
   }
 
   startAuthSession() {
@@ -424,7 +435,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
       6,  // ordinal
       device.mojom.Fingerprint_StartAuthSession_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   endCurrentAuthSession() {
@@ -433,7 +445,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
       7,  // ordinal
       device.mojom.Fingerprint_EndCurrentAuthSession_ParamsSpec,
       device.mojom.Fingerprint_EndCurrentAuthSession_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   destroyAllRecords() {
@@ -442,7 +455,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
       8,  // ordinal
       device.mojom.Fingerprint_DestroyAllRecords_ParamsSpec,
       device.mojom.Fingerprint_DestroyAllRecords_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addFingerprintObserver(observer) {
@@ -451,7 +465,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
       9,  // ordinal
       device.mojom.Fingerprint_AddFingerprintObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   requestType() {
@@ -460,7 +475,8 @@ device.mojom.FingerprintRemoteCallHandler = class {
       10,  // ordinal
       device.mojom.Fingerprint_RequestType_ParamsSpec,
       device.mojom.Fingerprint_RequestType_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

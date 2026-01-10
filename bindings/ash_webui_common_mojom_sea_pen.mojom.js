@@ -195,7 +195,8 @@ ash.personalization_app.mojom.SeaPenObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.SeaPenObserver_OnSelectedSeaPenImageChanged_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   onTextQueryHistoryChanged(entries) {
@@ -204,7 +205,8 @@ ash.personalization_app.mojom.SeaPenObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.SeaPenObserver_OnTextQueryHistoryChanged_ParamsSpec,
       null,
-      [entries]);
+      [entries],
+      false);
   }
 
 };
@@ -396,7 +398,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.SeaPenProvider_SetSeaPenObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   getSeaPenThumbnails(query) {
@@ -405,7 +408,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ParamsSpec,
       ash.personalization_app.mojom.SeaPenProvider_GetSeaPenThumbnails_ResponseParamsSpec,
-      [query]);
+      [query],
+      false);
   }
 
   selectSeaPenThumbnail(id, preview_mode) {
@@ -414,7 +418,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ParamsSpec,
       ash.personalization_app.mojom.SeaPenProvider_SelectSeaPenThumbnail_ResponseParamsSpec,
-      [id, preview_mode]);
+      [id, preview_mode],
+      false);
   }
 
   getRecentSeaPenImageIds() {
@@ -423,7 +428,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ParamsSpec,
       ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageIds_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   selectRecentSeaPenImage(id, preview_mode) {
@@ -432,7 +438,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ParamsSpec,
       ash.personalization_app.mojom.SeaPenProvider_SelectRecentSeaPenImage_ResponseParamsSpec,
-      [id, preview_mode]);
+      [id, preview_mode],
+      false);
   }
 
   getRecentSeaPenImageThumbnail(id) {
@@ -441,7 +448,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ParamsSpec,
       ash.personalization_app.mojom.SeaPenProvider_GetRecentSeaPenImageThumbnail_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   deleteRecentSeaPenImage(id) {
@@ -450,7 +458,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ParamsSpec,
       ash.personalization_app.mojom.SeaPenProvider_DeleteRecentSeaPenImage_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   openFeedbackDialog(metadata) {
@@ -459,7 +468,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.personalization_app.mojom.SeaPenProvider_OpenFeedbackDialog_ParamsSpec,
       null,
-      [metadata]);
+      [metadata],
+      false);
   }
 
   shouldShowSeaPenIntroductionDialog() {
@@ -468,7 +478,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
       8,  // ordinal
       ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ParamsSpec,
       ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenIntroductionDialog_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   handleSeaPenIntroductionDialogClosed() {
@@ -477,7 +488,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
       9,  // ordinal
       ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenIntroductionDialogClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   shouldShowSeaPenFreeformIntroductionDialog() {
@@ -486,7 +498,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
       10,  // ordinal
       ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ParamsSpec,
       ash.personalization_app.mojom.SeaPenProvider_ShouldShowSeaPenFreeformIntroductionDialog_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   handleSeaPenFreeformIntroductionDialogClosed() {
@@ -495,7 +508,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
       11,  // ordinal
       ash.personalization_app.mojom.SeaPenProvider_HandleSeaPenFreeformIntroductionDialogClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   isInTabletMode() {
@@ -504,7 +518,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
       12,  // ordinal
       ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ParamsSpec,
       ash.personalization_app.mojom.SeaPenProvider_IsInTabletMode_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   makeTransparent() {
@@ -513,7 +528,8 @@ ash.personalization_app.mojom.SeaPenProviderRemoteCallHandler = class {
       13,  // ordinal
       ash.personalization_app.mojom.SeaPenProvider_MakeTransparent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

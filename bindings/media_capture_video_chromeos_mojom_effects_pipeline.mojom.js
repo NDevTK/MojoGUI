@@ -62,10 +62,10 @@ cros.mojom.InferenceBackend = {
 // Struct: EffectsConfig
 mojo.internal.Struct(
     cros.mojom.EffectsConfigSpec, 'cros.mojom.EffectsConfig', [
-      mojo.internal.StructField('effect', 0, 0, cros.mojom.CameraEffectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('blur_level', 4, 0, cros.mojom.BlurLevelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('segmentation_gpu_api', 8, 0, cros.mojom.GpuApiSpec, null, false, 0, undefined),
-      mojo.internal.StructField('graph_max_frames_in_flight', 12, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('effect', 0, 0, cros.mojom.CameraEffectSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('blur_level', 4, 0, cros.mojom.BlurLevelSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('segmentation_gpu_api', 8, 0, cros.mojom.GpuApiSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('graph_max_frames_in_flight', 12, 0, mojo.internal.Uint16, 2, false, 0, undefined),
       mojo.internal.StructField('blur_enabled', 14, 0, mojo.internal.Bool, false, false, 1, undefined),
       mojo.internal.StructField('replace_enabled', 14, 1, mojo.internal.Bool, false, false, 1, undefined),
       mojo.internal.StructField('relight_enabled', 14, 2, mojo.internal.Bool, false, false, 1, undefined),
@@ -76,7 +76,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('segmentation_inference_backend', 40, 0, cros.mojom.InferenceBackendSpec, null, false, 5, undefined),
       mojo.internal.StructField('relighting_inference_backend', 44, 0, cros.mojom.InferenceBackendSpec, null, false, 5, undefined),
       mojo.internal.StructField('retouch_enabled', 48, 0, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('studio_look_enabled', 48, 1, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('studio_look_enabled', 48, 1, mojo.internal.Bool, true, false, 6, undefined),
       mojo.internal.StructField('retouch_inference_backend', 52, 0, cros.mojom.InferenceBackendSpec, null, false, 7, undefined),
     ],
     [[0, 24], [1, 24], [2, 32], [3, 40], [4, 48], [5, 56], [6, 64], [7, 64]]);

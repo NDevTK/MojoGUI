@@ -112,7 +112,8 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ResourceLoadInfoNotifier_NotifyUpdateUserGestureCarryoverInfo_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   notifyResourceRedirectReceived(redirect_info, redirect_response) {
@@ -121,7 +122,8 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec,
       null,
-      [redirect_info, redirect_response]);
+      [redirect_info, redirect_response],
+      false);
   }
 
   notifyResourceResponseReceived(request_id, final_response_url, head, request_destination, is_ad_resource) {
@@ -130,7 +132,8 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec,
       null,
-      [request_id, final_response_url, head, request_destination, is_ad_resource]);
+      [request_id, final_response_url, head, request_destination, is_ad_resource],
+      false);
   }
 
   notifyResourceTransferSizeUpdated(request_id, transfer_size_diff) {
@@ -139,7 +142,8 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec,
       null,
-      [request_id, transfer_size_diff]);
+      [request_id, transfer_size_diff],
+      false);
   }
 
   notifyResourceLoadCompleted(resource_load_info, status) {
@@ -148,7 +152,8 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec,
       null,
-      [resource_load_info, status]);
+      [resource_load_info, status],
+      false);
   }
 
   notifyResourceLoadCanceled(request_id) {
@@ -157,7 +162,8 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec,
       null,
-      [request_id]);
+      [request_id],
+      false);
   }
 
   clone(pending_resource_load_info_notifier) {
@@ -166,7 +172,8 @@ blink.mojom.ResourceLoadInfoNotifierRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec,
       null,
-      [pending_resource_load_info_notifier]);
+      [pending_resource_load_info_notifier],
+      false);
   }
 
 };

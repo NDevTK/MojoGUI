@@ -105,7 +105,8 @@ auction_worklet.mojom.LoadSellerWorkletClientRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec,
       null,
-      [trusted_signals_url_allowed]);
+      [trusted_signals_url_allowed],
+      false);
   }
 
 };
@@ -208,7 +209,8 @@ auction_worklet.mojom.AuctionWorkletServiceRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec,
       null,
-      [trusted_signals_cache]);
+      [trusted_signals_cache],
+      false);
   }
 
   loadBidderWorklet(bidder_worklet, shared_storage_hosts, pause_for_debugger_on_start, url_loader_factory, auction_network_events_handler, script_source_load, wasm_helper_load, trusted_bidding_signals_url, trusted_bidding_signals_slot_size_param, top_window_origin, permissions_policy_state, experiment_group_id, public_key) {
@@ -217,7 +219,8 @@ auction_worklet.mojom.AuctionWorkletServiceRemoteCallHandler = class {
       1,  // ordinal
       auction_worklet.mojom.AuctionWorkletService_LoadBidderWorklet_ParamsSpec,
       null,
-      [bidder_worklet, shared_storage_hosts, pause_for_debugger_on_start, url_loader_factory, auction_network_events_handler, script_source_load, wasm_helper_load, trusted_bidding_signals_url, trusted_bidding_signals_slot_size_param, top_window_origin, permissions_policy_state, experiment_group_id, public_key]);
+      [bidder_worklet, shared_storage_hosts, pause_for_debugger_on_start, url_loader_factory, auction_network_events_handler, script_source_load, wasm_helper_load, trusted_bidding_signals_url, trusted_bidding_signals_slot_size_param, top_window_origin, permissions_policy_state, experiment_group_id, public_key],
+      false);
   }
 
   loadSellerWorklet(seller_worklet, shared_storage_hosts, pause_for_debugger_on_start, url_loader_factory, auction_network_events_handler, script_source_load, trusted_scoring_signals_url, top_window_origin, permissions_policy_state, experiment_group_id, send_creative_scanning_metadata, public_key, load_seller_worklet_client) {
@@ -226,7 +229,8 @@ auction_worklet.mojom.AuctionWorkletServiceRemoteCallHandler = class {
       2,  // ordinal
       auction_worklet.mojom.AuctionWorkletService_LoadSellerWorklet_ParamsSpec,
       null,
-      [seller_worklet, shared_storage_hosts, pause_for_debugger_on_start, url_loader_factory, auction_network_events_handler, script_source_load, trusted_scoring_signals_url, top_window_origin, permissions_policy_state, experiment_group_id, send_creative_scanning_metadata, public_key, load_seller_worklet_client]);
+      [seller_worklet, shared_storage_hosts, pause_for_debugger_on_start, url_loader_factory, auction_network_events_handler, script_source_load, trusted_scoring_signals_url, top_window_origin, permissions_policy_state, experiment_group_id, send_creative_scanning_metadata, public_key, load_seller_worklet_client],
+      false);
   }
 
 };

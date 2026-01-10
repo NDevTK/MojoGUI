@@ -57,7 +57,8 @@ content.mojom.FieldTrialRecorderRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec,
       null,
-      [trial_name]);
+      [trial_name],
+      false);
   }
 
 };

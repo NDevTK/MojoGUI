@@ -130,7 +130,8 @@ blink.mojom.MediaSessionClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec,
       null,
-      [action, details]);
+      [action, details],
+      false);
   }
 
 };
@@ -236,7 +237,8 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.MediaSessionService_SetClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   setPlaybackState(state) {
@@ -245,7 +247,8 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   setPositionState(position) {
@@ -254,7 +257,8 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.MediaSessionService_SetPositionState_ParamsSpec,
       null,
-      [position]);
+      [position],
+      false);
   }
 
   setMetadata(metadata) {
@@ -263,7 +267,8 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.MediaSessionService_SetMetadata_ParamsSpec,
       null,
-      [metadata]);
+      [metadata],
+      false);
   }
 
   setMicrophoneState(microphone_state) {
@@ -272,7 +277,8 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec,
       null,
-      [microphone_state]);
+      [microphone_state],
+      false);
   }
 
   setCameraState(camera_state) {
@@ -281,7 +287,8 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.MediaSessionService_SetCameraState_ParamsSpec,
       null,
-      [camera_state]);
+      [camera_state],
+      false);
   }
 
   enableAction(action) {
@@ -290,7 +297,8 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.MediaSessionService_EnableAction_ParamsSpec,
       null,
-      [action]);
+      [action],
+      false);
   }
 
   disableAction(action) {
@@ -299,7 +307,8 @@ blink.mojom.MediaSessionServiceRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.MediaSessionService_DisableAction_ParamsSpec,
       null,
-      [action]);
+      [action],
+      false);
   }
 
 };

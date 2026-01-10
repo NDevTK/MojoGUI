@@ -69,7 +69,8 @@ chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setIsShowingDownloadButtonInErrorPage(showing_download_button) {
@@ -78,7 +79,8 @@ chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec,
       null,
-      [showing_download_button]);
+      [showing_download_button],
+      false);
   }
 
   showPortalSignin() {
@@ -87,7 +89,8 @@ chrome.mojom.NetErrorPageSupportRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.NetErrorPageSupport_ShowPortalSignin_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

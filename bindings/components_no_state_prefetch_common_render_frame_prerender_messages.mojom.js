@@ -57,7 +57,8 @@ prerender.mojom.NoStatePrefetchMessagesRemoteCallHandler = class {
       0,  // ordinal
       prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec,
       null,
-      [histogram_prefix]);
+      [histogram_prefix],
+      false);
   }
 
 };

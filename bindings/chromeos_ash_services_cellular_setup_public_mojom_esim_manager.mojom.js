@@ -174,7 +174,8 @@ ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.cellular_setup.mojom.ESimManagerObserver_OnAvailableEuiccListChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onProfileListChanged(euicc) {
@@ -183,7 +184,8 @@ ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.cellular_setup.mojom.ESimManagerObserver_OnProfileListChanged_ParamsSpec,
       null,
-      [euicc]);
+      [euicc],
+      false);
   }
 
   onEuiccChanged(euicc) {
@@ -192,7 +194,8 @@ ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.cellular_setup.mojom.ESimManagerObserver_OnEuiccChanged_ParamsSpec,
       null,
-      [euicc]);
+      [euicc],
+      false);
   }
 
   onProfileChanged(profile) {
@@ -201,7 +204,8 @@ ash.cellular_setup.mojom.ESimManagerObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.cellular_setup.mojom.ESimManagerObserver_OnProfileChanged_ParamsSpec,
       null,
-      [profile]);
+      [profile],
+      false);
   }
 
 };
@@ -276,7 +280,8 @@ ash.cellular_setup.mojom.ESimManagerRemoteCallHandler = class {
       0,  // ordinal
       ash.cellular_setup.mojom.ESimManager_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   getAvailableEuiccs() {
@@ -285,7 +290,8 @@ ash.cellular_setup.mojom.ESimManagerRemoteCallHandler = class {
       1,  // ordinal
       ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ParamsSpec,
       ash.cellular_setup.mojom.ESimManager_GetAvailableEuiccs_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -414,7 +420,8 @@ ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       0,  // ordinal
       ash.cellular_setup.mojom.Euicc_GetProperties_ParamsSpec,
       ash.cellular_setup.mojom.Euicc_GetProperties_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getProfileList() {
@@ -423,7 +430,8 @@ ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       1,  // ordinal
       ash.cellular_setup.mojom.Euicc_GetProfileList_ParamsSpec,
       ash.cellular_setup.mojom.Euicc_GetProfileList_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestAvailableProfiles() {
@@ -432,7 +440,8 @@ ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       2,  // ordinal
       ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ParamsSpec,
       ash.cellular_setup.mojom.Euicc_RequestAvailableProfiles_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   refreshInstalledProfiles() {
@@ -441,7 +450,8 @@ ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       3,  // ordinal
       ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ParamsSpec,
       ash.cellular_setup.mojom.Euicc_RefreshInstalledProfiles_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   installProfileFromActivationCode(activation_code, confirmation_code, install_method) {
@@ -450,7 +460,8 @@ ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       4,  // ordinal
       ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ParamsSpec,
       ash.cellular_setup.mojom.Euicc_InstallProfileFromActivationCode_ResponseParamsSpec,
-      [activation_code, confirmation_code, install_method]);
+      [activation_code, confirmation_code, install_method],
+      false);
   }
 
   getEidQRCode() {
@@ -459,7 +470,8 @@ ash.cellular_setup.mojom.EuiccRemoteCallHandler = class {
       5,  // ordinal
       ash.cellular_setup.mojom.Euicc_GetEidQRCode_ParamsSpec,
       ash.cellular_setup.mojom.Euicc_GetEidQRCode_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -563,7 +575,8 @@ ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = class {
       0,  // ordinal
       ash.cellular_setup.mojom.ESimProfile_GetProperties_ParamsSpec,
       ash.cellular_setup.mojom.ESimProfile_GetProperties_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   installProfile(confirmation_code) {
@@ -572,7 +585,8 @@ ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = class {
       1,  // ordinal
       ash.cellular_setup.mojom.ESimProfile_InstallProfile_ParamsSpec,
       ash.cellular_setup.mojom.ESimProfile_InstallProfile_ResponseParamsSpec,
-      [confirmation_code]);
+      [confirmation_code],
+      false);
   }
 
   uninstallProfile() {
@@ -581,7 +595,8 @@ ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = class {
       2,  // ordinal
       ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ParamsSpec,
       ash.cellular_setup.mojom.ESimProfile_UninstallProfile_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setProfileNickname(nickname) {
@@ -590,7 +605,8 @@ ash.cellular_setup.mojom.ESimProfileRemoteCallHandler = class {
       3,  // ordinal
       ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ParamsSpec,
       ash.cellular_setup.mojom.ESimProfile_SetProfileNickname_ResponseParamsSpec,
-      [nickname]);
+      [nickname],
+      false);
   }
 
 };

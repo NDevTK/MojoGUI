@@ -111,7 +111,8 @@ blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemAccessFileDelegateHost_Read_ParamsSpec,
       blink.mojom.FileSystemAccessFileDelegateHost_Read_ResponseParamsSpec,
-      [offset, bytes_to_read]);
+      [offset, bytes_to_read],
+      false);
   }
 
   write(offset, data) {
@@ -120,7 +121,8 @@ blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemAccessFileDelegateHost_Write_ParamsSpec,
       blink.mojom.FileSystemAccessFileDelegateHost_Write_ResponseParamsSpec,
-      [offset, data]);
+      [offset, data],
+      false);
   }
 
   getLength() {
@@ -129,7 +131,8 @@ blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ParamsSpec,
       blink.mojom.FileSystemAccessFileDelegateHost_GetLength_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setLength(length) {
@@ -138,7 +141,8 @@ blink.mojom.FileSystemAccessFileDelegateHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ParamsSpec,
       blink.mojom.FileSystemAccessFileDelegateHost_SetLength_ResponseParamsSpec,
-      [length]);
+      [length],
+      false);
   }
 
 };

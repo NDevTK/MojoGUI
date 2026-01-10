@@ -77,7 +77,8 @@ drivefs.mojom.NativeMessagingPortRemoteCallHandler = class {
       0,  // ordinal
       drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };
@@ -141,7 +142,8 @@ drivefs.mojom.NativeMessagingHostRemoteCallHandler = class {
       0,  // ordinal
       drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };

@@ -72,7 +72,8 @@ remoting.mojom.AgentProcessRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   suspendProcess() {
@@ -81,7 +82,8 @@ remoting.mojom.AgentProcessRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   bindRemotingHostControl(receiver) {
@@ -90,7 +92,8 @@ remoting.mojom.AgentProcessRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };
@@ -154,7 +157,8 @@ remoting.mojom.AgentProcessBrokerRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec,
       null,
-      [agent_process]);
+      [agent_process],
+      false);
   }
 
 };

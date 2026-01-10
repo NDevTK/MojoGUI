@@ -81,7 +81,8 @@ chromeos.cfm.mojom.MeetDevicesDiagnosticsRemoteCallHandler = class {
       0,  // ordinal
       chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ParamsSpec,
       chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getCrosHealthdProcessInfo(pid) {
@@ -90,7 +91,8 @@ chromeos.cfm.mojom.MeetDevicesDiagnosticsRemoteCallHandler = class {
       1,  // ordinal
       chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec,
       chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec,
-      [pid]);
+      [pid],
+      false);
   }
 
 };

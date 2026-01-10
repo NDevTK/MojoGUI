@@ -113,7 +113,8 @@ arc.mojom.VolumeMounterHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setUpExternalStorageMountPoints(media_provider_uid) {
@@ -122,7 +123,8 @@ arc.mojom.VolumeMounterHostRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec,
       arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec,
-      [media_provider_uid]);
+      [media_provider_uid],
+      false);
   }
 
   onReadyToSuspend(success) {
@@ -131,7 +133,8 @@ arc.mojom.VolumeMounterHostRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec,
       null,
-      [success]);
+      [success],
+      false);
   }
 
 };
@@ -218,7 +221,8 @@ arc.mojom.VolumeMounterInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.VolumeMounterInstance_Init_ParamsSpec,
       arc.mojom.VolumeMounterInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   onMountEvent(mount_point_info) {
@@ -227,7 +231,8 @@ arc.mojom.VolumeMounterInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec,
       null,
-      [mount_point_info]);
+      [mount_point_info],
+      false);
   }
 
   prepareForRemovableMediaUnmount(path) {
@@ -236,7 +241,8 @@ arc.mojom.VolumeMounterInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec,
       arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
 };

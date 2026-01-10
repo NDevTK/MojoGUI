@@ -65,7 +65,8 @@ media.mojom.VideoDecodePerfHistoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec,
       media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec,
-      [features]);
+      [features],
+      false);
   }
 
 };

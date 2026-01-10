@@ -94,7 +94,8 @@ access_code_cast.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -176,7 +177,8 @@ access_code_cast.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       access_code_cast.mojom.PageHandler_AddSink_ParamsSpec,
       access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec,
-      [access_code, discovery_method]);
+      [access_code, discovery_method],
+      false);
   }
 
   castToSink() {
@@ -185,7 +187,8 @@ access_code_cast.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec,
       access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

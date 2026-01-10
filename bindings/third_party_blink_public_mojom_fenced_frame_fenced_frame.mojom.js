@@ -68,7 +68,8 @@ blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec,
       null,
-      [url, navigation_start_time, embedder_shared_storage_context]);
+      [url, navigation_start_time, embedder_shared_storage_context],
+      false);
   }
 
   didChangeFramePolicy(frame_policy) {
@@ -77,7 +78,8 @@ blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec,
       null,
-      [frame_policy]);
+      [frame_policy],
+      false);
   }
 
 };

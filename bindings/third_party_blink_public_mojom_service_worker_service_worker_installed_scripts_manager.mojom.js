@@ -85,7 +85,8 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec,
       null,
-      [script_url]);
+      [script_url],
+      false);
   }
 
 };
@@ -149,7 +150,8 @@ blink.mojom.ServiceWorkerInstalledScriptsManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec,
       null,
-      [script_info]);
+      [script_info],
+      false);
   }
 
 };

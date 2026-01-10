@@ -74,7 +74,8 @@ updater.mojom.UpdateServiceInternalRemoteCallHandler = class {
       0,  // ordinal
       updater.mojom.UpdateServiceInternal_Run_ParamsSpec,
       updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   hello() {
@@ -83,7 +84,8 @@ updater.mojom.UpdateServiceInternalRemoteCallHandler = class {
       1,  // ordinal
       updater.mojom.UpdateServiceInternal_Hello_ParamsSpec,
       updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

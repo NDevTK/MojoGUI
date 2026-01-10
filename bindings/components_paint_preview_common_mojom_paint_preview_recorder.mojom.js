@@ -75,8 +75,8 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     paint_preview.mojom.GeometryMetadataParamsSpec, 'paint_preview.mojom.GeometryMetadataParams', [
       mojo.internal.StructField('clip_rect', 0, 0, gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('clip_x_coord_override', 8, 0, paint_preview.mojom.ClipCoordOverrideSpec, null, false, 0, undefined),
-      mojo.internal.StructField('clip_y_coord_override', 12, 0, paint_preview.mojom.ClipCoordOverrideSpec, null, false, 0, undefined),
+      mojo.internal.StructField('clip_x_coord_override', 8, 0, paint_preview.mojom.ClipCoordOverrideSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('clip_y_coord_override', 12, 0, paint_preview.mojom.ClipCoordOverrideSpec, 0, false, 0, undefined),
       mojo.internal.StructField('clip_rect_is_hint', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -146,7 +146,8 @@ paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler = class {
       0,  // ordinal
       paint_preview.mojom.PaintPreviewRecorder_CapturePaintPreview_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   getGeometryMetadata(params) {
@@ -155,7 +156,8 @@ paint_preview.mojom.PaintPreviewRecorderRemoteCallHandler = class {
       1,  // ordinal
       paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ParamsSpec,
       paint_preview.mojom.PaintPreviewRecorder_GetGeometryMetadata_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
 };

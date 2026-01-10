@@ -253,7 +253,8 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec,
       null,
-      [clicked]);
+      [clicked],
+      false);
   }
 
   reportNewAnchorElements(metrics, removed_elements) {
@@ -262,7 +263,8 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec,
       null,
-      [metrics, removed_elements]);
+      [metrics, removed_elements],
+      false);
   }
 
   reportAnchorElementsEnteredViewport(elements) {
@@ -271,7 +273,8 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec,
       null,
-      [elements]);
+      [elements],
+      false);
   }
 
   reportAnchorElementsLeftViewport(elements) {
@@ -280,7 +283,8 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec,
       null,
-      [elements]);
+      [elements],
+      false);
   }
 
   reportAnchorElementsPositionUpdate(elements) {
@@ -289,7 +293,8 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec,
       null,
-      [elements]);
+      [elements],
+      false);
   }
 
   reportAnchorElementPointerOver(pointer_over_event) {
@@ -298,7 +303,8 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec,
       null,
-      [pointer_over_event]);
+      [pointer_over_event],
+      false);
   }
 
   reportAnchorElementPointerOut(hover_event) {
@@ -307,7 +313,8 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec,
       null,
-      [hover_event]);
+      [hover_event],
+      false);
   }
 
   reportAnchorElementPointerDown(pointer_down_event) {
@@ -316,7 +323,8 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec,
       null,
-      [pointer_down_event]);
+      [pointer_down_event],
+      false);
   }
 
   reportAnchorElementPointerDataOnHoverTimerFired(pointer_data) {
@@ -325,7 +333,8 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec,
       null,
-      [pointer_data]);
+      [pointer_data],
+      false);
   }
 
   processPointerEventUsingMLModel(pointer_event) {
@@ -334,7 +343,8 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec,
       null,
-      [pointer_event]);
+      [pointer_event],
+      false);
   }
 
   shouldSkipUpdateDelays() {
@@ -343,7 +353,8 @@ blink.mojom.AnchorElementMetricsHostRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec,
       blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

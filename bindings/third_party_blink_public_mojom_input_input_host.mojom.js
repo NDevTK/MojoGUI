@@ -96,7 +96,8 @@ blink.mojom.TextSuggestionHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   showSpellCheckSuggestionMenu(caret_x, caret_y, marked_text, suggestions) {
@@ -105,7 +106,8 @@ blink.mojom.TextSuggestionHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec,
       null,
-      [caret_x, caret_y, marked_text, suggestions]);
+      [caret_x, caret_y, marked_text, suggestions],
+      false);
   }
 
   showTextSuggestionMenu(caret_x, caret_y, marked_text, suggestions) {
@@ -114,7 +116,8 @@ blink.mojom.TextSuggestionHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec,
       null,
-      [caret_x, caret_y, marked_text, suggestions]);
+      [caret_x, caret_y, marked_text, suggestions],
+      false);
   }
 
 };

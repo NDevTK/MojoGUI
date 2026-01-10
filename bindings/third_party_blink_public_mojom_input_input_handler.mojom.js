@@ -472,7 +472,8 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WidgetInputHandlerHost_SetTouchActionFromMain_ParamsSpec,
       null,
-      [touch_action]);
+      [touch_action],
+      false);
   }
 
   setPanAction(pan_action) {
@@ -481,7 +482,8 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WidgetInputHandlerHost_SetPanAction_ParamsSpec,
       null,
-      [pan_action]);
+      [pan_action],
+      false);
   }
 
   didOverscroll(params) {
@@ -490,7 +492,8 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.WidgetInputHandlerHost_DidOverscroll_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   didStartScrollingViewport() {
@@ -499,7 +502,8 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.WidgetInputHandlerHost_DidStartScrollingViewport_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   imeCancelComposition() {
@@ -508,7 +512,8 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.WidgetInputHandlerHost_ImeCancelComposition_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   imeCompositionRangeChanged(range, character_bounds) {
@@ -517,7 +522,8 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.WidgetInputHandlerHost_ImeCompositionRangeChanged_ParamsSpec,
       null,
-      [range, character_bounds]);
+      [range, character_bounds],
+      false);
   }
 
   setMouseCapture(capture) {
@@ -526,7 +532,8 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.WidgetInputHandlerHost_SetMouseCapture_ParamsSpec,
       null,
-      [capture]);
+      [capture],
+      false);
   }
 
   setAutoscrollSelectionActiveInMainFrame(autoscroll_selection) {
@@ -535,7 +542,8 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.WidgetInputHandlerHost_SetAutoscrollSelectionActiveInMainFrame_ParamsSpec,
       null,
-      [autoscroll_selection]);
+      [autoscroll_selection],
+      false);
   }
 
   requestMouseLock(from_user_gesture, unadjusted_movement) {
@@ -544,7 +552,8 @@ blink.mojom.WidgetInputHandlerHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ParamsSpec,
       blink.mojom.WidgetInputHandlerHost_RequestMouseLock_ResponseParamsSpec,
-      [from_user_gesture, unadjusted_movement]);
+      [from_user_gesture, unadjusted_movement],
+      false);
   }
 
 };
@@ -827,7 +836,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FrameWidgetInputHandler_AddImeTextSpansToExistingText_ParamsSpec,
       null,
-      [start, end, ime_text_spans]);
+      [start, end, ime_text_spans],
+      false);
   }
 
   clearImeTextSpansByType(start, end, type) {
@@ -836,7 +846,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FrameWidgetInputHandler_ClearImeTextSpansByType_ParamsSpec,
       null,
-      [start, end, type]);
+      [start, end, type],
+      false);
   }
 
   setCompositionFromExistingText(start, end, ime_text_spans) {
@@ -845,7 +856,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FrameWidgetInputHandler_SetCompositionFromExistingText_ParamsSpec,
       null,
-      [start, end, ime_text_spans]);
+      [start, end, ime_text_spans],
+      false);
   }
 
   extendSelectionAndDelete(before, after) {
@@ -854,7 +866,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndDelete_ParamsSpec,
       null,
-      [before, after]);
+      [before, after],
+      false);
   }
 
   extendSelectionAndReplace(before, after, replacement_text) {
@@ -863,7 +876,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.FrameWidgetInputHandler_ExtendSelectionAndReplace_ParamsSpec,
       null,
-      [before, after, replacement_text]);
+      [before, after, replacement_text],
+      false);
   }
 
   deleteSurroundingText(before, after) {
@@ -872,7 +886,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.FrameWidgetInputHandler_DeleteSurroundingText_ParamsSpec,
       null,
-      [before, after]);
+      [before, after],
+      false);
   }
 
   deleteSurroundingTextInCodePoints(before, after) {
@@ -881,7 +896,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.FrameWidgetInputHandler_DeleteSurroundingTextInCodePoints_ParamsSpec,
       null,
-      [before, after]);
+      [before, after],
+      false);
   }
 
   setEditableSelectionOffsets(start, end) {
@@ -890,7 +906,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.FrameWidgetInputHandler_SetEditableSelectionOffsets_ParamsSpec,
       null,
-      [start, end]);
+      [start, end],
+      false);
   }
 
   handleStylusWritingGestureAction(gesture_data) {
@@ -899,7 +916,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ParamsSpec,
       blink.mojom.FrameWidgetInputHandler_HandleStylusWritingGestureAction_ResponseParamsSpec,
-      [gesture_data]);
+      [gesture_data],
+      false);
   }
 
   executeEditCommand(command, value) {
@@ -908,7 +926,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.FrameWidgetInputHandler_ExecuteEditCommand_ParamsSpec,
       null,
-      [command, value]);
+      [command, value],
+      false);
   }
 
   undo() {
@@ -917,7 +936,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.FrameWidgetInputHandler_Undo_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   redo() {
@@ -926,7 +946,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.FrameWidgetInputHandler_Redo_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   cut() {
@@ -935,7 +956,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.FrameWidgetInputHandler_Cut_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   copy() {
@@ -944,7 +966,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       13,  // ordinal
       blink.mojom.FrameWidgetInputHandler_Copy_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   copyToFindPboard() {
@@ -953,7 +976,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       14,  // ordinal
       blink.mojom.FrameWidgetInputHandler_CopyToFindPboard_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   centerSelection() {
@@ -962,7 +986,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       15,  // ordinal
       blink.mojom.FrameWidgetInputHandler_CenterSelection_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   paste() {
@@ -971,7 +996,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       16,  // ordinal
       blink.mojom.FrameWidgetInputHandler_Paste_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   pasteAndMatchStyle() {
@@ -980,7 +1006,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       17,  // ordinal
       blink.mojom.FrameWidgetInputHandler_PasteAndMatchStyle_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   delete() {
@@ -989,7 +1016,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       18,  // ordinal
       blink.mojom.FrameWidgetInputHandler_Delete_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   selectAll() {
@@ -998,7 +1026,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       19,  // ordinal
       blink.mojom.FrameWidgetInputHandler_SelectAll_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   collapseSelection() {
@@ -1007,7 +1036,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       20,  // ordinal
       blink.mojom.FrameWidgetInputHandler_CollapseSelection_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   replace(word) {
@@ -1016,7 +1046,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       21,  // ordinal
       blink.mojom.FrameWidgetInputHandler_Replace_ParamsSpec,
       null,
-      [word]);
+      [word],
+      false);
   }
 
   replaceMisspelling(word) {
@@ -1025,7 +1056,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       22,  // ordinal
       blink.mojom.FrameWidgetInputHandler_ReplaceMisspelling_ParamsSpec,
       null,
-      [word]);
+      [word],
+      false);
   }
 
   selectRange(base, extent) {
@@ -1034,7 +1066,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       23,  // ordinal
       blink.mojom.FrameWidgetInputHandler_SelectRange_ParamsSpec,
       null,
-      [base, extent]);
+      [base, extent],
+      false);
   }
 
   adjustSelectionByCharacterOffset(start, end, behavior) {
@@ -1043,7 +1076,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       24,  // ordinal
       blink.mojom.FrameWidgetInputHandler_AdjustSelectionByCharacterOffset_ParamsSpec,
       null,
-      [start, end, behavior]);
+      [start, end, behavior],
+      false);
   }
 
   selectAroundCaret(granularity, should_show_handle, should_show_context_menu) {
@@ -1052,7 +1086,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       25,  // ordinal
       blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ParamsSpec,
       blink.mojom.FrameWidgetInputHandler_SelectAroundCaret_ResponseParamsSpec,
-      [granularity, should_show_handle, should_show_context_menu]);
+      [granularity, should_show_handle, should_show_context_menu],
+      false);
   }
 
   moveRangeSelectionExtent(extent) {
@@ -1061,7 +1096,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       26,  // ordinal
       blink.mojom.FrameWidgetInputHandler_MoveRangeSelectionExtent_ParamsSpec,
       null,
-      [extent]);
+      [extent],
+      false);
   }
 
   scrollFocusedEditableNodeIntoView() {
@@ -1070,7 +1106,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       27,  // ordinal
       blink.mojom.FrameWidgetInputHandler_ScrollFocusedEditableNodeIntoView_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   waitForPageScaleAnimationForTesting() {
@@ -1079,7 +1116,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       28,  // ordinal
       blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ParamsSpec,
       blink.mojom.FrameWidgetInputHandler_WaitForPageScaleAnimationForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   moveCaret(point) {
@@ -1088,7 +1126,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       29,  // ordinal
       blink.mojom.FrameWidgetInputHandler_MoveCaret_ParamsSpec,
       null,
-      [point]);
+      [point],
+      false);
   }
 
   startAutoscrollForSelectionToPoint(point) {
@@ -1097,7 +1136,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       30,  // ordinal
       blink.mojom.FrameWidgetInputHandler_StartAutoscrollForSelectionToPoint_ParamsSpec,
       null,
-      [point]);
+      [point],
+      false);
   }
 
   stopAutoscroll() {
@@ -1106,7 +1146,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       31,  // ordinal
       blink.mojom.FrameWidgetInputHandler_StopAutoscroll_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   rectForEditFieldChars(range) {
@@ -1115,7 +1156,8 @@ blink.mojom.FrameWidgetInputHandlerRemoteCallHandler = class {
       32,  // ordinal
       blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ParamsSpec,
       blink.mojom.FrameWidgetInputHandler_RectForEditFieldChars_ResponseParamsSpec,
-      [range]);
+      [range],
+      false);
   }
 
 };
@@ -1310,7 +1352,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WidgetInputHandler_SetFocus_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   mouseCaptureLost() {
@@ -1319,7 +1362,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WidgetInputHandler_MouseCaptureLost_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setEditCommandsForNextKeyEvent(commands) {
@@ -1328,7 +1372,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.WidgetInputHandler_SetEditCommandsForNextKeyEvent_ParamsSpec,
       null,
-      [commands]);
+      [commands],
+      false);
   }
 
   cursorVisibilityChanged(visible) {
@@ -1337,7 +1382,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.WidgetInputHandler_CursorVisibilityChanged_ParamsSpec,
       null,
-      [visible]);
+      [visible],
+      false);
   }
 
   imeSetComposition(text, ime_text_spans, range, start, end, ime_state) {
@@ -1346,7 +1392,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.WidgetInputHandler_ImeSetComposition_ParamsSpec,
       blink.mojom.WidgetInputHandler_ImeSetComposition_ResponseParamsSpec,
-      [text, ime_text_spans, range, start, end, ime_state]);
+      [text, ime_text_spans, range, start, end, ime_state],
+      false);
   }
 
   imeCommitText(text, ime_text_spans, range, relative_cursor_position) {
@@ -1355,7 +1402,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.WidgetInputHandler_ImeCommitText_ParamsSpec,
       blink.mojom.WidgetInputHandler_ImeCommitText_ResponseParamsSpec,
-      [text, ime_text_spans, range, relative_cursor_position]);
+      [text, ime_text_spans, range, relative_cursor_position],
+      false);
   }
 
   imeFinishComposingText(keep_selection) {
@@ -1364,7 +1412,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.WidgetInputHandler_ImeFinishComposingText_ParamsSpec,
       null,
-      [keep_selection]);
+      [keep_selection],
+      false);
   }
 
   requestTextInputStateUpdate() {
@@ -1373,7 +1422,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.WidgetInputHandler_RequestTextInputStateUpdate_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   requestCompositionUpdates(immediate_request, monitor_request) {
@@ -1382,7 +1432,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.WidgetInputHandler_RequestCompositionUpdates_ParamsSpec,
       null,
-      [immediate_request, monitor_request]);
+      [immediate_request, monitor_request],
+      false);
   }
 
   dispatchEvent(event, original_event_for_gesture) {
@@ -1391,7 +1442,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.WidgetInputHandler_DispatchEvent_ParamsSpec,
       blink.mojom.WidgetInputHandler_DispatchEvent_ResponseParamsSpec,
-      [event, original_event_for_gesture]);
+      [event, original_event_for_gesture],
+      false);
   }
 
   dispatchNonBlockingEvent(event) {
@@ -1400,7 +1452,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.WidgetInputHandler_DispatchNonBlockingEvent_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
   waitForInputProcessed() {
@@ -1409,7 +1462,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.WidgetInputHandler_WaitForInputProcessed_ParamsSpec,
       blink.mojom.WidgetInputHandler_WaitForInputProcessed_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   pingMainThread() {
@@ -1418,7 +1472,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.WidgetInputHandler_PingMainThread_ParamsSpec,
       blink.mojom.WidgetInputHandler_PingMainThread_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   attachSynchronousCompositor(control_host, host, compositor_request) {
@@ -1427,7 +1482,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       13,  // ordinal
       blink.mojom.WidgetInputHandler_AttachSynchronousCompositor_ParamsSpec,
       null,
-      [control_host, host, compositor_request]);
+      [control_host, host, compositor_request],
+      false);
   }
 
   getFrameWidgetInputHandler(interface_request) {
@@ -1436,7 +1492,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       14,  // ordinal
       blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec,
       null,
-      [interface_request]);
+      [interface_request],
+      false);
   }
 
   updateBrowserControlsState(constraints, current, animate, offset_tag_modifications) {
@@ -1445,7 +1502,8 @@ blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       15,  // ordinal
       blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec,
       null,
-      [constraints, current, animate, offset_tag_modifications]);
+      [constraints, current, animate, offset_tag_modifications],
+      false);
   }
 
 };

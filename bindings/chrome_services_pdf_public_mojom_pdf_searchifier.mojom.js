@@ -64,7 +64,8 @@ pdf.mojom.PdfSearchifierRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.PdfSearchifier_Searchify_ParamsSpec,
       pdf.mojom.PdfSearchifier_Searchify_ResponseParamsSpec,
-      [pdf]);
+      [pdf],
+      false);
   }
 
 };

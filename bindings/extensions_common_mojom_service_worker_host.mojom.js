@@ -145,7 +145,8 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.ServiceWorkerHost_DidInitializeServiceWorkerContext_ParamsSpec,
       null,
-      [extension_id, service_worker_version_id, worker_thread_id, service_worker_token, event_dispatcher]);
+      [extension_id, service_worker_version_id, worker_thread_id, service_worker_token, event_dispatcher],
+      false);
   }
 
   didStartServiceWorkerContext(extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id) {
@@ -154,7 +155,8 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.ServiceWorkerHost_DidStartServiceWorkerContext_ParamsSpec,
       null,
-      [extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id]);
+      [extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id],
+      false);
   }
 
   didStopServiceWorkerContext(extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id) {
@@ -163,7 +165,8 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       2,  // ordinal
       extensions.mojom.ServiceWorkerHost_DidStopServiceWorkerContext_ParamsSpec,
       null,
-      [extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id]);
+      [extension_id, activation_token, service_worker_scope, service_worker_version_id, worker_thread_id],
+      false);
   }
 
   requestWorker(params) {
@@ -172,7 +175,8 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       3,  // ordinal
       extensions.mojom.ServiceWorkerHost_RequestWorker_ParamsSpec,
       extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
   workerResponseAck(request_uuid) {
@@ -181,7 +185,8 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       4,  // ordinal
       extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec,
       null,
-      [request_uuid]);
+      [request_uuid],
+      false);
   }
 
   openChannelToExtension(info, channel_type, channel_name, port_id, port, port_host) {
@@ -190,7 +195,8 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       5,  // ordinal
       extensions.mojom.ServiceWorkerHost_OpenChannelToExtension_ParamsSpec,
       null,
-      [info, channel_type, channel_name, port_id, port, port_host]);
+      [info, channel_type, channel_name, port_id, port, port_host],
+      false);
   }
 
   openChannelToNativeApp(native_app_name, port_id, port, port_host) {
@@ -199,7 +205,8 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       6,  // ordinal
       extensions.mojom.ServiceWorkerHost_OpenChannelToNativeApp_ParamsSpec,
       null,
-      [native_app_name, port_id, port, port_host]);
+      [native_app_name, port_id, port, port_host],
+      false);
   }
 
   openChannelToTab(tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host) {
@@ -208,7 +215,8 @@ extensions.mojom.ServiceWorkerHostRemoteCallHandler = class {
       7,  // ordinal
       extensions.mojom.ServiceWorkerHost_OpenChannelToTab_ParamsSpec,
       null,
-      [tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host]);
+      [tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host],
+      false);
   }
 
 };

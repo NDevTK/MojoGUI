@@ -60,7 +60,8 @@ ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec,
       null,
-      [child_page, parent_page]);
+      [child_page, parent_page],
+      false);
   }
 
 };

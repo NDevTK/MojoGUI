@@ -59,7 +59,8 @@ content.mojom.FrameHostTestInterfaceRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.FrameHostTestInterface_Ping_ParamsSpec,
       null,
-      [source_url, source_event]);
+      [source_url, source_event],
+      false);
   }
 
 };

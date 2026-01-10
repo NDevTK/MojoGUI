@@ -64,7 +64,8 @@ remoting.mojom.SecurityKeyForwarderRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec,
       remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec,
-      [request_data]);
+      [request_data],
+      false);
   }
 
 };

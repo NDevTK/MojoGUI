@@ -116,7 +116,8 @@ arc.mojom.ArcWifiHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.ArcWifiHost_GetWifiEnabledState_ParamsSpec,
       arc.mojom.ArcWifiHost_GetWifiEnabledState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setWifiEnabledState(enabled) {
@@ -125,7 +126,8 @@ arc.mojom.ArcWifiHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.ArcWifiHost_SetWifiEnabledState_ParamsSpec,
       arc.mojom.ArcWifiHost_SetWifiEnabledState_ResponseParamsSpec,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   startScan() {
@@ -134,7 +136,8 @@ arc.mojom.ArcWifiHostRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.ArcWifiHost_StartScan_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getScanResults() {
@@ -143,7 +146,8 @@ arc.mojom.ArcWifiHostRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.ArcWifiHost_GetScanResults_ParamsSpec,
       arc.mojom.ArcWifiHost_GetScanResults_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -223,7 +227,8 @@ arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.ArcWifiInstance_Init_ParamsSpec,
       arc.mojom.ArcWifiInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   wifiEnabledStateChanged(enabled) {
@@ -232,7 +237,8 @@ arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.ArcWifiInstance_WifiEnabledStateChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   scanCompleted() {
@@ -241,7 +247,8 @@ arc.mojom.ArcWifiInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.ArcWifiInstance_ScanCompleted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -21,7 +21,7 @@ media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec = { $: {} };
 // Struct: WebrtcPredictionFeatures
 mojo.internal.Struct(
     media.mojom.WebrtcPredictionFeaturesSpec, 'media.mojom.WebrtcPredictionFeatures', [
-      mojo.internal.StructField('is_decode_stats', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_decode_stats', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('profile', 8, 0, media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
       mojo.internal.StructField('video_pixels', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('hardware_accelerated', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -83,7 +83,8 @@ media.mojom.WebrtcVideoPerfRecorderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec,
       null,
-      [features, video_stats]);
+      [features, video_stats],
+      false);
   }
 
 };
@@ -154,7 +155,8 @@ media.mojom.WebrtcVideoPerfHistoryRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec,
       media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec,
-      [features, frames_per_second]);
+      [features, frames_per_second],
+      false);
   }
 
 };

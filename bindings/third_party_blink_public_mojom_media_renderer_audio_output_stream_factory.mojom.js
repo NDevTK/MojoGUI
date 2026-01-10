@@ -68,7 +68,8 @@ blink.mojom.RendererAudioOutputStreamFactoryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec,
       blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec,
-      [stream_provider_receiver, session_id, device_id]);
+      [stream_provider_receiver, session_id, device_id],
+      false);
   }
 
 };

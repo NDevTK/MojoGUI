@@ -119,7 +119,8 @@ storage.mojom.BlobDataItemReaderRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.BlobDataItemReader_Read_ParamsSpec,
       storage.mojom.BlobDataItemReader_Read_ResponseParamsSpec,
-      [offset, length, pipe]);
+      [offset, length, pipe],
+      false);
   }
 
   readSideData() {
@@ -128,7 +129,8 @@ storage.mojom.BlobDataItemReaderRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.BlobDataItemReader_ReadSideData_ParamsSpec,
       storage.mojom.BlobDataItemReader_ReadSideData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -223,7 +225,8 @@ storage.mojom.BlobStorageContextRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec,
       null,
-      [blob, uuid, item]);
+      [blob, uuid, item],
+      false);
   }
 
   registerFromMemory(blob, uuid, data) {
@@ -232,7 +235,8 @@ storage.mojom.BlobStorageContextRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.BlobStorageContext_RegisterFromMemory_ParamsSpec,
       null,
-      [blob, uuid, data]);
+      [blob, uuid, data],
+      false);
   }
 
   writeBlobToFile(blob, path, flush_on_write, last_modified) {
@@ -241,7 +245,8 @@ storage.mojom.BlobStorageContextRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.BlobStorageContext_WriteBlobToFile_ParamsSpec,
       storage.mojom.BlobStorageContext_WriteBlobToFile_ResponseParamsSpec,
-      [blob, path, flush_on_write, last_modified]);
+      [blob, path, flush_on_write, last_modified],
+      false);
   }
 
   clone(receiver) {
@@ -250,7 +255,8 @@ storage.mojom.BlobStorageContextRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.BlobStorageContext_Clone_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

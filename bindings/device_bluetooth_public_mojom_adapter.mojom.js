@@ -205,7 +205,8 @@ bluetooth.mojom.AdvertisementRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.Advertisement_Unregister_ParamsSpec,
       bluetooth.mojom.Advertisement_Unregister_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -285,7 +286,8 @@ bluetooth.mojom.DiscoverySessionRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.DiscoverySession_IsActive_ParamsSpec,
       bluetooth.mojom.DiscoverySession_IsActive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   stop() {
@@ -294,7 +296,8 @@ bluetooth.mojom.DiscoverySessionRemoteCallHandler = class {
       1,  // ordinal
       bluetooth.mojom.DiscoverySession_Stop_ParamsSpec,
       bluetooth.mojom.DiscoverySession_Stop_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -362,7 +365,8 @@ bluetooth.mojom.SocketRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.Socket_Disconnect_ParamsSpec,
       bluetooth.mojom.Socket_Disconnect_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -441,7 +445,8 @@ bluetooth.mojom.ServerSocketRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.ServerSocket_Accept_ParamsSpec,
       bluetooth.mojom.ServerSocket_Accept_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   disconnect() {
@@ -450,7 +455,8 @@ bluetooth.mojom.ServerSocketRemoteCallHandler = class {
       1,  // ordinal
       bluetooth.mojom.ServerSocket_Disconnect_ParamsSpec,
       bluetooth.mojom.ServerSocket_Disconnect_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -533,7 +539,8 @@ bluetooth.mojom.GattServiceRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.GattService_CreateCharacteristic_ParamsSpec,
       bluetooth.mojom.GattService_CreateCharacteristic_ResponseParamsSpec,
-      [characteristic_uuid, permissions, properties]);
+      [characteristic_uuid, permissions, properties],
+      false);
   }
 
   register() {
@@ -542,7 +549,8 @@ bluetooth.mojom.GattServiceRemoteCallHandler = class {
       1,  // ordinal
       bluetooth.mojom.GattService_Register_ParamsSpec,
       bluetooth.mojom.GattService_Register_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -615,7 +623,8 @@ bluetooth.mojom.GattServiceObserverRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ParamsSpec,
       bluetooth.mojom.GattServiceObserver_OnLocalCharacteristicRead_ResponseParamsSpec,
-      [remote_device, characteristic_uuid, service_uuid, offset]);
+      [remote_device, characteristic_uuid, service_uuid, offset],
+      false);
   }
 
 };
@@ -821,7 +830,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.Adapter_ConnectToDevice_ParamsSpec,
       bluetooth.mojom.Adapter_ConnectToDevice_ResponseParamsSpec,
-      [address]);
+      [address],
+      false);
   }
 
   getDevices() {
@@ -830,7 +840,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       1,  // ordinal
       bluetooth.mojom.Adapter_GetDevices_ParamsSpec,
       bluetooth.mojom.Adapter_GetDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getInfo() {
@@ -839,7 +850,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       2,  // ordinal
       bluetooth.mojom.Adapter_GetInfo_ParamsSpec,
       bluetooth.mojom.Adapter_GetInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addObserver(observer) {
@@ -848,7 +860,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       3,  // ordinal
       bluetooth.mojom.Adapter_AddObserver_ParamsSpec,
       bluetooth.mojom.Adapter_AddObserver_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
   registerAdvertisement(service_id, service_data, use_scan_response, connectable) {
@@ -857,7 +870,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       4,  // ordinal
       bluetooth.mojom.Adapter_RegisterAdvertisement_ParamsSpec,
       bluetooth.mojom.Adapter_RegisterAdvertisement_ResponseParamsSpec,
-      [service_id, service_data, use_scan_response, connectable]);
+      [service_id, service_data, use_scan_response, connectable],
+      false);
   }
 
   setDiscoverable(discoverable) {
@@ -866,7 +880,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       5,  // ordinal
       bluetooth.mojom.Adapter_SetDiscoverable_ParamsSpec,
       bluetooth.mojom.Adapter_SetDiscoverable_ResponseParamsSpec,
-      [discoverable]);
+      [discoverable],
+      false);
   }
 
   setName(name) {
@@ -875,7 +890,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       6,  // ordinal
       bluetooth.mojom.Adapter_SetName_ParamsSpec,
       bluetooth.mojom.Adapter_SetName_ResponseParamsSpec,
-      [name]);
+      [name],
+      false);
   }
 
   startDiscoverySession(client_name) {
@@ -884,7 +900,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       7,  // ordinal
       bluetooth.mojom.Adapter_StartDiscoverySession_ParamsSpec,
       bluetooth.mojom.Adapter_StartDiscoverySession_ResponseParamsSpec,
-      [client_name]);
+      [client_name],
+      false);
   }
 
   connectToServiceInsecurely(address, service_uuid, should_unbond_on_error) {
@@ -893,7 +910,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       8,  // ordinal
       bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec,
       bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec,
-      [address, service_uuid, should_unbond_on_error]);
+      [address, service_uuid, should_unbond_on_error],
+      false);
   }
 
   createRfcommServiceInsecurely(service_name, service_uuid) {
@@ -902,7 +920,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       9,  // ordinal
       bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ParamsSpec,
       bluetooth.mojom.Adapter_CreateRfcommServiceInsecurely_ResponseParamsSpec,
-      [service_name, service_uuid]);
+      [service_name, service_uuid],
+      false);
   }
 
   createLocalGattService(service_id, observer) {
@@ -911,7 +930,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       10,  // ordinal
       bluetooth.mojom.Adapter_CreateLocalGattService_ParamsSpec,
       bluetooth.mojom.Adapter_CreateLocalGattService_ResponseParamsSpec,
-      [service_id, observer]);
+      [service_id, observer],
+      false);
   }
 
   isLeScatternetDualRoleSupported() {
@@ -920,7 +940,8 @@ bluetooth.mojom.AdapterRemoteCallHandler = class {
       11,  // ordinal
       bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ParamsSpec,
       bluetooth.mojom.Adapter_IsLeScatternetDualRoleSupported_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1020,7 +1041,8 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.AdapterObserver_PresentChanged_ParamsSpec,
       null,
-      [present]);
+      [present],
+      false);
   }
 
   poweredChanged(powered) {
@@ -1029,7 +1051,8 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
       1,  // ordinal
       bluetooth.mojom.AdapterObserver_PoweredChanged_ParamsSpec,
       null,
-      [powered]);
+      [powered],
+      false);
   }
 
   discoverableChanged(discoverable) {
@@ -1038,7 +1061,8 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
       2,  // ordinal
       bluetooth.mojom.AdapterObserver_DiscoverableChanged_ParamsSpec,
       null,
-      [discoverable]);
+      [discoverable],
+      false);
   }
 
   discoveringChanged(discovering) {
@@ -1047,7 +1071,8 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
       3,  // ordinal
       bluetooth.mojom.AdapterObserver_DiscoveringChanged_ParamsSpec,
       null,
-      [discovering]);
+      [discovering],
+      false);
   }
 
   deviceAdded(device) {
@@ -1056,7 +1081,8 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
       4,  // ordinal
       bluetooth.mojom.AdapterObserver_DeviceAdded_ParamsSpec,
       null,
-      [device]);
+      [device],
+      false);
   }
 
   deviceChanged(device) {
@@ -1065,7 +1091,8 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
       5,  // ordinal
       bluetooth.mojom.AdapterObserver_DeviceChanged_ParamsSpec,
       null,
-      [device]);
+      [device],
+      false);
   }
 
   deviceRemoved(device) {
@@ -1074,7 +1101,8 @@ bluetooth.mojom.AdapterObserverRemoteCallHandler = class {
       6,  // ordinal
       bluetooth.mojom.AdapterObserver_DeviceRemoved_ParamsSpec,
       null,
-      [device]);
+      [device],
+      false);
   }
 
 };

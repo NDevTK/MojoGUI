@@ -105,7 +105,8 @@ ash.screens_common.mojom.AiIntroPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -169,7 +170,8 @@ ash.screens_common.mojom.AiIntroPageRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec,
       null,
-      [value]);
+      [value],
+      false);
   }
 
 };
@@ -232,7 +234,8 @@ ash.screens_common.mojom.AppDownloadingPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -302,7 +305,8 @@ ash.screens_common.mojom.DrivePinningPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec,
       null,
-      [enable_drive_pinning]);
+      [enable_drive_pinning],
+      false);
   }
 
   onNextClicked(enable_drive_pinning) {
@@ -311,7 +315,8 @@ ash.screens_common.mojom.DrivePinningPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec,
       null,
-      [enable_drive_pinning]);
+      [enable_drive_pinning],
+      false);
   }
 
 };
@@ -376,7 +381,8 @@ ash.screens_common.mojom.DrivePinningPageRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec,
       null,
-      [required_space, free_space]);
+      [required_space, free_space],
+      false);
   }
 
 };
@@ -439,7 +445,8 @@ ash.screens_common.mojom.FjordStationSetupPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -508,7 +515,8 @@ ash.screens_common.mojom.GaiaInfoPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onNextClicked(user_flow) {
@@ -517,7 +525,8 @@ ash.screens_common.mojom.GaiaInfoPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec,
       null,
-      [user_flow]);
+      [user_flow],
+      false);
   }
 
 };
@@ -580,7 +589,8 @@ ash.screens_common.mojom.GaiaInfoPageRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -654,7 +664,8 @@ ash.screens_common.mojom.GestureNavigationPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
   onSkipClicked() {
@@ -663,7 +674,8 @@ ash.screens_common.mojom.GestureNavigationPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onExitClicked() {
@@ -672,7 +684,8 @@ ash.screens_common.mojom.GestureNavigationPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -740,7 +753,8 @@ ash.screens_common.mojom.GeminiIntroPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onNextClicked() {
@@ -749,7 +763,8 @@ ash.screens_common.mojom.GeminiIntroPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

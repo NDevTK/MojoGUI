@@ -192,7 +192,8 @@ safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec,
       safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ResponseParamsSpec,
-      [frame_token, receiver, url, method, headers, load_flags, has_user_gesture, originated_from_service_worker]);
+      [frame_token, receiver, url, method, headers, load_flags, has_user_gesture, originated_from_service_worker],
+      false);
   }
 
   clone(receiver) {
@@ -201,7 +202,8 @@ safe_browsing.mojom.SafeBrowsingRemoteCallHandler = class {
       1,  // ordinal
       safe_browsing.mojom.SafeBrowsing_Clone_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };
@@ -270,7 +272,8 @@ safe_browsing.mojom.ThreatReporterRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec,
       safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -342,7 +345,8 @@ safe_browsing.mojom.PhishingDetectorRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec,
       safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ResponseParamsSpec,
-      [url, request_type]);
+      [url, request_type],
+      false);
   }
 
 };
@@ -437,7 +441,8 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec,
       null,
-      [region, tflite_model, image_embedding_model]);
+      [region, tflite_model, image_embedding_model],
+      false);
   }
 
   attachImageEmbeddingModel(image_embedding_model) {
@@ -446,7 +451,8 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
       1,  // ordinal
       safe_browsing.mojom.PhishingModelSetter_AttachImageEmbeddingModel_ParamsSpec,
       null,
-      [image_embedding_model]);
+      [image_embedding_model],
+      false);
   }
 
   setPhishingFlatBufferModel(region, tflite_model) {
@@ -455,7 +461,8 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
       2,  // ordinal
       safe_browsing.mojom.PhishingModelSetter_SetPhishingFlatBufferModel_ParamsSpec,
       null,
-      [region, tflite_model]);
+      [region, tflite_model],
+      false);
   }
 
   clearScorer() {
@@ -464,7 +471,8 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
       3,  // ordinal
       safe_browsing.mojom.PhishingModelSetter_ClearScorer_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setTestObserver(observer) {
@@ -473,7 +481,8 @@ safe_browsing.mojom.PhishingModelSetterRemoteCallHandler = class {
       4,  // ordinal
       safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ParamsSpec,
       safe_browsing.mojom.PhishingModelSetter_SetTestObserver_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
 };
@@ -536,7 +545,8 @@ safe_browsing.mojom.PhishingModelSetterTestObserverRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -607,7 +617,8 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec,
       safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
 };
@@ -680,7 +691,8 @@ safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
       0,  // ordinal
       safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec,
       null,
-      [origin_extension_id, telemetry_url, protocol_type, contact_initiator_type]);
+      [origin_extension_id, telemetry_url, protocol_type, contact_initiator_type],
+      false);
   }
 
   clone(receiver) {
@@ -689,7 +701,8 @@ safe_browsing.mojom.ExtensionWebRequestReporterRemoteCallHandler = class {
       1,  // ordinal
       safe_browsing.mojom.ExtensionWebRequestReporter_Clone_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

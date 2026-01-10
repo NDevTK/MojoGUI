@@ -98,7 +98,8 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.NetBenchmarking_CloseCurrentConnections_ParamsSpec,
       chrome.mojom.NetBenchmarking_CloseCurrentConnections_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   clearCache() {
@@ -107,7 +108,8 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.NetBenchmarking_ClearCache_ParamsSpec,
       chrome.mojom.NetBenchmarking_ClearCache_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   clearHostResolverCache() {
@@ -116,7 +118,8 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.NetBenchmarking_ClearHostResolverCache_ParamsSpec,
       chrome.mojom.NetBenchmarking_ClearHostResolverCache_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   clearPredictorCache() {
@@ -125,7 +128,8 @@ chrome.mojom.NetBenchmarkingRemoteCallHandler = class {
       3,  // ordinal
       chrome.mojom.NetBenchmarking_ClearPredictorCache_ParamsSpec,
       chrome.mojom.NetBenchmarking_ClearPredictorCache_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

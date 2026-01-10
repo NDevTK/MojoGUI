@@ -70,7 +70,8 @@ mirroring.mojom.CastMessageChannelRemoteCallHandler = class {
       0,  // ordinal
       mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
 };

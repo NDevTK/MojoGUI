@@ -98,7 +98,8 @@ patch.mojom.FilePatcherRemoteCallHandler = class {
       0,  // ordinal
       patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec,
       patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec,
-      [input_file, patch_file, output_file]);
+      [input_file, patch_file, output_file],
+      false);
   }
 
   patchFileZucchini(input_file, patch_file, output_file) {
@@ -107,7 +108,8 @@ patch.mojom.FilePatcherRemoteCallHandler = class {
       1,  // ordinal
       patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec,
       patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec,
-      [input_file, patch_file, output_file]);
+      [input_file, patch_file, output_file],
+      false);
   }
 
 };

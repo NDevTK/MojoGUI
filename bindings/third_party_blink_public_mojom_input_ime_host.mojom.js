@@ -90,7 +90,8 @@ blink.mojom.ImeRenderWidgetHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec,
       null,
-      [cursor_anchor_info]);
+      [cursor_anchor_info],
+      false);
   }
 
 };

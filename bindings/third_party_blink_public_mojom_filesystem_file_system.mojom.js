@@ -76,7 +76,7 @@ mojo.internal.Struct(
     blink.mojom.FileSystemInfoSpec, 'blink.mojom.FileSystemInfo', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('root_url', 8, 0, url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mount_type', 16, 0, blink.mojom.FileSystemTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('mount_type', 16, 0, blink.mojom.FileSystemTypeSpec, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -130,7 +130,8 @@ blink.mojom.FileSystemCancellableOperationRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemCancellableOperation_Cancel_ParamsSpec,
       blink.mojom.FileSystemCancellableOperation_Cancel_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -208,7 +209,8 @@ blink.mojom.FileSystemOperationListenerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemOperationListener_ResultsRetrieved_ParamsSpec,
       null,
-      [entries, has_more]);
+      [entries, has_more],
+      false);
   }
 
   didWrite(byte_count, complete) {
@@ -217,7 +219,8 @@ blink.mojom.FileSystemOperationListenerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemOperationListener_DidWrite_ParamsSpec,
       null,
-      [byte_count, complete]);
+      [byte_count, complete],
+      false);
   }
 
   errorOccurred(error_code) {
@@ -226,7 +229,8 @@ blink.mojom.FileSystemOperationListenerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FileSystemOperationListener_ErrorOccurred_ParamsSpec,
       null,
-      [error_code]);
+      [error_code],
+      false);
   }
 
 };
@@ -289,7 +293,8 @@ blink.mojom.ReceivedSnapshotListenerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ReceivedSnapshotListener_DidReceiveSnapshotFile_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -571,7 +576,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FileSystemManager_Open_ParamsSpec,
       blink.mojom.FileSystemManager_Open_ResponseParamsSpec,
-      [origin, file_system_type]);
+      [origin, file_system_type],
+      false);
   }
 
   resolveURL(filesystem_url) {
@@ -580,7 +586,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.FileSystemManager_ResolveURL_ParamsSpec,
       blink.mojom.FileSystemManager_ResolveURL_ResponseParamsSpec,
-      [filesystem_url]);
+      [filesystem_url],
+      false);
   }
 
   move(src_path, dest_path) {
@@ -589,7 +596,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.FileSystemManager_Move_ParamsSpec,
       blink.mojom.FileSystemManager_Move_ResponseParamsSpec,
-      [src_path, dest_path]);
+      [src_path, dest_path],
+      false);
   }
 
   copy(src_path, dest_path) {
@@ -598,7 +606,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.FileSystemManager_Copy_ParamsSpec,
       blink.mojom.FileSystemManager_Copy_ResponseParamsSpec,
-      [src_path, dest_path]);
+      [src_path, dest_path],
+      false);
   }
 
   remove(path, recursive) {
@@ -607,7 +616,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.FileSystemManager_Remove_ParamsSpec,
       blink.mojom.FileSystemManager_Remove_ResponseParamsSpec,
-      [path, recursive]);
+      [path, recursive],
+      false);
   }
 
   readMetadata(path) {
@@ -616,7 +626,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.FileSystemManager_ReadMetadata_ParamsSpec,
       blink.mojom.FileSystemManager_ReadMetadata_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   create(path, exclusive, is_directory, recursive) {
@@ -625,7 +636,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.FileSystemManager_Create_ParamsSpec,
       blink.mojom.FileSystemManager_Create_ResponseParamsSpec,
-      [path, exclusive, is_directory, recursive]);
+      [path, exclusive, is_directory, recursive],
+      false);
   }
 
   exists(path, is_directory) {
@@ -634,7 +646,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.FileSystemManager_Exists_ParamsSpec,
       blink.mojom.FileSystemManager_Exists_ResponseParamsSpec,
-      [path, is_directory]);
+      [path, is_directory],
+      false);
   }
 
   readDirectory(path, listener) {
@@ -643,7 +656,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.FileSystemManager_ReadDirectory_ParamsSpec,
       null,
-      [path, listener]);
+      [path, listener],
+      false);
   }
 
   readDirectorySync(path) {
@@ -652,7 +666,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.FileSystemManager_ReadDirectorySync_ParamsSpec,
       blink.mojom.FileSystemManager_ReadDirectorySync_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   write(file_path, blob, position, op_receiver, listener) {
@@ -661,7 +676,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.FileSystemManager_Write_ParamsSpec,
       null,
-      [file_path, blob, position, op_receiver, listener]);
+      [file_path, blob, position, op_receiver, listener],
+      false);
   }
 
   writeSync(file_path, blob, position) {
@@ -670,7 +686,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.FileSystemManager_WriteSync_ParamsSpec,
       blink.mojom.FileSystemManager_WriteSync_ResponseParamsSpec,
-      [file_path, blob, position]);
+      [file_path, blob, position],
+      false);
   }
 
   truncate(file_path, length, op_receiver) {
@@ -679,7 +696,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.FileSystemManager_Truncate_ParamsSpec,
       blink.mojom.FileSystemManager_Truncate_ResponseParamsSpec,
-      [file_path, length, op_receiver]);
+      [file_path, length, op_receiver],
+      false);
   }
 
   truncateSync(file_path, length) {
@@ -688,7 +706,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       13,  // ordinal
       blink.mojom.FileSystemManager_TruncateSync_ParamsSpec,
       blink.mojom.FileSystemManager_TruncateSync_ResponseParamsSpec,
-      [file_path, length]);
+      [file_path, length],
+      false);
   }
 
   createSnapshotFile(file_path) {
@@ -697,7 +716,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       14,  // ordinal
       blink.mojom.FileSystemManager_CreateSnapshotFile_ParamsSpec,
       blink.mojom.FileSystemManager_CreateSnapshotFile_ResponseParamsSpec,
-      [file_path]);
+      [file_path],
+      false);
   }
 
   getPlatformPath(file_path) {
@@ -706,7 +726,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       15,  // ordinal
       blink.mojom.FileSystemManager_GetPlatformPath_ParamsSpec,
       blink.mojom.FileSystemManager_GetPlatformPath_ResponseParamsSpec,
-      [file_path]);
+      [file_path],
+      false);
   }
 
   registerBlob(content_type, url, length, expected_modification_time) {
@@ -715,7 +736,8 @@ blink.mojom.FileSystemManagerRemoteCallHandler = class {
       16,  // ordinal
       blink.mojom.FileSystemManager_RegisterBlob_ParamsSpec,
       blink.mojom.FileSystemManager_RegisterBlob_ResponseParamsSpec,
-      [content_type, url, length, expected_modification_time]);
+      [content_type, url, length, expected_modification_time],
+      false);
   }
 
 };

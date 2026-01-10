@@ -65,7 +65,8 @@ content.mojom.RenderFrameTestHelperRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec,
       content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

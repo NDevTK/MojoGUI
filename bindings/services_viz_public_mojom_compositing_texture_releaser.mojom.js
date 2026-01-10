@@ -58,7 +58,8 @@ viz.mojom.TextureReleaserRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.TextureReleaser_Release_ParamsSpec,
       null,
-      [sync_token, is_lost]);
+      [sync_token, is_lost],
+      false);
   }
 
 };

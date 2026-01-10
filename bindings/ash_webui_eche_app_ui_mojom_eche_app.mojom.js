@@ -187,7 +187,8 @@ ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec,
       null,
-      [signal]);
+      [signal],
+      false);
   }
 
   setSignalingMessageObserver(observer) {
@@ -196,7 +197,8 @@ ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.SignalingMessageExchanger_SetSignalingMessageObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   tearDownSignaling() {
@@ -205,7 +207,8 @@ ash.eche_app.mojom.SignalingMessageExchangerRemoteCallHandler = class {
       2,  // ordinal
       ash.eche_app.mojom.SignalingMessageExchanger_TearDownSignaling_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -269,7 +272,8 @@ ash.eche_app.mojom.SignalingMessageObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec,
       null,
-      [signal]);
+      [signal],
+      false);
   }
 
 };
@@ -344,7 +348,8 @@ ash.eche_app.mojom.SystemInfoProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec,
       ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setSystemInfoObserver(observer) {
@@ -353,7 +358,8 @@ ash.eche_app.mojom.SystemInfoProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.SystemInfoProvider_SetSystemInfoObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };
@@ -430,7 +436,8 @@ ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   onReceivedTabletModeChanged(is_tablet_mode) {
@@ -439,7 +446,8 @@ ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.SystemInfoObserver_OnReceivedTabletModeChanged_ParamsSpec,
       null,
-      [is_tablet_mode]);
+      [is_tablet_mode],
+      false);
   }
 
   onAndroidDeviceNetworkInfoChanged(is_different_network, android_device_on_cellular) {
@@ -448,7 +456,8 @@ ash.eche_app.mojom.SystemInfoObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.eche_app.mojom.SystemInfoObserver_OnAndroidDeviceNetworkInfoChanged_ParamsSpec,
       null,
-      [is_different_network, android_device_on_cellular]);
+      [is_different_network, android_device_on_cellular],
+      false);
   }
 
 };
@@ -529,7 +538,8 @@ ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec,
       null,
-      [serialized_proto]);
+      [serialized_proto],
+      false);
   }
 
   setAccessibilityObserver(observer) {
@@ -538,7 +548,8 @@ ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.AccessibilityProvider_SetAccessibilityObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   isAccessibilityEnabled() {
@@ -547,7 +558,8 @@ ash.eche_app.mojom.AccessibilityProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ParamsSpec,
       ash.eche_app.mojom.AccessibilityProvider_IsAccessibilityEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -641,7 +653,8 @@ ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec,
       null,
-      [enable]);
+      [enable],
+      false);
   }
 
   enableExploreByTouch(enable) {
@@ -650,7 +663,8 @@ ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.AccessibilityObserver_EnableExploreByTouch_ParamsSpec,
       null,
-      [enable]);
+      [enable],
+      false);
   }
 
   performAction(serialized_proto) {
@@ -659,7 +673,8 @@ ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.eche_app.mojom.AccessibilityObserver_PerformAction_ParamsSpec,
       ash.eche_app.mojom.AccessibilityObserver_PerformAction_ResponseParamsSpec,
-      [serialized_proto]);
+      [serialized_proto],
+      false);
   }
 
   refreshWithExtraData(refresh_data_proto) {
@@ -668,7 +683,8 @@ ash.eche_app.mojom.AccessibilityObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ParamsSpec,
       ash.eche_app.mojom.AccessibilityObserver_RefreshWithExtraData_ResponseParamsSpec,
-      [refresh_data_proto]);
+      [refresh_data_proto],
+      false);
   }
 
 };
@@ -737,7 +753,8 @@ ash.eche_app.mojom.UidGeneratorRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec,
       ash.eche_app.mojom.UidGenerator_GetUid_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -809,7 +826,8 @@ ash.eche_app.mojom.NotificationGeneratorRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec,
       null,
-      [title, message, type]);
+      [title, message, type],
+      false);
   }
 
   showToast(text) {
@@ -818,7 +836,8 @@ ash.eche_app.mojom.NotificationGeneratorRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.NotificationGenerator_ShowToast_ParamsSpec,
       null,
-      [text]);
+      [text],
+      false);
   }
 
 };
@@ -893,7 +912,8 @@ ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onStreamStatusChanged(status) {
@@ -902,7 +922,8 @@ ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.DisplayStreamHandler_OnStreamStatusChanged_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   setStreamActionObserver(observer) {
@@ -911,7 +932,8 @@ ash.eche_app.mojom.DisplayStreamHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.eche_app.mojom.DisplayStreamHandler_SetStreamActionObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };
@@ -975,7 +997,8 @@ ash.eche_app.mojom.StreamActionObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec,
       null,
-      [action]);
+      [action],
+      false);
   }
 
 };
@@ -1039,7 +1062,8 @@ ash.eche_app.mojom.StreamOrientationObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec,
       null,
-      [isLandscape]);
+      [isLandscape],
+      false);
   }
 
 };
@@ -1103,7 +1127,8 @@ ash.eche_app.mojom.ConnectionStatusObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
 };
@@ -1172,7 +1197,8 @@ ash.eche_app.mojom.KeyboardLayoutHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setKeyboardLayoutObserver(observer) {
@@ -1181,7 +1207,8 @@ ash.eche_app.mojom.KeyboardLayoutHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.eche_app.mojom.KeyboardLayoutHandler_SetKeyboardLayoutObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };
@@ -1248,7 +1275,8 @@ ash.eche_app.mojom.KeyboardLayoutObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec,
       null,
-      [id, longName, shortName, layoutTag]);
+      [id, longName, shortName, layoutTag],
+      false);
   }
 
 };

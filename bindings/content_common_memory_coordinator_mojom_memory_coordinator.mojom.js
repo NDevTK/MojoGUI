@@ -83,7 +83,8 @@ content.mojom.ChildMemoryConsumerRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   notifyUpdateMemoryLimit(percentage) {
@@ -92,7 +93,8 @@ content.mojom.ChildMemoryConsumerRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec,
       null,
-      [percentage]);
+      [percentage],
+      false);
   }
 
 };
@@ -158,7 +160,8 @@ content.mojom.BrowserMemoryConsumerRegistryRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec,
       null,
-      [consumer_id, traits, child_consumer]);
+      [consumer_id, traits, child_consumer],
+      false);
   }
 
 };

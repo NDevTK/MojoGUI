@@ -118,7 +118,8 @@ webnn.mojom.WebNNContextRemoteCallHandler = class {
       0,  // ordinal
       webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   createTensor(tensor_info, tensor_data) {
@@ -127,7 +128,8 @@ webnn.mojom.WebNNContextRemoteCallHandler = class {
       1,  // ordinal
       webnn.mojom.WebNNContext_CreateTensor_ParamsSpec,
       webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec,
-      [tensor_info, tensor_data]);
+      [tensor_info, tensor_data],
+      false);
   }
 
   createTensorFromMailbox(tensor_info, mailbox, fence) {
@@ -136,7 +138,8 @@ webnn.mojom.WebNNContextRemoteCallHandler = class {
       2,  // ordinal
       webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec,
       webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec,
-      [tensor_info, mailbox, fence]);
+      [tensor_info, mailbox, fence],
+      false);
   }
 
 };

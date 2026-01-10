@@ -391,7 +391,8 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       0,  // ordinal
       attribution_internals.mojom.Observer_OnSourcesChanged_ParamsSpec,
       null,
-      [sources]);
+      [sources],
+      false);
   }
 
   onReportsChanged(reports) {
@@ -400,7 +401,8 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       1,  // ordinal
       attribution_internals.mojom.Observer_OnReportsChanged_ParamsSpec,
       null,
-      [reports]);
+      [reports],
+      false);
   }
 
   onSourceHandled(source) {
@@ -409,7 +411,8 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       2,  // ordinal
       attribution_internals.mojom.Observer_OnSourceHandled_ParamsSpec,
       null,
-      [source]);
+      [source],
+      false);
   }
 
   onReportHandled(report) {
@@ -418,7 +421,8 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       3,  // ordinal
       attribution_internals.mojom.Observer_OnReportHandled_ParamsSpec,
       null,
-      [report]);
+      [report],
+      false);
   }
 
   onDebugReportSent(report) {
@@ -427,7 +431,8 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       4,  // ordinal
       attribution_internals.mojom.Observer_OnDebugReportSent_ParamsSpec,
       null,
-      [report]);
+      [report],
+      false);
   }
 
   onAggregatableDebugReportSent(report) {
@@ -436,7 +441,8 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       5,  // ordinal
       attribution_internals.mojom.Observer_OnAggregatableDebugReportSent_ParamsSpec,
       null,
-      [report]);
+      [report],
+      false);
   }
 
   onTriggerHandled(trigger) {
@@ -445,7 +451,8 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       6,  // ordinal
       attribution_internals.mojom.Observer_OnTriggerHandled_ParamsSpec,
       null,
-      [trigger]);
+      [trigger],
+      false);
   }
 
   onOsRegistration(registration) {
@@ -454,7 +461,8 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       7,  // ordinal
       attribution_internals.mojom.Observer_OnOsRegistration_ParamsSpec,
       null,
-      [registration]);
+      [registration],
+      false);
   }
 
   onDebugModeChanged(debug_mode) {
@@ -463,7 +471,8 @@ attribution_internals.mojom.ObserverRemoteCallHandler = class {
       8,  // ordinal
       attribution_internals.mojom.Observer_OnDebugModeChanged_ParamsSpec,
       null,
-      [debug_mode]);
+      [debug_mode],
+      false);
   }
 
 };
@@ -554,7 +563,8 @@ attribution_internals.mojom.HandlerRemoteCallHandler = class {
       0,  // ordinal
       attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ParamsSpec,
       attribution_internals.mojom.Handler_IsAttributionReportingEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   sendReport(id) {
@@ -563,7 +573,8 @@ attribution_internals.mojom.HandlerRemoteCallHandler = class {
       1,  // ordinal
       attribution_internals.mojom.Handler_SendReport_ParamsSpec,
       attribution_internals.mojom.Handler_SendReport_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   clearStorage() {
@@ -572,7 +583,8 @@ attribution_internals.mojom.HandlerRemoteCallHandler = class {
       2,  // ordinal
       attribution_internals.mojom.Handler_ClearStorage_ParamsSpec,
       attribution_internals.mojom.Handler_ClearStorage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -637,7 +649,8 @@ attribution_internals.mojom.FactoryRemoteCallHandler = class {
       0,  // ordinal
       attribution_internals.mojom.Factory_Create_ParamsSpec,
       null,
-      [observer, handler]);
+      [observer, handler],
+      false);
   }
 
 };

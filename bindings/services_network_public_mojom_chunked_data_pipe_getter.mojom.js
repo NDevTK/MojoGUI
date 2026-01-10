@@ -71,7 +71,8 @@ network.mojom.ChunkedDataPipeGetterRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec,
       network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startReading(pipe) {
@@ -80,7 +81,8 @@ network.mojom.ChunkedDataPipeGetterRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec,
       null,
-      [pipe]);
+      [pipe],
+      false);
   }
 
 };

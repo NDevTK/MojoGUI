@@ -86,7 +86,8 @@ ukm.mojom.SingularUkmInterfaceRemoteCallHandler = class {
       0,  // ordinal
       ukm.mojom.SingularUkmInterface_Submit_ParamsSpec,
       null,
-      [entry]);
+      [entry],
+      false);
   }
 
 };
@@ -150,7 +151,8 @@ ukm.mojom.UkmRecorderClientInterfaceRemoteCallHandler = class {
       0,  // ordinal
       ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
 };
@@ -221,7 +223,8 @@ ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
       0,  // ordinal
       ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec,
       null,
-      [entry]);
+      [entry],
+      false);
   }
 
   updateSourceURL(source_id, url) {
@@ -230,7 +233,8 @@ ukm.mojom.UkmRecorderInterfaceRemoteCallHandler = class {
       1,  // ordinal
       ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec,
       null,
-      [source_id, url]);
+      [source_id, url],
+      false);
   }
 
 };
@@ -295,7 +299,8 @@ ukm.mojom.UkmRecorderFactoryRemoteCallHandler = class {
       0,  // ordinal
       ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec,
       null,
-      [receiver, client_remote]);
+      [receiver, client_remote],
+      false);
   }
 
 };

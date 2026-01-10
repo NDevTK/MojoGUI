@@ -90,7 +90,8 @@ arc.mojom.CrashCollectorHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec,
       null,
-      [type, pipe, uptime]);
+      [type, pipe, uptime],
+      false);
   }
 
   setBuildProperties(device, board, cpu_abi, fingerprint) {
@@ -99,7 +100,8 @@ arc.mojom.CrashCollectorHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec,
       null,
-      [device, board, cpu_abi, fingerprint]);
+      [device, board, cpu_abi, fingerprint],
+      false);
   }
 
   dumpNativeCrash(exec_name, pid, timestamp, minidump_fd) {
@@ -108,7 +110,8 @@ arc.mojom.CrashCollectorHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec,
       null,
-      [exec_name, pid, timestamp, minidump_fd]);
+      [exec_name, pid, timestamp, minidump_fd],
+      false);
   }
 
   dumpKernelCrash(ramoops_handle) {
@@ -117,7 +120,8 @@ arc.mojom.CrashCollectorHostRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec,
       null,
-      [ramoops_handle]);
+      [ramoops_handle],
+      false);
   }
 
 };
@@ -186,7 +190,8 @@ arc.mojom.CrashCollectorInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.CrashCollectorInstance_Init_ParamsSpec,
       arc.mojom.CrashCollectorInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

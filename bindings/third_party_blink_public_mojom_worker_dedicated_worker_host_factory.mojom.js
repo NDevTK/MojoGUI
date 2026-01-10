@@ -101,7 +101,8 @@ blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DedicatedWorkerHostFactoryClient_OnWorkerHostCreated_ParamsSpec,
       null,
-      [browser_interface_broker, host, origin]);
+      [browser_interface_broker, host, origin],
+      false);
   }
 
   onScriptLoadStarted(service_worker_container_info, main_script_load_params, subresource_loader_factories, subresource_loader_updater, controller_info, back_forward_cache_controller_host, coep_reporting_observer_receiver, dip_reporting_observer_receiver) {
@@ -110,7 +111,8 @@ blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStarted_ParamsSpec,
       null,
-      [service_worker_container_info, main_script_load_params, subresource_loader_factories, subresource_loader_updater, controller_info, back_forward_cache_controller_host, coep_reporting_observer_receiver, dip_reporting_observer_receiver]);
+      [service_worker_container_info, main_script_load_params, subresource_loader_factories, subresource_loader_updater, controller_info, back_forward_cache_controller_host, coep_reporting_observer_receiver, dip_reporting_observer_receiver],
+      false);
   }
 
   onScriptLoadStartFailed() {
@@ -119,7 +121,8 @@ blink.mojom.DedicatedWorkerHostFactoryClientRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.DedicatedWorkerHostFactoryClient_OnScriptLoadStartFailed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -189,7 +192,8 @@ blink.mojom.DedicatedWorkerHostFactoryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DedicatedWorkerHostFactory_CreateWorkerHostAndStartScriptLoad_ParamsSpec,
       null,
-      [token, script_url, credentials_mode, outside_fetch_client_settings_object, blob_url_token, client, storage_access_api_status]);
+      [token, script_url, credentials_mode, outside_fetch_client_settings_object, blob_url_token, client, storage_access_api_status],
+      false);
   }
 
 };

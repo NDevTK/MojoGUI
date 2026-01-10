@@ -682,7 +682,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       27,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParamsSpec,
-      [routine]);
+      [routine],
+      false);
   }
 
   getAllResults() {
@@ -691,7 +692,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       28,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runLanConnectivity(source) {
@@ -700,7 +702,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       12,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   runSignalStrength(source) {
@@ -709,7 +712,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       13,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   runGatewayCanBePinged(source) {
@@ -718,7 +722,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       14,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   runHasSecureWiFiConnection(source) {
@@ -727,7 +732,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       15,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   runDnsResolverPresent(source) {
@@ -736,7 +742,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       16,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   runDnsLatency(source) {
@@ -745,7 +752,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       17,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   runDnsResolution(source) {
@@ -754,7 +762,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       18,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   runCaptivePortal(source) {
@@ -763,7 +772,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       19,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   runHttpFirewall(source) {
@@ -772,7 +782,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       20,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   runHttpsFirewall(source) {
@@ -781,7 +792,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       21,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   runHttpsLatency(source) {
@@ -790,7 +802,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       22,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   runVideoConferencing(stun_server_hostname, source) {
@@ -799,7 +812,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       23,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParamsSpec,
-      [stun_server_hostname, source]);
+      [stun_server_hostname, source],
+      false);
   }
 
   runArcHttp(source) {
@@ -808,7 +822,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       24,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   runArcPing(source) {
@@ -817,7 +832,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       25,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   runArcDnsResolution(source) {
@@ -826,7 +842,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       26,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   runGoogleServicesConnectivity(source) {
@@ -835,7 +852,8 @@ chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemoteCallHandler =
       29,  // ordinal
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec,
       chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
 };

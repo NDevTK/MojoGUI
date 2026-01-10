@@ -17,8 +17,8 @@ network.mojom.TLSClientSocket.$interfaceName = 'network.mojom.TLSClientSocket';
 // Struct: TLSClientSocketOptions
 mojo.internal.Struct(
     network.mojom.TLSClientSocketOptionsSpec, 'network.mojom.TLSClientSocketOptions', [
-      mojo.internal.StructField('version_min', 0, 0, network.mojom.SSLVersionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('version_max', 4, 0, network.mojom.SSLVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('version_min', 0, 0, network.mojom.SSLVersionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('version_max', 4, 0, network.mojom.SSLVersionSpec, 0, false, 0, undefined),
       mojo.internal.StructField('send_ssl_info', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('unsafely_skip_cert_verification', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],

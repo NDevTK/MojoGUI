@@ -215,7 +215,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryRemoteCallHandler
       0,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec,
       null,
-      [client, handler]);
+      [client, handler],
+      false);
   }
 
 };
@@ -358,7 +359,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       0,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec,
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getInspirations() {
@@ -367,7 +369,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       1,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ParamsSpec,
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetInspirations_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getWallpaperSearchResults(result_descriptors) {
@@ -376,7 +379,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       2,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ParamsSpec,
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetWallpaperSearchResults_ResponseParamsSpec,
-      [result_descriptors]);
+      [result_descriptors],
+      false);
   }
 
   setResultRenderTime(result_ids, time) {
@@ -385,7 +389,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       3,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetResultRenderTime_ParamsSpec,
       null,
-      [result_ids, time]);
+      [result_ids, time],
+      false);
   }
 
   setBackgroundToHistoryImage(result_id, descriptors) {
@@ -394,7 +399,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       4,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToHistoryImage_ParamsSpec,
       null,
-      [result_id, descriptors]);
+      [result_id, descriptors],
+      false);
   }
 
   setBackgroundToInspirationImage(id, background_url) {
@@ -403,7 +409,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       5,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToInspirationImage_ParamsSpec,
       null,
-      [id, background_url]);
+      [id, background_url],
+      false);
   }
 
   setBackgroundToWallpaperSearchResult(result_id, time, descriptors) {
@@ -412,7 +419,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       6,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetBackgroundToWallpaperSearchResult_ParamsSpec,
       null,
-      [result_id, time, descriptors]);
+      [result_id, time, descriptors],
+      false);
   }
 
   updateHistory() {
@@ -421,7 +429,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       7,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_UpdateHistory_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setUserFeedback(selected_option) {
@@ -430,7 +439,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       8,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_SetUserFeedback_ParamsSpec,
       null,
-      [selected_option]);
+      [selected_option],
+      false);
   }
 
   openHelpArticle() {
@@ -439,7 +449,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       9,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_OpenHelpArticle_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   launchHatsSurvey() {
@@ -448,7 +459,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerRemoteCallHandler = clas
       10,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchHandler_LaunchHatsSurvey_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -512,7 +524,8 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientRemoteCallHandler = class
       0,  // ordinal
       side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec,
       null,
-      [history]);
+      [history],
+      false);
   }
 
 };

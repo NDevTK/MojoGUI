@@ -86,7 +86,8 @@ blink.mojom.ImageReleaseCallbackRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ImageReleaseCallback_Release_ParamsSpec,
       null,
-      [token]);
+      [token],
+      false);
   }
 
 };

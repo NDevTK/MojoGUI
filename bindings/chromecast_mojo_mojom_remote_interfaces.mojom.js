@@ -65,7 +65,8 @@ chromecast.mojom.RemoteInterfacesRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec,
       null,
-      [interface_name, pipe]);
+      [interface_name, pipe],
+      false);
   }
 
   addClient(receiver) {
@@ -74,7 +75,8 @@ chromecast.mojom.RemoteInterfacesRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

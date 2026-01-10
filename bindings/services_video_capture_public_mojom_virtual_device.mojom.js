@@ -92,7 +92,8 @@ video_capture.mojom.SharedMemoryVirtualDeviceRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ParamsSpec,
       video_capture.mojom.SharedMemoryVirtualDevice_RequestFrameBuffer_ResponseParamsSpec,
-      [dimension, pixel_format, strides]);
+      [dimension, pixel_format, strides],
+      false);
   }
 
   onFrameReadyInBuffer(buffer_id, frame_info) {
@@ -101,7 +102,8 @@ video_capture.mojom.SharedMemoryVirtualDeviceRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.SharedMemoryVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      [buffer_id, frame_info]);
+      [buffer_id, frame_info],
+      false);
   }
 
 };
@@ -185,7 +187,8 @@ video_capture.mojom.TextureVirtualDeviceRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.TextureVirtualDevice_OnNewSharedImageBufferHandle_ParamsSpec,
       null,
-      [buffer_id, shared_image_handle]);
+      [buffer_id, shared_image_handle],
+      false);
   }
 
   onFrameAccessHandlerReady(frame_access_handler) {
@@ -194,7 +197,8 @@ video_capture.mojom.TextureVirtualDeviceRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.TextureVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec,
       null,
-      [frame_access_handler]);
+      [frame_access_handler],
+      false);
   }
 
   onFrameReadyInBuffer(buffer_id, frame_info) {
@@ -203,7 +207,8 @@ video_capture.mojom.TextureVirtualDeviceRemoteCallHandler = class {
       2,  // ordinal
       video_capture.mojom.TextureVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      [buffer_id, frame_info]);
+      [buffer_id, frame_info],
+      false);
   }
 
   onBufferRetired(buffer_id) {
@@ -212,7 +217,8 @@ video_capture.mojom.TextureVirtualDeviceRemoteCallHandler = class {
       3,  // ordinal
       video_capture.mojom.TextureVirtualDevice_OnBufferRetired_ParamsSpec,
       null,
-      [buffer_id]);
+      [buffer_id],
+      false);
   }
 
 };
@@ -296,7 +302,8 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.GpuMemoryBufferVirtualDevice_OnNewGpuMemoryBufferHandle_ParamsSpec,
       null,
-      [buffer_id, gmb_handle]);
+      [buffer_id, gmb_handle],
+      false);
   }
 
   onFrameAccessHandlerReady(frame_access_handler) {
@@ -305,7 +312,8 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameAccessHandlerReady_ParamsSpec,
       null,
-      [frame_access_handler]);
+      [frame_access_handler],
+      false);
   }
 
   onFrameReadyInBuffer(buffer_id, frame_info) {
@@ -314,7 +322,8 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
       2,  // ordinal
       video_capture.mojom.GpuMemoryBufferVirtualDevice_OnFrameReadyInBuffer_ParamsSpec,
       null,
-      [buffer_id, frame_info]);
+      [buffer_id, frame_info],
+      false);
   }
 
   onBufferRetired(buffer_id) {
@@ -323,7 +332,8 @@ video_capture.mojom.GpuMemoryBufferVirtualDeviceRemoteCallHandler = class {
       3,  // ordinal
       video_capture.mojom.GpuMemoryBufferVirtualDevice_OnBufferRetired_ParamsSpec,
       null,
-      [buffer_id]);
+      [buffer_id],
+      false);
   }
 
 };

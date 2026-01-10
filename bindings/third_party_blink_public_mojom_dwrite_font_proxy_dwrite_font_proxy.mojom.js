@@ -169,7 +169,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DWriteFontProxy_FindFamily_ParamsSpec,
       blink.mojom.DWriteFontProxy_FindFamily_ResponseParamsSpec,
-      [family_name]);
+      [family_name],
+      false);
   }
 
   getFamilyCount() {
@@ -178,7 +179,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DWriteFontProxy_GetFamilyCount_ParamsSpec,
       blink.mojom.DWriteFontProxy_GetFamilyCount_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getFamilyNames(family_index) {
@@ -187,7 +189,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.DWriteFontProxy_GetFamilyNames_ParamsSpec,
       blink.mojom.DWriteFontProxy_GetFamilyNames_ResponseParamsSpec,
-      [family_index]);
+      [family_index],
+      false);
   }
 
   getFontFileHandles(family_index) {
@@ -196,7 +199,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.DWriteFontProxy_GetFontFileHandles_ParamsSpec,
       blink.mojom.DWriteFontProxy_GetFontFileHandles_ResponseParamsSpec,
-      [family_index]);
+      [family_index],
+      false);
   }
 
   matchUniqueFont(font_unique_name) {
@@ -205,7 +209,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.DWriteFontProxy_MatchUniqueFont_ParamsSpec,
       blink.mojom.DWriteFontProxy_MatchUniqueFont_ResponseParamsSpec,
-      [font_unique_name]);
+      [font_unique_name],
+      false);
   }
 
   mapCharacters(text, font_style, locale_name, reading_direction, base_family_name) {
@@ -214,7 +219,8 @@ blink.mojom.DWriteFontProxyRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.DWriteFontProxy_MapCharacters_ParamsSpec,
       blink.mojom.DWriteFontProxy_MapCharacters_ResponseParamsSpec,
-      [text, font_style, locale_name, reading_direction, base_family_name]);
+      [text, font_style, locale_name, reading_direction, base_family_name],
+      false);
   }
 
 };

@@ -447,7 +447,7 @@ mojo.internal.Struct(
     chromeos.network_config.mojom.CellularStatePropertiesSpec, 'chromeos.network_config.mojom.CellularStateProperties', [
       mojo.internal.StructField('iccid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('eid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('activation_state', 16, 0, chromeos.network_config.mojom.ActivationStateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('activation_state', 16, 0, chromeos.network_config.mojom.ActivationStateTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('network_technology', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('roaming', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('signal_strength', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
@@ -510,7 +510,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('error_state', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('guid', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('portal_state', 32, 0, chromeos.network_config.mojom.PortalStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('portal_state', 32, 0, chromeos.network_config.mojom.PortalStateSpec, 0, false, 0, undefined),
       mojo.internal.StructField('portal_probe_url', 40, 0, url.mojom.UrlSpec, null, true, 0, undefined),
       mojo.internal.StructField('priority', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('proxy_mode', 52, 0, chromeos.network_config.mojom.ProxyModeSpec, null, false, 0, undefined),
@@ -531,7 +531,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('scanning', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('sim_lock_status', 40, 0, chromeos.network_config.mojom.SIMLockStatusSpec, null, true, 0, undefined),
       mojo.internal.StructField('sim_infos', 48, 0, mojo.internal.Array(chromeos.network_config.mojom.SIMInfoSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('inhibit_reason', 56, 0, chromeos.network_config.mojom.InhibitReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('inhibit_reason', 56, 0, chromeos.network_config.mojom.InhibitReasonSpec, 0, false, 0, undefined),
       mojo.internal.StructField('sim_absent', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('device_state', 64, 0, chromeos.network_config.mojom.DeviceStateTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('type', 68, 0, chromeos.network_config.mojom.NetworkTypeSpec, null, false, 0, undefined),
@@ -636,7 +636,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.network_config.mojom.ManagedBooleanSpec, 'chromeos.network_config.mojom.ManagedBoolean', [
       mojo.internal.StructField('active_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('policy_source', 4, 0, chromeos.network_config.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 4, 0, chromeos.network_config.mojom.PolicySourceSpec, 0, false, 0, undefined),
       mojo.internal.StructField('policy_value', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -645,7 +645,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.network_config.mojom.ManagedInt32Spec, 'chromeos.network_config.mojom.ManagedInt32', [
       mojo.internal.StructField('active_value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('policy_source', 4, 0, chromeos.network_config.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 4, 0, chromeos.network_config.mojom.PolicySourceSpec, 0, false, 0, undefined),
       mojo.internal.StructField('policy_value', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -654,7 +654,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.network_config.mojom.ManagedStringSpec, 'chromeos.network_config.mojom.ManagedString', [
       mojo.internal.StructField('active_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('policy_source', 8, 0, chromeos.network_config.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 8, 0, chromeos.network_config.mojom.PolicySourceSpec, 0, false, 0, undefined),
       mojo.internal.StructField('policy_value', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -663,7 +663,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.network_config.mojom.ManagedStringListSpec, 'chromeos.network_config.mojom.ManagedStringList', [
       mojo.internal.StructField('active_value', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('policy_source', 8, 0, chromeos.network_config.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 8, 0, chromeos.network_config.mojom.PolicySourceSpec, 0, false, 0, undefined),
       mojo.internal.StructField('policy_value', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -686,7 +686,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.network_config.mojom.ManagedApnListSpec, 'chromeos.network_config.mojom.ManagedApnList', [
       mojo.internal.StructField('active_value', 0, 0, mojo.internal.Array(chromeos.network_config.mojom.ApnPropertiesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('policy_source', 8, 0, chromeos.network_config.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 8, 0, chromeos.network_config.mojom.PolicySourceSpec, 0, false, 0, undefined),
       mojo.internal.StructField('policy_value', 16, 0, mojo.internal.Array(chromeos.network_config.mojom.ApnPropertiesSpec, false), null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -740,7 +740,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.network_config.mojom.ManagedSubjectAltNameMatchListSpec, 'chromeos.network_config.mojom.ManagedSubjectAltNameMatchList', [
       mojo.internal.StructField('active_value', 0, 0, mojo.internal.Array(chromeos.network_config.mojom.SubjectAltNameSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('policy_source', 8, 0, chromeos.network_config.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 8, 0, chromeos.network_config.mojom.PolicySourceSpec, 0, false, 0, undefined),
       mojo.internal.StructField('policy_value', 16, 0, mojo.internal.Array(chromeos.network_config.mojom.SubjectAltNameSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -871,7 +871,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     chromeos.network_config.mojom.ManagedWireGuardPeerListSpec, 'chromeos.network_config.mojom.ManagedWireGuardPeerList', [
       mojo.internal.StructField('active_value', 0, 0, mojo.internal.Array(chromeos.network_config.mojom.WireGuardPeerPropertiesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('policy_source', 8, 0, chromeos.network_config.mojom.PolicySourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('policy_source', 8, 0, chromeos.network_config.mojom.PolicySourceSpec, 0, false, 0, undefined),
       mojo.internal.StructField('policy_value', 16, 0, mojo.internal.Array(chromeos.network_config.mojom.WireGuardPeerPropertiesSpec, false), null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -988,7 +988,7 @@ mojo.internal.Struct(
 // Struct: ManagedProperties
 mojo.internal.Struct(
     chromeos.network_config.mojom.ManagedPropertiesSpec, 'chromeos.network_config.mojom.ManagedProperties', [
-      mojo.internal.StructField('connection_state', 0, 0, chromeos.network_config.mojom.ConnectionStateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('connection_state', 0, 0, chromeos.network_config.mojom.ConnectionStateTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('source', 4, 0, chromeos.network_config.mojom.OncSourceSpec, null, false, 0, undefined),
       mojo.internal.StructField('connectable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('error_state', 16, 0, mojo.internal.String, null, true, 0, undefined),
@@ -1000,7 +1000,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('name_servers_config_type', 64, 0, chromeos.network_config.mojom.ManagedStringSpec, null, false, 0, undefined),
       mojo.internal.StructField('priority', 72, 0, chromeos.network_config.mojom.ManagedInt32Spec, null, true, 0, undefined),
       mojo.internal.StructField('proxy_settings', 80, 0, chromeos.network_config.mojom.ManagedProxySettingsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('portal_state', 88, 0, chromeos.network_config.mojom.PortalStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('portal_state', 88, 0, chromeos.network_config.mojom.PortalStateSpec, 0, false, 0, undefined),
       mojo.internal.StructField('static_ip_config', 96, 0, chromeos.network_config.mojom.ManagedIPConfigPropertiesSpec, null, true, 0, undefined),
       mojo.internal.StructField('saved_ip_config', 104, 0, chromeos.network_config.mojom.IPConfigPropertiesSpec, null, true, 0, undefined),
       mojo.internal.StructField('type', 112, 0, chromeos.network_config.mojom.NetworkTypeSpec, null, false, 0, undefined),
@@ -1099,7 +1099,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('client_cert_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('eap', 24, 0, chromeos.network_config.mojom.EAPConfigPropertiesSpec, null, true, 0, undefined),
       mojo.internal.StructField('group', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('ike_version', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('ike_version', 40, 0, mojo.internal.Int32, 1, false, 0, undefined),
       mojo.internal.StructField('local_identity', 48, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('psk', 56, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('remote_identity', 64, 0, mojo.internal.String, null, true, 0, undefined),
@@ -1186,8 +1186,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('eap', 0, 0, chromeos.network_config.mojom.EAPConfigPropertiesSpec, null, true, 0, undefined),
       mojo.internal.StructField('passphrase', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('ssid', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('security', 24, 0, chromeos.network_config.mojom.SecurityTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('hidden_ssid', 28, 0, chromeos.network_config.mojom.HiddenSsidModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('security', 24, 0, chromeos.network_config.mojom.SecurityTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('hidden_ssid', 28, 0, chromeos.network_config.mojom.HiddenSsidModeSpec, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 
@@ -1219,9 +1219,9 @@ mojo.internal.Struct(
 // Struct: GlobalPolicy
 mojo.internal.Struct(
     chromeos.network_config.mojom.GlobalPolicySpec, 'chromeos.network_config.mojom.GlobalPolicy', [
-      mojo.internal.StructField('allow_apn_modification', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_cellular_sim_lock', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_cellular_hotspot', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('allow_apn_modification', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('allow_cellular_sim_lock', 0, 1, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('allow_cellular_hotspot', 0, 2, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('allow_only_policy_cellular_networks', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('allow_only_policy_networks_to_autoconnect', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('allow_only_policy_wifi_networks_to_connect', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
@@ -1231,7 +1231,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('blocked_hex_ssids', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('recommended_values_are_ephemeral', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('user_created_network_configurations_are_ephemeral', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('allow_text_messages', 20, 0, chromeos.network_config.mojom.SuppressionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('allow_text_messages', 20, 0, chromeos.network_config.mojom.SuppressionTypeSpec, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1617,7 +1617,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       0,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   getNetworkState(guid) {
@@ -1626,7 +1627,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       1,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkState_ResponseParamsSpec,
-      [guid]);
+      [guid],
+      false);
   }
 
   getNetworkStateList(filter) {
@@ -1635,7 +1637,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       2,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkStateList_ResponseParamsSpec,
-      [filter]);
+      [filter],
+      false);
   }
 
   getDeviceStateList() {
@@ -1644,7 +1647,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       3,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_GetDeviceStateList_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getManagedProperties(guid) {
@@ -1653,7 +1657,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       4,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_GetManagedProperties_ResponseParamsSpec,
-      [guid]);
+      [guid],
+      false);
   }
 
   setProperties(guid, properties) {
@@ -1662,7 +1667,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       5,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_SetProperties_ResponseParamsSpec,
-      [guid, properties]);
+      [guid, properties],
+      false);
   }
 
   configureNetwork(properties, shared) {
@@ -1671,7 +1677,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       6,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_ConfigureNetwork_ResponseParamsSpec,
-      [properties, shared]);
+      [properties, shared],
+      false);
   }
 
   forgetNetwork(guid) {
@@ -1680,7 +1687,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       7,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_ForgetNetwork_ResponseParamsSpec,
-      [guid]);
+      [guid],
+      false);
   }
 
   setNetworkTypeEnabledState(type, enabled) {
@@ -1689,7 +1697,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       8,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_SetNetworkTypeEnabledState_ResponseParamsSpec,
-      [type, enabled]);
+      [type, enabled],
+      false);
   }
 
   setCellularSimState(state) {
@@ -1698,7 +1707,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       9,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_SetCellularSimState_ResponseParamsSpec,
-      [state]);
+      [state],
+      false);
   }
 
   selectCellularMobileNetwork(guid, network_id) {
@@ -1707,7 +1717,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       10,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_SelectCellularMobileNetwork_ResponseParamsSpec,
-      [guid, network_id]);
+      [guid, network_id],
+      false);
   }
 
   requestNetworkScan(type) {
@@ -1716,7 +1727,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       11,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_RequestNetworkScan_ParamsSpec,
       null,
-      [type]);
+      [type],
+      false);
   }
 
   getGlobalPolicy() {
@@ -1725,7 +1737,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       12,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_GetGlobalPolicy_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startConnect(guid) {
@@ -1734,7 +1747,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       13,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_StartConnect_ResponseParamsSpec,
-      [guid]);
+      [guid],
+      false);
   }
 
   startDisconnect(guid) {
@@ -1743,7 +1757,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       14,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_StartDisconnect_ResponseParamsSpec,
-      [guid]);
+      [guid],
+      false);
   }
 
   setVpnProviders(providers) {
@@ -1752,7 +1767,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       15,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_SetVpnProviders_ParamsSpec,
       null,
-      [providers]);
+      [providers],
+      false);
   }
 
   getVpnProviders() {
@@ -1761,7 +1777,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       16,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_GetVpnProviders_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNetworkCertificates() {
@@ -1770,7 +1787,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       17,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_GetNetworkCertificates_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAlwaysOnVpn() {
@@ -1779,7 +1797,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       18,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_GetAlwaysOnVpn_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setAlwaysOnVpn(properties) {
@@ -1788,7 +1807,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       19,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_SetAlwaysOnVpn_ParamsSpec,
       null,
-      [properties]);
+      [properties],
+      false);
   }
 
   getSupportedVpnTypes() {
@@ -1797,7 +1817,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       20,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_GetSupportedVpnTypes_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestTrafficCounters(guid) {
@@ -1806,7 +1827,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       21,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_RequestTrafficCounters_ResponseParamsSpec,
-      [guid]);
+      [guid],
+      false);
   }
 
   resetTrafficCounters(guid) {
@@ -1815,7 +1837,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       22,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_ResetTrafficCounters_ParamsSpec,
       null,
-      [guid]);
+      [guid],
+      false);
   }
 
   setTrafficCountersResetDay(guid, day) {
@@ -1824,7 +1847,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       23,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_SetTrafficCountersResetDay_ResponseParamsSpec,
-      [guid, day]);
+      [guid, day],
+      false);
   }
 
   createCustomApn(network_guid, apn) {
@@ -1833,7 +1857,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       24,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_CreateCustomApn_ResponseParamsSpec,
-      [network_guid, apn]);
+      [network_guid, apn],
+      false);
   }
 
   createExclusivelyEnabledCustomApn(network_guid, apn) {
@@ -1842,7 +1867,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       25,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ParamsSpec,
       chromeos.network_config.mojom.CrosNetworkConfig_CreateExclusivelyEnabledCustomApn_ResponseParamsSpec,
-      [network_guid, apn]);
+      [network_guid, apn],
+      false);
   }
 
   removeCustomApn(network_guid, apn_id) {
@@ -1851,7 +1877,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       26,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_RemoveCustomApn_ParamsSpec,
       null,
-      [network_guid, apn_id]);
+      [network_guid, apn_id],
+      false);
   }
 
   modifyCustomApn(network_guid, apn) {
@@ -1860,7 +1887,8 @@ chromeos.network_config.mojom.CrosNetworkConfigRemoteCallHandler = class {
       27,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfig_ModifyCustomApn_ParamsSpec,
       null,
-      [network_guid, apn]);
+      [network_guid, apn],
+      false);
   }
 
 };
@@ -1956,7 +1984,8 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
       0,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfigObserver_OnActiveNetworksChanged_ParamsSpec,
       null,
-      [networks]);
+      [networks],
+      false);
   }
 
   onNetworkStateChanged(network) {
@@ -1965,7 +1994,8 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
       1,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateChanged_ParamsSpec,
       null,
-      [network]);
+      [network],
+      false);
   }
 
   onNetworkStateListChanged() {
@@ -1974,7 +2004,8 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
       2,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkStateListChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onDeviceStateListChanged() {
@@ -1983,7 +2014,8 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
       3,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfigObserver_OnDeviceStateListChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onVpnProvidersChanged() {
@@ -1992,7 +2024,8 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
       4,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfigObserver_OnVpnProvidersChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onNetworkCertificatesChanged() {
@@ -2001,7 +2034,8 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
       5,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfigObserver_OnNetworkCertificatesChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onPoliciesApplied(userhash) {
@@ -2010,7 +2044,8 @@ chromeos.network_config.mojom.CrosNetworkConfigObserverRemoteCallHandler = class
       6,  // ordinal
       chromeos.network_config.mojom.CrosNetworkConfigObserver_OnPoliciesApplied_ParamsSpec,
       null,
-      [userhash]);
+      [userhash],
+      false);
   }
 
 };

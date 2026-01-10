@@ -117,7 +117,8 @@ network.mojom.ReportingApiObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ReportingApiObserver_OnReportAdded_ParamsSpec,
       null,
-      [report]);
+      [report],
+      false);
   }
 
   onReportUpdated(report) {
@@ -126,7 +127,8 @@ network.mojom.ReportingApiObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.ReportingApiObserver_OnReportUpdated_ParamsSpec,
       null,
-      [report]);
+      [report],
+      false);
   }
 
   onEndpointsUpdatedForOrigin(endpoints) {
@@ -135,7 +137,8 @@ network.mojom.ReportingApiObserverRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.ReportingApiObserver_OnEndpointsUpdatedForOrigin_ParamsSpec,
       null,
-      [endpoints]);
+      [endpoints],
+      false);
   }
 
 };

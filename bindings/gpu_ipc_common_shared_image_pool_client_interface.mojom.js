@@ -56,7 +56,8 @@ gpu.mojom.SharedImagePoolClientInterfaceRemoteCallHandler = class {
       0,  // ordinal
       gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -58,7 +58,8 @@ new_window_proxy.mojom.NewWindowProxyRemoteCallHandler = class {
       0,  // ordinal
       new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
 };

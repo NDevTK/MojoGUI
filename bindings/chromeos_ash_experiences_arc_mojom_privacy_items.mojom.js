@@ -98,7 +98,8 @@ arc.mojom.PrivacyItemsHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec,
       null,
-      [privacy_items]);
+      [privacy_items],
+      false);
   }
 
   onMicCameraIndicatorRequirementChanged(flag) {
@@ -107,7 +108,8 @@ arc.mojom.PrivacyItemsHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec,
       null,
-      [flag]);
+      [flag],
+      false);
   }
 
   onLocationIndicatorRequirementChanged(flag) {
@@ -116,7 +118,8 @@ arc.mojom.PrivacyItemsHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec,
       null,
-      [flag]);
+      [flag],
+      false);
   }
 
 };
@@ -192,7 +195,8 @@ arc.mojom.PrivacyItemsInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.PrivacyItemsInstance_Init_ParamsSpec,
       arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   onStaticPrivacyIndicatorBoundsChanged(displayId, bounds) {
@@ -201,7 +205,8 @@ arc.mojom.PrivacyItemsInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec,
       null,
-      [displayId, bounds]);
+      [displayId, bounds],
+      false);
   }
 
 };

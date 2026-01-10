@@ -374,7 +374,8 @@ device.mojom.SmartCardTransactionRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec,
       device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec,
-      [disposition]);
+      [disposition],
+      false);
   }
 
 };
@@ -517,7 +518,8 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SmartCardConnection_Disconnect_ParamsSpec,
       device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec,
-      [disposition]);
+      [disposition],
+      false);
   }
 
   transmit(protocol, data) {
@@ -526,7 +528,8 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.SmartCardConnection_Transmit_ParamsSpec,
       device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec,
-      [protocol, data]);
+      [protocol, data],
+      false);
   }
 
   control(control_code, data) {
@@ -535,7 +538,8 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.SmartCardConnection_Control_ParamsSpec,
       device.mojom.SmartCardConnection_Control_ResponseParamsSpec,
-      [control_code, data]);
+      [control_code, data],
+      false);
   }
 
   getAttrib(id) {
@@ -544,7 +548,8 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.SmartCardConnection_GetAttrib_ParamsSpec,
       device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   setAttrib(id, data) {
@@ -553,7 +558,8 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.SmartCardConnection_SetAttrib_ParamsSpec,
       device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec,
-      [id, data]);
+      [id, data],
+      false);
   }
 
   status() {
@@ -562,7 +568,8 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
       5,  // ordinal
       device.mojom.SmartCardConnection_Status_ParamsSpec,
       device.mojom.SmartCardConnection_Status_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   beginTransaction() {
@@ -571,7 +578,8 @@ device.mojom.SmartCardConnectionRemoteCallHandler = class {
       6,  // ordinal
       device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec,
       device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -634,7 +642,8 @@ device.mojom.SmartCardConnectionWatcherRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -742,7 +751,8 @@ device.mojom.SmartCardContextRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SmartCardContext_ListReaders_ParamsSpec,
       device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getStatusChange(timeout, reader_states) {
@@ -751,7 +761,8 @@ device.mojom.SmartCardContextRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.SmartCardContext_GetStatusChange_ParamsSpec,
       device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec,
-      [timeout, reader_states]);
+      [timeout, reader_states],
+      false);
   }
 
   cancel() {
@@ -760,7 +771,8 @@ device.mojom.SmartCardContextRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.SmartCardContext_Cancel_ParamsSpec,
       device.mojom.SmartCardContext_Cancel_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   connect(reader, share_mode, preferred_protocols, connection_watcher) {
@@ -769,7 +781,8 @@ device.mojom.SmartCardContextRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.SmartCardContext_Connect_ParamsSpec,
       device.mojom.SmartCardContext_Connect_ResponseParamsSpec,
-      [reader, share_mode, preferred_protocols, connection_watcher]);
+      [reader, share_mode, preferred_protocols, connection_watcher],
+      false);
   }
 
 };
@@ -838,7 +851,8 @@ device.mojom.SmartCardContextFactoryRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec,
       device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

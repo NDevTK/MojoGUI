@@ -80,7 +80,8 @@ gl.mojom.TraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec,
       gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec,
-      [g]);
+      [g],
+      false);
   }
 
   echoGLImplementationParts(impl) {
@@ -89,7 +90,8 @@ gl.mojom.TraitsTestServiceRemoteCallHandler = class {
       1,  // ordinal
       gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec,
       gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec,
-      [impl]);
+      [impl],
+      false);
   }
 
 };

@@ -66,7 +66,8 @@ batch_upload_promo.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -140,7 +141,8 @@ batch_upload_promo.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec,
       batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onBatchUploadPromoClicked() {
@@ -149,7 +151,8 @@ batch_upload_promo.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -213,7 +216,8 @@ batch_upload_promo.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec,
       null,
-      [local_data_count]);
+      [local_data_count],
+      false);
   }
 
 };

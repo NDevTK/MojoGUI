@@ -63,7 +63,8 @@ media.mojom.MediaFoundationPreferencesRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsSpec,
       media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

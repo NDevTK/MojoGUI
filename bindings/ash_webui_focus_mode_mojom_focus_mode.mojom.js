@@ -105,7 +105,8 @@ ash.focus_mode.mojom.MediaClientRemoteCallHandler = class {
       0,  // ordinal
       ash.focus_mode.mojom.MediaClient_StartPlay_ParamsSpec,
       null,
-      [track]);
+      [track],
+      false);
   }
 
 };
@@ -191,7 +192,8 @@ ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.focus_mode.mojom.TrackProvider_GetTrack_ParamsSpec,
       ash.focus_mode.mojom.TrackProvider_GetTrack_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setMediaClient(client) {
@@ -200,7 +202,8 @@ ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.focus_mode.mojom.TrackProvider_SetMediaClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   reportPlayback(data) {
@@ -209,7 +212,8 @@ ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.focus_mode.mojom.TrackProvider_ReportPlayback_ParamsSpec,
       null,
-      [data]);
+      [data],
+      false);
   }
 
   reportPlayerError() {
@@ -218,7 +222,8 @@ ash.focus_mode.mojom.TrackProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.focus_mode.mojom.TrackProvider_ReportPlayerError_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -131,7 +131,8 @@ mahi.mojom.ContentExtractionServiceRemoteCallHandler = class {
       0,  // ordinal
       mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec,
       mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec,
-      [extraction_request]);
+      [extraction_request],
+      false);
   }
 
   getContentSize(extraction_request) {
@@ -140,7 +141,8 @@ mahi.mojom.ContentExtractionServiceRemoteCallHandler = class {
       1,  // ordinal
       mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec,
       mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec,
-      [extraction_request]);
+      [extraction_request],
+      false);
   }
 
 };
@@ -210,7 +212,8 @@ mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
       0,  // ordinal
       mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec,
       null,
-      [content_extraction_service]);
+      [content_extraction_service],
+      false);
   }
 
   onScreen2xReady(extractor) {
@@ -219,7 +222,8 @@ mahi.mojom.ContentExtractionServiceFactoryRemoteCallHandler = class {
       1,  // ordinal
       mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec,
       null,
-      [extractor]);
+      [extractor],
+      false);
   }
 
 };

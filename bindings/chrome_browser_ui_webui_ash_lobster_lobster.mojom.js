@@ -240,7 +240,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ParamsSpec,
       lobster.mojom.UntrustedLobsterPageHandler_RequestCandidates_ResponseParamsSpec,
-      [query, num_candidates]);
+      [query, num_candidates],
+      false);
   }
 
   downloadCandidate(candidate_id) {
@@ -249,7 +250,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ParamsSpec,
       lobster.mojom.UntrustedLobsterPageHandler_DownloadCandidate_ResponseParamsSpec,
-      [candidate_id]);
+      [candidate_id],
+      false);
   }
 
   commitAsInsert(candidate_id) {
@@ -258,7 +260,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ParamsSpec,
       lobster.mojom.UntrustedLobsterPageHandler_CommitAsInsert_ResponseParamsSpec,
-      [candidate_id]);
+      [candidate_id],
+      false);
   }
 
   commitAsDownload(candidate_id) {
@@ -267,7 +270,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ParamsSpec,
       lobster.mojom.UntrustedLobsterPageHandler_CommitAsDownload_ResponseParamsSpec,
-      [candidate_id]);
+      [candidate_id],
+      false);
   }
 
   previewFeedback(candidate_id) {
@@ -276,7 +280,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ParamsSpec,
       lobster.mojom.UntrustedLobsterPageHandler_PreviewFeedback_ResponseParamsSpec,
-      [candidate_id]);
+      [candidate_id],
+      false);
   }
 
   submitFeedback(candidate_id, description) {
@@ -285,7 +290,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
       5,  // ordinal
       lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ParamsSpec,
       lobster.mojom.UntrustedLobsterPageHandler_SubmitFeedback_ResponseParamsSpec,
-      [candidate_id, description]);
+      [candidate_id, description],
+      false);
   }
 
   showUI() {
@@ -294,7 +300,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
       6,  // ordinal
       lobster.mojom.UntrustedLobsterPageHandler_ShowUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   closeUI() {
@@ -303,7 +310,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
       7,  // ordinal
       lobster.mojom.UntrustedLobsterPageHandler_CloseUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   emitMetricEvent(metric_event) {
@@ -312,7 +320,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
       8,  // ordinal
       lobster.mojom.UntrustedLobsterPageHandler_EmitMetricEvent_ParamsSpec,
       null,
-      [metric_event]);
+      [metric_event],
+      false);
   }
 
   openUrlInNewWindow(url) {
@@ -321,7 +330,8 @@ lobster.mojom.UntrustedLobsterPageHandlerRemoteCallHandler = class {
       9,  // ordinal
       lobster.mojom.UntrustedLobsterPageHandler_OpenUrlInNewWindow_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
 };

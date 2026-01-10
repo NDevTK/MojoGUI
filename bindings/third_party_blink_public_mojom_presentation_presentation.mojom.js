@@ -175,7 +175,8 @@ blink.mojom.PresentationConnectionRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PresentationConnection_OnMessage_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
   didChangeState(state) {
@@ -184,7 +185,8 @@ blink.mojom.PresentationConnectionRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PresentationConnection_DidChangeState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   didClose(reason) {
@@ -193,7 +195,8 @@ blink.mojom.PresentationConnectionRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PresentationConnection_DidClose_ParamsSpec,
       null,
-      [reason]);
+      [reason],
+      false);
   }
 
 };
@@ -322,7 +325,8 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PresentationService_SetController_ParamsSpec,
       null,
-      [controller]);
+      [controller],
+      false);
   }
 
   setReceiver(receiver) {
@@ -331,7 +335,8 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PresentationService_SetReceiver_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   setDefaultPresentationUrls(presentation_urls) {
@@ -340,7 +345,8 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PresentationService_SetDefaultPresentationUrls_ParamsSpec,
       null,
-      [presentation_urls]);
+      [presentation_urls],
+      false);
   }
 
   listenForScreenAvailability(availability_url) {
@@ -349,7 +355,8 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.PresentationService_ListenForScreenAvailability_ParamsSpec,
       null,
-      [availability_url]);
+      [availability_url],
+      false);
   }
 
   stopListeningForScreenAvailability(availability_url) {
@@ -358,7 +365,8 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.PresentationService_StopListeningForScreenAvailability_ParamsSpec,
       null,
-      [availability_url]);
+      [availability_url],
+      false);
   }
 
   startPresentation(presentation_urls) {
@@ -367,7 +375,8 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.PresentationService_StartPresentation_ParamsSpec,
       blink.mojom.PresentationService_StartPresentation_ResponseParamsSpec,
-      [presentation_urls]);
+      [presentation_urls],
+      false);
   }
 
   reconnectPresentation(presentation_urls, presentation_id) {
@@ -376,7 +385,8 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.PresentationService_ReconnectPresentation_ParamsSpec,
       blink.mojom.PresentationService_ReconnectPresentation_ResponseParamsSpec,
-      [presentation_urls, presentation_id]);
+      [presentation_urls, presentation_id],
+      false);
   }
 
   closeConnection(presentation_url, presentation_id) {
@@ -385,7 +395,8 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.PresentationService_CloseConnection_ParamsSpec,
       null,
-      [presentation_url, presentation_id]);
+      [presentation_url, presentation_id],
+      false);
   }
 
   terminate(presentation_url, presentation_id) {
@@ -394,7 +405,8 @@ blink.mojom.PresentationServiceRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.PresentationService_Terminate_ParamsSpec,
       null,
-      [presentation_url, presentation_id]);
+      [presentation_url, presentation_id],
+      false);
   }
 
 };
@@ -480,7 +492,8 @@ blink.mojom.PresentationControllerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PresentationController_OnScreenAvailabilityUpdated_ParamsSpec,
       null,
-      [url, availability]);
+      [url, availability],
+      false);
   }
 
   onDefaultPresentationStarted(result) {
@@ -489,7 +502,8 @@ blink.mojom.PresentationControllerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PresentationController_OnDefaultPresentationStarted_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
   onConnectionStateChanged(presentation_info, newState) {
@@ -498,7 +512,8 @@ blink.mojom.PresentationControllerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PresentationController_OnConnectionStateChanged_ParamsSpec,
       null,
-      [presentation_info, newState]);
+      [presentation_info, newState],
+      false);
   }
 
   onConnectionClosed(presentation_info, reason, message) {
@@ -507,7 +522,8 @@ blink.mojom.PresentationControllerRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.PresentationController_OnConnectionClosed_ParamsSpec,
       null,
-      [presentation_info, reason, message]);
+      [presentation_info, reason, message],
+      false);
   }
 
 };
@@ -571,7 +587,8 @@ blink.mojom.PresentationReceiverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PresentationReceiver_OnReceiverConnectionAvailable_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
 };

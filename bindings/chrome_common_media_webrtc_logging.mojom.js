@@ -76,7 +76,8 @@ chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec,
       null,
-      [messages]);
+      [messages],
+      false);
   }
 
   onStopped() {
@@ -85,7 +86,8 @@ chrome.mojom.WebRtcLoggingClientRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -154,7 +156,8 @@ chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   stop() {
@@ -163,7 +166,8 @@ chrome.mojom.WebRtcLoggingAgentRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

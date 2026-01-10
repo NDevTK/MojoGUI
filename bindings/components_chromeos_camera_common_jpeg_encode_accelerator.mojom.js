@@ -125,7 +125,8 @@ chromeos_camera.mojom.JpegEncodeAcceleratorRemoteCallHandler = class {
       0,  // ordinal
       chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ParamsSpec,
       chromeos_camera.mojom.JpegEncodeAccelerator_Initialize_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   encodeWithFD(task_id, input_fd, input_buffer_size, coded_size_width, coded_size_height, exif_fd, exif_buffer_size, output_fd, output_buffer_size) {
@@ -134,7 +135,8 @@ chromeos_camera.mojom.JpegEncodeAcceleratorRemoteCallHandler = class {
       1,  // ordinal
       chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ParamsSpec,
       chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithFD_ResponseParamsSpec,
-      [task_id, input_fd, input_buffer_size, coded_size_width, coded_size_height, exif_fd, exif_buffer_size, output_fd, output_buffer_size]);
+      [task_id, input_fd, input_buffer_size, coded_size_width, coded_size_height, exif_fd, exif_buffer_size, output_fd, output_buffer_size],
+      false);
   }
 
   encodeWithDmaBuf(task_id, input_format, input_planes, output_planes, exif_handle, exif_buffer_size, coded_size_width, coded_size_height, quality, has_input_modifier, input_modifier) {
@@ -143,7 +145,8 @@ chromeos_camera.mojom.JpegEncodeAcceleratorRemoteCallHandler = class {
       2,  // ordinal
       chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ParamsSpec,
       chromeos_camera.mojom.JpegEncodeAccelerator_EncodeWithDmaBuf_ResponseParamsSpec,
-      [task_id, input_format, input_planes, output_planes, exif_handle, exif_buffer_size, coded_size_width, coded_size_height, quality, has_input_modifier, input_modifier]);
+      [task_id, input_format, input_planes, output_planes, exif_handle, exif_buffer_size, coded_size_width, coded_size_height, quality, has_input_modifier, input_modifier],
+      false);
   }
 
 };

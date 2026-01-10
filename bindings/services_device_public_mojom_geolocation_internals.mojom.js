@@ -169,7 +169,8 @@ device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.GeolocationInternalsObserver_OnDiagnosticsChanged_ParamsSpec,
       null,
-      [diagnostics]);
+      [diagnostics],
+      false);
   }
 
   onNetworkLocationRequested(access_point_data) {
@@ -178,7 +179,8 @@ device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.GeolocationInternalsObserver_OnNetworkLocationRequested_ParamsSpec,
       null,
-      [access_point_data]);
+      [access_point_data],
+      false);
   }
 
   onNetworkLocationReceived(response) {
@@ -187,7 +189,8 @@ device.mojom.GeolocationInternalsObserverRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.GeolocationInternalsObserver_OnNetworkLocationReceived_ParamsSpec,
       null,
-      [response]);
+      [response],
+      false);
   }
 
 };
@@ -257,7 +260,8 @@ device.mojom.GeolocationInternalsRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.GeolocationInternals_AddInternalsObserver_ParamsSpec,
       device.mojom.GeolocationInternals_AddInternalsObserver_ResponseParamsSpec,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

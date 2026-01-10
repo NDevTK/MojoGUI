@@ -80,7 +80,8 @@ printing.mojom.PdfFlattenerRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PdfFlattener_FlattenPdf_ParamsSpec,
       printing.mojom.PdfFlattener_FlattenPdf_ResponseParamsSpec,
-      [src_pdf_region]);
+      [src_pdf_region],
+      false);
   }
 
   setUseSkiaRendererPolicy(use_skia) {
@@ -89,7 +90,8 @@ printing.mojom.PdfFlattenerRemoteCallHandler = class {
       1,  // ordinal
       printing.mojom.PdfFlattener_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      [use_skia]);
+      [use_skia],
+      false);
   }
 
 };

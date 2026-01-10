@@ -89,7 +89,8 @@ sharing.mojom.IncomingMessagesListenerRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
   onComplete(success) {
@@ -98,7 +99,8 @@ sharing.mojom.IncomingMessagesListenerRemoteCallHandler = class {
       1,  // ordinal
       sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec,
       null,
-      [success]);
+      [success],
+      false);
   }
 
 };
@@ -161,7 +163,8 @@ sharing.mojom.ReceiveMessagesSessionRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -249,7 +252,8 @@ sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec,
       sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec,
-      [self_id, peer_id, location_hint, message]);
+      [self_id, peer_id, location_hint, message],
+      false);
   }
 
   startReceivingMessages(self_id, location_hint, listener) {
@@ -258,7 +262,8 @@ sharing.mojom.WebRtcSignalingMessengerRemoteCallHandler = class {
       1,  // ordinal
       sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec,
       sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec,
-      [self_id, location_hint, listener]);
+      [self_id, location_hint, listener],
+      false);
   }
 
 };

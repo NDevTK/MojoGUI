@@ -149,7 +149,8 @@ infobar_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec,
       infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   triggerInfoBar(type) {
@@ -158,7 +159,8 @@ infobar_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec,
       infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
 };
@@ -223,7 +225,8 @@ infobar_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };

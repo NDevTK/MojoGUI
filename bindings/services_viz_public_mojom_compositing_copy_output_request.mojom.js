@@ -78,7 +78,8 @@ viz.mojom.CopyOutputResultSenderRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.CopyOutputResultSender_SendResult_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
 };

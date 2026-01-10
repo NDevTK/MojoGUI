@@ -99,7 +99,8 @@ media.mojom.OutputProtectionRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.OutputProtection_QueryStatus_ParamsSpec,
       media.mojom.OutputProtection_QueryStatus_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   enableProtection(desired_protection_mask) {
@@ -108,7 +109,8 @@ media.mojom.OutputProtectionRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.OutputProtection_EnableProtection_ParamsSpec,
       media.mojom.OutputProtection_EnableProtection_ResponseParamsSpec,
-      [desired_protection_mask]);
+      [desired_protection_mask],
+      false);
   }
 
 };

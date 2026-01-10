@@ -216,7 +216,8 @@ shopping_service.mojom.ShoppingServiceHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       shopping_service.mojom.ShoppingServiceHandlerFactory_CreateShoppingServiceHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -487,7 +488,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       0,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForCurrentUrl_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getProductInfoForUrl(url) {
@@ -496,7 +498,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       1,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrl_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   getProductInfoForUrls(urls) {
@@ -505,7 +508,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       2,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetProductInfoForUrls_ResponseParamsSpec,
-      [urls]);
+      [urls],
+      false);
   }
 
   getPriceInsightsInfoForCurrentUrl() {
@@ -514,7 +518,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       3,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForCurrentUrl_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getPriceInsightsInfoForUrl(url) {
@@ -523,7 +528,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       4,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetPriceInsightsInfoForUrl_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   getProductSpecificationsForUrls(urls) {
@@ -532,7 +538,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       5,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsForUrls_ResponseParamsSpec,
-      [urls]);
+      [urls],
+      false);
   }
 
   getUrlInfosForProductTabs() {
@@ -541,7 +548,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       6,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForProductTabs_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getUrlInfosForRecentlyViewedTabs() {
@@ -550,7 +558,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       7,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetUrlInfosForRecentlyViewedTabs_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isShoppingListEligible() {
@@ -559,7 +568,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       8,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_IsShoppingListEligible_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getPriceTrackingStatusForCurrentUrl() {
@@ -568,7 +578,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       9,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetPriceTrackingStatusForCurrentUrl_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openUrlInNewTab(url) {
@@ -577,7 +588,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       10,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_OpenUrlInNewTab_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   switchToOrOpenTab(url) {
@@ -586,7 +598,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       11,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_SwitchToOrOpenTab_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   getAllProductSpecificationsSets() {
@@ -595,7 +608,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       12,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetAllProductSpecificationsSets_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getProductSpecificationsSetByUuid(uuid) {
@@ -604,7 +618,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       13,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsSetByUuid_ResponseParamsSpec,
-      [uuid]);
+      [uuid],
+      false);
   }
 
   addProductSpecificationsSet(name, urls) {
@@ -613,7 +628,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       14,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_AddProductSpecificationsSet_ResponseParamsSpec,
-      [name, urls]);
+      [name, urls],
+      false);
   }
 
   deleteProductSpecificationsSet(uuid) {
@@ -622,7 +638,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       15,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_DeleteProductSpecificationsSet_ParamsSpec,
       null,
-      [uuid]);
+      [uuid],
+      false);
   }
 
   setNameForProductSpecificationsSet(uuid, name) {
@@ -631,7 +648,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       16,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_SetNameForProductSpecificationsSet_ResponseParamsSpec,
-      [uuid, name]);
+      [uuid, name],
+      false);
   }
 
   setUrlsForProductSpecificationsSet(uuid, urls) {
@@ -640,7 +658,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       17,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_SetUrlsForProductSpecificationsSet_ResponseParamsSpec,
-      [uuid, urls]);
+      [uuid, urls],
+      false);
   }
 
   setProductSpecificationsUserFeedback(feedback) {
@@ -649,7 +668,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       18,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_SetProductSpecificationsUserFeedback_ParamsSpec,
       null,
-      [feedback]);
+      [feedback],
+      false);
   }
 
   getProductSpecificationsFeatureState() {
@@ -658,7 +678,8 @@ shopping_service.mojom.ShoppingServiceHandlerRemoteCallHandler = class {
       19,  // ordinal
       shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ParamsSpec,
       shopping_service.mojom.ShoppingServiceHandler_GetProductSpecificationsFeatureState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

@@ -67,7 +67,8 @@ media.mojom.GpuInfoObserverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec,
       null,
-      [gpu_info]);
+      [gpu_info],
+      false);
   }
 
 };
@@ -145,7 +146,8 @@ media.mojom.MediaFoundationServiceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec,
       media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec,
-      [key_system]);
+      [key_system],
+      false);
   }
 
   createInterfaceFactory(factory, frame_interfaces) {
@@ -154,7 +156,8 @@ media.mojom.MediaFoundationServiceRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec,
       null,
-      [factory, frame_interfaces]);
+      [factory, frame_interfaces],
+      false);
   }
 
 };
@@ -231,7 +234,8 @@ media.mojom.MediaFoundationServiceBrokerRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec,
       media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec,
-      [gpu_info]);
+      [gpu_info],
+      false);
   }
 
   getService(cdm_path, receiver) {
@@ -240,7 +244,8 @@ media.mojom.MediaFoundationServiceBrokerRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec,
       null,
-      [cdm_path, receiver]);
+      [cdm_path, receiver],
+      false);
   }
 
 };

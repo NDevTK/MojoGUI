@@ -126,7 +126,8 @@ chromeos.cdm.mojom.CdmFactoryRemoteCallHandler = class {
       1,  // ordinal
       chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec,
       null,
-      [client, storage, cdm, output_protection]);
+      [client, storage, cdm, output_protection],
+      false);
   }
 
   createCdmDeprecated(client, storage, output_protection, host, cdm) {
@@ -135,7 +136,8 @@ chromeos.cdm.mojom.CdmFactoryRemoteCallHandler = class {
       2,  // ordinal
       chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec,
       null,
-      [client, storage, output_protection, host, cdm]);
+      [client, storage, output_protection, host, cdm],
+      false);
   }
 
   createCdm(client, storage, output_protection, host, cdm) {
@@ -144,7 +146,8 @@ chromeos.cdm.mojom.CdmFactoryRemoteCallHandler = class {
       3,  // ordinal
       chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec,
       chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec,
-      [client, storage, output_protection, host, cdm]);
+      [client, storage, output_protection, host, cdm],
+      false);
   }
 
 };
@@ -301,7 +304,8 @@ chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = class {
       0,  // ordinal
       chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec,
       chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec,
-      [key_system]);
+      [key_system],
+      false);
   }
 
   removedMethod1() {
@@ -310,7 +314,8 @@ chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = class {
       1,  // ordinal
       chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   connectOemCrypto(oemcryptor, protected_buffer_manager, output_protection) {
@@ -319,7 +324,8 @@ chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = class {
       2,  // ordinal
       chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec,
       null,
-      [oemcryptor, protected_buffer_manager, output_protection]);
+      [oemcryptor, protected_buffer_manager, output_protection],
+      false);
   }
 
   removedMethod3() {
@@ -328,7 +334,8 @@ chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = class {
       3,  // ordinal
       chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getHwConfigData() {
@@ -337,7 +344,8 @@ chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = class {
       4,  // ordinal
       chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec,
       chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   removedMethod5() {
@@ -346,7 +354,8 @@ chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = class {
       5,  // ordinal
       chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getHdcp14Key() {
@@ -355,7 +364,8 @@ chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = class {
       6,  // ordinal
       chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec,
       chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAndroidHwKeyData(key_id, hw_identifier) {
@@ -364,7 +374,8 @@ chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = class {
       7,  // ordinal
       chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec,
       chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec,
-      [key_id, hw_identifier]);
+      [key_id, hw_identifier],
+      false);
   }
 
   allocateSecureBuffer(size) {
@@ -373,7 +384,8 @@ chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = class {
       8,  // ordinal
       chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec,
       chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec,
-      [size]);
+      [size],
+      false);
   }
 
   parseEncryptedSliceHeader(secure_handle, offset, stream_data) {
@@ -382,7 +394,8 @@ chromeos.cdm.mojom.CdmFactoryDaemonRemoteCallHandler = class {
       9,  // ordinal
       chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec,
       chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec,
-      [secure_handle, offset, stream_data]);
+      [secure_handle, offset, stream_data],
+      false);
   }
 
 };

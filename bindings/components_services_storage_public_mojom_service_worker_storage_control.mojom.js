@@ -283,7 +283,8 @@ storage.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ParamsSpec,
       storage.mojom.ServiceWorkerResourceReader_ReadResponseHead_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   prepareReadData(size) {
@@ -292,7 +293,8 @@ storage.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ParamsSpec,
       storage.mojom.ServiceWorkerResourceReader_PrepareReadData_ResponseParamsSpec,
-      [size]);
+      [size],
+      false);
   }
 
   readData() {
@@ -301,7 +303,8 @@ storage.mojom.ServiceWorkerResourceReaderRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.ServiceWorkerResourceReader_ReadData_ParamsSpec,
       storage.mojom.ServiceWorkerResourceReader_ReadData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -383,7 +386,8 @@ storage.mojom.ServiceWorkerResourceWriterRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ParamsSpec,
       storage.mojom.ServiceWorkerResourceWriter_WriteResponseHead_ResponseParamsSpec,
-      [response_head]);
+      [response_head],
+      false);
   }
 
   writeData(data) {
@@ -392,7 +396,8 @@ storage.mojom.ServiceWorkerResourceWriterRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.ServiceWorkerResourceWriter_WriteData_ParamsSpec,
       storage.mojom.ServiceWorkerResourceWriter_WriteData_ResponseParamsSpec,
-      [data]);
+      [data],
+      false);
   }
 
 };
@@ -462,7 +467,8 @@ storage.mojom.ServiceWorkerResourceMetadataWriterRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ParamsSpec,
       storage.mojom.ServiceWorkerResourceMetadataWriter_WriteMetadata_ResponseParamsSpec,
-      [data]);
+      [data],
+      false);
   }
 
 };
@@ -1051,7 +1057,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_Disable_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_Disable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   delete() {
@@ -1060,7 +1067,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_Delete_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_Delete_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   recover(versions) {
@@ -1069,7 +1077,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_Recover_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_Recover_ResponseParamsSpec,
-      [versions]);
+      [versions],
+      false);
   }
 
   getRegisteredStorageKeys() {
@@ -1078,7 +1087,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetRegisteredStorageKeys_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   findRegistrationForClientUrl(client_url, key) {
@@ -1087,7 +1097,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       4,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_FindRegistrationForClientUrl_ResponseParamsSpec,
-      [client_url, key]);
+      [client_url, key],
+      false);
   }
 
   findRegistrationForScope(scope, key) {
@@ -1096,7 +1107,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       5,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_FindRegistrationForScope_ResponseParamsSpec,
-      [scope, key]);
+      [scope, key],
+      false);
   }
 
   findRegistrationForId(registration_id, key) {
@@ -1105,7 +1117,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       6,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_FindRegistrationForId_ResponseParamsSpec,
-      [registration_id, key]);
+      [registration_id, key],
+      false);
   }
 
   getRegistrationsForStorageKey(key) {
@@ -1114,7 +1127,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       7,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetRegistrationsForStorageKey_ResponseParamsSpec,
-      [key]);
+      [key],
+      false);
   }
 
   getUsageForStorageKey(key) {
@@ -1123,7 +1137,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       8,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetUsageForStorageKey_ResponseParamsSpec,
-      [key]);
+      [key],
+      false);
   }
 
   getAllRegistrationsDeprecated() {
@@ -1132,7 +1147,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       9,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetAllRegistrationsDeprecated_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getFakeRegistrationForClientUrl(client_url, key) {
@@ -1141,7 +1157,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       10,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetFakeRegistrationForClientUrl_ResponseParamsSpec,
-      [client_url, key]);
+      [client_url, key],
+      false);
   }
 
   storeRegistration(registration, resources) {
@@ -1150,7 +1167,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       11,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_StoreRegistration_ResponseParamsSpec,
-      [registration, resources]);
+      [registration, resources],
+      false);
   }
 
   deleteRegistration(registration_id, key) {
@@ -1159,7 +1177,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       12,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_DeleteRegistration_ResponseParamsSpec,
-      [registration_id, key]);
+      [registration_id, key],
+      false);
   }
 
   updateToActiveState(registration_id, key) {
@@ -1168,7 +1187,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       13,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_UpdateToActiveState_ResponseParamsSpec,
-      [registration_id, key]);
+      [registration_id, key],
+      false);
   }
 
   updateLastUpdateCheckTime(registration_id, key, last_update_check_time) {
@@ -1177,7 +1197,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       14,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_UpdateLastUpdateCheckTime_ResponseParamsSpec,
-      [registration_id, key, last_update_check_time]);
+      [registration_id, key, last_update_check_time],
+      false);
   }
 
   updateNavigationPreloadEnabled(registration_id, key, enable) {
@@ -1186,7 +1207,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       15,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadEnabled_ResponseParamsSpec,
-      [registration_id, key, enable]);
+      [registration_id, key, enable],
+      false);
   }
 
   updateNavigationPreloadHeader(registration_id, key, value) {
@@ -1195,7 +1217,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       16,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_UpdateNavigationPreloadHeader_ResponseParamsSpec,
-      [registration_id, key, value]);
+      [registration_id, key, value],
+      false);
   }
 
   updateFetchHandlerType(registration_id, key, type) {
@@ -1204,7 +1227,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       17,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_UpdateFetchHandlerType_ResponseParamsSpec,
-      [registration_id, key, type]);
+      [registration_id, key, type],
+      false);
   }
 
   updateResourceSha256Checksums(registratation_id, key, updated_sha256_checksums) {
@@ -1213,7 +1237,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       18,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_UpdateResourceSha256Checksums_ResponseParamsSpec,
-      [registratation_id, key, updated_sha256_checksums]);
+      [registratation_id, key, updated_sha256_checksums],
+      false);
   }
 
   getNewRegistrationId() {
@@ -1222,7 +1247,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       19,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetNewRegistrationId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNewVersionId() {
@@ -1231,7 +1257,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       20,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetNewVersionId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNewResourceId() {
@@ -1240,7 +1267,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       21,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetNewResourceId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   createResourceReader(resource_id, reader) {
@@ -1249,7 +1277,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       22,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_CreateResourceReader_ParamsSpec,
       null,
-      [resource_id, reader]);
+      [resource_id, reader],
+      false);
   }
 
   createResourceWriter(resource_id, writer) {
@@ -1258,7 +1287,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       23,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_CreateResourceWriter_ParamsSpec,
       null,
-      [resource_id, writer]);
+      [resource_id, writer],
+      false);
   }
 
   createResourceMetadataWriter(resource_id, writer) {
@@ -1267,7 +1297,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       24,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_CreateResourceMetadataWriter_ParamsSpec,
       null,
-      [resource_id, writer]);
+      [resource_id, writer],
+      false);
   }
 
   storeUncommittedResourceId(resource_id) {
@@ -1276,7 +1307,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       25,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_StoreUncommittedResourceId_ResponseParamsSpec,
-      [resource_id]);
+      [resource_id],
+      false);
   }
 
   doomUncommittedResources(resource_ids) {
@@ -1285,7 +1317,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       26,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_DoomUncommittedResources_ResponseParamsSpec,
-      [resource_ids]);
+      [resource_ids],
+      false);
   }
 
   getUserData(registration_id, keys) {
@@ -1294,7 +1327,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       27,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetUserData_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetUserData_ResponseParamsSpec,
-      [registration_id, keys]);
+      [registration_id, keys],
+      false);
   }
 
   storeUserData(registration_id, key, user_data) {
@@ -1303,7 +1337,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       28,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_StoreUserData_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_StoreUserData_ResponseParamsSpec,
-      [registration_id, key, user_data]);
+      [registration_id, key, user_data],
+      false);
   }
 
   clearUserData(registration_id, keys) {
@@ -1312,7 +1347,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       29,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_ClearUserData_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_ClearUserData_ResponseParamsSpec,
-      [registration_id, keys]);
+      [registration_id, keys],
+      false);
   }
 
   getUserDataByKeyPrefix(registration_id, key_prefix) {
@@ -1321,7 +1357,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       30,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetUserDataByKeyPrefix_ResponseParamsSpec,
-      [registration_id, key_prefix]);
+      [registration_id, key_prefix],
+      false);
   }
 
   getUserKeysAndDataByKeyPrefix(registration_id, key_prefix) {
@@ -1330,7 +1367,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       31,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetUserKeysAndDataByKeyPrefix_ResponseParamsSpec,
-      [registration_id, key_prefix]);
+      [registration_id, key_prefix],
+      false);
   }
 
   clearUserDataByKeyPrefixes(registratation_id, key_prefixes) {
@@ -1339,7 +1377,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       32,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_ClearUserDataByKeyPrefixes_ResponseParamsSpec,
-      [registratation_id, key_prefixes]);
+      [registratation_id, key_prefixes],
+      false);
   }
 
   getUserDataForAllRegistrations(key) {
@@ -1348,7 +1387,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       33,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrations_ResponseParamsSpec,
-      [key]);
+      [key],
+      false);
   }
 
   getUserDataForAllRegistrationsByKeyPrefix(key_prefix) {
@@ -1357,7 +1397,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       34,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
-      [key_prefix]);
+      [key_prefix],
+      false);
   }
 
   clearUserDataForAllRegistrationsByKeyPrefix(key_prefix) {
@@ -1366,7 +1407,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       35,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_ClearUserDataForAllRegistrationsByKeyPrefix_ResponseParamsSpec,
-      [key_prefix]);
+      [key_prefix],
+      false);
   }
 
   performStorageCleanup() {
@@ -1375,7 +1417,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       36,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_PerformStorageCleanup_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   applyPolicyUpdates(policy_updates) {
@@ -1384,7 +1427,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       37,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_ApplyPolicyUpdates_ResponseParamsSpec,
-      [policy_updates]);
+      [policy_updates],
+      false);
   }
 
   getPurgingResourceIdsForTest() {
@@ -1393,7 +1437,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       38,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForTest_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getPurgingResourceIdsForLiveVersionForTest(version_id) {
@@ -1402,7 +1447,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       39,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetPurgingResourceIdsForLiveVersionForTest_ResponseParamsSpec,
-      [version_id]);
+      [version_id],
+      false);
   }
 
   getPurgeableResourceIdsForTest() {
@@ -1411,7 +1457,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       40,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetPurgeableResourceIdsForTest_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getUncommittedResourceIdsForTest() {
@@ -1420,7 +1467,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       41,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_GetUncommittedResourceIdsForTest_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setPurgingCompleteCallbackForTest() {
@@ -1429,7 +1477,8 @@ storage.mojom.ServiceWorkerStorageControlRemoteCallHandler = class {
       42,  // ordinal
       storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ParamsSpec,
       storage.mojom.ServiceWorkerStorageControl_SetPurgingCompleteCallbackForTest_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

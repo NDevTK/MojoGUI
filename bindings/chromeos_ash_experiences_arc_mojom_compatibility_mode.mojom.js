@@ -82,7 +82,8 @@ arc.mojom.CompatibilityModeInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec,
       null,
-      [package_name, state]);
+      [package_name, state],
+      false);
   }
 
   isOptimizedForCrosApp(package_name) {
@@ -91,7 +92,8 @@ arc.mojom.CompatibilityModeInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec,
       arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec,
-      [package_name]);
+      [package_name],
+      false);
   }
 
 };

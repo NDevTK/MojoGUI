@@ -87,7 +87,8 @@ storage.mojom.CacheStorageObserverRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec,
       null,
-      [bucket_locator]);
+      [bucket_locator],
+      false);
   }
 
   onCacheContentChanged(bucket_locator, cache_name) {
@@ -96,7 +97,8 @@ storage.mojom.CacheStorageObserverRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec,
       null,
-      [bucket_locator, cache_name]);
+      [bucket_locator, cache_name],
+      false);
   }
 
 };
@@ -178,7 +180,8 @@ storage.mojom.CacheStorageControlRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec,
       null,
-      [cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter, bucket_locator, owner, receiver]);
+      [cross_origin_embedder_policy, coep_reporter, document_isolation_policy, dip_reporter, bucket_locator, owner, receiver],
+      false);
   }
 
   addObserver(observer) {
@@ -187,7 +190,8 @@ storage.mojom.CacheStorageControlRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.CacheStorageControl_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   applyPolicyUpdates(policy_updates) {
@@ -196,7 +200,8 @@ storage.mojom.CacheStorageControlRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec,
       null,
-      [policy_updates]);
+      [policy_updates],
+      false);
   }
 
 };

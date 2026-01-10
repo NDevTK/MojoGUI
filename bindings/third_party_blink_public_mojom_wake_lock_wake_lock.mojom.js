@@ -61,7 +61,8 @@ blink.mojom.WakeLockServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WakeLockService_GetWakeLock_ParamsSpec,
       null,
-      [type, reason, description, wake_lock]);
+      [type, reason, description, wake_lock],
+      false);
   }
 
 };

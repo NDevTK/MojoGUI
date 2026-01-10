@@ -64,7 +64,8 @@ blink.mojom.SmartCardServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SmartCardService_CreateContext_ParamsSpec,
       blink.mojom.SmartCardService_CreateContext_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

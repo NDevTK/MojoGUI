@@ -150,7 +150,8 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.WatchTimeRecorder_RecordWatchTime_ParamsSpec,
       null,
-      [key, watch_time]);
+      [key, watch_time],
+      false);
   }
 
   finalizeWatchTime(watch_time_keys) {
@@ -159,7 +160,8 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.WatchTimeRecorder_FinalizeWatchTime_ParamsSpec,
       null,
-      [watch_time_keys]);
+      [watch_time_keys],
+      false);
   }
 
   onError(status) {
@@ -168,7 +170,8 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.WatchTimeRecorder_OnError_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   updateSecondaryProperties(secondary_properties) {
@@ -177,7 +180,8 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.WatchTimeRecorder_UpdateSecondaryProperties_ParamsSpec,
       null,
-      [secondary_properties]);
+      [secondary_properties],
+      false);
   }
 
   setAutoplayInitiated(value) {
@@ -186,7 +190,8 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.WatchTimeRecorder_SetAutoplayInitiated_ParamsSpec,
       null,
-      [value]);
+      [value],
+      false);
   }
 
   onDurationChanged(duration) {
@@ -195,7 +200,8 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.WatchTimeRecorder_OnDurationChanged_ParamsSpec,
       null,
-      [duration]);
+      [duration],
+      false);
   }
 
   updateVideoDecodeStats(frames_decoded, frames_dropped) {
@@ -204,7 +210,8 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.WatchTimeRecorder_UpdateVideoDecodeStats_ParamsSpec,
       null,
-      [frames_decoded, frames_dropped]);
+      [frames_decoded, frames_dropped],
+      false);
   }
 
   updateUnderflowCount(total_count) {
@@ -213,7 +220,8 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.WatchTimeRecorder_UpdateUnderflowCount_ParamsSpec,
       null,
-      [total_count]);
+      [total_count],
+      false);
   }
 
   updateUnderflowDuration(total_completed_count, total_duration) {
@@ -222,7 +230,8 @@ media.mojom.WatchTimeRecorderRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.WatchTimeRecorder_UpdateUnderflowDuration_ParamsSpec,
       null,
-      [total_completed_count, total_duration]);
+      [total_completed_count, total_duration],
+      false);
   }
 
 };

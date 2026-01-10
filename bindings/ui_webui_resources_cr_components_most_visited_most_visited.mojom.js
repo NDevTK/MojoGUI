@@ -122,7 +122,8 @@ most_visited.mojom.MostVisitedPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -301,7 +302,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec,
       most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec,
-      [url, title]);
+      [url, title],
+      false);
   }
 
   deleteMostVisitedTile(tile) {
@@ -310,7 +312,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec,
       null,
-      [tile]);
+      [tile],
+      false);
   }
 
   reorderMostVisitedTile(tile, new_pos) {
@@ -319,7 +322,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec,
       null,
-      [tile, new_pos]);
+      [tile, new_pos],
+      false);
   }
 
   restoreMostVisitedDefaults(source) {
@@ -328,7 +332,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec,
       null,
-      [source]);
+      [source],
+      false);
   }
 
   undoMostVisitedAutoRemoval() {
@@ -337,7 +342,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       4,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   undoMostVisitedTileAction(source) {
@@ -346,7 +352,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       5,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec,
       null,
-      [source]);
+      [source],
+      false);
   }
 
   updateMostVisitedInfo() {
@@ -355,7 +362,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       6,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateMostVisitedTile(tile, new_url, new_title) {
@@ -364,7 +372,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       7,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec,
       most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec,
-      [tile, new_url, new_title]);
+      [tile, new_url, new_title],
+      false);
   }
 
   prerenderMostVisitedTile(tile) {
@@ -373,7 +382,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       8,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec,
       null,
-      [tile]);
+      [tile],
+      false);
   }
 
   prefetchMostVisitedTile(tile) {
@@ -382,7 +392,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       9,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec,
       null,
-      [tile]);
+      [tile],
+      false);
   }
 
   preconnectMostVisitedTile(tile) {
@@ -391,7 +402,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       10,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec,
       null,
-      [tile]);
+      [tile],
+      false);
   }
 
   cancelPrerender() {
@@ -400,7 +412,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       11,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getMostVisitedExpandedState() {
@@ -409,7 +422,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       12,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec,
       most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setMostVisitedExpandedState(is_expanded) {
@@ -418,7 +432,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       13,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec,
       null,
-      [is_expanded]);
+      [is_expanded],
+      false);
   }
 
   onMostVisitedTilesRendered(tiles, time) {
@@ -427,7 +442,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       14,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec,
       null,
-      [tiles, time]);
+      [tiles, time],
+      false);
   }
 
   onMostVisitedTileNavigation(tile, index, mouse_button, alt_key, ctrl_key, meta_key, shift_key) {
@@ -436,7 +452,8 @@ most_visited.mojom.MostVisitedPageHandlerRemoteCallHandler = class {
       15,  // ordinal
       most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec,
       null,
-      [tile, index, mouse_button, alt_key, ctrl_key, meta_key, shift_key]);
+      [tile, index, mouse_button, alt_key, ctrl_key, meta_key, shift_key],
+      false);
   }
 
 };
@@ -505,7 +522,8 @@ most_visited.mojom.MostVisitedPageRemoteCallHandler = class {
       0,  // ordinal
       most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
   onMostVisitedTilesAutoRemoval() {
@@ -514,7 +532,8 @@ most_visited.mojom.MostVisitedPageRemoteCallHandler = class {
       1,  // ordinal
       most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

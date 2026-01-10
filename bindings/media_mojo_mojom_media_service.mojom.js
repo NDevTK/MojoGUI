@@ -64,7 +64,8 @@ media.mojom.MediaServiceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec,
       null,
-      [factory, frame_interfaces]);
+      [factory, frame_interfaces],
+      false);
   }
 
 };

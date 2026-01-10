@@ -156,7 +156,8 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.CastWebContentsObserver_PageStateChanged_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   pageStopped(state, error_code) {
@@ -165,7 +166,8 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.CastWebContentsObserver_PageStopped_ParamsSpec,
       null,
-      [state, error_code]);
+      [state, error_code],
+      false);
   }
 
   renderFrameCreated(render_process_id, render_frame_id) {
@@ -174,7 +176,8 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
       2,  // ordinal
       chromecast.mojom.CastWebContentsObserver_RenderFrameCreated_ParamsSpec,
       null,
-      [render_process_id, render_frame_id]);
+      [render_process_id, render_frame_id],
+      false);
   }
 
   mainFrameFinishedNavigation() {
@@ -183,7 +186,8 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
       3,  // ordinal
       chromecast.mojom.CastWebContentsObserver_MainFrameFinishedNavigation_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateTitle(title) {
@@ -192,7 +196,8 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
       4,  // ordinal
       chromecast.mojom.CastWebContentsObserver_UpdateTitle_ParamsSpec,
       null,
-      [title]);
+      [title],
+      false);
   }
 
   updateFaviconURL(url) {
@@ -201,7 +206,8 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
       5,  // ordinal
       chromecast.mojom.CastWebContentsObserver_UpdateFaviconURL_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   didFirstVisuallyNonEmptyPaint() {
@@ -210,7 +216,8 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
       6,  // ordinal
       chromecast.mojom.CastWebContentsObserver_DidFirstVisuallyNonEmptyPaint_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   resourceLoadFailed() {
@@ -219,7 +226,8 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
       7,  // ordinal
       chromecast.mojom.CastWebContentsObserver_ResourceLoadFailed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onRenderProcessReady(pid) {
@@ -228,7 +236,8 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
       8,  // ordinal
       chromecast.mojom.CastWebContentsObserver_OnRenderProcessReady_ParamsSpec,
       null,
-      [pid]);
+      [pid],
+      false);
   }
 
   mediaPlaybackChanged(media_playing) {
@@ -237,7 +246,8 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
       9,  // ordinal
       chromecast.mojom.CastWebContentsObserver_MediaPlaybackChanged_ParamsSpec,
       null,
-      [media_playing]);
+      [media_playing],
+      false);
   }
 
   innerContentsCreated(web_contents) {
@@ -246,7 +256,8 @@ chromecast.mojom.CastWebContentsObserverRemoteCallHandler = class {
       10,  // ordinal
       chromecast.mojom.CastWebContentsObserver_InnerContentsCreated_ParamsSpec,
       null,
-      [web_contents]);
+      [web_contents],
+      false);
   }
 
 };
@@ -399,7 +410,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.CastWebContents_SetAppProperties_ParamsSpec,
       null,
-      [app_id, session_id, is_audio_app, app_web_url, enforce_feature_permissions, feature_permissions, additional_feature_permission_origins]);
+      [app_id, session_id, is_audio_app, app_web_url, enforce_feature_permissions, feature_permissions, additional_feature_permission_origins],
+      false);
   }
 
   setGroupInfo(session_id, is_multizone_launch) {
@@ -408,7 +420,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.CastWebContents_SetGroupInfo_ParamsSpec,
       null,
-      [session_id, is_multizone_launch]);
+      [session_id, is_multizone_launch],
+      false);
   }
 
   addRendererFeatures(features) {
@@ -417,7 +430,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
       2,  // ordinal
       chromecast.mojom.CastWebContents_AddRendererFeatures_ParamsSpec,
       null,
-      [features]);
+      [features],
+      false);
   }
 
   setInterfacesForRenderer(remote_interfaces) {
@@ -426,7 +440,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
       3,  // ordinal
       chromecast.mojom.CastWebContents_SetInterfacesForRenderer_ParamsSpec,
       null,
-      [remote_interfaces]);
+      [remote_interfaces],
+      false);
   }
 
   loadUrl(url) {
@@ -435,7 +450,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
       4,  // ordinal
       chromecast.mojom.CastWebContents_LoadUrl_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   closePage() {
@@ -444,7 +460,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
       5,  // ordinal
       chromecast.mojom.CastWebContents_ClosePage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setWebVisibilityAndPaint(visible) {
@@ -453,7 +470,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
       6,  // ordinal
       chromecast.mojom.CastWebContents_SetWebVisibilityAndPaint_ParamsSpec,
       null,
-      [visible]);
+      [visible],
+      false);
   }
 
   blockMediaLoading(blocked) {
@@ -462,7 +480,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
       7,  // ordinal
       chromecast.mojom.CastWebContents_BlockMediaLoading_ParamsSpec,
       null,
-      [blocked]);
+      [blocked],
+      false);
   }
 
   blockMediaStarting(blocked) {
@@ -471,7 +490,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
       8,  // ordinal
       chromecast.mojom.CastWebContents_BlockMediaStarting_ParamsSpec,
       null,
-      [blocked]);
+      [blocked],
+      false);
   }
 
   enableBackgroundVideoPlayback(enabled) {
@@ -480,7 +500,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
       9,  // ordinal
       chromecast.mojom.CastWebContents_EnableBackgroundVideoPlayback_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   connectToBindingsService(api_bindings_remote) {
@@ -489,7 +510,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
       10,  // ordinal
       chromecast.mojom.CastWebContents_ConnectToBindingsService_ParamsSpec,
       null,
-      [api_bindings_remote]);
+      [api_bindings_remote],
+      false);
   }
 
   addObserver(observer) {
@@ -498,7 +520,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
       11,  // ordinal
       chromecast.mojom.CastWebContents_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   setEnabledForRemoteDebugging(enabled) {
@@ -507,7 +530,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
       12,  // ordinal
       chromecast.mojom.CastWebContents_SetEnabledForRemoteDebugging_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   getMainFramePid() {
@@ -516,7 +540,8 @@ chromecast.mojom.CastWebContentsRemoteCallHandler = class {
       13,  // ordinal
       chromecast.mojom.CastWebContents_GetMainFramePid_ParamsSpec,
       chromecast.mojom.CastWebContents_GetMainFramePid_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

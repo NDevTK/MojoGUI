@@ -102,7 +102,8 @@ prefs.mojom.ResetOnLoadObserverRemoteCallHandler = class {
       0,  // ordinal
       prefs.mojom.ResetOnLoadObserver_OnResetOnLoad_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

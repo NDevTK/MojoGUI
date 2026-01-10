@@ -164,7 +164,8 @@ blink.mojom.HidServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.HidService_RegisterClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   getDevices() {
@@ -173,7 +174,8 @@ blink.mojom.HidServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.HidService_GetDevices_ParamsSpec,
       blink.mojom.HidService_GetDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestDevice(filters, exclusion_filters) {
@@ -182,7 +184,8 @@ blink.mojom.HidServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.HidService_RequestDevice_ParamsSpec,
       blink.mojom.HidService_RequestDevice_ResponseParamsSpec,
-      [filters, exclusion_filters]);
+      [filters, exclusion_filters],
+      false);
   }
 
   connect(device_guid, client) {
@@ -191,7 +194,8 @@ blink.mojom.HidServiceRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.HidService_Connect_ParamsSpec,
       blink.mojom.HidService_Connect_ResponseParamsSpec,
-      [device_guid, client]);
+      [device_guid, client],
+      false);
   }
 
   forget(device_info) {
@@ -200,7 +204,8 @@ blink.mojom.HidServiceRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.HidService_Forget_ParamsSpec,
       blink.mojom.HidService_Forget_ResponseParamsSpec,
-      [device_info]);
+      [device_info],
+      false);
   }
 
 };

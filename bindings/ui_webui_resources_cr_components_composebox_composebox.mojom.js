@@ -72,7 +72,8 @@ composebox.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler, searchbox_page, searchbox_handler]);
+      [page, handler, searchbox_page, searchbox_handler],
+      false);
   }
 
 };
@@ -166,7 +167,8 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       composebox.mojom.PageHandler_FocusChanged_ParamsSpec,
       null,
-      [focused]);
+      [focused],
+      false);
   }
 
   setDeepSearchMode(enabled) {
@@ -175,7 +177,8 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       composebox.mojom.PageHandler_SetDeepSearchMode_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setCreateImageMode(enabled, image_present) {
@@ -184,7 +187,8 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       composebox.mojom.PageHandler_SetCreateImageMode_ParamsSpec,
       null,
-      [enabled, image_present]);
+      [enabled, image_present],
+      false);
   }
 
   handleLensButtonClick() {
@@ -193,7 +197,8 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       composebox.mojom.PageHandler_HandleLensButtonClick_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   handleFileUpload(is_image) {
@@ -202,7 +207,8 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       composebox.mojom.PageHandler_HandleFileUpload_ParamsSpec,
       null,
-      [is_image]);
+      [is_image],
+      false);
   }
 
   navigateUrl(url) {
@@ -211,7 +217,8 @@ composebox.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       composebox.mojom.PageHandler_NavigateUrl_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
 };

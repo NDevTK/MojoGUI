@@ -113,7 +113,8 @@ blink.mojom.V8DetailedMemoryReporterRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ParamsSpec,
       blink.mojom.V8DetailedMemoryReporter_GetV8MemoryUsage_ResponseParamsSpec,
-      [mode]);
+      [mode],
+      false);
   }
 
 };

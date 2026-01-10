@@ -345,7 +345,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       0,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startTutorial(tutorial_id) {
@@ -354,7 +355,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       1,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_StartTutorial_ResponseParamsSpec,
-      [tutorial_id]);
+      [tutorial_id],
+      false);
   }
 
   getSessionData() {
@@ -363,7 +365,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       2,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetSessionData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getFeaturePromos() {
@@ -372,7 +375,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       3,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetFeaturePromos_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   showFeaturePromo(feature_name) {
@@ -381,7 +385,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       4,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ShowFeaturePromo_ResponseParamsSpec,
-      [feature_name]);
+      [feature_name],
+      false);
   }
 
   clearFeaturePromoData(feature_name) {
@@ -390,7 +395,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       5,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearFeaturePromoData_ResponseParamsSpec,
-      [feature_name]);
+      [feature_name],
+      false);
   }
 
   clearSessionData() {
@@ -399,7 +405,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       6,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearSessionData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   forceNewSession() {
@@ -408,7 +415,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       7,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ForceNewSession_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   removeGracePeriods() {
@@ -417,7 +425,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       8,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_RemoveGracePeriods_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNewBadges() {
@@ -426,7 +435,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       9,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetNewBadges_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getWhatsNewModules() {
@@ -435,7 +445,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       10,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewModules_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getWhatsNewEditions() {
@@ -444,7 +455,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       11,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetWhatsNewEditions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNtpPromos() {
@@ -453,7 +465,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       12,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromos_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNtpPromoPreferences() {
@@ -462,7 +475,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       13,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_GetNtpPromoPreferences_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   clearNewBadgeData(feature_name) {
@@ -471,7 +485,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       14,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNewBadgeData_ResponseParamsSpec,
-      [feature_name]);
+      [feature_name],
+      false);
   }
 
   clearWhatsNewData() {
@@ -480,7 +495,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       15,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearWhatsNewData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   clearNtpPromoData(id) {
@@ -489,7 +505,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       16,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoData_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   clearNtpPromoPreferences() {
@@ -498,7 +515,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       17,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ParamsSpec,
       mojom.user_education_internals.UserEducationInternalsPageHandler_ClearNtpPromoPreferences_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   launchWhatsNewStaging() {
@@ -507,7 +525,8 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerRemoteCallHandle
       18,  // ordinal
       mojom.user_education_internals.UserEducationInternalsPageHandler_LaunchWhatsNewStaging_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

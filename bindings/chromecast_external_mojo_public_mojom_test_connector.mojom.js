@@ -60,7 +60,8 @@ chromecast.external_mojo.mojom.TestExternalConnectorRemoteCallHandler = class {
       0,  // ordinal
       chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec,
       null,
-      [service_name, interface_name, interface_pipe]);
+      [service_name, interface_name, interface_pipe],
+      false);
   }
 
 };

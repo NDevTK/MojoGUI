@@ -201,7 +201,8 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.LocalFrame_SetFrameName_ParamsSpec,
       null,
-      [frame_name]);
+      [frame_name],
+      false);
   }
 
   setSpatialNavigationEnabled(spatial_nav_enabled) {
@@ -210,7 +211,8 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.LocalFrame_SetSpatialNavigationEnabled_ParamsSpec,
       null,
-      [spatial_nav_enabled]);
+      [spatial_nav_enabled],
+      false);
   }
 
   setTabId(tab_id) {
@@ -219,7 +221,8 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
       2,  // ordinal
       extensions.mojom.LocalFrame_SetTabId_ParamsSpec,
       null,
-      [tab_id]);
+      [tab_id],
+      false);
   }
 
   appWindowClosed(send_onclosed) {
@@ -228,7 +231,8 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
       3,  // ordinal
       extensions.mojom.LocalFrame_AppWindowClosed_ParamsSpec,
       null,
-      [send_onclosed]);
+      [send_onclosed],
+      false);
   }
 
   notifyRenderViewType(view_type) {
@@ -237,7 +241,8 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
       4,  // ordinal
       extensions.mojom.LocalFrame_NotifyRenderViewType_ParamsSpec,
       null,
-      [view_type]);
+      [view_type],
+      false);
   }
 
   messageInvoke(extension_id, module_name, function_name, args) {
@@ -246,7 +251,8 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
       5,  // ordinal
       extensions.mojom.LocalFrame_MessageInvoke_ParamsSpec,
       null,
-      [extension_id, module_name, function_name, args]);
+      [extension_id, module_name, function_name, args],
+      false);
   }
 
   executeCode(param) {
@@ -255,7 +261,8 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
       6,  // ordinal
       extensions.mojom.LocalFrame_ExecuteCode_ParamsSpec,
       extensions.mojom.LocalFrame_ExecuteCode_ResponseParamsSpec,
-      [param]);
+      [param],
+      false);
   }
 
   executeDeclarativeScript(tab_id, extension_id, script_id, url) {
@@ -264,7 +271,8 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
       7,  // ordinal
       extensions.mojom.LocalFrame_ExecuteDeclarativeScript_ParamsSpec,
       null,
-      [tab_id, extension_id, script_id, url]);
+      [tab_id, extension_id, script_id, url],
+      false);
   }
 
   updateBrowserWindowId(window_id) {
@@ -273,7 +281,8 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
       8,  // ordinal
       extensions.mojom.LocalFrame_UpdateBrowserWindowId_ParamsSpec,
       null,
-      [window_id]);
+      [window_id],
+      false);
   }
 
   dispatchOnConnect(port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host) {
@@ -282,7 +291,8 @@ extensions.mojom.LocalFrameRemoteCallHandler = class {
       9,  // ordinal
       extensions.mojom.LocalFrame_DispatchOnConnect_ParamsSpec,
       extensions.mojom.LocalFrame_DispatchOnConnect_ResponseParamsSpec,
-      [port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host]);
+      [port_id, channel_type, channel_name, tab_info, external_connection_info, port, port_host],
+      false);
   }
 
 };
@@ -457,7 +467,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ParamsSpec,
       extensions.mojom.LocalFrameHost_RequestScriptInjectionPermission_ResponseParamsSpec,
-      [extension_id, script_type, run_location]);
+      [extension_id, script_type, run_location],
+      false);
   }
 
   getAppInstallState(url) {
@@ -466,7 +477,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.LocalFrameHost_GetAppInstallState_ParamsSpec,
       extensions.mojom.LocalFrameHost_GetAppInstallState_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   request(params) {
@@ -475,7 +487,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
       2,  // ordinal
       extensions.mojom.LocalFrameHost_Request_ParamsSpec,
       extensions.mojom.LocalFrameHost_Request_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
   responseAck(request_uuid) {
@@ -484,7 +497,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
       3,  // ordinal
       extensions.mojom.LocalFrameHost_ResponseAck_ParamsSpec,
       null,
-      [request_uuid]);
+      [request_uuid],
+      false);
   }
 
   watchedPageChange(css_selectors) {
@@ -493,7 +507,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
       4,  // ordinal
       extensions.mojom.LocalFrameHost_WatchedPageChange_ParamsSpec,
       null,
-      [css_selectors]);
+      [css_selectors],
+      false);
   }
 
   detailedConsoleMessageAdded(message, source, stack_trace, level) {
@@ -502,7 +517,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
       5,  // ordinal
       extensions.mojom.LocalFrameHost_DetailedConsoleMessageAdded_ParamsSpec,
       null,
-      [message, source, stack_trace, level]);
+      [message, source, stack_trace, level],
+      false);
   }
 
   contentScriptsExecuting(extension_id_to_scripts, frame_url) {
@@ -511,7 +527,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
       6,  // ordinal
       extensions.mojom.LocalFrameHost_ContentScriptsExecuting_ParamsSpec,
       null,
-      [extension_id_to_scripts, frame_url]);
+      [extension_id_to_scripts, frame_url],
+      false);
   }
 
   incrementLazyKeepaliveCount() {
@@ -520,7 +537,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
       7,  // ordinal
       extensions.mojom.LocalFrameHost_IncrementLazyKeepaliveCount_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   decrementLazyKeepaliveCount() {
@@ -529,7 +547,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
       8,  // ordinal
       extensions.mojom.LocalFrameHost_DecrementLazyKeepaliveCount_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   appWindowReady() {
@@ -538,7 +557,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
       9,  // ordinal
       extensions.mojom.LocalFrameHost_AppWindowReady_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openChannelToExtension(info, channel_type, channel_name, port_id, port, port_host) {
@@ -547,7 +567,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
       10,  // ordinal
       extensions.mojom.LocalFrameHost_OpenChannelToExtension_ParamsSpec,
       null,
-      [info, channel_type, channel_name, port_id, port, port_host]);
+      [info, channel_type, channel_name, port_id, port, port_host],
+      false);
   }
 
   openChannelToNativeApp(native_app_name, port_id, port, port_host) {
@@ -556,7 +577,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
       11,  // ordinal
       extensions.mojom.LocalFrameHost_OpenChannelToNativeApp_ParamsSpec,
       null,
-      [native_app_name, port_id, port, port_host]);
+      [native_app_name, port_id, port, port_host],
+      false);
   }
 
   openChannelToTab(tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host) {
@@ -565,7 +587,8 @@ extensions.mojom.LocalFrameHostRemoteCallHandler = class {
       12,  // ordinal
       extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec,
       null,
-      [tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host]);
+      [tab_id, frame_id, document_id, channel_type, channel_name, port_id, port, port_host],
+      false);
   }
 
 };

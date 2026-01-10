@@ -130,7 +130,8 @@ webui_browser.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       webui_browser.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
   getTabStripInset() {
@@ -139,7 +140,8 @@ webui_browser.mojom.PageHandlerFactoryRemoteCallHandler = class {
       1,  // ordinal
       webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ParamsSpec,
       webui_browser.mojom.PageHandlerFactory_GetTabStripInset_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -228,7 +230,8 @@ webui_browser.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       webui_browser.mojom.Page_SetFocusToLocationBar_ParamsSpec,
       null,
-      [is_user_initiated]);
+      [is_user_initiated],
+      false);
   }
 
   setReloadStopState(is_loading) {
@@ -237,7 +240,8 @@ webui_browser.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       webui_browser.mojom.Page_SetReloadStopState_ParamsSpec,
       null,
-      [is_loading]);
+      [is_loading],
+      false);
   }
 
   showSidePanel(guest_contents_id, title) {
@@ -246,7 +250,8 @@ webui_browser.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       webui_browser.mojom.Page_ShowSidePanel_ParamsSpec,
       null,
-      [guest_contents_id, title]);
+      [guest_contents_id, title],
+      false);
   }
 
   closeSidePanel() {
@@ -255,7 +260,8 @@ webui_browser.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       webui_browser.mojom.Page_CloseSidePanel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onFullscreenModeChanged(is_fullscreen, context) {
@@ -264,7 +270,8 @@ webui_browser.mojom.PageRemoteCallHandler = class {
       4,  // ordinal
       webui_browser.mojom.Page_OnFullscreenModeChanged_ParamsSpec,
       null,
-      [is_fullscreen, context]);
+      [is_fullscreen, context],
+      false);
   }
 
 };
@@ -392,7 +399,8 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       webui_browser.mojom.PageHandler_GetGuestIdForTabId_ParamsSpec,
       webui_browser.mojom.PageHandler_GetGuestIdForTabId_ResponseParamsSpec,
-      [tab_id, handler]);
+      [tab_id, handler],
+      false);
   }
 
   loadTabSearch() {
@@ -401,7 +409,8 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       webui_browser.mojom.PageHandler_LoadTabSearch_ParamsSpec,
       webui_browser.mojom.PageHandler_LoadTabSearch_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   showTabSearchBubble(anchor_name) {
@@ -410,7 +419,8 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       webui_browser.mojom.PageHandler_ShowTabSearchBubble_ParamsSpec,
       null,
-      [anchor_name]);
+      [anchor_name],
+      false);
   }
 
   openAppMenu() {
@@ -419,7 +429,8 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       webui_browser.mojom.PageHandler_OpenAppMenu_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openProfileMenu() {
@@ -428,7 +439,8 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       webui_browser.mojom.PageHandler_OpenProfileMenu_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   launchDevToolsForBrowser() {
@@ -437,7 +449,8 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       webui_browser.mojom.PageHandler_LaunchDevToolsForBrowser_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSidePanelClosed() {
@@ -446,7 +459,8 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       webui_browser.mojom.PageHandler_OnSidePanelClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   minimize() {
@@ -455,7 +469,8 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       webui_browser.mojom.PageHandler_Minimize_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   maximize() {
@@ -464,7 +479,8 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       webui_browser.mojom.PageHandler_Maximize_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   restore() {
@@ -473,7 +489,8 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       webui_browser.mojom.PageHandler_Restore_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   close() {
@@ -482,7 +499,8 @@ webui_browser.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       webui_browser.mojom.PageHandler_Close_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -604,7 +622,8 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       0,  // ordinal
       webui_browser.mojom.GuestHandler_Navigate_ParamsSpec,
       null,
-      [src]);
+      [src],
+      false);
   }
 
   canGoBack() {
@@ -613,7 +632,8 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       1,  // ordinal
       webui_browser.mojom.GuestHandler_CanGoBack_ParamsSpec,
       webui_browser.mojom.GuestHandler_CanGoBack_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   goBack() {
@@ -622,7 +642,8 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       2,  // ordinal
       webui_browser.mojom.GuestHandler_GoBack_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   canGoForward() {
@@ -631,7 +652,8 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       3,  // ordinal
       webui_browser.mojom.GuestHandler_CanGoForward_ParamsSpec,
       webui_browser.mojom.GuestHandler_CanGoForward_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   goForward() {
@@ -640,7 +662,8 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       4,  // ordinal
       webui_browser.mojom.GuestHandler_GoForward_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   reload() {
@@ -649,7 +672,8 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       5,  // ordinal
       webui_browser.mojom.GuestHandler_Reload_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   stopLoading() {
@@ -658,7 +682,8 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       6,  // ordinal
       webui_browser.mojom.GuestHandler_StopLoading_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openPageInfoMenu() {
@@ -667,7 +692,8 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       7,  // ordinal
       webui_browser.mojom.GuestHandler_OpenPageInfoMenu_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getSecurityIcon() {
@@ -676,7 +702,8 @@ webui_browser.mojom.GuestHandlerRemoteCallHandler = class {
       8,  // ordinal
       webui_browser.mojom.GuestHandler_GetSecurityIcon_ParamsSpec,
       webui_browser.mojom.GuestHandler_GetSecurityIcon_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

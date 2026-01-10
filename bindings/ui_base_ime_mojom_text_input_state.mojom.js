@@ -29,14 +29,14 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     ui.mojom.TextInputStateSpec, 'ui.mojom.TextInputState', [
       mojo.internal.StructField('node_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('type', 4, 0, ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('mode', 8, 0, ui.mojom.TextInputModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('action', 12, 0, ui.mojom.TextInputActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 4, 0, ui.mojom.TextInputTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('mode', 8, 0, ui.mojom.TextInputModeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('action', 12, 0, ui.mojom.TextInputActionSpec, 0, false, 0, undefined),
       mojo.internal.StructField('flags', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('value', 24, 0, mojo_base.mojom.BigString16Spec, null, true, 0, undefined),
       mojo.internal.StructField('selection', 32, 0, gfx.mojom.RangeSpec, null, false, 0, undefined),
       mojo.internal.StructField('composition', 40, 0, gfx.mojom.RangeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('can_compose_inline', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('can_compose_inline', 48, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('show_ime_if_needed', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('always_hide_ime', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('reply_to_request', 48, 3, mojo.internal.Bool, false, false, 0, undefined),

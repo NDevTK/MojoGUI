@@ -59,7 +59,8 @@ drivefs.mojom.FakeDriveFsLauncherRemoteCallHandler = class {
       0,  // ordinal
       drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec,
       null,
-      [datadir_path, mount_path, mojo_socket_handle]);
+      [datadir_path, mount_path, mojo_socket_handle],
+      false);
   }
 
 };

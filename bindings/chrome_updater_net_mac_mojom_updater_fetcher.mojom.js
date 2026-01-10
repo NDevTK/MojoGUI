@@ -100,7 +100,8 @@ updater.mojom.PostRequestObserverRemoteCallHandler = class {
       0,  // ordinal
       updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec,
       null,
-      [http_status_code, content_length]);
+      [http_status_code, content_length],
+      false);
   }
 
   onProgress(current) {
@@ -109,7 +110,8 @@ updater.mojom.PostRequestObserverRemoteCallHandler = class {
       1,  // ordinal
       updater.mojom.PostRequestObserver_OnProgress_ParamsSpec,
       null,
-      [current]);
+      [current],
+      false);
   }
 
   onRequestComplete(response_body, net_error, header_etag, header_x_cup_server_proof, header_set_cookie, xheader_retry_after_sec) {
@@ -118,7 +120,8 @@ updater.mojom.PostRequestObserverRemoteCallHandler = class {
       2,  // ordinal
       updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec,
       null,
-      [response_body, net_error, header_etag, header_x_cup_server_proof, header_set_cookie, xheader_retry_after_sec]);
+      [response_body, net_error, header_etag, header_x_cup_server_proof, header_set_cookie, xheader_retry_after_sec],
+      false);
   }
 
 };
@@ -198,7 +201,8 @@ updater.mojom.FileDownloadObserverRemoteCallHandler = class {
       0,  // ordinal
       updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec,
       null,
-      [http_status_code, content_length]);
+      [http_status_code, content_length],
+      false);
   }
 
   onProgress(current) {
@@ -207,7 +211,8 @@ updater.mojom.FileDownloadObserverRemoteCallHandler = class {
       1,  // ordinal
       updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec,
       null,
-      [current]);
+      [current],
+      false);
   }
 
   onDownloadComplete(net_error, content_size) {
@@ -216,7 +221,8 @@ updater.mojom.FileDownloadObserverRemoteCallHandler = class {
       2,  // ordinal
       updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec,
       null,
-      [net_error, content_size]);
+      [net_error, content_size],
+      false);
   }
 
 };
@@ -302,7 +308,8 @@ updater.mojom.FetchServiceRemoteCallHandler = class {
       0,  // ordinal
       updater.mojom.FetchService_PostRequest_ParamsSpec,
       updater.mojom.FetchService_PostRequest_ResponseParamsSpec,
-      [url, post_data, content_type, additional_headers]);
+      [url, post_data, content_type, additional_headers],
+      false);
   }
 
   downloadToFile(url, output_file) {
@@ -311,7 +318,8 @@ updater.mojom.FetchServiceRemoteCallHandler = class {
       1,  // ordinal
       updater.mojom.FetchService_DownloadToFile_ParamsSpec,
       updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec,
-      [url, output_file]);
+      [url, output_file],
+      false);
   }
 
 };

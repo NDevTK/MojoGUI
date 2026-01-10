@@ -60,7 +60,8 @@ chromecast.mojom.FeatureUpdateObserverRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec,
       null,
-      [features]);
+      [features],
+      false);
   }
 
 };
@@ -124,7 +125,8 @@ chromecast.mojom.FeatureUpdateServiceRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

@@ -502,7 +502,7 @@ mojo.internal.Struct(
 // Struct: KeyParameter
 mojo.internal.Struct(
     arc.mojom.keymint.KeyParameterSpec, 'arc.mojom.keymint.KeyParameter', [
-      mojo.internal.StructField('tag', 0, 0, arc.mojom.keymint.TagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('tag', 0, 0, arc.mojom.keymint.TagSpec, 0, false, 0, undefined),
       mojo.internal.StructField('value', 8, 0, arc.mojom.keymint.KeyParameterValueSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
@@ -534,7 +534,7 @@ mojo.internal.Struct(
 // Struct: KeyCharacteristics
 mojo.internal.Struct(
     arc.mojom.keymint.KeyCharacteristicsSpec, 'arc.mojom.keymint.KeyCharacteristics', [
-      mojo.internal.StructField('security_level', 0, 0, arc.mojom.keymint.SecurityLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('security_level', 0, 0, arc.mojom.keymint.SecurityLevelSpec, 0, false, 0, undefined),
       mojo.internal.StructField('authorizations', 8, 0, mojo.internal.Array(arc.mojom.keymint.KeyParameterSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -602,7 +602,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('challenge', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('user_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('authenticator_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('authenticator_type', 24, 0, arc.mojom.keymint.HardwareAuthenticatorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('authenticator_type', 24, 0, arc.mojom.keymint.HardwareAuthenticatorTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('timestamp', 32, 0, arc.mojom.keymint.TimestampSpec, null, false, 0, undefined),
       mojo.internal.StructField('mac', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
@@ -746,7 +746,8 @@ arc.mojom.keymint.KeyMintHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.keymint.KeyMintHost_GetServer_ParamsSpec,
       arc.mojom.keymint.KeyMintHost_GetServer_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -815,7 +816,8 @@ arc.mojom.keymint.KeyMintInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.keymint.KeyMintInstance_Init_ParamsSpec,
       arc.mojom.keymint.KeyMintInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };
@@ -1182,7 +1184,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.keymint.KeyMintServer_SetSystemVersion_ParamsSpec,
       null,
-      [android_version, android_patchlevel]);
+      [android_version, android_patchlevel],
+      false);
   }
 
   addRngEntropy(data) {
@@ -1191,7 +1194,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.keymint.KeyMintServer_AddRngEntropy_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_AddRngEntropy_ResponseParamsSpec,
-      [data]);
+      [data],
+      false);
   }
 
   generateKey(request) {
@@ -1200,7 +1204,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.keymint.KeyMintServer_GenerateKey_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_GenerateKey_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   importKey(request) {
@@ -1209,7 +1214,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.keymint.KeyMintServer_ImportKey_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_ImportKey_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   importWrappedKey(request) {
@@ -1218,7 +1224,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_ImportWrappedKey_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   upgradeKey(request) {
@@ -1227,7 +1234,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.keymint.KeyMintServer_UpgradeKey_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_UpgradeKey_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   deleteKey(key_blob) {
@@ -1236,7 +1244,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.keymint.KeyMintServer_DeleteKey_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_DeleteKey_ResponseParamsSpec,
-      [key_blob]);
+      [key_blob],
+      false);
   }
 
   deleteAllKeys() {
@@ -1245,7 +1254,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_DeleteAllKeys_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   destroyAttestationIds() {
@@ -1254,7 +1264,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_DestroyAttestationIds_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   begin(request) {
@@ -1263,7 +1274,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.keymint.KeyMintServer_Begin_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_Begin_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   deviceLocked(password_only, timestamp_token) {
@@ -1272,7 +1284,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.keymint.KeyMintServer_DeviceLocked_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_DeviceLocked_ResponseParamsSpec,
-      [password_only, timestamp_token]);
+      [password_only, timestamp_token],
+      false);
   }
 
   earlyBootEnded() {
@@ -1281,7 +1294,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_EarlyBootEnded_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   convertStorageKeyToEphemeral(storage_key_blob) {
@@ -1290,7 +1304,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       12,  // ordinal
       arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_ConvertStorageKeyToEphemeral_ResponseParamsSpec,
-      [storage_key_blob]);
+      [storage_key_blob],
+      false);
   }
 
   getKeyCharacteristics(request) {
@@ -1299,7 +1314,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       13,  // ordinal
       arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_GetKeyCharacteristics_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   getRootOfTrustChallenge() {
@@ -1308,7 +1324,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       14,  // ordinal
       arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_GetRootOfTrustChallenge_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getRootOfTrust(challenge) {
@@ -1317,7 +1334,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       15,  // ordinal
       arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_GetRootOfTrust_ResponseParamsSpec,
-      [challenge]);
+      [challenge],
+      false);
   }
 
   sendRootOfTrust(root_of_trust) {
@@ -1326,7 +1344,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       16,  // ordinal
       arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_SendRootOfTrust_ResponseParamsSpec,
-      [root_of_trust]);
+      [root_of_trust],
+      false);
   }
 
   updateAad(request) {
@@ -1335,7 +1354,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       17,  // ordinal
       arc.mojom.keymint.KeyMintServer_UpdateAad_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_UpdateAad_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   update(request) {
@@ -1344,7 +1364,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       18,  // ordinal
       arc.mojom.keymint.KeyMintServer_Update_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_Update_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   finish(request) {
@@ -1353,7 +1374,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       19,  // ordinal
       arc.mojom.keymint.KeyMintServer_Finish_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_Finish_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   abort(op_handle) {
@@ -1362,7 +1384,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       20,  // ordinal
       arc.mojom.keymint.KeyMintServer_Abort_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_Abort_ResponseParamsSpec,
-      [op_handle]);
+      [op_handle],
+      false);
   }
 
   getSharedSecretParameters() {
@@ -1371,7 +1394,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       21,  // ordinal
       arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_GetSharedSecretParameters_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   computeSharedSecret(secret_params) {
@@ -1380,7 +1404,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       22,  // ordinal
       arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_ComputeSharedSecret_ResponseParamsSpec,
-      [secret_params]);
+      [secret_params],
+      false);
   }
 
   generateTimeStamp(challenge) {
@@ -1389,7 +1414,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       23,  // ordinal
       arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_GenerateTimeStamp_ResponseParamsSpec,
-      [challenge]);
+      [challenge],
+      false);
   }
 
   generateEcdsaP256KeyPair(test_mode) {
@@ -1398,7 +1424,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       24,  // ordinal
       arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_GenerateEcdsaP256KeyPair_ResponseParamsSpec,
-      [test_mode]);
+      [test_mode],
+      false);
   }
 
   generateCertificateRequest(request) {
@@ -1407,7 +1434,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       25,  // ordinal
       arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ParamsSpec,
       arc.mojom.keymint.KeyMintServer_GenerateCertificateRequest_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   setVendorPatchLevel(android_vendor_patchlevel) {
@@ -1416,7 +1444,8 @@ arc.mojom.keymint.KeyMintServerRemoteCallHandler = class {
       26,  // ordinal
       arc.mojom.keymint.KeyMintServer_SetVendorPatchLevel_ParamsSpec,
       null,
-      [android_vendor_patchlevel]);
+      [android_vendor_patchlevel],
+      false);
   }
 
 };

@@ -99,7 +99,8 @@ unzip.mojom.UnzipFilterRemoteCallHandler = class {
       0,  // ordinal
       unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec,
       unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
 };
@@ -163,7 +164,8 @@ unzip.mojom.UnzipListenerRemoteCallHandler = class {
       0,  // ordinal
       unzip.mojom.UnzipListener_OnProgress_ParamsSpec,
       null,
-      [bytes]);
+      [bytes],
+      false);
   }
 
 };
@@ -274,7 +276,8 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
       0,  // ordinal
       unzip.mojom.Unzipper_Unzip_ParamsSpec,
       unzip.mojom.Unzipper_Unzip_ResponseParamsSpec,
-      [zip_file, output_dir, options, filter, listener]);
+      [zip_file, output_dir, options, filter, listener],
+      false);
   }
 
   detectEncoding(zip_file) {
@@ -283,7 +286,8 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
       1,  // ordinal
       unzip.mojom.Unzipper_DetectEncoding_ParamsSpec,
       unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec,
-      [zip_file]);
+      [zip_file],
+      false);
   }
 
   getExtractedInfo(zip_file) {
@@ -292,7 +296,8 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
       2,  // ordinal
       unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec,
       unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec,
-      [zip_file]);
+      [zip_file],
+      false);
   }
 
   decodeXz(in_file, out_file) {
@@ -301,7 +306,8 @@ unzip.mojom.UnzipperRemoteCallHandler = class {
       3,  // ordinal
       unzip.mojom.Unzipper_DecodeXz_ParamsSpec,
       unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec,
-      [in_file, out_file]);
+      [in_file, out_file],
+      false);
   }
 
 };

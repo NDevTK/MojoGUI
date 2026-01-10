@@ -72,7 +72,8 @@ ash.common.mojom.ShortcutInputObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec,
       null,
-      [prerewritten_key_event, key_event]);
+      [prerewritten_key_event, key_event],
+      false);
   }
 
   onShortcutInputEventReleased(prerewritten_key_event, key_event) {
@@ -81,7 +82,8 @@ ash.common.mojom.ShortcutInputObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec,
       null,
-      [prerewritten_key_event, key_event]);
+      [prerewritten_key_event, key_event],
+      false);
   }
 
 };
@@ -150,7 +152,8 @@ ash.common.mojom.ShortcutInputProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   stopObservingShortcutInput() {
@@ -159,7 +162,8 @@ ash.common.mojom.ShortcutInputProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -65,7 +65,8 @@ blink.mojom.CallStackGeneratorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec,
       blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

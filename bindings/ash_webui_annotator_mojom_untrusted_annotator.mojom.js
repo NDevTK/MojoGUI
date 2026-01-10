@@ -84,7 +84,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
       0,  // ordinal
       ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   undo() {
@@ -93,7 +94,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
       1,  // ordinal
       ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   redo() {
@@ -102,7 +104,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
       2,  // ordinal
       ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setTool(tool) {
@@ -111,7 +114,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageRemoteCallHandler = class {
       3,  // ordinal
       ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec,
       null,
-      [tool]);
+      [tool],
+      false);
   }
 
 };
@@ -182,7 +186,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec,
       null,
-      [undo_available, redo_available]);
+      [undo_available, redo_available],
+      false);
   }
 
   onCanvasInitialized(success) {
@@ -191,7 +196,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec,
       null,
-      [success]);
+      [success],
+      false);
   }
 
 };
@@ -256,7 +262,8 @@ ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemoteCallHandler = clas
       0,  // ordinal
       ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec,
       null,
-      [handler, annotator]);
+      [handler, annotator],
+      false);
   }
 
 };

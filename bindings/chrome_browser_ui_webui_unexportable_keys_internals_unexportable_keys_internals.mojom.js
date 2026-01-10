@@ -86,7 +86,8 @@ unexportable_keys_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       unexportable_keys_internals.mojom.PageHandlerFactory_CreateUnexportableKeysInternalsHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -167,7 +168,8 @@ unexportable_keys_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec,
       unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   deleteKey(key_id) {
@@ -176,7 +178,8 @@ unexportable_keys_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec,
       unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec,
-      [key_id]);
+      [key_id],
+      false);
   }
 
 };

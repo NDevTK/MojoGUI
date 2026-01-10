@@ -138,7 +138,8 @@ blink.mojom.ClipboardListenerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ClipboardListener_OnClipboardDataChanged_ParamsSpec,
       null,
-      [types, change_id]);
+      [types, change_id],
+      false);
   }
 
 };
@@ -422,7 +423,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ClipboardHost_GetSequenceNumber_ParamsSpec,
       blink.mojom.ClipboardHost_GetSequenceNumber_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   isFormatAvailable(format, buffer) {
@@ -431,7 +433,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ClipboardHost_IsFormatAvailable_ParamsSpec,
       blink.mojom.ClipboardHost_IsFormatAvailable_ResponseParamsSpec,
-      [format, buffer]);
+      [format, buffer],
+      false);
   }
 
   readAvailableTypes(buffer) {
@@ -440,7 +443,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ClipboardHost_ReadAvailableTypes_ParamsSpec,
       blink.mojom.ClipboardHost_ReadAvailableTypes_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   readText(buffer) {
@@ -449,7 +453,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.ClipboardHost_ReadText_ParamsSpec,
       blink.mojom.ClipboardHost_ReadText_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   readHtml(buffer) {
@@ -458,7 +463,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.ClipboardHost_ReadHtml_ParamsSpec,
       blink.mojom.ClipboardHost_ReadHtml_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   readSvg(buffer) {
@@ -467,7 +473,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.ClipboardHost_ReadSvg_ParamsSpec,
       blink.mojom.ClipboardHost_ReadSvg_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   readRtf(buffer) {
@@ -476,7 +483,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.ClipboardHost_ReadRtf_ParamsSpec,
       blink.mojom.ClipboardHost_ReadRtf_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   readPng(buffer) {
@@ -485,7 +493,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.ClipboardHost_ReadPng_ParamsSpec,
       blink.mojom.ClipboardHost_ReadPng_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   readFiles(buffer) {
@@ -494,7 +503,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.ClipboardHost_ReadFiles_ParamsSpec,
       blink.mojom.ClipboardHost_ReadFiles_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   readDataTransferCustomData(buffer, type) {
@@ -503,7 +513,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.ClipboardHost_ReadDataTransferCustomData_ParamsSpec,
       blink.mojom.ClipboardHost_ReadDataTransferCustomData_ResponseParamsSpec,
-      [buffer, type]);
+      [buffer, type],
+      false);
   }
 
   readAvailableCustomAndStandardFormats() {
@@ -512,7 +523,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ParamsSpec,
       blink.mojom.ClipboardHost_ReadAvailableCustomAndStandardFormats_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   readUnsanitizedCustomFormat(format) {
@@ -521,7 +533,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ParamsSpec,
       blink.mojom.ClipboardHost_ReadUnsanitizedCustomFormat_ResponseParamsSpec,
-      [format]);
+      [format],
+      false);
   }
 
   writeText(text) {
@@ -530,7 +543,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.ClipboardHost_WriteText_ParamsSpec,
       null,
-      [text]);
+      [text],
+      false);
   }
 
   writeHtml(markup, url) {
@@ -539,7 +553,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       13,  // ordinal
       blink.mojom.ClipboardHost_WriteHtml_ParamsSpec,
       null,
-      [markup, url]);
+      [markup, url],
+      false);
   }
 
   writeSvg(markup) {
@@ -548,7 +563,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       14,  // ordinal
       blink.mojom.ClipboardHost_WriteSvg_ParamsSpec,
       null,
-      [markup]);
+      [markup],
+      false);
   }
 
   writeSmartPasteMarker() {
@@ -557,7 +573,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       15,  // ordinal
       blink.mojom.ClipboardHost_WriteSmartPasteMarker_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   writeDataTransferCustomData(data) {
@@ -566,7 +583,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       16,  // ordinal
       blink.mojom.ClipboardHost_WriteDataTransferCustomData_ParamsSpec,
       null,
-      [data]);
+      [data],
+      false);
   }
 
   writeBookmark(url, title) {
@@ -575,7 +593,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       17,  // ordinal
       blink.mojom.ClipboardHost_WriteBookmark_ParamsSpec,
       null,
-      [url, title]);
+      [url, title],
+      false);
   }
 
   writeImage(image) {
@@ -584,7 +603,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       18,  // ordinal
       blink.mojom.ClipboardHost_WriteImage_ParamsSpec,
       null,
-      [image]);
+      [image],
+      false);
   }
 
   writeUnsanitizedCustomFormat(format, data) {
@@ -593,7 +613,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       19,  // ordinal
       blink.mojom.ClipboardHost_WriteUnsanitizedCustomFormat_ParamsSpec,
       null,
-      [format, data]);
+      [format, data],
+      false);
   }
 
   commitWrite() {
@@ -602,7 +623,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       20,  // ordinal
       blink.mojom.ClipboardHost_CommitWrite_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   writeStringToFindPboard(text) {
@@ -611,7 +633,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       21,  // ordinal
       blink.mojom.ClipboardHost_WriteStringToFindPboard_ParamsSpec,
       null,
-      [text]);
+      [text],
+      false);
   }
 
   getPlatformPermissionState() {
@@ -620,7 +643,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       22,  // ordinal
       blink.mojom.ClipboardHost_GetPlatformPermissionState_ParamsSpec,
       blink.mojom.ClipboardHost_GetPlatformPermissionState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   registerClipboardListener(listener) {
@@ -629,7 +653,8 @@ blink.mojom.ClipboardHostRemoteCallHandler = class {
       23,  // ordinal
       blink.mojom.ClipboardHost_RegisterClipboardListener_ParamsSpec,
       null,
-      [listener]);
+      [listener],
+      false);
   }
 
 };

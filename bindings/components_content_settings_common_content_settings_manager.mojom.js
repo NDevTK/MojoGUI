@@ -99,7 +99,8 @@ content_settings.mojom.ContentSettingsManagerRemoteCallHandler = class {
       0,  // ordinal
       content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec,
       null,
-      [clone]);
+      [clone],
+      false);
   }
 
   allowStorageAccess(frame_token, storage_type, origin, site_for_cookies, top_frame_origin) {
@@ -108,7 +109,8 @@ content_settings.mojom.ContentSettingsManagerRemoteCallHandler = class {
       1,  // ordinal
       content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec,
       content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec,
-      [frame_token, storage_type, origin, site_for_cookies, top_frame_origin]);
+      [frame_token, storage_type, origin, site_for_cookies, top_frame_origin],
+      false);
   }
 
   onContentBlocked(frame_token, type) {
@@ -117,7 +119,8 @@ content_settings.mojom.ContentSettingsManagerRemoteCallHandler = class {
       2,  // ordinal
       content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec,
       null,
-      [frame_token, type]);
+      [frame_token, type],
+      false);
   }
 
 };

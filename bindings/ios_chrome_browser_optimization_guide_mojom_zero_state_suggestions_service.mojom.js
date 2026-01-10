@@ -79,7 +79,8 @@ ai.mojom.ZeroStateSuggestionsServiceRemoteCallHandler = class {
       0,  // ordinal
       ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec,
       ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

@@ -70,7 +70,8 @@ chrome.mojom.SingleFileExtractorRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.SingleFileExtractor_Extract_ParamsSpec,
       chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec,
-      [src_file, dst_file, listener]);
+      [src_file, dst_file, listener],
+      false);
   }
 
 };
@@ -135,7 +136,8 @@ chrome.mojom.SingleFileExtractorListenerRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec,
       null,
-      [total_bytes, progress_bytes]);
+      [total_bytes, progress_bytes],
+      false);
   }
 
 };

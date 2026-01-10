@@ -58,7 +58,8 @@ viz.mojom.BeginFrameObserverRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec,
       null,
-      [args]);
+      [args],
+      false);
   }
 
 };

@@ -74,7 +74,8 @@ remoting.mojom.RemoteUrlOpenerRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec,
       remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
 };

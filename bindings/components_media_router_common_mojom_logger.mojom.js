@@ -102,7 +102,8 @@ media_router.mojom.LoggerRemoteCallHandler = class {
       0,  // ordinal
       media_router.mojom.Logger_LogInfo_ParamsSpec,
       null,
-      [category, component, message, sink_id, media_source, session_id]);
+      [category, component, message, sink_id, media_source, session_id],
+      false);
   }
 
   logWarning(category, component, message, sink_id, media_source, session_id) {
@@ -111,7 +112,8 @@ media_router.mojom.LoggerRemoteCallHandler = class {
       1,  // ordinal
       media_router.mojom.Logger_LogWarning_ParamsSpec,
       null,
-      [category, component, message, sink_id, media_source, session_id]);
+      [category, component, message, sink_id, media_source, session_id],
+      false);
   }
 
   logError(category, component, message, sink_id, media_source, session_id) {
@@ -120,7 +122,8 @@ media_router.mojom.LoggerRemoteCallHandler = class {
       2,  // ordinal
       media_router.mojom.Logger_LogError_ParamsSpec,
       null,
-      [category, component, message, sink_id, media_source, session_id]);
+      [category, component, message, sink_id, media_source, session_id],
+      false);
   }
 
   bindReceiver(receiver) {
@@ -129,7 +132,8 @@ media_router.mojom.LoggerRemoteCallHandler = class {
       3,  // ordinal
       media_router.mojom.Logger_BindReceiver_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

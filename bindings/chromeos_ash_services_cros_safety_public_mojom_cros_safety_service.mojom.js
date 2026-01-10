@@ -105,7 +105,8 @@ ash.cros_safety.mojom.CrosSafetyServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec,
       ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec,
-      [session]);
+      [session],
+      false);
   }
 
   createCloudSafetySession(session) {
@@ -114,7 +115,8 @@ ash.cros_safety.mojom.CrosSafetyServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec,
       ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec,
-      [session]);
+      [session],
+      false);
   }
 
 };

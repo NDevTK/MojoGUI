@@ -74,7 +74,8 @@ customize_buttons.mojom.CustomizeButtonsHandlerFactoryRemoteCallHandler = class 
       0,  // ordinal
       customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -150,7 +151,8 @@ customize_buttons.mojom.CustomizeButtonsHandlerRemoteCallHandler = class {
       0,  // ordinal
       customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   incrementWallpaperSearchButtonShownCount() {
@@ -159,7 +161,8 @@ customize_buttons.mojom.CustomizeButtonsHandlerRemoteCallHandler = class {
       1,  // ordinal
       customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setCustomizeChromeSidePanelVisible(visible, section, trigger) {
@@ -168,7 +171,8 @@ customize_buttons.mojom.CustomizeButtonsHandlerRemoteCallHandler = class {
       2,  // ordinal
       customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec,
       null,
-      [visible, section, trigger]);
+      [visible, section, trigger],
+      false);
   }
 
 };
@@ -232,7 +236,8 @@ customize_buttons.mojom.CustomizeButtonsDocumentRemoteCallHandler = class {
       0,  // ordinal
       customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec,
       null,
-      [visible]);
+      [visible],
+      false);
   }
 
 };

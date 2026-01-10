@@ -66,7 +66,8 @@ network_hints.mojom.NetworkHintsHandlerRemoteCallHandler = class {
       0,  // ordinal
       network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec,
       null,
-      [url_list]);
+      [url_list],
+      false);
   }
 
   preconnect(url, allow_credentials) {
@@ -75,7 +76,8 @@ network_hints.mojom.NetworkHintsHandlerRemoteCallHandler = class {
       1,  // ordinal
       network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec,
       null,
-      [url, allow_credentials]);
+      [url, allow_credentials],
+      false);
   }
 
 };

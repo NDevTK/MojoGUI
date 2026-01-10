@@ -26,7 +26,7 @@ blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     blink.mojom.ServiceWorkerObjectInfoSpec, 'blink.mojom.ServiceWorkerObjectInfo', [
       mojo.internal.StructField('version_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('state', 8, 0, blink.mojom.ServiceWorkerStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('state', 8, 0, blink.mojom.ServiceWorkerStateSpec, 0, false, 0, undefined),
       mojo.internal.StructField('url', 16, 0, url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('host_remote', 24, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.ServiceWorkerObjectHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('receiver', 32, 0, mojo.internal.AssociatedInterfaceRequest(blink.mojom.ServiceWorkerObjectRemote), null, false, 0, undefined),
@@ -88,7 +88,8 @@ blink.mojom.ServiceWorkerObjectHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec,
       null,
-      [message]);
+      [message],
+      false);
   }
 
   terminateForTesting() {
@@ -97,7 +98,8 @@ blink.mojom.ServiceWorkerObjectHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec,
       blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -161,7 +163,8 @@ blink.mojom.ServiceWorkerObjectRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
 };

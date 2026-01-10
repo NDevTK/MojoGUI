@@ -66,7 +66,8 @@ commerce.price_insights.mojom.PriceInsightsHandlerRemoteCallHandler = class {
       0,  // ordinal
       commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   showFeedback() {
@@ -75,7 +76,8 @@ commerce.price_insights.mojom.PriceInsightsHandlerRemoteCallHandler = class {
       1,  // ordinal
       commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -139,7 +141,8 @@ commerce.price_insights.mojom.PriceInsightsHandlerFactoryRemoteCallHandler = cla
       0,  // ordinal
       commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };

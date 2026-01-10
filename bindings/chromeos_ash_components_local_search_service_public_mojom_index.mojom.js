@@ -149,7 +149,8 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
       0,  // ordinal
       ash.local_search_service.mojom.Index_GetSize_ParamsSpec,
       ash.local_search_service.mojom.Index_GetSize_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addOrUpdate(data) {
@@ -158,7 +159,8 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
       1,  // ordinal
       ash.local_search_service.mojom.Index_AddOrUpdate_ParamsSpec,
       ash.local_search_service.mojom.Index_AddOrUpdate_ResponseParamsSpec,
-      [data]);
+      [data],
+      false);
   }
 
   delete(ids) {
@@ -167,7 +169,8 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
       2,  // ordinal
       ash.local_search_service.mojom.Index_Delete_ParamsSpec,
       ash.local_search_service.mojom.Index_Delete_ResponseParamsSpec,
-      [ids]);
+      [ids],
+      false);
   }
 
   updateDocuments(data) {
@@ -176,7 +179,8 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
       3,  // ordinal
       ash.local_search_service.mojom.Index_UpdateDocuments_ParamsSpec,
       ash.local_search_service.mojom.Index_UpdateDocuments_ResponseParamsSpec,
-      [data]);
+      [data],
+      false);
   }
 
   find(query, max_results) {
@@ -185,7 +189,8 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
       4,  // ordinal
       ash.local_search_service.mojom.Index_Find_ParamsSpec,
       ash.local_search_service.mojom.Index_Find_ResponseParamsSpec,
-      [query, max_results]);
+      [query, max_results],
+      false);
   }
 
   clearIndex() {
@@ -194,7 +199,8 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
       5,  // ordinal
       ash.local_search_service.mojom.Index_ClearIndex_ParamsSpec,
       ash.local_search_service.mojom.Index_ClearIndex_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setSearchParams(search_params) {
@@ -203,7 +209,8 @@ ash.local_search_service.mojom.IndexRemoteCallHandler = class {
       6,  // ordinal
       ash.local_search_service.mojom.Index_SetSearchParams_ParamsSpec,
       ash.local_search_service.mojom.Index_SetSearchParams_ResponseParamsSpec,
-      [search_params]);
+      [search_params],
+      false);
   }
 
 };

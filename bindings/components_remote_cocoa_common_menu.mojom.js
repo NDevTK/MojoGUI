@@ -146,7 +146,8 @@ remote_cocoa.mojom.MenuHostRemoteCallHandler = class {
       0,  // ordinal
       remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec,
       null,
-      [command_id, event_flags]);
+      [command_id, event_flags],
+      false);
   }
 
   menuClosed() {
@@ -155,7 +156,8 @@ remote_cocoa.mojom.MenuHostRemoteCallHandler = class {
       1,  // ordinal
       remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -227,7 +229,8 @@ remote_cocoa.mojom.MenuRemoteCallHandler = class {
       0,  // ordinal
       remote_cocoa.mojom.Menu_Cancel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateMenuItem(command_id, enabled, visible, label) {
@@ -236,7 +239,8 @@ remote_cocoa.mojom.MenuRemoteCallHandler = class {
       1,  // ordinal
       remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec,
       null,
-      [command_id, enabled, visible, label]);
+      [command_id, enabled, visible, label],
+      false);
   }
 
 };

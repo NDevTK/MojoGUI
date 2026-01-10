@@ -225,7 +225,7 @@ mojo.internal.Struct(
 // Struct: InterestGroup
 mojo.internal.Struct(
     blink.mojom.InterestGroupSpec, 'blink.mojom.InterestGroup', [
-      mojo.internal.StructField('kCompatibilityMode', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kCompatibilityMode', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

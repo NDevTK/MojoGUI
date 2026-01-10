@@ -27,7 +27,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('array_buffer_contents_array', 24, 0, mojo.internal.Array(blink.mojom.SerializedArrayBufferContentsSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('image_bitmap_contents_array', 32, 0, mojo.internal.Array(blink.mojom.SerializedStaticBitmapImageSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('user_activation', 40, 0, blink.mojom.UserActivationSnapshotSpec, null, true, 0, undefined),
-      mojo.internal.StructField('delegated_capability', 48, 0, blink.mojom.DelegatedCapabilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('delegated_capability', 48, 0, blink.mojom.DelegatedCapabilitySpec, 0, false, 0, undefined),
       mojo.internal.StructField('task_state_id', 56, 0, blink.mojom.TaskAttributionIdSpec, null, true, 0, undefined),
     ],
     [[0, 72]]);

@@ -155,7 +155,8 @@ cast_streaming.mojom.AudioBufferRequesterRemoteCallHandler = class {
       0,  // ordinal
       cast_streaming.mojom.AudioBufferRequester_GetBuffer_ParamsSpec,
       cast_streaming.mojom.AudioBufferRequester_GetBuffer_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   enableBitstreamConverter() {
@@ -164,7 +165,8 @@ cast_streaming.mojom.AudioBufferRequesterRemoteCallHandler = class {
       1,  // ordinal
       cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ParamsSpec,
       cast_streaming.mojom.AudioBufferRequester_EnableBitstreamConverter_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -244,7 +246,8 @@ cast_streaming.mojom.VideoBufferRequesterRemoteCallHandler = class {
       0,  // ordinal
       cast_streaming.mojom.VideoBufferRequester_GetBuffer_ParamsSpec,
       cast_streaming.mojom.VideoBufferRequester_GetBuffer_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   enableBitstreamConverter() {
@@ -253,7 +256,8 @@ cast_streaming.mojom.VideoBufferRequesterRemoteCallHandler = class {
       1,  // ordinal
       cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ParamsSpec,
       cast_streaming.mojom.VideoBufferRequester_EnableBitstreamConverter_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -328,7 +332,8 @@ cast_streaming.mojom.DemuxerConnectorRemoteCallHandler = class {
       0,  // ordinal
       cast_streaming.mojom.DemuxerConnector_EnableReceiver_ParamsSpec,
       cast_streaming.mojom.DemuxerConnector_EnableReceiver_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onStreamsInitialized(audio_buffer_requester, video_buffer_requester) {
@@ -337,7 +342,8 @@ cast_streaming.mojom.DemuxerConnectorRemoteCallHandler = class {
       1,  // ordinal
       cast_streaming.mojom.DemuxerConnector_OnStreamsInitialized_ParamsSpec,
       null,
-      [audio_buffer_requester, video_buffer_requester]);
+      [audio_buffer_requester, video_buffer_requester],
+      false);
   }
 
 };

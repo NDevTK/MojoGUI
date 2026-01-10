@@ -220,7 +220,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('display_items', 8, 0, mojo.internal.Array(payments.mojom.PaymentItemSpec, false), null, true, 0, undefined),
       mojo.internal.StructField('shipping_options', 16, 0, mojo.internal.Array(payments.mojom.PaymentShippingOptionSpec, false), null, true, 0, undefined),
       mojo.internal.StructField('modifiers', 24, 0, mojo.internal.Array(payments.mojom.PaymentDetailsModifierSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('error', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error', 32, 0, mojo.internal.String, 0, false, 0, undefined),
       mojo.internal.StructField('shipping_address_errors', 40, 0, payments.mojom.AddressErrorsSpec, null, true, 0, undefined),
       mojo.internal.StructField('id', 48, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('stringified_payment_method_errors', 56, 0, mojo.internal.String, null, true, 0, undefined),
@@ -357,7 +357,8 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec,
       null,
-      [method_name, stringified_details]);
+      [method_name, stringified_details],
+      false);
   }
 
   onShippingAddressChange(address) {
@@ -366,7 +367,8 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       1,  // ordinal
       payments.mojom.PaymentRequestClient_OnShippingAddressChange_ParamsSpec,
       null,
-      [address]);
+      [address],
+      false);
   }
 
   onShippingOptionChange(shipping_option_id) {
@@ -375,7 +377,8 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.PaymentRequestClient_OnShippingOptionChange_ParamsSpec,
       null,
-      [shipping_option_id]);
+      [shipping_option_id],
+      false);
   }
 
   onPayerDetailChange(detail) {
@@ -384,7 +387,8 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       3,  // ordinal
       payments.mojom.PaymentRequestClient_OnPayerDetailChange_ParamsSpec,
       null,
-      [detail]);
+      [detail],
+      false);
   }
 
   onPaymentResponse(response) {
@@ -393,7 +397,8 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       4,  // ordinal
       payments.mojom.PaymentRequestClient_OnPaymentResponse_ParamsSpec,
       null,
-      [response]);
+      [response],
+      false);
   }
 
   onError(error, error_message) {
@@ -402,7 +407,8 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       5,  // ordinal
       payments.mojom.PaymentRequestClient_OnError_ParamsSpec,
       null,
-      [error, error_message]);
+      [error, error_message],
+      false);
   }
 
   onComplete() {
@@ -411,7 +417,8 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       6,  // ordinal
       payments.mojom.PaymentRequestClient_OnComplete_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onAbort(aborted_successfully) {
@@ -420,7 +427,8 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       7,  // ordinal
       payments.mojom.PaymentRequestClient_OnAbort_ParamsSpec,
       null,
-      [aborted_successfully]);
+      [aborted_successfully],
+      false);
   }
 
   onCanMakePayment(result) {
@@ -429,7 +437,8 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       8,  // ordinal
       payments.mojom.PaymentRequestClient_OnCanMakePayment_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
   onHasEnrolledInstrument(result) {
@@ -438,7 +447,8 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       9,  // ordinal
       payments.mojom.PaymentRequestClient_OnHasEnrolledInstrument_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
   warnNoFavicon() {
@@ -447,7 +457,8 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       10,  // ordinal
       payments.mojom.PaymentRequestClient_WarnNoFavicon_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   allowConnectToSource(url, url_before_redirects, did_follow_redirect) {
@@ -456,7 +467,8 @@ payments.mojom.PaymentRequestClientRemoteCallHandler = class {
       11,  // ordinal
       payments.mojom.PaymentRequestClient_AllowConnectToSource_ParamsSpec,
       payments.mojom.PaymentRequestClient_AllowConnectToSource_ResponseParamsSpec,
-      [url, url_before_redirects, did_follow_redirect]);
+      [url, url_before_redirects, did_follow_redirect],
+      false);
   }
 
 };
@@ -568,7 +580,8 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.PaymentRequest_Init_ParamsSpec,
       null,
-      [client, method_data, details, options]);
+      [client, method_data, details, options],
+      false);
   }
 
   show(wait_for_updated_details, had_user_activation) {
@@ -577,7 +590,8 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       1,  // ordinal
       payments.mojom.PaymentRequest_Show_ParamsSpec,
       null,
-      [wait_for_updated_details, had_user_activation]);
+      [wait_for_updated_details, had_user_activation],
+      false);
   }
 
   updateWith(details) {
@@ -586,7 +600,8 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.PaymentRequest_UpdateWith_ParamsSpec,
       null,
-      [details]);
+      [details],
+      false);
   }
 
   onPaymentDetailsNotUpdated() {
@@ -595,7 +610,8 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       3,  // ordinal
       payments.mojom.PaymentRequest_OnPaymentDetailsNotUpdated_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   abort() {
@@ -604,7 +620,8 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       4,  // ordinal
       payments.mojom.PaymentRequest_Abort_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   complete(result) {
@@ -613,7 +630,8 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       5,  // ordinal
       payments.mojom.PaymentRequest_Complete_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
   retry(errors) {
@@ -622,7 +640,8 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       6,  // ordinal
       payments.mojom.PaymentRequest_Retry_ParamsSpec,
       null,
-      [errors]);
+      [errors],
+      false);
   }
 
   canMakePayment() {
@@ -631,7 +650,8 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       7,  // ordinal
       payments.mojom.PaymentRequest_CanMakePayment_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   hasEnrolledInstrument() {
@@ -640,7 +660,8 @@ payments.mojom.PaymentRequestRemoteCallHandler = class {
       8,  // ordinal
       payments.mojom.PaymentRequest_HasEnrolledInstrument_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

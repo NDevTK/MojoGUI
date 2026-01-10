@@ -95,7 +95,8 @@ blink.mojom.DateTimeChooserRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DateTimeChooser_OpenDateTimeDialog_ParamsSpec,
       blink.mojom.DateTimeChooser_OpenDateTimeDialog_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   closeDateTimeDialog() {
@@ -104,7 +105,8 @@ blink.mojom.DateTimeChooserRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DateTimeChooser_CloseDateTimeDialog_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

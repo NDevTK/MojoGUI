@@ -213,7 +213,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.ProcessInternalsHandler_GetProcessCountInfo_ParamsSpec,
       mojom.ProcessInternalsHandler_GetProcessCountInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getIsolationMode() {
@@ -222,7 +223,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       1,  // ordinal
       mojom.ProcessInternalsHandler_GetIsolationMode_ParamsSpec,
       mojom.ProcessInternalsHandler_GetIsolationMode_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getProcessPerSiteMode() {
@@ -231,7 +233,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       2,  // ordinal
       mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ParamsSpec,
       mojom.ProcessInternalsHandler_GetProcessPerSiteMode_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getUserTriggeredIsolatedOrigins() {
@@ -240,7 +243,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       3,  // ordinal
       mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ParamsSpec,
       mojom.ProcessInternalsHandler_GetUserTriggeredIsolatedOrigins_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getWebTriggeredIsolatedOrigins() {
@@ -249,7 +253,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       4,  // ordinal
       mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ParamsSpec,
       mojom.ProcessInternalsHandler_GetWebTriggeredIsolatedOrigins_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getGloballyIsolatedOrigins() {
@@ -258,7 +263,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       5,  // ordinal
       mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ParamsSpec,
       mojom.ProcessInternalsHandler_GetGloballyIsolatedOrigins_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAllWebContentsInfo() {
@@ -267,7 +273,8 @@ mojom.ProcessInternalsHandlerRemoteCallHandler = class {
       6,  // ordinal
       mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ParamsSpec,
       mojom.ProcessInternalsHandler_GetAllWebContentsInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

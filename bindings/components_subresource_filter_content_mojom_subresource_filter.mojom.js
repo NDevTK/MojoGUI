@@ -69,7 +69,8 @@ subresource_filter.mojom.SubresourceFilterAgentRemoteCallHandler = class {
       0,  // ordinal
       subresource_filter.mojom.SubresourceFilterAgent_ActivateForNextCommittedLoad_ParamsSpec,
       null,
-      [activation_state, ad_evidence]);
+      [activation_state, ad_evidence],
+      false);
   }
 
 };
@@ -160,7 +161,8 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
       0,  // ordinal
       subresource_filter.mojom.SubresourceFilterHost_DidDisallowFirstSubresource_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   frameIsAd() {
@@ -169,7 +171,8 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
       1,  // ordinal
       subresource_filter.mojom.SubresourceFilterHost_FrameIsAd_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   frameWasCreatedByAdScript() {
@@ -178,7 +181,8 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
       2,  // ordinal
       subresource_filter.mojom.SubresourceFilterHost_FrameWasCreatedByAdScript_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   adScriptDidCreateFencedFrame(fenced_frame_root_placeholder_token) {
@@ -187,7 +191,8 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
       3,  // ordinal
       subresource_filter.mojom.SubresourceFilterHost_AdScriptDidCreateFencedFrame_ParamsSpec,
       null,
-      [fenced_frame_root_placeholder_token]);
+      [fenced_frame_root_placeholder_token],
+      false);
   }
 
   setDocumentLoadStatistics(statistics) {
@@ -196,7 +201,8 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
       4,  // ordinal
       subresource_filter.mojom.SubresourceFilterHost_SetDocumentLoadStatistics_ParamsSpec,
       null,
-      [statistics]);
+      [statistics],
+      false);
   }
 
   onAdsViolationTriggered(violation) {
@@ -205,7 +211,8 @@ subresource_filter.mojom.SubresourceFilterHostRemoteCallHandler = class {
       5,  // ordinal
       subresource_filter.mojom.SubresourceFilterHost_OnAdsViolationTriggered_ParamsSpec,
       null,
-      [violation]);
+      [violation],
+      false);
   }
 
 };

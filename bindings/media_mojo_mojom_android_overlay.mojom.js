@@ -82,7 +82,8 @@ media.mojom.AndroidOverlayProviderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec,
       null,
-      [overlay, client, config]);
+      [overlay, client, config],
+      false);
   }
 
 };
@@ -146,7 +147,8 @@ media.mojom.AndroidOverlayRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec,
       null,
-      [rect]);
+      [rect],
+      false);
   }
 
 };
@@ -231,7 +233,8 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec,
       null,
-      [surface_key]);
+      [surface_key],
+      false);
   }
 
   onDestroyed() {
@@ -240,7 +243,8 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSynchronouslyDestroyed() {
@@ -249,7 +253,8 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec,
       media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onPowerEfficientState(is_power_efficient) {
@@ -258,7 +263,8 @@ media.mojom.AndroidOverlayClientRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec,
       null,
-      [is_power_efficient]);
+      [is_power_efficient],
+      false);
   }
 
 };

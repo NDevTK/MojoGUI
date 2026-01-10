@@ -767,7 +767,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetAvailableRoutines_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getRoutineUpdate(id, command, include_output) {
@@ -776,7 +777,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_GetRoutineUpdate_ResponseParamsSpec,
-      [id, command, include_output]);
+      [id, command, include_output],
+      false);
   }
 
   runUrandomRoutine(length_seconds) {
@@ -785,7 +787,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUrandomRoutine_ResponseParamsSpec,
-      [length_seconds]);
+      [length_seconds],
+      false);
   }
 
   runBatteryCapacityRoutine() {
@@ -794,7 +797,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       3,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryCapacityRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runBatteryHealthRoutine() {
@@ -803,7 +807,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       4,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryHealthRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runSmartctlCheckRoutine(percentage_used_threshold) {
@@ -812,7 +817,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       5,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSmartctlCheckRoutine_ResponseParamsSpec,
-      [percentage_used_threshold]);
+      [percentage_used_threshold],
+      false);
   }
 
   runAcPowerRoutine(expected_status, expected_power_type) {
@@ -821,7 +827,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       6,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAcPowerRoutine_ResponseParamsSpec,
-      [expected_status, expected_power_type]);
+      [expected_status, expected_power_type],
+      false);
   }
 
   runCpuCacheRoutine(length_seconds) {
@@ -830,7 +837,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       7,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuCacheRoutine_ResponseParamsSpec,
-      [length_seconds]);
+      [length_seconds],
+      false);
   }
 
   runCpuStressRoutine(length_seconds) {
@@ -839,7 +847,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       8,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCpuStressRoutine_ResponseParamsSpec,
-      [length_seconds]);
+      [length_seconds],
+      false);
   }
 
   runFloatingPointAccuracyRoutine(length_seconds) {
@@ -848,7 +857,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       9,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFloatingPointAccuracyRoutine_ResponseParamsSpec,
-      [length_seconds]);
+      [length_seconds],
+      false);
   }
 
   dEPRECATED_RunNvmeWearLevelRoutineWithThreshold(wear_level_threshold) {
@@ -857,7 +867,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       10,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutineWithThreshold_ResponseParamsSpec,
-      [wear_level_threshold]);
+      [wear_level_threshold],
+      false);
   }
 
   dEPRECATED_RunNvmeWearLevelRoutine(wear_level_threshold) {
@@ -866,7 +877,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       32,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunNvmeWearLevelRoutine_ResponseParamsSpec,
-      [wear_level_threshold]);
+      [wear_level_threshold],
+      false);
   }
 
   runNvmeSelfTestRoutine(nvme_self_test_type) {
@@ -875,7 +887,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       11,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunNvmeSelfTestRoutine_ResponseParamsSpec,
-      [nvme_self_test_type]);
+      [nvme_self_test_type],
+      false);
   }
 
   runDiskReadRoutine(type, length_seconds, file_size_mb) {
@@ -884,7 +897,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       12,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDiskReadRoutine_ResponseParamsSpec,
-      [type, length_seconds, file_size_mb]);
+      [type, length_seconds, file_size_mb],
+      false);
   }
 
   runPrimeSearchRoutine(length_seconds) {
@@ -893,7 +907,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       13,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrimeSearchRoutine_ResponseParamsSpec,
-      [length_seconds]);
+      [length_seconds],
+      false);
   }
 
   runBatteryDischargeRoutine(length_seconds, maximum_discharge_percent_allowed) {
@@ -902,7 +917,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       14,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryDischargeRoutine_ResponseParamsSpec,
-      [length_seconds, maximum_discharge_percent_allowed]);
+      [length_seconds, maximum_discharge_percent_allowed],
+      false);
   }
 
   runBatteryChargeRoutine(length_seconds, minimum_charge_percent_required) {
@@ -911,7 +927,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       15,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBatteryChargeRoutine_ResponseParamsSpec,
-      [length_seconds, minimum_charge_percent_required]);
+      [length_seconds, minimum_charge_percent_required],
+      false);
   }
 
   runMemoryRoutine(max_testing_mem_kib) {
@@ -920,7 +937,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       16,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunMemoryRoutine_ResponseParamsSpec,
-      [max_testing_mem_kib]);
+      [max_testing_mem_kib],
+      false);
   }
 
   runLanConnectivityRoutine() {
@@ -929,7 +947,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       17,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunLanConnectivityRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runSignalStrengthRoutine() {
@@ -938,7 +957,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       18,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSignalStrengthRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runGatewayCanBePingedRoutine() {
@@ -947,7 +967,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       19,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunGatewayCanBePingedRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runHasSecureWiFiConnectionRoutine() {
@@ -956,7 +977,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       20,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHasSecureWiFiConnectionRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runDnsResolverPresentRoutine() {
@@ -965,7 +987,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       21,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolverPresentRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runDnsLatencyRoutine() {
@@ -974,7 +997,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       22,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsLatencyRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runDnsResolutionRoutine() {
@@ -983,7 +1007,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       23,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunDnsResolutionRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runCaptivePortalRoutine() {
@@ -992,7 +1017,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       24,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunCaptivePortalRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runHttpFirewallRoutine() {
@@ -1001,7 +1027,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       25,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpFirewallRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runHttpsFirewallRoutine() {
@@ -1010,7 +1037,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       26,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsFirewallRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runHttpsLatencyRoutine() {
@@ -1019,7 +1047,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       27,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunHttpsLatencyRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runVideoConferencingRoutine(stun_server_hostname) {
@@ -1028,7 +1057,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       28,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunVideoConferencingRoutine_ResponseParamsSpec,
-      [stun_server_hostname]);
+      [stun_server_hostname],
+      false);
   }
 
   runArcHttpRoutine() {
@@ -1037,7 +1067,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       29,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcHttpRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runArcPingRoutine() {
@@ -1046,7 +1077,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       30,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcPingRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runArcDnsResolutionRoutine() {
@@ -1055,7 +1087,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       31,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunArcDnsResolutionRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runSensitiveSensorRoutine() {
@@ -1064,7 +1097,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       33,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunSensitiveSensorRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runFingerprintRoutine() {
@@ -1073,7 +1107,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       34,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runFingerprintAliveRoutine() {
@@ -1082,7 +1117,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       35,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFingerprintAliveRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runPrivacyScreenRoutine(target_state) {
@@ -1091,7 +1127,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       36,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPrivacyScreenRoutine_ResponseParamsSpec,
-      [target_state]);
+      [target_state],
+      false);
   }
 
   dEPRECATED_RunLedLitUpRoutine(name, color, replier) {
@@ -1100,7 +1137,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       37,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunLedLitUpRoutine_ResponseParamsSpec,
-      [name, color, replier]);
+      [name, color, replier],
+      false);
   }
 
   runEmmcLifetimeRoutine() {
@@ -1109,7 +1147,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       38,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunEmmcLifetimeRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   dEPRECATED_RunAudioSetVolumeRoutine(node_id, volume, mute_on) {
@@ -1118,7 +1157,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       39,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetVolumeRoutine_ResponseParamsSpec,
-      [node_id, volume, mute_on]);
+      [node_id, volume, mute_on],
+      false);
   }
 
   dEPRECATED_RunAudioSetGainRoutine(node_id, gain, deprecated_mute_on) {
@@ -1127,7 +1167,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       40,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_DEPRECATED_RunAudioSetGainRoutine_ResponseParamsSpec,
-      [node_id, gain, deprecated_mute_on]);
+      [node_id, gain, deprecated_mute_on],
+      false);
   }
 
   runBluetoothPowerRoutine() {
@@ -1136,7 +1177,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       41,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPowerRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runBluetoothDiscoveryRoutine() {
@@ -1145,7 +1187,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       42,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothDiscoveryRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runBluetoothScanningRoutine(length_seconds) {
@@ -1154,7 +1197,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       43,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothScanningRoutine_ResponseParamsSpec,
-      [length_seconds]);
+      [length_seconds],
+      false);
   }
 
   runBluetoothPairingRoutine(peripheral_id) {
@@ -1163,7 +1207,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       44,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunBluetoothPairingRoutine_ResponseParamsSpec,
-      [peripheral_id]);
+      [peripheral_id],
+      false);
   }
 
   runPowerButtonRoutine(timeout_seconds) {
@@ -1172,7 +1217,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       45,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunPowerButtonRoutine_ResponseParamsSpec,
-      [timeout_seconds]);
+      [timeout_seconds],
+      false);
   }
 
   runAudioDriverRoutine() {
@@ -1181,7 +1227,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       46,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunAudioDriverRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runUfsLifetimeRoutine() {
@@ -1190,7 +1237,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       47,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunUfsLifetimeRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   runFanRoutine() {
@@ -1199,7 +1247,8 @@ ash.cros_healthd.mojom.CrosHealthdDiagnosticsServiceRemoteCallHandler = class {
       48,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdDiagnosticsService_RunFanRoutine_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1318,7 +1367,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddBluetoothObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   dEPRECATED_AddLidObserver(observer) {
@@ -1327,7 +1377,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddLidObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   dEPRECATED_AddPowerObserver(observer) {
@@ -1336,7 +1387,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddPowerObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   addNetworkObserver(observer) {
@@ -1345,7 +1397,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
       3,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_AddNetworkObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   dEPRECATED_AddAudioObserver(observer) {
@@ -1354,7 +1407,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
       4,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddAudioObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   dEPRECATED_AddThunderboltObserver(observer) {
@@ -1363,7 +1417,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
       5,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddThunderboltObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   dEPRECATED_AddUsbObserver(observer) {
@@ -1372,7 +1427,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
       6,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_DEPRECATED_AddUsbObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   addEventObserver(category, observer) {
@@ -1381,7 +1437,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
       7,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_AddEventObserver_ParamsSpec,
       null,
-      [category, observer]);
+      [category, observer],
+      false);
   }
 
   isEventSupported(category) {
@@ -1390,7 +1447,8 @@ ash.cros_healthd.mojom.CrosHealthdEventServiceRemoteCallHandler = class {
       8,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdEventService_IsEventSupported_ResponseParamsSpec,
-      [category]);
+      [category],
+      false);
   }
 
 };
@@ -1485,7 +1543,8 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeProcessInfo_ResponseParamsSpec,
-      [process_id]);
+      [process_id],
+      false);
   }
 
   probeTelemetryInfo(categories) {
@@ -1494,7 +1553,8 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeTelemetryInfo_ResponseParamsSpec,
-      [categories]);
+      [categories],
+      false);
   }
 
   probeMultipleProcessInfo(process_ids, ignore_single_process_error) {
@@ -1503,7 +1563,8 @@ ash.cros_healthd.mojom.CrosHealthdProbeServiceRemoteCallHandler = class {
       2,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ParamsSpec,
       ash.cros_healthd.mojom.CrosHealthdProbeService_ProbeMultipleProcessInfo_ResponseParamsSpec,
-      [process_ids, ignore_single_process_error]);
+      [process_ids, ignore_single_process_error],
+      false);
   }
 
 };

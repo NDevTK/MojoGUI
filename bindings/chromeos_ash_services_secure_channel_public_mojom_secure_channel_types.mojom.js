@@ -87,7 +87,8 @@ ash.secure_channel.mojom.FilePayloadListenerRemoteCallHandler = class {
       0,  // ordinal
       ash.secure_channel.mojom.FilePayloadListener_OnFileTransferUpdate_ParamsSpec,
       null,
-      [update]);
+      [update],
+      false);
   }
 
 };

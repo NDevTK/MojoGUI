@@ -73,7 +73,8 @@ ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemoteCallHand
       0,  // ordinal
       ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -150,7 +151,8 @@ ash.shortcut_customization.mojom.SearchHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec,
       ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec,
-      [query, max_num_results]);
+      [query, max_num_results],
+      false);
   }
 
   addSearchResultsAvailabilityObserver(observer) {
@@ -159,7 +161,8 @@ ash.shortcut_customization.mojom.SearchHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
 };

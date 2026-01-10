@@ -124,7 +124,8 @@ on_device_translation.mojom.FileOperationProxyRemoteCallHandler = class {
       0,  // ordinal
       on_device_translation.mojom.FileOperationProxy_FileExists_ParamsSpec,
       on_device_translation.mojom.FileOperationProxy_FileExists_ResponseParamsSpec,
-      [package_index, relative_path]);
+      [package_index, relative_path],
+      false);
   }
 
   open(package_index, relative_path) {
@@ -133,7 +134,8 @@ on_device_translation.mojom.FileOperationProxyRemoteCallHandler = class {
       1,  // ordinal
       on_device_translation.mojom.FileOperationProxy_Open_ParamsSpec,
       on_device_translation.mojom.FileOperationProxy_Open_ResponseParamsSpec,
-      [package_index, relative_path]);
+      [package_index, relative_path],
+      false);
   }
 
 };
@@ -224,7 +226,8 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class 
       0,  // ordinal
       on_device_translation.mojom.OnDeviceTranslationService_SetServiceConfig_ParamsSpec,
       null,
-      [config]);
+      [config],
+      false);
   }
 
   createTranslator(source_lang, target_lang, receiver) {
@@ -233,7 +236,8 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class 
       1,  // ordinal
       on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ParamsSpec,
       on_device_translation.mojom.OnDeviceTranslationService_CreateTranslator_ResponseParamsSpec,
-      [source_lang, target_lang, receiver]);
+      [source_lang, target_lang, receiver],
+      false);
   }
 
   canTranslate(source_lang, target_lang) {
@@ -242,7 +246,8 @@ on_device_translation.mojom.OnDeviceTranslationServiceRemoteCallHandler = class 
       2,  // ordinal
       on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ParamsSpec,
       on_device_translation.mojom.OnDeviceTranslationService_CanTranslate_ResponseParamsSpec,
-      [source_lang, target_lang]);
+      [source_lang, target_lang],
+      false);
   }
 
 };

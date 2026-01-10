@@ -211,7 +211,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.DeviceService_BindFingerprint_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindGeolocationContext(receiver) {
@@ -220,7 +221,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.DeviceService_BindGeolocationContext_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindGeolocationControl(receiver) {
@@ -229,7 +231,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.DeviceService_BindGeolocationControl_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindGeolocationInternals(receiver) {
@@ -238,7 +241,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.DeviceService_BindGeolocationInternals_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindInputDeviceManager(receiver) {
@@ -247,7 +251,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.DeviceService_BindInputDeviceManager_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindBatteryMonitor(receiver) {
@@ -256,7 +261,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       5,  // ordinal
       device.mojom.DeviceService_BindBatteryMonitor_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindPressureManager(receiver) {
@@ -265,7 +271,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       6,  // ordinal
       device.mojom.DeviceService_BindPressureManager_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindNFCProvider(receiver) {
@@ -274,7 +281,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       7,  // ordinal
       device.mojom.DeviceService_BindNFCProvider_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindVibrationManager(receiver, listener) {
@@ -283,7 +291,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       8,  // ordinal
       device.mojom.DeviceService_BindVibrationManager_ParamsSpec,
       null,
-      [receiver, listener]);
+      [receiver, listener],
+      false);
   }
 
   bindHidManager(receiver) {
@@ -292,7 +301,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       9,  // ordinal
       device.mojom.DeviceService_BindHidManager_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindMtpManager(receiver) {
@@ -301,7 +311,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       10,  // ordinal
       device.mojom.DeviceService_BindMtpManager_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindPowerMonitor(receiver) {
@@ -310,7 +321,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       11,  // ordinal
       device.mojom.DeviceService_BindPowerMonitor_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindPublicIpAddressGeolocationProvider(receiver) {
@@ -319,7 +331,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       12,  // ordinal
       device.mojom.DeviceService_BindPublicIpAddressGeolocationProvider_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindScreenOrientationListener(receiver) {
@@ -328,7 +341,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       13,  // ordinal
       device.mojom.DeviceService_BindScreenOrientationListener_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindSensorProvider(receiver) {
@@ -337,7 +351,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       14,  // ordinal
       device.mojom.DeviceService_BindSensorProvider_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindSerialPortManager(receiver) {
@@ -346,7 +361,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       15,  // ordinal
       device.mojom.DeviceService_BindSerialPortManager_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindTimeZoneMonitor(receiver) {
@@ -355,7 +371,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       16,  // ordinal
       device.mojom.DeviceService_BindTimeZoneMonitor_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindWakeLockProvider(receiver) {
@@ -364,7 +381,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       17,  // ordinal
       device.mojom.DeviceService_BindWakeLockProvider_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindUsbDeviceManager(receiver) {
@@ -373,7 +391,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       18,  // ordinal
       device.mojom.DeviceService_BindUsbDeviceManager_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindUsbDeviceManagerTest(receiver) {
@@ -382,7 +401,8 @@ device.mojom.DeviceServiceRemoteCallHandler = class {
       19,  // ordinal
       device.mojom.DeviceService_BindUsbDeviceManagerTest_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

@@ -71,7 +71,8 @@ blink.mojom.ServiceWorkerStreamCallbackRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onAborted() {
@@ -80,7 +81,8 @@ blink.mojom.ServiceWorkerStreamCallbackRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

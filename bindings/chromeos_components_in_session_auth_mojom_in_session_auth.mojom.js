@@ -121,7 +121,8 @@ chromeos.auth.mojom.InSessionAuthRemoteCallHandler = class {
       0,  // ordinal
       chromeos.auth.mojom.InSessionAuth_RequestToken_ParamsSpec,
       chromeos.auth.mojom.InSessionAuth_RequestToken_ResponseParamsSpec,
-      [reason, prompt]);
+      [reason, prompt],
+      false);
   }
 
   checkToken(reason, token) {
@@ -130,7 +131,8 @@ chromeos.auth.mojom.InSessionAuthRemoteCallHandler = class {
       1,  // ordinal
       chromeos.auth.mojom.InSessionAuth_CheckToken_ParamsSpec,
       chromeos.auth.mojom.InSessionAuth_CheckToken_ResponseParamsSpec,
-      [reason, token]);
+      [reason, token],
+      false);
   }
 
   invalidateToken(token) {
@@ -139,7 +141,8 @@ chromeos.auth.mojom.InSessionAuthRemoteCallHandler = class {
       2,  // ordinal
       chromeos.auth.mojom.InSessionAuth_InvalidateToken_ParamsSpec,
       null,
-      [token]);
+      [token],
+      false);
   }
 
   requestLegacyWebAuthn(rp_id, window_id) {
@@ -148,7 +151,8 @@ chromeos.auth.mojom.InSessionAuthRemoteCallHandler = class {
       3,  // ordinal
       chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ParamsSpec,
       chromeos.auth.mojom.InSessionAuth_RequestLegacyWebAuthn_ResponseParamsSpec,
-      [rp_id, window_id]);
+      [rp_id, window_id],
+      false);
   }
 
 };

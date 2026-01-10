@@ -135,7 +135,8 @@ tab_strip.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       tab_strip.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -323,7 +324,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       tab_strip.mojom.PageHandler_GetGroupVisualData_ParamsSpec,
       tab_strip.mojom.PageHandler_GetGroupVisualData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getTabs() {
@@ -332,7 +334,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       tab_strip.mojom.PageHandler_GetTabs_ParamsSpec,
       tab_strip.mojom.PageHandler_GetTabs_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   closeTab(tab_id, tab_was_swiped) {
@@ -341,7 +344,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       tab_strip.mojom.PageHandler_CloseTab_ParamsSpec,
       null,
-      [tab_id, tab_was_swiped]);
+      [tab_id, tab_was_swiped],
+      false);
   }
 
   groupTab(tab_id, group_id) {
@@ -350,7 +354,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       tab_strip.mojom.PageHandler_GroupTab_ParamsSpec,
       null,
-      [tab_id, group_id]);
+      [tab_id, group_id],
+      false);
   }
 
   moveGroup(group_id, to_index) {
@@ -359,7 +364,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       tab_strip.mojom.PageHandler_MoveGroup_ParamsSpec,
       null,
-      [group_id, to_index]);
+      [group_id, to_index],
+      false);
   }
 
   moveTab(tab_id, to_index) {
@@ -368,7 +374,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       tab_strip.mojom.PageHandler_MoveTab_ParamsSpec,
       null,
-      [tab_id, to_index]);
+      [tab_id, to_index],
+      false);
   }
 
   setThumbnailTracked(tab_id, thumbnail_tracked) {
@@ -377,7 +384,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       tab_strip.mojom.PageHandler_SetThumbnailTracked_ParamsSpec,
       null,
-      [tab_id, thumbnail_tracked]);
+      [tab_id, thumbnail_tracked],
+      false);
   }
 
   ungroupTab(tab_id) {
@@ -386,7 +394,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       tab_strip.mojom.PageHandler_UngroupTab_ParamsSpec,
       null,
-      [tab_id]);
+      [tab_id],
+      false);
   }
 
   getLayout() {
@@ -395,7 +404,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       tab_strip.mojom.PageHandler_GetLayout_ParamsSpec,
       tab_strip.mojom.PageHandler_GetLayout_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   showEditDialogForGroup(group_id, location_x, location_y, width, height) {
@@ -404,7 +414,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       tab_strip.mojom.PageHandler_ShowEditDialogForGroup_ParamsSpec,
       null,
-      [group_id, location_x, location_y, width, height]);
+      [group_id, location_x, location_y, width, height],
+      false);
   }
 
   showTabContextMenu(tab_id, location_x, location_y) {
@@ -413,7 +424,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       tab_strip.mojom.PageHandler_ShowTabContextMenu_ParamsSpec,
       null,
-      [tab_id, location_x, location_y]);
+      [tab_id, location_x, location_y],
+      false);
   }
 
   showBackgroundContextMenu(location_x, location_y) {
@@ -422,7 +434,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       tab_strip.mojom.PageHandler_ShowBackgroundContextMenu_ParamsSpec,
       null,
-      [location_x, location_y]);
+      [location_x, location_y],
+      false);
   }
 
   closeContainer() {
@@ -431,7 +444,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       tab_strip.mojom.PageHandler_CloseContainer_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   reportTabActivationDuration(duration_ms) {
@@ -440,7 +454,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       tab_strip.mojom.PageHandler_ReportTabActivationDuration_ParamsSpec,
       null,
-      [duration_ms]);
+      [duration_ms],
+      false);
   }
 
   reportTabDataReceivedDuration(tab_count, duration_ms) {
@@ -449,7 +464,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       tab_strip.mojom.PageHandler_ReportTabDataReceivedDuration_ParamsSpec,
       null,
-      [tab_count, duration_ms]);
+      [tab_count, duration_ms],
+      false);
   }
 
   reportTabCreationDuration(tab_count, duration_ms) {
@@ -458,7 +474,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       15,  // ordinal
       tab_strip.mojom.PageHandler_ReportTabCreationDuration_ParamsSpec,
       null,
-      [tab_count, duration_ms]);
+      [tab_count, duration_ms],
+      false);
   }
 
   activateTab(tab_id) {
@@ -467,7 +484,8 @@ tab_strip.mojom.PageHandlerRemoteCallHandler = class {
       16,  // ordinal
       tab_strip.mojom.PageHandler_ActivateTab_ParamsSpec,
       null,
-      [tab_id]);
+      [tab_id],
+      false);
   }
 
 };
@@ -636,7 +654,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       tab_strip.mojom.Page_LayoutChanged_ParamsSpec,
       null,
-      [layout]);
+      [layout],
+      false);
   }
 
   receivedKeyboardFocus() {
@@ -645,7 +664,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       tab_strip.mojom.Page_ReceivedKeyboardFocus_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   contextMenuClosed() {
@@ -654,7 +674,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       tab_strip.mojom.Page_ContextMenuClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   longPress() {
@@ -663,7 +684,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       tab_strip.mojom.Page_LongPress_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   tabGroupVisualsChanged(group_id, tab_group) {
@@ -672,7 +694,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       4,  // ordinal
       tab_strip.mojom.Page_TabGroupVisualsChanged_ParamsSpec,
       null,
-      [group_id, tab_group]);
+      [group_id, tab_group],
+      false);
   }
 
   tabGroupMoved(group_id, index) {
@@ -681,7 +704,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       5,  // ordinal
       tab_strip.mojom.Page_TabGroupMoved_ParamsSpec,
       null,
-      [group_id, index]);
+      [group_id, index],
+      false);
   }
 
   tabGroupClosed(group_id) {
@@ -690,7 +714,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       6,  // ordinal
       tab_strip.mojom.Page_TabGroupClosed_ParamsSpec,
       null,
-      [group_id]);
+      [group_id],
+      false);
   }
 
   tabGroupStateChanged(tab_id, index, group_id) {
@@ -699,7 +724,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       7,  // ordinal
       tab_strip.mojom.Page_TabGroupStateChanged_ParamsSpec,
       null,
-      [tab_id, index, group_id]);
+      [tab_id, index, group_id],
+      false);
   }
 
   tabCloseCancelled(tab_id) {
@@ -708,7 +734,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       8,  // ordinal
       tab_strip.mojom.Page_TabCloseCancelled_ParamsSpec,
       null,
-      [tab_id]);
+      [tab_id],
+      false);
   }
 
   tabCreated(tab) {
@@ -717,7 +744,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       9,  // ordinal
       tab_strip.mojom.Page_TabCreated_ParamsSpec,
       null,
-      [tab]);
+      [tab],
+      false);
   }
 
   tabRemoved(tab_id) {
@@ -726,7 +754,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       10,  // ordinal
       tab_strip.mojom.Page_TabRemoved_ParamsSpec,
       null,
-      [tab_id]);
+      [tab_id],
+      false);
   }
 
   tabMoved(tab_id, to_index, in_pinned) {
@@ -735,7 +764,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       11,  // ordinal
       tab_strip.mojom.Page_TabMoved_ParamsSpec,
       null,
-      [tab_id, to_index, in_pinned]);
+      [tab_id, to_index, in_pinned],
+      false);
   }
 
   tabReplaced(tab_id, new_tab_id) {
@@ -744,7 +774,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       12,  // ordinal
       tab_strip.mojom.Page_TabReplaced_ParamsSpec,
       null,
-      [tab_id, new_tab_id]);
+      [tab_id, new_tab_id],
+      false);
   }
 
   tabActiveChanged(tab_id) {
@@ -753,7 +784,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       13,  // ordinal
       tab_strip.mojom.Page_TabActiveChanged_ParamsSpec,
       null,
-      [tab_id]);
+      [tab_id],
+      false);
   }
 
   tabUpdated(tab) {
@@ -762,7 +794,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       14,  // ordinal
       tab_strip.mojom.Page_TabUpdated_ParamsSpec,
       null,
-      [tab]);
+      [tab],
+      false);
   }
 
   tabThumbnailUpdated(tab_id, data_uri) {
@@ -771,7 +804,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       15,  // ordinal
       tab_strip.mojom.Page_TabThumbnailUpdated_ParamsSpec,
       null,
-      [tab_id, data_uri]);
+      [tab_id, data_uri],
+      false);
   }
 
   showContextMenu() {
@@ -780,7 +814,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       16,  // ordinal
       tab_strip.mojom.Page_ShowContextMenu_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   themeChanged() {
@@ -789,7 +824,8 @@ tab_strip.mojom.PageRemoteCallHandler = class {
       17,  // ordinal
       tab_strip.mojom.Page_ThemeChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

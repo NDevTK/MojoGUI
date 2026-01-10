@@ -91,7 +91,8 @@ metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
       0,  // ordinal
       metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
   onGetMark(name) {
@@ -100,7 +101,8 @@ metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
       1,  // ordinal
       metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec,
       metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec,
-      [name]);
+      [name],
+      false);
   }
 
   onClearMark(name) {
@@ -109,7 +111,8 @@ metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
       2,  // ordinal
       metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec,
       null,
-      [name]);
+      [name],
+      false);
   }
 
   onUmaReportTime(name, time) {
@@ -118,7 +121,8 @@ metrics_reporter.mojom.PageMetricsHostRemoteCallHandler = class {
       3,  // ordinal
       metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec,
       null,
-      [name, time]);
+      [name, time],
+      false);
   }
 
 };
@@ -194,7 +198,8 @@ metrics_reporter.mojom.PageMetricsRemoteCallHandler = class {
       0,  // ordinal
       metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec,
       metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec,
-      [name]);
+      [name],
+      false);
   }
 
   onClearMark(name) {
@@ -203,7 +208,8 @@ metrics_reporter.mojom.PageMetricsRemoteCallHandler = class {
       1,  // ordinal
       metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec,
       null,
-      [name]);
+      [name],
+      false);
   }
 
 };

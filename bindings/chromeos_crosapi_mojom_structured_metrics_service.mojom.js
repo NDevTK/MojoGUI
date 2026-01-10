@@ -58,7 +58,8 @@ crosapi.mojom.StructuredMetricsServiceRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.StructuredMetricsService_Record_ParamsSpec,
       null,
-      [events]);
+      [events],
+      false);
   }
 
 };

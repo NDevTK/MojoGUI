@@ -116,7 +116,8 @@ blink.mojom.FeatureObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.FeatureObserver_Register_ParamsSpec,
       null,
-      [feature, type]);
+      [feature, type],
+      false);
   }
 
 };

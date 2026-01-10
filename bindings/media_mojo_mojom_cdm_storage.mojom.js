@@ -86,7 +86,8 @@ media.mojom.CdmStorageRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmStorage_Open_ParamsSpec,
       media.mojom.CdmStorage_Open_ResponseParamsSpec,
-      [file_name]);
+      [file_name],
+      false);
   }
 
 };
@@ -168,7 +169,8 @@ media.mojom.CdmFileRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.CdmFile_Read_ParamsSpec,
       media.mojom.CdmFile_Read_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   write(data) {
@@ -177,7 +179,8 @@ media.mojom.CdmFileRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.CdmFile_Write_ParamsSpec,
       media.mojom.CdmFile_Write_ResponseParamsSpec,
-      [data]);
+      [data],
+      false);
   }
 
 };

@@ -114,7 +114,8 @@ blink.mojom.AIWriterRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AIWriter_Write_ParamsSpec,
       null,
-      [input, context, pending_responder]);
+      [input, context, pending_responder],
+      false);
   }
 
   measureUsage(input, context) {
@@ -123,7 +124,8 @@ blink.mojom.AIWriterRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AIWriter_MeasureUsage_ParamsSpec,
       blink.mojom.AIWriter_MeasureUsage_ResponseParamsSpec,
-      [input, context]);
+      [input, context],
+      false);
   }
 
 };

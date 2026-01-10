@@ -118,7 +118,8 @@ blink.mojom.DigitalIdentityRequestRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DigitalIdentityRequest_Get_ParamsSpec,
       blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec,
-      [digital_credential_requests]);
+      [digital_credential_requests],
+      false);
   }
 
   create(digital_credential_requests) {
@@ -127,7 +128,8 @@ blink.mojom.DigitalIdentityRequestRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DigitalIdentityRequest_Create_ParamsSpec,
       blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec,
-      [digital_credential_requests]);
+      [digital_credential_requests],
+      false);
   }
 
   abort() {
@@ -136,7 +138,8 @@ blink.mojom.DigitalIdentityRequestRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

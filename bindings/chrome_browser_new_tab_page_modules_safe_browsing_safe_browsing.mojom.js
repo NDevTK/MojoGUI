@@ -82,7 +82,8 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
       0,  // ordinal
       ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ParamsSpec,
       ntp.safe_browsing.mojom.SafeBrowsingHandler_CanShowModule_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   processModuleClick() {
@@ -91,7 +92,8 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
       1,  // ordinal
       ntp.safe_browsing.mojom.SafeBrowsingHandler_ProcessModuleClick_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   dismissModule() {
@@ -100,7 +102,8 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
       2,  // ordinal
       ntp.safe_browsing.mojom.SafeBrowsingHandler_DismissModule_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   restoreModule() {
@@ -109,7 +112,8 @@ ntp.safe_browsing.mojom.SafeBrowsingHandlerRemoteCallHandler = class {
       3,  // ordinal
       ntp.safe_browsing.mojom.SafeBrowsingHandler_RestoreModule_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

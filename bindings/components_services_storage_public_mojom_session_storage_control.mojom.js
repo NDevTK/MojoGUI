@@ -167,7 +167,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.SessionStorageControl_BindNamespace_ParamsSpec,
       null,
-      [namespace_id, receiver]);
+      [namespace_id, receiver],
+      false);
   }
 
   bindStorageArea(storage_key, namespace_id, receiver) {
@@ -176,7 +177,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.SessionStorageControl_BindStorageArea_ParamsSpec,
       null,
-      [storage_key, namespace_id, receiver]);
+      [storage_key, namespace_id, receiver],
+      false);
   }
 
   getUsage() {
@@ -185,7 +187,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.SessionStorageControl_GetUsage_ParamsSpec,
       storage.mojom.SessionStorageControl_GetUsage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   deleteStorage(storage_key, namespace_id) {
@@ -194,7 +197,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.SessionStorageControl_DeleteStorage_ParamsSpec,
       storage.mojom.SessionStorageControl_DeleteStorage_ResponseParamsSpec,
-      [storage_key, namespace_id]);
+      [storage_key, namespace_id],
+      false);
   }
 
   cleanUpStorage() {
@@ -203,7 +207,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
       4,  // ordinal
       storage.mojom.SessionStorageControl_CleanUpStorage_ParamsSpec,
       storage.mojom.SessionStorageControl_CleanUpStorage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   scavengeUnusedNamespaces() {
@@ -212,7 +217,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
       5,  // ordinal
       storage.mojom.SessionStorageControl_ScavengeUnusedNamespaces_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   flush() {
@@ -221,7 +227,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
       6,  // ordinal
       storage.mojom.SessionStorageControl_Flush_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   purgeMemory() {
@@ -230,7 +237,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
       7,  // ordinal
       storage.mojom.SessionStorageControl_PurgeMemory_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   createNamespace(namespace_id) {
@@ -239,7 +247,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
       8,  // ordinal
       storage.mojom.SessionStorageControl_CreateNamespace_ParamsSpec,
       null,
-      [namespace_id]);
+      [namespace_id],
+      false);
   }
 
   cloneNamespace(namespace_id_to_clone, clone_namespace_id, clone_type) {
@@ -248,7 +257,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
       9,  // ordinal
       storage.mojom.SessionStorageControl_CloneNamespace_ParamsSpec,
       null,
-      [namespace_id_to_clone, clone_namespace_id, clone_type]);
+      [namespace_id_to_clone, clone_namespace_id, clone_type],
+      false);
   }
 
   deleteNamespace(namespace_id, should_persist) {
@@ -257,7 +267,8 @@ storage.mojom.SessionStorageControlRemoteCallHandler = class {
       10,  // ordinal
       storage.mojom.SessionStorageControl_DeleteNamespace_ParamsSpec,
       null,
-      [namespace_id, should_persist]);
+      [namespace_id, should_persist],
+      false);
   }
 
 };

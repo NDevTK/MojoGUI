@@ -64,7 +64,8 @@ ai.mojom.TabOrganizationServiceRemoteCallHandler = class {
       0,  // ordinal
       ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec,
       ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
 };

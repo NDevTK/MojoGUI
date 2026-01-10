@@ -56,7 +56,8 @@ mojom.ModuleEventSinkRemoteCallHandler = class {
       0,  // ordinal
       mojom.ModuleEventSink_OnModuleEvents_ParamsSpec,
       null,
-      [module_load_addresses]);
+      [module_load_addresses],
+      false);
   }
 
 };

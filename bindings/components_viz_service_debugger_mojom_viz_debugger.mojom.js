@@ -57,7 +57,8 @@ viz.mojom.VizDebugOutputRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.VizDebugOutput_LogFrame_ParamsSpec,
       null,
-      [frameData]);
+      [frameData],
+      false);
   }
 
 };

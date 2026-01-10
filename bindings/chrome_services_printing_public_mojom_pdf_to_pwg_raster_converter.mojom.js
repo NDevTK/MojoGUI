@@ -100,7 +100,8 @@ printing.mojom.PdfToPwgRasterConverterRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec,
       printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec,
-      [pdf_region, pdf_settings, pwg_raster_settings]);
+      [pdf_region, pdf_settings, pwg_raster_settings],
+      false);
   }
 
   setUseSkiaRendererPolicy(use_skia) {
@@ -109,7 +110,8 @@ printing.mojom.PdfToPwgRasterConverterRemoteCallHandler = class {
       1,  // ordinal
       printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      [use_skia]);
+      [use_skia],
+      false);
   }
 
 };

@@ -208,7 +208,8 @@ ash.cloud_upload.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -400,7 +401,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec,
       ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isOfficeWebAppInstalled() {
@@ -409,7 +411,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec,
       ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   installOfficeWebApp() {
@@ -418,7 +421,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec,
       ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isODFSMounted() {
@@ -427,7 +431,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec,
       ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   signInToOneDrive() {
@@ -436,7 +441,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec,
       ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   respondWithUserActionAndClose(response) {
@@ -445,7 +451,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec,
       null,
-      [response]);
+      [response],
+      false);
   }
 
   respondWithLocalTaskAndClose(task_position) {
@@ -454,7 +461,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec,
       null,
-      [task_position]);
+      [task_position],
+      false);
   }
 
   setOfficeAsDefaultHandler() {
@@ -463,7 +471,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getAlwaysMoveOfficeFilesToDrive() {
@@ -472,7 +481,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
       ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setAlwaysMoveOfficeFilesToDrive(always_move) {
@@ -481,7 +491,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec,
       null,
-      [always_move]);
+      [always_move],
+      false);
   }
 
   getAlwaysMoveOfficeFilesToOneDrive() {
@@ -490,7 +501,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
       ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setAlwaysMoveOfficeFilesToOneDrive(always_move) {
@@ -499,7 +511,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec,
       null,
-      [always_move]);
+      [always_move],
+      false);
   }
 
   getOfficeMoveConfirmationShownForDrive() {
@@ -508,7 +521,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec,
       ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getOfficeMoveConfirmationShownForOneDrive() {
@@ -517,7 +531,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec,
       ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   recordCancel(page) {
@@ -526,7 +541,8 @@ ash.cloud_upload.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
 };

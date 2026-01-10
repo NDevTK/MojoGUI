@@ -117,7 +117,8 @@ blink.mojom.InnerTextAgentRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec,
       blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
 };

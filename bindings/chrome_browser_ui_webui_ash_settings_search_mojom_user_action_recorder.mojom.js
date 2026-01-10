@@ -117,7 +117,8 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordPageBlur() {
@@ -126,7 +127,8 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordClick() {
@@ -135,7 +137,8 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
       2,  // ordinal
       ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordNavigation() {
@@ -144,7 +147,8 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
       3,  // ordinal
       ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordSearch() {
@@ -153,7 +157,8 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
       4,  // ordinal
       ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordSettingChange() {
@@ -162,7 +167,8 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
       5,  // ordinal
       ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   recordSettingChangeWithDetails(setting, value) {
@@ -171,7 +177,8 @@ ash.settings.mojom.UserActionRecorderRemoteCallHandler = class {
       6,  // ordinal
       ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec,
       null,
-      [setting, value]);
+      [setting, value],
+      false);
   }
 
 };

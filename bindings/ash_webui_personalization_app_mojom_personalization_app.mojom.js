@@ -540,7 +540,8 @@ ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.WallpaperObserver_OnWallpaperPreviewEnded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onAttributionChanged(attribution) {
@@ -549,7 +550,8 @@ ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.WallpaperObserver_OnAttributionChanged_ParamsSpec,
       null,
-      [attribution]);
+      [attribution],
+      false);
   }
 
   onWallpaperChanged(image) {
@@ -558,7 +560,8 @@ ash.personalization_app.mojom.WallpaperObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.WallpaperObserver_OnWallpaperChanged_ParamsSpec,
       null,
-      [image]);
+      [image],
+      false);
   }
 
 };
@@ -885,7 +888,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_MakeTransparent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   makeOpaque() {
@@ -894,7 +898,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_MakeOpaque_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   fetchCollections() {
@@ -903,7 +908,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_FetchCollections_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   fetchImagesForCollection(collection_id) {
@@ -912,7 +918,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_FetchImagesForCollection_ResponseParamsSpec,
-      [collection_id]);
+      [collection_id],
+      false);
   }
 
   fetchGooglePhotosAlbums(resume_token) {
@@ -921,7 +928,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosAlbums_ResponseParamsSpec,
-      [resume_token]);
+      [resume_token],
+      false);
   }
 
   fetchGooglePhotosSharedAlbums(resume_token) {
@@ -930,7 +938,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosSharedAlbums_ResponseParamsSpec,
-      [resume_token]);
+      [resume_token],
+      false);
   }
 
   fetchGooglePhotosEnabled() {
@@ -939,7 +948,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   fetchGooglePhotosPhotos(item_id, album_id, resume_token) {
@@ -948,7 +958,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_FetchGooglePhotosPhotos_ResponseParamsSpec,
-      [item_id, album_id, resume_token]);
+      [item_id, album_id, resume_token],
+      false);
   }
 
   getLocalImages() {
@@ -957,7 +968,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       8,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_GetLocalImages_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getDefaultImageThumbnail() {
@@ -966,7 +978,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       9,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_GetDefaultImageThumbnail_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getLocalImageThumbnail(file_path) {
@@ -975,7 +988,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       10,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_GetLocalImageThumbnail_ResponseParamsSpec,
-      [file_path]);
+      [file_path],
+      false);
   }
 
   setWallpaperObserver(observer) {
@@ -984,7 +998,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       11,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SetWallpaperObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   selectWallpaper(unit_id, preview_mode) {
@@ -993,7 +1008,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       12,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_SelectWallpaper_ResponseParamsSpec,
-      [unit_id, preview_mode]);
+      [unit_id, preview_mode],
+      false);
   }
 
   selectDefaultImage() {
@@ -1002,7 +1018,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       13,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_SelectDefaultImage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   selectLocalImage(path, layout, preview_mode) {
@@ -1011,7 +1028,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       14,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_SelectLocalImage_ResponseParamsSpec,
-      [path, layout, preview_mode]);
+      [path, layout, preview_mode],
+      false);
   }
 
   selectGooglePhotosPhoto(id, layout, preview_mode) {
@@ -1020,7 +1038,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       15,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosPhoto_ResponseParamsSpec,
-      [id, layout, preview_mode]);
+      [id, layout, preview_mode],
+      false);
   }
 
   selectGooglePhotosAlbum(id) {
@@ -1029,7 +1048,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       16,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_SelectGooglePhotosAlbum_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   getGooglePhotosDailyRefreshAlbumId() {
@@ -1038,7 +1058,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       17,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_GetGooglePhotosDailyRefreshAlbumId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setCurrentWallpaperLayout(layout) {
@@ -1047,7 +1068,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       18,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SetCurrentWallpaperLayout_ParamsSpec,
       null,
-      [layout]);
+      [layout],
+      false);
   }
 
   setDailyRefreshCollectionId(collection_id) {
@@ -1056,7 +1078,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       19,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_SetDailyRefreshCollectionId_ResponseParamsSpec,
-      [collection_id]);
+      [collection_id],
+      false);
   }
 
   getDailyRefreshCollectionId() {
@@ -1065,7 +1088,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       20,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_GetDailyRefreshCollectionId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   updateDailyRefreshWallpaper() {
@@ -1074,7 +1098,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       21,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_UpdateDailyRefreshWallpaper_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isInTabletMode() {
@@ -1083,7 +1108,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       22,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_IsInTabletMode_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   confirmPreviewWallpaper() {
@@ -1092,7 +1118,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       23,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_ConfirmPreviewWallpaper_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   cancelPreviewWallpaper() {
@@ -1101,7 +1128,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       24,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_CancelPreviewWallpaper_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   shouldShowTimeOfDayWallpaperDialog() {
@@ -1110,7 +1138,8 @@ ash.personalization_app.mojom.WallpaperProviderRemoteCallHandler = class {
       25,  // ordinal
       ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ParamsSpec,
       ash.personalization_app.mojom.WallpaperProvider_ShouldShowTimeOfDayWallpaperDialog_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1212,7 +1241,8 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.ThemeObserver_OnColorModeChanged_ParamsSpec,
       null,
-      [dark_mode_enabled]);
+      [dark_mode_enabled],
+      false);
   }
 
   onColorModeAutoScheduleChanged(enabled) {
@@ -1221,7 +1251,8 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.ThemeObserver_OnColorModeAutoScheduleChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   onColorSchemeChanged(color_scheme) {
@@ -1230,7 +1261,8 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.ThemeObserver_OnColorSchemeChanged_ParamsSpec,
       null,
-      [color_scheme]);
+      [color_scheme],
+      false);
   }
 
   onSampleColorSchemesChanged(sample_color_schemes) {
@@ -1239,7 +1271,8 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.ThemeObserver_OnSampleColorSchemesChanged_ParamsSpec,
       null,
-      [sample_color_schemes]);
+      [sample_color_schemes],
+      false);
   }
 
   onStaticColorChanged(color) {
@@ -1248,7 +1281,8 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
       4,  // ordinal
       ash.personalization_app.mojom.ThemeObserver_OnStaticColorChanged_ParamsSpec,
       null,
-      [color]);
+      [color],
+      false);
   }
 
   onGeolocationPermissionForSystemServicesChanged(enabled, is_user_modifiable) {
@@ -1257,7 +1291,8 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
       5,  // ordinal
       ash.personalization_app.mojom.ThemeObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec,
       null,
-      [enabled, is_user_modifiable]);
+      [enabled, is_user_modifiable],
+      false);
   }
 
   onDaylightTimeChanged(sunrise_time, sunset_time) {
@@ -1266,7 +1301,8 @@ ash.personalization_app.mojom.ThemeObserverRemoteCallHandler = class {
       6,  // ordinal
       ash.personalization_app.mojom.ThemeObserver_OnDaylightTimeChanged_ParamsSpec,
       null,
-      [sunrise_time, sunset_time]);
+      [sunrise_time, sunset_time],
+      false);
   }
 
 };
@@ -1436,7 +1472,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_SetThemeObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   setColorModePref(dark_mode_enabled) {
@@ -1445,7 +1482,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_SetColorModePref_ParamsSpec,
       null,
-      [dark_mode_enabled]);
+      [dark_mode_enabled],
+      false);
   }
 
   setColorModeAutoScheduleEnabled(enabled) {
@@ -1454,7 +1492,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_SetColorModeAutoScheduleEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setColorScheme(colorScheme) {
@@ -1463,7 +1502,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_SetColorScheme_ParamsSpec,
       null,
-      [colorScheme]);
+      [colorScheme],
+      false);
   }
 
   setStaticColor(static_color) {
@@ -1472,7 +1512,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_SetStaticColor_ParamsSpec,
       null,
-      [static_color]);
+      [static_color],
+      false);
   }
 
   enableGeolocationForSystemServices() {
@@ -1481,7 +1522,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_EnableGeolocationForSystemServices_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getColorScheme() {
@@ -1490,7 +1532,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ParamsSpec,
       ash.personalization_app.mojom.ThemeProvider_GetColorScheme_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getStaticColor() {
@@ -1499,7 +1542,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ParamsSpec,
       ash.personalization_app.mojom.ThemeProvider_GetStaticColor_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   generateSampleColorSchemes() {
@@ -1508,7 +1552,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       8,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ParamsSpec,
       ash.personalization_app.mojom.ThemeProvider_GenerateSampleColorSchemes_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isColorModeAutoScheduleEnabled() {
@@ -1517,7 +1562,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       9,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ParamsSpec,
       ash.personalization_app.mojom.ThemeProvider_IsColorModeAutoScheduleEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isDarkModeEnabled() {
@@ -1526,7 +1572,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       10,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ParamsSpec,
       ash.personalization_app.mojom.ThemeProvider_IsDarkModeEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isGeolocationEnabledForSystemServices() {
@@ -1535,7 +1582,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       11,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ParamsSpec,
       ash.personalization_app.mojom.ThemeProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isGeolocationUserModifiable() {
@@ -1544,7 +1592,8 @@ ash.personalization_app.mojom.ThemeProviderRemoteCallHandler = class {
       12,  // ordinal
       ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ParamsSpec,
       ash.personalization_app.mojom.ThemeProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1626,7 +1675,8 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.UserImageObserver_OnUserImageChanged_ParamsSpec,
       null,
-      [user_image]);
+      [user_image],
+      false);
   }
 
   onUserProfileImageUpdated(profile_image) {
@@ -1635,7 +1685,8 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.UserImageObserver_OnUserProfileImageUpdated_ParamsSpec,
       null,
-      [profile_image]);
+      [profile_image],
+      false);
   }
 
   onCameraPresenceCheckDone(is_camera_present) {
@@ -1644,7 +1695,8 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.UserImageObserver_OnCameraPresenceCheckDone_ParamsSpec,
       null,
-      [is_camera_present]);
+      [is_camera_present],
+      false);
   }
 
   onIsEnterpriseManagedChanged(is_enterprise_managed) {
@@ -1653,7 +1705,8 @@ ash.personalization_app.mojom.UserImageObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.UserImageObserver_OnIsEnterpriseManagedChanged_ParamsSpec,
       null,
-      [is_enterprise_managed]);
+      [is_enterprise_managed],
+      false);
   }
 
 };
@@ -1766,7 +1819,8 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.UserProvider_SetUserImageObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   getUserInfo() {
@@ -1775,7 +1829,8 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.UserProvider_GetUserInfo_ParamsSpec,
       ash.personalization_app.mojom.UserProvider_GetUserInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getDefaultUserImages() {
@@ -1784,7 +1839,8 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ParamsSpec,
       ash.personalization_app.mojom.UserProvider_GetDefaultUserImages_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   selectDefaultImage(index) {
@@ -1793,7 +1849,8 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.UserProvider_SelectDefaultImage_ParamsSpec,
       null,
-      [index]);
+      [index],
+      false);
   }
 
   selectProfileImage() {
@@ -1802,7 +1859,8 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.personalization_app.mojom.UserProvider_SelectProfileImage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   selectCameraImage(data) {
@@ -1811,7 +1869,8 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.personalization_app.mojom.UserProvider_SelectCameraImage_ParamsSpec,
       null,
-      [data]);
+      [data],
+      false);
   }
 
   selectImageFromDisk() {
@@ -1820,7 +1879,8 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.personalization_app.mojom.UserProvider_SelectImageFromDisk_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   selectLastExternalUserImage() {
@@ -1829,7 +1889,8 @@ ash.personalization_app.mojom.UserProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.personalization_app.mojom.UserProvider_SelectLastExternalUserImage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1948,7 +2009,8 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnAmbientModeEnabledChanged_ParamsSpec,
       null,
-      [ambient_mode_enabled]);
+      [ambient_mode_enabled],
+      false);
   }
 
   onAmbientThemeChanged(ambient_theme) {
@@ -1957,7 +2019,8 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnAmbientThemeChanged_ParamsSpec,
       null,
-      [ambient_theme]);
+      [ambient_theme],
+      false);
   }
 
   onTopicSourceChanged(topic_source) {
@@ -1966,7 +2029,8 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnTopicSourceChanged_ParamsSpec,
       null,
-      [topic_source]);
+      [topic_source],
+      false);
   }
 
   onScreenSaverDurationChanged(minutes) {
@@ -1975,7 +2039,8 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnScreenSaverDurationChanged_ParamsSpec,
       null,
-      [minutes]);
+      [minutes],
+      false);
   }
 
   onTemperatureUnitChanged(temperature_unit) {
@@ -1984,7 +2049,8 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       4,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnTemperatureUnitChanged_ParamsSpec,
       null,
-      [temperature_unit]);
+      [temperature_unit],
+      false);
   }
 
   onAlbumsChanged(albums) {
@@ -1993,7 +2059,8 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       5,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnAlbumsChanged_ParamsSpec,
       null,
-      [albums]);
+      [albums],
+      false);
   }
 
   onPreviewsFetched(previews) {
@@ -2002,7 +2069,8 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       6,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnPreviewsFetched_ParamsSpec,
       null,
-      [previews]);
+      [previews],
+      false);
   }
 
   onAmbientUiVisibilityChanged(visibility) {
@@ -2011,7 +2079,8 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       7,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnAmbientUiVisibilityChanged_ParamsSpec,
       null,
-      [visibility]);
+      [visibility],
+      false);
   }
 
   onGeolocationPermissionForSystemServicesChanged(enabled, is_user_modifiable) {
@@ -2020,7 +2089,8 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       8,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnGeolocationPermissionForSystemServicesChanged_ParamsSpec,
       null,
-      [enabled, is_user_modifiable]);
+      [enabled, is_user_modifiable],
+      false);
   }
 
   onAmbientThemePreviewImagesChanged(previews) {
@@ -2029,7 +2099,8 @@ ash.personalization_app.mojom.AmbientObserverRemoteCallHandler = class {
       9,  // ordinal
       ash.personalization_app.mojom.AmbientObserver_OnAmbientThemePreviewImagesChanged_ParamsSpec,
       null,
-      [previews]);
+      [previews],
+      false);
   }
 
 };
@@ -2200,7 +2271,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ParamsSpec,
       ash.personalization_app.mojom.AmbientProvider_IsAmbientModeEnabled_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setAmbientModeEnabled(enabled) {
@@ -2209,7 +2281,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetAmbientModeEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setAmbientObserver(observer) {
@@ -2218,7 +2291,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       2,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetAmbientObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   setAmbientTheme(ambient_theme) {
@@ -2227,7 +2301,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       3,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetAmbientTheme_ParamsSpec,
       null,
-      [ambient_theme]);
+      [ambient_theme],
+      false);
   }
 
   setScreenSaverDuration(minutes) {
@@ -2236,7 +2311,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       4,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetScreenSaverDuration_ParamsSpec,
       null,
-      [minutes]);
+      [minutes],
+      false);
   }
 
   setTopicSource(topic_source) {
@@ -2245,7 +2321,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       5,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetTopicSource_ParamsSpec,
       null,
-      [topic_source]);
+      [topic_source],
+      false);
   }
 
   setTemperatureUnit(temperature_unit) {
@@ -2254,7 +2331,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       6,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetTemperatureUnit_ParamsSpec,
       null,
-      [temperature_unit]);
+      [temperature_unit],
+      false);
   }
 
   setAlbumSelected(id, topic_source, selected) {
@@ -2263,7 +2341,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       7,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetAlbumSelected_ParamsSpec,
       null,
-      [id, topic_source, selected]);
+      [id, topic_source, selected],
+      false);
   }
 
   setPageViewed() {
@@ -2272,7 +2351,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       8,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_SetPageViewed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   fetchSettingsAndAlbums() {
@@ -2281,7 +2361,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       9,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_FetchSettingsAndAlbums_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   startScreenSaverPreview() {
@@ -2290,7 +2371,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       10,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_StartScreenSaverPreview_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   shouldShowTimeOfDayBanner() {
@@ -2299,7 +2381,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       11,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ParamsSpec,
       ash.personalization_app.mojom.AmbientProvider_ShouldShowTimeOfDayBanner_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   handleTimeOfDayBannerDismissed() {
@@ -2308,7 +2391,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       12,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_HandleTimeOfDayBannerDismissed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   isGeolocationEnabledForSystemServices() {
@@ -2317,7 +2401,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       13,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ParamsSpec,
       ash.personalization_app.mojom.AmbientProvider_IsGeolocationEnabledForSystemServices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   isGeolocationUserModifiable() {
@@ -2326,7 +2411,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       14,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ParamsSpec,
       ash.personalization_app.mojom.AmbientProvider_IsGeolocationUserModifiable_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   enableGeolocationForSystemServices() {
@@ -2335,7 +2421,8 @@ ash.personalization_app.mojom.AmbientProviderRemoteCallHandler = class {
       15,  // ordinal
       ash.personalization_app.mojom.AmbientProvider_EnableGeolocationForSystemServices_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -2405,7 +2492,8 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRemoteCallHandler = class
       0,  // ordinal
       ash.personalization_app.mojom.KeyboardBacklightObserver_OnBacklightStateChanged_ParamsSpec,
       null,
-      [currentBacklightState]);
+      [currentBacklightState],
+      false);
   }
 
   onWallpaperColorChanged(wallpaper_color) {
@@ -2414,7 +2502,8 @@ ash.personalization_app.mojom.KeyboardBacklightObserverRemoteCallHandler = class
       1,  // ordinal
       ash.personalization_app.mojom.KeyboardBacklightObserver_OnWallpaperColorChanged_ParamsSpec,
       null,
-      [wallpaper_color]);
+      [wallpaper_color],
+      false);
   }
 
 };
@@ -2507,7 +2596,8 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
       0,  // ordinal
       ash.personalization_app.mojom.KeyboardBacklightProvider_SetKeyboardBacklightObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   setBacklightColor(backlight_color) {
@@ -2516,7 +2606,8 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
       1,  // ordinal
       ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightColor_ParamsSpec,
       null,
-      [backlight_color]);
+      [backlight_color],
+      false);
   }
 
   setBacklightZoneColor(zone, backlight_color) {
@@ -2525,7 +2616,8 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
       2,  // ordinal
       ash.personalization_app.mojom.KeyboardBacklightProvider_SetBacklightZoneColor_ParamsSpec,
       null,
-      [zone, backlight_color]);
+      [zone, backlight_color],
+      false);
   }
 
   shouldShowNudge() {
@@ -2534,7 +2626,8 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
       3,  // ordinal
       ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ParamsSpec,
       ash.personalization_app.mojom.KeyboardBacklightProvider_ShouldShowNudge_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   handleNudgeShown() {
@@ -2543,7 +2636,8 @@ ash.personalization_app.mojom.KeyboardBacklightProviderRemoteCallHandler = class
       4,  // ordinal
       ash.personalization_app.mojom.KeyboardBacklightProvider_HandleNudgeShown_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

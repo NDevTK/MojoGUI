@@ -65,7 +65,8 @@ blink.mojom.SharedWorkerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SharedWorker_Connect_ParamsSpec,
       null,
-      [connection_id, message_port]);
+      [connection_id, message_port],
+      false);
   }
 
   terminate() {
@@ -74,7 +75,8 @@ blink.mojom.SharedWorkerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SharedWorker_Terminate_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

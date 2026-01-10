@@ -79,7 +79,8 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
       0,  // ordinal
       visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec,
       null,
-      [table_region]);
+      [table_region],
+      false);
   }
 
   addVisitedLinks(link_hashes) {
@@ -88,7 +89,8 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
       1,  // ordinal
       visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec,
       null,
-      [link_hashes]);
+      [link_hashes],
+      false);
   }
 
   resetVisitedLinks(invalidate_cached_hashes) {
@@ -97,7 +99,8 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
       2,  // ordinal
       visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec,
       null,
-      [invalidate_cached_hashes]);
+      [invalidate_cached_hashes],
+      false);
   }
 
   updateOriginSalts(origin_salts) {
@@ -106,7 +109,8 @@ visitedlink.mojom.VisitedLinkNotificationSinkRemoteCallHandler = class {
       3,  // ordinal
       visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec,
       null,
-      [origin_salts]);
+      [origin_salts],
+      false);
   }
 
 };

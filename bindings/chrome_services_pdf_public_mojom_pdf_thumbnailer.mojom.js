@@ -90,7 +90,8 @@ pdf.mojom.PdfThumbnailerRemoteCallHandler = class {
       0,  // ordinal
       pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec,
       pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec,
-      [params, pdf_region]);
+      [params, pdf_region],
+      false);
   }
 
   setUseSkiaRendererPolicy(use_skia) {
@@ -99,7 +100,8 @@ pdf.mojom.PdfThumbnailerRemoteCallHandler = class {
       1,  // ordinal
       pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec,
       null,
-      [use_skia]);
+      [use_skia],
+      false);
   }
 
 };

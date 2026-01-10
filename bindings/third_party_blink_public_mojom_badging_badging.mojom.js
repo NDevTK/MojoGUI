@@ -79,7 +79,8 @@ blink.mojom.BadgeServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BadgeService_SetBadge_ParamsSpec,
       null,
-      [value]);
+      [value],
+      false);
   }
 
   clearBadge() {
@@ -88,7 +89,8 @@ blink.mojom.BadgeServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BadgeService_ClearBadge_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

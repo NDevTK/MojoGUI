@@ -76,7 +76,8 @@ ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ParamsSpec,
       ntp.calendar.mojom.GoogleCalendarPageHandler_GetEvents_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   dismissModule() {
@@ -85,7 +86,8 @@ ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ntp.calendar.mojom.GoogleCalendarPageHandler_DismissModule_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   restoreModule() {
@@ -94,7 +96,8 @@ ntp.calendar.mojom.GoogleCalendarPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ntp.calendar.mojom.GoogleCalendarPageHandler_RestoreModule_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

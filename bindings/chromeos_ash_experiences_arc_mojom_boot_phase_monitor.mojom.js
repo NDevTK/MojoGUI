@@ -60,7 +60,8 @@ arc.mojom.BootPhaseMonitorHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.BootPhaseMonitorHost_OnBootCompleted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -129,7 +130,8 @@ arc.mojom.BootPhaseMonitorInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.BootPhaseMonitorInstance_Init_ParamsSpec,
       arc.mojom.BootPhaseMonitorInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

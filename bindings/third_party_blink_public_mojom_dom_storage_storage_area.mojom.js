@@ -118,7 +118,8 @@ blink.mojom.StorageAreaObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.StorageAreaObserver_KeyChanged_ParamsSpec,
       null,
-      [key, new_value, old_value, source]);
+      [key, new_value, old_value, source],
+      false);
   }
 
   keyChangeFailed(key, source) {
@@ -127,7 +128,8 @@ blink.mojom.StorageAreaObserverRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.StorageAreaObserver_KeyChangeFailed_ParamsSpec,
       null,
-      [key, source]);
+      [key, source],
+      false);
   }
 
   keyDeleted(key, old_value, source) {
@@ -136,7 +138,8 @@ blink.mojom.StorageAreaObserverRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.StorageAreaObserver_KeyDeleted_ParamsSpec,
       null,
-      [key, old_value, source]);
+      [key, old_value, source],
+      false);
   }
 
   allDeleted(was_nonempty, source) {
@@ -145,7 +148,8 @@ blink.mojom.StorageAreaObserverRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.StorageAreaObserver_AllDeleted_ParamsSpec,
       null,
-      [was_nonempty, source]);
+      [was_nonempty, source],
+      false);
   }
 
   shouldSendOldValueOnMutations(value) {
@@ -154,7 +158,8 @@ blink.mojom.StorageAreaObserverRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.StorageAreaObserver_ShouldSendOldValueOnMutations_ParamsSpec,
       null,
-      [value]);
+      [value],
+      false);
   }
 
 };
@@ -285,7 +290,8 @@ blink.mojom.StorageAreaRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.StorageArea_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   put(key, value, client_old_value, source) {
@@ -294,7 +300,8 @@ blink.mojom.StorageAreaRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.StorageArea_Put_ParamsSpec,
       blink.mojom.StorageArea_Put_ResponseParamsSpec,
-      [key, value, client_old_value, source]);
+      [key, value, client_old_value, source],
+      false);
   }
 
   delete(key, client_old_value, source) {
@@ -303,7 +310,8 @@ blink.mojom.StorageAreaRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.StorageArea_Delete_ParamsSpec,
       blink.mojom.StorageArea_Delete_ResponseParamsSpec,
-      [key, client_old_value, source]);
+      [key, client_old_value, source],
+      false);
   }
 
   deleteAll(source, new_observer) {
@@ -312,7 +320,8 @@ blink.mojom.StorageAreaRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.StorageArea_DeleteAll_ParamsSpec,
       blink.mojom.StorageArea_DeleteAll_ResponseParamsSpec,
-      [source, new_observer]);
+      [source, new_observer],
+      false);
   }
 
   get(key) {
@@ -321,7 +330,8 @@ blink.mojom.StorageAreaRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.StorageArea_Get_ParamsSpec,
       blink.mojom.StorageArea_Get_ResponseParamsSpec,
-      [key]);
+      [key],
+      false);
   }
 
   getAll(new_observer) {
@@ -330,7 +340,8 @@ blink.mojom.StorageAreaRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.StorageArea_GetAll_ParamsSpec,
       blink.mojom.StorageArea_GetAll_ResponseParamsSpec,
-      [new_observer]);
+      [new_observer],
+      false);
   }
 
 };

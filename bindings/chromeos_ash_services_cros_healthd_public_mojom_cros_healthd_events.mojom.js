@@ -375,42 +375,42 @@ mojo.internal.Struct(
       mojo.internal.StructField('vid', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('pid', 18, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('categories', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('kUnmappedEnumField', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 32, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 48]]);
 
 // Struct: ThunderboltEventInfo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.ThunderboltEventInfoSpec, 'ash.cros_healthd.mojom.ThunderboltEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: LidEventInfo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.LidEventInfoSpec, 'ash.cros_healthd.mojom.LidEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: BluetoothEventInfo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.BluetoothEventInfoSpec, 'ash.cros_healthd.mojom.BluetoothEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: PowerEventInfo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.PowerEventInfoSpec, 'ash.cros_healthd.mojom.PowerEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: AudioEventInfo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.AudioEventInfoSpec, 'ash.cros_healthd.mojom.AudioEventInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -532,7 +532,7 @@ mojo.internal.Struct(
 // Struct: CrashEventInfo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.CrashEventInfoSpec, 'ash.cros_healthd.mojom.CrashEventInfo', [
-      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -605,7 +605,8 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterAdded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onAdapterRemoved() {
@@ -614,7 +615,8 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterRemoved_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onAdapterPropertyChanged() {
@@ -623,7 +625,8 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnAdapterPropertyChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onDeviceAdded() {
@@ -632,7 +635,8 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceAdded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onDeviceRemoved() {
@@ -641,7 +645,8 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
       4,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDeviceRemoved_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onDevicePropertyChanged() {
@@ -650,7 +655,8 @@ ash.cros_healthd.mojom.CrosHealthdBluetoothObserverRemoteCallHandler = class {
       5,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdBluetoothObserver_OnDevicePropertyChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -718,7 +724,8 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onLidOpened() {
@@ -727,7 +734,8 @@ ash.cros_healthd.mojom.CrosHealthdLidObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdLidObserver_OnLidOpened_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -805,7 +813,8 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcInserted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onAcRemoved() {
@@ -814,7 +823,8 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnAcRemoved_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onOsSuspend() {
@@ -823,7 +833,8 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsSuspend_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onOsResume() {
@@ -832,7 +843,8 @@ ash.cros_healthd.mojom.CrosHealthdPowerObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdPowerObserver_OnOsResume_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -900,7 +912,8 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnUnderrun_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSevereUnderrun() {
@@ -909,7 +922,8 @@ ash.cros_healthd.mojom.CrosHealthdAudioObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdAudioObserver_OnSevereUnderrun_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -987,7 +1001,8 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAdd_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onRemove() {
@@ -996,7 +1011,8 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnRemove_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onAuthorized() {
@@ -1005,7 +1021,8 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
       2,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnAuthorized_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onUnAuthorized() {
@@ -1014,7 +1031,8 @@ ash.cros_healthd.mojom.CrosHealthdThunderboltObserverRemoteCallHandler = class {
       3,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdThunderboltObserver_OnUnAuthorized_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1084,7 +1102,8 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnAdd_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
   onRemove(info) {
@@ -1093,7 +1112,8 @@ ash.cros_healthd.mojom.CrosHealthdUsbObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdUsbObserver_OnRemove_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
 };
@@ -1161,7 +1181,8 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnAdd_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onRemove() {
@@ -1170,7 +1191,8 @@ ash.cros_healthd.mojom.CrosHealthdSdCardObserverRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.mojom.CrosHealthdSdCardObserver_OnRemove_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1234,7 +1256,8 @@ ash.cros_healthd.mojom.EventObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.mojom.EventObserver_OnEvent_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
 };

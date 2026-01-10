@@ -164,7 +164,8 @@ ash.shortcut_customization.mojom.AcceleratorsUpdatedObserverRemoteCallHandler = 
       0,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorsUpdatedObserver_OnAcceleratorsUpdated_ParamsSpec,
       null,
-      [config]);
+      [config],
+      false);
   }
 
 };
@@ -227,7 +228,8 @@ ash.shortcut_customization.mojom.PolicyUpdatedObserverRemoteCallHandler = class 
       0,  // ordinal
       ash.shortcut_customization.mojom.PolicyUpdatedObserver_OnCustomizationPolicyUpdated_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -493,7 +495,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       0,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsMutable_ResponseParamsSpec,
-      [source]);
+      [source],
+      false);
   }
 
   isCustomizationAllowedByPolicy() {
@@ -502,7 +505,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       1,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_IsCustomizationAllowedByPolicy_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getMetaKeyToDisplay() {
@@ -511,7 +515,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       2,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetMetaKeyToDisplay_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getConflictAccelerator(source, action_id, accelerator) {
@@ -520,7 +525,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       3,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetConflictAccelerator_ResponseParamsSpec,
-      [source, action_id, accelerator]);
+      [source, action_id, accelerator],
+      false);
   }
 
   getDefaultAcceleratorsForId(action_id) {
@@ -529,7 +535,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       4,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetDefaultAcceleratorsForId_ResponseParamsSpec,
-      [action_id]);
+      [action_id],
+      false);
   }
 
   getAccelerators() {
@@ -538,7 +545,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       5,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAccelerators_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addObserver(observer) {
@@ -547,7 +555,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       6,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   addPolicyObserver(observer) {
@@ -556,7 +565,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       7,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddPolicyObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   getAcceleratorLayoutInfos() {
@@ -565,7 +575,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       8,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_GetAcceleratorLayoutInfos_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   preventProcessingAccelerators(prevent_processing_accelerators) {
@@ -574,7 +585,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       9,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_PreventProcessingAccelerators_ResponseParamsSpec,
-      [prevent_processing_accelerators]);
+      [prevent_processing_accelerators],
+      false);
   }
 
   addAccelerator(source, action_id, accelerator) {
@@ -583,7 +595,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       10,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_AddAccelerator_ResponseParamsSpec,
-      [source, action_id, accelerator]);
+      [source, action_id, accelerator],
+      false);
   }
 
   removeAccelerator(source, action_id, accelerator) {
@@ -592,7 +605,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       11,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RemoveAccelerator_ResponseParamsSpec,
-      [source, action_id, accelerator]);
+      [source, action_id, accelerator],
+      false);
   }
 
   replaceAccelerator(source, action_id, old_accelerator, new_accelerator) {
@@ -601,7 +615,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       12,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_ReplaceAccelerator_ResponseParamsSpec,
-      [source, action_id, old_accelerator, new_accelerator]);
+      [source, action_id, old_accelerator, new_accelerator],
+      false);
   }
 
   restoreDefault(source, action_id) {
@@ -610,7 +625,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       13,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreDefault_ResponseParamsSpec,
-      [source, action_id]);
+      [source, action_id],
+      false);
   }
 
   restoreAllDefaults() {
@@ -619,7 +635,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       14,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RestoreAllDefaults_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   recordUserAction(user_action) {
@@ -628,7 +645,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       15,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordUserAction_ParamsSpec,
       null,
-      [user_action]);
+      [user_action],
+      false);
   }
 
   recordMainCategoryNavigation(category) {
@@ -637,7 +655,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       16,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordMainCategoryNavigation_ParamsSpec,
       null,
-      [category]);
+      [category],
+      false);
   }
 
   recordEditDialogCompletedActions(completed_actions) {
@@ -646,7 +665,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       17,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordEditDialogCompletedActions_ParamsSpec,
       null,
-      [completed_actions]);
+      [completed_actions],
+      false);
   }
 
   recordAddOrEditSubactions(is_add, subactions) {
@@ -655,7 +675,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       18,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_RecordAddOrEditSubactions_ParamsSpec,
       null,
-      [is_add, subactions]);
+      [is_add, subactions],
+      false);
   }
 
   hasCustomAccelerators() {
@@ -664,7 +685,8 @@ ash.shortcut_customization.mojom.AcceleratorConfigurationProviderRemoteCallHandl
       19,  // ordinal
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ParamsSpec,
       ash.shortcut_customization.mojom.AcceleratorConfigurationProvider_HasCustomAccelerators_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

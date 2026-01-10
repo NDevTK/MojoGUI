@@ -61,7 +61,8 @@ offline_pages.mojom.MhtmlPageNotifierRemoteCallHandler = class {
       0,  // ordinal
       offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec,
       null,
-      [load_result, url, date]);
+      [load_result, url, date],
+      false);
   }
 
 };

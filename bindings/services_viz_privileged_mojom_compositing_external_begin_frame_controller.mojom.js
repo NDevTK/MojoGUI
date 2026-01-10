@@ -93,7 +93,8 @@ viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec,
       viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec,
-      [args, force]);
+      [args, force],
+      false);
   }
 
   issueExternalBeginFrameNoAck(args) {
@@ -102,7 +103,8 @@ viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrameNoAck_ParamsSpec,
       null,
-      [args]);
+      [args],
+      false);
   }
 
   issueExternalVSync(params) {
@@ -111,7 +113,8 @@ viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.ExternalBeginFrameController_IssueExternalVSync_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   setSupportedDisplayLinkId(display_id, is_supported) {
@@ -120,7 +123,8 @@ viz.mojom.ExternalBeginFrameControllerRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.ExternalBeginFrameController_SetSupportedDisplayLinkId_ParamsSpec,
       null,
-      [display_id, is_supported]);
+      [display_id, is_supported],
+      false);
   }
 
 };
@@ -197,7 +201,8 @@ viz.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec,
       null,
-      [needs_begin_frames]);
+      [needs_begin_frames],
+      false);
   }
 
   needsBeginFrameWithId(display_id, needs_begin_frames) {
@@ -206,7 +211,8 @@ viz.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec,
       null,
-      [display_id, needs_begin_frames]);
+      [display_id, needs_begin_frames],
+      false);
   }
 
   setPreferredInterval(interval) {
@@ -215,7 +221,8 @@ viz.mojom.ExternalBeginFrameControllerClientRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec,
       null,
-      [interval]);
+      [interval],
+      false);
   }
 
 };

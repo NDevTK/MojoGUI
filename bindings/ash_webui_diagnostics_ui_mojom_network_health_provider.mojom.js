@@ -201,7 +201,8 @@ ash.diagnostics.mojom.NetworkListObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.NetworkListObserver_OnNetworkListChanged_ParamsSpec,
       null,
-      [network_guids, active_guid]);
+      [network_guids, active_guid],
+      false);
   }
 
 };
@@ -265,7 +266,8 @@ ash.diagnostics.mojom.NetworkStateObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.NetworkStateObserver_OnNetworkStateChanged_ParamsSpec,
       null,
-      [network]);
+      [network],
+      false);
   }
 
 };
@@ -336,7 +338,8 @@ ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetworkList_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeNetwork(observer, guid) {
@@ -345,7 +348,8 @@ ash.diagnostics.mojom.NetworkHealthProviderRemoteCallHandler = class {
       1,  // ordinal
       ash.diagnostics.mojom.NetworkHealthProvider_ObserveNetwork_ParamsSpec,
       null,
-      [observer, guid]);
+      [observer, guid],
+      false);
   }
 
 };

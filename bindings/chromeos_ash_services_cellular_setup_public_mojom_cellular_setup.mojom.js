@@ -97,7 +97,8 @@ ash.cellular_setup.mojom.CarrierPortalHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
 };
@@ -167,7 +168,8 @@ ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler = class {
       0,  // ordinal
       ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec,
       null,
-      [metadata]);
+      [metadata],
+      false);
   }
 
   onActivationFinished(result) {
@@ -176,7 +178,8 @@ ash.cellular_setup.mojom.ActivationDelegateRemoteCallHandler = class {
       1,  // ordinal
       ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
 };
@@ -246,7 +249,8 @@ ash.cellular_setup.mojom.CellularSetupRemoteCallHandler = class {
       0,  // ordinal
       ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec,
       ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec,
-      [delegate]);
+      [delegate],
+      false);
   }
 
 };

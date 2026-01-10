@@ -133,7 +133,8 @@ blink.mojom.CredentialManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.CredentialManager_Store_ParamsSpec,
       blink.mojom.CredentialManager_Store_ResponseParamsSpec,
-      [credential]);
+      [credential],
+      false);
   }
 
   preventSilentAccess() {
@@ -142,7 +143,8 @@ blink.mojom.CredentialManagerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec,
       blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   get(mediation, include_passwords, federations) {
@@ -151,7 +153,8 @@ blink.mojom.CredentialManagerRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.CredentialManager_Get_ParamsSpec,
       blink.mojom.CredentialManager_Get_ResponseParamsSpec,
-      [mediation, include_passwords, federations]);
+      [mediation, include_passwords, federations],
+      false);
   }
 
 };

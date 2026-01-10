@@ -73,7 +73,8 @@ components.media_control.mojom.MediaPlaybackOptionsRemoteCallHandler = class {
       0,  // ordinal
       components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec,
       null,
-      [blocked]);
+      [blocked],
+      false);
   }
 
   setBackgroundVideoPlaybackEnabled(enabled) {
@@ -82,7 +83,8 @@ components.media_control.mojom.MediaPlaybackOptionsRemoteCallHandler = class {
       1,  // ordinal
       components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setRendererType(type) {
@@ -91,7 +93,8 @@ components.media_control.mojom.MediaPlaybackOptionsRemoteCallHandler = class {
       2,  // ordinal
       components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec,
       null,
-      [type]);
+      [type],
+      false);
   }
 
 };

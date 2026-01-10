@@ -105,7 +105,8 @@ arc.keymint.mojom.CertStoreInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec,
       arc.keymint.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec,
-      [keys]);
+      [keys],
+      false);
   }
 
   setSerialNumber(serial_number) {
@@ -114,7 +115,8 @@ arc.keymint.mojom.CertStoreInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.keymint.mojom.CertStoreInstance_SetSerialNumber_ParamsSpec,
       null,
-      [serial_number]);
+      [serial_number],
+      false);
   }
 
 };

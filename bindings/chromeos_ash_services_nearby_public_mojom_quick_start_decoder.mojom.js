@@ -69,7 +69,8 @@ ash.quick_start.mojom.QuickStartDecoderRemoteCallHandler = class {
       0,  // ordinal
       ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec,
       ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec,
-      [data]);
+      [data],
+      false);
   }
 
 };

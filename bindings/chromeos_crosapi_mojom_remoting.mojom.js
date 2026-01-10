@@ -77,7 +77,8 @@ crosapi.mojom.RemotingRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec,
       crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startSupportSession(params) {
@@ -86,7 +87,8 @@ crosapi.mojom.RemotingRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.Remoting_StartSupportSession_ParamsSpec,
       crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
 };

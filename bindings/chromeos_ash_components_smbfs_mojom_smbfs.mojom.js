@@ -74,7 +74,7 @@ smbfs.mojom.Source = {
 // Struct: Password
 mojo.internal.Struct(
     smbfs.mojom.PasswordSpec, 'smbfs.mojom.Password', [
-      mojo.internal.StructField('kMaxLength', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kMaxLength', 0, 0, mojo.internal.Pointer, 255, false, 0, undefined),
       mojo.internal.StructField('fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
       mojo.internal.StructField('length', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
@@ -83,14 +83,14 @@ mojo.internal.Struct(
 // Struct: KerberosConfig
 mojo.internal.Struct(
     smbfs.mojom.KerberosConfigSpec, 'smbfs.mojom.KerberosConfig', [
-      mojo.internal.StructField('kActiveDirectory', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kActiveDirectory', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: CredentialStorageOptions
 mojo.internal.Struct(
     smbfs.mojom.CredentialStorageOptionsSpec, 'smbfs.mojom.CredentialStorageOptions', [
-      mojo.internal.StructField('kMinSaltLength', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kMinSaltLength', 0, 0, mojo.internal.Pointer, 16, false, 0, undefined),
       mojo.internal.StructField('account_hash', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('salt', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
@@ -173,7 +173,8 @@ smbfs.mojom.SmbFsBootstrapRemoteCallHandler = class {
       0,  // ordinal
       smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec,
       smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec,
-      [options, delegate]);
+      [options, delegate],
+      false);
   }
 
 };
@@ -254,7 +255,8 @@ smbfs.mojom.SmbFsRemoteCallHandler = class {
       0,  // ordinal
       smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec,
       smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   deleteRecursively(path) {
@@ -263,7 +265,8 @@ smbfs.mojom.SmbFsRemoteCallHandler = class {
       1,  // ordinal
       smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec,
       smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
 };
@@ -332,7 +335,8 @@ smbfs.mojom.SmbFsDelegateRemoteCallHandler = class {
       0,  // ordinal
       smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec,
       smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

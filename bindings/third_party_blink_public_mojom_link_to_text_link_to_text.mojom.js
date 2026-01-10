@@ -146,7 +146,8 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.TextFragmentReceiver_Cancel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   requestSelector() {
@@ -155,7 +156,8 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.TextFragmentReceiver_RequestSelector_ParamsSpec,
       blink.mojom.TextFragmentReceiver_RequestSelector_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   removeFragments() {
@@ -164,7 +166,8 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.TextFragmentReceiver_RemoveFragments_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   extractTextFragmentsMatches() {
@@ -173,7 +176,8 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ParamsSpec,
       blink.mojom.TextFragmentReceiver_ExtractTextFragmentsMatches_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getExistingSelectors() {
@@ -182,7 +186,8 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.TextFragmentReceiver_GetExistingSelectors_ParamsSpec,
       blink.mojom.TextFragmentReceiver_GetExistingSelectors_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   extractFirstFragmentRect() {
@@ -191,7 +196,8 @@ blink.mojom.TextFragmentReceiverRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ParamsSpec,
       blink.mojom.TextFragmentReceiver_ExtractFirstFragmentRect_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

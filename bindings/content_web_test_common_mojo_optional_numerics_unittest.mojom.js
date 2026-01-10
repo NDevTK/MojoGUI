@@ -838,7 +838,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       0,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec,
-      [optional_bool]);
+      [optional_bool],
+      false);
   }
 
   sendNullUint8(optional_uint8) {
@@ -847,7 +848,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       1,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec,
-      [optional_uint8]);
+      [optional_uint8],
+      false);
   }
 
   sendNullInt8(optional_int8) {
@@ -856,7 +858,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       2,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec,
-      [optional_int8]);
+      [optional_int8],
+      false);
   }
 
   sendNullUint16(optional_uint16) {
@@ -865,7 +868,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       3,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec,
-      [optional_uint16]);
+      [optional_uint16],
+      false);
   }
 
   sendNullInt16(optional_int16) {
@@ -874,7 +878,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       4,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec,
-      [optional_int16]);
+      [optional_int16],
+      false);
   }
 
   sendNullUint32(optional_uint32) {
@@ -883,7 +888,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       5,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec,
-      [optional_uint32]);
+      [optional_uint32],
+      false);
   }
 
   sendNullInt32(optional_int32) {
@@ -892,7 +898,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       6,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec,
-      [optional_int32]);
+      [optional_int32],
+      false);
   }
 
   sendNullUint64(optional_uint64) {
@@ -901,7 +908,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       7,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec,
-      [optional_uint64]);
+      [optional_uint64],
+      false);
   }
 
   sendNullInt64(optional_int64) {
@@ -910,7 +918,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       8,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec,
-      [optional_int64]);
+      [optional_int64],
+      false);
   }
 
   sendNullFloat(optional_float) {
@@ -919,7 +928,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       9,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec,
-      [optional_float]);
+      [optional_float],
+      false);
   }
 
   sendNullDouble(optional_double) {
@@ -928,7 +938,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       10,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec,
-      [optional_double]);
+      [optional_double],
+      false);
   }
 
   sendNullEnum(optional_enum) {
@@ -937,7 +948,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       11,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec,
-      [optional_enum]);
+      [optional_enum],
+      false);
   }
 
   sendNullBools(optional_bools) {
@@ -946,7 +958,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       12,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec,
-      [optional_bools]);
+      [optional_bools],
+      false);
   }
 
   sendNullInt16s(optional_int16s) {
@@ -955,7 +968,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       13,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec,
-      [optional_int16s]);
+      [optional_int16s],
+      false);
   }
 
   sendNullUint32s(optional_uint32s) {
@@ -964,7 +978,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       14,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec,
-      [optional_uint32s]);
+      [optional_uint32s],
+      false);
   }
 
   sendNullDoubles(optional_doubles) {
@@ -973,7 +988,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       15,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec,
-      [optional_doubles]);
+      [optional_doubles],
+      false);
   }
 
   sendNullEnums(optional_enums) {
@@ -982,7 +998,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       16,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec,
-      [optional_enums]);
+      [optional_enums],
+      false);
   }
 
   sendNullBoolMap(values) {
@@ -991,7 +1008,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       17,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec,
-      [values]);
+      [values],
+      false);
   }
 
   sendNullDoubleMap(values) {
@@ -1000,7 +1018,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       18,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec,
-      [values]);
+      [values],
+      false);
   }
 
   sendNullEnumMap(values) {
@@ -1009,7 +1028,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       19,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec,
-      [values]);
+      [values],
+      false);
   }
 
   sendOptionalBool(optional_bool) {
@@ -1018,7 +1038,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       20,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec,
-      [optional_bool]);
+      [optional_bool],
+      false);
   }
 
   sendOptionalUint8(optional_uint8) {
@@ -1027,7 +1048,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       21,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec,
-      [optional_uint8]);
+      [optional_uint8],
+      false);
   }
 
   sendOptionalInt8(optional_int8) {
@@ -1036,7 +1058,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       22,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec,
-      [optional_int8]);
+      [optional_int8],
+      false);
   }
 
   sendOptionalUint16(optional_uint16) {
@@ -1045,7 +1068,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       23,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec,
-      [optional_uint16]);
+      [optional_uint16],
+      false);
   }
 
   sendOptionalInt16(optional_int16) {
@@ -1054,7 +1078,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       24,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec,
-      [optional_int16]);
+      [optional_int16],
+      false);
   }
 
   sendOptionalUint32(optional_uint32) {
@@ -1063,7 +1088,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       25,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec,
-      [optional_uint32]);
+      [optional_uint32],
+      false);
   }
 
   sendOptionalInt32(optional_int32) {
@@ -1072,7 +1098,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       26,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec,
-      [optional_int32]);
+      [optional_int32],
+      false);
   }
 
   sendOptionalUint64(optional_uint64) {
@@ -1081,7 +1108,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       27,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec,
-      [optional_uint64]);
+      [optional_uint64],
+      false);
   }
 
   sendOptionalInt64(optional_int64) {
@@ -1090,7 +1118,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       28,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec,
-      [optional_int64]);
+      [optional_int64],
+      false);
   }
 
   sendOptionalFloat(optional_float) {
@@ -1099,7 +1128,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       29,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec,
-      [optional_float]);
+      [optional_float],
+      false);
   }
 
   sendOptionalDouble(optional_double) {
@@ -1108,7 +1138,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       30,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec,
-      [optional_double]);
+      [optional_double],
+      false);
   }
 
   sendOptionalEnum(optional_enum) {
@@ -1117,7 +1148,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       31,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec,
-      [optional_enum]);
+      [optional_enum],
+      false);
   }
 
   sendOptionalBools(optional_enums) {
@@ -1126,7 +1158,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       32,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec,
-      [optional_enums]);
+      [optional_enums],
+      false);
   }
 
   sendOptionalInt16s(optional_int16s) {
@@ -1135,7 +1168,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       33,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec,
-      [optional_int16s]);
+      [optional_int16s],
+      false);
   }
 
   sendOptionalUint32s(optional_uint32s) {
@@ -1144,7 +1178,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       34,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec,
-      [optional_uint32s]);
+      [optional_uint32s],
+      false);
   }
 
   sendOptionalDoubles(optional_doubles) {
@@ -1153,7 +1188,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       35,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec,
-      [optional_doubles]);
+      [optional_doubles],
+      false);
   }
 
   sendOptionalEnums(optional_enums) {
@@ -1162,7 +1198,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       36,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec,
-      [optional_enums]);
+      [optional_enums],
+      false);
   }
 
   sendOptionalBoolMap(values) {
@@ -1171,7 +1208,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       37,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec,
-      [values]);
+      [values],
+      false);
   }
 
   sendOptionalDoubleMap(values) {
@@ -1180,7 +1218,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       38,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec,
-      [values]);
+      [values],
+      false);
   }
 
   sendOptionalEnumMap(values) {
@@ -1189,7 +1228,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       39,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec,
-      [values]);
+      [values],
+      false);
   }
 
   sendNullStructWithOptionalNumerics(s) {
@@ -1198,7 +1238,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       40,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
   sendStructWithNullOptionalNumerics(s) {
@@ -1207,7 +1248,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       41,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
   sendStructWithOptionalNumerics(s) {
@@ -1216,7 +1258,8 @@ content.optional_numerics_unittest.mojom.ParamsRemoteCallHandler = class {
       42,  // ordinal
       content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
 };
@@ -1804,7 +1847,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       0,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullUint8() {
@@ -1813,7 +1857,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       1,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullInt8() {
@@ -1822,7 +1867,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       2,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullUint16() {
@@ -1831,7 +1877,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       3,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullInt16() {
@@ -1840,7 +1887,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       4,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullUint32() {
@@ -1849,7 +1897,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       5,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullInt32() {
@@ -1858,7 +1907,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       6,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullUint64() {
@@ -1867,7 +1917,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       7,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullInt64() {
@@ -1876,7 +1927,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       8,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullFloat() {
@@ -1885,7 +1937,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       9,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullDouble() {
@@ -1894,7 +1947,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       10,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullEnum() {
@@ -1903,7 +1957,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       11,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullBools() {
@@ -1912,7 +1967,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       12,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullInt16s() {
@@ -1921,7 +1977,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       13,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullUint32s() {
@@ -1930,7 +1987,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       14,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullDoubles() {
@@ -1939,7 +1997,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       15,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullEnums() {
@@ -1948,7 +2007,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       16,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullBoolMap() {
@@ -1957,7 +2017,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       17,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullInt32Map() {
@@ -1966,7 +2027,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       18,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNullEnumMap() {
@@ -1975,7 +2037,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       19,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getOptionalBool(value) {
@@ -1984,7 +2047,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       20,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalUint8(value) {
@@ -1993,7 +2057,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       21,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalInt8(value) {
@@ -2002,7 +2067,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       22,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalUint16(value) {
@@ -2011,7 +2077,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       23,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalInt16(value) {
@@ -2020,7 +2087,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       24,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalUint32(value) {
@@ -2029,7 +2097,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       25,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalInt32(value) {
@@ -2038,7 +2107,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       26,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalUint64(value) {
@@ -2047,7 +2117,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       27,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalInt64(value) {
@@ -2056,7 +2127,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       28,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalFloat(value) {
@@ -2065,7 +2137,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       29,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalDouble(value) {
@@ -2074,7 +2147,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       30,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalEnum(value) {
@@ -2083,7 +2157,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       31,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalBools(value) {
@@ -2092,7 +2167,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       32,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalInt16s(value) {
@@ -2101,7 +2177,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       33,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalUint32s(value) {
@@ -2110,7 +2187,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       34,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalDoubles(value) {
@@ -2119,7 +2197,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       35,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalEnums(value) {
@@ -2128,7 +2207,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       36,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   getOptionalBoolMap(key, value) {
@@ -2137,7 +2217,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       37,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec,
-      [key, value]);
+      [key, value],
+      false);
   }
 
   getOptionalFloatMap(key, value) {
@@ -2146,7 +2227,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       38,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec,
-      [key, value]);
+      [key, value],
+      false);
   }
 
   getOptionalEnumMap(key, value) {
@@ -2155,7 +2237,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       39,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec,
-      [key, value]);
+      [key, value],
+      false);
   }
 
   getNullStructWithOptionalNumerics() {
@@ -2164,7 +2247,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       40,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getStructWithNullOptionalNumerics() {
@@ -2173,7 +2257,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       41,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getStructWithOptionalNumerics(bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value) {
@@ -2182,7 +2267,8 @@ content.optional_numerics_unittest.mojom.ResponseParamsRemoteCallHandler = class
       42,  // ordinal
       content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec,
       content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec,
-      [bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value]);
+      [bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value],
+      false);
   }
 
 };
@@ -2262,7 +2348,8 @@ content.optional_numerics_unittest.mojom.InterfaceV0RemoteCallHandler = class {
       1,  // ordinal
       content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec,
       content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   methodWithVersionedStruct(s) {
@@ -2271,7 +2358,8 @@ content.optional_numerics_unittest.mojom.InterfaceV0RemoteCallHandler = class {
       2,  // ordinal
       content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec,
       content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
 };
@@ -2397,7 +2485,8 @@ content.optional_numerics_unittest.mojom.InterfaceV2RemoteCallHandler = class {
       1,  // ordinal
       content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec,
       content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec,
-      [bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value]);
+      [bool_value, uint8_value, int8_value, uint16_value, int16_value, uint32_value, int32_value, uint64_value, int64_value, float_value, double_value, enum_value],
+      false);
   }
 
   methodWithVersionedStruct(s) {
@@ -2406,7 +2495,8 @@ content.optional_numerics_unittest.mojom.InterfaceV2RemoteCallHandler = class {
       2,  // ordinal
       content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec,
       content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
 };

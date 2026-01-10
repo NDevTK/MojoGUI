@@ -25,7 +25,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('site', 0, 0, network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
       mojo.internal.StructField('from_script', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('nonce', 16, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('ancestor_chain_bit', 24, 0, network.mojom.AncestorChainBitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('ancestor_chain_bit', 24, 0, network.mojom.AncestorChainBitSpec, 0, false, 0, undefined),
     ],
     [[0, 40]]);
 

@@ -87,7 +87,8 @@ blink.mojom.DevicePostureProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec,
       blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec,
-      [client]);
+      [client],
+      false);
   }
 
   overrideDevicePostureForEmulation(posture) {
@@ -96,7 +97,8 @@ blink.mojom.DevicePostureProviderRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec,
       null,
-      [posture]);
+      [posture],
+      false);
   }
 
   disableDevicePostureOverrideForEmulation() {
@@ -105,7 +107,8 @@ blink.mojom.DevicePostureProviderRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -169,7 +172,8 @@ blink.mojom.DevicePostureClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec,
       null,
-      [posture]);
+      [posture],
+      false);
   }
 
 };

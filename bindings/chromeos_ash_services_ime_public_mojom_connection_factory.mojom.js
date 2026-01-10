@@ -91,7 +91,8 @@ ash.ime.mojom.ConnectionFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec,
       ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec,
-      [ime_spec, input_method, input_method_host, settings]);
+      [ime_spec, input_method, input_method_host, settings],
+      false);
   }
 
   unused(unused) {
@@ -100,7 +101,8 @@ ash.ime.mojom.ConnectionFactoryRemoteCallHandler = class {
       1,  // ordinal
       ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec,
       ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec,
-      [unused]);
+      [unused],
+      false);
   }
 
 };

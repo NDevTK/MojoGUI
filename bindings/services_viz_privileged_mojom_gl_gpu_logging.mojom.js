@@ -59,7 +59,8 @@ viz.mojom.GpuLoggingRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec,
       null,
-      [severity, header, message]);
+      [severity, header, message],
+      false);
   }
 
 };

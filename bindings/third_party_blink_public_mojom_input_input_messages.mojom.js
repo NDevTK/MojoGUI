@@ -91,7 +91,8 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.TextSuggestionBackend_ApplySpellCheckSuggestion_ParamsSpec,
       null,
-      [suggestion]);
+      [suggestion],
+      false);
   }
 
   applyTextSuggestion(marker_tag, suggestion_index) {
@@ -100,7 +101,8 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.TextSuggestionBackend_ApplyTextSuggestion_ParamsSpec,
       null,
-      [marker_tag, suggestion_index]);
+      [marker_tag, suggestion_index],
+      false);
   }
 
   deleteActiveSuggestionRange() {
@@ -109,7 +111,8 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.TextSuggestionBackend_DeleteActiveSuggestionRange_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onNewWordAddedToDictionary(suggestion) {
@@ -118,7 +121,8 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.TextSuggestionBackend_OnNewWordAddedToDictionary_ParamsSpec,
       null,
-      [suggestion]);
+      [suggestion],
+      false);
   }
 
   onSuggestionMenuClosed() {
@@ -127,7 +131,8 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.TextSuggestionBackend_OnSuggestionMenuClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   suggestionMenuTimeoutCallback(max_number_of_suggestions) {
@@ -136,7 +141,8 @@ blink.mojom.TextSuggestionBackendRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.TextSuggestionBackend_SuggestionMenuTimeoutCallback_ParamsSpec,
       null,
-      [max_number_of_suggestions]);
+      [max_number_of_suggestions],
+      false);
   }
 
 };

@@ -1142,7 +1142,8 @@ glic.mojom.PreloadPageRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.PreloadPage_SetProfileReadyState_ParamsSpec,
       null,
-      [ready_state]);
+      [ready_state],
+      false);
   }
 
 };
@@ -1217,7 +1218,8 @@ glic.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.Page_IntentToShow_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setProfileReadyState(ready_state) {
@@ -1226,7 +1228,8 @@ glic.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       glic.mojom.Page_SetProfileReadyState_ParamsSpec,
       null,
-      [ready_state]);
+      [ready_state],
+      false);
   }
 
   updatePageState(panelStateKind) {
@@ -1235,7 +1238,8 @@ glic.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       glic.mojom.Page_UpdatePageState_ParamsSpec,
       null,
-      [panelStateKind]);
+      [panelStateKind],
+      false);
   }
 
 };
@@ -1304,7 +1308,8 @@ glic.mojom.GlicPreloadHandlerRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.GlicPreloadHandler_PrepareForClient_ParamsSpec,
       glic.mojom.GlicPreloadHandler_PrepareForClient_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1369,7 +1374,8 @@ glic.mojom.GlicPreloadHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.GlicPreloadHandlerFactory_CreatePreloadHandler_ParamsSpec,
       null,
-      [receiver, page]);
+      [receiver, page],
+      false);
   }
 
 };
@@ -1434,7 +1440,8 @@ glic.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [receiver, page]);
+      [receiver, page],
+      false);
   }
 
 };
@@ -1575,7 +1582,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.PageHandler_CreateWebClient_ParamsSpec,
       null,
-      [web_client_receiver]);
+      [web_client_receiver],
+      false);
   }
 
   prepareForClient() {
@@ -1584,7 +1592,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       glic.mojom.PageHandler_PrepareForClient_ParamsSpec,
       glic.mojom.PageHandler_PrepareForClient_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   webviewCommitted(url) {
@@ -1593,7 +1602,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       glic.mojom.PageHandler_WebviewCommitted_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   closePanel() {
@@ -1602,7 +1612,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       glic.mojom.PageHandler_ClosePanel_ParamsSpec,
       glic.mojom.PageHandler_ClosePanel_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openProfilePickerAndClosePanel() {
@@ -1611,7 +1622,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       glic.mojom.PageHandler_OpenProfilePickerAndClosePanel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openDisabledByAdminLinkAndClosePanel() {
@@ -1620,7 +1632,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       glic.mojom.PageHandler_OpenDisabledByAdminLinkAndClosePanel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   signInAndClosePanel() {
@@ -1629,7 +1642,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       glic.mojom.PageHandler_SignInAndClosePanel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   resizeWidget(size, duration) {
@@ -1638,7 +1652,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       glic.mojom.PageHandler_ResizeWidget_ParamsSpec,
       glic.mojom.PageHandler_ResizeWidget_ResponseParamsSpec,
-      [size, duration]);
+      [size, duration],
+      false);
   }
 
   enableDragResize(enabled) {
@@ -1647,7 +1662,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       glic.mojom.PageHandler_EnableDragResize_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   webUiStateChanged(new_state) {
@@ -1656,7 +1672,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       glic.mojom.PageHandler_WebUiStateChanged_ParamsSpec,
       null,
-      [new_state]);
+      [new_state],
+      false);
   }
 
   getProfileEnablement() {
@@ -1665,7 +1682,8 @@ glic.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       glic.mojom.PageHandler_GetProfileEnablement_ParamsSpec,
       glic.mojom.PageHandler_GetProfileEnablement_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -1729,7 +1747,8 @@ glic.mojom.PinCandidatesObserverRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.PinCandidatesObserver_OnPinCandidatesChanged_ParamsSpec,
       null,
-      [candidates]);
+      [candidates],
+      false);
   }
 
 };
@@ -2527,7 +2546,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.WebClientHandler_WebClientCreated_ParamsSpec,
       glic.mojom.WebClientHandler_WebClientCreated_ResponseParamsSpec,
-      [web_client]);
+      [web_client],
+      false);
   }
 
   webClientInitialized() {
@@ -2536,7 +2556,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       1,  // ordinal
       glic.mojom.WebClientHandler_WebClientInitialized_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   webClientInitializeFailed() {
@@ -2545,7 +2566,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       2,  // ordinal
       glic.mojom.WebClientHandler_WebClientInitializeFailed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   createTab(url, open_in_background, window_id) {
@@ -2554,7 +2576,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       3,  // ordinal
       glic.mojom.WebClientHandler_CreateTab_ParamsSpec,
       glic.mojom.WebClientHandler_CreateTab_ResponseParamsSpec,
-      [url, open_in_background, window_id]);
+      [url, open_in_background, window_id],
+      false);
   }
 
   openLinkInPopup(url, popup_width, popup_height) {
@@ -2563,7 +2586,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       4,  // ordinal
       glic.mojom.WebClientHandler_OpenLinkInPopup_ParamsSpec,
       null,
-      [url, popup_width, popup_height]);
+      [url, popup_width, popup_height],
+      false);
   }
 
   openGlicSettingsPage(options) {
@@ -2572,7 +2596,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       5,  // ordinal
       glic.mojom.WebClientHandler_OpenGlicSettingsPage_ParamsSpec,
       null,
-      [options]);
+      [options],
+      false);
   }
 
   openPasswordManagerSettingsPage() {
@@ -2581,7 +2606,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       6,  // ordinal
       glic.mojom.WebClientHandler_OpenPasswordManagerSettingsPage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   closePanel() {
@@ -2590,7 +2616,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       7,  // ordinal
       glic.mojom.WebClientHandler_ClosePanel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   closePanelAndShutdown() {
@@ -2599,7 +2626,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       8,  // ordinal
       glic.mojom.WebClientHandler_ClosePanelAndShutdown_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   attachPanel() {
@@ -2608,7 +2636,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       9,  // ordinal
       glic.mojom.WebClientHandler_AttachPanel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   detachPanel() {
@@ -2617,7 +2646,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       10,  // ordinal
       glic.mojom.WebClientHandler_DetachPanel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onModeChange(new_mode) {
@@ -2626,7 +2656,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       11,  // ordinal
       glic.mojom.WebClientHandler_OnModeChange_ParamsSpec,
       null,
-      [new_mode]);
+      [new_mode],
+      false);
   }
 
   showProfilePicker() {
@@ -2635,7 +2666,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       12,  // ordinal
       glic.mojom.WebClientHandler_ShowProfilePicker_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getModelQualityClientId() {
@@ -2644,7 +2676,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       13,  // ordinal
       glic.mojom.WebClientHandler_GetModelQualityClientId_ParamsSpec,
       glic.mojom.WebClientHandler_GetModelQualityClientId_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getContextFromFocusedTab(options) {
@@ -2653,7 +2686,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       14,  // ordinal
       glic.mojom.WebClientHandler_GetContextFromFocusedTab_ParamsSpec,
       glic.mojom.WebClientHandler_GetContextFromFocusedTab_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   getContextFromTab(tab_id, options) {
@@ -2662,7 +2696,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       15,  // ordinal
       glic.mojom.WebClientHandler_GetContextFromTab_ParamsSpec,
       glic.mojom.WebClientHandler_GetContextFromTab_ResponseParamsSpec,
-      [tab_id, options]);
+      [tab_id, options],
+      false);
   }
 
   getContextForActorFromTab(tab_id, options) {
@@ -2671,7 +2706,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       16,  // ordinal
       glic.mojom.WebClientHandler_GetContextForActorFromTab_ParamsSpec,
       glic.mojom.WebClientHandler_GetContextForActorFromTab_ResponseParamsSpec,
-      [tab_id, options]);
+      [tab_id, options],
+      false);
   }
 
   setMaximumNumberOfPinnedTabs(requested_max) {
@@ -2680,7 +2716,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       17,  // ordinal
       glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ParamsSpec,
       glic.mojom.WebClientHandler_SetMaximumNumberOfPinnedTabs_ResponseParamsSpec,
-      [requested_max]);
+      [requested_max],
+      false);
   }
 
   pinTabs(tab_ids, options) {
@@ -2689,7 +2726,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       18,  // ordinal
       glic.mojom.WebClientHandler_PinTabs_ParamsSpec,
       glic.mojom.WebClientHandler_PinTabs_ResponseParamsSpec,
-      [tab_ids, options]);
+      [tab_ids, options],
+      false);
   }
 
   unpinTabs(tab_ids, options) {
@@ -2698,7 +2736,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       19,  // ordinal
       glic.mojom.WebClientHandler_UnpinTabs_ParamsSpec,
       glic.mojom.WebClientHandler_UnpinTabs_ResponseParamsSpec,
-      [tab_ids, options]);
+      [tab_ids, options],
+      false);
   }
 
   unpinAllTabs(options) {
@@ -2707,7 +2746,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       20,  // ordinal
       glic.mojom.WebClientHandler_UnpinAllTabs_ParamsSpec,
       null,
-      [options]);
+      [options],
+      false);
   }
 
   createSkill(request) {
@@ -2716,7 +2756,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       21,  // ordinal
       glic.mojom.WebClientHandler_CreateSkill_ParamsSpec,
       glic.mojom.WebClientHandler_CreateSkill_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   updateSkill(request) {
@@ -2725,7 +2766,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       22,  // ordinal
       glic.mojom.WebClientHandler_UpdateSkill_ParamsSpec,
       glic.mojom.WebClientHandler_UpdateSkill_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   getSkill(id) {
@@ -2734,7 +2776,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       23,  // ordinal
       glic.mojom.WebClientHandler_GetSkill_ParamsSpec,
       glic.mojom.WebClientHandler_GetSkill_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   subscribeToPinCandidates(options, observer) {
@@ -2743,7 +2786,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       24,  // ordinal
       glic.mojom.WebClientHandler_SubscribeToPinCandidates_ParamsSpec,
       null,
-      [options, observer]);
+      [options, observer],
+      false);
   }
 
   createTask(task_options) {
@@ -2752,7 +2796,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       25,  // ordinal
       glic.mojom.WebClientHandler_CreateTask_ParamsSpec,
       null,
-      [task_options]);
+      [task_options],
+      false);
   }
 
   performActions(actions_proto) {
@@ -2761,7 +2806,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       26,  // ordinal
       glic.mojom.WebClientHandler_PerformActions_ParamsSpec,
       null,
-      [actions_proto]);
+      [actions_proto],
+      false);
   }
 
   cancelActions(task_id) {
@@ -2770,7 +2816,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       27,  // ordinal
       glic.mojom.WebClientHandler_CancelActions_ParamsSpec,
       glic.mojom.WebClientHandler_CancelActions_ResponseParamsSpec,
-      [task_id]);
+      [task_id],
+      false);
   }
 
   stopActorTask(task_id, stop_reason) {
@@ -2779,7 +2826,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       28,  // ordinal
       glic.mojom.WebClientHandler_StopActorTask_ParamsSpec,
       null,
-      [task_id, stop_reason]);
+      [task_id, stop_reason],
+      false);
   }
 
   pauseActorTask(task_id, pause_reason, tab_id) {
@@ -2788,7 +2836,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       29,  // ordinal
       glic.mojom.WebClientHandler_PauseActorTask_ParamsSpec,
       null,
-      [task_id, pause_reason, tab_id]);
+      [task_id, pause_reason, tab_id],
+      false);
   }
 
   resumeActorTask(task_id, context_options) {
@@ -2797,7 +2846,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       30,  // ordinal
       glic.mojom.WebClientHandler_ResumeActorTask_ParamsSpec,
       glic.mojom.WebClientHandler_ResumeActorTask_ResponseParamsSpec,
-      [task_id, context_options]);
+      [task_id, context_options],
+      false);
   }
 
   interruptActorTask(task_id) {
@@ -2806,7 +2856,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       31,  // ordinal
       glic.mojom.WebClientHandler_InterruptActorTask_ParamsSpec,
       null,
-      [task_id]);
+      [task_id],
+      false);
   }
 
   uninterruptActorTask(task_id) {
@@ -2815,7 +2866,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       32,  // ordinal
       glic.mojom.WebClientHandler_UninterruptActorTask_ParamsSpec,
       null,
-      [task_id]);
+      [task_id],
+      false);
   }
 
   createActorTab(task_id, open_in_background, initiator_tab_id, initiator_window_id) {
@@ -2824,7 +2876,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       33,  // ordinal
       glic.mojom.WebClientHandler_CreateActorTab_ParamsSpec,
       glic.mojom.WebClientHandler_CreateActorTab_ResponseParamsSpec,
-      [task_id, open_in_background, initiator_tab_id, initiator_window_id]);
+      [task_id, open_in_background, initiator_tab_id, initiator_window_id],
+      false);
   }
 
   activateTab(task_id) {
@@ -2833,7 +2886,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       34,  // ordinal
       glic.mojom.WebClientHandler_ActivateTab_ParamsSpec,
       null,
-      [task_id]);
+      [task_id],
+      false);
   }
 
   resizeWidget(size, duration) {
@@ -2842,7 +2896,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       35,  // ordinal
       glic.mojom.WebClientHandler_ResizeWidget_ParamsSpec,
       glic.mojom.WebClientHandler_ResizeWidget_ResponseParamsSpec,
-      [size, duration]);
+      [size, duration],
+      false);
   }
 
   captureScreenshot() {
@@ -2851,7 +2906,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       36,  // ordinal
       glic.mojom.WebClientHandler_CaptureScreenshot_ParamsSpec,
       glic.mojom.WebClientHandler_CaptureScreenshot_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   captureRegion(observer) {
@@ -2860,7 +2916,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       37,  // ordinal
       glic.mojom.WebClientHandler_CaptureRegion_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   setAudioDucking(enable) {
@@ -2869,7 +2926,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       38,  // ordinal
       glic.mojom.WebClientHandler_SetAudioDucking_ParamsSpec,
       glic.mojom.WebClientHandler_SetAudioDucking_ResponseParamsSpec,
-      [enable]);
+      [enable],
+      false);
   }
 
   setPanelDraggableAreas(draggable_areas) {
@@ -2878,7 +2936,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       39,  // ordinal
       glic.mojom.WebClientHandler_SetPanelDraggableAreas_ParamsSpec,
       glic.mojom.WebClientHandler_SetPanelDraggableAreas_ResponseParamsSpec,
-      [draggable_areas]);
+      [draggable_areas],
+      false);
   }
 
   setMinimumPanelSize(size) {
@@ -2887,7 +2946,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       40,  // ordinal
       glic.mojom.WebClientHandler_SetMinimumPanelSize_ParamsSpec,
       null,
-      [size]);
+      [size],
+      false);
   }
 
   setMicrophonePermissionState(enabled) {
@@ -2896,7 +2956,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       41,  // ordinal
       glic.mojom.WebClientHandler_SetMicrophonePermissionState_ParamsSpec,
       glic.mojom.WebClientHandler_SetMicrophonePermissionState_ResponseParamsSpec,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setLocationPermissionState(enabled) {
@@ -2905,7 +2966,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       42,  // ordinal
       glic.mojom.WebClientHandler_SetLocationPermissionState_ParamsSpec,
       glic.mojom.WebClientHandler_SetLocationPermissionState_ResponseParamsSpec,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setTabContextPermissionState(enabled) {
@@ -2914,7 +2976,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       43,  // ordinal
       glic.mojom.WebClientHandler_SetTabContextPermissionState_ParamsSpec,
       glic.mojom.WebClientHandler_SetTabContextPermissionState_ResponseParamsSpec,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setClosedCaptioningSetting(enabled) {
@@ -2923,7 +2986,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       44,  // ordinal
       glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ParamsSpec,
       glic.mojom.WebClientHandler_SetClosedCaptioningSetting_ResponseParamsSpec,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setActuationOnWebSetting(enabled) {
@@ -2932,7 +2996,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       45,  // ordinal
       glic.mojom.WebClientHandler_SetActuationOnWebSetting_ParamsSpec,
       glic.mojom.WebClientHandler_SetActuationOnWebSetting_ResponseParamsSpec,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   shouldAllowMediaPermissionRequest() {
@@ -2941,7 +3006,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       46,  // ordinal
       glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ParamsSpec,
       glic.mojom.WebClientHandler_ShouldAllowMediaPermissionRequest_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   shouldAllowGeolocationPermissionRequest() {
@@ -2950,7 +3016,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       47,  // ordinal
       glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ParamsSpec,
       glic.mojom.WebClientHandler_ShouldAllowGeolocationPermissionRequest_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setContextAccessIndicator(enabled) {
@@ -2959,7 +3026,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       48,  // ordinal
       glic.mojom.WebClientHandler_SetContextAccessIndicator_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   getUserProfileInfo() {
@@ -2968,7 +3036,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       49,  // ordinal
       glic.mojom.WebClientHandler_GetUserProfileInfo_ParamsSpec,
       glic.mojom.WebClientHandler_GetUserProfileInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   syncCookies() {
@@ -2977,7 +3046,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       50,  // ordinal
       glic.mojom.WebClientHandler_SyncCookies_ParamsSpec,
       glic.mojom.WebClientHandler_SyncCookies_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   logBeginAsyncEvent(event_async_id, task_id, event, details) {
@@ -2986,7 +3056,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       51,  // ordinal
       glic.mojom.WebClientHandler_LogBeginAsyncEvent_ParamsSpec,
       null,
-      [event_async_id, task_id, event, details]);
+      [event_async_id, task_id, event, details],
+      false);
   }
 
   logEndAsyncEvent(event_async_id, details) {
@@ -2995,7 +3066,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       52,  // ordinal
       glic.mojom.WebClientHandler_LogEndAsyncEvent_ParamsSpec,
       null,
-      [event_async_id, details]);
+      [event_async_id, details],
+      false);
   }
 
   logInstantEvent(task_id, event, details) {
@@ -3004,7 +3076,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       53,  // ordinal
       glic.mojom.WebClientHandler_LogInstantEvent_ParamsSpec,
       null,
-      [task_id, event, details]);
+      [task_id, event, details],
+      false);
   }
 
   journalClear() {
@@ -3013,7 +3086,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       54,  // ordinal
       glic.mojom.WebClientHandler_JournalClear_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   journalSnapshot(clear_journal) {
@@ -3022,7 +3096,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       55,  // ordinal
       glic.mojom.WebClientHandler_JournalSnapshot_ParamsSpec,
       glic.mojom.WebClientHandler_JournalSnapshot_ResponseParamsSpec,
-      [clear_journal]);
+      [clear_journal],
+      false);
   }
 
   journalStart(max_bytes, capture_screenshots) {
@@ -3031,7 +3106,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       56,  // ordinal
       glic.mojom.WebClientHandler_JournalStart_ParamsSpec,
       null,
-      [max_bytes, capture_screenshots]);
+      [max_bytes, capture_screenshots],
+      false);
   }
 
   journalStop() {
@@ -3040,7 +3116,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       57,  // ordinal
       glic.mojom.WebClientHandler_JournalStop_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   journalRecordFeedback(positive, reason) {
@@ -3049,7 +3126,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       58,  // ordinal
       glic.mojom.WebClientHandler_JournalRecordFeedback_ParamsSpec,
       null,
-      [positive, reason]);
+      [positive, reason],
+      false);
   }
 
   onUserInputSubmitted(mode) {
@@ -3058,7 +3136,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       59,  // ordinal
       glic.mojom.WebClientHandler_OnUserInputSubmitted_ParamsSpec,
       null,
-      [mode]);
+      [mode],
+      false);
   }
 
   onContextUploadStarted() {
@@ -3067,7 +3146,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       60,  // ordinal
       glic.mojom.WebClientHandler_OnContextUploadStarted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onContextUploadCompleted() {
@@ -3076,7 +3156,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       61,  // ordinal
       glic.mojom.WebClientHandler_OnContextUploadCompleted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onReaction(reactionType) {
@@ -3085,7 +3166,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       62,  // ordinal
       glic.mojom.WebClientHandler_OnReaction_ParamsSpec,
       null,
-      [reactionType]);
+      [reactionType],
+      false);
   }
 
   onResponseStarted() {
@@ -3094,7 +3176,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       63,  // ordinal
       glic.mojom.WebClientHandler_OnResponseStarted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onResponseStopped(details) {
@@ -3103,7 +3186,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       64,  // ordinal
       glic.mojom.WebClientHandler_OnResponseStopped_ParamsSpec,
       null,
-      [details]);
+      [details],
+      false);
   }
 
   onSessionTerminated() {
@@ -3112,7 +3196,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       65,  // ordinal
       glic.mojom.WebClientHandler_OnSessionTerminated_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onTurnCompleted(model, duration) {
@@ -3121,7 +3206,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       66,  // ordinal
       glic.mojom.WebClientHandler_OnTurnCompleted_ParamsSpec,
       null,
-      [model, duration]);
+      [model, duration],
+      false);
   }
 
   onModelChanged(model) {
@@ -3130,7 +3216,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       67,  // ordinal
       glic.mojom.WebClientHandler_OnModelChanged_ParamsSpec,
       null,
-      [model]);
+      [model],
+      false);
   }
 
   onRecordUseCounter(counter) {
@@ -3139,7 +3226,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       68,  // ordinal
       glic.mojom.WebClientHandler_OnRecordUseCounter_ParamsSpec,
       null,
-      [counter]);
+      [counter],
+      false);
   }
 
   onResponseRated(positive) {
@@ -3148,7 +3236,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       69,  // ordinal
       glic.mojom.WebClientHandler_OnResponseRated_ParamsSpec,
       null,
-      [positive]);
+      [positive],
+      false);
   }
 
   onClosedCaptionsShown() {
@@ -3157,7 +3246,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       70,  // ordinal
       glic.mojom.WebClientHandler_OnClosedCaptionsShown_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   scrollTo(params) {
@@ -3166,7 +3256,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       71,  // ordinal
       glic.mojom.WebClientHandler_ScrollTo_ParamsSpec,
       glic.mojom.WebClientHandler_ScrollTo_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
   dropScrollToHighlight() {
@@ -3175,7 +3266,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       72,  // ordinal
       glic.mojom.WebClientHandler_DropScrollToHighlight_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setSyntheticExperimentState(trial_name, group_name) {
@@ -3184,7 +3276,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       73,  // ordinal
       glic.mojom.WebClientHandler_SetSyntheticExperimentState_ParamsSpec,
       null,
-      [trial_name, group_name]);
+      [trial_name, group_name],
+      false);
   }
 
   openOsPermissionSettingsMenu(type) {
@@ -3193,7 +3286,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       74,  // ordinal
       glic.mojom.WebClientHandler_OpenOsPermissionSettingsMenu_ParamsSpec,
       null,
-      [type]);
+      [type],
+      false);
   }
 
   getOsMicrophonePermissionStatus() {
@@ -3202,7 +3296,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       75,  // ordinal
       glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ParamsSpec,
       glic.mojom.WebClientHandler_GetOsMicrophonePermissionStatus_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getZeroStateSuggestionsAndSubscribe(is_live, options) {
@@ -3211,7 +3306,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       76,  // ordinal
       glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec,
       glic.mojom.WebClientHandler_GetZeroStateSuggestionsAndSubscribe_ResponseParamsSpec,
-      [is_live, options]);
+      [is_live, options],
+      false);
   }
 
   getZeroStateSuggestionsForFocusedTab(is_first_run) {
@@ -3220,7 +3316,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       77,  // ordinal
       glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ParamsSpec,
       glic.mojom.WebClientHandler_GetZeroStateSuggestionsForFocusedTab_ResponseParamsSpec,
-      [is_first_run]);
+      [is_first_run],
+      false);
   }
 
   maybeRefreshUserStatus() {
@@ -3229,7 +3326,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       78,  // ordinal
       glic.mojom.WebClientHandler_MaybeRefreshUserStatus_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   isDebuggerAttached() {
@@ -3238,7 +3336,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       79,  // ordinal
       glic.mojom.WebClientHandler_IsDebuggerAttached_ParamsSpec,
       glic.mojom.WebClientHandler_IsDebuggerAttached_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onViewChanged(notification) {
@@ -3247,7 +3346,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       80,  // ordinal
       glic.mojom.WebClientHandler_OnViewChanged_ParamsSpec,
       null,
-      [notification]);
+      [notification],
+      false);
   }
 
   subscribeToPageMetadata(tab_id, names) {
@@ -3256,7 +3356,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       81,  // ordinal
       glic.mojom.WebClientHandler_SubscribeToPageMetadata_ParamsSpec,
       glic.mojom.WebClientHandler_SubscribeToPageMetadata_ResponseParamsSpec,
-      [tab_id, names]);
+      [tab_id, names],
+      false);
   }
 
   switchConversation(info) {
@@ -3265,7 +3366,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       82,  // ordinal
       glic.mojom.WebClientHandler_SwitchConversation_ParamsSpec,
       glic.mojom.WebClientHandler_SwitchConversation_ResponseParamsSpec,
-      [info]);
+      [info],
+      false);
   }
 
   registerConversation(info) {
@@ -3274,7 +3376,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       83,  // ordinal
       glic.mojom.WebClientHandler_RegisterConversation_ParamsSpec,
       glic.mojom.WebClientHandler_RegisterConversation_ResponseParamsSpec,
-      [info]);
+      [info],
+      false);
   }
 
   setOnboardingCompleted() {
@@ -3283,7 +3386,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       84,  // ordinal
       glic.mojom.WebClientHandler_SetOnboardingCompleted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   subscribeToTabData(tab_id, receiver) {
@@ -3292,7 +3396,8 @@ glic.mojom.WebClientHandlerRemoteCallHandler = class {
       85,  // ordinal
       glic.mojom.WebClientHandler_SubscribeToTabData_ParamsSpec,
       null,
-      [tab_id, receiver]);
+      [tab_id, receiver],
+      false);
   }
 
 };
@@ -3356,7 +3461,8 @@ glic.mojom.TabDataHandlerRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.TabDataHandler_OnTabDataChanged_ParamsSpec,
       null,
-      [tab_data]);
+      [tab_data],
+      false);
   }
 
 };
@@ -3649,7 +3755,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.WebClient_NotifyPanelWillOpen_ParamsSpec,
       glic.mojom.WebClient_NotifyPanelWillOpen_ResponseParamsSpec,
-      [panel_opening_data]);
+      [panel_opening_data],
+      false);
   }
 
   notifyPanelWasClosed() {
@@ -3658,7 +3765,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       1,  // ordinal
       glic.mojom.WebClient_NotifyPanelWasClosed_ParamsSpec,
       glic.mojom.WebClient_NotifyPanelWasClosed_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   notifyPanelStateChange(panel_state) {
@@ -3667,7 +3775,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       2,  // ordinal
       glic.mojom.WebClient_NotifyPanelStateChange_ParamsSpec,
       null,
-      [panel_state]);
+      [panel_state],
+      false);
   }
 
   notifyPanelActiveChange(panel_active) {
@@ -3676,7 +3785,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       3,  // ordinal
       glic.mojom.WebClient_NotifyPanelActiveChange_ParamsSpec,
       null,
-      [panel_active]);
+      [panel_active],
+      false);
   }
 
   notifyPanelCanAttachChange(can_attach) {
@@ -3685,7 +3795,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       4,  // ordinal
       glic.mojom.WebClient_NotifyPanelCanAttachChange_ParamsSpec,
       null,
-      [can_attach]);
+      [can_attach],
+      false);
   }
 
   notifyMicrophonePermissionStateChanged(enabled) {
@@ -3694,7 +3805,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       5,  // ordinal
       glic.mojom.WebClient_NotifyMicrophonePermissionStateChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   notifyLocationPermissionStateChanged(enabled) {
@@ -3703,7 +3815,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       6,  // ordinal
       glic.mojom.WebClient_NotifyLocationPermissionStateChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   notifyTabContextPermissionStateChanged(enabled) {
@@ -3712,7 +3825,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       7,  // ordinal
       glic.mojom.WebClient_NotifyTabContextPermissionStateChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   notifyOsLocationPermissionStateChanged(enabled) {
@@ -3721,7 +3835,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       8,  // ordinal
       glic.mojom.WebClient_NotifyOsLocationPermissionStateChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   notifyFocusedTabChanged(focused_tab_data) {
@@ -3730,7 +3845,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       9,  // ordinal
       glic.mojom.WebClient_NotifyFocusedTabChanged_ParamsSpec,
       null,
-      [focused_tab_data]);
+      [focused_tab_data],
+      false);
   }
 
   notifyManualResizeChanged(resizing) {
@@ -3739,7 +3855,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       10,  // ordinal
       glic.mojom.WebClient_NotifyManualResizeChanged_ParamsSpec,
       null,
-      [resizing]);
+      [resizing],
+      false);
   }
 
   notifyOsHotkeyStateChanged(hotkey) {
@@ -3748,7 +3865,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       11,  // ordinal
       glic.mojom.WebClient_NotifyOsHotkeyStateChanged_ParamsSpec,
       null,
-      [hotkey]);
+      [hotkey],
+      false);
   }
 
   notifyBrowserIsOpenChanged(browser_is_open) {
@@ -3757,7 +3875,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       12,  // ordinal
       glic.mojom.WebClient_NotifyBrowserIsOpenChanged_ParamsSpec,
       null,
-      [browser_is_open]);
+      [browser_is_open],
+      false);
   }
 
   notifyInstanceActivationChanged(instance_active) {
@@ -3766,7 +3885,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       13,  // ordinal
       glic.mojom.WebClient_NotifyInstanceActivationChanged_ParamsSpec,
       null,
-      [instance_active]);
+      [instance_active],
+      false);
   }
 
   notifyClosedCaptioningSettingChanged(enabled) {
@@ -3775,7 +3895,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       14,  // ordinal
       glic.mojom.WebClient_NotifyClosedCaptioningSettingChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   notifyPinnedTabsChanged(tab_data) {
@@ -3784,7 +3905,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       15,  // ordinal
       glic.mojom.WebClient_NotifyPinnedTabsChanged_ParamsSpec,
       null,
-      [tab_data]);
+      [tab_data],
+      false);
   }
 
   notifyPinnedTabDataChanged(tab_data) {
@@ -3793,7 +3915,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       16,  // ordinal
       glic.mojom.WebClient_NotifyPinnedTabDataChanged_ParamsSpec,
       null,
-      [tab_data]);
+      [tab_data],
+      false);
   }
 
   notifySkillPreviewsChanged(skill_previews) {
@@ -3802,7 +3925,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       17,  // ordinal
       glic.mojom.WebClient_NotifySkillPreviewsChanged_ParamsSpec,
       null,
-      [skill_previews]);
+      [skill_previews],
+      false);
   }
 
   notifySkillPreviewChanged(skill_preview) {
@@ -3811,7 +3935,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       18,  // ordinal
       glic.mojom.WebClient_NotifySkillPreviewChanged_ParamsSpec,
       null,
-      [skill_preview]);
+      [skill_preview],
+      false);
   }
 
   notifySkillToInvokeChanged(skill) {
@@ -3820,7 +3945,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       19,  // ordinal
       glic.mojom.WebClient_NotifySkillToInvokeChanged_ParamsSpec,
       null,
-      [skill]);
+      [skill],
+      false);
   }
 
   notifyZeroStateSuggestionsChanged(suggestions, options) {
@@ -3829,7 +3955,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       20,  // ordinal
       glic.mojom.WebClient_NotifyZeroStateSuggestionsChanged_ParamsSpec,
       null,
-      [suggestions, options]);
+      [suggestions, options],
+      false);
   }
 
   notifyActorTaskStateChanged(task_id, state) {
@@ -3838,7 +3965,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       21,  // ordinal
       glic.mojom.WebClient_NotifyActorTaskStateChanged_ParamsSpec,
       null,
-      [task_id, state]);
+      [task_id, state],
+      false);
   }
 
   requestViewChange(request) {
@@ -3847,7 +3975,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       22,  // ordinal
       glic.mojom.WebClient_RequestViewChange_ParamsSpec,
       null,
-      [request]);
+      [request],
+      false);
   }
 
   notifyPageMetadataChanged(tab_id, metadata) {
@@ -3856,7 +3985,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       23,  // ordinal
       glic.mojom.WebClient_NotifyPageMetadataChanged_ParamsSpec,
       null,
-      [tab_id, metadata]);
+      [tab_id, metadata],
+      false);
   }
 
   notifyDefaultTabContextPermissionStateChanged(enabled) {
@@ -3865,7 +3995,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       24,  // ordinal
       glic.mojom.WebClient_NotifyDefaultTabContextPermissionStateChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   requestToShowCredentialSelectionDialog(request) {
@@ -3874,7 +4005,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       25,  // ordinal
       glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ParamsSpec,
       glic.mojom.WebClient_RequestToShowCredentialSelectionDialog_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   requestToShowAutofillSuggestionsDialog(request) {
@@ -3883,7 +4015,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       26,  // ordinal
       glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ParamsSpec,
       glic.mojom.WebClient_RequestToShowAutofillSuggestionsDialog_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   requestToShowUserConfirmationDialog(request) {
@@ -3892,7 +4025,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       27,  // ordinal
       glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ParamsSpec,
       glic.mojom.WebClient_RequestToShowUserConfirmationDialog_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   requestToConfirmNavigation(request) {
@@ -3901,7 +4035,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       28,  // ordinal
       glic.mojom.WebClient_RequestToConfirmNavigation_ParamsSpec,
       glic.mojom.WebClient_RequestToConfirmNavigation_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   notifyAdditionalContext(context) {
@@ -3910,7 +4045,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       29,  // ordinal
       glic.mojom.WebClient_NotifyAdditionalContext_ParamsSpec,
       null,
-      [context]);
+      [context],
+      false);
   }
 
   notifyActuationOnWebSettingChanged(enabled) {
@@ -3919,7 +4055,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       30,  // ordinal
       glic.mojom.WebClient_NotifyActuationOnWebSettingChanged_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   notifyActOnWebCapabilityChanged(can_act_on_web) {
@@ -3928,7 +4065,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       31,  // ordinal
       glic.mojom.WebClient_NotifyActOnWebCapabilityChanged_ParamsSpec,
       null,
-      [can_act_on_web]);
+      [can_act_on_web],
+      false);
   }
 
   notifyOnboardingCompletedChanged(completed) {
@@ -3937,7 +4075,8 @@ glic.mojom.WebClientRemoteCallHandler = class {
       32,  // ordinal
       glic.mojom.WebClient_NotifyOnboardingCompletedChanged_ParamsSpec,
       null,
-      [completed]);
+      [completed],
+      false);
   }
 
 };
@@ -4002,7 +4141,8 @@ glic.mojom.CaptureRegionObserverRemoteCallHandler = class {
       0,  // ordinal
       glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec,
       null,
-      [result, reason]);
+      [result, reason],
+      false);
   }
 
 };

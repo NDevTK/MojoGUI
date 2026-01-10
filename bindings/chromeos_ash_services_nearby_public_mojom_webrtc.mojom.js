@@ -93,7 +93,8 @@ sharing.mojom.IceConfigFetcherRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec,
       sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -157,7 +158,8 @@ sharing.mojom.MdnsResponderFactoryRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec,
       null,
-      [responder_receiver]);
+      [responder_receiver],
+      false);
   }
 
 };

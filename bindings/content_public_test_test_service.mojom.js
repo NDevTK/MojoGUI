@@ -216,7 +216,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.TestService_DoSomething_ParamsSpec,
       content.mojom.TestService_DoSomething_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   doTerminateProcess() {
@@ -225,7 +226,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.TestService_DoTerminateProcess_ParamsSpec,
       content.mojom.TestService_DoTerminateProcess_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   doCrashImmediately() {
@@ -234,7 +236,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.TestService_DoCrashImmediately_ParamsSpec,
       content.mojom.TestService_DoCrashImmediately_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   createFolder() {
@@ -243,7 +246,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.TestService_CreateFolder_ParamsSpec,
       content.mojom.TestService_CreateFolder_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getRequestorName() {
@@ -252,7 +256,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
       4,  // ordinal
       content.mojom.TestService_GetRequestorName_ParamsSpec,
       content.mojom.TestService_GetRequestorName_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   createReadOnlySharedMemoryRegion(message) {
@@ -261,7 +266,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
       5,  // ordinal
       content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ParamsSpec,
       content.mojom.TestService_CreateReadOnlySharedMemoryRegion_ResponseParamsSpec,
-      [message]);
+      [message],
+      false);
   }
 
   createWritableSharedMemoryRegion(message) {
@@ -270,7 +276,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
       6,  // ordinal
       content.mojom.TestService_CreateWritableSharedMemoryRegion_ParamsSpec,
       content.mojom.TestService_CreateWritableSharedMemoryRegion_ResponseParamsSpec,
-      [message]);
+      [message],
+      false);
   }
 
   createUnsafeSharedMemoryRegion(message) {
@@ -279,7 +286,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
       7,  // ordinal
       content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ParamsSpec,
       content.mojom.TestService_CreateUnsafeSharedMemoryRegion_ResponseParamsSpec,
-      [message]);
+      [message],
+      false);
   }
 
   cloneSharedMemoryContents(region) {
@@ -288,7 +296,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
       8,  // ordinal
       content.mojom.TestService_CloneSharedMemoryContents_ParamsSpec,
       content.mojom.TestService_CloneSharedMemoryContents_ResponseParamsSpec,
-      [region]);
+      [region],
+      false);
   }
 
   isProcessSandboxed() {
@@ -297,7 +306,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
       9,  // ordinal
       content.mojom.TestService_IsProcessSandboxed_ParamsSpec,
       content.mojom.TestService_IsProcessSandboxed_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   pseudonymizeString(value) {
@@ -306,7 +316,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
       10,  // ordinal
       content.mojom.TestService_PseudonymizeString_ParamsSpec,
       content.mojom.TestService_PseudonymizeString_ResponseParamsSpec,
-      [value]);
+      [value],
+      false);
   }
 
   passWriteableFile(file) {
@@ -315,7 +326,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
       11,  // ordinal
       content.mojom.TestService_PassWriteableFile_ParamsSpec,
       content.mojom.TestService_PassWriteableFile_ResponseParamsSpec,
-      [file]);
+      [file],
+      false);
   }
 
   writeToPreloadedPipe() {
@@ -324,7 +336,8 @@ content.mojom.TestServiceRemoteCallHandler = class {
       12,  // ordinal
       content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

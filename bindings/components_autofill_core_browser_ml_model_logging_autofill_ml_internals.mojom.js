@@ -109,7 +109,8 @@ autofill_ml_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec,
       null,
-      [log]);
+      [log],
+      false);
   }
 
 };
@@ -173,7 +174,8 @@ autofill_ml_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
 };

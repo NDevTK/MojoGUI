@@ -27,7 +27,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('deprecated_qs_revamp', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('jelly_colors', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('deprecated_trackpad_scroll_touchscreen_emulation', 0, 2, mojo.internal.Bool, false, false, 2, undefined),
-      mojo.internal.StructField('touchscreen_emulation', 0, 3, mojo.internal.Bool, false, false, 2, undefined),
+      mojo.internal.StructField('touchscreen_emulation', 0, 3, mojo.internal.Bool, true, false, 2, undefined),
       mojo.internal.StructField('rounded_window_compat_strategy', 4, 0, arc.mojom.RoundedWindowCompatStrategySpec, null, false, 3, undefined),
       mojo.internal.StructField('rounded_window_radius', 8, 0, mojo.internal.Int32, 0, false, 3, undefined),
       mojo.internal.StructField('xdg_mode', 12, 0, mojo.internal.Bool, false, false, 4, undefined),
@@ -89,7 +89,8 @@ arc.mojom.ChromeFeatureFlagsInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.ChromeFeatureFlagsInstance_NotifyFeatureFlags_ParamsSpec,
       null,
-      [flags]);
+      [flags],
+      false);
   }
 
 };

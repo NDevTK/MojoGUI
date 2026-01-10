@@ -63,7 +63,8 @@ web.mojom.WebUsageControllerRemoteCallHandler = class {
       0,  // ordinal
       web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec,
       web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec,
-      [enabled]);
+      [enabled],
+      false);
   }
 
 };

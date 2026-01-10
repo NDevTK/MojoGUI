@@ -69,7 +69,8 @@ content.mojom.FontCacheWinRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.FontCacheWin_PreCacheFont_ParamsSpec,
       content.mojom.FontCacheWin_PreCacheFont_ResponseParamsSpec,
-      [log_font]);
+      [log_font],
+      false);
   }
 
   releaseCachedFonts() {
@@ -78,7 +79,8 @@ content.mojom.FontCacheWinRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

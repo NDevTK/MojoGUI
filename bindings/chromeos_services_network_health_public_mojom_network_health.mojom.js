@@ -85,7 +85,8 @@ chromeos.network_health.mojom.NetworkEventsObserverRemoteCallHandler = class {
       0,  // ordinal
       chromeos.network_health.mojom.NetworkEventsObserver_OnConnectionStateChanged_ParamsSpec,
       null,
-      [guid, state]);
+      [guid, state],
+      false);
   }
 
   onSignalStrengthChanged(guid, signal_strength) {
@@ -94,7 +95,8 @@ chromeos.network_health.mojom.NetworkEventsObserverRemoteCallHandler = class {
       1,  // ordinal
       chromeos.network_health.mojom.NetworkEventsObserver_OnSignalStrengthChanged_ParamsSpec,
       null,
-      [guid, signal_strength]);
+      [guid, signal_strength],
+      false);
   }
 
   onNetworkListChanged(networks) {
@@ -103,7 +105,8 @@ chromeos.network_health.mojom.NetworkEventsObserverRemoteCallHandler = class {
       2,  // ordinal
       chromeos.network_health.mojom.NetworkEventsObserver_OnNetworkListChanged_ParamsSpec,
       null,
-      [networks]);
+      [networks],
+      false);
   }
 
 };
@@ -200,7 +203,8 @@ chromeos.network_health.mojom.NetworkHealthServiceRemoteCallHandler = class {
       0,  // ordinal
       chromeos.network_health.mojom.NetworkHealthService_AddObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   getNetworkList() {
@@ -209,7 +213,8 @@ chromeos.network_health.mojom.NetworkHealthServiceRemoteCallHandler = class {
       1,  // ordinal
       chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ParamsSpec,
       chromeos.network_health.mojom.NetworkHealthService_GetNetworkList_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getHealthSnapshot() {
@@ -218,7 +223,8 @@ chromeos.network_health.mojom.NetworkHealthServiceRemoteCallHandler = class {
       2,  // ordinal
       chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ParamsSpec,
       chromeos.network_health.mojom.NetworkHealthService_GetHealthSnapshot_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getRecentlyActiveNetworks() {
@@ -227,7 +233,8 @@ chromeos.network_health.mojom.NetworkHealthServiceRemoteCallHandler = class {
       3,  // ordinal
       chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ParamsSpec,
       chromeos.network_health.mojom.NetworkHealthService_GetRecentlyActiveNetworks_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

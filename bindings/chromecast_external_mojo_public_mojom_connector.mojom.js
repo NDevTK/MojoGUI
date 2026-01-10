@@ -86,7 +86,8 @@ chromecast.external_mojo.mojom.ExternalServiceRemoteCallHandler = class {
       0,  // ordinal
       chromecast.external_mojo.mojom.ExternalService_OnBindInterface_ParamsSpec,
       null,
-      [interface_name, interface_pipe]);
+      [interface_name, interface_pipe],
+      false);
   }
 
 };
@@ -181,7 +182,8 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
       0,  // ordinal
       chromecast.external_mojo.mojom.ExternalConnector_RegisterServiceInstances_ParamsSpec,
       null,
-      [instances_info]);
+      [instances_info],
+      false);
   }
 
   bindInterface(service_name, interface_name, interface_pipe) {
@@ -190,7 +192,8 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
       1,  // ordinal
       chromecast.external_mojo.mojom.ExternalConnector_BindInterface_ParamsSpec,
       null,
-      [service_name, interface_name, interface_pipe]);
+      [service_name, interface_name, interface_pipe],
+      false);
   }
 
   clone(receiver) {
@@ -199,7 +202,8 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
       2,  // ordinal
       chromecast.external_mojo.mojom.ExternalConnector_Clone_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindChromiumConnector(interface_pipe) {
@@ -208,7 +212,8 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
       3,  // ordinal
       chromecast.external_mojo.mojom.ExternalConnector_BindChromiumConnector_ParamsSpec,
       null,
-      [interface_pipe]);
+      [interface_pipe],
+      false);
   }
 
   queryServiceList() {
@@ -217,7 +222,8 @@ chromecast.external_mojo.mojom.ExternalConnectorRemoteCallHandler = class {
       4,  // ordinal
       chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ParamsSpec,
       chromecast.external_mojo.mojom.ExternalConnector_QueryServiceList_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

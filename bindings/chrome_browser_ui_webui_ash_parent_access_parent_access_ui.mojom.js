@@ -225,7 +225,8 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
       0,  // ordinal
       parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec,
       parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onParentAccessCallbackReceived(encoded_parent_access_callback_proto) {
@@ -234,7 +235,8 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
       1,  // ordinal
       parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec,
       parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec,
-      [encoded_parent_access_callback_proto]);
+      [encoded_parent_access_callback_proto],
+      false);
   }
 
   getParentAccessParams() {
@@ -243,7 +245,8 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
       2,  // ordinal
       parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec,
       parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getParentAccessUrl() {
@@ -252,7 +255,8 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
       3,  // ordinal
       parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec,
       parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onParentAccessDone(result) {
@@ -261,7 +265,8 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
       4,  // ordinal
       parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec,
       parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec,
-      [result]);
+      [result],
+      false);
   }
 
   onBeforeScreenDone() {
@@ -270,7 +275,8 @@ parent_access_ui.mojom.ParentAccessUiHandlerRemoteCallHandler = class {
       5,  // ordinal
       parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec,
       parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

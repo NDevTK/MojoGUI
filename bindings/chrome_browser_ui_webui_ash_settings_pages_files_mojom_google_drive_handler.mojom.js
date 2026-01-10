@@ -87,7 +87,8 @@ ash.settings.google_drive.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -176,7 +177,8 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getContentCacheSize() {
@@ -185,7 +187,8 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec,
       ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   clearPinnedFiles() {
@@ -194,7 +197,8 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec,
       ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   recordBulkPinningEnabledMetric() {
@@ -203,7 +207,8 @@ ash.settings.google_drive.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -272,7 +277,8 @@ ash.settings.google_drive.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onProgress(status) {
@@ -281,7 +287,8 @@ ash.settings.google_drive.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
 };

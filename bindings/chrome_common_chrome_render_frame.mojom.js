@@ -219,7 +219,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.ChromeRenderFrame_SetWindowFeatures_ParamsSpec,
       null,
-      [window_features]);
+      [window_features],
+      false);
   }
 
   requestReloadImageForContextNode() {
@@ -228,7 +229,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.ChromeRenderFrame_RequestReloadImageForContextNode_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   requestBitmapForContextNode() {
@@ -237,7 +239,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ParamsSpec,
       chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNode_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestBitmapForContextNodeWithBoundsHint() {
@@ -246,7 +249,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       3,  // ordinal
       chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ParamsSpec,
       chrome.mojom.ChromeRenderFrame_RequestBitmapForContextNodeWithBoundsHint_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestBoundsHintForAllImages() {
@@ -255,7 +259,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       4,  // ordinal
       chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ParamsSpec,
       chrome.mojom.ChromeRenderFrame_RequestBoundsHintForAllImages_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestImageForContextNode(image_min_area_pixels, image_max_size_pixels, image_format, quality) {
@@ -264,7 +269,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       5,  // ordinal
       chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ParamsSpec,
       chrome.mojom.ChromeRenderFrame_RequestImageForContextNode_ResponseParamsSpec,
-      [image_min_area_pixels, image_max_size_pixels, image_format, quality]);
+      [image_min_area_pixels, image_max_size_pixels, image_format, quality],
+      false);
   }
 
   executeWebUIJavaScript(javascript) {
@@ -273,7 +279,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       6,  // ordinal
       chrome.mojom.ChromeRenderFrame_ExecuteWebUIJavaScript_ParamsSpec,
       null,
-      [javascript]);
+      [javascript],
+      false);
   }
 
   setCCTClientHeader(header) {
@@ -282,7 +289,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       7,  // ordinal
       chrome.mojom.ChromeRenderFrame_SetCCTClientHeader_ParamsSpec,
       null,
-      [header]);
+      [header],
+      false);
   }
 
   getMediaFeedURL() {
@@ -291,7 +299,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       8,  // ordinal
       chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ParamsSpec,
       chrome.mojom.ChromeRenderFrame_GetMediaFeedURL_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   loadBlockedPlugins(identifier) {
@@ -300,7 +309,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       9,  // ordinal
       chrome.mojom.ChromeRenderFrame_LoadBlockedPlugins_ParamsSpec,
       null,
-      [identifier]);
+      [identifier],
+      false);
   }
 
   setShouldDeferMediaLoad(should_defer) {
@@ -309,7 +319,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       10,  // ordinal
       chrome.mojom.ChromeRenderFrame_SetShouldDeferMediaLoad_ParamsSpec,
       null,
-      [should_defer]);
+      [should_defer],
+      false);
   }
 
   invokeTool(request) {
@@ -318,7 +329,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       11,  // ordinal
       chrome.mojom.ChromeRenderFrame_InvokeTool_ParamsSpec,
       chrome.mojom.ChromeRenderFrame_InvokeTool_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   cancelTool(task_id) {
@@ -327,7 +339,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       12,  // ordinal
       chrome.mojom.ChromeRenderFrame_CancelTool_ParamsSpec,
       null,
-      [task_id]);
+      [task_id],
+      false);
   }
 
   startActorJournal(client) {
@@ -336,7 +349,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       13,  // ordinal
       chrome.mojom.ChromeRenderFrame_StartActorJournal_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   createPageStabilityMonitor(monitor, task_id, supports_paint_stability) {
@@ -345,7 +359,8 @@ chrome.mojom.ChromeRenderFrameRemoteCallHandler = class {
       14,  // ordinal
       chrome.mojom.ChromeRenderFrame_CreatePageStabilityMonitor_ParamsSpec,
       null,
-      [monitor, task_id, supports_paint_stability]);
+      [monitor, task_id, supports_paint_stability],
+      false);
   }
 
 };

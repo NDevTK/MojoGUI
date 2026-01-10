@@ -121,7 +121,8 @@ chromeos.cfm.mojom.CfmBrowserRemoteCallHandler = class {
       0,  // ordinal
       chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec,
       chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getMemoryDetails() {
@@ -130,7 +131,8 @@ chromeos.cfm.mojom.CfmBrowserRemoteCallHandler = class {
       1,  // ordinal
       chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec,
       chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

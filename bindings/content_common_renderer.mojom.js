@@ -240,7 +240,8 @@ content.mojom.RendererRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.Renderer_CreateAgentSchedulingGroup_ParamsSpec,
       null,
-      [bootstrap]);
+      [bootstrap],
+      false);
   }
 
   createAssociatedAgentSchedulingGroup(agent_scheduling_group) {
@@ -249,7 +250,8 @@ content.mojom.RendererRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.Renderer_CreateAssociatedAgentSchedulingGroup_ParamsSpec,
       null,
-      [agent_scheduling_group]);
+      [agent_scheduling_group],
+      false);
   }
 
   transferSharedLastForegroundTime(last_foreground_time_region) {
@@ -258,7 +260,8 @@ content.mojom.RendererRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.Renderer_TransferSharedLastForegroundTime_ParamsSpec,
       null,
-      [last_foreground_time_region]);
+      [last_foreground_time_region],
+      false);
   }
 
   onNetworkConnectionChanged(connection_type, max_bandwidth_mbps) {
@@ -267,7 +270,8 @@ content.mojom.RendererRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.Renderer_OnNetworkConnectionChanged_ParamsSpec,
       null,
-      [connection_type, max_bandwidth_mbps]);
+      [connection_type, max_bandwidth_mbps],
+      false);
   }
 
   onNetworkQualityChanged(effective_connection_type, http_rtt, transport_rtt, bandwidth_kbps) {
@@ -276,7 +280,8 @@ content.mojom.RendererRemoteCallHandler = class {
       4,  // ordinal
       content.mojom.Renderer_OnNetworkQualityChanged_ParamsSpec,
       null,
-      [effective_connection_type, http_rtt, transport_rtt, bandwidth_kbps]);
+      [effective_connection_type, http_rtt, transport_rtt, bandwidth_kbps],
+      false);
   }
 
   setWebKitSharedTimersSuspended(suspend) {
@@ -285,7 +290,8 @@ content.mojom.RendererRemoteCallHandler = class {
       5,  // ordinal
       content.mojom.Renderer_SetWebKitSharedTimersSuspended_ParamsSpec,
       null,
-      [suspend]);
+      [suspend],
+      false);
   }
 
   updateScrollbarTheme(params) {
@@ -294,7 +300,8 @@ content.mojom.RendererRemoteCallHandler = class {
       6,  // ordinal
       content.mojom.Renderer_UpdateScrollbarTheme_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   onSystemColorsChanged(aqua_color_variant) {
@@ -303,7 +310,8 @@ content.mojom.RendererRemoteCallHandler = class {
       7,  // ordinal
       content.mojom.Renderer_OnSystemColorsChanged_ParamsSpec,
       null,
-      [aqua_color_variant]);
+      [aqua_color_variant],
+      false);
   }
 
   updateSystemColorInfo(params) {
@@ -312,7 +320,8 @@ content.mojom.RendererRemoteCallHandler = class {
       8,  // ordinal
       content.mojom.Renderer_UpdateSystemColorInfo_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   purgePluginListCache() {
@@ -321,7 +330,8 @@ content.mojom.RendererRemoteCallHandler = class {
       9,  // ordinal
       content.mojom.Renderer_PurgePluginListCache_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   purgeResourceCache() {
@@ -330,7 +340,8 @@ content.mojom.RendererRemoteCallHandler = class {
       10,  // ordinal
       content.mojom.Renderer_PurgeResourceCache_ParamsSpec,
       content.mojom.Renderer_PurgeResourceCache_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setProcessState(process_priority, visible_state) {
@@ -339,7 +350,8 @@ content.mojom.RendererRemoteCallHandler = class {
       11,  // ordinal
       content.mojom.Renderer_SetProcessState_ParamsSpec,
       null,
-      [process_priority, visible_state]);
+      [process_priority, visible_state],
+      false);
   }
 
   setIsLockedToSite() {
@@ -348,7 +360,8 @@ content.mojom.RendererRemoteCallHandler = class {
       12,  // ordinal
       content.mojom.Renderer_SetIsLockedToSite_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   writeClangProfilingProfile() {
@@ -357,7 +370,8 @@ content.mojom.RendererRemoteCallHandler = class {
       13,  // ordinal
       content.mojom.Renderer_WriteClangProfilingProfile_ParamsSpec,
       content.mojom.Renderer_WriteClangProfilingProfile_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setIsCrossOriginIsolated(value) {
@@ -366,7 +380,8 @@ content.mojom.RendererRemoteCallHandler = class {
       14,  // ordinal
       content.mojom.Renderer_SetIsCrossOriginIsolated_ParamsSpec,
       null,
-      [value]);
+      [value],
+      false);
   }
 
   setIsWebSecurityDisabled(value) {
@@ -375,7 +390,8 @@ content.mojom.RendererRemoteCallHandler = class {
       15,  // ordinal
       content.mojom.Renderer_SetIsWebSecurityDisabled_ParamsSpec,
       null,
-      [value]);
+      [value],
+      false);
   }
 
   setIsIsolatedContext(value) {
@@ -384,7 +400,8 @@ content.mojom.RendererRemoteCallHandler = class {
       16,  // ordinal
       content.mojom.Renderer_SetIsIsolatedContext_ParamsSpec,
       null,
-      [value]);
+      [value],
+      false);
   }
 
   setWebUIResourceUrlToCodeCacheMap(resource_map) {
@@ -393,7 +410,8 @@ content.mojom.RendererRemoteCallHandler = class {
       17,  // ordinal
       content.mojom.Renderer_SetWebUIResourceUrlToCodeCacheMap_ParamsSpec,
       null,
-      [resource_map]);
+      [resource_map],
+      false);
   }
 
   initializeRenderer(user_agent, metadata, cors_exempt_header_list, origin_trials_settings, cpu_performance_tier, trace_id) {
@@ -402,7 +420,8 @@ content.mojom.RendererRemoteCallHandler = class {
       18,  // ordinal
       content.mojom.Renderer_InitializeRenderer_ParamsSpec,
       null,
-      [user_agent, metadata, cors_exempt_header_list, origin_trials_settings, cpu_performance_tier, trace_id]);
+      [user_agent, metadata, cors_exempt_header_list, origin_trials_settings, cpu_performance_tier, trace_id],
+      false);
   }
 
 };

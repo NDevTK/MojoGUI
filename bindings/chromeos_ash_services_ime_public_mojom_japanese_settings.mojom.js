@@ -145,7 +145,8 @@ ash.ime.mojom.JpUnusedRemoteCallHandler = class {
       0,  // ordinal
       ash.ime.mojom.JpUnused_Unused_ParamsSpec,
       ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

@@ -97,7 +97,8 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setDataDirectory(path, directory) {
@@ -106,7 +107,8 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.StorageService_SetDataDirectory_ParamsSpec,
       null,
-      [path, directory]);
+      [path, directory],
+      false);
   }
 
   bindSessionStorageControl(path, receiver) {
@@ -115,7 +117,8 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec,
       null,
-      [path, receiver]);
+      [path, receiver],
+      false);
   }
 
   bindLocalStorageControl(path, receiver) {
@@ -124,7 +127,8 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec,
       null,
-      [path, receiver]);
+      [path, receiver],
+      false);
   }
 
   bindTestApi(test_api_receiver) {
@@ -133,7 +137,8 @@ storage.mojom.StorageServiceRemoteCallHandler = class {
       4,  // ordinal
       storage.mojom.StorageService_BindTestApi_ParamsSpec,
       null,
-      [test_api_receiver]);
+      [test_api_receiver],
+      false);
   }
 
 };

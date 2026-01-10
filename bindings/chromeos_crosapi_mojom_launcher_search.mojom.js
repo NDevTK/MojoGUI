@@ -186,7 +186,8 @@ crosapi.mojom.SearchResultsPublisherRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec,
       null,
-      [status, result]);
+      [status, result],
+      false);
   }
 
 };
@@ -256,7 +257,8 @@ crosapi.mojom.SearchControllerRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.SearchController_Search_ParamsSpec,
       crosapi.mojom.SearchController_Search_ResponseParamsSpec,
-      [query]);
+      [query],
+      false);
   }
 
 };
@@ -320,7 +322,8 @@ crosapi.mojom.SearchResultConsumerRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec,
       null,
-      [favicon]);
+      [favicon],
+      false);
   }
 
 };

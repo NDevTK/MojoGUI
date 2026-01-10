@@ -66,7 +66,8 @@ arc.mojom.AdbdMonitorHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   adbdStopped() {
@@ -75,7 +76,8 @@ arc.mojom.AdbdMonitorHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.AdbdMonitorHost_AdbdStopped_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -144,7 +146,8 @@ arc.mojom.AdbdMonitorInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.AdbdMonitorInstance_Init_ParamsSpec,
       arc.mojom.AdbdMonitorInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

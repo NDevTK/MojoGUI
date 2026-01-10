@@ -65,7 +65,8 @@ network.mojom.TraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.TraitsTestService_EchoHttpRequestHeaders_ParamsSpec,
       network.mojom.TraitsTestService_EchoHttpRequestHeaders_ResponseParamsSpec,
-      [headers]);
+      [headers],
+      false);
   }
 
 };

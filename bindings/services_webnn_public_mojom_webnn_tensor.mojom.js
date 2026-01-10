@@ -121,7 +121,8 @@ webnn.mojom.WebNNTensorRemoteCallHandler = class {
       0,  // ordinal
       webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec,
       webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   writeTensor(src_buffer) {
@@ -130,7 +131,8 @@ webnn.mojom.WebNNTensorRemoteCallHandler = class {
       1,  // ordinal
       webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec,
       null,
-      [src_buffer]);
+      [src_buffer],
+      false);
   }
 
   exportTensor() {
@@ -139,7 +141,8 @@ webnn.mojom.WebNNTensorRemoteCallHandler = class {
       2,  // ordinal
       webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   importTensor(fence) {
@@ -148,7 +151,8 @@ webnn.mojom.WebNNTensorRemoteCallHandler = class {
       3,  // ordinal
       webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec,
       null,
-      [fence]);
+      [fence],
+      false);
   }
 
 };

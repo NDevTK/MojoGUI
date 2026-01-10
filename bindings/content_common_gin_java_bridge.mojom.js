@@ -99,7 +99,8 @@ content.mojom.GinJavaBridgeRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.GinJavaBridge_AddNamedObject_ParamsSpec,
       null,
-      [name, object_id, origin_matcher]);
+      [name, object_id, origin_matcher],
+      false);
   }
 
   removeNamedObject(name) {
@@ -108,7 +109,8 @@ content.mojom.GinJavaBridgeRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.GinJavaBridge_RemoveNamedObject_ParamsSpec,
       null,
-      [name]);
+      [name],
+      false);
   }
 
   setHost(host) {
@@ -117,7 +119,8 @@ content.mojom.GinJavaBridgeRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.GinJavaBridge_SetHost_ParamsSpec,
       null,
-      [host]);
+      [host],
+      false);
   }
 
 };
@@ -212,7 +215,8 @@ content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.GinJavaBridgeRemoteObject_GetMethods_ParamsSpec,
       content.mojom.GinJavaBridgeRemoteObject_GetMethods_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   hasMethod(method_name) {
@@ -221,7 +225,8 @@ content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.GinJavaBridgeRemoteObject_HasMethod_ParamsSpec,
       content.mojom.GinJavaBridgeRemoteObject_HasMethod_ResponseParamsSpec,
-      [method_name]);
+      [method_name],
+      false);
   }
 
   invokeMethod(method_name, arguments) {
@@ -230,7 +235,8 @@ content.mojom.GinJavaBridgeRemoteObjectRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ParamsSpec,
       content.mojom.GinJavaBridgeRemoteObject_InvokeMethod_ResponseParamsSpec,
-      [method_name, arguments]);
+      [method_name, arguments],
+      false);
   }
 
 };
@@ -301,7 +307,8 @@ content.mojom.GinJavaBridgeHostRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.GinJavaBridgeHost_GetObject_ParamsSpec,
       null,
-      [object_id, receiver]);
+      [object_id, receiver],
+      false);
   }
 
   objectWrapperDeleted(object_id) {
@@ -310,7 +317,8 @@ content.mojom.GinJavaBridgeHostRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.GinJavaBridgeHost_ObjectWrapperDeleted_ParamsSpec,
       null,
-      [object_id]);
+      [object_id],
+      false);
   }
 
 };

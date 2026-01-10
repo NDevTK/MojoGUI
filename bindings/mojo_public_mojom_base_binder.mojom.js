@@ -57,7 +57,8 @@ mojo_base.mojom.BinderRemoteCallHandler = class {
       0,  // ordinal
       mojo_base.mojom.Binder_Bind_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

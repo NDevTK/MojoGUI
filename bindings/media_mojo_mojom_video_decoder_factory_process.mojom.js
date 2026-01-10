@@ -60,7 +60,8 @@ media.mojom.VideoDecoderFactoryProcessRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec,
       null,
-      [gpu_feature_info, receiver, gpu_remote]);
+      [gpu_feature_info, receiver, gpu_remote],
+      false);
   }
 
 };

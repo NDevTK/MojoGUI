@@ -63,7 +63,8 @@ content.mojom.PowerMonitorTestRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec,
       content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

@@ -275,7 +275,8 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_EnumerateDevices_ResponseParamsSpec,
-      [request_audio_input, request_video_input, request_audio_output, request_video_input_capabilities, request_audio_input_capabilities]);
+      [request_audio_input, request_video_input, request_audio_output, request_video_input_capabilities, request_audio_input_capabilities],
+      false);
   }
 
   getVideoInputCapabilities() {
@@ -284,7 +285,8 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_GetVideoInputCapabilities_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAllVideoInputDeviceFormats(device_id) {
@@ -293,7 +295,8 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_GetAllVideoInputDeviceFormats_ResponseParamsSpec,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   getAvailableVideoInputDeviceFormats(device_id) {
@@ -302,7 +305,8 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_GetAvailableVideoInputDeviceFormats_ResponseParamsSpec,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   getAudioInputCapabilities() {
@@ -311,7 +315,8 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_GetAudioInputCapabilities_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addMediaDevicesListener(subscribe_audio_input, subscribe_video_input, subscribe_audio_output, listener) {
@@ -320,7 +325,8 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_AddMediaDevicesListener_ParamsSpec,
       null,
-      [subscribe_audio_input, subscribe_video_input, subscribe_audio_output, listener]);
+      [subscribe_audio_input, subscribe_video_input, subscribe_audio_output, listener],
+      false);
   }
 
   setCaptureHandleConfig(config) {
@@ -329,7 +335,8 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_SetCaptureHandleConfig_ParamsSpec,
       null,
-      [config]);
+      [config],
+      false);
   }
 
   closeFocusWindowOfOpportunity(label) {
@@ -338,7 +345,8 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_CloseFocusWindowOfOpportunity_ParamsSpec,
       null,
-      [label]);
+      [label],
+      false);
   }
 
   produceSubCaptureTargetId(type) {
@@ -347,7 +355,8 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_ProduceSubCaptureTargetId_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
   setPreferredSinkId(sink_id) {
@@ -356,7 +365,8 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_SetPreferredSinkId_ResponseParamsSpec,
-      [sink_id]);
+      [sink_id],
+      false);
   }
 
   selectAudioOutput(device_id) {
@@ -365,7 +375,8 @@ blink.mojom.MediaDevicesDispatcherHostRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ParamsSpec,
       blink.mojom.MediaDevicesDispatcherHost_SelectAudioOutput_ResponseParamsSpec,
-      [device_id]);
+      [device_id],
+      false);
   }
 
 };
@@ -430,7 +441,8 @@ blink.mojom.MediaDevicesListenerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.MediaDevicesListener_OnDevicesChanged_ParamsSpec,
       null,
-      [type, device_infos]);
+      [type, device_infos],
+      false);
   }
 
 };

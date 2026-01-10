@@ -129,7 +129,8 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
       0,  // ordinal
       input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   forceEnableZoomStateChanged(force_enable_zoom, frame_sink_id) {
@@ -138,7 +139,8 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
       1,  // ordinal
       input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec,
       null,
-      [force_enable_zoom, frame_sink_id]);
+      [force_enable_zoom, frame_sink_id],
+      false);
   }
 
   stopFlingingOnViz(frame_sink_id) {
@@ -147,7 +149,8 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
       2,  // ordinal
       input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec,
       null,
-      [frame_sink_id]);
+      [frame_sink_id],
+      false);
   }
 
   restartInputEventAckTimeoutIfNecessary(frame_sink_id) {
@@ -156,7 +159,8 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
       3,  // ordinal
       input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec,
       null,
-      [frame_sink_id]);
+      [frame_sink_id],
+      false);
   }
 
   notifyVisibilityChanged(frame_sink_id, is_hidden) {
@@ -165,7 +169,8 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
       4,  // ordinal
       input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec,
       null,
-      [frame_sink_id, is_hidden]);
+      [frame_sink_id, is_hidden],
+      false);
   }
 
   resetGestureDetection(root_widget_frame_sink_id) {
@@ -174,7 +179,8 @@ input.mojom.RenderInputRouterDelegateRemoteCallHandler = class {
       5,  // ordinal
       input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec,
       null,
-      [root_widget_frame_sink_id]);
+      [root_widget_frame_sink_id],
+      false);
   }
 
 };
@@ -265,7 +271,8 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
       0,  // ordinal
       input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec,
       null,
-      [event, dispatched_to_renderer]);
+      [event, dispatched_to_renderer],
+      false);
   }
 
   notifyObserversOfInputEventAcks(ack_source, ack_result, event) {
@@ -274,7 +281,8 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
       1,  // ordinal
       input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec,
       null,
-      [ack_source, ack_result, event]);
+      [ack_source, ack_result, event],
+      false);
   }
 
   onInvalidInputEventSource() {
@@ -283,7 +291,8 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
       2,  // ordinal
       input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   stateOnOverscrollTransfer(overscroll) {
@@ -292,7 +301,8 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
       3,  // ordinal
       input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec,
       null,
-      [overscroll]);
+      [overscroll],
+      false);
   }
 
   rendererInputResponsivenessChanged(is_responsive, ack_timeout_ts) {
@@ -301,7 +311,8 @@ input.mojom.RenderInputRouterDelegateClientRemoteCallHandler = class {
       4,  // ordinal
       input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec,
       null,
-      [is_responsive, ack_timeout_ts]);
+      [is_responsive, ack_timeout_ts],
+      false);
   }
 
 };

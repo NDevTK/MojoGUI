@@ -271,7 +271,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
       0,  // ordinal
       filesystem.mojom.Directory_Read_ParamsSpec,
       filesystem.mojom.Directory_Read_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   openFileHandle(path, open_flags) {
@@ -280,7 +281,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
       1,  // ordinal
       filesystem.mojom.Directory_OpenFileHandle_ParamsSpec,
       filesystem.mojom.Directory_OpenFileHandle_ResponseParamsSpec,
-      [path, open_flags]);
+      [path, open_flags],
+      false);
   }
 
   openFileHandles(files) {
@@ -289,7 +291,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
       2,  // ordinal
       filesystem.mojom.Directory_OpenFileHandles_ParamsSpec,
       filesystem.mojom.Directory_OpenFileHandles_ResponseParamsSpec,
-      [files]);
+      [files],
+      false);
   }
 
   openDirectory(path, directory, open_flags) {
@@ -298,7 +301,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
       3,  // ordinal
       filesystem.mojom.Directory_OpenDirectory_ParamsSpec,
       filesystem.mojom.Directory_OpenDirectory_ResponseParamsSpec,
-      [path, directory, open_flags]);
+      [path, directory, open_flags],
+      false);
   }
 
   rename(path, new_path) {
@@ -307,7 +311,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
       4,  // ordinal
       filesystem.mojom.Directory_Rename_ParamsSpec,
       filesystem.mojom.Directory_Rename_ResponseParamsSpec,
-      [path, new_path]);
+      [path, new_path],
+      false);
   }
 
   replace(path, new_path) {
@@ -316,7 +321,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
       5,  // ordinal
       filesystem.mojom.Directory_Replace_ParamsSpec,
       filesystem.mojom.Directory_Replace_ResponseParamsSpec,
-      [path, new_path]);
+      [path, new_path],
+      false);
   }
 
   delete(path, delete_flags) {
@@ -325,7 +331,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
       6,  // ordinal
       filesystem.mojom.Directory_Delete_ParamsSpec,
       filesystem.mojom.Directory_Delete_ResponseParamsSpec,
-      [path, delete_flags]);
+      [path, delete_flags],
+      false);
   }
 
   exists(path) {
@@ -334,7 +341,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
       7,  // ordinal
       filesystem.mojom.Directory_Exists_ParamsSpec,
       filesystem.mojom.Directory_Exists_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   isWritable(path) {
@@ -343,7 +351,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
       8,  // ordinal
       filesystem.mojom.Directory_IsWritable_ParamsSpec,
       filesystem.mojom.Directory_IsWritable_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   flush() {
@@ -352,7 +361,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
       9,  // ordinal
       filesystem.mojom.Directory_Flush_ParamsSpec,
       filesystem.mojom.Directory_Flush_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   statFile(path) {
@@ -361,7 +371,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
       10,  // ordinal
       filesystem.mojom.Directory_StatFile_ParamsSpec,
       filesystem.mojom.Directory_StatFile_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   clone(directory) {
@@ -370,7 +381,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
       11,  // ordinal
       filesystem.mojom.Directory_Clone_ParamsSpec,
       null,
-      [directory]);
+      [directory],
+      false);
   }
 
   readEntireFile(path) {
@@ -379,7 +391,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
       12,  // ordinal
       filesystem.mojom.Directory_ReadEntireFile_ParamsSpec,
       filesystem.mojom.Directory_ReadEntireFile_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   writeFile(path, data) {
@@ -388,7 +401,8 @@ filesystem.mojom.DirectoryRemoteCallHandler = class {
       13,  // ordinal
       filesystem.mojom.Directory_WriteFile_ParamsSpec,
       filesystem.mojom.Directory_WriteFile_ResponseParamsSpec,
-      [path, data]);
+      [path, data],
+      false);
   }
 
 };

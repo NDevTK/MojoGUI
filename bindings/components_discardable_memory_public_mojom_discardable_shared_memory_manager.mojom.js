@@ -72,7 +72,8 @@ discardable_memory.mojom.DiscardableSharedMemoryManagerRemoteCallHandler = class
       0,  // ordinal
       discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ParamsSpec,
       discardable_memory.mojom.DiscardableSharedMemoryManager_AllocateLockedDiscardableSharedMemory_ResponseParamsSpec,
-      [size, id]);
+      [size, id],
+      false);
   }
 
   deletedDiscardableSharedMemory(id) {
@@ -81,7 +82,8 @@ discardable_memory.mojom.DiscardableSharedMemoryManagerRemoteCallHandler = class
       1,  // ordinal
       discardable_memory.mojom.DiscardableSharedMemoryManager_DeletedDiscardableSharedMemory_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
 };

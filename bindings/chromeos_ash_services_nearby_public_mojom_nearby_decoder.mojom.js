@@ -81,7 +81,8 @@ sharing.mojom.NearbySharingDecoderRemoteCallHandler = class {
       0,  // ordinal
       sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec,
       sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec,
-      [data]);
+      [data],
+      false);
   }
 
   decodeFrame(data) {
@@ -90,7 +91,8 @@ sharing.mojom.NearbySharingDecoderRemoteCallHandler = class {
       1,  // ordinal
       sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec,
       sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec,
-      [data]);
+      [data],
+      false);
   }
 
 };

@@ -70,7 +70,8 @@ tabs_api.mojom.TabStripExperimentServiceRemoteCallHandler = class {
       0,  // ordinal
       tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec,
       null,
-      [id, visual_data]);
+      [id, visual_data],
+      false);
   }
 
   showTabContextMenu(tab_id, location) {
@@ -79,7 +80,8 @@ tabs_api.mojom.TabStripExperimentServiceRemoteCallHandler = class {
       1,  // ordinal
       tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec,
       null,
-      [tab_id, location]);
+      [tab_id, location],
+      false);
   }
 
 };

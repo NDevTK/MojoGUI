@@ -83,7 +83,8 @@ network.mojom.FirstPartySetsAccessDelegateRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec,
       null,
-      [ready_event]);
+      [ready_event],
+      false);
   }
 
   setEnabled(enabled) {
@@ -92,7 +93,8 @@ network.mojom.FirstPartySetsAccessDelegateRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
 };

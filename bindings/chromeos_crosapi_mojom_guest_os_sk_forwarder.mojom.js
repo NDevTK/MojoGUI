@@ -61,7 +61,8 @@ crosapi.mojom.GuestOsSkForwarderFactoryRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec,
       null,
-      [remote]);
+      [remote],
+      false);
   }
 
 };
@@ -131,7 +132,8 @@ crosapi.mojom.GuestOsSkForwarderRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec,
       crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec,
-      [message]);
+      [message],
+      false);
   }
 
 };

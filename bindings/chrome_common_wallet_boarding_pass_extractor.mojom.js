@@ -63,7 +63,8 @@ wallet.mojom.BoardingPassExtractorRemoteCallHandler = class {
       0,  // ordinal
       wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec,
       wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

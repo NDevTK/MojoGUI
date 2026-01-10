@@ -60,7 +60,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('heading', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('speed', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
       mojo.internal.StructField('timestamp', 56, 0, mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('is_precise', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_precise', 64, 0, mojo.internal.Bool, true, false, 0, undefined),
     ],
     [[0, 80]]);
 

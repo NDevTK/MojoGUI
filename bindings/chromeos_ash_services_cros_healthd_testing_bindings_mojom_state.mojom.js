@@ -87,7 +87,8 @@ ash.cros_healthd.connectivity.mojom.StateRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec,
       ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   waitLastCall() {
@@ -96,7 +97,8 @@ ash.cros_healthd.connectivity.mojom.StateRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec,
       ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   fulfillLastCallCallback() {
@@ -105,7 +107,8 @@ ash.cros_healthd.connectivity.mojom.StateRemoteCallHandler = class {
       2,  // ordinal
       ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -177,7 +180,8 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemoteCallHandler = 
       0,  // ordinal
       ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec,
       null,
-      [remote, receiver]);
+      [remote, receiver],
+      false);
   }
 
   bindTestProvider(interface_name, receiver) {
@@ -186,7 +190,8 @@ ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemoteCallHandler = 
       1,  // ordinal
       ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec,
       null,
-      [interface_name, receiver]);
+      [interface_name, receiver],
+      false);
   }
 
 };

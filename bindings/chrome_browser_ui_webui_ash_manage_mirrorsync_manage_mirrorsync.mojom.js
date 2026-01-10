@@ -72,7 +72,8 @@ ash.manage_mirrorsync.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.manage_mirrorsync.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -154,7 +155,8 @@ ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ParamsSpec,
       ash.manage_mirrorsync.mojom.PageHandler_GetChildFolders_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   getSyncingPaths() {
@@ -163,7 +165,8 @@ ash.manage_mirrorsync.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ParamsSpec,
       ash.manage_mirrorsync.mojom.PageHandler_GetSyncingPaths_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

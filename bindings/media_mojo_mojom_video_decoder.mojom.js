@@ -117,7 +117,8 @@ media.mojom.VideoFrameHandleReleaserRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec,
       null,
-      [release_token, release_sync_token]);
+      [release_token, release_sync_token],
+      false);
   }
 
 };
@@ -244,7 +245,8 @@ media.mojom.VideoDecoderRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoDecoder_GetSupportedConfigs_ParamsSpec,
       media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   construct(client, media_log, video_frame_handle_releaser, decoder_buffer_pipe, command_buffer_id, target_color_space) {
@@ -253,7 +255,8 @@ media.mojom.VideoDecoderRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.VideoDecoder_Construct_ParamsSpec,
       null,
-      [client, media_log, video_frame_handle_releaser, decoder_buffer_pipe, command_buffer_id, target_color_space]);
+      [client, media_log, video_frame_handle_releaser, decoder_buffer_pipe, command_buffer_id, target_color_space],
+      false);
   }
 
   initialize(config, low_delay, cdm) {
@@ -262,7 +265,8 @@ media.mojom.VideoDecoderRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.VideoDecoder_Initialize_ParamsSpec,
       media.mojom.VideoDecoder_Initialize_ResponseParamsSpec,
-      [config, low_delay, cdm]);
+      [config, low_delay, cdm],
+      false);
   }
 
   decode(buffer) {
@@ -271,7 +275,8 @@ media.mojom.VideoDecoderRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.VideoDecoder_Decode_ParamsSpec,
       media.mojom.VideoDecoder_Decode_ResponseParamsSpec,
-      [buffer]);
+      [buffer],
+      false);
   }
 
   reset() {
@@ -280,7 +285,8 @@ media.mojom.VideoDecoderRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.VideoDecoder_Reset_ParamsSpec,
       media.mojom.VideoDecoder_Reset_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onOverlayInfoChanged(overlay_info) {
@@ -289,7 +295,8 @@ media.mojom.VideoDecoderRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec,
       null,
-      [overlay_info]);
+      [overlay_info],
+      false);
   }
 
 };
@@ -366,7 +373,8 @@ media.mojom.VideoDecoderClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec,
       null,
-      [frame, can_read_without_stalling, release_token]);
+      [frame, can_read_without_stalling, release_token],
+      false);
   }
 
   onWaiting(reason) {
@@ -375,7 +383,8 @@ media.mojom.VideoDecoderClientRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec,
       null,
-      [reason]);
+      [reason],
+      false);
   }
 
   requestOverlayInfo() {
@@ -384,7 +393,8 @@ media.mojom.VideoDecoderClientRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

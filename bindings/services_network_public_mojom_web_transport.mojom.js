@@ -217,7 +217,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.WebTransport_SendDatagram_ParamsSpec,
       network.mojom.WebTransport_SendDatagram_ResponseParamsSpec,
-      [data]);
+      [data],
+      false);
   }
 
   createStream(readable, writable) {
@@ -226,7 +227,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.WebTransport_CreateStream_ParamsSpec,
       network.mojom.WebTransport_CreateStream_ResponseParamsSpec,
-      [readable, writable]);
+      [readable, writable],
+      false);
   }
 
   acceptBidirectionalStream() {
@@ -235,7 +237,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.WebTransport_AcceptBidirectionalStream_ParamsSpec,
       network.mojom.WebTransport_AcceptBidirectionalStream_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   acceptUnidirectionalStream() {
@@ -244,7 +247,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.WebTransport_AcceptUnidirectionalStream_ParamsSpec,
       network.mojom.WebTransport_AcceptUnidirectionalStream_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   sendFin(stream_id) {
@@ -253,7 +257,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.WebTransport_SendFin_ParamsSpec,
       null,
-      [stream_id]);
+      [stream_id],
+      false);
   }
 
   abortStream(stream_id, code) {
@@ -262,7 +267,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.WebTransport_AbortStream_ParamsSpec,
       null,
-      [stream_id, code]);
+      [stream_id, code],
+      false);
   }
 
   stopSending(stream_id, code) {
@@ -271,7 +277,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
       6,  // ordinal
       network.mojom.WebTransport_StopSending_ParamsSpec,
       null,
-      [stream_id, code]);
+      [stream_id, code],
+      false);
   }
 
   setOutgoingDatagramExpirationDuration(duration) {
@@ -280,7 +287,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
       7,  // ordinal
       network.mojom.WebTransport_SetOutgoingDatagramExpirationDuration_ParamsSpec,
       null,
-      [duration]);
+      [duration],
+      false);
   }
 
   getStats() {
@@ -289,7 +297,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
       8,  // ordinal
       network.mojom.WebTransport_GetStats_ParamsSpec,
       network.mojom.WebTransport_GetStats_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   close(close_info) {
@@ -298,7 +307,8 @@ network.mojom.WebTransportRemoteCallHandler = class {
       9,  // ordinal
       network.mojom.WebTransport_Close_ParamsSpec,
       null,
-      [close_info]);
+      [close_info],
+      false);
   }
 
 };
@@ -396,7 +406,8 @@ network.mojom.WebTransportClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec,
       null,
-      [data]);
+      [data],
+      false);
   }
 
   onIncomingStreamClosed(stream_id, fin_received) {
@@ -405,7 +416,8 @@ network.mojom.WebTransportClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec,
       null,
-      [stream_id, fin_received]);
+      [stream_id, fin_received],
+      false);
   }
 
   onOutgoingStreamClosed(stream_id) {
@@ -414,7 +426,8 @@ network.mojom.WebTransportClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec,
       null,
-      [stream_id]);
+      [stream_id],
+      false);
   }
 
   onReceivedStopSending(stream_id, stream_error_code) {
@@ -423,7 +436,8 @@ network.mojom.WebTransportClientRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.WebTransportClient_OnReceivedStopSending_ParamsSpec,
       null,
-      [stream_id, stream_error_code]);
+      [stream_id, stream_error_code],
+      false);
   }
 
   onReceivedResetStream(stream_id, stream_error_code) {
@@ -432,7 +446,8 @@ network.mojom.WebTransportClientRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec,
       null,
-      [stream_id, stream_error_code]);
+      [stream_id, stream_error_code],
+      false);
   }
 
   onClosed(close_info, final_stats) {
@@ -441,7 +456,8 @@ network.mojom.WebTransportClientRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.WebTransportClient_OnClosed_ParamsSpec,
       null,
-      [close_info, final_stats]);
+      [close_info, final_stats],
+      false);
   }
 
 };
@@ -521,7 +537,8 @@ network.mojom.WebTransportHandshakeClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec,
       null,
-      [server_address]);
+      [server_address],
+      false);
   }
 
   onConnectionEstablished(transport, client, response_headers, selected_application_protocol, initial_stats) {
@@ -530,7 +547,8 @@ network.mojom.WebTransportHandshakeClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.WebTransportHandshakeClient_OnConnectionEstablished_ParamsSpec,
       null,
-      [transport, client, response_headers, selected_application_protocol, initial_stats]);
+      [transport, client, response_headers, selected_application_protocol, initial_stats],
+      false);
   }
 
   onHandshakeFailed(error) {
@@ -539,7 +557,8 @@ network.mojom.WebTransportHandshakeClientRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.WebTransportHandshakeClient_OnHandshakeFailed_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
 };

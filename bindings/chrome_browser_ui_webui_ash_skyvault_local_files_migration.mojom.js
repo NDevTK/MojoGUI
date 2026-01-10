@@ -92,7 +92,8 @@ policy.local_user_files.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -173,7 +174,8 @@ policy.local_user_files.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec,
       policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   uploadOrDeleteNow() {
@@ -182,7 +184,8 @@ policy.local_user_files.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   close() {
@@ -191,7 +194,8 @@ policy.local_user_files.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       policy.local_user_files.mojom.PageHandler_Close_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -255,7 +259,8 @@ policy.local_user_files.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec,
       null,
-      [remaining_time]);
+      [remaining_time],
+      false);
   }
 
 };

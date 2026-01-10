@@ -131,7 +131,7 @@ mojo.internal.Struct(
 // Struct: GoogleServiceAuthError
 mojo.internal.Struct(
     crosapi.mojom.GoogleServiceAuthErrorSpec, 'crosapi.mojom.GoogleServiceAuthError', [
-      mojo.internal.StructField('kNone', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kNone', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -146,7 +146,7 @@ mojo.internal.Struct(
 // Struct: AccountUpsertionResult
 mojo.internal.Struct(
     crosapi.mojom.AccountUpsertionResultSpec, 'crosapi.mojom.AccountUpsertionResult', [
-      mojo.internal.StructField('kSuccess', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kSuccess', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -222,7 +222,8 @@ crosapi.mojom.AccountManagerObserverRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec,
       null,
-      [account]);
+      [account],
+      false);
   }
 
   onAccountRemoved(account) {
@@ -231,7 +232,8 @@ crosapi.mojom.AccountManagerObserverRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec,
       null,
-      [account]);
+      [account],
+      false);
   }
 
   onAuthErrorChanged(account, error) {
@@ -240,7 +242,8 @@ crosapi.mojom.AccountManagerObserverRemoteCallHandler = class {
       2,  // ordinal
       crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec,
       null,
-      [account, error]);
+      [account, error],
+      false);
   }
 
   onSigninDialogClosed() {
@@ -249,7 +252,8 @@ crosapi.mojom.AccountManagerObserverRemoteCallHandler = class {
       3,  // ordinal
       crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -401,7 +405,8 @@ crosapi.mojom.AccountManagerRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.AccountManager_IsInitialized_ParamsSpec,
       crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addObserver() {
@@ -410,7 +415,8 @@ crosapi.mojom.AccountManagerRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.AccountManager_AddObserver_ParamsSpec,
       crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAccounts() {
@@ -419,7 +425,8 @@ crosapi.mojom.AccountManagerRemoteCallHandler = class {
       2,  // ordinal
       crosapi.mojom.AccountManager_GetAccounts_ParamsSpec,
       crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   showAddAccountDialog(add_account_options) {
@@ -428,7 +435,8 @@ crosapi.mojom.AccountManagerRemoteCallHandler = class {
       3,  // ordinal
       crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec,
       crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec,
-      [add_account_options]);
+      [add_account_options],
+      false);
   }
 
   showReauthAccountDialog(email) {
@@ -437,7 +445,8 @@ crosapi.mojom.AccountManagerRemoteCallHandler = class {
       4,  // ordinal
       crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec,
       crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec,
-      [email]);
+      [email],
+      false);
   }
 
   showManageAccountsSettings() {
@@ -446,7 +455,8 @@ crosapi.mojom.AccountManagerRemoteCallHandler = class {
       5,  // ordinal
       crosapi.mojom.AccountManager_ShowManageAccountsSettings_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getPersistentErrorForAccount(account) {
@@ -455,7 +465,8 @@ crosapi.mojom.AccountManagerRemoteCallHandler = class {
       6,  // ordinal
       crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec,
       crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec,
-      [account]);
+      [account],
+      false);
   }
 
   createAccessTokenFetcher(account_key, oauth_consumer_name) {
@@ -464,7 +475,8 @@ crosapi.mojom.AccountManagerRemoteCallHandler = class {
       7,  // ordinal
       crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec,
       crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec,
-      [account_key, oauth_consumer_name]);
+      [account_key, oauth_consumer_name],
+      false);
   }
 
   reportAuthError(account, error) {
@@ -473,7 +485,8 @@ crosapi.mojom.AccountManagerRemoteCallHandler = class {
       8,  // ordinal
       crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec,
       null,
-      [account, error]);
+      [account, error],
+      false);
   }
 
 };
@@ -543,7 +556,8 @@ crosapi.mojom.AccessTokenFetcherRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec,
       crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec,
-      [scopes]);
+      [scopes],
+      false);
   }
 
 };

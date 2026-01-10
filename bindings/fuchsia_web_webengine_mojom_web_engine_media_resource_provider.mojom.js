@@ -77,7 +77,8 @@ mojom.WebEngineMediaResourceProviderRemoteCallHandler = class {
       0,  // ordinal
       mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec,
       mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   createAudioConsumer(request) {
@@ -86,7 +87,8 @@ mojom.WebEngineMediaResourceProviderRemoteCallHandler = class {
       1,  // ordinal
       mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec,
       null,
-      [request]);
+      [request],
+      false);
   }
 
 };

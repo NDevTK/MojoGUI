@@ -59,7 +59,8 @@ network.mojom.ProxyLookupClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec,
       null,
-      [net_error, proxy_info]);
+      [net_error, proxy_info],
+      false);
   }
 
 };

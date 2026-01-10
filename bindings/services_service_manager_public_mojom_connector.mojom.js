@@ -105,7 +105,8 @@ service_manager.mojom.ProcessMetadataRemoteCallHandler = class {
       0,  // ordinal
       service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec,
       null,
-      [pid]);
+      [pid],
+      false);
   }
 
 };
@@ -224,7 +225,8 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
       0,  // ordinal
       service_manager.mojom.Connector_BindInterface_ParamsSpec,
       service_manager.mojom.Connector_BindInterface_ResponseParamsSpec,
-      [filter, interface_name, interface_pipe, priority]);
+      [filter, interface_name, interface_pipe, priority],
+      false);
   }
 
   queryService(service_name) {
@@ -233,7 +235,8 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
       1,  // ordinal
       service_manager.mojom.Connector_QueryService_ParamsSpec,
       service_manager.mojom.Connector_QueryService_ResponseParamsSpec,
-      [service_name]);
+      [service_name],
+      false);
   }
 
   warmService(filter) {
@@ -242,7 +245,8 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
       2,  // ordinal
       service_manager.mojom.Connector_WarmService_ParamsSpec,
       service_manager.mojom.Connector_WarmService_ResponseParamsSpec,
-      [filter]);
+      [filter],
+      false);
   }
 
   registerServiceInstance(identity, service, metadata_receiver) {
@@ -251,7 +255,8 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
       3,  // ordinal
       service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec,
       service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec,
-      [identity, service, metadata_receiver]);
+      [identity, service, metadata_receiver],
+      false);
   }
 
   clone(receiver) {
@@ -260,7 +265,8 @@ service_manager.mojom.ConnectorRemoteCallHandler = class {
       4,  // ordinal
       service_manager.mojom.Connector_Clone_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

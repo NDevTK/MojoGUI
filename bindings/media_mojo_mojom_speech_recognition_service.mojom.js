@@ -77,7 +77,8 @@ media.mojom.AudioSourceSpeechRecognitionContextRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ParamsSpec,
       media.mojom.AudioSourceSpeechRecognitionContext_BindAudioSourceFetcher_ResponseParamsSpec,
-      [fetcher_receiver, client, options]);
+      [fetcher_receiver, client, options],
+      false);
   }
 
 };
@@ -167,7 +168,8 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.SpeechRecognitionService_BindSpeechRecognitionContext_ParamsSpec,
       null,
-      [context]);
+      [context],
+      false);
   }
 
   bindAudioSourceSpeechRecognitionContext(context) {
@@ -176,7 +178,8 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.SpeechRecognitionService_BindAudioSourceSpeechRecognitionContext_ParamsSpec,
       null,
-      [context]);
+      [context],
+      false);
   }
 
   setSodaPaths(binary_path, config_paths, primary_language_name) {
@@ -185,7 +188,8 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.SpeechRecognitionService_SetSodaPaths_ParamsSpec,
       null,
-      [binary_path, config_paths, primary_language_name]);
+      [binary_path, config_paths, primary_language_name],
+      false);
   }
 
   setSodaParams(mask_offensive_words) {
@@ -194,7 +198,8 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.SpeechRecognitionService_SetSodaParams_ParamsSpec,
       null,
-      [mask_offensive_words]);
+      [mask_offensive_words],
+      false);
   }
 
   setSodaConfigPaths(config_paths) {
@@ -203,7 +208,8 @@ media.mojom.SpeechRecognitionServiceRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.SpeechRecognitionService_SetSodaConfigPaths_ParamsSpec,
       null,
-      [config_paths]);
+      [config_paths],
+      false);
   }
 
 };
@@ -274,7 +280,8 @@ media.mojom.AudioSourceFetcherRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioSourceFetcher_Start_ParamsSpec,
       null,
-      [factory, device_id, audio_parameters]);
+      [factory, device_id, audio_parameters],
+      false);
   }
 
   stop() {
@@ -283,7 +290,8 @@ media.mojom.AudioSourceFetcherRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioSourceFetcher_Stop_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

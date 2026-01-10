@@ -134,7 +134,8 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHandler = class {
       0,  // ordinal
       chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ParamsSpec,
       chromeos_camera.mojom.MjpegDecodeAccelerator_Initialize_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   decode(input_buffer, coded_size, output_handle, output_buffer_size) {
@@ -143,7 +144,8 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHandler = class {
       1,  // ordinal
       chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ParamsSpec,
       chromeos_camera.mojom.MjpegDecodeAccelerator_Decode_ResponseParamsSpec,
-      [input_buffer, coded_size, output_handle, output_buffer_size]);
+      [input_buffer, coded_size, output_handle, output_buffer_size],
+      false);
   }
 
   decodeWithDmaBuf(task_id, src_dmabuf_fd, src_size, src_offset, dst_frame) {
@@ -152,7 +154,8 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHandler = class {
       3,  // ordinal
       chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ParamsSpec,
       chromeos_camera.mojom.MjpegDecodeAccelerator_DecodeWithDmaBuf_ResponseParamsSpec,
-      [task_id, src_dmabuf_fd, src_size, src_offset, dst_frame]);
+      [task_id, src_dmabuf_fd, src_size, src_offset, dst_frame],
+      false);
   }
 
   uninitialize() {
@@ -161,7 +164,8 @@ chromeos_camera.mojom.MjpegDecodeAcceleratorRemoteCallHandler = class {
       4,  // ordinal
       chromeos_camera.mojom.MjpegDecodeAccelerator_Uninitialize_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

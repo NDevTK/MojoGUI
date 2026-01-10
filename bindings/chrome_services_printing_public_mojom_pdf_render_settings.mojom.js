@@ -26,6 +26,6 @@ printing.mojom.Mode = {
 // Struct: PdfRenderSettings
 mojo.internal.Struct(
     printing.mojom.PdfRenderSettingsSpec, 'printing.mojom.PdfRenderSettings', [
-      mojo.internal.StructField('NORMAL', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('NORMAL', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);

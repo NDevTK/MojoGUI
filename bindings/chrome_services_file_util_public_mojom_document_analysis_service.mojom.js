@@ -58,7 +58,8 @@ chrome.mojom.DocumentAnalysisServiceRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

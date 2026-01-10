@@ -112,7 +112,8 @@ device.mojom.WakeLockRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.WakeLock_RequestWakeLock_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   cancelWakeLock() {
@@ -121,7 +122,8 @@ device.mojom.WakeLockRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.WakeLock_CancelWakeLock_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   addClient(wake_lock) {
@@ -130,7 +132,8 @@ device.mojom.WakeLockRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.WakeLock_AddClient_ParamsSpec,
       null,
-      [wake_lock]);
+      [wake_lock],
+      false);
   }
 
   changeType(type) {
@@ -139,7 +142,8 @@ device.mojom.WakeLockRemoteCallHandler = class {
       3,  // ordinal
       device.mojom.WakeLock_ChangeType_ParamsSpec,
       device.mojom.WakeLock_ChangeType_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
   hasWakeLockForTests() {
@@ -148,7 +152,8 @@ device.mojom.WakeLockRemoteCallHandler = class {
       4,  // ordinal
       device.mojom.WakeLock_HasWakeLockForTests_ParamsSpec,
       device.mojom.WakeLock_HasWakeLockForTests_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

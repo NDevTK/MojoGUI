@@ -77,7 +77,8 @@ blink.mojom.PictureInPictureSessionObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec,
       null,
-      [size]);
+      [size],
+      false);
   }
 
   onStopped() {
@@ -86,7 +87,8 @@ blink.mojom.PictureInPictureSessionObserverRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -170,7 +172,8 @@ blink.mojom.PictureInPictureSessionRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PictureInPictureSession_Update_ParamsSpec,
       null,
-      [player_id, player_remote, surface_id, natural_size, show_play_pause_button]);
+      [player_id, player_remote, surface_id, natural_size, show_play_pause_button],
+      false);
   }
 
   stop() {
@@ -179,7 +182,8 @@ blink.mojom.PictureInPictureSessionRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PictureInPictureSession_Stop_ParamsSpec,
       blink.mojom.PictureInPictureSession_Stop_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   updateMediaPosition(media_position) {
@@ -188,7 +192,8 @@ blink.mojom.PictureInPictureSessionRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec,
       null,
-      [media_position]);
+      [media_position],
+      false);
   }
 
 };
@@ -265,7 +270,8 @@ blink.mojom.PictureInPictureServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PictureInPictureService_StartSession_ParamsSpec,
       blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec,
-      [player_id, player_remote, surface_id, natural_size, show_play_pause_button, observer, source_bounds]);
+      [player_id, player_remote, surface_id, natural_size, show_play_pause_button, observer, source_bounds],
+      false);
   }
 
 };

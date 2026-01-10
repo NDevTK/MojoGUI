@@ -62,7 +62,7 @@ mojo.internal.Union(
 // Struct: TelemetryExtensionException
 mojo.internal.Struct(
     crosapi.mojom.TelemetryExtensionExceptionSpec, 'crosapi.mojom.TelemetryExtensionException', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 1, false, 0, undefined),
     ],
     [[0, 16]]);
 

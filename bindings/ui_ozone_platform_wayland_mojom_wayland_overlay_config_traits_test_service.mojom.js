@@ -65,7 +65,8 @@ wl.mojom.ConfigTraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec,
       wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec,
-      [t]);
+      [t],
+      false);
   }
 
 };

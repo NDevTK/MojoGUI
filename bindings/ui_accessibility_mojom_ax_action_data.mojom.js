@@ -36,6 +36,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('vertical_scroll_alignment', 96, 0, ax.mojom.ScrollAlignmentSpec, null, false, 0, undefined),
       mojo.internal.StructField('scroll_behavior', 100, 0, ax.mojom.ScrollBehaviorSpec, null, false, 0, undefined),
       mojo.internal.StructField('child_tree_id', 104, 0, ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('target_role', 120, 0, ax.mojom.RoleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('target_role', 120, 0, ax.mojom.RoleSpec, 0, false, 0, undefined),
     ],
     [[0, 136]]);

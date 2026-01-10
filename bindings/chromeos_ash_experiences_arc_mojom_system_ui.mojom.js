@@ -76,7 +76,8 @@ arc.mojom.SystemUiInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec,
       null,
-      [active]);
+      [active],
+      false);
   }
 
   setOverlayColor(source_color, theme_style) {
@@ -85,7 +86,8 @@ arc.mojom.SystemUiInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec,
       null,
-      [source_color, theme_style]);
+      [source_color, theme_style],
+      false);
   }
 
 };

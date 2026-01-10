@@ -62,7 +62,8 @@ chromecast.mojom.ActivityWindowRemoteCallHandler = class {
       0,  // ordinal
       chromecast.mojom.ActivityWindow_Show_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   hide() {
@@ -71,7 +72,8 @@ chromecast.mojom.ActivityWindowRemoteCallHandler = class {
       1,  // ordinal
       chromecast.mojom.ActivityWindow_Hide_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

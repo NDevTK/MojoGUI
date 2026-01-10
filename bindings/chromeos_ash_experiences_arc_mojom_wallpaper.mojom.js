@@ -82,7 +82,8 @@ arc.mojom.WallpaperHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec,
       arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setWallpaper(data, wallpaper_id) {
@@ -91,7 +92,8 @@ arc.mojom.WallpaperHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec,
       null,
-      [data, wallpaper_id]);
+      [data, wallpaper_id],
+      false);
   }
 
   setDefaultWallpaper() {
@@ -100,7 +102,8 @@ arc.mojom.WallpaperHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -175,7 +178,8 @@ arc.mojom.WallpaperInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.WallpaperInstance_Init_ParamsSpec,
       arc.mojom.WallpaperInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   onWallpaperChanged(wallpaper_id) {
@@ -184,7 +188,8 @@ arc.mojom.WallpaperInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec,
       null,
-      [wallpaper_id]);
+      [wallpaper_id],
+      false);
   }
 
 };

@@ -64,7 +64,8 @@ blink.mojom.HyphenationRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.Hyphenation_OpenDictionary_ParamsSpec,
       blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec,
-      [locale]);
+      [locale],
+      false);
   }
 
 };

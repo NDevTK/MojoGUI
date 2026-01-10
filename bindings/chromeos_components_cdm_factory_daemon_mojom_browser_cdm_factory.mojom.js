@@ -154,7 +154,8 @@ chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = class {
       0,  // ordinal
       chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ParamsSpec,
       chromeos.cdm.mojom.BrowserCdmFactory_CreateFactory_ResponseParamsSpec,
-      [key_system]);
+      [key_system],
+      false);
   }
 
   getOutputProtection(output_protection) {
@@ -163,7 +164,8 @@ chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = class {
       1,  // ordinal
       chromeos.cdm.mojom.BrowserCdmFactory_GetOutputProtection_ParamsSpec,
       null,
-      [output_protection]);
+      [output_protection],
+      false);
   }
 
   getHwConfigData() {
@@ -172,7 +174,8 @@ chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = class {
       2,  // ordinal
       chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ParamsSpec,
       chromeos.cdm.mojom.BrowserCdmFactory_GetHwConfigData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getScreenResolutions() {
@@ -181,7 +184,8 @@ chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = class {
       3,  // ordinal
       chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ParamsSpec,
       chromeos.cdm.mojom.BrowserCdmFactory_GetScreenResolutions_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getAndroidHwKeyData(key_id, hw_identifier) {
@@ -190,7 +194,8 @@ chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = class {
       4,  // ordinal
       chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ParamsSpec,
       chromeos.cdm.mojom.BrowserCdmFactory_GetAndroidHwKeyData_ResponseParamsSpec,
-      [key_id, hw_identifier]);
+      [key_id, hw_identifier],
+      false);
   }
 
   allocateSecureBuffer(size) {
@@ -199,7 +204,8 @@ chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = class {
       5,  // ordinal
       chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ParamsSpec,
       chromeos.cdm.mojom.BrowserCdmFactory_AllocateSecureBuffer_ResponseParamsSpec,
-      [size]);
+      [size],
+      false);
   }
 
   parseEncryptedSliceHeader(secure_handle, offset, stream_data) {
@@ -208,7 +214,8 @@ chromeos.cdm.mojom.BrowserCdmFactoryRemoteCallHandler = class {
       6,  // ordinal
       chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ParamsSpec,
       chromeos.cdm.mojom.BrowserCdmFactory_ParseEncryptedSliceHeader_ResponseParamsSpec,
-      [secure_handle, offset, stream_data]);
+      [secure_handle, offset, stream_data],
+      false);
   }
 
 };

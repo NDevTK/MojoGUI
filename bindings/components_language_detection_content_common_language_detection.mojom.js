@@ -84,7 +84,8 @@ language_detection.mojom.ContentLanguageDetectionDriverRemoteCallHandler = class
       0,  // ordinal
       language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ParamsSpec,
       language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModel_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getLanguageDetectionModelStatus() {
@@ -93,7 +94,8 @@ language_detection.mojom.ContentLanguageDetectionDriverRemoteCallHandler = class
       1,  // ordinal
       language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ParamsSpec,
       language_detection.mojom.ContentLanguageDetectionDriver_GetLanguageDetectionModelStatus_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

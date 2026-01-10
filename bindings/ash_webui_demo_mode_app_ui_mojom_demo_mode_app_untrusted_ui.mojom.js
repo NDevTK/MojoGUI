@@ -62,7 +62,8 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -131,7 +132,8 @@ ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   launchApp(app_id) {
@@ -140,7 +142,8 @@ ash.mojom.demo_mode.UntrustedPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec,
       null,
-      [app_id]);
+      [app_id],
+      false);
   }
 
 };

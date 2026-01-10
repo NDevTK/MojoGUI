@@ -63,15 +63,15 @@ blink.mojom.BackgroundSyncType = {
 // Struct: SyncRegistrationOptions
 mojo.internal.Struct(
     blink.mojom.SyncRegistrationOptionsSpec, 'blink.mojom.SyncRegistrationOptions', [
-      mojo.internal.StructField('tag', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('min_interval', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('tag', 0, 0, mojo.internal.String, 0, false, 0, undefined),
+      mojo.internal.StructField('min_interval', 8, 0, mojo.internal.Int64, -1, false, 0, undefined),
     ],
     [[0, 24]]);
 
 // Struct: BackgroundSyncRegistrationInfo
 mojo.internal.Struct(
     blink.mojom.BackgroundSyncRegistrationInfoSpec, 'blink.mojom.BackgroundSyncRegistrationInfo', [
-      mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('service_worker_registration_id', 0, 0, mojo.internal.Int64, -1, false, 0, undefined),
       mojo.internal.StructField('tag', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('sync_type', 16, 0, blink.mojom.BackgroundSyncTypeSpec, null, false, 0, undefined),
     ],
@@ -149,7 +149,8 @@ blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec,
       blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec,
-      [options, service_worker_registration_id]);
+      [options, service_worker_registration_id],
+      false);
   }
 
   didResolveRegistration(registration_info) {
@@ -158,7 +159,8 @@ blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec,
       null,
-      [registration_info]);
+      [registration_info],
+      false);
   }
 
   getRegistrations(service_worker_registration_id) {
@@ -167,7 +169,8 @@ blink.mojom.OneShotBackgroundSyncServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec,
       blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
-      [service_worker_registration_id]);
+      [service_worker_registration_id],
+      false);
   }
 
 };
@@ -265,7 +268,8 @@ blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec,
       blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec,
-      [options, service_worker_registration_id]);
+      [options, service_worker_registration_id],
+      false);
   }
 
   unregister(service_worker_registration_id, tag) {
@@ -274,7 +278,8 @@ blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec,
       blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec,
-      [service_worker_registration_id, tag]);
+      [service_worker_registration_id, tag],
+      false);
   }
 
   getRegistrations(service_worker_registration_id) {
@@ -283,7 +288,8 @@ blink.mojom.PeriodicBackgroundSyncServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec,
       blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec,
-      [service_worker_registration_id]);
+      [service_worker_registration_id],
+      false);
   }
 
 };

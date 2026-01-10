@@ -236,7 +236,7 @@ mojo.internal.Struct(
 // Struct: ClickAction
 mojo.internal.Struct(
     actor.mojom.ClickActionSpec, 'actor.mojom.ClickAction', [
-      mojo.internal.StructField('kLeft', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kLeft', 0, 0, mojo.internal.Pointer, 1, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -255,14 +255,14 @@ mojo.internal.Struct(
 // Struct: TypeAction
 mojo.internal.Struct(
     actor.mojom.TypeActionSpec, 'actor.mojom.TypeAction', [
-      mojo.internal.StructField('kDeleteExisting', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kDeleteExisting', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ScrollAction
 mojo.internal.Struct(
     actor.mojom.ScrollActionSpec, 'actor.mojom.ScrollAction', [
-      mojo.internal.StructField('kLeft', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kLeft', 0, 0, mojo.internal.Pointer, 1, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -381,7 +381,8 @@ actor.mojom.JournalClientRemoteCallHandler = class {
       0,  // ordinal
       actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec,
       null,
-      [entries]);
+      [entries],
+      false);
   }
 
 };
@@ -450,7 +451,8 @@ actor.mojom.PageStabilityMonitorRemoteCallHandler = class {
       0,  // ordinal
       actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec,
       actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec,
-      [observation_delay]);
+      [observation_delay],
+      false);
   }
 
 };

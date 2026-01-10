@@ -85,7 +85,8 @@ auction_worklet.mojom.TrustedSignalsCacheClientRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec,
       null,
-      [compression_scheme, compression_group_data]);
+      [compression_scheme, compression_group_data],
+      false);
   }
 
   onError(error_message) {
@@ -94,7 +95,8 @@ auction_worklet.mojom.TrustedSignalsCacheClientRemoteCallHandler = class {
       1,  // ordinal
       auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec,
       null,
-      [error_message]);
+      [error_message],
+      false);
   }
 
 };
@@ -159,7 +161,8 @@ auction_worklet.mojom.TrustedSignalsCacheRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec,
       null,
-      [compression_group_token, client]);
+      [compression_group_token, client],
+      false);
   }
 
 };

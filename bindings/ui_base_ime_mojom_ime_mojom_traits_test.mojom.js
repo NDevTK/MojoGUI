@@ -65,7 +65,8 @@ ui.mojom.IMEStructTraitsTestRemoteCallHandler = class {
       0,  // ordinal
       ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec,
       ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec,
-      [in]);
+      [in],
+      false);
   }
 
 };

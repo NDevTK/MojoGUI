@@ -207,7 +207,8 @@ arc.mojom.CameraServiceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.CameraService_Connect_ParamsSpec,
       arc.mojom.CameraService_Connect_ResponseParamsSpec,
-      [device_path]);
+      [device_path],
+      false);
   }
 
   disconnect() {
@@ -216,7 +217,8 @@ arc.mojom.CameraServiceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.CameraService_Disconnect_ParamsSpec,
       arc.mojom.CameraService_Disconnect_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   streamOn(width, height, pixel_format, frame_rate) {
@@ -225,7 +227,8 @@ arc.mojom.CameraServiceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.CameraService_StreamOn_ParamsSpec,
       arc.mojom.CameraService_StreamOn_ResponseParamsSpec,
-      [width, height, pixel_format, frame_rate]);
+      [width, height, pixel_format, frame_rate],
+      false);
   }
 
   streamOff() {
@@ -234,7 +237,8 @@ arc.mojom.CameraServiceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.CameraService_StreamOff_ParamsSpec,
       arc.mojom.CameraService_StreamOff_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getNextFrameBuffer() {
@@ -243,7 +247,8 @@ arc.mojom.CameraServiceRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.CameraService_GetNextFrameBuffer_ParamsSpec,
       arc.mojom.CameraService_GetNextFrameBuffer_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   reuseFrameBuffer(buffer_id) {
@@ -252,7 +257,8 @@ arc.mojom.CameraServiceRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.CameraService_ReuseFrameBuffer_ParamsSpec,
       arc.mojom.CameraService_ReuseFrameBuffer_ResponseParamsSpec,
-      [buffer_id]);
+      [buffer_id],
+      false);
   }
 
   getDeviceSupportedFormats(device_path) {
@@ -261,7 +267,8 @@ arc.mojom.CameraServiceRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.CameraService_GetDeviceSupportedFormats_ParamsSpec,
       arc.mojom.CameraService_GetDeviceSupportedFormats_ResponseParamsSpec,
-      [device_path]);
+      [device_path],
+      false);
   }
 
   getCameraDeviceInfos() {
@@ -270,7 +277,8 @@ arc.mojom.CameraServiceRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.CameraService_GetCameraDeviceInfos_ParamsSpec,
       arc.mojom.CameraService_GetCameraDeviceInfos_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -357,7 +365,8 @@ arc.mojom.CameraHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.CameraHost_StartCameraService_ParamsSpec,
       arc.mojom.CameraHost_StartCameraService_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   registerCameraHalClientLegacy(client) {
@@ -366,7 +375,8 @@ arc.mojom.CameraHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.CameraHost_RegisterCameraHalClientLegacy_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   registerCameraHalClient(client) {
@@ -375,7 +385,8 @@ arc.mojom.CameraHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.CameraHost_RegisterCameraHalClient_ParamsSpec,
       arc.mojom.CameraHost_RegisterCameraHalClient_ResponseParamsSpec,
-      [client]);
+      [client],
+      false);
   }
 
 };
@@ -444,7 +455,8 @@ arc.mojom.CameraInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.CameraInstance_Init_ParamsSpec,
       arc.mojom.CameraInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

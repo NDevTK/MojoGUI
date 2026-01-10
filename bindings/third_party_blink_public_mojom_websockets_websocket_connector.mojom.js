@@ -67,7 +67,8 @@ blink.mojom.WebSocketConnectorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebSocketConnector_Connect_ParamsSpec,
       null,
-      [url, requested_protocols, site_for_cookies, user_agent, storage_access_api_status, handshake_client, throttling_profile_id]);
+      [url, requested_protocols, site_for_cookies, user_agent, storage_access_api_status, handshake_client, throttling_profile_id],
+      false);
   }
 
 };

@@ -67,7 +67,8 @@ blink.mojom.GeolocationServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec,
       blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec,
-      [receiver, user_gesture]);
+      [receiver, user_gesture],
+      false);
   }
 
 };

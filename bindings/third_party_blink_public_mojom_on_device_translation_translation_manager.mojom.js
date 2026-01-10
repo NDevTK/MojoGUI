@@ -130,7 +130,8 @@ blink.mojom.TranslationManagerCreateTranslatorClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.TranslationManagerCreateTranslatorClient_OnResult_ParamsSpec,
       null,
-      [result, source_lang, target_lang]);
+      [result, source_lang, target_lang],
+      false);
   }
 
 };
@@ -208,7 +209,8 @@ blink.mojom.TranslationManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.TranslationManager_CreateTranslator_ParamsSpec,
       null,
-      [client, options]);
+      [client, options],
+      false);
   }
 
   translationAvailable(source_lang, target_lang) {
@@ -217,7 +219,8 @@ blink.mojom.TranslationManagerRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.TranslationManager_TranslationAvailable_ParamsSpec,
       blink.mojom.TranslationManager_TranslationAvailable_ResponseParamsSpec,
-      [source_lang, target_lang]);
+      [source_lang, target_lang],
+      false);
   }
 
 };

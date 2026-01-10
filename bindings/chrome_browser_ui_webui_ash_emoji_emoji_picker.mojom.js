@@ -124,7 +124,8 @@ emoji_picker.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       emoji_picker.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -327,7 +328,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       emoji_picker.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   insertEmoji(emoji, is_variant, search_length) {
@@ -336,7 +338,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       emoji_picker.mojom.PageHandler_InsertEmoji_ParamsSpec,
       null,
-      [emoji, is_variant, search_length]);
+      [emoji, is_variant, search_length],
+      false);
   }
 
   insertGif(gif) {
@@ -345,7 +348,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       emoji_picker.mojom.PageHandler_InsertGif_ParamsSpec,
       null,
-      [gif]);
+      [gif],
+      false);
   }
 
   isIncognitoTextField() {
@@ -354,7 +358,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       emoji_picker.mojom.PageHandler_IsIncognitoTextField_ParamsSpec,
       emoji_picker.mojom.PageHandler_IsIncognitoTextField_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getFeatureList() {
@@ -363,7 +368,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       emoji_picker.mojom.PageHandler_GetFeatureList_ParamsSpec,
       emoji_picker.mojom.PageHandler_GetFeatureList_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getCategories() {
@@ -372,7 +378,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       emoji_picker.mojom.PageHandler_GetCategories_ParamsSpec,
       emoji_picker.mojom.PageHandler_GetCategories_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getFeaturedGifs(pos) {
@@ -381,7 +388,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       emoji_picker.mojom.PageHandler_GetFeaturedGifs_ParamsSpec,
       emoji_picker.mojom.PageHandler_GetFeaturedGifs_ResponseParamsSpec,
-      [pos]);
+      [pos],
+      false);
   }
 
   searchGifs(query, pos) {
@@ -390,7 +398,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       emoji_picker.mojom.PageHandler_SearchGifs_ParamsSpec,
       emoji_picker.mojom.PageHandler_SearchGifs_ResponseParamsSpec,
-      [query, pos]);
+      [query, pos],
+      false);
   }
 
   getGifsByIds(ids) {
@@ -399,7 +408,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       emoji_picker.mojom.PageHandler_GetGifsByIds_ParamsSpec,
       emoji_picker.mojom.PageHandler_GetGifsByIds_ResponseParamsSpec,
-      [ids]);
+      [ids],
+      false);
   }
 
   onUiFullyLoaded() {
@@ -408,7 +418,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       9,  // ordinal
       emoji_picker.mojom.PageHandler_OnUiFullyLoaded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getInitialCategory() {
@@ -417,7 +428,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       10,  // ordinal
       emoji_picker.mojom.PageHandler_GetInitialCategory_ParamsSpec,
       emoji_picker.mojom.PageHandler_GetInitialCategory_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getInitialQuery() {
@@ -426,7 +438,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       11,  // ordinal
       emoji_picker.mojom.PageHandler_GetInitialQuery_ParamsSpec,
       emoji_picker.mojom.PageHandler_GetInitialQuery_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   updateHistoryInPrefs(category, history) {
@@ -435,7 +448,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       12,  // ordinal
       emoji_picker.mojom.PageHandler_UpdateHistoryInPrefs_ParamsSpec,
       null,
-      [category, history]);
+      [category, history],
+      false);
   }
 
   updatePreferredVariantsInPrefs(preferred_variants) {
@@ -444,7 +458,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       13,  // ordinal
       emoji_picker.mojom.PageHandler_UpdatePreferredVariantsInPrefs_ParamsSpec,
       null,
-      [preferred_variants]);
+      [preferred_variants],
+      false);
   }
 
   getHistoryFromPrefs(category) {
@@ -453,7 +468,8 @@ emoji_picker.mojom.PageHandlerRemoteCallHandler = class {
       14,  // ordinal
       emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ParamsSpec,
       emoji_picker.mojom.PageHandler_GetHistoryFromPrefs_ResponseParamsSpec,
-      [category]);
+      [category],
+      false);
   }
 
 };

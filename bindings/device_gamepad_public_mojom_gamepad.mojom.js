@@ -225,7 +225,8 @@ device.mojom.GamepadObserverRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.GamepadObserver_GamepadConnected_ParamsSpec,
       null,
-      [index, gamepad]);
+      [index, gamepad],
+      false);
   }
 
   gamepadDisconnected(index, gamepad) {
@@ -234,7 +235,8 @@ device.mojom.GamepadObserverRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.GamepadObserver_GamepadDisconnected_ParamsSpec,
       null,
-      [index, gamepad]);
+      [index, gamepad],
+      false);
   }
 
   gamepadRawInputChanged(index, gamepad) {
@@ -243,7 +245,8 @@ device.mojom.GamepadObserverRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.GamepadObserver_GamepadRawInputChanged_ParamsSpec,
       null,
-      [index, gamepad]);
+      [index, gamepad],
+      false);
   }
 
 };
@@ -328,7 +331,8 @@ device.mojom.GamepadMonitorRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.GamepadMonitor_GamepadStartPolling_ParamsSpec,
       device.mojom.GamepadMonitor_GamepadStartPolling_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   gamepadStopPolling() {
@@ -337,7 +341,8 @@ device.mojom.GamepadMonitorRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.GamepadMonitor_GamepadStopPolling_ParamsSpec,
       device.mojom.GamepadMonitor_GamepadStopPolling_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setObserver(gamepad_observer) {
@@ -346,7 +351,8 @@ device.mojom.GamepadMonitorRemoteCallHandler = class {
       2,  // ordinal
       device.mojom.GamepadMonitor_SetObserver_ParamsSpec,
       null,
-      [gamepad_observer]);
+      [gamepad_observer],
+      false);
   }
 
 };
@@ -430,7 +436,8 @@ device.mojom.GamepadHapticsManagerRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ParamsSpec,
       device.mojom.GamepadHapticsManager_PlayVibrationEffectOnce_ResponseParamsSpec,
-      [pad_index, type, params]);
+      [pad_index, type, params],
+      false);
   }
 
   resetVibrationActuator(pad_index) {
@@ -439,7 +446,8 @@ device.mojom.GamepadHapticsManagerRemoteCallHandler = class {
       1,  // ordinal
       device.mojom.GamepadHapticsManager_ResetVibrationActuator_ParamsSpec,
       device.mojom.GamepadHapticsManager_ResetVibrationActuator_ResponseParamsSpec,
-      [pad_index]);
+      [pad_index],
+      false);
   }
 
 };

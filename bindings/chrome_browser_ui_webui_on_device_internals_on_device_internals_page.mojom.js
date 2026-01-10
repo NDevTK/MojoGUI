@@ -139,7 +139,8 @@ on_device_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -288,7 +289,8 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       on_device_internals.mojom.PageHandler_LoadModel_ParamsSpec,
       on_device_internals.mojom.PageHandler_LoadModel_ResponseParamsSpec,
-      [model_path, performance_hint, model]);
+      [model_path, performance_hint, model],
+      false);
   }
 
   loadPlatformModel(model_path, model) {
@@ -297,7 +299,8 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       on_device_internals.mojom.PageHandler_LoadPlatformModel_ParamsSpec,
       on_device_internals.mojom.PageHandler_LoadPlatformModel_ResponseParamsSpec,
-      [model_path, model]);
+      [model_path, model],
+      false);
   }
 
   getDeviceAndPerformanceInfo() {
@@ -306,7 +309,8 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ParamsSpec,
       on_device_internals.mojom.PageHandler_GetDeviceAndPerformanceInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getDefaultModelPath() {
@@ -315,7 +319,8 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec,
       on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   uninstallDefaultModel() {
@@ -324,7 +329,8 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getPageData() {
@@ -333,7 +339,8 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec,
       on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setFeatureRecentlyUsedState(feature_key, is_recently_used) {
@@ -342,7 +349,8 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec,
       null,
-      [feature_key, is_recently_used]);
+      [feature_key, is_recently_used],
+      false);
   }
 
   decodeBitmap(image_buffer) {
@@ -351,7 +359,8 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       7,  // ordinal
       on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec,
       on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec,
-      [image_buffer]);
+      [image_buffer],
+      false);
   }
 
   resetModelCrashCount() {
@@ -360,7 +369,8 @@ on_device_internals.mojom.PageHandlerRemoteCallHandler = class {
       8,  // ordinal
       on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -434,7 +444,8 @@ on_device_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
-      [event_time, source_file, source_line, message]);
+      [event_time, source_file, source_line, message],
+      false);
   }
 
   onDownloadProgressUpdate(downloaded_bytes, total_bytes) {
@@ -443,7 +454,8 @@ on_device_internals.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec,
       null,
-      [downloaded_bytes, total_bytes]);
+      [downloaded_bytes, total_bytes],
+      false);
   }
 
 };

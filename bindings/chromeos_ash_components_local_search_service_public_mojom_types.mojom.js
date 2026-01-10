@@ -29,7 +29,7 @@ mojo.internal.Struct(
     ash.local_search_service.mojom.ContentSpec, 'ash.local_search_service.mojom.Content', [
       mojo.internal.StructField('id', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('content', 8, 0, mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('weight', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('weight', 16, 0, mojo.internal.Double, 1.0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -45,9 +45,9 @@ mojo.internal.Struct(
 // Struct: SearchParams
 mojo.internal.Struct(
     ash.local_search_service.mojom.SearchParamsSpec, 'ash.local_search_service.mojom.SearchParams', [
-      mojo.internal.StructField('relevance_threshold', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('prefix_threshold', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('fuzzy_threshold', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('relevance_threshold', 0, 0, mojo.internal.Double, 0.32, false, 0, undefined),
+      mojo.internal.StructField('prefix_threshold', 8, 0, mojo.internal.Double, 0.6, false, 0, undefined),
+      mojo.internal.StructField('fuzzy_threshold', 16, 0, mojo.internal.Double, 0.6, false, 0, undefined),
     ],
     [[0, 32]]);
 

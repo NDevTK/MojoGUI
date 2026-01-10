@@ -34,7 +34,7 @@ mojo.internal.Struct(
 // Struct: CSVPassword
 mojo.internal.Struct(
     password_manager.mojom.CSVPasswordSpec, 'password_manager.mojom.CSVPassword', [
-      mojo.internal.StructField('kOK', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kOK', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -89,7 +89,8 @@ password_manager.mojom.CSVPasswordParserRemoteCallHandler = class {
       0,  // ordinal
       password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec,
       password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec,
-      [raw_csv]);
+      [raw_csv],
+      false);
   }
 
 };

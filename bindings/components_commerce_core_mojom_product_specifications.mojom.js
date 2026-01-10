@@ -162,7 +162,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       0,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_SetAcceptedDisclosureVersion_ParamsSpec,
       null,
-      [version]);
+      [version],
+      false);
   }
 
   maybeShowDisclosure(urls, name, set_id) {
@@ -171,7 +172,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       1,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ParamsSpec,
       commerce.product_specifications.mojom.ProductSpecificationsHandler_MaybeShowDisclosure_ResponseParamsSpec,
-      [urls, name, set_id]);
+      [urls, name, set_id],
+      false);
   }
 
   declineDisclosure() {
@@ -180,7 +182,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       2,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_DeclineDisclosure_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   showSyncSetupFlow() {
@@ -189,7 +192,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       3,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowSyncSetupFlow_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getPageTitleFromHistory(url) {
@@ -198,7 +202,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       4,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ParamsSpec,
       commerce.product_specifications.mojom.ProductSpecificationsHandler_GetPageTitleFromHistory_ResponseParamsSpec,
-      [url]);
+      [url],
+      false);
   }
 
   showProductSpecificationsSetForUuid(uuid, in_new_tab) {
@@ -207,7 +212,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       5,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetForUuid_ParamsSpec,
       null,
-      [uuid, in_new_tab]);
+      [uuid, in_new_tab],
+      false);
   }
 
   showProductSpecificationsSetsForUuids(uuids, disposition) {
@@ -216,7 +222,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       6,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowProductSpecificationsSetsForUuids_ParamsSpec,
       null,
-      [uuids, disposition]);
+      [uuids, disposition],
+      false);
   }
 
   showComparePage(in_new_tab) {
@@ -225,7 +232,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       7,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_ShowComparePage_ParamsSpec,
       null,
-      [in_new_tab]);
+      [in_new_tab],
+      false);
   }
 
   getComparisonTableUrlForUuid(uuid) {
@@ -234,7 +242,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerRemoteCallHand
       8,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ParamsSpec,
       commerce.product_specifications.mojom.ProductSpecificationsHandler_GetComparisonTableUrlForUuid_ResponseParamsSpec,
-      [uuid]);
+      [uuid],
+      false);
   }
 
 };
@@ -315,7 +324,8 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       commerce.product_specifications.mojom.Page_OnProductSpecificationsSetAdded_ParamsSpec,
       null,
-      [set]);
+      [set],
+      false);
   }
 
   onProductSpecificationsSetUpdated(set) {
@@ -324,7 +334,8 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       commerce.product_specifications.mojom.Page_OnProductSpecificationsSetUpdated_ParamsSpec,
       null,
-      [set]);
+      [set],
+      false);
   }
 
   onProductSpecificationsSetRemoved(uuid) {
@@ -333,7 +344,8 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       commerce.product_specifications.mojom.Page_OnProductSpecificationsSetRemoved_ParamsSpec,
       null,
-      [uuid]);
+      [uuid],
+      false);
   }
 
   onSyncStateChanged() {
@@ -342,7 +354,8 @@ commerce.product_specifications.mojom.PageRemoteCallHandler = class {
       3,  // ordinal
       commerce.product_specifications.mojom.Page_OnSyncStateChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -407,7 +420,8 @@ commerce.product_specifications.mojom.ProductSpecificationsHandlerFactoryRemoteC
       0,  // ordinal
       commerce.product_specifications.mojom.ProductSpecificationsHandlerFactory_CreateProductSpecificationsHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };

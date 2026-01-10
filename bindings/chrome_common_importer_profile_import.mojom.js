@@ -179,7 +179,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onImportFinished(succeeded, error_msg) {
@@ -188,7 +189,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.ProfileImportObserver_OnImportFinished_ParamsSpec,
       null,
-      [succeeded, error_msg]);
+      [succeeded, error_msg],
+      false);
   }
 
   onImportItemStart(item) {
@@ -197,7 +199,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.ProfileImportObserver_OnImportItemStart_ParamsSpec,
       null,
-      [item]);
+      [item],
+      false);
   }
 
   onImportItemFinished(item) {
@@ -206,7 +209,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       3,  // ordinal
       chrome.mojom.ProfileImportObserver_OnImportItemFinished_ParamsSpec,
       null,
-      [item]);
+      [item],
+      false);
   }
 
   onHistoryImportStart(total_history_rows_count) {
@@ -215,7 +219,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       4,  // ordinal
       chrome.mojom.ProfileImportObserver_OnHistoryImportStart_ParamsSpec,
       null,
-      [total_history_rows_count]);
+      [total_history_rows_count],
+      false);
   }
 
   onHistoryImportGroup(history_rows_group, visit_source) {
@@ -224,7 +229,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       5,  // ordinal
       chrome.mojom.ProfileImportObserver_OnHistoryImportGroup_ParamsSpec,
       null,
-      [history_rows_group, visit_source]);
+      [history_rows_group, visit_source],
+      false);
   }
 
   onHomePageImportReady(home_page) {
@@ -233,7 +239,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       6,  // ordinal
       chrome.mojom.ProfileImportObserver_OnHomePageImportReady_ParamsSpec,
       null,
-      [home_page]);
+      [home_page],
+      false);
   }
 
   onBookmarksImportStart(first_folder_name, total_bookmarks_count) {
@@ -242,7 +249,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       7,  // ordinal
       chrome.mojom.ProfileImportObserver_OnBookmarksImportStart_ParamsSpec,
       null,
-      [first_folder_name, total_bookmarks_count]);
+      [first_folder_name, total_bookmarks_count],
+      false);
   }
 
   onBookmarksImportGroup(bookmarks_group) {
@@ -251,7 +259,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       8,  // ordinal
       chrome.mojom.ProfileImportObserver_OnBookmarksImportGroup_ParamsSpec,
       null,
-      [bookmarks_group]);
+      [bookmarks_group],
+      false);
   }
 
   onFaviconsImportStart(total_favicons_count) {
@@ -260,7 +269,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       9,  // ordinal
       chrome.mojom.ProfileImportObserver_OnFaviconsImportStart_ParamsSpec,
       null,
-      [total_favicons_count]);
+      [total_favicons_count],
+      false);
   }
 
   onFaviconsImportGroup(favicons_group) {
@@ -269,7 +279,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       10,  // ordinal
       chrome.mojom.ProfileImportObserver_OnFaviconsImportGroup_ParamsSpec,
       null,
-      [favicons_group]);
+      [favicons_group],
+      false);
   }
 
   onPasswordFormImportReady(form) {
@@ -278,7 +289,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       11,  // ordinal
       chrome.mojom.ProfileImportObserver_OnPasswordFormImportReady_ParamsSpec,
       null,
-      [form]);
+      [form],
+      false);
   }
 
   onKeywordsImportReady(search_engines, unique_on_host_and_path) {
@@ -287,7 +299,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       12,  // ordinal
       chrome.mojom.ProfileImportObserver_OnKeywordsImportReady_ParamsSpec,
       null,
-      [search_engines, unique_on_host_and_path]);
+      [search_engines, unique_on_host_and_path],
+      false);
   }
 
   onAutofillFormDataImportStart(total_autofill_form_data_entry_count) {
@@ -296,7 +309,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       13,  // ordinal
       chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportStart_ParamsSpec,
       null,
-      [total_autofill_form_data_entry_count]);
+      [total_autofill_form_data_entry_count],
+      false);
   }
 
   onAutofillFormDataImportGroup(autofill_form_data_entry_group) {
@@ -305,7 +319,8 @@ chrome.mojom.ProfileImportObserverRemoteCallHandler = class {
       14,  // ordinal
       chrome.mojom.ProfileImportObserver_OnAutofillFormDataImportGroup_ParamsSpec,
       null,
-      [autofill_form_data_entry_group]);
+      [autofill_form_data_entry_group],
+      false);
   }
 
 };
@@ -383,7 +398,8 @@ chrome.mojom.ProfileImportRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.ProfileImport_StartImport_ParamsSpec,
       null,
-      [source_profile, items, localized_strings, observer]);
+      [source_profile, items, localized_strings, observer],
+      false);
   }
 
   cancelImport() {
@@ -392,7 +408,8 @@ chrome.mojom.ProfileImportRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.ProfileImport_CancelImport_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   reportImportItemFinished(item) {
@@ -401,7 +418,8 @@ chrome.mojom.ProfileImportRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.ProfileImport_ReportImportItemFinished_ParamsSpec,
       null,
-      [item]);
+      [item],
+      false);
   }
 
 };

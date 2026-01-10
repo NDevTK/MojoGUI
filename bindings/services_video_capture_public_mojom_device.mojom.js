@@ -124,7 +124,8 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       0,  // ordinal
       video_capture.mojom.Device_Start_ParamsSpec,
       null,
-      [requested_settings, handler]);
+      [requested_settings, handler],
+      false);
   }
 
   maybeSuspend() {
@@ -133,7 +134,8 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       1,  // ordinal
       video_capture.mojom.Device_MaybeSuspend_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   resume() {
@@ -142,7 +144,8 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       2,  // ordinal
       video_capture.mojom.Device_Resume_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getPhotoState() {
@@ -151,7 +154,8 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       3,  // ordinal
       video_capture.mojom.Device_GetPhotoState_ParamsSpec,
       video_capture.mojom.Device_GetPhotoState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setPhotoOptions(settings) {
@@ -160,7 +164,8 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       4,  // ordinal
       video_capture.mojom.Device_SetPhotoOptions_ParamsSpec,
       video_capture.mojom.Device_SetPhotoOptions_ResponseParamsSpec,
-      [settings]);
+      [settings],
+      false);
   }
 
   takePhoto() {
@@ -169,7 +174,8 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       5,  // ordinal
       video_capture.mojom.Device_TakePhoto_ParamsSpec,
       video_capture.mojom.Device_TakePhoto_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   processFeedback(feedback) {
@@ -178,7 +184,8 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       6,  // ordinal
       video_capture.mojom.Device_ProcessFeedback_ParamsSpec,
       null,
-      [feedback]);
+      [feedback],
+      false);
   }
 
   requestRefreshFrame() {
@@ -187,7 +194,8 @@ video_capture.mojom.DeviceRemoteCallHandler = class {
       7,  // ordinal
       video_capture.mojom.Device_RequestRefreshFrame_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

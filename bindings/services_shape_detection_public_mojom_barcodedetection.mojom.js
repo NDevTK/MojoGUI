@@ -97,7 +97,8 @@ shape_detection.mojom.BarcodeDetectionRemoteCallHandler = class {
       0,  // ordinal
       shape_detection.mojom.BarcodeDetection_Detect_ParamsSpec,
       shape_detection.mojom.BarcodeDetection_Detect_ResponseParamsSpec,
-      [bitmap_data]);
+      [bitmap_data],
+      false);
   }
 
 };

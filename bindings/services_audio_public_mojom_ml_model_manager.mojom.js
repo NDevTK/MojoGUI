@@ -63,7 +63,8 @@ audio.mojom.MlModelManagerRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec,
       null,
-      [tflite_file]);
+      [tflite_file],
+      false);
   }
 
   stopServingResidualEchoEstimationModel() {
@@ -72,7 +73,8 @@ audio.mojom.MlModelManagerRemoteCallHandler = class {
       1,  // ordinal
       audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -65,7 +65,8 @@ sandbox.mac.mojom.TraitsTestServiceRemoteCallHandler = class {
       0,  // ordinal
       sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec,
       sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec,
-      [in]);
+      [in],
+      false);
   }
 
 };

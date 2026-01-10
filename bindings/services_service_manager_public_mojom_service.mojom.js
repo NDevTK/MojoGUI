@@ -102,7 +102,8 @@ service_manager.mojom.ServiceRemoteCallHandler = class {
       0,  // ordinal
       service_manager.mojom.Service_OnStart_ParamsSpec,
       service_manager.mojom.Service_OnStart_ResponseParamsSpec,
-      [identity]);
+      [identity],
+      false);
   }
 
   onBindInterface(source, interface_name, interface_pipe) {
@@ -111,7 +112,8 @@ service_manager.mojom.ServiceRemoteCallHandler = class {
       1,  // ordinal
       service_manager.mojom.Service_OnBindInterface_ParamsSpec,
       service_manager.mojom.Service_OnBindInterface_ResponseParamsSpec,
-      [source, interface_name, interface_pipe]);
+      [source, interface_name, interface_pipe],
+      false);
   }
 
   createPackagedServiceInstance(identity, receiver, metadata) {
@@ -120,7 +122,8 @@ service_manager.mojom.ServiceRemoteCallHandler = class {
       2,  // ordinal
       service_manager.mojom.Service_CreatePackagedServiceInstance_ParamsSpec,
       null,
-      [identity, receiver, metadata]);
+      [identity, receiver, metadata],
+      false);
   }
 
 };

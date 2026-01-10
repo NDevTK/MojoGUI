@@ -83,7 +83,8 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
       0,  // ordinal
       content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   didCaptureContent(data, first_data) {
@@ -92,7 +93,8 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
       1,  // ordinal
       content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec,
       null,
-      [data, first_data]);
+      [data, first_data],
+      false);
   }
 
   didUpdateContent(data) {
@@ -101,7 +103,8 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
       2,  // ordinal
       content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec,
       null,
-      [data]);
+      [data],
+      false);
   }
 
   didRemoveContent(ids) {
@@ -110,7 +113,8 @@ content_capture.mojom.ContentCaptureReceiverRemoteCallHandler = class {
       3,  // ordinal
       content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec,
       null,
-      [ids]);
+      [ids],
+      false);
   }
 
 };
@@ -178,7 +182,8 @@ content_capture.mojom.ContentCaptureSenderRemoteCallHandler = class {
       0,  // ordinal
       content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   stopCapture() {
@@ -187,7 +192,8 @@ content_capture.mojom.ContentCaptureSenderRemoteCallHandler = class {
       1,  // ordinal
       content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

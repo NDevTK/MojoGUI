@@ -65,7 +65,8 @@ ash.vm.mojom.VmDiagnosticsProviderRemoteCallHandler = class {
       0,  // ordinal
       ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ParamsSpec,
       ash.vm.mojom.VmDiagnosticsProvider_GetPluginVmDiagnostics_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

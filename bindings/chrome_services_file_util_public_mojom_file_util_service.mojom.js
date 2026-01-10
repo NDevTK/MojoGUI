@@ -81,7 +81,8 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.FileUtilService_BindZipFileCreator_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindSafeArchiveAnalyzer(receiver) {
@@ -90,7 +91,8 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindSingleFileTarFileExtractor(receiver) {
@@ -99,7 +101,8 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   bindSingleFileTarXzFileExtractor(receiver) {
@@ -108,7 +111,8 @@ chrome.mojom.FileUtilServiceRemoteCallHandler = class {
       3,  // ordinal
       chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

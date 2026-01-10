@@ -77,7 +77,8 @@ blink.mojom.BackForwardCacheControllerHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec,
       null,
-      [reason, source]);
+      [reason, source],
+      false);
   }
 
   didChangeBackForwardCacheDisablingFeatures(details) {
@@ -86,7 +87,8 @@ blink.mojom.BackForwardCacheControllerHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec,
       null,
-      [details]);
+      [details],
+      false);
   }
 
 };

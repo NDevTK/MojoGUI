@@ -160,7 +160,8 @@ ash.auth.mojom.FactorObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec,
       null,
-      [factor]);
+      [factor],
+      false);
   }
 
 };
@@ -282,7 +283,8 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
       0,  // ordinal
       ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   isSupported(auth_token, factor) {
@@ -291,7 +293,8 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
       1,  // ordinal
       ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec,
       ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec,
-      [auth_token, factor]);
+      [auth_token, factor],
+      false);
   }
 
   isConfigured(auth_token, factor) {
@@ -300,7 +303,8 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
       2,  // ordinal
       ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec,
       ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec,
-      [auth_token, factor]);
+      [auth_token, factor],
+      false);
   }
 
   getManagementType(auth_token, factor) {
@@ -309,7 +313,8 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
       3,  // ordinal
       ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec,
       ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec,
-      [auth_token, factor]);
+      [auth_token, factor],
+      false);
   }
 
   isEditable(auth_token, factor) {
@@ -318,7 +323,8 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
       4,  // ordinal
       ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec,
       ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec,
-      [auth_token, factor]);
+      [auth_token, factor],
+      false);
   }
 
   getLocalAuthFactorsComplexity(auth_token) {
@@ -327,7 +333,8 @@ ash.auth.mojom.AuthFactorConfigRemoteCallHandler = class {
       5,  // ordinal
       ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec,
       null,
-      [auth_token]);
+      [auth_token],
+      false);
   }
 
 };
@@ -398,7 +405,8 @@ ash.auth.mojom.RecoveryFactorEditorRemoteCallHandler = class {
       0,  // ordinal
       ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec,
       ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec,
-      [auth_token, enabled]);
+      [auth_token, enabled],
+      false);
   }
 
 };
@@ -519,7 +527,8 @@ ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       0,  // ordinal
       ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec,
       ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec,
-      [auth_token, pin]);
+      [auth_token, pin],
+      false);
   }
 
   updatePin(auth_token, pin) {
@@ -528,7 +537,8 @@ ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       1,  // ordinal
       ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec,
       ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec,
-      [auth_token, pin]);
+      [auth_token, pin],
+      false);
   }
 
   removePin(auth_token) {
@@ -537,7 +547,8 @@ ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       2,  // ordinal
       ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec,
       ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec,
-      [auth_token]);
+      [auth_token],
+      false);
   }
 
   getConfiguredPinFactor(auth_token) {
@@ -546,7 +557,8 @@ ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       3,  // ordinal
       ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec,
       ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec,
-      [auth_token]);
+      [auth_token],
+      false);
   }
 
   checkPinComplexity(auth_token, pin) {
@@ -555,7 +567,8 @@ ash.auth.mojom.PinFactorEditorRemoteCallHandler = class {
       4,  // ordinal
       ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec,
       ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec,
-      [auth_token, pin]);
+      [auth_token, pin],
+      false);
   }
 
 };
@@ -689,7 +702,8 @@ ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
       0,  // ordinal
       ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec,
       ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec,
-      [auth_token, new_password]);
+      [auth_token, new_password],
+      false);
   }
 
   updateOrSetOnlinePassword(auth_token, new_password) {
@@ -698,7 +712,8 @@ ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
       1,  // ordinal
       ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec,
       ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec,
-      [auth_token, new_password]);
+      [auth_token, new_password],
+      false);
   }
 
   setLocalPassword(auth_token, new_password) {
@@ -707,7 +722,8 @@ ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
       2,  // ordinal
       ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec,
       ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec,
-      [auth_token, new_password]);
+      [auth_token, new_password],
+      false);
   }
 
   setOnlinePassword(auth_token, new_password) {
@@ -716,7 +732,8 @@ ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
       3,  // ordinal
       ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec,
       ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec,
-      [auth_token, new_password]);
+      [auth_token, new_password],
+      false);
   }
 
   checkLocalPasswordComplexity(password) {
@@ -725,7 +742,8 @@ ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
       4,  // ordinal
       ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec,
       ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec,
-      [password]);
+      [password],
+      false);
   }
 
   removePassword(auth_token) {
@@ -734,7 +752,8 @@ ash.auth.mojom.PasswordFactorEditorRemoteCallHandler = class {
       5,  // ordinal
       ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec,
       ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec,
-      [auth_token]);
+      [auth_token],
+      false);
   }
 
 };

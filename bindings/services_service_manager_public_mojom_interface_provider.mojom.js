@@ -58,7 +58,8 @@ service_manager.mojom.InterfaceProviderRemoteCallHandler = class {
       0,  // ordinal
       service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec,
       null,
-      [interface_name, pipe]);
+      [interface_name, pipe],
+      false);
   }
 
 };

@@ -67,7 +67,8 @@ blink.mojom.WebSensorProviderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebSensorProvider_GetSensor_ParamsSpec,
       blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
 };

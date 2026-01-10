@@ -152,7 +152,8 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
       0,  // ordinal
       ui.ozone.mojom.GesturePropertiesService_ListDevices_ParamsSpec,
       ui.ozone.mojom.GesturePropertiesService_ListDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   listProperties(device_id) {
@@ -161,7 +162,8 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
       1,  // ordinal
       ui.ozone.mojom.GesturePropertiesService_ListProperties_ParamsSpec,
       ui.ozone.mojom.GesturePropertiesService_ListProperties_ResponseParamsSpec,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   getProperty(device_id, name) {
@@ -170,7 +172,8 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
       2,  // ordinal
       ui.ozone.mojom.GesturePropertiesService_GetProperty_ParamsSpec,
       ui.ozone.mojom.GesturePropertiesService_GetProperty_ResponseParamsSpec,
-      [device_id, name]);
+      [device_id, name],
+      false);
   }
 
   setProperty(device_id, name, value) {
@@ -179,7 +182,8 @@ ui.ozone.mojom.GesturePropertiesServiceRemoteCallHandler = class {
       3,  // ordinal
       ui.ozone.mojom.GesturePropertiesService_SetProperty_ParamsSpec,
       ui.ozone.mojom.GesturePropertiesService_SetProperty_ResponseParamsSpec,
-      [device_id, name, value]);
+      [device_id, name, value],
+      false);
   }
 
 };

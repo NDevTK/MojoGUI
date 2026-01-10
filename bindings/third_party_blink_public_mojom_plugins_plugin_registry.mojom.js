@@ -86,7 +86,8 @@ blink.mojom.PluginRegistryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.PluginRegistry_GetPlugins_ParamsSpec,
       blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

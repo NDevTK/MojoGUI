@@ -128,7 +128,8 @@ ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRemoteCallHandler = class {
       0,  // ordinal
       ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec,
       ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
 };
@@ -192,7 +193,8 @@ ash.enhanced_network_tts.mojom.AudioDataObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec,
       null,
-      [response]);
+      [response],
+      false);
   }
 
 };

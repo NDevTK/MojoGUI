@@ -57,7 +57,8 @@ printing.mojom.PrinterXmlParserRemoteCallHandler = class {
       0,  // ordinal
       printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec,
       null,
-      [capabilities_xml]);
+      [capabilities_xml],
+      false);
   }
 
 };

@@ -172,7 +172,8 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       history_embeddings.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
   search(query) {
@@ -181,7 +182,8 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       history_embeddings.mojom.PageHandler_Search_ParamsSpec,
       null,
-      [query]);
+      [query],
+      false);
   }
 
   sendQualityLog(selected_indices, num_entered_chars) {
@@ -190,7 +192,8 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       history_embeddings.mojom.PageHandler_SendQualityLog_ParamsSpec,
       null,
-      [selected_indices, num_entered_chars]);
+      [selected_indices, num_entered_chars],
+      false);
   }
 
   recordSearchResultsMetrics(nonEmptyResults, userClickedResult, answerShown, answerCitationClicked, otherHistoryResultClicked, queryWordCount) {
@@ -199,7 +202,8 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec,
       null,
-      [nonEmptyResults, userClickedResult, answerShown, answerCitationClicked, otherHistoryResultClicked, queryWordCount]);
+      [nonEmptyResults, userClickedResult, answerShown, answerCitationClicked, otherHistoryResultClicked, queryWordCount],
+      false);
   }
 
   setUserFeedback(feedback) {
@@ -208,7 +212,8 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec,
       null,
-      [feedback]);
+      [feedback],
+      false);
   }
 
   maybeShowFeaturePromo() {
@@ -217,7 +222,8 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openSettingsPage() {
@@ -226,7 +232,8 @@ history_embeddings.mojom.PageHandlerRemoteCallHandler = class {
       6,  // ordinal
       history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -290,7 +297,8 @@ history_embeddings.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
 };

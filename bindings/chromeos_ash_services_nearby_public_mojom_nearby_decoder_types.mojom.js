@@ -142,28 +142,28 @@ mojo.internal.Struct(
 // Struct: FileMetadata
 mojo.internal.Struct(
     sharing.mojom.FileMetadataSpec, 'sharing.mojom.FileMetadata', [
-      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: TextMetadata
 mojo.internal.Struct(
     sharing.mojom.TextMetadataSpec, 'sharing.mojom.TextMetadata', [
-      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: WifiCredentialsMetadata
 mojo.internal.Struct(
     sharing.mojom.WifiCredentialsMetadataSpec, 'sharing.mojom.WifiCredentialsMetadata', [
-      mojo.internal.StructField('kUnknownSecurityType', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnknownSecurityType', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: ConnectionResponseFrame
 mojo.internal.Struct(
     sharing.mojom.ConnectionResponseFrameSpec, 'sharing.mojom.ConnectionResponseFrame', [
-      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -179,7 +179,7 @@ mojo.internal.Struct(
 // Struct: PairedKeyResultFrame
 mojo.internal.Struct(
     sharing.mojom.PairedKeyResultFrameSpec, 'sharing.mojom.PairedKeyResultFrame', [
-      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnknown', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

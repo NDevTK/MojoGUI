@@ -145,7 +145,7 @@ mojo.internal.Struct(
 // Struct: RemoteInvocationResult
 mojo.internal.Struct(
     blink.mojom.RemoteInvocationResultSpec, 'blink.mojom.RemoteInvocationResult', [
-      mojo.internal.StructField('error', 0, 0, blink.mojom.RemoteInvocationErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('error', 0, 0, blink.mojom.RemoteInvocationErrorSpec, 0, false, 0, undefined),
       mojo.internal.StructField('value', 8, 0, blink.mojom.RemoteInvocationResultValueSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -208,7 +208,8 @@ blink.mojom.RemoteObjectHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RemoteObjectHost_GetObject_ParamsSpec,
       null,
-      [object_id, receiver]);
+      [object_id, receiver],
+      false);
   }
 
   acquireObject(object_id) {
@@ -217,7 +218,8 @@ blink.mojom.RemoteObjectHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.RemoteObjectHost_AcquireObject_ParamsSpec,
       null,
-      [object_id]);
+      [object_id],
+      false);
   }
 
   releaseObject(object_id) {
@@ -226,7 +228,8 @@ blink.mojom.RemoteObjectHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.RemoteObjectHost_ReleaseObject_ParamsSpec,
       null,
-      [object_id]);
+      [object_id],
+      false);
   }
 
 };
@@ -325,7 +328,8 @@ blink.mojom.RemoteObjectRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RemoteObject_HasMethod_ParamsSpec,
       blink.mojom.RemoteObject_HasMethod_ResponseParamsSpec,
-      [name]);
+      [name],
+      false);
   }
 
   getMethods() {
@@ -334,7 +338,8 @@ blink.mojom.RemoteObjectRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.RemoteObject_GetMethods_ParamsSpec,
       blink.mojom.RemoteObject_GetMethods_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   invokeMethod(name, arguments) {
@@ -343,7 +348,8 @@ blink.mojom.RemoteObjectRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.RemoteObject_InvokeMethod_ParamsSpec,
       blink.mojom.RemoteObject_InvokeMethod_ResponseParamsSpec,
-      [name, arguments]);
+      [name, arguments],
+      false);
   }
 
   notifyReleasedObject() {
@@ -352,7 +358,8 @@ blink.mojom.RemoteObjectRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.RemoteObject_NotifyReleasedObject_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -417,7 +424,8 @@ blink.mojom.RemoteObjectGatewayFactoryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RemoteObjectGatewayFactory_CreateRemoteObjectGateway_ParamsSpec,
       null,
-      [host, gateway]);
+      [host, gateway],
+      false);
   }
 
 };
@@ -488,7 +496,8 @@ blink.mojom.RemoteObjectGatewayRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RemoteObjectGateway_AddNamedObject_ParamsSpec,
       null,
-      [name, object_id]);
+      [name, object_id],
+      false);
   }
 
   removeNamedObject(name) {
@@ -497,7 +506,8 @@ blink.mojom.RemoteObjectGatewayRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.RemoteObjectGateway_RemoveNamedObject_ParamsSpec,
       null,
-      [name]);
+      [name],
+      false);
   }
 
 };

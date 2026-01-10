@@ -136,7 +136,8 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemoteCallHandler = class {
       0,  // ordinal
       ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ParamsSpec,
       ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchscreenDevices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getTouchpadLibraryName() {
@@ -145,7 +146,8 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemoteCallHandler = class {
       1,  // ordinal
       ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ParamsSpec,
       ash.cros_healthd.internal.mojom.ChromiumDataCollector_GetTouchpadLibraryName_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setPrivacyScreenState(state) {
@@ -154,7 +156,8 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemoteCallHandler = class {
       2,  // ordinal
       ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ParamsSpec,
       ash.cros_healthd.internal.mojom.ChromiumDataCollector_SetPrivacyScreenState_ResponseParamsSpec,
-      [state]);
+      [state],
+      false);
   }
 
   dEPRECATED_SetAudioOutputMute(mute_on) {
@@ -163,7 +166,8 @@ ash.cros_healthd.internal.mojom.ChromiumDataCollectorRemoteCallHandler = class {
       3,  // ordinal
       ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ParamsSpec,
       ash.cros_healthd.internal.mojom.ChromiumDataCollector_DEPRECATED_SetAudioOutputMute_ResponseParamsSpec,
-      [mute_on]);
+      [mute_on],
+      false);
   }
 
 };

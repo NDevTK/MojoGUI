@@ -63,7 +63,8 @@ chromeos.sensors.mojom.SensorHalServerRemoteCallHandler = class {
       0,  // ordinal
       chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec,
       null,
-      [sensor_service_request]);
+      [sensor_service_request],
+      false);
   }
 
 };
@@ -127,7 +128,8 @@ chromeos.sensors.mojom.SensorHalClientRemoteCallHandler = class {
       0,  // ordinal
       chromeos.sensors.mojom.SensorHalClient_SetUpChannel_ParamsSpec,
       null,
-      [sensor_service_ptr]);
+      [sensor_service_ptr],
+      false);
   }
 
 };

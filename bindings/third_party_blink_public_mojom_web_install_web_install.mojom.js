@@ -98,7 +98,8 @@ blink.mojom.WebInstallServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebInstallService_Install_ParamsSpec,
       blink.mojom.WebInstallService_Install_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
   installFromElement(options) {
@@ -107,7 +108,8 @@ blink.mojom.WebInstallServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WebInstallService_InstallFromElement_ParamsSpec,
       blink.mojom.WebInstallService_InstallFromElement_ResponseParamsSpec,
-      [options]);
+      [options],
+      false);
   }
 
 };

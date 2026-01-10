@@ -26,7 +26,7 @@ mojo.internal.Struct(
     lens.mojom.CenterRotatedBoxSpec, 'lens.mojom.CenterRotatedBox', [
       mojo.internal.StructField('box', 0, 0, gfx.mojom.RectFSpec, null, false, 0, undefined),
       mojo.internal.StructField('rotation', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('kUnspecified', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnspecified', 16, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 

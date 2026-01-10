@@ -649,7 +649,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec,
       null,
-      [events, boot_type]);
+      [events, boot_type],
+      false);
   }
 
   reportNativeBridge(native_bridge_type) {
@@ -658,7 +659,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec,
       null,
-      [native_bridge_type]);
+      [native_bridge_type],
+      false);
   }
 
   reportCompanionLibApiUsage(api_id) {
@@ -667,7 +669,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.MetricsHost_ReportCompanionLibApiUsage_ParamsSpec,
       null,
-      [api_id]);
+      [api_id],
+      false);
   }
 
   reportAppKill(app_kill) {
@@ -676,7 +679,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.MetricsHost_ReportAppKill_ParamsSpec,
       null,
-      [app_kill]);
+      [app_kill],
+      false);
   }
 
   reportArcCorePriAbiMigEvent(event) {
@@ -685,7 +689,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
   reportArcCorePriAbiMigFailedTries(failed_attempts) {
@@ -694,7 +699,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_ParamsSpec,
       null,
-      [failed_attempts]);
+      [failed_attempts],
+      false);
   }
 
   reportArcCorePriAbiMigDowngradeDelay(delay) {
@@ -703,7 +709,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_ParamsSpec,
       null,
-      [delay]);
+      [delay],
+      false);
   }
 
   reportArcCorePriAbiMigBootTime(duration) {
@@ -712,7 +719,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_ParamsSpec,
       null,
-      [duration]);
+      [duration],
+      false);
   }
 
   reportAnr(anr) {
@@ -721,7 +729,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.MetricsHost_ReportAnr_ParamsSpec,
       null,
-      [anr]);
+      [anr],
+      false);
   }
 
   reportArcSystemHealthUpgrade(duration, packages_deleted) {
@@ -730,7 +739,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       11,  // ordinal
       arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_ParamsSpec,
       null,
-      [duration, packages_deleted]);
+      [duration, packages_deleted],
+      false);
   }
 
   reportLowLatencyStylusLibApiUsage(api_id) {
@@ -739,7 +749,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       12,  // ordinal
       arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_ParamsSpec,
       null,
-      [api_id]);
+      [api_id],
+      false);
   }
 
   reportLowLatencyStylusLibPredictionTarget(prediction_target) {
@@ -748,7 +759,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       13,  // ordinal
       arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_ParamsSpec,
       null,
-      [prediction_target]);
+      [prediction_target],
+      false);
   }
 
   reportDnsQueryResult(query, success) {
@@ -757,7 +769,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       16,  // ordinal
       arc.mojom.MetricsHost_ReportDnsQueryResult_ParamsSpec,
       null,
-      [query, success]);
+      [query, success],
+      false);
   }
 
   reportMainAccountHashMigrationMetrics(status) {
@@ -766,7 +779,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       17,  // ordinal
       arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   reportArcNetworkEvent(event) {
@@ -775,7 +789,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       19,  // ordinal
       arc.mojom.MetricsHost_ReportArcNetworkEvent_ParamsSpec,
       null,
-      [event]);
+      [event],
+      false);
   }
 
   reportArcNetworkError(error) {
@@ -784,7 +799,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       20,  // ordinal
       arc.mojom.MetricsHost_ReportArcNetworkError_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
   reportAppPrimaryAbi(abi) {
@@ -793,7 +809,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       21,  // ordinal
       arc.mojom.MetricsHost_ReportAppPrimaryAbi_ParamsSpec,
       null,
-      [abi]);
+      [abi],
+      false);
   }
 
   reportDataRestore(status, duration_ms) {
@@ -802,7 +819,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       22,  // ordinal
       arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec,
       null,
-      [status, duration_ms]);
+      [status, duration_ms],
+      false);
   }
 
   reportMemoryPressure(psi_file_contents) {
@@ -811,7 +829,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       23,  // ordinal
       arc.mojom.MetricsHost_ReportMemoryPressure_ParamsSpec,
       null,
-      [psi_file_contents]);
+      [psi_file_contents],
+      false);
   }
 
   reportProvisioningPreSignIn() {
@@ -820,7 +839,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       24,  // ordinal
       arc.mojom.MetricsHost_ReportProvisioningPreSignIn_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   reportWaylandLateTimingEvent(event, duration) {
@@ -829,7 +849,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       30,  // ordinal
       arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec,
       null,
-      [event, duration]);
+      [event, duration],
+      false);
   }
 
   reportWebViewProcessStarted() {
@@ -838,7 +859,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       31,  // ordinal
       arc.mojom.MetricsHost_ReportWebViewProcessStarted_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   reportVpnServiceBuilderCompatApiUsage(api_id) {
@@ -847,7 +869,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       32,  // ordinal
       arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec,
       null,
-      [api_id]);
+      [api_id],
+      false);
   }
 
   reportNewQosSocketCount(count) {
@@ -856,7 +879,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       33,  // ordinal
       arc.mojom.MetricsHost_ReportNewQosSocketCount_ParamsSpec,
       null,
-      [count]);
+      [count],
+      false);
   }
 
   reportQosSocketPercentage(perc) {
@@ -865,7 +889,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       34,  // ordinal
       arc.mojom.MetricsHost_ReportQosSocketPercentage_ParamsSpec,
       null,
-      [perc]);
+      [perc],
+      false);
   }
 
   reportArcKeyMintError(error) {
@@ -874,7 +899,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       35,  // ordinal
       arc.mojom.MetricsHost_ReportArcKeyMintError_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
   reportDragResizeLatency(durations) {
@@ -883,7 +909,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       36,  // ordinal
       arc.mojom.MetricsHost_ReportDragResizeLatency_ParamsSpec,
       null,
-      [durations]);
+      [durations],
+      false);
   }
 
   reportAppErrorDialogType(type) {
@@ -892,7 +919,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       37,  // ordinal
       arc.mojom.MetricsHost_ReportAppErrorDialogType_ParamsSpec,
       null,
-      [type]);
+      [type],
+      false);
   }
 
   reportApkCacheHit(hit) {
@@ -901,7 +929,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       38,  // ordinal
       arc.mojom.MetricsHost_ReportApkCacheHit_ParamsSpec,
       null,
-      [hit]);
+      [hit],
+      false);
   }
 
   reportAppCategoryDataSizeList(list) {
@@ -910,7 +939,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       39,  // ordinal
       arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_ParamsSpec,
       null,
-      [list]);
+      [list],
+      false);
   }
 
   reportDataDirectorySizeList(list) {
@@ -919,7 +949,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       40,  // ordinal
       arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsSpec,
       null,
-      [list]);
+      [list],
+      false);
   }
 
   reportArcKeyMintErrorForOperation(error, operation) {
@@ -928,7 +959,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       41,  // ordinal
       arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec,
       null,
-      [error, operation]);
+      [error, operation],
+      false);
   }
 
   reportCertificateSigningResult(result) {
@@ -937,7 +969,8 @@ arc.mojom.MetricsHostRemoteCallHandler = class {
       42,  // ordinal
       arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
 };
@@ -1018,7 +1051,8 @@ arc.mojom.MetricsInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.MetricsInstance_Init_ParamsSpec,
       arc.mojom.MetricsInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   getGfxMetrics(packageName) {
@@ -1027,7 +1061,8 @@ arc.mojom.MetricsInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec,
       arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParamsSpec,
-      [packageName]);
+      [packageName],
+      false);
   }
 
 };

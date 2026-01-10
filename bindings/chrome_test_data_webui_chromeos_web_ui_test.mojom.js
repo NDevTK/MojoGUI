@@ -57,7 +57,8 @@ web_ui_test.mojom.TestRunnerRemoteCallHandler = class {
       0,  // ordinal
       web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec,
       null,
-      [failureMessage]);
+      [failureMessage],
+      false);
   }
 
 };

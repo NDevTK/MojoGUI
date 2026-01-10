@@ -124,7 +124,8 @@ optimization_guide.mojom.ModelSolutionRemoteCallHandler = class {
       0,  // ordinal
       optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec,
       null,
-      [session, params]);
+      [session, params],
+      false);
   }
 
   createTextSafetySession(session) {
@@ -133,7 +134,8 @@ optimization_guide.mojom.ModelSolutionRemoteCallHandler = class {
       1,  // ordinal
       optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec,
       null,
-      [session]);
+      [session],
+      false);
   }
 
   reportHealthyCompletion() {
@@ -142,7 +144,8 @@ optimization_guide.mojom.ModelSolutionRemoteCallHandler = class {
       2,  // ordinal
       optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -213,7 +216,8 @@ optimization_guide.mojom.ModelSubscriberRemoteCallHandler = class {
       0,  // ordinal
       optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec,
       null,
-      [reason]);
+      [reason],
+      false);
   }
 
   available(config, solution) {
@@ -222,7 +226,8 @@ optimization_guide.mojom.ModelSubscriberRemoteCallHandler = class {
       1,  // ordinal
       optimization_guide.mojom.ModelSubscriber_Available_ParamsSpec,
       null,
-      [config, solution]);
+      [config, solution],
+      false);
   }
 
 };
@@ -287,7 +292,8 @@ optimization_guide.mojom.ModelBrokerRemoteCallHandler = class {
       0,  // ordinal
       optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec,
       null,
-      [options, subcriber]);
+      [options, subcriber],
+      false);
   }
 
 };

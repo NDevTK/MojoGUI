@@ -81,7 +81,8 @@ blink.mojom.AIProofreaderRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AIProofreader_Proofread_ParamsSpec,
       null,
-      [input, pending_responder]);
+      [input, pending_responder],
+      false);
   }
 
   getCorrectionType(input, corrected_input, correction_instruction, pending_responder) {
@@ -90,7 +91,8 @@ blink.mojom.AIProofreaderRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec,
       null,
-      [input, corrected_input, correction_instruction, pending_responder]);
+      [input, corrected_input, correction_instruction, pending_responder],
+      false);
   }
 
 };

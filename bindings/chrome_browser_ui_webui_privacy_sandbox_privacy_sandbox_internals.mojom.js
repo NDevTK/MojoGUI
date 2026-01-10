@@ -132,7 +132,8 @@ privacy_sandbox_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ParamsSpec,
       privacy_sandbox_internals.mojom.PageHandler_ReadPrefsWithPrefixes_ResponseParamsSpec,
-      [pref_prefixes]);
+      [pref_prefixes],
+      false);
   }
 
   readContentSettings(type) {
@@ -141,7 +142,8 @@ privacy_sandbox_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ParamsSpec,
       privacy_sandbox_internals.mojom.PageHandler_ReadContentSettings_ResponseParamsSpec,
-      [type]);
+      [type],
+      false);
   }
 
   getTpcdMetadataGrants() {
@@ -150,7 +152,8 @@ privacy_sandbox_internals.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ParamsSpec,
       privacy_sandbox_internals.mojom.PageHandler_GetTpcdMetadataGrants_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   contentSettingsPatternToString(pattern) {
@@ -159,7 +162,8 @@ privacy_sandbox_internals.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ParamsSpec,
       privacy_sandbox_internals.mojom.PageHandler_ContentSettingsPatternToString_ResponseParamsSpec,
-      [pattern]);
+      [pattern],
+      false);
   }
 
   stringToContentSettingsPattern(s) {
@@ -168,7 +172,8 @@ privacy_sandbox_internals.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ParamsSpec,
       privacy_sandbox_internals.mojom.PageHandler_StringToContentSettingsPattern_ResponseParamsSpec,
-      [s]);
+      [s],
+      false);
   }
 
 };

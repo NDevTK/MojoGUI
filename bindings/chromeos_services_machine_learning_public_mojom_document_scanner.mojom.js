@@ -133,7 +133,8 @@ chromeos.machine_learning.mojom.DocumentScannerRemoteCallHandler = class {
       0,  // ordinal
       chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ParamsSpec,
       chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec,
-      [nv12_image]);
+      [nv12_image],
+      false);
   }
 
   detectCornersFromJPEGImage(jpeg_image) {
@@ -142,7 +143,8 @@ chromeos.machine_learning.mojom.DocumentScannerRemoteCallHandler = class {
       1,  // ordinal
       chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ParamsSpec,
       chromeos.machine_learning.mojom.DocumentScanner_DetectCornersFromJPEGImage_ResponseParamsSpec,
-      [jpeg_image]);
+      [jpeg_image],
+      false);
   }
 
   doPostProcessing(jpeg_image, corners, rotation) {
@@ -151,7 +153,8 @@ chromeos.machine_learning.mojom.DocumentScannerRemoteCallHandler = class {
       2,  // ordinal
       chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ParamsSpec,
       chromeos.machine_learning.mojom.DocumentScanner_DoPostProcessing_ResponseParamsSpec,
-      [jpeg_image, corners, rotation]);
+      [jpeg_image, corners, rotation],
+      false);
   }
 
 };

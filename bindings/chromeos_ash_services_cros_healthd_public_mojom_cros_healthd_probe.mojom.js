@@ -1265,7 +1265,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('marketing_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('os_version', 16, 0, ash.cros_healthd.mojom.OsVersionSpec, null, false, 0, undefined),
       mojo.internal.StructField('boot_mode', 24, 0, ash.cros_healthd.mojom.BootModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('kUnmappedEnumField', 32, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 32, 0, mojo.internal.Pointer, 0, false, 0, undefined),
       mojo.internal.StructField('oem_name', 40, 0, mojo.internal.String, null, true, 1, undefined),
     ],
     [[0, 48], [1, 56]]);
@@ -1314,14 +1314,14 @@ mojo.internal.Struct(
 // Struct: PsrEvent
 mojo.internal.Struct(
     ash.cros_healthd.mojom.PsrEventSpec, 'ash.cros_healthd.mojom.PsrEvent', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
 // Struct: PsrInfo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.PsrInfoSpec, 'ash.cros_healthd.mojom.PsrInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1690,7 +1690,7 @@ mojo.internal.Struct(
     ash.cros_healthd.mojom.SensorSpec, 'ash.cros_healthd.mojom.Sensor', [
       mojo.internal.StructField('name', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('device_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('kUnmappedEnumField', 16, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 16, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 32]]);
 
@@ -1704,7 +1704,7 @@ mojo.internal.Struct(
 // Struct: ThermalSensorInfo
 mojo.internal.Struct(
     ash.cros_healthd.mojom.ThermalSensorInfoSpec, 'ash.cros_healthd.mojom.ThermalSensorInfo', [
-      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnmappedEnumField', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

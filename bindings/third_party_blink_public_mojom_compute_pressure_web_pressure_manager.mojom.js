@@ -71,7 +71,8 @@ blink.mojom.WebPressureManagerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebPressureManager_AddClient_ParamsSpec,
       blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec,
-      [source, client]);
+      [source, client],
+      false);
   }
 
 };
@@ -135,7 +136,8 @@ blink.mojom.WebPressureClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec,
       null,
-      [update]);
+      [update],
+      false);
   }
 
 };

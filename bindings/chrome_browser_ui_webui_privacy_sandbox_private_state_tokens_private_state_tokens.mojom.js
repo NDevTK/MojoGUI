@@ -72,7 +72,8 @@ private_state_tokens.mojom.PrivateStateTokensPageHandlerRemoteCallHandler = clas
       0,  // ordinal
       private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec,
       private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

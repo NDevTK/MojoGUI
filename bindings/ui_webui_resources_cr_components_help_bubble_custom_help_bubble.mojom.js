@@ -69,7 +69,8 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRemoteCallHandler = class
       0,  // ordinal
       custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };
@@ -133,7 +134,8 @@ custom_help_bubble.mojom.CustomHelpBubbleHandlerRemoteCallHandler = class {
       0,  // ordinal
       custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec,
       null,
-      [action]);
+      [action],
+      false);
   }
 
 };

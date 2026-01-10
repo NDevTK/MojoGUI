@@ -104,7 +104,8 @@ network.mojom.NetworkInterfaceChangeListenerRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetworkInterfaceChangeListener_OnNetworkInterfacesChanged_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
 };

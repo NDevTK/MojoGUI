@@ -106,7 +106,8 @@ remoting.mojom.RemotingHostControlRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec,
       null,
-      [config]);
+      [config],
+      false);
   }
 
   initializePairingRegistry(privileged_handle, unprivileged_handle) {
@@ -115,7 +116,8 @@ remoting.mojom.RemotingHostControlRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec,
       null,
-      [privileged_handle, unprivileged_handle]);
+      [privileged_handle, unprivileged_handle],
+      false);
   }
 
   bindChromotingHostServices(receiver, peer_pid) {
@@ -124,7 +126,8 @@ remoting.mojom.RemotingHostControlRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.RemotingHostControl_BindChromotingHostServices_ParamsSpec,
       null,
-      [receiver, peer_pid]);
+      [receiver, peer_pid],
+      false);
   }
 
 };
@@ -196,7 +199,8 @@ remoting.mojom.DesktopSessionConnectionEventsRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec,
       null,
-      [terminal_id]);
+      [terminal_id],
+      false);
   }
 
   onDesktopSessionAgentAttached(terminal_id, session_id, desktop_pipe) {
@@ -205,7 +209,8 @@ remoting.mojom.DesktopSessionConnectionEventsRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec,
       null,
-      [terminal_id, session_id, desktop_pipe]);
+      [terminal_id, session_id, desktop_pipe],
+      false);
   }
 
 };
@@ -306,7 +311,8 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
       0,  // ordinal
       remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec,
       null,
-      [signaling_id]);
+      [signaling_id],
+      false);
   }
 
   onClientAuthenticated(signaling_id) {
@@ -315,7 +321,8 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
       1,  // ordinal
       remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec,
       null,
-      [signaling_id]);
+      [signaling_id],
+      false);
   }
 
   onClientConnected(signaling_id) {
@@ -324,7 +331,8 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
       2,  // ordinal
       remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec,
       null,
-      [signaling_id]);
+      [signaling_id],
+      false);
   }
 
   onClientDisconnected(signaling_id) {
@@ -333,7 +341,8 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
       3,  // ordinal
       remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec,
       null,
-      [signaling_id]);
+      [signaling_id],
+      false);
   }
 
   onClientRouteChange(signaling_id, channel_name, route) {
@@ -342,7 +351,8 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
       4,  // ordinal
       remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec,
       null,
-      [signaling_id, channel_name, route]);
+      [signaling_id, channel_name, route],
+      false);
   }
 
   onHostStarted(owner_email) {
@@ -351,7 +361,8 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
       5,  // ordinal
       remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec,
       null,
-      [owner_email]);
+      [owner_email],
+      false);
   }
 
   onHostShutdown() {
@@ -360,7 +371,8 @@ remoting.mojom.HostStatusObserverRemoteCallHandler = class {
       6,  // ordinal
       remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

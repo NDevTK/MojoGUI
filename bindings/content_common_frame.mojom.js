@@ -196,7 +196,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('browsing_context_group_token', 136, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('attribution_support', 144, 0, network.mojom.AttributionSupportSpec, null, false, 0, undefined),
       mojo.internal.StructField('navigation_metrics_token', 152, 0, mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('history_index', 160, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('history_index', 160, 0, mojo.internal.Int32, -1, false, 0, undefined),
       mojo.internal.StructField('history_length', 164, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 176]]);
@@ -209,7 +209,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('frame', 16, 0, mojo.internal.AssociatedInterfaceRequest(content.mojom.FrameRemote), null, false, 0, undefined),
       mojo.internal.StructField('interface_broker', 24, 0, mojo.internal.InterfaceProxy(blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
       mojo.internal.StructField('associated_interface_provider_remote', 32, 0, mojo.internal.AssociatedInterfaceProxy(blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('is_on_initial_empty_document', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_on_initial_empty_document', 40, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('document_token', 48, 0, blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('policy_container', 56, 0, blink.mojom.PolicyContainerSpec, null, true, 0, undefined),
       mojo.internal.StructField('widget_params', 64, 0, content.mojom.CreateFrameWidgetParamsSpec, null, false, 0, undefined),
@@ -261,7 +261,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('devtools_frame_token', 104, 0, mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('frame_owner_properties', 112, 0, blink.mojom.FrameOwnerPropertiesSpec, null, false, 0, undefined),
       mojo.internal.StructField('widget_params', 120, 0, content.mojom.CreateFrameWidgetParamsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('is_on_initial_empty_document', 128, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_on_initial_empty_document', 128, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('document_token', 136, 0, blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('policy_container', 144, 0, blink.mojom.PolicyContainerSpec, null, true, 0, undefined),
       mojo.internal.StructField('frame', 152, 0, mojo.internal.AssociatedInterfaceRequest(content.mojom.FrameRemote), null, false, 0, undefined),
@@ -381,7 +381,8 @@ content.mojom.FrameHTMLSerializerHandlerRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec,
       null,
-      [data_buffer]);
+      [data_buffer],
+      false);
   }
 
   done() {
@@ -390,7 +391,8 @@ content.mojom.FrameHTMLSerializerHandlerRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.FrameHTMLSerializerHandler_Done_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -526,7 +528,8 @@ content.mojom.FrameRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.Frame_CommitSameDocumentNavigation_ParamsSpec,
       content.mojom.Frame_CommitSameDocumentNavigation_ResponseParamsSpec,
-      [common_params, request_params]);
+      [common_params, request_params],
+      false);
   }
 
   updateSubresourceLoaderFactories(subresource_loader_factories) {
@@ -535,7 +538,8 @@ content.mojom.FrameRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.Frame_UpdateSubresourceLoaderFactories_ParamsSpec,
       null,
-      [subresource_loader_factories]);
+      [subresource_loader_factories],
+      false);
   }
 
   setWantErrorMessageStackTrace() {
@@ -544,7 +548,8 @@ content.mojom.FrameRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.Frame_SetWantErrorMessageStackTrace_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   unload(is_loading, new_remote_frame_replication_state, new_remote_frame_token, new_remote_frame_interfaces, new_remote_main_frame_interfaces, devtools_frame_token) {
@@ -553,7 +558,8 @@ content.mojom.FrameRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.Frame_Unload_ParamsSpec,
       null,
-      [is_loading, new_remote_frame_replication_state, new_remote_frame_token, new_remote_frame_interfaces, new_remote_main_frame_interfaces, devtools_frame_token]);
+      [is_loading, new_remote_frame_replication_state, new_remote_frame_token, new_remote_frame_interfaces, new_remote_main_frame_interfaces, devtools_frame_token],
+      false);
   }
 
   delete(intention) {
@@ -562,7 +568,8 @@ content.mojom.FrameRemoteCallHandler = class {
       4,  // ordinal
       content.mojom.Frame_Delete_ParamsSpec,
       null,
-      [intention]);
+      [intention],
+      false);
   }
 
   undoCommitNavigation(is_loading, new_remote_frame_replication_state, new_remote_frame_token, new_remote_frame_interfaces, new_remote_main_frame_interfaces) {
@@ -571,7 +578,8 @@ content.mojom.FrameRemoteCallHandler = class {
       5,  // ordinal
       content.mojom.Frame_UndoCommitNavigation_ParamsSpec,
       null,
-      [is_loading, new_remote_frame_replication_state, new_remote_frame_token, new_remote_frame_interfaces, new_remote_main_frame_interfaces]);
+      [is_loading, new_remote_frame_replication_state, new_remote_frame_token, new_remote_frame_interfaces, new_remote_main_frame_interfaces],
+      false);
   }
 
   getInterfaceProvider(interfaces) {
@@ -580,7 +588,8 @@ content.mojom.FrameRemoteCallHandler = class {
       6,  // ordinal
       content.mojom.Frame_GetInterfaceProvider_ParamsSpec,
       null,
-      [interfaces]);
+      [interfaces],
+      false);
   }
 
   snapshotAccessibilityTree(params) {
@@ -589,7 +598,8 @@ content.mojom.FrameRemoteCallHandler = class {
       7,  // ordinal
       content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec,
       content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
   getSerializedHtmlWithLocalLinks(url_map, frame_token_map, save_with_empty_url, handler_remote) {
@@ -598,7 +608,8 @@ content.mojom.FrameRemoteCallHandler = class {
       8,  // ordinal
       content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec,
       null,
-      [url_map, frame_token_map, save_with_empty_url, handler_remote]);
+      [url_map, frame_token_map, save_with_empty_url, handler_remote],
+      false);
   }
 
 };
@@ -681,7 +692,8 @@ content.mojom.FrameBindingsControlRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.FrameBindingsControl_AllowBindings_ParamsSpec,
       null,
-      [enabled_bindings_flags]);
+      [enabled_bindings_flags],
+      false);
   }
 
   enableMojoJsBindings(features) {
@@ -690,7 +702,8 @@ content.mojom.FrameBindingsControlRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.FrameBindingsControl_EnableMojoJsBindings_ParamsSpec,
       null,
-      [features]);
+      [features],
+      false);
   }
 
   enableMojoJsBindingsWithBroker(broker) {
@@ -699,7 +712,8 @@ content.mojom.FrameBindingsControlRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.FrameBindingsControl_EnableMojoJsBindingsWithBroker_ParamsSpec,
       null,
-      [broker]);
+      [broker],
+      false);
   }
 
   bindWebUI(receiver, remote) {
@@ -708,7 +722,8 @@ content.mojom.FrameBindingsControlRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.FrameBindingsControl_BindWebUI_ParamsSpec,
       null,
-      [receiver, remote]);
+      [receiver, remote],
+      false);
   }
 
 };
@@ -771,7 +786,8 @@ content.mojom.NavigationRendererCancellationListenerRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.NavigationRendererCancellationListener_RendererCancellationWindowEnded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -944,7 +960,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.FrameHost_CreateNewWindow_ParamsSpec,
       content.mojom.FrameHost_CreateNewWindow_ResponseParamsSpec,
-      [params]);
+      [params],
+      false);
   }
 
   createChildFrame(child_frame_token, frame, browser_interface_broker, policy_container_bind_params, associated_interface_provider, scope, frame_name, frame_unique_name, is_created_by_script, frame_policy, frame_owner_properties, child_frame_owner_element_type, document_ukm_source_id) {
@@ -953,7 +970,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       1,  // ordinal
       content.mojom.FrameHost_CreateChildFrame_ParamsSpec,
       null,
-      [child_frame_token, frame, browser_interface_broker, policy_container_bind_params, associated_interface_provider, scope, frame_name, frame_unique_name, is_created_by_script, frame_policy, frame_owner_properties, child_frame_owner_element_type, document_ukm_source_id]);
+      [child_frame_token, frame, browser_interface_broker, policy_container_bind_params, associated_interface_provider, scope, frame_name, frame_unique_name, is_created_by_script, frame_policy, frame_owner_properties, child_frame_owner_element_type, document_ukm_source_id],
+      false);
   }
 
   didCommitProvisionalLoad(params, interface_params) {
@@ -962,7 +980,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       2,  // ordinal
       content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec,
       null,
-      [params, interface_params]);
+      [params, interface_params],
+      false);
   }
 
   didCommitSameDocumentNavigation(params, same_document_params) {
@@ -971,7 +990,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       3,  // ordinal
       content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec,
       null,
-      [params, same_document_params]);
+      [params, same_document_params],
+      false);
   }
 
   didOpenDocumentInputStream(url) {
@@ -980,7 +1000,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       4,  // ordinal
       content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   beginNavigation(common_params, begin_params, blob_url_token, navigation_client, initiator_navigation_state_keep_alive_handle, renderer_cancellation_listener) {
@@ -989,7 +1010,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       5,  // ordinal
       content.mojom.FrameHost_BeginNavigation_ParamsSpec,
       null,
-      [common_params, begin_params, blob_url_token, navigation_client, initiator_navigation_state_keep_alive_handle, renderer_cancellation_listener]);
+      [common_params, begin_params, blob_url_token, navigation_client, initiator_navigation_state_keep_alive_handle, renderer_cancellation_listener],
+      false);
   }
 
   subresourceResponseStarted(final_response_url, cert_status) {
@@ -998,7 +1020,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       6,  // ordinal
       content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec,
       null,
-      [final_response_url, cert_status]);
+      [final_response_url, cert_status],
+      false);
   }
 
   resourceLoadComplete(url_load_info) {
@@ -1007,7 +1030,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       7,  // ordinal
       content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec,
       null,
-      [url_load_info]);
+      [url_load_info],
+      false);
   }
 
   didChangeName(name, unique_name) {
@@ -1016,7 +1040,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       8,  // ordinal
       content.mojom.FrameHost_DidChangeName_ParamsSpec,
       null,
-      [name, unique_name]);
+      [name, unique_name],
+      false);
   }
 
   cancelInitialHistoryLoad() {
@@ -1025,7 +1050,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       9,  // ordinal
       content.mojom.FrameHost_CancelInitialHistoryLoad_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateEncoding(encoding_name) {
@@ -1034,7 +1060,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       10,  // ordinal
       content.mojom.FrameHost_UpdateEncoding_ParamsSpec,
       null,
-      [encoding_name]);
+      [encoding_name],
+      false);
   }
 
   updateUserGestureCarryoverInfo() {
@@ -1043,7 +1070,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       11,  // ordinal
       content.mojom.FrameHost_UpdateUserGestureCarryoverInfo_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateState(state) {
@@ -1052,7 +1080,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       12,  // ordinal
       content.mojom.FrameHost_UpdateState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   openURL(params) {
@@ -1061,7 +1090,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       13,  // ordinal
       content.mojom.FrameHost_OpenURL_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   didStopLoading() {
@@ -1070,7 +1100,8 @@ content.mojom.FrameHostRemoteCallHandler = class {
       14,  // ordinal
       content.mojom.FrameHost_DidStopLoading_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

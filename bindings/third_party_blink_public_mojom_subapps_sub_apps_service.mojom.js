@@ -143,7 +143,8 @@ blink.mojom.SubAppsServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.SubAppsService_Add_ParamsSpec,
       blink.mojom.SubAppsService_Add_ResponseParamsSpec,
-      [sub_apps_to_add]);
+      [sub_apps_to_add],
+      false);
   }
 
   list() {
@@ -152,7 +153,8 @@ blink.mojom.SubAppsServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.SubAppsService_List_ParamsSpec,
       blink.mojom.SubAppsService_List_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   remove(manifest_id_paths) {
@@ -161,7 +163,8 @@ blink.mojom.SubAppsServiceRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.SubAppsService_Remove_ParamsSpec,
       blink.mojom.SubAppsService_Remove_ResponseParamsSpec,
-      [manifest_id_paths]);
+      [manifest_id_paths],
+      false);
   }
 
 };

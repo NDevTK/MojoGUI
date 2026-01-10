@@ -94,7 +94,8 @@ arc.mojom.ErrorNotificationHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec,
       arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec,
-      [details, action_handler]);
+      [details, action_handler],
+      false);
   }
 
 };
@@ -163,7 +164,8 @@ arc.mojom.ErrorNotificationInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.ErrorNotificationInstance_Init_ParamsSpec,
       arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };
@@ -226,7 +228,8 @@ arc.mojom.ErrorNotificationItemRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -295,7 +298,8 @@ arc.mojom.ErrorNotificationActionHandlerRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec,
       null,
-      [buttonIndex]);
+      [buttonIndex],
+      false);
   }
 
   onNotificationClosed() {
@@ -304,7 +308,8 @@ arc.mojom.ErrorNotificationActionHandlerRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

@@ -152,7 +152,8 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.CompositorFrameSink_SetParams_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   setNeedsBeginFrame(needs_begin_frame) {
@@ -161,7 +162,8 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.CompositorFrameSink_SetNeedsBeginFrame_ParamsSpec,
       null,
-      [needs_begin_frame]);
+      [needs_begin_frame],
+      false);
   }
 
   submitCompositorFrame(local_surface_id, frame, hit_test_region_list, submit_time) {
@@ -170,7 +172,8 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.CompositorFrameSink_SubmitCompositorFrame_ParamsSpec,
       null,
-      [local_surface_id, frame, hit_test_region_list, submit_time]);
+      [local_surface_id, frame, hit_test_region_list, submit_time],
+      false);
   }
 
   didNotProduceFrame(ack) {
@@ -179,7 +182,8 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.CompositorFrameSink_DidNotProduceFrame_ParamsSpec,
       null,
-      [ack]);
+      [ack],
+      false);
   }
 
   notifyNewLocalSurfaceIdExpectedWhilePaused() {
@@ -188,7 +192,8 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.CompositorFrameSink_NotifyNewLocalSurfaceIdExpectedWhilePaused_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   bindLayerContext(context, settings) {
@@ -197,7 +202,8 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.CompositorFrameSink_BindLayerContext_ParamsSpec,
       null,
-      [context, settings]);
+      [context, settings],
+      false);
   }
 
   setThreads(threads) {
@@ -206,7 +212,8 @@ viz.mojom.CompositorFrameSinkRemoteCallHandler = class {
       6,  // ordinal
       viz.mojom.CompositorFrameSink_SetThreads_ParamsSpec,
       null,
-      [threads]);
+      [threads],
+      false);
   }
 
 };
@@ -302,7 +309,8 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec,
       null,
-      [resources]);
+      [resources],
+      false);
   }
 
   onBeginFrame(args, details, resources) {
@@ -311,7 +319,8 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.CompositorFrameSinkClient_OnBeginFrame_ParamsSpec,
       null,
-      [args, details, resources]);
+      [args, details, resources],
+      false);
   }
 
   onBeginFramePausedChanged(paused) {
@@ -320,7 +329,8 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.CompositorFrameSinkClient_OnBeginFramePausedChanged_ParamsSpec,
       null,
-      [paused]);
+      [paused],
+      false);
   }
 
   reclaimResources(resources) {
@@ -329,7 +339,8 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.CompositorFrameSinkClient_ReclaimResources_ParamsSpec,
       null,
-      [resources]);
+      [resources],
+      false);
   }
 
   onCompositorFrameTransitionDirectiveProcessed(sequence_id) {
@@ -338,7 +349,8 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.CompositorFrameSinkClient_OnCompositorFrameTransitionDirectiveProcessed_ParamsSpec,
       null,
-      [sequence_id]);
+      [sequence_id],
+      false);
   }
 
   onSurfaceEvicted(local_surface_id) {
@@ -347,7 +359,8 @@ viz.mojom.CompositorFrameSinkClientRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.CompositorFrameSinkClient_OnSurfaceEvicted_ParamsSpec,
       null,
-      [local_surface_id]);
+      [local_surface_id],
+      false);
   }
 
 };

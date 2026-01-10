@@ -81,7 +81,8 @@ crosapi.mojom.TelemetryManagementServiceRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec,
       crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec,
-      [node_id, gain]);
+      [node_id, gain],
+      false);
   }
 
   setAudioVolume(node_id, volume, is_muted) {
@@ -90,7 +91,8 @@ crosapi.mojom.TelemetryManagementServiceRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec,
       crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec,
-      [node_id, volume, is_muted]);
+      [node_id, volume, is_muted],
+      false);
   }
 
 };

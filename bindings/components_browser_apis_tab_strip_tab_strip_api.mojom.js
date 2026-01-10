@@ -148,7 +148,8 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       0,  // ordinal
       tabs_api.mojom.TabStripService_GetTabs_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getTab(id) {
@@ -157,7 +158,8 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       1,  // ordinal
       tabs_api.mojom.TabStripService_GetTab_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   createTabAt(pos, url) {
@@ -166,7 +168,8 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       2,  // ordinal
       tabs_api.mojom.TabStripService_CreateTabAt_ParamsSpec,
       null,
-      [pos, url]);
+      [pos, url],
+      false);
   }
 
   closeTabs(id) {
@@ -175,7 +178,8 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       3,  // ordinal
       tabs_api.mojom.TabStripService_CloseTabs_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   activateTab(id) {
@@ -184,7 +188,8 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       4,  // ordinal
       tabs_api.mojom.TabStripService_ActivateTab_ParamsSpec,
       null,
-      [id]);
+      [id],
+      false);
   }
 
   setSelectedTabs(selection, tab_to_activate) {
@@ -193,7 +198,8 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       5,  // ordinal
       tabs_api.mojom.TabStripService_SetSelectedTabs_ParamsSpec,
       null,
-      [selection, tab_to_activate]);
+      [selection, tab_to_activate],
+      false);
   }
 
   moveNode(id, position) {
@@ -202,7 +208,8 @@ tabs_api.mojom.TabStripServiceRemoteCallHandler = class {
       6,  // ordinal
       tabs_api.mojom.TabStripService_MoveNode_ParamsSpec,
       null,
-      [id, position]);
+      [id, position],
+      false);
   }
 
 };
@@ -266,7 +273,8 @@ tabs_api.mojom.TabsObserverRemoteCallHandler = class {
       0,  // ordinal
       tabs_api.mojom.TabsObserver_OnTabEvents_ParamsSpec,
       null,
-      [events]);
+      [events],
+      false);
   }
 
 };

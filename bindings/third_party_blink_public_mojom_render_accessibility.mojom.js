@@ -104,7 +104,8 @@ blink.mojom.RenderAccessibilityHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec,
       blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec,
-      [events_and_updates, location_and_scroll_updates, reset_token]);
+      [events_and_updates, location_and_scroll_updates, reset_token],
+      false);
   }
 
   handleAXLocationChanges(changes, reset_token) {
@@ -113,7 +114,8 @@ blink.mojom.RenderAccessibilityHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec,
       null,
-      [changes, reset_token]);
+      [changes, reset_token],
+      false);
   }
 
 };
@@ -209,7 +211,8 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.RenderAccessibility_SetMode_ParamsSpec,
       null,
-      [ax_mode, reset_token]);
+      [ax_mode, reset_token],
+      false);
   }
 
   fatalError() {
@@ -218,7 +221,8 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.RenderAccessibility_FatalError_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   hitTest(point, event_to_fire, request_id) {
@@ -227,7 +231,8 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.RenderAccessibility_HitTest_ParamsSpec,
       blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec,
-      [point, event_to_fire, request_id]);
+      [point, event_to_fire, request_id],
+      false);
   }
 
   performAction(action_data) {
@@ -236,7 +241,8 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.RenderAccessibility_PerformAction_ParamsSpec,
       null,
-      [action_data]);
+      [action_data],
+      false);
   }
 
   reset(reset_token) {
@@ -245,7 +251,8 @@ blink.mojom.RenderAccessibilityRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.RenderAccessibility_Reset_ParamsSpec,
       null,
-      [reset_token]);
+      [reset_token],
+      false);
   }
 
 };

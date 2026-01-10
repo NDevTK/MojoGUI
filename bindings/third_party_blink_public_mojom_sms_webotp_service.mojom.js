@@ -81,7 +81,8 @@ blink.mojom.WebOTPServiceRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.WebOTPService_Receive_ParamsSpec,
       blink.mojom.WebOTPService_Receive_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   abort() {
@@ -90,7 +91,8 @@ blink.mojom.WebOTPServiceRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.WebOTPService_Abort_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

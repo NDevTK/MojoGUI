@@ -137,7 +137,8 @@ chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = class {
       0,  // ordinal
       chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   getPolicyInfo() {
@@ -146,7 +147,8 @@ chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = class {
       1,  // ordinal
       chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec,
       chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSysInfo() {
@@ -155,7 +157,8 @@ chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = class {
       2,  // ordinal
       chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec,
       chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getMachineStatisticsInfo() {
@@ -164,7 +167,8 @@ chromeos.cfm.mojom.MeetDevicesInfoRemoteCallHandler = class {
       3,  // ordinal
       chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec,
       chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -228,7 +232,8 @@ chromeos.cfm.mojom.PolicyInfoObserverRemoteCallHandler = class {
       0,  // ordinal
       chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec,
       null,
-      [info]);
+      [info],
+      false);
   }
 
 };

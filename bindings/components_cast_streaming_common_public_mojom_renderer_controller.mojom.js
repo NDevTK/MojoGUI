@@ -63,7 +63,8 @@ cast_streaming.mojom.RendererControllerRemoteCallHandler = class {
       0,  // ordinal
       cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec,
       cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec,
-      [renderer]);
+      [renderer],
+      false);
   }
 
 };

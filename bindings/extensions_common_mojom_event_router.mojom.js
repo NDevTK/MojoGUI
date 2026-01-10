@@ -192,7 +192,8 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.EventRouter_AddListenerForMainThread_ParamsSpec,
       null,
-      [event_listener]);
+      [event_listener],
+      false);
   }
 
   addListenerForServiceWorker(event_listener) {
@@ -201,7 +202,8 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.EventRouter_AddListenerForServiceWorker_ParamsSpec,
       null,
-      [event_listener]);
+      [event_listener],
+      false);
   }
 
   addLazyListenerForMainThread(extension_id, event_name) {
@@ -210,7 +212,8 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       2,  // ordinal
       extensions.mojom.EventRouter_AddLazyListenerForMainThread_ParamsSpec,
       null,
-      [extension_id, event_name]);
+      [extension_id, event_name],
+      false);
   }
 
   addLazyListenerForServiceWorker(extension_id, worker_scope_url, event_name) {
@@ -219,7 +222,8 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       3,  // ordinal
       extensions.mojom.EventRouter_AddLazyListenerForServiceWorker_ParamsSpec,
       null,
-      [extension_id, worker_scope_url, event_name]);
+      [extension_id, worker_scope_url, event_name],
+      false);
   }
 
   addFilteredListenerForMainThread(listener_owner, event_name, filter, add_lazy_listener) {
@@ -228,7 +232,8 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       4,  // ordinal
       extensions.mojom.EventRouter_AddFilteredListenerForMainThread_ParamsSpec,
       null,
-      [listener_owner, event_name, filter, add_lazy_listener]);
+      [listener_owner, event_name, filter, add_lazy_listener],
+      false);
   }
 
   addFilteredListenerForServiceWorker(extension_id, event_name, service_worker_context, filter, add_lazy_listener) {
@@ -237,7 +242,8 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       5,  // ordinal
       extensions.mojom.EventRouter_AddFilteredListenerForServiceWorker_ParamsSpec,
       null,
-      [extension_id, event_name, service_worker_context, filter, add_lazy_listener]);
+      [extension_id, event_name, service_worker_context, filter, add_lazy_listener],
+      false);
   }
 
   removeListenerForMainThread(event_listener) {
@@ -246,7 +252,8 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       6,  // ordinal
       extensions.mojom.EventRouter_RemoveListenerForMainThread_ParamsSpec,
       null,
-      [event_listener]);
+      [event_listener],
+      false);
   }
 
   removeListenerForServiceWorker(event_listener) {
@@ -255,7 +262,8 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       7,  // ordinal
       extensions.mojom.EventRouter_RemoveListenerForServiceWorker_ParamsSpec,
       null,
-      [event_listener]);
+      [event_listener],
+      false);
   }
 
   removeLazyListenerForMainThread(extension_id, event_name) {
@@ -264,7 +272,8 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       8,  // ordinal
       extensions.mojom.EventRouter_RemoveLazyListenerForMainThread_ParamsSpec,
       null,
-      [extension_id, event_name]);
+      [extension_id, event_name],
+      false);
   }
 
   removeLazyListenerForServiceWorker(extension_id, worker_scope_url, event_name) {
@@ -273,7 +282,8 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       9,  // ordinal
       extensions.mojom.EventRouter_RemoveLazyListenerForServiceWorker_ParamsSpec,
       null,
-      [extension_id, worker_scope_url, event_name]);
+      [extension_id, worker_scope_url, event_name],
+      false);
   }
 
   removeFilteredListenerForMainThread(listener_owner, event_name, filter, remove_lazy_listener) {
@@ -282,7 +292,8 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       10,  // ordinal
       extensions.mojom.EventRouter_RemoveFilteredListenerForMainThread_ParamsSpec,
       null,
-      [listener_owner, event_name, filter, remove_lazy_listener]);
+      [listener_owner, event_name, filter, remove_lazy_listener],
+      false);
   }
 
   removeFilteredListenerForServiceWorker(extension_id, event_name, service_worker_context, filter, remove_lazy_listener) {
@@ -291,7 +302,8 @@ extensions.mojom.EventRouterRemoteCallHandler = class {
       11,  // ordinal
       extensions.mojom.EventRouter_RemoveFilteredListenerForServiceWorker_ParamsSpec,
       null,
-      [extension_id, event_name, service_worker_context, filter, remove_lazy_listener]);
+      [extension_id, event_name, service_worker_context, filter, remove_lazy_listener],
+      false);
   }
 
 };

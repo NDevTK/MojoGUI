@@ -185,7 +185,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ParamsSpec,
       ash.screens_factory.mojom.ScreensFactory_EstablishAiIntroScreenPipe_ResponseParamsSpec,
-      [handler]);
+      [handler],
+      false);
   }
 
   establishAppDownloadingScreenPipe(handler) {
@@ -194,7 +195,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_factory.mojom.ScreensFactory_EstablishAppDownloadingScreenPipe_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
   establishDrivePinningScreenPipe(handler) {
@@ -203,7 +205,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
       2,  // ordinal
       ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ParamsSpec,
       ash.screens_factory.mojom.ScreensFactory_EstablishDrivePinningScreenPipe_ResponseParamsSpec,
-      [handler]);
+      [handler],
+      false);
   }
 
   establishFjordStationSetupScreenPipe(handler) {
@@ -212,7 +215,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
       3,  // ordinal
       ash.screens_factory.mojom.ScreensFactory_EstablishFjordStationSetupScreenPipe_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
   establishGaiaInfoScreenPipe(handler) {
@@ -221,7 +225,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
       4,  // ordinal
       ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ParamsSpec,
       ash.screens_factory.mojom.ScreensFactory_EstablishGaiaInfoScreenPipe_ResponseParamsSpec,
-      [handler]);
+      [handler],
+      false);
   }
 
   establishGestureNavigationScreenPipe(handler) {
@@ -230,7 +235,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
       5,  // ordinal
       ash.screens_factory.mojom.ScreensFactory_EstablishGestureNavigationScreenPipe_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
   establishGeminiIntroScreenPipe(handler) {
@@ -239,7 +245,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
       6,  // ordinal
       ash.screens_factory.mojom.ScreensFactory_EstablishGeminiIntroScreenPipe_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
   establishConsumerUpdateScreenPipe(handler) {
@@ -248,7 +255,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
       7,  // ordinal
       ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ParamsSpec,
       ash.screens_factory.mojom.ScreensFactory_EstablishConsumerUpdateScreenPipe_ResponseParamsSpec,
-      [handler]);
+      [handler],
+      false);
   }
 
   establishPackagedLicenseScreenPipe(handler) {
@@ -257,7 +265,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
       8,  // ordinal
       ash.screens_factory.mojom.ScreensFactory_EstablishPackagedLicenseScreenPipe_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
   establishArcVmDataMigrationScreenPipe(handler) {
@@ -266,7 +275,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
       9,  // ordinal
       ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ParamsSpec,
       ash.screens_factory.mojom.ScreensFactory_EstablishArcVmDataMigrationScreenPipe_ResponseParamsSpec,
-      [handler]);
+      [handler],
+      false);
   }
 
   establishEncryptionMigrationScreenPipe(handler) {
@@ -275,7 +285,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
       10,  // ordinal
       ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ParamsSpec,
       ash.screens_factory.mojom.ScreensFactory_EstablishEncryptionMigrationScreenPipe_ResponseParamsSpec,
-      [handler]);
+      [handler],
+      false);
   }
 
   establishLocalDataLossWarningScreenPipe(handler) {
@@ -284,7 +295,8 @@ ash.screens_factory.mojom.ScreensFactoryRemoteCallHandler = class {
       11,  // ordinal
       ash.screens_factory.mojom.ScreensFactory_EstablishLocalDataLossWarningScreenPipe_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
 };

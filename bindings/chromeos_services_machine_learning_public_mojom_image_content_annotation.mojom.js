@@ -50,7 +50,7 @@ mojo.internal.Struct(
 // Struct: ImageAnnotationResult
 mojo.internal.Struct(
     chromeos.machine_learning.mojom.ImageAnnotationResultSpec, 'chromeos.machine_learning.mojom.ImageAnnotationResult', [
-      mojo.internal.StructField('OK', 0, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('OK', 0, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -120,7 +120,8 @@ chromeos.machine_learning.mojom.ImageContentAnnotatorRemoteCallHandler = class {
       0,  // ordinal
       chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ParamsSpec,
       chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateRawImage_ResponseParamsSpec,
-      [rgb_bytes, width, height, line_stride]);
+      [rgb_bytes, width, height, line_stride],
+      false);
   }
 
   annotateEncodedImage(encoded_image) {
@@ -129,7 +130,8 @@ chromeos.machine_learning.mojom.ImageContentAnnotatorRemoteCallHandler = class {
       1,  // ordinal
       chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ParamsSpec,
       chromeos.machine_learning.mojom.ImageContentAnnotator_AnnotateEncodedImage_ResponseParamsSpec,
-      [encoded_image]);
+      [encoded_image],
+      false);
   }
 
 };

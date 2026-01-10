@@ -62,7 +62,8 @@ device.mojom.PublicIpAddressGeolocationProviderRemoteCallHandler = class {
       0,  // ordinal
       device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec,
       null,
-      [tag, receiver, client_id]);
+      [tag, receiver, client_id],
+      false);
   }
 
 };

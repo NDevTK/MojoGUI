@@ -69,7 +69,8 @@ arc.mojom.KioskHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.KioskHost_OnMaintenanceSessionCreated_ParamsSpec,
       null,
-      [session_id]);
+      [session_id],
+      false);
   }
 
   onMaintenanceSessionFinished(session_id, succeeded) {
@@ -78,7 +79,8 @@ arc.mojom.KioskHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.KioskHost_OnMaintenanceSessionFinished_ParamsSpec,
       null,
-      [session_id, succeeded]);
+      [session_id, succeeded],
+      false);
   }
 
 };
@@ -147,7 +149,8 @@ arc.mojom.KioskInstanceRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.KioskInstance_Init_ParamsSpec,
       arc.mojom.KioskInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
 };

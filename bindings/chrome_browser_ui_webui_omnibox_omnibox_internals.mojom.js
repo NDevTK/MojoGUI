@@ -252,7 +252,8 @@ mojom.OmniboxPageHandlerRemoteCallHandler = class {
       0,  // ordinal
       mojom.OmniboxPageHandler_SetClientPage_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
   startOmniboxQuery(input_string, reset_autocomplete_controller, cursor_position, zero_suggest, prevent_inline_autocomplete, prefer_keyword, current_url, page_classification) {
@@ -261,7 +262,8 @@ mojom.OmniboxPageHandlerRemoteCallHandler = class {
       1,  // ordinal
       mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec,
       null,
-      [input_string, reset_autocomplete_controller, cursor_position, zero_suggest, prevent_inline_autocomplete, prefer_keyword, current_url, page_classification]);
+      [input_string, reset_autocomplete_controller, cursor_position, zero_suggest, prevent_inline_autocomplete, prefer_keyword, current_url, page_classification],
+      false);
   }
 
   getMlModelVersion() {
@@ -270,7 +272,8 @@ mojom.OmniboxPageHandlerRemoteCallHandler = class {
       2,  // ordinal
       mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec,
       mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startMl(signals) {
@@ -279,7 +282,8 @@ mojom.OmniboxPageHandlerRemoteCallHandler = class {
       3,  // ordinal
       mojom.OmniboxPageHandler_StartMl_ParamsSpec,
       mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec,
-      [signals]);
+      [signals],
+      false);
   }
 
 };
@@ -367,7 +371,8 @@ mojom.OmniboxPageRemoteCallHandler = class {
       0,  // ordinal
       mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec,
       null,
-      [autocomplete_controller_type, input_text]);
+      [autocomplete_controller_type, input_text],
+      false);
   }
 
   handleNewAutocompleteResponse(autocomplete_controller_type, response) {
@@ -376,7 +381,8 @@ mojom.OmniboxPageRemoteCallHandler = class {
       1,  // ordinal
       mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec,
       null,
-      [autocomplete_controller_type, response]);
+      [autocomplete_controller_type, response],
+      false);
   }
 
   handleNewMlResponse(autocomplete_controller_type, input_text, matches) {
@@ -385,7 +391,8 @@ mojom.OmniboxPageRemoteCallHandler = class {
       2,  // ordinal
       mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec,
       null,
-      [autocomplete_controller_type, input_text, matches]);
+      [autocomplete_controller_type, input_text, matches],
+      false);
   }
 
   handleAnswerIconImageData(autocomplete_controller_type, image_url, image_data) {
@@ -394,7 +401,8 @@ mojom.OmniboxPageRemoteCallHandler = class {
       3,  // ordinal
       mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec,
       null,
-      [autocomplete_controller_type, image_url, image_data]);
+      [autocomplete_controller_type, image_url, image_data],
+      false);
   }
 
 };

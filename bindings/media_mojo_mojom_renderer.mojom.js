@@ -137,7 +137,8 @@ media.mojom.RendererRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.Renderer_Initialize_ParamsSpec,
       media.mojom.Renderer_Initialize_ResponseParamsSpec,
-      [client, streams]);
+      [client, streams],
+      false);
   }
 
   flush() {
@@ -146,7 +147,8 @@ media.mojom.RendererRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.Renderer_Flush_ParamsSpec,
       media.mojom.Renderer_Flush_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   startPlayingFrom(time) {
@@ -155,7 +157,8 @@ media.mojom.RendererRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.Renderer_StartPlayingFrom_ParamsSpec,
       null,
-      [time]);
+      [time],
+      false);
   }
 
   setPlaybackRate(playback_rate) {
@@ -164,7 +167,8 @@ media.mojom.RendererRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.Renderer_SetPlaybackRate_ParamsSpec,
       null,
-      [playback_rate]);
+      [playback_rate],
+      false);
   }
 
   setVolume(volume) {
@@ -173,7 +177,8 @@ media.mojom.RendererRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.Renderer_SetVolume_ParamsSpec,
       null,
-      [volume]);
+      [volume],
+      false);
   }
 
   setCdm(cdm_id) {
@@ -182,7 +187,8 @@ media.mojom.RendererRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.Renderer_SetCdm_ParamsSpec,
       media.mojom.Renderer_SetCdm_ResponseParamsSpec,
-      [cdm_id]);
+      [cdm_id],
+      false);
   }
 
   setLatencyHint(latency_hint) {
@@ -191,7 +197,8 @@ media.mojom.RendererRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.Renderer_SetLatencyHint_ParamsSpec,
       null,
-      [latency_hint]);
+      [latency_hint],
+      false);
   }
 
 };
@@ -311,7 +318,8 @@ media.mojom.RendererClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.RendererClient_OnTimeUpdate_ParamsSpec,
       null,
-      [time, max_time, capture_time]);
+      [time, max_time, capture_time],
+      false);
   }
 
   onBufferingStateChange(state, reason) {
@@ -320,7 +328,8 @@ media.mojom.RendererClientRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.RendererClient_OnBufferingStateChange_ParamsSpec,
       null,
-      [state, reason]);
+      [state, reason],
+      false);
   }
 
   onEnded() {
@@ -329,7 +338,8 @@ media.mojom.RendererClientRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.RendererClient_OnEnded_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onError(status) {
@@ -338,7 +348,8 @@ media.mojom.RendererClientRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.RendererClient_OnError_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
   onAudioConfigChange(config) {
@@ -347,7 +358,8 @@ media.mojom.RendererClientRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.RendererClient_OnAudioConfigChange_ParamsSpec,
       null,
-      [config]);
+      [config],
+      false);
   }
 
   onVideoConfigChange(config) {
@@ -356,7 +368,8 @@ media.mojom.RendererClientRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.RendererClient_OnVideoConfigChange_ParamsSpec,
       null,
-      [config]);
+      [config],
+      false);
   }
 
   onVideoNaturalSizeChange(size) {
@@ -365,7 +378,8 @@ media.mojom.RendererClientRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.RendererClient_OnVideoNaturalSizeChange_ParamsSpec,
       null,
-      [size]);
+      [size],
+      false);
   }
 
   onVideoOpacityChange(opaque) {
@@ -374,7 +388,8 @@ media.mojom.RendererClientRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.RendererClient_OnVideoOpacityChange_ParamsSpec,
       null,
-      [opaque]);
+      [opaque],
+      false);
   }
 
   onStatisticsUpdate(stats) {
@@ -383,7 +398,8 @@ media.mojom.RendererClientRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.RendererClient_OnStatisticsUpdate_ParamsSpec,
       null,
-      [stats]);
+      [stats],
+      false);
   }
 
   onWaiting(reason) {
@@ -392,7 +408,8 @@ media.mojom.RendererClientRemoteCallHandler = class {
       9,  // ordinal
       media.mojom.RendererClient_OnWaiting_ParamsSpec,
       null,
-      [reason]);
+      [reason],
+      false);
   }
 
 };

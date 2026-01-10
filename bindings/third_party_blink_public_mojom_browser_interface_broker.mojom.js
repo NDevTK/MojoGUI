@@ -57,7 +57,8 @@ blink.mojom.BrowserInterfaceBrokerRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

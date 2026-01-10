@@ -186,7 +186,8 @@ crosapi.mojom.PrintPreviewCrosDelegateRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ParamsSpec,
       crosapi.mojom.PrintPreviewCrosDelegate_RequestPrintPreview_ResponseParamsSpec,
-      [token, params]);
+      [token, params],
+      false);
   }
 
   printPreviewDone(token) {
@@ -195,7 +196,8 @@ crosapi.mojom.PrintPreviewCrosDelegateRemoteCallHandler = class {
       2,  // ordinal
       crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ParamsSpec,
       crosapi.mojom.PrintPreviewCrosDelegate_PrintPreviewDone_ResponseParamsSpec,
-      [token]);
+      [token],
+      false);
   }
 
 };
@@ -278,7 +280,8 @@ crosapi.mojom.PrintPreviewCrosClientRemoteCallHandler = class {
       0,  // ordinal
       crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ParamsSpec,
       crosapi.mojom.PrintPreviewCrosClient_GeneratePrintPreview_ResponseParamsSpec,
-      [token, settings]);
+      [token, settings],
+      false);
   }
 
   handleDialogClosed(token) {
@@ -287,7 +290,8 @@ crosapi.mojom.PrintPreviewCrosClientRemoteCallHandler = class {
       1,  // ordinal
       crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ParamsSpec,
       crosapi.mojom.PrintPreviewCrosClient_HandleDialogClosed_ResponseParamsSpec,
-      [token]);
+      [token],
+      false);
   }
 
 };

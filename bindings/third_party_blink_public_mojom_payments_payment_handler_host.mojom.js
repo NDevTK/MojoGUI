@@ -44,7 +44,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('total', 0, 0, payments.mojom.PaymentCurrencyAmountSpec, null, true, 0, undefined),
       mojo.internal.StructField('shipping_options', 8, 0, mojo.internal.Array(payments.mojom.PaymentShippingOptionSpec, false), null, true, 0, undefined),
       mojo.internal.StructField('modifiers', 16, 0, mojo.internal.Array(payments.mojom.PaymentHandlerModifierSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('error', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('error', 24, 0, mojo.internal.String, 0, false, 0, undefined),
       mojo.internal.StructField('stringified_payment_method_errors', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('shipping_address_errors', 40, 0, payments.mojom.AddressErrorsSpec, null, true, 0, undefined),
     ],
@@ -125,7 +125,8 @@ payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
       0,  // ordinal
       payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec,
       payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec,
-      [method_data]);
+      [method_data],
+      false);
   }
 
   changeShippingOption(shipping_option_id) {
@@ -134,7 +135,8 @@ payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
       1,  // ordinal
       payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec,
       payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec,
-      [shipping_option_id]);
+      [shipping_option_id],
+      false);
   }
 
   changeShippingAddress(shipping_address) {
@@ -143,7 +145,8 @@ payments.mojom.PaymentHandlerHostRemoteCallHandler = class {
       2,  // ordinal
       payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec,
       payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec,
-      [shipping_address]);
+      [shipping_address],
+      false);
   }
 
 };

@@ -497,7 +497,8 @@ blink.mojom.AIPageContentAgentRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec,
       blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
 };

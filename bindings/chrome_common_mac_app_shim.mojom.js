@@ -230,7 +230,8 @@ chrome.mojom.AppShimRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec,
       null,
-      [application]);
+      [application],
+      false);
   }
 
   createCommandDispatcherForWidget(widget_id) {
@@ -239,7 +240,8 @@ chrome.mojom.AppShimRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec,
       null,
-      [widget_id]);
+      [widget_id],
+      false);
   }
 
   setUserAttention(attention_type) {
@@ -248,7 +250,8 @@ chrome.mojom.AppShimRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.AppShim_SetUserAttention_ParamsSpec,
       null,
-      [attention_type]);
+      [attention_type],
+      false);
   }
 
   setBadgeLabel(badge_label) {
@@ -257,7 +260,8 @@ chrome.mojom.AppShimRemoteCallHandler = class {
       3,  // ordinal
       chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec,
       null,
-      [badge_label]);
+      [badge_label],
+      false);
   }
 
   updateProfileMenu(profile_menu_items) {
@@ -266,7 +270,8 @@ chrome.mojom.AppShimRemoteCallHandler = class {
       4,  // ordinal
       chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec,
       null,
-      [profile_menu_items]);
+      [profile_menu_items],
+      false);
   }
 
   updateApplicationDockMenu(dock_menu_items) {
@@ -275,7 +280,8 @@ chrome.mojom.AppShimRemoteCallHandler = class {
       5,  // ordinal
       chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec,
       null,
-      [dock_menu_items]);
+      [dock_menu_items],
+      false);
   }
 
   bindNotificationProvider(provider) {
@@ -284,7 +290,8 @@ chrome.mojom.AppShimRemoteCallHandler = class {
       6,  // ordinal
       chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec,
       null,
-      [provider]);
+      [provider],
+      false);
   }
 
   requestNotificationPermission() {
@@ -293,7 +300,8 @@ chrome.mojom.AppShimRemoteCallHandler = class {
       7,  // ordinal
       chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec,
       chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   bindChildHistogramFetcherFactory(receiver) {
@@ -302,7 +310,8 @@ chrome.mojom.AppShimRemoteCallHandler = class {
       8,  // ordinal
       chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };
@@ -416,7 +425,8 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.AppShimHost_FocusApp_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   reopenApp() {
@@ -425,7 +435,8 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
       1,  // ordinal
       chrome.mojom.AppShimHost_ReopenApp_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   filesOpened(files) {
@@ -434,7 +445,8 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
       2,  // ordinal
       chrome.mojom.AppShimHost_FilesOpened_ParamsSpec,
       null,
-      [files]);
+      [files],
+      false);
   }
 
   profileSelectedFromMenu(profile_path) {
@@ -443,7 +455,8 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
       3,  // ordinal
       chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec,
       null,
-      [profile_path]);
+      [profile_path],
+      false);
   }
 
   openAppSettings() {
@@ -452,7 +465,8 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
       4,  // ordinal
       chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   urlsOpened(urls) {
@@ -461,7 +475,8 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
       5,  // ordinal
       chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec,
       null,
-      [urls]);
+      [urls],
+      false);
   }
 
   openAppWithOverrideUrl(override_url) {
@@ -470,7 +485,8 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
       6,  // ordinal
       chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec,
       null,
-      [override_url]);
+      [override_url],
+      false);
   }
 
   enableAccessibilitySupport(mode) {
@@ -479,7 +495,8 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
       7,  // ordinal
       chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec,
       null,
-      [mode]);
+      [mode],
+      false);
   }
 
   applicationWillTerminate() {
@@ -488,7 +505,8 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
       8,  // ordinal
       chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   notificationPermissionStatusChanged(status) {
@@ -497,7 +515,8 @@ chrome.mojom.AppShimHostRemoteCallHandler = class {
       9,  // ordinal
       chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec,
       null,
-      [status]);
+      [status],
+      false);
   }
 
 };
@@ -570,7 +589,8 @@ chrome.mojom.AppShimHostBootstrapRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec,
       chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec,
-      [host_receiver, app_shim_info]);
+      [host_receiver, app_shim_info],
+      false);
   }
 
 };

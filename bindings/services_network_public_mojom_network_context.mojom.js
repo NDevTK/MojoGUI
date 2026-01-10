@@ -345,17 +345,17 @@ mojo.internal.Struct(
     network.mojom.NetworkContextParamsSpec, 'network.mojom.NetworkContextParams', [
       mojo.internal.StructField('user_agent', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('accept_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('enable_brotli', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_brotli', 16, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('enable_zstd', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('enable_referrers', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('validate_referrer_policy_on_initial_request', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_referrers', 16, 2, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('validate_referrer_policy_on_initial_request', 16, 3, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('proxy_resolver_factory', 24, 0, mojo.internal.InterfaceProxy(proxy_resolver.mojom.ProxyResolverFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('system_proxy_resolver', 32, 0, mojo.internal.InterfaceProxy(proxy_resolver.mojom.SystemProxyResolverRemote), null, true, 0, undefined),
       mojo.internal.StructField('dhcp_wpad_url_client', 40, 0, mojo.internal.InterfaceProxy(network.mojom.DhcpWpadUrlClientRemote), null, true, 0, undefined),
-      mojo.internal.StructField('enable_encrypted_cookies', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('enable_encrypted_cookies', 48, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('restore_old_session_cookies', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('persist_session_cookies', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('http_cache_enabled', 48, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('http_cache_enabled', 48, 3, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('http_cache_max_size', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('http_cache_file_operations_factory', 56, 0, mojo.internal.InterfaceProxy(network.mojom.HttpCacheBackendFileOperationsFactoryRemote), null, true, 0, undefined),
       mojo.internal.StructField('encryption_provider', 64, 0, mojo.internal.InterfaceProxy(network.mojom.CacheEncryptionProviderRemote), null, true, 0, undefined),
@@ -370,10 +370,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('proxy_config_poller_client', 136, 0, mojo.internal.InterfaceProxy(network.mojom.ProxyConfigPollerClientRemote), null, true, 0, undefined),
       mojo.internal.StructField('proxy_error_client', 144, 0, mojo.internal.InterfaceProxy(network.mojom.ProxyErrorClientRemote), null, true, 0, undefined),
       mojo.internal.StructField('socket_brokers', 152, 0, network.mojom.SocketBrokerRemotesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('pac_quick_check_enabled', 160, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('pac_quick_check_enabled', 160, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('enable_certificate_reporting', 160, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('enforce_chrome_ct_policy', 160, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('sct_auditing_mode', 164, 0, network.mojom.SCTAuditingModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('sct_auditing_mode', 164, 0, network.mojom.SCTAuditingModeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('ct_policy', 168, 0, network.mojom.CTPolicySpec, null, true, 0, undefined),
       mojo.internal.StructField('cert_verifier_params', 176, 0, network.mojom.CertVerifierServiceRemoteParamsSpec, null, false, 0, undefined),
       mojo.internal.StructField('cookie_manager_params', 184, 0, network.mojom.CookieManagerParamsSpec, null, true, 0, undefined),
@@ -397,10 +397,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('shared_dictionary_cache_max_size', 296, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('first_party_sets_access_delegate_params', 304, 0, network.mojom.FirstPartySetsAccessDelegateParamsSpec, null, true, 0, undefined),
       mojo.internal.StructField('first_party_sets_access_delegate_receiver', 312, 0, mojo.internal.InterfaceRequest(network.mojom.FirstPartySetsAccessDelegateRemote), null, true, 0, undefined),
-      mojo.internal.StructField('acam_preflight_spec_conformant', 320, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('acam_preflight_spec_conformant', 320, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('cookie_encryption_provider', 328, 0, mojo.internal.InterfaceProxy(network.mojom.CookieEncryptionProviderRemote), null, true, 0, undefined),
       mojo.internal.StructField('device_bound_sessions_enabled', 336, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('bound_network', 344, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('bound_network', 344, 0, mojo.internal.Int64, -1, false, 0, undefined),
       mojo.internal.StructField('enterprise_reporting_endpoints', 352, 0, mojo.internal.Map(mojo.internal.String, url.mojom.UrlSpec, false), null, true, 0, undefined),
       mojo.internal.StructField('stale_dns_enabled', 360, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('quic_idle_connection_timeout_seconds_$flag', 360, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'quic_idle_connection_timeout_seconds_$value', originalFieldName: 'quic_idle_connection_timeout_seconds' }),
@@ -479,8 +479,8 @@ mojo.internal.Struct(
     network.mojom.URLLoaderFactoryParamsSpec, 'network.mojom.URLLoaderFactoryParams', [
       mojo.internal.StructField('process_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('request_initiator_origin_lock', 8, 0, url.mojom.OriginSpec, null, true, 0, undefined),
-      mojo.internal.StructField('is_orb_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('ignore_isolated_world_origin', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('is_orb_enabled', 16, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('ignore_isolated_world_origin', 16, 1, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('unsafe_non_webby_initiator', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('disable_web_security', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('header_client', 24, 0, mojo.internal.InterfaceProxy(network.mojom.TrustedURLLoaderHeaderClientRemote), null, true, 0, undefined),
@@ -499,9 +499,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('url_loader_network_observer', 112, 0, mojo.internal.InterfaceProxy(network.mojom.URLLoaderNetworkServiceObserverRemote), null, true, 0, undefined),
       mojo.internal.StructField('devtools_observer', 120, 0, mojo.internal.InterfaceProxy(network.mojom.DevToolsObserverRemote), null, true, 0, undefined),
       mojo.internal.StructField('device_bound_session_observer', 128, 0, mojo.internal.InterfaceProxy(network.mojom.DeviceBoundSessionAccessObserverRemote), null, true, 0, undefined),
-      mojo.internal.StructField('kPotentiallyPermit', 136, 0, network.mojom.TrustTokenOperationPolicyVerdict trust_token_issuance_policy =Spec, null, false, 0, undefined),
-      mojo.internal.StructField('kPotentiallyPermit', 144, 0, network.mojom.TrustTokenOperationPolicyVerdict trust_token_redemption_policy =Spec, null, false, 0, undefined),
-      mojo.internal.StructField('debug_tag', 152, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('kPotentiallyPermit', 136, 0, network.mojom.TrustTokenOperationPolicyVerdict trust_token_issuance_policy =Spec, 0, false, 0, undefined),
+      mojo.internal.StructField('kPotentiallyPermit', 144, 0, network.mojom.TrustTokenOperationPolicyVerdict trust_token_redemption_policy =Spec, 0, false, 0, undefined),
+      mojo.internal.StructField('debug_tag', 152, 0, mojo.internal.String, 0, false, 0, undefined),
       mojo.internal.StructField('cookie_setting_overrides', 160, 0, network.mojom.CookieSettingOverridesSpec, null, false, 0, undefined),
       mojo.internal.StructField('devtools_cookie_setting_overrides', 168, 0, network.mojom.CookieSettingOverridesSpec, null, false, 0, undefined),
       mojo.internal.StructField('require_cross_site_request_for_cookies', 176, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -573,7 +573,8 @@ network.mojom.CustomProxyConnectionObserverRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.CustomProxyConnectionObserver_OnFallback_ParamsSpec,
       null,
-      [bad_chain, net_error]);
+      [bad_chain, net_error],
+      false);
   }
 
   onTunnelHeadersReceived(proxy_chain, chain_index, response_headers) {
@@ -582,7 +583,8 @@ network.mojom.CustomProxyConnectionObserverRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.CustomProxyConnectionObserver_OnTunnelHeadersReceived_ParamsSpec,
       null,
-      [proxy_chain, chain_index, response_headers]);
+      [proxy_chain, chain_index, response_headers],
+      false);
   }
 
 };
@@ -651,7 +653,8 @@ network.mojom.CustomProxyConfigClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ParamsSpec,
       network.mojom.CustomProxyConfigClient_OnCustomProxyConfigUpdated_ResponseParamsSpec,
-      [proxy_config]);
+      [proxy_config],
+      false);
   }
 
 };
@@ -738,7 +741,8 @@ network.mojom.TrustedHeaderClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ParamsSpec,
       network.mojom.TrustedHeaderClient_OnBeforeSendHeaders_ResponseParamsSpec,
-      [headers]);
+      [headers],
+      false);
   }
 
   onHeadersReceived(headers, remote_endpoint, ssl_info) {
@@ -747,7 +751,8 @@ network.mojom.TrustedHeaderClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.TrustedHeaderClient_OnHeadersReceived_ParamsSpec,
       network.mojom.TrustedHeaderClient_OnHeadersReceived_ResponseParamsSpec,
-      [headers, remote_endpoint, ssl_info]);
+      [headers, remote_endpoint, ssl_info],
+      false);
   }
 
 };
@@ -819,7 +824,8 @@ network.mojom.TrustedURLLoaderHeaderClientRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.TrustedURLLoaderHeaderClient_OnLoaderCreated_ParamsSpec,
       null,
-      [request_id, header_client]);
+      [request_id, header_client],
+      false);
   }
 
   onLoaderForCorsPreflightCreated(request, header_client) {
@@ -828,7 +834,8 @@ network.mojom.TrustedURLLoaderHeaderClientRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.TrustedURLLoaderHeaderClient_OnLoaderForCorsPreflightCreated_ParamsSpec,
       null,
-      [request, header_client]);
+      [request, header_client],
+      false);
   }
 
 };
@@ -1874,7 +1881,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.NetworkContext_SetClient_ParamsSpec,
       null,
-      [client]);
+      [client],
+      false);
   }
 
   createURLLoaderFactory(url_loader_factory, params) {
@@ -1883,7 +1891,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.NetworkContext_CreateURLLoaderFactory_ParamsSpec,
       null,
-      [url_loader_factory, params]);
+      [url_loader_factory, params],
+      false);
   }
 
   resetURLLoaderFactories() {
@@ -1892,7 +1901,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       2,  // ordinal
       network.mojom.NetworkContext_ResetURLLoaderFactories_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getViaObliviousHttp(request, client) {
@@ -1901,7 +1911,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       3,  // ordinal
       network.mojom.NetworkContext_GetViaObliviousHttp_ParamsSpec,
       null,
-      [request, client]);
+      [request, client],
+      false);
   }
 
   getCookieManager(cookie_manager) {
@@ -1910,7 +1921,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       4,  // ordinal
       network.mojom.NetworkContext_GetCookieManager_ParamsSpec,
       null,
-      [cookie_manager]);
+      [cookie_manager],
+      false);
   }
 
   getRestrictedCookieManager(restricted_cookie_manager, role, origin, isolation_info, cookie_setting_overrides, devtools_cookie_setting_overrides, cookie_observer) {
@@ -1919,7 +1931,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       5,  // ordinal
       network.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec,
       null,
-      [restricted_cookie_manager, role, origin, isolation_info, cookie_setting_overrides, devtools_cookie_setting_overrides, cookie_observer]);
+      [restricted_cookie_manager, role, origin, isolation_info, cookie_setting_overrides, devtools_cookie_setting_overrides, cookie_observer],
+      false);
   }
 
   getTrustTokenQueryAnswerer(trust_token_query_answerer, top_frame_origin) {
@@ -1928,7 +1941,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       6,  // ordinal
       network.mojom.NetworkContext_GetTrustTokenQueryAnswerer_ParamsSpec,
       null,
-      [trust_token_query_answerer, top_frame_origin]);
+      [trust_token_query_answerer, top_frame_origin],
+      false);
   }
 
   clearTrustTokenData(filter) {
@@ -1937,7 +1951,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       7,  // ordinal
       network.mojom.NetworkContext_ClearTrustTokenData_ParamsSpec,
       network.mojom.NetworkContext_ClearTrustTokenData_ResponseParamsSpec,
-      [filter]);
+      [filter],
+      false);
   }
 
   clearTrustTokenSessionOnlyData() {
@@ -1946,7 +1961,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       8,  // ordinal
       network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ParamsSpec,
       network.mojom.NetworkContext_ClearTrustTokenSessionOnlyData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getStoredTrustTokenCounts() {
@@ -1955,7 +1971,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       9,  // ordinal
       network.mojom.NetworkContext_GetStoredTrustTokenCounts_ParamsSpec,
       network.mojom.NetworkContext_GetStoredTrustTokenCounts_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getPrivateStateTokenRedemptionRecords() {
@@ -1964,7 +1981,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       10,  // ordinal
       network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ParamsSpec,
       network.mojom.NetworkContext_GetPrivateStateTokenRedemptionRecords_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   deleteStoredTrustTokens(issuer) {
@@ -1973,7 +1991,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       11,  // ordinal
       network.mojom.NetworkContext_DeleteStoredTrustTokens_ParamsSpec,
       network.mojom.NetworkContext_DeleteStoredTrustTokens_ResponseParamsSpec,
-      [issuer]);
+      [issuer],
+      false);
   }
 
   setBlockTrustTokens(block) {
@@ -1982,7 +2001,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       12,  // ordinal
       network.mojom.NetworkContext_SetBlockTrustTokens_ParamsSpec,
       null,
-      [block]);
+      [block],
+      false);
   }
 
   clearNetworkingHistoryBetween(start_time, end_time) {
@@ -1991,7 +2011,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       13,  // ordinal
       network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ParamsSpec,
       network.mojom.NetworkContext_ClearNetworkingHistoryBetween_ResponseParamsSpec,
-      [start_time, end_time]);
+      [start_time, end_time],
+      false);
   }
 
   clearHttpCache(start_time, end_time, filter) {
@@ -2000,7 +2021,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       14,  // ordinal
       network.mojom.NetworkContext_ClearHttpCache_ParamsSpec,
       network.mojom.NetworkContext_ClearHttpCache_ResponseParamsSpec,
-      [start_time, end_time, filter]);
+      [start_time, end_time, filter],
+      false);
   }
 
   computeHttpCacheSize(start_time, end_time) {
@@ -2009,7 +2031,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       15,  // ordinal
       network.mojom.NetworkContext_ComputeHttpCacheSize_ParamsSpec,
       network.mojom.NetworkContext_ComputeHttpCacheSize_ResponseParamsSpec,
-      [start_time, end_time]);
+      [start_time, end_time],
+      false);
   }
 
   notifyBrowserIdle() {
@@ -2018,7 +2041,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       16,  // ordinal
       network.mojom.NetworkContext_NotifyBrowserIdle_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   notifyExternalCacheHit(url, http_method, key, include_credentials) {
@@ -2027,7 +2051,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       17,  // ordinal
       network.mojom.NetworkContext_NotifyExternalCacheHit_ParamsSpec,
       null,
-      [url, http_method, key, include_credentials]);
+      [url, http_method, key, include_credentials],
+      false);
   }
 
   clearHostCache(filter) {
@@ -2036,7 +2061,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       18,  // ordinal
       network.mojom.NetworkContext_ClearHostCache_ParamsSpec,
       network.mojom.NetworkContext_ClearHostCache_ResponseParamsSpec,
-      [filter]);
+      [filter],
+      false);
   }
 
   clearHttpAuthCache(start_time, end_time, filter) {
@@ -2045,7 +2071,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       19,  // ordinal
       network.mojom.NetworkContext_ClearHttpAuthCache_ParamsSpec,
       network.mojom.NetworkContext_ClearHttpAuthCache_ResponseParamsSpec,
-      [start_time, end_time, filter]);
+      [start_time, end_time, filter],
+      false);
   }
 
   clearCorsPreflightCache(filter) {
@@ -2054,7 +2081,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       20,  // ordinal
       network.mojom.NetworkContext_ClearCorsPreflightCache_ParamsSpec,
       network.mojom.NetworkContext_ClearCorsPreflightCache_ResponseParamsSpec,
-      [filter]);
+      [filter],
+      false);
   }
 
   clearReportingCacheReports(filter) {
@@ -2063,7 +2091,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       21,  // ordinal
       network.mojom.NetworkContext_ClearReportingCacheReports_ParamsSpec,
       network.mojom.NetworkContext_ClearReportingCacheReports_ResponseParamsSpec,
-      [filter]);
+      [filter],
+      false);
   }
 
   clearReportingCacheClients(filter) {
@@ -2072,7 +2101,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       22,  // ordinal
       network.mojom.NetworkContext_ClearReportingCacheClients_ParamsSpec,
       network.mojom.NetworkContext_ClearReportingCacheClients_ResponseParamsSpec,
-      [filter]);
+      [filter],
+      false);
   }
 
   clearNetworkErrorLogging(filter) {
@@ -2081,7 +2111,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       23,  // ordinal
       network.mojom.NetworkContext_ClearNetworkErrorLogging_ParamsSpec,
       network.mojom.NetworkContext_ClearNetworkErrorLogging_ResponseParamsSpec,
-      [filter]);
+      [filter],
+      false);
   }
 
   clearDomainReliability(filter, mode) {
@@ -2090,7 +2121,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       24,  // ordinal
       network.mojom.NetworkContext_ClearDomainReliability_ParamsSpec,
       network.mojom.NetworkContext_ClearDomainReliability_ResponseParamsSpec,
-      [filter, mode]);
+      [filter, mode],
+      false);
   }
 
   clearSharedDictionaryCache(start_time, end_time, filter) {
@@ -2099,7 +2131,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       25,  // ordinal
       network.mojom.NetworkContext_ClearSharedDictionaryCache_ParamsSpec,
       network.mojom.NetworkContext_ClearSharedDictionaryCache_ResponseParamsSpec,
-      [start_time, end_time, filter]);
+      [start_time, end_time, filter],
+      false);
   }
 
   clearSharedDictionaryCacheForIsolationKey(isolation_key) {
@@ -2108,7 +2141,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       26,  // ordinal
       network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ParamsSpec,
       network.mojom.NetworkContext_ClearSharedDictionaryCacheForIsolationKey_ResponseParamsSpec,
-      [isolation_key]);
+      [isolation_key],
+      false);
   }
 
   setDocumentReportingEndpoints(reporting_source, origin, isolation_info, endpoints) {
@@ -2117,7 +2151,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       27,  // ordinal
       network.mojom.NetworkContext_SetDocumentReportingEndpoints_ParamsSpec,
       null,
-      [reporting_source, origin, isolation_info, endpoints]);
+      [reporting_source, origin, isolation_info, endpoints],
+      false);
   }
 
   setEnterpriseReportingEndpoints(endpoints) {
@@ -2126,7 +2161,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       28,  // ordinal
       network.mojom.NetworkContext_SetEnterpriseReportingEndpoints_ParamsSpec,
       null,
-      [endpoints]);
+      [endpoints],
+      false);
   }
 
   sendReportsAndRemoveSource(reporting_source) {
@@ -2135,7 +2171,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       29,  // ordinal
       network.mojom.NetworkContext_SendReportsAndRemoveSource_ParamsSpec,
       null,
-      [reporting_source]);
+      [reporting_source],
+      false);
   }
 
   queueReport(type, group, url, reporting_source, network_anonymization_key, body) {
@@ -2144,7 +2181,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       30,  // ordinal
       network.mojom.NetworkContext_QueueReport_ParamsSpec,
       null,
-      [type, group, url, reporting_source, network_anonymization_key, body]);
+      [type, group, url, reporting_source, network_anonymization_key, body],
+      false);
   }
 
   queueEnterpriseReport(type, group, url, body) {
@@ -2153,7 +2191,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       31,  // ordinal
       network.mojom.NetworkContext_QueueEnterpriseReport_ParamsSpec,
       null,
-      [type, group, url, body]);
+      [type, group, url, body],
+      false);
   }
 
   queueSignedExchangeReport(report, network_anonymization_key) {
@@ -2162,7 +2201,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       32,  // ordinal
       network.mojom.NetworkContext_QueueSignedExchangeReport_ParamsSpec,
       null,
-      [report, network_anonymization_key]);
+      [report, network_anonymization_key],
+      false);
   }
 
   closeAllConnections() {
@@ -2171,7 +2211,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       33,  // ordinal
       network.mojom.NetworkContext_CloseAllConnections_ParamsSpec,
       network.mojom.NetworkContext_CloseAllConnections_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   closeIdleConnections() {
@@ -2180,7 +2221,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       34,  // ordinal
       network.mojom.NetworkContext_CloseIdleConnections_ParamsSpec,
       network.mojom.NetworkContext_CloseIdleConnections_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setNetworkConditions(throttling_profile_id, conditions) {
@@ -2189,7 +2231,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       35,  // ordinal
       network.mojom.NetworkContext_SetNetworkConditions_ParamsSpec,
       null,
-      [throttling_profile_id, conditions]);
+      [throttling_profile_id, conditions],
+      false);
   }
 
   setAcceptLanguage(new_accept_language) {
@@ -2198,7 +2241,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       36,  // ordinal
       network.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec,
       null,
-      [new_accept_language]);
+      [new_accept_language],
+      false);
   }
 
   setEnableReferrers(enable_referrers) {
@@ -2207,7 +2251,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       37,  // ordinal
       network.mojom.NetworkContext_SetEnableReferrers_ParamsSpec,
       null,
-      [enable_referrers]);
+      [enable_referrers],
+      false);
   }
 
   setCTPolicy(ct_policy) {
@@ -2216,7 +2261,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       38,  // ordinal
       network.mojom.NetworkContext_SetCTPolicy_ParamsSpec,
       null,
-      [ct_policy]);
+      [ct_policy],
+      false);
   }
 
   createUDPSocket(receiver, listener) {
@@ -2225,7 +2271,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       39,  // ordinal
       network.mojom.NetworkContext_CreateUDPSocket_ParamsSpec,
       null,
-      [receiver, listener]);
+      [receiver, listener],
+      false);
   }
 
   createRestrictedUDPSocket(addr, mode, traffic_annotation, params, receiver, listener, allow_multicast) {
@@ -2234,7 +2281,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       40,  // ordinal
       network.mojom.NetworkContext_CreateRestrictedUDPSocket_ParamsSpec,
       network.mojom.NetworkContext_CreateRestrictedUDPSocket_ResponseParamsSpec,
-      [addr, mode, traffic_annotation, params, receiver, listener, allow_multicast]);
+      [addr, mode, traffic_annotation, params, receiver, listener, allow_multicast],
+      false);
   }
 
   createTCPServerSocket(local_addr, options, traffic_annotation, socket) {
@@ -2243,7 +2291,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       41,  // ordinal
       network.mojom.NetworkContext_CreateTCPServerSocket_ParamsSpec,
       network.mojom.NetworkContext_CreateTCPServerSocket_ResponseParamsSpec,
-      [local_addr, options, traffic_annotation, socket]);
+      [local_addr, options, traffic_annotation, socket],
+      false);
   }
 
   createTCPConnectedSocket(local_addr, remote_addr_list, tcp_connected_socket_options, traffic_annotation, socket, observer) {
@@ -2252,7 +2301,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       42,  // ordinal
       network.mojom.NetworkContext_CreateTCPConnectedSocket_ParamsSpec,
       network.mojom.NetworkContext_CreateTCPConnectedSocket_ResponseParamsSpec,
-      [local_addr, remote_addr_list, tcp_connected_socket_options, traffic_annotation, socket, observer]);
+      [local_addr, remote_addr_list, tcp_connected_socket_options, traffic_annotation, socket, observer],
+      false);
   }
 
   createTCPBoundSocket(local_addr, traffic_annotation, socket) {
@@ -2261,7 +2311,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       43,  // ordinal
       network.mojom.NetworkContext_CreateTCPBoundSocket_ParamsSpec,
       network.mojom.NetworkContext_CreateTCPBoundSocket_ResponseParamsSpec,
-      [local_addr, traffic_annotation, socket]);
+      [local_addr, traffic_annotation, socket],
+      false);
   }
 
   createProxyResolvingSocketFactory(factory) {
@@ -2270,7 +2321,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       44,  // ordinal
       network.mojom.NetworkContext_CreateProxyResolvingSocketFactory_ParamsSpec,
       null,
-      [factory]);
+      [factory],
+      false);
   }
 
   lookUpProxyForURL(url, network_anonymization_key, proxy_lookup_client) {
@@ -2279,7 +2331,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       45,  // ordinal
       network.mojom.NetworkContext_LookUpProxyForURL_ParamsSpec,
       null,
-      [url, network_anonymization_key, proxy_lookup_client]);
+      [url, network_anonymization_key, proxy_lookup_client],
+      false);
   }
 
   forceReloadProxyConfig() {
@@ -2288,7 +2341,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       46,  // ordinal
       network.mojom.NetworkContext_ForceReloadProxyConfig_ParamsSpec,
       network.mojom.NetworkContext_ForceReloadProxyConfig_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   clearBadProxiesCache() {
@@ -2297,7 +2351,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       47,  // ordinal
       network.mojom.NetworkContext_ClearBadProxiesCache_ParamsSpec,
       network.mojom.NetworkContext_ClearBadProxiesCache_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   createWebSocket(url, requested_protocols, site_for_cookies, storage_access_api_status, isolation_info, additional_headers, process_id, origin, client_security_state, options, traffic_annotation, handshake_client, url_loader_network_observer, auth_handler, header_client, throttling_profile_id) {
@@ -2306,7 +2361,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       48,  // ordinal
       network.mojom.NetworkContext_CreateWebSocket_ParamsSpec,
       null,
-      [url, requested_protocols, site_for_cookies, storage_access_api_status, isolation_info, additional_headers, process_id, origin, client_security_state, options, traffic_annotation, handshake_client, url_loader_network_observer, auth_handler, header_client, throttling_profile_id]);
+      [url, requested_protocols, site_for_cookies, storage_access_api_status, isolation_info, additional_headers, process_id, origin, client_security_state, options, traffic_annotation, handshake_client, url_loader_network_observer, auth_handler, header_client, throttling_profile_id],
+      false);
   }
 
   createWebTransport(url, origin, network_anonymization_key, fingerprints, application_protocols, handshake_client, url_loader_network_observer, client_security_state) {
@@ -2315,7 +2371,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       49,  // ordinal
       network.mojom.NetworkContext_CreateWebTransport_ParamsSpec,
       null,
-      [url, origin, network_anonymization_key, fingerprints, application_protocols, handshake_client, url_loader_network_observer, client_security_state]);
+      [url, origin, network_anonymization_key, fingerprints, application_protocols, handshake_client, url_loader_network_observer, client_security_state],
+      false);
   }
 
   createNetLogExporter(receiver) {
@@ -2324,7 +2381,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       50,  // ordinal
       network.mojom.NetworkContext_CreateNetLogExporter_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   preconnectSockets(num_streams, url, credentials_mode, network_anonymization_key, traffic_annotation, keepalive_config, observer_client) {
@@ -2333,7 +2391,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       51,  // ordinal
       network.mojom.NetworkContext_PreconnectSockets_ParamsSpec,
       null,
-      [num_streams, url, credentials_mode, network_anonymization_key, traffic_annotation, keepalive_config, observer_client]);
+      [num_streams, url, credentials_mode, network_anonymization_key, traffic_annotation, keepalive_config, observer_client],
+      false);
   }
 
   createP2PSocketManager(network_anonymization_key, client, trusted_socket_manager, socket_manager) {
@@ -2342,7 +2401,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       52,  // ordinal
       network.mojom.NetworkContext_CreateP2PSocketManager_ParamsSpec,
       null,
-      [network_anonymization_key, client, trusted_socket_manager, socket_manager]);
+      [network_anonymization_key, client, trusted_socket_manager, socket_manager],
+      false);
   }
 
   createMdnsResponder(responder_receiver) {
@@ -2351,7 +2411,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       53,  // ordinal
       network.mojom.NetworkContext_CreateMdnsResponder_ParamsSpec,
       null,
-      [responder_receiver]);
+      [responder_receiver],
+      false);
   }
 
   resolveHost(host, network_anonymization_key, optional_parameters, response_client) {
@@ -2360,7 +2421,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       54,  // ordinal
       network.mojom.NetworkContext_ResolveHost_ParamsSpec,
       null,
-      [host, network_anonymization_key, optional_parameters, response_client]);
+      [host, network_anonymization_key, optional_parameters, response_client],
+      false);
   }
 
   createHostResolver(config_overrides, host_resolver) {
@@ -2369,7 +2431,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       55,  // ordinal
       network.mojom.NetworkContext_CreateHostResolver_ParamsSpec,
       null,
-      [config_overrides, host_resolver]);
+      [config_overrides, host_resolver],
+      false);
   }
 
   verifyCert(certificate, host_port, ocsp_response, sct_list) {
@@ -2378,7 +2441,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       56,  // ordinal
       network.mojom.NetworkContext_VerifyCert_ParamsSpec,
       network.mojom.NetworkContext_VerifyCert_ResponseParamsSpec,
-      [certificate, host_port, ocsp_response, sct_list]);
+      [certificate, host_port, ocsp_response, sct_list],
+      false);
   }
 
   verifyCertForSignedExchange(certificate, host_port, ocsp_response, sct_list) {
@@ -2387,7 +2451,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       57,  // ordinal
       network.mojom.NetworkContext_VerifyCertForSignedExchange_ParamsSpec,
       network.mojom.NetworkContext_VerifyCertForSignedExchange_ResponseParamsSpec,
-      [certificate, host_port, ocsp_response, sct_list]);
+      [certificate, host_port, ocsp_response, sct_list],
+      false);
   }
 
   verify2QwacCertBinding(binding, hostname, tls_certificate) {
@@ -2396,7 +2461,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       58,  // ordinal
       network.mojom.NetworkContext_Verify2QwacCertBinding_ParamsSpec,
       network.mojom.NetworkContext_Verify2QwacCertBinding_ResponseParamsSpec,
-      [binding, hostname, tls_certificate]);
+      [binding, hostname, tls_certificate],
+      false);
   }
 
   addHSTS(host, expiry, include_subdomains) {
@@ -2405,7 +2471,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       59,  // ordinal
       network.mojom.NetworkContext_AddHSTS_ParamsSpec,
       network.mojom.NetworkContext_AddHSTS_ResponseParamsSpec,
-      [host, expiry, include_subdomains]);
+      [host, expiry, include_subdomains],
+      false);
   }
 
   isHSTSActiveForHost(host, is_top_level_nav) {
@@ -2414,7 +2481,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       60,  // ordinal
       network.mojom.NetworkContext_IsHSTSActiveForHost_ParamsSpec,
       network.mojom.NetworkContext_IsHSTSActiveForHost_ResponseParamsSpec,
-      [host, is_top_level_nav]);
+      [host, is_top_level_nav],
+      false);
   }
 
   getHSTSState(domain) {
@@ -2423,7 +2491,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       61,  // ordinal
       network.mojom.NetworkContext_GetHSTSState_ParamsSpec,
       network.mojom.NetworkContext_GetHSTSState_ResponseParamsSpec,
-      [domain]);
+      [domain],
+      false);
   }
 
   setCorsOriginAccessListsForOrigin(source_origin, allow_patterns, block_patterns) {
@@ -2432,7 +2501,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       62,  // ordinal
       network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ParamsSpec,
       network.mojom.NetworkContext_SetCorsOriginAccessListsForOrigin_ResponseParamsSpec,
-      [source_origin, allow_patterns, block_patterns]);
+      [source_origin, allow_patterns, block_patterns],
+      false);
   }
 
   deleteDynamicDataForHost(host) {
@@ -2441,7 +2511,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       63,  // ordinal
       network.mojom.NetworkContext_DeleteDynamicDataForHost_ParamsSpec,
       network.mojom.NetworkContext_DeleteDynamicDataForHost_ResponseParamsSpec,
-      [host]);
+      [host],
+      false);
   }
 
   setSplitAuthCacheByNetworkAnonymizationKey(split_auth_cache_by_network_anonymization_key) {
@@ -2450,7 +2521,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       64,  // ordinal
       network.mojom.NetworkContext_SetSplitAuthCacheByNetworkAnonymizationKey_ParamsSpec,
       null,
-      [split_auth_cache_by_network_anonymization_key]);
+      [split_auth_cache_by_network_anonymization_key],
+      false);
   }
 
   saveHttpAuthCacheProxyEntries() {
@@ -2459,7 +2531,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       65,  // ordinal
       network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ParamsSpec,
       network.mojom.NetworkContext_SaveHttpAuthCacheProxyEntries_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   loadHttpAuthCacheProxyEntries(cache_key) {
@@ -2468,7 +2541,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       66,  // ordinal
       network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ParamsSpec,
       network.mojom.NetworkContext_LoadHttpAuthCacheProxyEntries_ResponseParamsSpec,
-      [cache_key]);
+      [cache_key],
+      false);
   }
 
   addAuthCacheEntry(challenge, network_anonymization_key, credentials) {
@@ -2477,7 +2551,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       67,  // ordinal
       network.mojom.NetworkContext_AddAuthCacheEntry_ParamsSpec,
       network.mojom.NetworkContext_AddAuthCacheEntry_ResponseParamsSpec,
-      [challenge, network_anonymization_key, credentials]);
+      [challenge, network_anonymization_key, credentials],
+      false);
   }
 
   setCorsNonWildcardRequestHeadersSupport(value) {
@@ -2486,7 +2561,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       68,  // ordinal
       network.mojom.NetworkContext_SetCorsNonWildcardRequestHeadersSupport_ParamsSpec,
       null,
-      [value]);
+      [value],
+      false);
   }
 
   lookupProxyAuthCredentials(proxy_server, auth_scheme, realm) {
@@ -2495,7 +2571,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       69,  // ordinal
       network.mojom.NetworkContext_LookupProxyAuthCredentials_ParamsSpec,
       network.mojom.NetworkContext_LookupProxyAuthCredentials_ResponseParamsSpec,
-      [proxy_server, auth_scheme, realm]);
+      [proxy_server, auth_scheme, realm],
+      false);
   }
 
   enableStaticKeyPinningForTesting() {
@@ -2504,7 +2581,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       70,  // ordinal
       network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ParamsSpec,
       network.mojom.NetworkContext_EnableStaticKeyPinningForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   verifyCertificateForTesting(certificate, hostname, ocsp_response, sct_list) {
@@ -2513,7 +2591,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       71,  // ordinal
       network.mojom.NetworkContext_VerifyCertificateForTesting_ParamsSpec,
       network.mojom.NetworkContext_VerifyCertificateForTesting_ResponseParamsSpec,
-      [certificate, hostname, ocsp_response, sct_list]);
+      [certificate, hostname, ocsp_response, sct_list],
+      false);
   }
 
   getTrustAnchorIDsForTesting() {
@@ -2522,7 +2601,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       72,  // ordinal
       network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ParamsSpec,
       network.mojom.NetworkContext_GetTrustAnchorIDsForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   addDomainReliabilityContextForTesting(origin, upload_url) {
@@ -2531,7 +2611,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       73,  // ordinal
       network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ParamsSpec,
       network.mojom.NetworkContext_AddDomainReliabilityContextForTesting_ResponseParamsSpec,
-      [origin, upload_url]);
+      [origin, upload_url],
+      false);
   }
 
   forceDomainReliabilityUploadsForTesting() {
@@ -2540,7 +2621,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       74,  // ordinal
       network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ParamsSpec,
       network.mojom.NetworkContext_ForceDomainReliabilityUploadsForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setSCTAuditingMode(mode) {
@@ -2549,7 +2631,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       75,  // ordinal
       network.mojom.NetworkContext_SetSCTAuditingMode_ParamsSpec,
       null,
-      [mode]);
+      [mode],
+      false);
   }
 
   addReportingApiObserver(observer) {
@@ -2558,7 +2641,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       76,  // ordinal
       network.mojom.NetworkContext_AddReportingApiObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   getSharedDictionaryUsageInfo() {
@@ -2567,7 +2651,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       77,  // ordinal
       network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ParamsSpec,
       network.mojom.NetworkContext_GetSharedDictionaryUsageInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getSharedDictionaryInfo(isolation_key) {
@@ -2576,7 +2661,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       78,  // ordinal
       network.mojom.NetworkContext_GetSharedDictionaryInfo_ParamsSpec,
       network.mojom.NetworkContext_GetSharedDictionaryInfo_ResponseParamsSpec,
-      [isolation_key]);
+      [isolation_key],
+      false);
   }
 
   getSharedDictionaryOriginsBetween(start_time, end_time) {
@@ -2585,7 +2671,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       79,  // ordinal
       network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ParamsSpec,
       network.mojom.NetworkContext_GetSharedDictionaryOriginsBetween_ResponseParamsSpec,
-      [start_time, end_time]);
+      [start_time, end_time],
+      false);
   }
 
   setSharedDictionaryCacheMaxSize(cache_max_size) {
@@ -2594,7 +2681,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       80,  // ordinal
       network.mojom.NetworkContext_SetSharedDictionaryCacheMaxSize_ParamsSpec,
       null,
-      [cache_max_size]);
+      [cache_max_size],
+      false);
   }
 
   preloadSharedDictionaryInfoForDocument(urls, preload_handle) {
@@ -2603,7 +2691,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       81,  // ordinal
       network.mojom.NetworkContext_PreloadSharedDictionaryInfoForDocument_ParamsSpec,
       null,
-      [urls, preload_handle]);
+      [urls, preload_handle],
+      false);
   }
 
   hasPreloadedSharedDictionaryInfoForTesting() {
@@ -2612,7 +2701,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       82,  // ordinal
       network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ParamsSpec,
       network.mojom.NetworkContext_HasPreloadedSharedDictionaryInfoForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   flushCachedClientCertIfNeeded(host, certificate) {
@@ -2621,7 +2711,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       83,  // ordinal
       network.mojom.NetworkContext_FlushCachedClientCertIfNeeded_ParamsSpec,
       null,
-      [host, certificate]);
+      [host, certificate],
+      false);
   }
 
   flushMatchingCachedClientCert(certificate) {
@@ -2630,7 +2721,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       84,  // ordinal
       network.mojom.NetworkContext_FlushMatchingCachedClientCert_ParamsSpec,
       null,
-      [certificate]);
+      [certificate],
+      false);
   }
 
   flushClientCertCache() {
@@ -2639,7 +2731,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       85,  // ordinal
       network.mojom.NetworkContext_FlushClientCertCache_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   revokeNetworkForNonces(nonces_to_patterns) {
@@ -2648,7 +2741,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       86,  // ordinal
       network.mojom.NetworkContext_RevokeNetworkForNonces_ParamsSpec,
       network.mojom.NetworkContext_RevokeNetworkForNonces_ResponseParamsSpec,
-      [nonces_to_patterns]);
+      [nonces_to_patterns],
+      false);
   }
 
   clearNonces(nonces) {
@@ -2657,7 +2751,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       87,  // ordinal
       network.mojom.NetworkContext_ClearNonces_ParamsSpec,
       null,
-      [nonces]);
+      [nonces],
+      false);
   }
 
   exemptUrlFromNetworkRevocationForNonce(exempted_url, nonce) {
@@ -2666,7 +2761,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       88,  // ordinal
       network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ParamsSpec,
       network.mojom.NetworkContext_ExemptUrlFromNetworkRevocationForNonce_ResponseParamsSpec,
-      [exempted_url, nonce]);
+      [exempted_url, nonce],
+      false);
   }
 
   prefetch(request_id, options, request, traffic_annotation) {
@@ -2675,7 +2771,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       89,  // ordinal
       network.mojom.NetworkContext_Prefetch_ParamsSpec,
       null,
-      [request_id, options, request, traffic_annotation]);
+      [request_id, options, request, traffic_annotation],
+      false);
   }
 
   getBoundNetworkForTesting() {
@@ -2684,7 +2781,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       90,  // ordinal
       network.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec,
       network.mojom.NetworkContext_GetBoundNetworkForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getDeviceBoundSessionManager(device_bound_session_manager) {
@@ -2693,7 +2791,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       91,  // ordinal
       network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec,
       null,
-      [device_bound_session_manager]);
+      [device_bound_session_manager],
+      false);
   }
 
   addQuicHints(origins, network_anonymization_key) {
@@ -2702,7 +2801,8 @@ network.mojom.NetworkContextRemoteCallHandler = class {
       92,  // ordinal
       network.mojom.NetworkContext_AddQuicHints_ParamsSpec,
       null,
-      [origins, network_anonymization_key]);
+      [origins, network_anonymization_key],
+      false);
   }
 
 };

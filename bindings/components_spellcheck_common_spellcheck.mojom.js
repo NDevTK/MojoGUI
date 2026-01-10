@@ -114,7 +114,8 @@ spellcheck.mojom.SpellCheckerRemoteCallHandler = class {
       0,  // ordinal
       spellcheck.mojom.SpellChecker_Initialize_ParamsSpec,
       null,
-      [dictionaries, custom_words, enable]);
+      [dictionaries, custom_words, enable],
+      false);
   }
 
   customDictionaryChanged(words_added, words_removed) {
@@ -123,7 +124,8 @@ spellcheck.mojom.SpellCheckerRemoteCallHandler = class {
       1,  // ordinal
       spellcheck.mojom.SpellChecker_CustomDictionaryChanged_ParamsSpec,
       null,
-      [words_added, words_removed]);
+      [words_added, words_removed],
+      false);
   }
 
 };
@@ -186,7 +188,8 @@ spellcheck.mojom.SpellCheckInitializationHostRemoteCallHandler = class {
       0,  // ordinal
       spellcheck.mojom.SpellCheckInitializationHost_RequestDictionary_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -319,7 +322,8 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
       0,  // ordinal
       spellcheck.mojom.SpellCheckHost_NotifyChecked_ParamsSpec,
       null,
-      [word, misspelled]);
+      [word, misspelled],
+      false);
   }
 
   callSpellingService(text) {
@@ -328,7 +332,8 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
       1,  // ordinal
       spellcheck.mojom.SpellCheckHost_CallSpellingService_ParamsSpec,
       spellcheck.mojom.SpellCheckHost_CallSpellingService_ResponseParamsSpec,
-      [text]);
+      [text],
+      false);
   }
 
   requestTextCheck(text, spelling_markers) {
@@ -337,7 +342,8 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
       2,  // ordinal
       spellcheck.mojom.SpellCheckHost_RequestTextCheck_ParamsSpec,
       spellcheck.mojom.SpellCheckHost_RequestTextCheck_ResponseParamsSpec,
-      [text, spelling_markers]);
+      [text, spelling_markers],
+      false);
   }
 
   disconnectSessionBridge() {
@@ -346,7 +352,8 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
       3,  // ordinal
       spellcheck.mojom.SpellCheckHost_DisconnectSessionBridge_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   checkSpelling(word) {
@@ -355,7 +362,8 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
       4,  // ordinal
       spellcheck.mojom.SpellCheckHost_CheckSpelling_ParamsSpec,
       spellcheck.mojom.SpellCheckHost_CheckSpelling_ResponseParamsSpec,
-      [word]);
+      [word],
+      false);
   }
 
   fillSuggestionList(word) {
@@ -364,7 +372,8 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
       5,  // ordinal
       spellcheck.mojom.SpellCheckHost_FillSuggestionList_ParamsSpec,
       spellcheck.mojom.SpellCheckHost_FillSuggestionList_ResponseParamsSpec,
-      [word]);
+      [word],
+      false);
   }
 
   initializeDictionaries() {
@@ -373,7 +382,8 @@ spellcheck.mojom.SpellCheckHostRemoteCallHandler = class {
       6,  // ordinal
       spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ParamsSpec,
       spellcheck.mojom.SpellCheckHost_InitializeDictionaries_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

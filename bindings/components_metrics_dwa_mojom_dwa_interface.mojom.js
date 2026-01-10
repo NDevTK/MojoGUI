@@ -123,7 +123,8 @@ metrics.dwa.mojom.DwaRecorderInterfaceRemoteCallHandler = class {
       0,  // ordinal
       metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec,
       null,
-      [entry]);
+      [entry],
+      false);
   }
 
 };
@@ -188,7 +189,8 @@ metrics.dwa.mojom.DwaRecorderFactoryRemoteCallHandler = class {
       0,  // ordinal
       metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec,
       null,
-      [receiver, client_remote]);
+      [receiver, client_remote],
+      false);
   }
 
 };

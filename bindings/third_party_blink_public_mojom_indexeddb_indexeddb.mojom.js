@@ -565,7 +565,8 @@ blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.IDBFactoryClient_Error_ParamsSpec,
       null,
-      [code, message]);
+      [code, message],
+      false);
   }
 
   blocked(existing_version) {
@@ -574,7 +575,8 @@ blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.IDBFactoryClient_Blocked_ParamsSpec,
       null,
-      [existing_version]);
+      [existing_version],
+      false);
   }
 
   upgradeNeeded(pending_database, old_version, data_loss, data_loss_message, db_metadata) {
@@ -583,7 +585,8 @@ blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.IDBFactoryClient_UpgradeNeeded_ParamsSpec,
       null,
-      [pending_database, old_version, data_loss, data_loss_message, db_metadata]);
+      [pending_database, old_version, data_loss, data_loss_message, db_metadata],
+      false);
   }
 
   openSuccess(pending_database, metadata) {
@@ -592,7 +595,8 @@ blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.IDBFactoryClient_OpenSuccess_ParamsSpec,
       null,
-      [pending_database, metadata]);
+      [pending_database, metadata],
+      false);
   }
 
   deleteSuccess(old_version) {
@@ -601,7 +605,8 @@ blink.mojom.IDBFactoryClientRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.IDBFactoryClient_DeleteSuccess_ParamsSpec,
       null,
-      [old_version]);
+      [old_version],
+      false);
   }
 
 };
@@ -685,7 +690,8 @@ blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.IDBDatabaseCallbacks_ForcedClose_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   versionChange(old_version, new_version) {
@@ -694,7 +700,8 @@ blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.IDBDatabaseCallbacks_VersionChange_ParamsSpec,
       null,
-      [old_version, new_version]);
+      [old_version, new_version],
+      false);
   }
 
   abort(transaction_id, code, message) {
@@ -703,7 +710,8 @@ blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.IDBDatabaseCallbacks_Abort_ParamsSpec,
       null,
-      [transaction_id, code, message]);
+      [transaction_id, code, message],
+      false);
   }
 
   complete(transaction_id) {
@@ -712,7 +720,8 @@ blink.mojom.IDBDatabaseCallbacksRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.IDBDatabaseCallbacks_Complete_ParamsSpec,
       null,
-      [transaction_id]);
+      [transaction_id],
+      false);
   }
 
 };
@@ -813,7 +822,8 @@ blink.mojom.IDBCursorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.IDBCursor_Advance_ParamsSpec,
       blink.mojom.IDBCursor_Advance_ResponseParamsSpec,
-      [count]);
+      [count],
+      false);
   }
 
   continue(key, primary_key) {
@@ -822,7 +832,8 @@ blink.mojom.IDBCursorRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.IDBCursor_Continue_ParamsSpec,
       blink.mojom.IDBCursor_Continue_ResponseParamsSpec,
-      [key, primary_key]);
+      [key, primary_key],
+      false);
   }
 
   prefetch(count) {
@@ -831,7 +842,8 @@ blink.mojom.IDBCursorRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.IDBCursor_Prefetch_ParamsSpec,
       blink.mojom.IDBCursor_Prefetch_ResponseParamsSpec,
-      [count]);
+      [count],
+      false);
   }
 
   prefetchReset(used_prefetches) {
@@ -840,7 +852,8 @@ blink.mojom.IDBCursorRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.IDBCursor_PrefetchReset_ParamsSpec,
       null,
-      [used_prefetches]);
+      [used_prefetches],
+      false);
   }
 
 };
@@ -948,7 +961,8 @@ blink.mojom.IDBTransactionRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.IDBTransaction_CreateObjectStore_ParamsSpec,
       null,
-      [object_store_id, name, key_path, auto_increment]);
+      [object_store_id, name, key_path, auto_increment],
+      false);
   }
 
   deleteObjectStore(object_store_id) {
@@ -957,7 +971,8 @@ blink.mojom.IDBTransactionRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.IDBTransaction_DeleteObjectStore_ParamsSpec,
       null,
-      [object_store_id]);
+      [object_store_id],
+      false);
   }
 
   put(object_store_id, value, key, mode, index_keys) {
@@ -966,7 +981,8 @@ blink.mojom.IDBTransactionRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.IDBTransaction_Put_ParamsSpec,
       blink.mojom.IDBTransaction_Put_ResponseParamsSpec,
-      [object_store_id, value, key, mode, index_keys]);
+      [object_store_id, value, key, mode, index_keys],
+      false);
   }
 
   setIndexKeys(object_store_id, primary_key, index_keys) {
@@ -975,7 +991,8 @@ blink.mojom.IDBTransactionRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.IDBTransaction_SetIndexKeys_ParamsSpec,
       null,
-      [object_store_id, primary_key, index_keys]);
+      [object_store_id, primary_key, index_keys],
+      false);
   }
 
   setIndexKeysDone() {
@@ -984,7 +1001,8 @@ blink.mojom.IDBTransactionRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.IDBTransaction_SetIndexKeysDone_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   commit(num_errors_handled) {
@@ -993,7 +1011,8 @@ blink.mojom.IDBTransactionRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.IDBTransaction_Commit_ParamsSpec,
       null,
-      [num_errors_handled]);
+      [num_errors_handled],
+      false);
   }
 
 };
@@ -1064,7 +1083,8 @@ blink.mojom.IDBDatabaseGetAllResultSinkRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.IDBDatabaseGetAllResultSink_ReceiveResults_ParamsSpec,
       null,
-      [records, done]);
+      [records, done],
+      false);
   }
 
   onError(error) {
@@ -1073,7 +1093,8 @@ blink.mojom.IDBDatabaseGetAllResultSinkRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.IDBDatabaseGetAllResultSink_OnError_ParamsSpec,
       null,
-      [error]);
+      [error],
+      false);
   }
 
 };
@@ -1305,7 +1326,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.IDBDatabase_RenameObjectStore_ParamsSpec,
       null,
-      [transaction_id, object_store_id, new_name]);
+      [transaction_id, object_store_id, new_name],
+      false);
   }
 
   createTransaction(transaction_receiver, transaction_id, object_store_ids, mode, durability) {
@@ -1314,7 +1336,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.IDBDatabase_CreateTransaction_ParamsSpec,
       null,
-      [transaction_receiver, transaction_id, object_store_ids, mode, durability]);
+      [transaction_receiver, transaction_id, object_store_ids, mode, durability],
+      false);
   }
 
   versionChangeIgnored() {
@@ -1323,7 +1346,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.IDBDatabase_VersionChangeIgnored_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   get(transaction_id, object_store_id, index_id, key_range, key_only) {
@@ -1332,7 +1356,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.IDBDatabase_Get_ParamsSpec,
       blink.mojom.IDBDatabase_Get_ResponseParamsSpec,
-      [transaction_id, object_store_id, index_id, key_range, key_only]);
+      [transaction_id, object_store_id, index_id, key_range, key_only],
+      false);
   }
 
   getAll(transaction_id, object_store_id, index_id, key_range, result_type, max_count, direction) {
@@ -1341,7 +1366,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.IDBDatabase_GetAll_ParamsSpec,
       blink.mojom.IDBDatabase_GetAll_ResponseParamsSpec,
-      [transaction_id, object_store_id, index_id, key_range, result_type, max_count, direction]);
+      [transaction_id, object_store_id, index_id, key_range, result_type, max_count, direction],
+      false);
   }
 
   openCursor(transaction_id, object_store_id, index_id, key_range, direction, key_only, task_type) {
@@ -1350,7 +1376,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       5,  // ordinal
       blink.mojom.IDBDatabase_OpenCursor_ParamsSpec,
       blink.mojom.IDBDatabase_OpenCursor_ResponseParamsSpec,
-      [transaction_id, object_store_id, index_id, key_range, direction, key_only, task_type]);
+      [transaction_id, object_store_id, index_id, key_range, direction, key_only, task_type],
+      false);
   }
 
   count(transaction_id, object_store_id, index_id, key_range) {
@@ -1359,7 +1386,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       6,  // ordinal
       blink.mojom.IDBDatabase_Count_ParamsSpec,
       blink.mojom.IDBDatabase_Count_ResponseParamsSpec,
-      [transaction_id, object_store_id, index_id, key_range]);
+      [transaction_id, object_store_id, index_id, key_range],
+      false);
   }
 
   deleteRange(transaction_id, object_store_id, key_range) {
@@ -1368,7 +1396,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       7,  // ordinal
       blink.mojom.IDBDatabase_DeleteRange_ParamsSpec,
       blink.mojom.IDBDatabase_DeleteRange_ResponseParamsSpec,
-      [transaction_id, object_store_id, key_range]);
+      [transaction_id, object_store_id, key_range],
+      false);
   }
 
   getKeyGeneratorCurrentNumber(transaction_id, object_store_id) {
@@ -1377,7 +1406,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       8,  // ordinal
       blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ParamsSpec,
       blink.mojom.IDBDatabase_GetKeyGeneratorCurrentNumber_ResponseParamsSpec,
-      [transaction_id, object_store_id]);
+      [transaction_id, object_store_id],
+      false);
   }
 
   clear(transaction_id, object_store_id) {
@@ -1386,7 +1416,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       9,  // ordinal
       blink.mojom.IDBDatabase_Clear_ParamsSpec,
       blink.mojom.IDBDatabase_Clear_ResponseParamsSpec,
-      [transaction_id, object_store_id]);
+      [transaction_id, object_store_id],
+      false);
   }
 
   createIndex(transaction_id, object_store_id, index) {
@@ -1395,7 +1426,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       10,  // ordinal
       blink.mojom.IDBDatabase_CreateIndex_ParamsSpec,
       null,
-      [transaction_id, object_store_id, index]);
+      [transaction_id, object_store_id, index],
+      false);
   }
 
   deleteIndex(transaction_id, object_store_id, index_id) {
@@ -1404,7 +1436,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       11,  // ordinal
       blink.mojom.IDBDatabase_DeleteIndex_ParamsSpec,
       null,
-      [transaction_id, object_store_id, index_id]);
+      [transaction_id, object_store_id, index_id],
+      false);
   }
 
   renameIndex(transaction_id, object_store_id, index_id, new_name) {
@@ -1413,7 +1446,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       12,  // ordinal
       blink.mojom.IDBDatabase_RenameIndex_ParamsSpec,
       null,
-      [transaction_id, object_store_id, index_id, new_name]);
+      [transaction_id, object_store_id, index_id, new_name],
+      false);
   }
 
   abort(transaction_id) {
@@ -1422,7 +1456,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       13,  // ordinal
       blink.mojom.IDBDatabase_Abort_ParamsSpec,
       null,
-      [transaction_id]);
+      [transaction_id],
+      false);
   }
 
   didBecomeInactive() {
@@ -1431,7 +1466,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       14,  // ordinal
       blink.mojom.IDBDatabase_DidBecomeInactive_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updatePriority(new_priority) {
@@ -1440,7 +1476,8 @@ blink.mojom.IDBDatabaseRemoteCallHandler = class {
       15,  // ordinal
       blink.mojom.IDBDatabase_UpdatePriority_ParamsSpec,
       null,
-      [new_priority]);
+      [new_priority],
+      false);
   }
 
 };
@@ -1530,7 +1567,8 @@ blink.mojom.IDBFactoryRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.IDBFactory_GetDatabaseInfo_ParamsSpec,
       blink.mojom.IDBFactory_GetDatabaseInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   open(client, database_callbacks, name, version, version_change_transaction_receiver, transaction_id, priority) {
@@ -1539,7 +1577,8 @@ blink.mojom.IDBFactoryRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.IDBFactory_Open_ParamsSpec,
       null,
-      [client, database_callbacks, name, version, version_change_transaction_receiver, transaction_id, priority]);
+      [client, database_callbacks, name, version, version_change_transaction_receiver, transaction_id, priority],
+      false);
   }
 
   deleteDatabase(client, name, force_close) {
@@ -1548,7 +1587,8 @@ blink.mojom.IDBFactoryRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.IDBFactory_DeleteDatabase_ParamsSpec,
       null,
-      [client, name, force_close]);
+      [client, name, force_close],
+      false);
   }
 
 };

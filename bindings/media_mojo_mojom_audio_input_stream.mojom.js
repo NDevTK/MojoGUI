@@ -82,7 +82,8 @@ media.mojom.AudioInputStreamRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioInputStream_Record_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setVolume(volume) {
@@ -91,7 +92,8 @@ media.mojom.AudioInputStreamRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioInputStream_SetVolume_ParamsSpec,
       null,
-      [volume]);
+      [volume],
+      false);
   }
 
 };
@@ -161,7 +163,8 @@ media.mojom.AudioInputStreamClientRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioInputStreamClient_OnError_ParamsSpec,
       null,
-      [code]);
+      [code],
+      false);
   }
 
   onMutedStateChanged(is_muted) {
@@ -170,7 +173,8 @@ media.mojom.AudioInputStreamClientRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.AudioInputStreamClient_OnMutedStateChanged_ParamsSpec,
       null,
-      [is_muted]);
+      [is_muted],
+      false);
   }
 
 };
@@ -233,7 +237,8 @@ media.mojom.AudioInputStreamObserverRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

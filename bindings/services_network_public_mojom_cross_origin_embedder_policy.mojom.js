@@ -27,7 +27,7 @@ network.mojom.CrossOriginEmbedderPolicyValue = {
 // Struct: CrossOriginEmbedderPolicy
 mojo.internal.Struct(
     network.mojom.CrossOriginEmbedderPolicySpec, 'network.mojom.CrossOriginEmbedderPolicy', [
-      mojo.internal.StructField('value', 0, 0, network.mojom.CrossOriginEmbedderPolicyValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, network.mojom.CrossOriginEmbedderPolicyValueSpec, 0, false, 0, undefined),
       mojo.internal.StructField('reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('report_only_reporting_endpoint', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
@@ -86,7 +86,8 @@ network.mojom.CrossOriginEmbedderPolicyReporterRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec,
       null,
-      [blocked_url, destination, report_only]);
+      [blocked_url, destination, report_only],
+      false);
   }
 
   clone(receiver) {
@@ -95,7 +96,8 @@ network.mojom.CrossOriginEmbedderPolicyReporterRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

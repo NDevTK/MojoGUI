@@ -206,7 +206,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('connection_type', 40, 0, crosapi.mojom.ConnectionTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('secure', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('image_formats', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('kUnspecified', 56, 0, mojo.internal.Pointer, null, false, 0, undefined),
+      mojo.internal.StructField('kUnspecified', 56, 0, mojo.internal.Pointer, 0, false, 0, undefined),
     ],
     [[0, 72]]);
 
@@ -496,7 +496,8 @@ crosapi.mojom.DocumentScanRemoteCallHandler = class {
       3,  // ordinal
       crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec,
       crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec,
-      [client_id, scanner_id]);
+      [client_id, scanner_id],
+      false);
   }
 
   closeScanner(scanner_handle) {
@@ -505,7 +506,8 @@ crosapi.mojom.DocumentScanRemoteCallHandler = class {
       4,  // ordinal
       crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec,
       crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec,
-      [scanner_handle]);
+      [scanner_handle],
+      false);
   }
 
   startPreparedScan(scanner_handle, options) {
@@ -514,7 +516,8 @@ crosapi.mojom.DocumentScanRemoteCallHandler = class {
       5,  // ordinal
       crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec,
       crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec,
-      [scanner_handle, options]);
+      [scanner_handle, options],
+      false);
   }
 
   readScanData(job_handle) {
@@ -523,7 +526,8 @@ crosapi.mojom.DocumentScanRemoteCallHandler = class {
       6,  // ordinal
       crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec,
       crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec,
-      [job_handle]);
+      [job_handle],
+      false);
   }
 
   setOptions(scanner_handle, options) {
@@ -532,7 +536,8 @@ crosapi.mojom.DocumentScanRemoteCallHandler = class {
       7,  // ordinal
       crosapi.mojom.DocumentScan_SetOptions_ParamsSpec,
       crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec,
-      [scanner_handle, options]);
+      [scanner_handle, options],
+      false);
   }
 
   getOptionGroups(scanner_handle) {
@@ -541,7 +546,8 @@ crosapi.mojom.DocumentScanRemoteCallHandler = class {
       8,  // ordinal
       crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec,
       crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec,
-      [scanner_handle]);
+      [scanner_handle],
+      false);
   }
 
   cancelScan(job_handle) {
@@ -550,7 +556,8 @@ crosapi.mojom.DocumentScanRemoteCallHandler = class {
       9,  // ordinal
       crosapi.mojom.DocumentScan_CancelScan_ParamsSpec,
       crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec,
-      [job_handle]);
+      [job_handle],
+      false);
   }
 
 };

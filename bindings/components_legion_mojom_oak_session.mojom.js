@@ -114,7 +114,8 @@ legion.mojom.OakSessionRemoteCallHandler = class {
       0,  // ordinal
       legion.mojom.OakSession_InitiateHandshake_ParamsSpec,
       legion.mojom.OakSession_InitiateHandshake_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   completeHandshake(response) {
@@ -123,7 +124,8 @@ legion.mojom.OakSessionRemoteCallHandler = class {
       1,  // ordinal
       legion.mojom.OakSession_CompleteHandshake_ParamsSpec,
       legion.mojom.OakSession_CompleteHandshake_ResponseParamsSpec,
-      [response]);
+      [response],
+      false);
   }
 
   encrypt(input) {
@@ -132,7 +134,8 @@ legion.mojom.OakSessionRemoteCallHandler = class {
       2,  // ordinal
       legion.mojom.OakSession_Encrypt_ParamsSpec,
       legion.mojom.OakSession_Encrypt_ResponseParamsSpec,
-      [input]);
+      [input],
+      false);
   }
 
   decrypt(input) {
@@ -141,7 +144,8 @@ legion.mojom.OakSessionRemoteCallHandler = class {
       3,  // ordinal
       legion.mojom.OakSession_Decrypt_ParamsSpec,
       legion.mojom.OakSession_Decrypt_ResponseParamsSpec,
-      [input]);
+      [input],
+      false);
   }
 
 };

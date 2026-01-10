@@ -58,7 +58,8 @@ blink.mojom.ModelDownloadProgressObserverRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec,
       null,
-      [downloaded_bytes, total_bytes]);
+      [downloaded_bytes, total_bytes],
+      false);
   }
 
 };

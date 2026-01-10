@@ -212,7 +212,8 @@ font_service.mojom.FontServiceRemoteCallHandler = class {
       0,  // ordinal
       font_service.mojom.FontService_MatchFamilyName_ParamsSpec,
       font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec,
-      [family_name, style]);
+      [family_name, style],
+      false);
   }
 
   openStream(id_number) {
@@ -221,7 +222,8 @@ font_service.mojom.FontServiceRemoteCallHandler = class {
       1,  // ordinal
       font_service.mojom.FontService_OpenStream_ParamsSpec,
       font_service.mojom.FontService_OpenStream_ResponseParamsSpec,
-      [id_number]);
+      [id_number],
+      false);
   }
 
   fallbackFontForCharacter(character, locale) {
@@ -230,7 +232,8 @@ font_service.mojom.FontServiceRemoteCallHandler = class {
       2,  // ordinal
       font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec,
       font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec,
-      [character, locale]);
+      [character, locale],
+      false);
   }
 
   fontRenderStyleForStrike(family, size, is_italic, is_bold, device_scale_factor) {
@@ -239,7 +242,8 @@ font_service.mojom.FontServiceRemoteCallHandler = class {
       3,  // ordinal
       font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec,
       font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec,
-      [family, size, is_italic, is_bold, device_scale_factor]);
+      [family, size, is_italic, is_bold, device_scale_factor],
+      false);
   }
 
   matchFontByPostscriptNameOrFullFontName(postscript_name_or_full_font_name) {
@@ -248,7 +252,8 @@ font_service.mojom.FontServiceRemoteCallHandler = class {
       4,  // ordinal
       font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec,
       font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec,
-      [postscript_name_or_full_font_name]);
+      [postscript_name_or_full_font_name],
+      false);
   }
 
   listFamilies() {
@@ -257,7 +262,8 @@ font_service.mojom.FontServiceRemoteCallHandler = class {
       5,  // ordinal
       font_service.mojom.FontService_ListFamilies_ParamsSpec,
       font_service.mojom.FontService_ListFamilies_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   matchFontWithFallback(family, is_bold, is_italic, charset, fallback_family_type) {
@@ -266,7 +272,8 @@ font_service.mojom.FontServiceRemoteCallHandler = class {
       6,  // ordinal
       font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec,
       font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec,
-      [family, is_bold, is_italic, charset, fallback_family_type]);
+      [family, is_bold, is_italic, charset, fallback_family_type],
+      false);
   }
 
 };

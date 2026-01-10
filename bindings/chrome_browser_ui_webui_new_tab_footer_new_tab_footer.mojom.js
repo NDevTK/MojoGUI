@@ -104,7 +104,8 @@ new_tab_footer.mojom.NewTabFooterHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandlerFactory_CreateNewTabFooterHandler_ParamsSpec,
       null,
-      [document, handler]);
+      [document, handler],
+      false);
   }
 
 };
@@ -209,7 +210,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       0,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_UpdateNtpExtensionName_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateManagementNotice() {
@@ -218,7 +220,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       1,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_UpdateManagementNotice_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateAttachedTabState() {
@@ -227,7 +230,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       2,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_UpdateAttachedTabState_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateBackgroundAttribution() {
@@ -236,7 +240,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       3,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_UpdateBackgroundAttribution_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openExtensionOptionsPageWithFallback() {
@@ -245,7 +250,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       4,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_OpenExtensionOptionsPageWithFallback_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openManagementPage() {
@@ -254,7 +260,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       5,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_OpenManagementPage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   openUrlInCurrentTab(url) {
@@ -263,7 +270,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       6,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_OpenUrlInCurrentTab_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
   showContextMenu(point) {
@@ -272,7 +280,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       7,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_ShowContextMenu_ParamsSpec,
       null,
-      [point]);
+      [point],
+      false);
   }
 
   notifyCustomizationButtonVisible() {
@@ -281,7 +290,8 @@ new_tab_footer.mojom.NewTabFooterHandlerRemoteCallHandler = class {
       8,  // ordinal
       new_tab_footer.mojom.NewTabFooterHandler_NotifyCustomizationButtonVisible_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -364,7 +374,8 @@ new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
       0,  // ordinal
       new_tab_footer.mojom.NewTabFooterDocument_SetNtpExtensionName_ParamsSpec,
       null,
-      [name]);
+      [name],
+      false);
   }
 
   setManagementNotice(notice) {
@@ -373,7 +384,8 @@ new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
       1,  // ordinal
       new_tab_footer.mojom.NewTabFooterDocument_SetManagementNotice_ParamsSpec,
       null,
-      [notice]);
+      [notice],
+      false);
   }
 
   attachedTabStateUpdated(ntp_type, can_customize_chrome) {
@@ -382,7 +394,8 @@ new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
       2,  // ordinal
       new_tab_footer.mojom.NewTabFooterDocument_AttachedTabStateUpdated_ParamsSpec,
       null,
-      [ntp_type, can_customize_chrome]);
+      [ntp_type, can_customize_chrome],
+      false);
   }
 
   setBackgroundAttribution(background_image_attribution) {
@@ -391,7 +404,8 @@ new_tab_footer.mojom.NewTabFooterDocumentRemoteCallHandler = class {
       3,  // ordinal
       new_tab_footer.mojom.NewTabFooterDocument_SetBackgroundAttribution_ParamsSpec,
       null,
-      [background_image_attribution]);
+      [background_image_attribution],
+      false);
   }
 
 };

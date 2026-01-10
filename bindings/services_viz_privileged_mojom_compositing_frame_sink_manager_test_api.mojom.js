@@ -106,7 +106,8 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ParamsSpec,
       viz.mojom.FrameSinkManagerTestApi_HasUnclaimedViewTransitionResources_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setSameDocNavigationScreenshotSize(result_size) {
@@ -115,7 +116,8 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ParamsSpec,
       viz.mojom.FrameSinkManagerTestApi_SetSameDocNavigationScreenshotSize_ResponseParamsSpec,
-      [result_size]);
+      [result_size],
+      false);
   }
 
   getForceEnableZoomState(frame_sink_id) {
@@ -124,7 +126,8 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ParamsSpec,
       viz.mojom.FrameSinkManagerTestApi_GetForceEnableZoomState_ResponseParamsSpec,
-      [frame_sink_id]);
+      [frame_sink_id],
+      false);
   }
 
   waitForSurfaceAnimationManager(frame_sink_id) {
@@ -133,7 +136,8 @@ viz.mojom.FrameSinkManagerTestApiRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ParamsSpec,
       viz.mojom.FrameSinkManagerTestApi_WaitForSurfaceAnimationManager_ResponseParamsSpec,
-      [frame_sink_id]);
+      [frame_sink_id],
+      false);
   }
 
 };

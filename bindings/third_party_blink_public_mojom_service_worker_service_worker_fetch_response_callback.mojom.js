@@ -88,7 +88,8 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.ServiceWorkerFetchResponseCallback_OnResponse_ParamsSpec,
       null,
-      [response, timing]);
+      [response, timing],
+      false);
   }
 
   onResponseStream(response, body_as_stream, timing) {
@@ -97,7 +98,8 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.ServiceWorkerFetchResponseCallback_OnResponseStream_ParamsSpec,
       null,
-      [response, body_as_stream, timing]);
+      [response, body_as_stream, timing],
+      false);
   }
 
   onFallback(request_body, timing) {
@@ -106,7 +108,8 @@ blink.mojom.ServiceWorkerFetchResponseCallbackRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.ServiceWorkerFetchResponseCallback_OnFallback_ParamsSpec,
       null,
-      [request_body, timing]);
+      [request_body, timing],
+      false);
   }
 
 };

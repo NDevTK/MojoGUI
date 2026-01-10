@@ -63,7 +63,8 @@ blink.mojom.InnerHtmlAgentRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec,
       blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

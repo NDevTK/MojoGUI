@@ -99,7 +99,8 @@ chrome.mojom.PluginHostRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.PluginHost_OpenPDF_ParamsSpec,
       null,
-      [url]);
+      [url],
+      false);
   }
 
 };
@@ -164,7 +165,8 @@ chrome.mojom.PluginAuthHostRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec,
       null,
-      [name, group_id]);
+      [name, group_id],
+      false);
   }
 
 };
@@ -236,7 +238,8 @@ chrome.mojom.PluginInfoHostRemoteCallHandler = class {
       0,  // ordinal
       chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec,
       chrome.mojom.PluginInfoHost_GetPluginInfo_ResponseParamsSpec,
-      [url, origin, mime_type]);
+      [url, origin, mime_type],
+      false);
   }
 
 };

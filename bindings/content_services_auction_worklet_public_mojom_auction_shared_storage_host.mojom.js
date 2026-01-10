@@ -77,7 +77,8 @@ auction_worklet.mojom.AuctionSharedStorageHostRemoteCallHandler = class {
       0,  // ordinal
       auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec,
       null,
-      [method_with_options, source_auction_worklet_function]);
+      [method_with_options, source_auction_worklet_function],
+      false);
   }
 
   sharedStorageBatchUpdate(methods_with_options, with_lock, source_auction_worklet_function) {
@@ -86,7 +87,8 @@ auction_worklet.mojom.AuctionSharedStorageHostRemoteCallHandler = class {
       1,  // ordinal
       auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec,
       null,
-      [methods_with_options, with_lock, source_auction_worklet_function]);
+      [methods_with_options, with_lock, source_auction_worklet_function],
+      false);
   }
 
 };

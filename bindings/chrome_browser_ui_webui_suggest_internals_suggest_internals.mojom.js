@@ -102,7 +102,8 @@ suggest_internals.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       suggest_internals.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
   hardcodeResponse(response, delay) {
@@ -111,7 +112,8 @@ suggest_internals.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       suggest_internals.mojom.PageHandler_HardcodeResponse_ParamsSpec,
       suggest_internals.mojom.PageHandler_HardcodeResponse_ResponseParamsSpec,
-      [response, delay]);
+      [response, delay],
+      false);
   }
 
 };
@@ -187,7 +189,8 @@ suggest_internals.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       suggest_internals.mojom.Page_OnRequestCreated_ParamsSpec,
       null,
-      [request]);
+      [request],
+      false);
   }
 
   onRequestStarted(request) {
@@ -196,7 +199,8 @@ suggest_internals.mojom.PageRemoteCallHandler = class {
       1,  // ordinal
       suggest_internals.mojom.Page_OnRequestStarted_ParamsSpec,
       null,
-      [request]);
+      [request],
+      false);
   }
 
   onRequestCompleted(request) {
@@ -205,7 +209,8 @@ suggest_internals.mojom.PageRemoteCallHandler = class {
       2,  // ordinal
       suggest_internals.mojom.Page_OnRequestCompleted_ParamsSpec,
       null,
-      [request]);
+      [request],
+      false);
   }
 
 };

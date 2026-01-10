@@ -107,7 +107,8 @@ blink.mojom.CookieStoreRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.CookieStore_AddSubscriptions_ParamsSpec,
       blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec,
-      [service_worker_registration_id, subscription]);
+      [service_worker_registration_id, subscription],
+      false);
   }
 
   removeSubscriptions(service_worker_registration_id, subscription) {
@@ -116,7 +117,8 @@ blink.mojom.CookieStoreRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec,
       blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec,
-      [service_worker_registration_id, subscription]);
+      [service_worker_registration_id, subscription],
+      false);
   }
 
   getSubscriptions(service_worker_registration_id) {
@@ -125,7 +127,8 @@ blink.mojom.CookieStoreRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.CookieStore_GetSubscriptions_ParamsSpec,
       blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec,
-      [service_worker_registration_id]);
+      [service_worker_registration_id],
+      false);
   }
 
 };

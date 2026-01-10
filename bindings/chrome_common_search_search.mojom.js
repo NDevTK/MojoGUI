@@ -72,7 +72,8 @@ search.mojom.EmbeddedSearchConnectorRemoteCallHandler = class {
       0,  // ordinal
       search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec,
       null,
-      [embedded_search, client]);
+      [embedded_search, client],
+      false);
   }
 
 };
@@ -157,7 +158,8 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
       0,  // ordinal
       search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec,
       null,
-      [page_seq_no, focus]);
+      [page_seq_no, focus],
+      false);
   }
 
   deleteMostVisitedItem(page_seq_no, url) {
@@ -166,7 +168,8 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
       1,  // ordinal
       search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec,
       null,
-      [page_seq_no, url]);
+      [page_seq_no, url],
+      false);
   }
 
   undoAllMostVisitedDeletions(page_seq_no) {
@@ -175,7 +178,8 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
       2,  // ordinal
       search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec,
       null,
-      [page_seq_no]);
+      [page_seq_no],
+      false);
   }
 
   undoMostVisitedDeletion(page_seq_no, url) {
@@ -184,7 +188,8 @@ search.mojom.EmbeddedSearchRemoteCallHandler = class {
       3,  // ordinal
       search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec,
       null,
-      [page_seq_no, url]);
+      [page_seq_no, url],
+      false);
   }
 
 };
@@ -273,7 +278,8 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
       0,  // ordinal
       search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec,
       null,
-      [page_seq_no]);
+      [page_seq_no],
+      false);
   }
 
   focusChanged(new_focus_state, reason) {
@@ -282,7 +288,8 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
       1,  // ordinal
       search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec,
       null,
-      [new_focus_state, reason]);
+      [new_focus_state, reason],
+      false);
   }
 
   mostVisitedInfoChanged(most_visited_info) {
@@ -291,7 +298,8 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
       2,  // ordinal
       search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec,
       null,
-      [most_visited_info]);
+      [most_visited_info],
+      false);
   }
 
   setInputInProgress(input_in_progress) {
@@ -300,7 +308,8 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
       3,  // ordinal
       search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec,
       null,
-      [input_in_progress]);
+      [input_in_progress],
+      false);
   }
 
   themeChanged(theme) {
@@ -309,7 +318,8 @@ search.mojom.EmbeddedSearchClientRemoteCallHandler = class {
       4,  // ordinal
       search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec,
       null,
-      [theme]);
+      [theme],
+      false);
   }
 
 };

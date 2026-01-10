@@ -75,7 +75,8 @@ cros.mojom.CrosDocumentScannerRemoteCallHandler = class {
       0,  // ordinal
       cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec,
       cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec,
-      [nv12_image]);
+      [nv12_image],
+      false);
   }
 
 };

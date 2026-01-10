@@ -97,7 +97,8 @@ extensions.mojom.RendererHostRemoteCallHandler = class {
       0,  // ordinal
       extensions.mojom.RendererHost_AddAPIActionToActivityLog_ParamsSpec,
       null,
-      [extension_id, call_name, args, extra]);
+      [extension_id, call_name, args, extra],
+      false);
   }
 
   addEventToActivityLog(extension_id, call_name, args, extra) {
@@ -106,7 +107,8 @@ extensions.mojom.RendererHostRemoteCallHandler = class {
       1,  // ordinal
       extensions.mojom.RendererHost_AddEventToActivityLog_ParamsSpec,
       null,
-      [extension_id, call_name, args, extra]);
+      [extension_id, call_name, args, extra],
+      false);
   }
 
   addDOMActionToActivityLog(extension_id, call_name, args, url, url_title, call_type) {
@@ -115,7 +117,8 @@ extensions.mojom.RendererHostRemoteCallHandler = class {
       2,  // ordinal
       extensions.mojom.RendererHost_AddDOMActionToActivityLog_ParamsSpec,
       null,
-      [extension_id, call_name, args, url, url_title, call_type]);
+      [extension_id, call_name, args, url, url_title, call_type],
+      false);
   }
 
   getMessageBundle(extension_id) {
@@ -124,7 +127,8 @@ extensions.mojom.RendererHostRemoteCallHandler = class {
       3,  // ordinal
       extensions.mojom.RendererHost_GetMessageBundle_ParamsSpec,
       extensions.mojom.RendererHost_GetMessageBundle_ResponseParamsSpec,
-      [extension_id]);
+      [extension_id],
+      false);
   }
 
 };

@@ -65,7 +65,8 @@ math.mojom.MathServiceRemoteCallHandler = class {
       0,  // ordinal
       math.mojom.MathService_Divide_ParamsSpec,
       math.mojom.MathService_Divide_ResponseParamsSpec,
-      [dividend, divisor]);
+      [dividend, divisor],
+      false);
   }
 
 };

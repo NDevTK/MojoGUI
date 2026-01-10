@@ -64,7 +64,8 @@ content_settings.mojom.ContentSettingsAgentRemoteCallHandler = class {
       0,  // ordinal
       content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   sendRendererContentSettingRules(renderer_settings) {
@@ -73,7 +74,8 @@ content_settings.mojom.ContentSettingsAgentRemoteCallHandler = class {
       1,  // ordinal
       content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec,
       null,
-      [renderer_settings]);
+      [renderer_settings],
+      false);
   }
 
 };

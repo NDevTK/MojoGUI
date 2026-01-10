@@ -60,7 +60,8 @@ color_change_listener.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       color_change_listener.mojom.PageHandler_SetPage_ParamsSpec,
       null,
-      [page]);
+      [page],
+      false);
   }
 
 };
@@ -123,7 +124,8 @@ color_change_listener.mojom.PageRemoteCallHandler = class {
       0,  // ordinal
       color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

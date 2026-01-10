@@ -158,7 +158,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
       0,  // ordinal
       media.mojom.Decryptor_Initialize_ParamsSpec,
       null,
-      [audio_pipe, video_pipe, decrypt_pipe, decrypted_pipe]);
+      [audio_pipe, video_pipe, decrypt_pipe, decrypted_pipe],
+      false);
   }
 
   decrypt(stream_type, encrypted) {
@@ -167,7 +168,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
       1,  // ordinal
       media.mojom.Decryptor_Decrypt_ParamsSpec,
       media.mojom.Decryptor_Decrypt_ResponseParamsSpec,
-      [stream_type, encrypted]);
+      [stream_type, encrypted],
+      false);
   }
 
   cancelDecrypt(stream_type) {
@@ -176,7 +178,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
       2,  // ordinal
       media.mojom.Decryptor_CancelDecrypt_ParamsSpec,
       null,
-      [stream_type]);
+      [stream_type],
+      false);
   }
 
   initializeAudioDecoder(config) {
@@ -185,7 +188,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
       3,  // ordinal
       media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec,
       media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec,
-      [config]);
+      [config],
+      false);
   }
 
   initializeVideoDecoder(config) {
@@ -194,7 +198,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
       4,  // ordinal
       media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec,
       media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec,
-      [config]);
+      [config],
+      false);
   }
 
   decryptAndDecodeAudio(encrypted) {
@@ -203,7 +208,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
       5,  // ordinal
       media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec,
       media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec,
-      [encrypted]);
+      [encrypted],
+      false);
   }
 
   decryptAndDecodeVideo(encrypted) {
@@ -212,7 +218,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
       6,  // ordinal
       media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec,
       media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec,
-      [encrypted]);
+      [encrypted],
+      false);
   }
 
   resetDecoder(stream_type) {
@@ -221,7 +228,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
       7,  // ordinal
       media.mojom.Decryptor_ResetDecoder_ParamsSpec,
       null,
-      [stream_type]);
+      [stream_type],
+      false);
   }
 
   deinitializeDecoder(stream_type) {
@@ -230,7 +238,8 @@ media.mojom.DecryptorRemoteCallHandler = class {
       8,  // ordinal
       media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec,
       null,
-      [stream_type]);
+      [stream_type],
+      false);
   }
 
 };

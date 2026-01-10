@@ -111,7 +111,8 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec,
       ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   dismissModule(url_visits) {
@@ -120,7 +121,8 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec,
       null,
-      [url_visits]);
+      [url_visits],
+      false);
   }
 
   dismissURLVisit(url_visit) {
@@ -129,7 +131,8 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec,
       null,
-      [url_visit]);
+      [url_visit],
+      false);
   }
 
   restoreModule(url_visits) {
@@ -138,7 +141,8 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec,
       null,
-      [url_visits]);
+      [url_visits],
+      false);
   }
 
   restoreURLVisit(url_visit) {
@@ -147,7 +151,8 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
       4,  // ordinal
       ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec,
       null,
-      [url_visit]);
+      [url_visit],
+      false);
   }
 
   recordAction(action, url_key, visit_request_id) {
@@ -156,7 +161,8 @@ ntp.most_relevant_tab_resumption.mojom.PageHandlerRemoteCallHandler = class {
       5,  // ordinal
       ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec,
       null,
-      [action, url_key, visit_request_id]);
+      [action, url_key, visit_request_id],
+      false);
   }
 
 };

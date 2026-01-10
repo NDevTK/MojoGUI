@@ -269,7 +269,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
       0,  // ordinal
       bluetooth.mojom.Device_Disconnect_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getInfo() {
@@ -278,7 +279,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
       1,  // ordinal
       bluetooth.mojom.Device_GetInfo_ParamsSpec,
       bluetooth.mojom.Device_GetInfo_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getServices() {
@@ -287,7 +289,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
       2,  // ordinal
       bluetooth.mojom.Device_GetServices_ParamsSpec,
       bluetooth.mojom.Device_GetServices_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   getCharacteristics(service_id) {
@@ -296,7 +299,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
       3,  // ordinal
       bluetooth.mojom.Device_GetCharacteristics_ParamsSpec,
       bluetooth.mojom.Device_GetCharacteristics_ResponseParamsSpec,
-      [service_id]);
+      [service_id],
+      false);
   }
 
   readValueForCharacteristic(service_id, characteristic_id) {
@@ -305,7 +309,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
       4,  // ordinal
       bluetooth.mojom.Device_ReadValueForCharacteristic_ParamsSpec,
       bluetooth.mojom.Device_ReadValueForCharacteristic_ResponseParamsSpec,
-      [service_id, characteristic_id]);
+      [service_id, characteristic_id],
+      false);
   }
 
   writeValueForCharacteristic(service_id, characteristic_id, value) {
@@ -314,7 +319,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
       5,  // ordinal
       bluetooth.mojom.Device_WriteValueForCharacteristic_ParamsSpec,
       bluetooth.mojom.Device_WriteValueForCharacteristic_ResponseParamsSpec,
-      [service_id, characteristic_id, value]);
+      [service_id, characteristic_id, value],
+      false);
   }
 
   getDescriptors(service_id, characteristic_id) {
@@ -323,7 +329,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
       6,  // ordinal
       bluetooth.mojom.Device_GetDescriptors_ParamsSpec,
       bluetooth.mojom.Device_GetDescriptors_ResponseParamsSpec,
-      [service_id, characteristic_id]);
+      [service_id, characteristic_id],
+      false);
   }
 
   readValueForDescriptor(service_id, characteristic_id, descriptor_id) {
@@ -332,7 +339,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
       7,  // ordinal
       bluetooth.mojom.Device_ReadValueForDescriptor_ParamsSpec,
       bluetooth.mojom.Device_ReadValueForDescriptor_ResponseParamsSpec,
-      [service_id, characteristic_id, descriptor_id]);
+      [service_id, characteristic_id, descriptor_id],
+      false);
   }
 
   writeValueForDescriptor(service_id, characteristic_id, descriptor_id, value) {
@@ -341,7 +349,8 @@ bluetooth.mojom.DeviceRemoteCallHandler = class {
       8,  // ordinal
       bluetooth.mojom.Device_WriteValueForDescriptor_ParamsSpec,
       bluetooth.mojom.Device_WriteValueForDescriptor_ResponseParamsSpec,
-      [service_id, characteristic_id, descriptor_id, value]);
+      [service_id, characteristic_id, descriptor_id, value],
+      false);
   }
 
 };

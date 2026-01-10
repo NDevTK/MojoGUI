@@ -117,7 +117,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('supported_buttons', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('axis_data', 32, 0, mojo.internal.Array(device_test.mojom.ControllerAxisData, 5Spec, false), null, false, 0, undefined),
       mojo.internal.StructField('pose_data', 40, 0, gfx.mojom.TransformSpec, null, true, 0, undefined),
-      mojo.internal.StructField('role', 48, 0, device_test.mojom.ControllerRoleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('role', 48, 0, device_test.mojom.ControllerRoleSpec, 0, false, 0, undefined),
       mojo.internal.StructField('hand_data', 56, 0, device.mojom.XRHandTrackingDataSpec, null, true, 0, undefined),
       mojo.internal.StructField('is_valid', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -126,8 +126,8 @@ mojo.internal.Struct(
 // Struct: EventData
 mojo.internal.Struct(
     device_test.mojom.EventDataSpec, 'device_test.mojom.EventData', [
-      mojo.internal.StructField('type', 0, 0, device_test.mojom.EventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('interaction_profile', 4, 0, device.mojom.OpenXrInteractionProfileTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('type', 0, 0, device_test.mojom.EventTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('interaction_profile', 4, 0, device.mojom.OpenXrInteractionProfileTypeSpec, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -280,7 +280,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       0,  // ordinal
       device_test.mojom.XRTestHook_OnFrameSubmitted_ParamsSpec,
       device_test.mojom.XRTestHook_OnFrameSubmitted_ResponseParamsSpec,
-      [frame_data]);
+      [frame_data],
+      false);
   }
 
   waitGetDeviceConfig() {
@@ -289,7 +290,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       1,  // ordinal
       device_test.mojom.XRTestHook_WaitGetDeviceConfig_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetDeviceConfig_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   waitGetPresentingPose() {
@@ -298,7 +300,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       2,  // ordinal
       device_test.mojom.XRTestHook_WaitGetPresentingPose_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetPresentingPose_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   waitGetMagicWindowPose() {
@@ -307,7 +310,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       3,  // ordinal
       device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetMagicWindowPose_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   waitGetControllerRoleForTrackedDeviceIndex(index) {
@@ -316,7 +320,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       4,  // ordinal
       device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetControllerRoleForTrackedDeviceIndex_ResponseParamsSpec,
-      [index]);
+      [index],
+      false);
   }
 
   waitGetControllerData(index) {
@@ -325,7 +330,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       5,  // ordinal
       device_test.mojom.XRTestHook_WaitGetControllerData_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetControllerData_ResponseParamsSpec,
-      [index]);
+      [index],
+      false);
   }
 
   waitGetEventData() {
@@ -334,7 +340,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       6,  // ordinal
       device_test.mojom.XRTestHook_WaitGetEventData_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetEventData_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   waitGetCanCreateSession() {
@@ -343,7 +350,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       7,  // ordinal
       device_test.mojom.XRTestHook_WaitGetCanCreateSession_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetCanCreateSession_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   waitGetVisibilityMask(view_index) {
@@ -352,7 +360,8 @@ device_test.mojom.XRTestHookRemoteCallHandler = class {
       8,  // ordinal
       device_test.mojom.XRTestHook_WaitGetVisibilityMask_ParamsSpec,
       device_test.mojom.XRTestHook_WaitGetVisibilityMask_ResponseParamsSpec,
-      [view_index]);
+      [view_index],
+      false);
   }
 
 };
@@ -431,7 +440,8 @@ device_test.mojom.XRServiceTestHookRemoteCallHandler = class {
       0,  // ordinal
       device_test.mojom.XRServiceTestHook_SetTestHook_ParamsSpec,
       device_test.mojom.XRServiceTestHook_SetTestHook_ResponseParamsSpec,
-      [hook]);
+      [hook],
+      false);
   }
 
   terminateDeviceServiceProcessForTesting() {
@@ -440,7 +450,8 @@ device_test.mojom.XRServiceTestHookRemoteCallHandler = class {
       1,  // ordinal
       device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ParamsSpec,
       device_test.mojom.XRServiceTestHook_TerminateDeviceServiceProcessForTesting_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };

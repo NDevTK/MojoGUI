@@ -133,7 +133,8 @@ storage.mojom.FileLockRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.FileLock_Release_ParamsSpec,
       storage.mojom.FileLock_Release_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -313,7 +314,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       0,  // ordinal
       storage.mojom.Directory_Clone_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   pathExists(path) {
@@ -322,7 +324,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       1,  // ordinal
       storage.mojom.Directory_PathExists_ParamsSpec,
       storage.mojom.Directory_PathExists_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   getEntries(path, mode) {
@@ -331,7 +334,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       2,  // ordinal
       storage.mojom.Directory_GetEntries_ParamsSpec,
       storage.mojom.Directory_GetEntries_ResponseParamsSpec,
-      [path, mode]);
+      [path, mode],
+      false);
   }
 
   openFile(path, mode, read_access, write_access) {
@@ -340,7 +344,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       3,  // ordinal
       storage.mojom.Directory_OpenFile_ParamsSpec,
       storage.mojom.Directory_OpenFile_ResponseParamsSpec,
-      [path, mode, read_access, write_access]);
+      [path, mode, read_access, write_access],
+      false);
   }
 
   createDirectory(path) {
@@ -349,7 +354,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       4,  // ordinal
       storage.mojom.Directory_CreateDirectory_ParamsSpec,
       storage.mojom.Directory_CreateDirectory_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   deleteFile(path) {
@@ -358,7 +364,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       5,  // ordinal
       storage.mojom.Directory_DeleteFile_ParamsSpec,
       storage.mojom.Directory_DeleteFile_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   getFileInfo(path) {
@@ -367,7 +374,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       6,  // ordinal
       storage.mojom.Directory_GetFileInfo_ParamsSpec,
       storage.mojom.Directory_GetFileInfo_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   getPathAccess(path) {
@@ -376,7 +384,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       7,  // ordinal
       storage.mojom.Directory_GetPathAccess_ParamsSpec,
       storage.mojom.Directory_GetPathAccess_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
   renameFile(old_path, new_path) {
@@ -385,7 +394,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       8,  // ordinal
       storage.mojom.Directory_RenameFile_ParamsSpec,
       storage.mojom.Directory_RenameFile_ResponseParamsSpec,
-      [old_path, new_path]);
+      [old_path, new_path],
+      false);
   }
 
   lockFile(path) {
@@ -394,7 +404,8 @@ storage.mojom.DirectoryRemoteCallHandler = class {
       9,  // ordinal
       storage.mojom.Directory_LockFile_ParamsSpec,
       storage.mojom.Directory_LockFile_ResponseParamsSpec,
-      [path]);
+      [path],
+      false);
   }
 
 };

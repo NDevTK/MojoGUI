@@ -206,7 +206,8 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
       0,  // ordinal
       screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec,
       screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ResponseParamsSpec,
-      [image]);
+      [image],
+      false);
   }
 
   performOcrAndReturnAnnotation(image) {
@@ -215,7 +216,8 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
       1,  // ordinal
       screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec,
       screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec,
-      [image]);
+      [image],
+      false);
   }
 
   setClientType(client_type) {
@@ -224,7 +226,8 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
       2,  // ordinal
       screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec,
       null,
-      [client_type]);
+      [client_type],
+      false);
   }
 
   getMaxImageDimension() {
@@ -233,7 +236,8 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
       3,  // ordinal
       screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec,
       screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   setOCRLightMode(enabled) {
@@ -242,7 +246,8 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
       4,  // ordinal
       screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   isOCRBusy() {
@@ -251,7 +256,8 @@ screen_ai.mojom.ScreenAIAnnotatorRemoteCallHandler = class {
       5,  // ordinal
       screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec,
       screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -352,7 +358,8 @@ screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
       0,  // ordinal
       screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec,
       screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec,
-      [snapshot]);
+      [snapshot],
+      false);
   }
 
   extractMainNode(snapshot) {
@@ -361,7 +368,8 @@ screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
       1,  // ordinal
       screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec,
       screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec,
-      [snapshot]);
+      [snapshot],
+      false);
   }
 
   identifyMainNode(ax_tree) {
@@ -370,7 +378,8 @@ screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
       2,  // ordinal
       screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec,
       screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec,
-      [ax_tree]);
+      [ax_tree],
+      false);
   }
 
   setClientType(client_type) {
@@ -379,7 +388,8 @@ screen_ai.mojom.Screen2xMainContentExtractorRemoteCallHandler = class {
       3,  // ordinal
       screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec,
       null,
-      [client_type]);
+      [client_type],
+      false);
   }
 
 };
@@ -443,7 +453,8 @@ screen_ai.mojom.OCRServiceRemoteCallHandler = class {
       0,  // ordinal
       screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec,
       null,
-      [annotator]);
+      [annotator],
+      false);
   }
 
 };
@@ -507,7 +518,8 @@ screen_ai.mojom.MainContentExtractionServiceRemoteCallHandler = class {
       0,  // ordinal
       screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec,
       null,
-      [main_content_extractor]);
+      [main_content_extractor],
+      false);
   }
 
 };

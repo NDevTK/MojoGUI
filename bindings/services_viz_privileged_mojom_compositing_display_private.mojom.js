@@ -210,7 +210,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec,
       null,
-      [visible]);
+      [visible],
+      false);
   }
 
   disableSwapUntilResize() {
@@ -219,7 +220,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.DisplayPrivate_DisableSwapUntilResize_ParamsSpec,
       viz.mojom.DisplayPrivate_DisableSwapUntilResize_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   resize(size) {
@@ -228,7 +230,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.DisplayPrivate_Resize_ParamsSpec,
       null,
-      [size]);
+      [size],
+      false);
   }
 
   setDisplayColorMatrix(color_matrix) {
@@ -237,7 +240,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.DisplayPrivate_SetDisplayColorMatrix_ParamsSpec,
       null,
-      [color_matrix]);
+      [color_matrix],
+      false);
   }
 
   setDisplayColorSpaces(display_color_spaces) {
@@ -246,7 +250,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.DisplayPrivate_SetDisplayColorSpaces_ParamsSpec,
       null,
-      [display_color_spaces]);
+      [display_color_spaces],
+      false);
   }
 
   setOutputIsSecure(secure) {
@@ -255,7 +260,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.DisplayPrivate_SetOutputIsSecure_ParamsSpec,
       null,
-      [secure]);
+      [secure],
+      false);
   }
 
   setVSyncDisplayID(display_id) {
@@ -264,7 +270,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       6,  // ordinal
       viz.mojom.DisplayPrivate_SetVSyncDisplayID_ParamsSpec,
       null,
-      [display_id]);
+      [display_id],
+      false);
   }
 
   setDisplayVSyncParameters(timebase, interval) {
@@ -273,7 +280,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       7,  // ordinal
       viz.mojom.DisplayPrivate_SetDisplayVSyncParameters_ParamsSpec,
       null,
-      [timebase, interval]);
+      [timebase, interval],
+      false);
   }
 
   forceImmediateDrawAndSwapIfPossible() {
@@ -282,7 +290,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       8,  // ordinal
       viz.mojom.DisplayPrivate_ForceImmediateDrawAndSwapIfPossible_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateRefreshRate(refresh_rate) {
@@ -291,7 +300,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       9,  // ordinal
       viz.mojom.DisplayPrivate_UpdateRefreshRate_ParamsSpec,
       null,
-      [refresh_rate]);
+      [refresh_rate],
+      false);
   }
 
   setAdaptiveRefreshRateInfo(has_support, suggested_high, device_scale_factor) {
@@ -300,7 +310,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       10,  // ordinal
       viz.mojom.DisplayPrivate_SetAdaptiveRefreshRateInfo_ParamsSpec,
       null,
-      [has_support, suggested_high, device_scale_factor]);
+      [has_support, suggested_high, device_scale_factor],
+      false);
   }
 
   setSupportedRefreshRates(refresh_rates) {
@@ -309,7 +320,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       11,  // ordinal
       viz.mojom.DisplayPrivate_SetSupportedRefreshRates_ParamsSpec,
       null,
-      [refresh_rates]);
+      [refresh_rates],
+      false);
   }
 
   preserveChildSurfaceControls() {
@@ -318,7 +330,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       12,  // ordinal
       viz.mojom.DisplayPrivate_PreserveChildSurfaceControls_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setSwapCompletionCallbackEnabled(enable) {
@@ -327,7 +340,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       13,  // ordinal
       viz.mojom.DisplayPrivate_SetSwapCompletionCallbackEnabled_ParamsSpec,
       null,
-      [enable]);
+      [enable],
+      false);
   }
 
   addVSyncParameterObserver(observer) {
@@ -336,7 +350,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       14,  // ordinal
       viz.mojom.DisplayPrivate_AddVSyncParameterObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   setDelegatedInkPointRenderer(receiver) {
@@ -345,7 +360,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       15,  // ordinal
       viz.mojom.DisplayPrivate_SetDelegatedInkPointRenderer_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   setStandaloneBeginFrameObserver(observer) {
@@ -354,7 +370,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       16,  // ordinal
       viz.mojom.DisplayPrivate_SetStandaloneBeginFrameObserver_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   setMaxVSyncAndVrr(max_vsync_interval, vrr_state) {
@@ -363,7 +380,8 @@ viz.mojom.DisplayPrivateRemoteCallHandler = class {
       17,  // ordinal
       viz.mojom.DisplayPrivate_SetMaxVSyncAndVrr_ParamsSpec,
       null,
-      [max_vsync_interval, vrr_state]);
+      [max_vsync_interval, vrr_state],
+      false);
   }
 
 };
@@ -469,7 +487,8 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec,
       null,
-      [ca_layer_params]);
+      [ca_layer_params],
+      false);
   }
 
   createLayeredWindowUpdater(receiver) {
@@ -478,7 +497,8 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.DisplayClient_CreateLayeredWindowUpdater_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   addChildWindowToBrowser(child_window) {
@@ -487,7 +507,8 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.DisplayClient_AddChildWindowToBrowser_ParamsSpec,
       null,
-      [child_window]);
+      [child_window],
+      false);
   }
 
   didCompleteSwapWithSize(size) {
@@ -496,7 +517,8 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.DisplayClient_DidCompleteSwapWithSize_ParamsSpec,
       null,
-      [size]);
+      [size],
+      false);
   }
 
   didCompleteSwapWithNewSize(size) {
@@ -505,7 +527,8 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.DisplayClient_DidCompleteSwapWithNewSize_ParamsSpec,
       null,
-      [size]);
+      [size],
+      false);
   }
 
   onContextCreationResult(result) {
@@ -514,7 +537,8 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.DisplayClient_OnContextCreationResult_ParamsSpec,
       null,
-      [result]);
+      [result],
+      false);
   }
 
   setWideColorEnabled(enabled) {
@@ -523,7 +547,8 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       6,  // ordinal
       viz.mojom.DisplayClient_SetWideColorEnabled_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setPreferredRefreshRate(refresh_rate) {
@@ -532,7 +557,8 @@ viz.mojom.DisplayClientRemoteCallHandler = class {
       7,  // ordinal
       viz.mojom.DisplayClient_SetPreferredRefreshRate_ParamsSpec,
       null,
-      [refresh_rate]);
+      [refresh_rate],
+      false);
   }
 
 };

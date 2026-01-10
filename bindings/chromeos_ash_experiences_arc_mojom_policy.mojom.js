@@ -123,7 +123,8 @@ arc.mojom.PolicyHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.PolicyHost_GetPolicies_ParamsSpec,
       arc.mojom.PolicyHost_GetPolicies_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   reportCompliance(request) {
@@ -132,7 +133,8 @@ arc.mojom.PolicyHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.PolicyHost_ReportCompliance_ParamsSpec,
       arc.mojom.PolicyHost_ReportCompliance_ResponseParamsSpec,
-      [request]);
+      [request],
+      false);
   }
 
   reportDPCVersion(version) {
@@ -141,7 +143,8 @@ arc.mojom.PolicyHostRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.PolicyHost_ReportDPCVersion_ParamsSpec,
       null,
-      [version]);
+      [version],
+      false);
   }
 
   reportPlayStoreLocalPolicySet(time, package_names) {
@@ -150,7 +153,8 @@ arc.mojom.PolicyHostRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.PolicyHost_ReportPlayStoreLocalPolicySet_ParamsSpec,
       null,
-      [time, package_names]);
+      [time, package_names],
+      false);
   }
 
 };
@@ -236,7 +240,8 @@ arc.mojom.PolicyInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.PolicyInstance_Init_ParamsSpec,
       arc.mojom.PolicyInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   onPolicyUpdated() {
@@ -245,7 +250,8 @@ arc.mojom.PolicyInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.PolicyInstance_OnPolicyUpdated_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onCommandReceived(command) {
@@ -254,7 +260,8 @@ arc.mojom.PolicyInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.PolicyInstance_OnCommandReceived_ParamsSpec,
       arc.mojom.PolicyInstance_OnCommandReceived_ResponseParamsSpec,
-      [command]);
+      [command],
+      false);
   }
 
 };

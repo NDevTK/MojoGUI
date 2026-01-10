@@ -322,7 +322,8 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.ProducerHost_CommitData_ParamsSpec,
       tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec,
-      [data_request]);
+      [data_request],
+      false);
   }
 
   registerDataSource(registration_info) {
@@ -331,7 +332,8 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec,
       null,
-      [registration_info]);
+      [registration_info],
+      false);
   }
 
   updateDataSource(registration_info) {
@@ -340,7 +342,8 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
       2,  // ordinal
       tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec,
       null,
-      [registration_info]);
+      [registration_info],
+      false);
   }
 
   registerTraceWriter(writer_id, target_buffer) {
@@ -349,7 +352,8 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
       3,  // ordinal
       tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec,
       null,
-      [writer_id, target_buffer]);
+      [writer_id, target_buffer],
+      false);
   }
 
   unregisterTraceWriter(writer_id) {
@@ -358,7 +362,8 @@ tracing.mojom.ProducerHostRemoteCallHandler = class {
       4,  // ordinal
       tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec,
       null,
-      [writer_id]);
+      [writer_id],
+      false);
   }
 
 };
@@ -456,7 +461,8 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   startDataSource(id, data_source_config) {
@@ -465,7 +471,8 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.ProducerClient_StartDataSource_ParamsSpec,
       tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec,
-      [id, data_source_config]);
+      [id, data_source_config],
+      false);
   }
 
   stopDataSource(id) {
@@ -474,7 +481,8 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
       2,  // ordinal
       tracing.mojom.ProducerClient_StopDataSource_ParamsSpec,
       tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
   flush(flush_request_id, data_source_ids) {
@@ -483,7 +491,8 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
       3,  // ordinal
       tracing.mojom.ProducerClient_Flush_ParamsSpec,
       null,
-      [flush_request_id, data_source_ids]);
+      [flush_request_id, data_source_ids],
+      false);
   }
 
   clearIncrementalState() {
@@ -492,7 +501,8 @@ tracing.mojom.ProducerClientRemoteCallHandler = class {
       4,  // ordinal
       tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -559,7 +569,8 @@ tracing.mojom.PerfettoServiceRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec,
       null,
-      [producer_client, producer_host_receiver, shared_memory, shared_memory_buffer_page_size_bytes]);
+      [producer_client, producer_host_receiver, shared_memory, shared_memory_buffer_page_size_bytes],
+      false);
   }
 
 };
@@ -643,7 +654,8 @@ tracing.mojom.ConsumerHostRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec,
       null,
-      [tracing_session_host, tracing_session_client, config, output_file]);
+      [tracing_session_host, tracing_session_client, config, output_file],
+      false);
   }
 
   cloneSession(tracing_session_host, tracing_session_client, unguessable_name, privacy_filtering_enabled) {
@@ -652,7 +664,8 @@ tracing.mojom.ConsumerHostRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.ConsumerHost_CloneSession_ParamsSpec,
       tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec,
-      [tracing_session_host, tracing_session_client, unguessable_name, privacy_filtering_enabled]);
+      [tracing_session_host, tracing_session_client, unguessable_name, privacy_filtering_enabled],
+      false);
   }
 
 };
@@ -758,7 +771,8 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec,
       null,
-      [config]);
+      [config],
+      false);
   }
 
   disableTracing() {
@@ -767,7 +781,8 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   readBuffers(stream) {
@@ -776,7 +791,8 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
       2,  // ordinal
       tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec,
       tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec,
-      [stream]);
+      [stream],
+      false);
   }
 
   requestBufferUsage() {
@@ -785,7 +801,8 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
       3,  // ordinal
       tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec,
       tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   disableTracingAndEmitJson(agent_label_filter, stream, privacy_filtering_enabled) {
@@ -794,7 +811,8 @@ tracing.mojom.TracingSessionHostRemoteCallHandler = class {
       4,  // ordinal
       tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec,
       tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec,
-      [agent_label_filter, stream, privacy_filtering_enabled]);
+      [agent_label_filter, stream, privacy_filtering_enabled],
+      false);
   }
 
 };
@@ -863,7 +881,8 @@ tracing.mojom.TracingSessionClientRemoteCallHandler = class {
       0,  // ordinal
       tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onTracingDisabled(tracing_succeeded) {
@@ -872,7 +891,8 @@ tracing.mojom.TracingSessionClientRemoteCallHandler = class {
       1,  // ordinal
       tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec,
       null,
-      [tracing_succeeded]);
+      [tracing_succeeded],
+      false);
   }
 
 };

@@ -69,7 +69,8 @@ mirroring.mojom.AudioStreamCreatorClientRemoteCallHandler = class {
       0,  // ordinal
       mirroring.mojom.AudioStreamCreatorClient_StreamCreated_ParamsSpec,
       null,
-      [stream, client_receiver, data_pipe]);
+      [stream, client_receiver, data_pipe],
+      false);
   }
 
 };
@@ -166,7 +167,8 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
       0,  // ordinal
       mirroring.mojom.ResourceProvider_BindGpu_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   getVideoCaptureHost(receiver) {
@@ -175,7 +177,8 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
       1,  // ordinal
       mirroring.mojom.ResourceProvider_GetVideoCaptureHost_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   getVideoEncoderMetricsProvider(receiver) {
@@ -184,7 +187,8 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
       2,  // ordinal
       mirroring.mojom.ResourceProvider_GetVideoEncoderMetricsProvider_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   getNetworkContext(receiver) {
@@ -193,7 +197,8 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
       3,  // ordinal
       mirroring.mojom.ResourceProvider_GetNetworkContext_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
   createAudioStream(client, param, shared_memory_count) {
@@ -202,7 +207,8 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
       4,  // ordinal
       mirroring.mojom.ResourceProvider_CreateAudioStream_ParamsSpec,
       null,
-      [client, param, shared_memory_count]);
+      [client, param, shared_memory_count],
+      false);
   }
 
   connectToRemotingSource(remoter, receiver) {
@@ -211,7 +217,8 @@ mirroring.mojom.ResourceProviderRemoteCallHandler = class {
       5,  // ordinal
       mirroring.mojom.ResourceProvider_ConnectToRemotingSource_ParamsSpec,
       null,
-      [remoter, receiver]);
+      [remoter, receiver],
+      false);
   }
 
 };

@@ -63,7 +63,8 @@ comments.mojom.PageHandlerFactoryRemoteCallHandler = class {
       0,  // ordinal
       comments.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
       null,
-      [page, handler]);
+      [page, handler],
+      false);
   }
 
 };
@@ -126,7 +127,8 @@ comments.mojom.PageHandlerRemoteCallHandler = class {
       0,  // ordinal
       comments.mojom.PageHandler_ShowUI_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

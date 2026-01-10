@@ -67,7 +67,8 @@ blink.mojom.OomInterventionHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -135,7 +136,8 @@ blink.mojom.OomInterventionRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.OomIntervention_StartDetection_ParamsSpec,
       null,
-      [host, detection_args, renderer_pause_enabled, navigate_ads_enabled, purge_v8_memory_enabled]);
+      [host, detection_args, renderer_pause_enabled, navigate_ads_enabled, purge_v8_memory_enabled],
+      false);
   }
 
 };

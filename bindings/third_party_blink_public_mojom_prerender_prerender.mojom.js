@@ -85,7 +85,8 @@ blink.mojom.NoStatePrefetchProcessorRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec,
       null,
-      [prerender_attribute]);
+      [prerender_attribute],
+      false);
   }
 
   cancel() {
@@ -94,7 +95,8 @@ blink.mojom.NoStatePrefetchProcessorRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

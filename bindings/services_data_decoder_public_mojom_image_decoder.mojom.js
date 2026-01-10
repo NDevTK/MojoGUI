@@ -104,7 +104,8 @@ data_decoder.mojom.ImageDecoderRemoteCallHandler = class {
       0,  // ordinal
       data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec,
       data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec,
-      [encoded_data, codec, shrink_to_fit, max_size_in_bytes, desired_image_frame_size]);
+      [encoded_data, codec, shrink_to_fit, max_size_in_bytes, desired_image_frame_size],
+      false);
   }
 
   decodeAnimation(encoded_data, shrink_to_fit, max_size_in_bytes) {
@@ -113,7 +114,8 @@ data_decoder.mojom.ImageDecoderRemoteCallHandler = class {
       1,  // ordinal
       data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec,
       data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec,
-      [encoded_data, shrink_to_fit, max_size_in_bytes]);
+      [encoded_data, shrink_to_fit, max_size_in_bytes],
+      false);
   }
 
 };

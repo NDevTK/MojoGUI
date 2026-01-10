@@ -27,7 +27,7 @@ network.mojom.DocumentIsolationPolicyValue = {
 // Struct: DocumentIsolationPolicy
 mojo.internal.Struct(
     network.mojom.DocumentIsolationPolicySpec, 'network.mojom.DocumentIsolationPolicy', [
-      mojo.internal.StructField('value', 0, 0, network.mojom.DocumentIsolationPolicyValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('value', 0, 0, network.mojom.DocumentIsolationPolicyValueSpec, 0, false, 0, undefined),
       mojo.internal.StructField('reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('report_only_reporting_endpoint', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
@@ -86,7 +86,8 @@ network.mojom.DocumentIsolationPolicyReporterRemoteCallHandler = class {
       0,  // ordinal
       network.mojom.DocumentIsolationPolicyReporter_QueueCorpViolationReport_ParamsSpec,
       null,
-      [blocked_url, destination, report_only]);
+      [blocked_url, destination, report_only],
+      false);
   }
 
   clone(receiver) {
@@ -95,7 +96,8 @@ network.mojom.DocumentIsolationPolicyReporterRemoteCallHandler = class {
       1,  // ordinal
       network.mojom.DocumentIsolationPolicyReporter_Clone_ParamsSpec,
       null,
-      [receiver]);
+      [receiver],
+      false);
   }
 
 };

@@ -60,7 +60,8 @@ content.mojom.RouteProviderRemoteCallHandler = class {
       0,  // ordinal
       content.mojom.RouteProvider_GetRoute_ParamsSpec,
       null,
-      [frame_token, receiver]);
+      [frame_token, receiver],
+      false);
   }
 
 };

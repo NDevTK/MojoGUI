@@ -59,7 +59,8 @@ shape_detection.mojom.FaceDetectionProviderRemoteCallHandler = class {
       0,  // ordinal
       shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec,
       null,
-      [receiver, options]);
+      [receiver, options],
+      false);
   }
 
 };

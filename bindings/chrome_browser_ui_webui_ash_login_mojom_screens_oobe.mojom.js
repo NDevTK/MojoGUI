@@ -96,7 +96,8 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnDeclineCellularClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onAcceptCellularClicked() {
@@ -105,7 +106,8 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnAcceptCellularClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onSkipClicked() {
@@ -114,7 +116,8 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
       2,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnSkipClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onBackClicked() {
@@ -123,7 +126,8 @@ ash.screens_oobe.mojom.ConsumerUpdatePageHandlerRemoteCallHandler = class {
       3,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePageHandler_OnBackClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -212,7 +216,8 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePage_ShowSkipButton_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setLowBatteryWarningVisible(visible) {
@@ -221,7 +226,8 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePage_SetLowBatteryWarningVisible_ParamsSpec,
       null,
-      [visible]);
+      [visible],
+      false);
   }
 
   setScreenStep(step) {
@@ -230,7 +236,8 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
       2,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePage_SetScreenStep_ParamsSpec,
       null,
-      [step]);
+      [step],
+      false);
   }
 
   setUpdateStatusMessage(percent, percent_message, time_left_message) {
@@ -239,7 +246,8 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
       3,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePage_SetUpdateStatusMessage_ParamsSpec,
       null,
-      [percent, percent_message, time_left_message]);
+      [percent, percent_message, time_left_message],
+      false);
   }
 
   setAutoTransition(enabled) {
@@ -248,7 +256,8 @@ ash.screens_oobe.mojom.ConsumerUpdatePageRemoteCallHandler = class {
       4,  // ordinal
       ash.screens_oobe.mojom.ConsumerUpdatePage_SetAutoTransition_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
 };
@@ -316,7 +325,8 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.screens_oobe.mojom.PackagedLicensePageHandler_OnDontEnrollClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onEnrollClicked() {
@@ -325,7 +335,8 @@ ash.screens_oobe.mojom.PackagedLicensePageHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.screens_oobe.mojom.PackagedLicensePageHandler_OnEnrollClicked_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

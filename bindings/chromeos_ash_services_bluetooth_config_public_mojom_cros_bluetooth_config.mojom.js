@@ -239,7 +239,8 @@ ash.bluetooth_config.mojom.SystemPropertiesObserverRemoteCallHandler = class {
       0,  // ordinal
       ash.bluetooth_config.mojom.SystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec,
       null,
-      [properties]);
+      [properties],
+      false);
   }
 
 };
@@ -315,7 +316,8 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemoteCallHandler = clas
       0,  // ordinal
       ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDevicePaired_ParamsSpec,
       null,
-      [device]);
+      [device],
+      false);
   }
 
   onDeviceConnected(device) {
@@ -324,7 +326,8 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemoteCallHandler = clas
       1,  // ordinal
       ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceConnected_ParamsSpec,
       null,
-      [device]);
+      [device],
+      false);
   }
 
   onDeviceDisconnected(device) {
@@ -333,7 +336,8 @@ ash.bluetooth_config.mojom.BluetoothDeviceStatusObserverRemoteCallHandler = clas
       2,  // ordinal
       ash.bluetooth_config.mojom.BluetoothDeviceStatusObserver_OnDeviceDisconnected_ParamsSpec,
       null,
-      [device]);
+      [device],
+      false);
   }
 
 };
@@ -397,7 +401,8 @@ ash.bluetooth_config.mojom.DiscoverySessionStatusObserverRemoteCallHandler = cla
       0,  // ordinal
       ash.bluetooth_config.mojom.DiscoverySessionStatusObserver_OnHasAtLeastOneDiscoverySessionChanged_ParamsSpec,
       null,
-      [has_at_least_one_discovery_session]);
+      [has_at_least_one_discovery_session],
+      false);
   }
 
 };
@@ -461,7 +466,8 @@ ash.bluetooth_config.mojom.KeyEnteredHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.bluetooth_config.mojom.KeyEnteredHandler_HandleKeyEntered_ParamsSpec,
       null,
-      [num_keys_entered]);
+      [num_keys_entered],
+      false);
   }
 
 };
@@ -578,7 +584,8 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
       0,  // ordinal
       ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ParamsSpec,
       ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPinCode_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   requestPasskey() {
@@ -587,7 +594,8 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
       1,  // ordinal
       ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ParamsSpec,
       ash.bluetooth_config.mojom.DevicePairingDelegate_RequestPasskey_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   displayPinCode(pin_code, handler) {
@@ -596,7 +604,8 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
       2,  // ordinal
       ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPinCode_ParamsSpec,
       null,
-      [pin_code, handler]);
+      [pin_code, handler],
+      false);
   }
 
   displayPasskey(passkey, handler) {
@@ -605,7 +614,8 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
       3,  // ordinal
       ash.bluetooth_config.mojom.DevicePairingDelegate_DisplayPasskey_ParamsSpec,
       null,
-      [passkey, handler]);
+      [passkey, handler],
+      false);
   }
 
   confirmPasskey(passkey) {
@@ -614,7 +624,8 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
       4,  // ordinal
       ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ParamsSpec,
       ash.bluetooth_config.mojom.DevicePairingDelegate_ConfirmPasskey_ResponseParamsSpec,
-      [passkey]);
+      [passkey],
+      false);
   }
 
   authorizePairing() {
@@ -623,7 +634,8 @@ ash.bluetooth_config.mojom.DevicePairingDelegateRemoteCallHandler = class {
       5,  // ordinal
       ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ParamsSpec,
       ash.bluetooth_config.mojom.DevicePairingDelegate_AuthorizePairing_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -706,7 +718,8 @@ ash.bluetooth_config.mojom.DevicePairingHandlerRemoteCallHandler = class {
       0,  // ordinal
       ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ParamsSpec,
       ash.bluetooth_config.mojom.DevicePairingHandler_PairDevice_ResponseParamsSpec,
-      [device_id, delegate]);
+      [device_id, delegate],
+      false);
   }
 
   fetchDevice(device_address) {
@@ -715,7 +728,8 @@ ash.bluetooth_config.mojom.DevicePairingHandlerRemoteCallHandler = class {
       1,  // ordinal
       ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ParamsSpec,
       ash.bluetooth_config.mojom.DevicePairingHandler_FetchDevice_ResponseParamsSpec,
-      [device_address]);
+      [device_address],
+      false);
   }
 
 };
@@ -790,7 +804,8 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemoteCallHandler = class {
       0,  // ordinal
       ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStarted_ParamsSpec,
       null,
-      [handler]);
+      [handler],
+      false);
   }
 
   onBluetoothDiscoveryStopped() {
@@ -799,7 +814,8 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemoteCallHandler = class {
       1,  // ordinal
       ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnBluetoothDiscoveryStopped_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   onDiscoveredDevicesListChanged(discovered_devices) {
@@ -808,7 +824,8 @@ ash.bluetooth_config.mojom.BluetoothDiscoveryDelegateRemoteCallHandler = class {
       2,  // ordinal
       ash.bluetooth_config.mojom.BluetoothDiscoveryDelegate_OnDiscoveredDevicesListChanged_ParamsSpec,
       null,
-      [discovered_devices]);
+      [discovered_devices],
+      false);
   }
 
 };
@@ -950,7 +967,8 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
       0,  // ordinal
       ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveSystemProperties_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeDeviceStatusChanges(observer) {
@@ -959,7 +977,8 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
       1,  // ordinal
       ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDeviceStatusChanges_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   observeDiscoverySessionStatusChanges(observer) {
@@ -968,7 +987,8 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
       2,  // ordinal
       ash.bluetooth_config.mojom.CrosBluetoothConfig_ObserveDiscoverySessionStatusChanges_ParamsSpec,
       null,
-      [observer]);
+      [observer],
+      false);
   }
 
   setBluetoothEnabledState(enabled) {
@@ -977,7 +997,8 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
       3,  // ordinal
       ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledState_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   setBluetoothEnabledWithoutPersistence() {
@@ -986,7 +1007,8 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
       4,  // ordinal
       ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothEnabledWithoutPersistence_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   setBluetoothHidDetectionInactive(is_using_bluetooth) {
@@ -995,7 +1017,8 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
       5,  // ordinal
       ash.bluetooth_config.mojom.CrosBluetoothConfig_SetBluetoothHidDetectionInactive_ParamsSpec,
       null,
-      [is_using_bluetooth]);
+      [is_using_bluetooth],
+      false);
   }
 
   startDiscovery(delegate) {
@@ -1004,7 +1027,8 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
       6,  // ordinal
       ash.bluetooth_config.mojom.CrosBluetoothConfig_StartDiscovery_ParamsSpec,
       null,
-      [delegate]);
+      [delegate],
+      false);
   }
 
   connect(device_id) {
@@ -1013,7 +1037,8 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
       7,  // ordinal
       ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ParamsSpec,
       ash.bluetooth_config.mojom.CrosBluetoothConfig_Connect_ResponseParamsSpec,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   disconnect(device_id) {
@@ -1022,7 +1047,8 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
       8,  // ordinal
       ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ParamsSpec,
       ash.bluetooth_config.mojom.CrosBluetoothConfig_Disconnect_ResponseParamsSpec,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   forget(device_id) {
@@ -1031,7 +1057,8 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
       9,  // ordinal
       ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ParamsSpec,
       ash.bluetooth_config.mojom.CrosBluetoothConfig_Forget_ResponseParamsSpec,
-      [device_id]);
+      [device_id],
+      false);
   }
 
   setDeviceNickname(device_id, nickname) {
@@ -1040,7 +1067,8 @@ ash.bluetooth_config.mojom.CrosBluetoothConfigRemoteCallHandler = class {
       10,  // ordinal
       ash.bluetooth_config.mojom.CrosBluetoothConfig_SetDeviceNickname_ParamsSpec,
       null,
-      [device_id, nickname]);
+      [device_id, nickname],
+      false);
   }
 
 };

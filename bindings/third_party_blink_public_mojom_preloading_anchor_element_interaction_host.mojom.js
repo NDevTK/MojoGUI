@@ -98,7 +98,8 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
       0,  // ordinal
       blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec,
       null,
-      [target]);
+      [target],
+      false);
   }
 
   onPointerHoverEager(target, mouse_data) {
@@ -107,7 +108,8 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
       1,  // ordinal
       blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec,
       null,
-      [target, mouse_data]);
+      [target, mouse_data],
+      false);
   }
 
   onPointerHoverModerate(target, mouse_data) {
@@ -116,7 +118,8 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
       2,  // ordinal
       blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec,
       null,
-      [target, mouse_data]);
+      [target, mouse_data],
+      false);
   }
 
   onModerateViewportHeuristicTriggered(target) {
@@ -125,7 +128,8 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
       3,  // ordinal
       blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec,
       null,
-      [target]);
+      [target],
+      false);
   }
 
   onEagerViewportHeuristicTriggered(targets) {
@@ -134,7 +138,8 @@ blink.mojom.AnchorElementInteractionHostRemoteCallHandler = class {
       4,  // ordinal
       blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec,
       null,
-      [targets]);
+      [targets],
+      false);
   }
 
 };

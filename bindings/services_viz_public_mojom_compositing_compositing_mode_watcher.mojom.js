@@ -59,7 +59,8 @@ viz.mojom.CompositingModeWatcherRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };
@@ -123,7 +124,8 @@ viz.mojom.CompositingModeReporterRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec,
       null,
-      [watcher]);
+      [watcher],
+      false);
   }
 
 };

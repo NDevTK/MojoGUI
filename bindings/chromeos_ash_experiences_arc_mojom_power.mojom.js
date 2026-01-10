@@ -175,7 +175,8 @@ arc.mojom.PowerHostRemoteCallHandler = class {
       0,  // ordinal
       arc.mojom.PowerHost_OnAcquireDisplayWakeLock_ParamsSpec,
       null,
-      [type]);
+      [type],
+      false);
   }
 
   onReleaseDisplayWakeLock(type) {
@@ -184,7 +185,8 @@ arc.mojom.PowerHostRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.PowerHost_OnReleaseDisplayWakeLock_ParamsSpec,
       null,
-      [type]);
+      [type],
+      false);
   }
 
   onWakefulnessChanged(mode) {
@@ -193,7 +195,8 @@ arc.mojom.PowerHostRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.PowerHost_OnWakefulnessChanged_ParamsSpec,
       null,
-      [mode]);
+      [mode],
+      false);
   }
 
   isDisplayOn() {
@@ -202,7 +205,8 @@ arc.mojom.PowerHostRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.PowerHost_IsDisplayOn_ParamsSpec,
       arc.mojom.PowerHost_IsDisplayOn_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onScreenBrightnessUpdateRequest(percent) {
@@ -211,7 +215,8 @@ arc.mojom.PowerHostRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.PowerHost_OnScreenBrightnessUpdateRequest_ParamsSpec,
       null,
-      [percent]);
+      [percent],
+      false);
   }
 
   onPreAnr(type) {
@@ -220,7 +225,8 @@ arc.mojom.PowerHostRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.PowerHost_OnPreAnr_ParamsSpec,
       null,
-      [type]);
+      [type],
+      false);
   }
 
   onAnrRecoveryFailed(type) {
@@ -229,7 +235,8 @@ arc.mojom.PowerHostRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.PowerHost_OnAnrRecoveryFailed_ParamsSpec,
       null,
-      [type]);
+      [type],
+      false);
   }
 
   getBatterySaverModeState() {
@@ -238,7 +245,8 @@ arc.mojom.PowerHostRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.PowerHost_GetBatterySaverModeState_ParamsSpec,
       arc.mojom.PowerHost_GetBatterySaverModeState_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
 };
@@ -368,7 +376,8 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
       5,  // ordinal
       arc.mojom.PowerInstance_Init_ParamsSpec,
       arc.mojom.PowerInstance_Init_ResponseParamsSpec,
-      [host_remote]);
+      [host_remote],
+      false);
   }
 
   setInteractiveDeprecated(enabled) {
@@ -377,7 +386,8 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
       1,  // ordinal
       arc.mojom.PowerInstance_SetInteractiveDeprecated_ParamsSpec,
       null,
-      [enabled]);
+      [enabled],
+      false);
   }
 
   suspend() {
@@ -386,7 +396,8 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
       2,  // ordinal
       arc.mojom.PowerInstance_Suspend_ParamsSpec,
       arc.mojom.PowerInstance_Suspend_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   resume() {
@@ -395,7 +406,8 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
       3,  // ordinal
       arc.mojom.PowerInstance_Resume_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   updateScreenBrightnessSettings(percent) {
@@ -404,7 +416,8 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
       4,  // ordinal
       arc.mojom.PowerInstance_UpdateScreenBrightnessSettings_ParamsSpec,
       null,
-      [percent]);
+      [percent],
+      false);
   }
 
   powerSupplyInfoChanged() {
@@ -413,7 +426,8 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
       6,  // ordinal
       arc.mojom.PowerInstance_PowerSupplyInfoChanged_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   getWakefulnessMode() {
@@ -422,7 +436,8 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
       7,  // ordinal
       arc.mojom.PowerInstance_GetWakefulnessMode_ParamsSpec,
       arc.mojom.PowerInstance_GetWakefulnessMode_ResponseParamsSpec,
-      []);
+      [],
+      false);
   }
 
   onCpuRestrictionChanged(state) {
@@ -431,7 +446,8 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
       8,  // ordinal
       arc.mojom.PowerInstance_OnCpuRestrictionChanged_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   onBatterySaverModeStateChanged(state) {
@@ -440,7 +456,8 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
       9,  // ordinal
       arc.mojom.PowerInstance_OnBatterySaverModeStateChanged_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
   setIdleState(state) {
@@ -449,7 +466,8 @@ arc.mojom.PowerInstanceRemoteCallHandler = class {
       10,  // ordinal
       arc.mojom.PowerInstance_SetIdleState_ParamsSpec,
       null,
-      [state]);
+      [state],
+      false);
   }
 
 };

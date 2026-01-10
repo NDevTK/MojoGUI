@@ -45,7 +45,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('accept_ch', 80, 0, mojo.internal.Array(network.mojom.WebClientHintsTypeSpec, false), null, true, 0, undefined),
       mojo.internal.StructField('critical_ch', 88, 0, mojo.internal.Array(network.mojom.WebClientHintsTypeSpec, false), null, true, 0, undefined),
       mojo.internal.StructField('client_hints_ignored_due_to_clear_site_data_header', 96, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('xfo', 100, 0, network.mojom.XFrameOptionsValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('xfo', 100, 0, network.mojom.XFrameOptionsValueSpec, 0, false, 0, undefined),
       mojo.internal.StructField('link_headers', 104, 0, mojo.internal.Array(network.mojom.LinkHeaderSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('timing_allow_origin', 112, 0, network.mojom.TimingAllowOriginSpec, null, true, 0, undefined),
       mojo.internal.StructField('supports_loading_mode', 128, 0, mojo.internal.Array(network.mojom.LoadingModeSpec, false), null, false, 0, undefined),

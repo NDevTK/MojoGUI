@@ -139,7 +139,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     auction_worklet.mojom.SignalBucketSpec, 'auction_worklet.mojom.SignalBucket', [
       mojo.internal.StructField('base_value', 0, 0, auction_worklet.mojom.BaseValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scale', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('scale', 8, 0, mojo.internal.Double, 1.0, false, 0, undefined),
       mojo.internal.StructField('offset', 16, 0, auction_worklet.mojom.BucketOffsetSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
@@ -148,7 +148,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     auction_worklet.mojom.SignalValueSpec, 'auction_worklet.mojom.SignalValue', [
       mojo.internal.StructField('base_value', 0, 0, auction_worklet.mojom.BaseValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('scale', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('scale', 8, 0, mojo.internal.Double, 1.0, false, 0, undefined),
       mojo.internal.StructField('offset', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 32]]);

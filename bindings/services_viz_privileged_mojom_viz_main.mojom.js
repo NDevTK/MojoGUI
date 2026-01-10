@@ -37,8 +37,8 @@ viz.mojom.VizMain_StopDebugStream_ParamsSpec = { $: {} };
 mojo.internal.Struct(
     viz.mojom.FrameSinkManagerParamsSpec, 'viz.mojom.FrameSinkManagerParams', [
       mojo.internal.StructField('restart_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('use_activation_deadline', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('activation_deadline_in_frames', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('use_activation_deadline', 4, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('activation_deadline_in_frames', 8, 0, mojo.internal.Uint32, 4, false, 0, undefined),
       mojo.internal.StructField('frame_sink_manager', 16, 0, mojo.internal.InterfaceRequest(viz.mojom.FrameSinkManagerRemote), null, false, 0, undefined),
       mojo.internal.StructField('frame_sink_manager_client', 24, 0, mojo.internal.InterfaceProxy(viz.mojom.FrameSinkManagerClientRemote), null, false, 0, undefined),
       mojo.internal.StructField('debug_renderer_settings', 32, 0, viz.mojom.DebugRendererSettingsSpec, null, false, 0, undefined),
@@ -150,7 +150,8 @@ viz.mojom.VizMainRemoteCallHandler = class {
       0,  // ordinal
       viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec,
       null,
-      [params]);
+      [params],
+      false);
   }
 
   createGpuService(gpu_service, gpu_host, gpu_logging, discardable_memory_manager, use_shader_cache_shm_count, params) {
@@ -159,7 +160,8 @@ viz.mojom.VizMainRemoteCallHandler = class {
       1,  // ordinal
       viz.mojom.VizMain_CreateGpuService_ParamsSpec,
       null,
-      [gpu_service, gpu_host, gpu_logging, discardable_memory_manager, use_shader_cache_shm_count, params]);
+      [gpu_service, gpu_host, gpu_logging, discardable_memory_manager, use_shader_cache_shm_count, params],
+      false);
   }
 
   setRenderParams(subpixel_rendering, text_contrast, text_gamma) {
@@ -168,7 +170,8 @@ viz.mojom.VizMainRemoteCallHandler = class {
       2,  // ordinal
       viz.mojom.VizMain_SetRenderParams_ParamsSpec,
       null,
-      [subpixel_rendering, text_contrast, text_gamma]);
+      [subpixel_rendering, text_contrast, text_gamma],
+      false);
   }
 
   createInfoCollectionGpuService(info_collection_gpu_service) {
@@ -177,7 +180,8 @@ viz.mojom.VizMainRemoteCallHandler = class {
       3,  // ordinal
       viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec,
       null,
-      [info_collection_gpu_service]);
+      [info_collection_gpu_service],
+      false);
   }
 
   setHostProcessId(pid) {
@@ -186,7 +190,8 @@ viz.mojom.VizMainRemoteCallHandler = class {
       4,  // ordinal
       viz.mojom.VizMain_SetHostProcessId_ParamsSpec,
       null,
-      [pid]);
+      [pid],
+      false);
   }
 
   notifyWorkloadIncrease() {
@@ -195,7 +200,8 @@ viz.mojom.VizMainRemoteCallHandler = class {
       5,  // ordinal
       viz.mojom.VizMain_NotifyWorkloadIncrease_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
   startDebugStream(viz_debug) {
@@ -204,7 +210,8 @@ viz.mojom.VizMainRemoteCallHandler = class {
       6,  // ordinal
       viz.mojom.VizMain_StartDebugStream_ParamsSpec,
       null,
-      [viz_debug]);
+      [viz_debug],
+      false);
   }
 
   filterDebugStream(filterData) {
@@ -213,7 +220,8 @@ viz.mojom.VizMainRemoteCallHandler = class {
       7,  // ordinal
       viz.mojom.VizMain_FilterDebugStream_ParamsSpec,
       null,
-      [filterData]);
+      [filterData],
+      false);
   }
 
   stopDebugStream() {
@@ -222,7 +230,8 @@ viz.mojom.VizMainRemoteCallHandler = class {
       8,  // ordinal
       viz.mojom.VizMain_StopDebugStream_ParamsSpec,
       null,
-      []);
+      [],
+      false);
   }
 
 };

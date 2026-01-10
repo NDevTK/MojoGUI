@@ -90,7 +90,8 @@ audio.mojom.DebugRecordingFileProviderRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec,
       audio.mojom.DebugRecordingFileProvider_CreateWavFile_ResponseParamsSpec,
-      [stream_type, id]);
+      [stream_type, id],
+      false);
   }
 
   createAecdumpFile(id) {
@@ -99,7 +100,8 @@ audio.mojom.DebugRecordingFileProviderRemoteCallHandler = class {
       1,  // ordinal
       audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ParamsSpec,
       audio.mojom.DebugRecordingFileProvider_CreateAecdumpFile_ResponseParamsSpec,
-      [id]);
+      [id],
+      false);
   }
 
 };
@@ -163,7 +165,8 @@ audio.mojom.DebugRecordingRemoteCallHandler = class {
       0,  // ordinal
       audio.mojom.DebugRecording_Enable_ParamsSpec,
       null,
-      [file_provider]);
+      [file_provider],
+      false);
   }
 
 };
