@@ -144,6 +144,7 @@ blink.mojom.ControllerServiceWorkerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ControllerServiceWorker_DispatchFetchEventForSubresource_ParamsSpec.$.decode(message.payload);
@@ -243,6 +244,7 @@ blink.mojom.ControllerServiceWorkerConnectorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ControllerServiceWorkerConnector_UpdateController_ParamsSpec.$.decode(message.payload);

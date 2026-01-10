@@ -246,6 +246,7 @@ chrome.mojom.MediaParserReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$.decode(message.payload);
@@ -380,6 +381,7 @@ chrome.mojom.MediaParserFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$.decode(message.payload);
@@ -481,6 +483,7 @@ chrome.mojom.MediaDataSourceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.MediaDataSource_Read_ParamsSpec.$.decode(message.payload);

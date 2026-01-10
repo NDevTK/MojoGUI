@@ -107,6 +107,7 @@ userspace_swap.mojom.UserspaceSwapInitializationReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$.decode(message.payload);
@@ -240,6 +241,7 @@ userspace_swap.mojom.UserspaceSwapReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$.decode(message.payload);

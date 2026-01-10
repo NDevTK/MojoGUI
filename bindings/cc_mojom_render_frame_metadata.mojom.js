@@ -156,6 +156,7 @@ cc.mojom.RenderFrameMetadataObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = cc.mojom.RenderFrameMetadataObserver_UpdateRootScrollOffsetUpdateFrequency_ParamsSpec.$.decode(message.payload);
@@ -282,6 +283,7 @@ cc.mojom.RenderFrameMetadataObserverClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec.$.decode(message.payload);

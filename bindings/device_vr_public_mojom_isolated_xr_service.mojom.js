@@ -163,6 +163,7 @@ device.mojom.XRSessionControllerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRSessionController_SetFrameDataRestricted_ParamsSpec.$.decode(message.payload);
@@ -266,6 +267,7 @@ device.mojom.XRRuntimeEventListenerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRRuntimeEventListener_OnVisibilityStateChanged_ParamsSpec.$.decode(message.payload);
@@ -401,6 +403,7 @@ device.mojom.XRRuntimeReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRRuntime_RequestSession_ParamsSpec.$.decode(message.payload);
@@ -579,6 +582,7 @@ device.mojom.ImmersiveOverlayReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.ImmersiveOverlay_RequestNextOverlayPose_ParamsSpec.$.decode(message.payload);
@@ -733,6 +737,7 @@ device.mojom.IsolatedXRRuntimeProviderClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.IsolatedXRRuntimeProviderClient_OnDeviceAdded_ParamsSpec.$.decode(message.payload);
@@ -831,6 +836,7 @@ device.mojom.IsolatedXRRuntimeProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.IsolatedXRRuntimeProvider_RequestDevices_ParamsSpec.$.decode(message.payload);
@@ -936,6 +942,7 @@ device.mojom.XRDeviceServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRDeviceService_BindRuntimeProvider_ParamsSpec.$.decode(message.payload);
@@ -1029,6 +1036,7 @@ device.mojom.XRDeviceServiceHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.XRDeviceServiceHost_BindGpu_ParamsSpec.$.decode(message.payload);

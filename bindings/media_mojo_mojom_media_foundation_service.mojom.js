@@ -96,6 +96,7 @@ media.mojom.GpuInfoObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec.$.decode(message.payload);
@@ -208,6 +209,7 @@ media.mojom.MediaFoundationServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec.$.decode(message.payload);
@@ -330,6 +332,7 @@ media.mojom.MediaFoundationServiceBrokerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec.$.decode(message.payload);

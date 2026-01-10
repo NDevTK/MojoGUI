@@ -242,6 +242,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactoryReceiver = class 
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = side_panel.customize_chrome.mojom.WallpaperSearchHandlerFactory_CreateWallpaperSearchHandler_ParamsSpec.$.decode(message.payload);
@@ -509,6 +510,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = side_panel.customize_chrome.mojom.WallpaperSearchHandler_GetDescriptors_ParamsSpec.$.decode(message.payload);
@@ -665,6 +667,7 @@ side_panel.customize_chrome.mojom.WallpaperSearchClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = side_panel.customize_chrome.mojom.WallpaperSearchClient_SetHistory_ParamsSpec.$.decode(message.payload);

@@ -107,6 +107,7 @@ ash.common.mojom.ShortcutInputObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec.$.decode(message.payload);
@@ -215,6 +216,7 @@ ash.common.mojom.ShortcutInputProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec.$.decode(message.payload);

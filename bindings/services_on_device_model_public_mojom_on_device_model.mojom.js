@@ -383,6 +383,7 @@ on_device_model.mojom.StreamingResponderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = on_device_model.mojom.StreamingResponder_OnResponse_ParamsSpec.$.decode(message.payload);
@@ -476,6 +477,7 @@ on_device_model.mojom.ContextClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = on_device_model.mojom.ContextClient_OnComplete_ParamsSpec.$.decode(message.payload);
@@ -698,6 +700,7 @@ on_device_model.mojom.SessionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 6: {
           const params = on_device_model.mojom.Session_Append_ParamsSpec.$.decode(message.payload);
@@ -907,6 +910,7 @@ on_device_model.mojom.OnDeviceModelReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = on_device_model.mojom.OnDeviceModel_StartSession_ParamsSpec.$.decode(message.payload);
@@ -1072,6 +1076,7 @@ on_device_model.mojom.TextSafetySessionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 1: {
           const params = on_device_model.mojom.TextSafetySession_ClassifyTextSafety_ParamsSpec.$.decode(message.payload);
@@ -1182,6 +1187,7 @@ on_device_model.mojom.TextSafetyModelReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = on_device_model.mojom.TextSafetyModel_StartSession_ParamsSpec.$.decode(message.payload);
@@ -1270,6 +1276,7 @@ on_device_model.mojom.AsrStreamResponderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = on_device_model.mojom.AsrStreamResponder_OnResponse_ParamsSpec.$.decode(message.payload);
@@ -1358,6 +1365,7 @@ on_device_model.mojom.AsrStreamInputReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = on_device_model.mojom.AsrStreamInput_AddAudioChunk_ParamsSpec.$.decode(message.payload);

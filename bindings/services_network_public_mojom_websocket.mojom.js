@@ -152,6 +152,7 @@ network.mojom.WebSocketAuthenticationHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.WebSocketAuthenticationHandler_OnAuthRequired_ParamsSpec.$.decode(message.payload);
@@ -284,6 +285,7 @@ network.mojom.WebSocketHandshakeClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.WebSocketHandshakeClient_OnOpeningHandshakeStarted_ParamsSpec.$.decode(message.payload);
@@ -417,6 +419,7 @@ network.mojom.WebSocketClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.WebSocketClient_OnDataFrame_ParamsSpec.$.decode(message.payload);
@@ -548,6 +551,7 @@ network.mojom.WebSocketReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.WebSocket_SendMessage_ParamsSpec.$.decode(message.payload);

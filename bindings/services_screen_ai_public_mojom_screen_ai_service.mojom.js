@@ -279,6 +279,7 @@ screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAXTreeUpdate_ParamsSpec.$.decode(message.payload);
@@ -483,6 +484,7 @@ screen_ai.mojom.Screen2xMainContentExtractorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec.$.decode(message.payload);
@@ -604,6 +606,7 @@ screen_ai.mojom.OCRServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec.$.decode(message.payload);
@@ -692,6 +695,7 @@ screen_ai.mojom.MainContentExtractionServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec.$.decode(message.payload);

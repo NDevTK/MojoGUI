@@ -299,6 +299,7 @@ network.mojom.SimpleCacheEntryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.SimpleCacheEntry_WriteData_ParamsSpec.$.decode(message.payload);
@@ -442,6 +443,7 @@ network.mojom.SimpleCacheEntryEnumeratorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.SimpleCacheEntryEnumerator_GetNext_ParamsSpec.$.decode(message.payload);
@@ -645,6 +647,7 @@ network.mojom.SimpleCacheReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.SimpleCache_CreateEntry_ParamsSpec.$.decode(message.payload);
@@ -1372,6 +1375,7 @@ network.mojom.NetworkServiceTestReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.NetworkServiceTest_AddRules_ParamsSpec.$.decode(message.payload);

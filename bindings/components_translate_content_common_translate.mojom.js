@@ -152,6 +152,7 @@ translate.mojom.TranslateAgentReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec.$.decode(message.payload);
@@ -253,6 +254,7 @@ translate.mojom.ContentTranslateDriverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec.$.decode(message.payload);

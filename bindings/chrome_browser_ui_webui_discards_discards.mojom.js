@@ -345,6 +345,7 @@ discards.mojom.DetailsProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec.$.decode(message.payload);
@@ -636,6 +637,7 @@ discards.mojom.GraphChangeStreamReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec.$.decode(message.payload);
@@ -791,6 +793,7 @@ discards.mojom.GraphDumpReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec.$.decode(message.payload);

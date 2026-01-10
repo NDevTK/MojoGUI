@@ -240,6 +240,7 @@ nearby_share.mojom.ShareTargetListenerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec.$.decode(message.payload);
@@ -334,6 +335,7 @@ nearby_share.mojom.TransferUpdateListenerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec.$.decode(message.payload);
@@ -437,6 +439,7 @@ nearby_share.mojom.DiscoveryObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec.$.decode(message.payload);
@@ -617,6 +620,7 @@ nearby_share.mojom.DiscoveryManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec.$.decode(message.payload);
@@ -796,6 +800,7 @@ nearby_share.mojom.ConfirmationManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec.$.decode(message.payload);
@@ -959,6 +964,7 @@ nearby_share.mojom.ReceiveObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec.$.decode(message.payload);
@@ -1185,6 +1191,7 @@ nearby_share.mojom.ReceiveManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec.$.decode(message.payload);

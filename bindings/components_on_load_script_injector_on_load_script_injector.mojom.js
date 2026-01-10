@@ -100,6 +100,7 @@ on_load_script_injector.mojom.OnLoadScriptInjectorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec.$.decode(message.payload);

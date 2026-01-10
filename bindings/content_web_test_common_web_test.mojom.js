@@ -453,6 +453,7 @@ content.mojom.WebTestRenderFrameReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.WebTestRenderFrame_SynchronouslyCompositeAfterTest_ParamsSpec.$.decode(message.payload);
@@ -1270,6 +1271,7 @@ content.mojom.WebTestControlHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.WebTestControlHost_InitiateCaptureDump_ParamsSpec.$.decode(message.payload);
@@ -1589,6 +1591,7 @@ content.mojom.NonAssociatedWebTestControlHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.NonAssociatedWebTestControlHost_SetLCPPNavigationHint_ParamsSpec.$.decode(message.payload);

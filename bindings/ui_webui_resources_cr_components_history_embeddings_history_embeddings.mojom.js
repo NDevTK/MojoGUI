@@ -259,6 +259,7 @@ history_embeddings.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = history_embeddings.mojom.PageHandler_SetPage_ParamsSpec.$.decode(message.payload);
@@ -377,6 +378,7 @@ history_embeddings.mojom.PageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = history_embeddings.mojom.Page_SearchResultChanged_ParamsSpec.$.decode(message.payload);

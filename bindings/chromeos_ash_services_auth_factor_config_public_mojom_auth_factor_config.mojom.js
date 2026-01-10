@@ -186,6 +186,7 @@ ash.auth.mojom.FactorObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec.$.decode(message.payload);
@@ -382,6 +383,7 @@ ash.auth.mojom.AuthFactorConfigReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec.$.decode(message.payload);
@@ -526,6 +528,7 @@ ash.auth.mojom.RecoveryFactorEditorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec.$.decode(message.payload);
@@ -717,6 +720,7 @@ ash.auth.mojom.PinFactorEditorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec.$.decode(message.payload);
@@ -975,6 +979,7 @@ ash.auth.mojom.PasswordFactorEditorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec.$.decode(message.payload);

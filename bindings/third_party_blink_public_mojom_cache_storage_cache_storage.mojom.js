@@ -305,6 +305,7 @@ blink.mojom.CacheStorageCacheReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.CacheStorageCache_Match_ParamsSpec.$.decode(message.payload);
@@ -519,6 +520,7 @@ blink.mojom.CacheStorageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.CacheStorage_Has_ParamsSpec.$.decode(message.payload);

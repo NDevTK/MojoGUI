@@ -121,6 +121,7 @@ blink.mojom.ServiceWorkerObjectHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec.$.decode(message.payload);
@@ -220,6 +221,7 @@ blink.mojom.ServiceWorkerObjectReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec.$.decode(message.payload);

@@ -417,6 +417,7 @@ history.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = history.mojom.PageHandler_SetPage_ParamsSpec.$.decode(message.payload);
@@ -626,6 +627,7 @@ history.mojom.PageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = history.mojom.Page_OnHistoryDeleted_ParamsSpec.$.decode(message.payload);

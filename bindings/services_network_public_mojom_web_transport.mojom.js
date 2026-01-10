@@ -332,6 +332,7 @@ network.mojom.WebTransportReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.WebTransport_SendDatagram_ParamsSpec.$.decode(message.payload);
@@ -579,6 +580,7 @@ network.mojom.WebTransportClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.WebTransportClient_OnDatagramReceived_ParamsSpec.$.decode(message.payload);
@@ -728,6 +730,7 @@ network.mojom.WebTransportHandshakeClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.WebTransportHandshakeClient_OnBeforeConnect_ParamsSpec.$.decode(message.payload);

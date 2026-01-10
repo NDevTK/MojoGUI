@@ -100,6 +100,7 @@ blink.mojom.LockHandleReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});
@@ -198,6 +199,7 @@ blink.mojom.LockRequestReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.LockRequest_Granted_ParamsSpec.$.decode(message.payload);
@@ -316,6 +318,7 @@ blink.mojom.LockManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.LockManager_RequestLock_ParamsSpec.$.decode(message.payload);

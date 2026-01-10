@@ -267,6 +267,7 @@ ash.scanning.mojom.ScanJobObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.scanning.mojom.ScanJobObserver_OnPageProgress_ParamsSpec.$.decode(message.payload);
@@ -465,6 +466,7 @@ ash.scanning.mojom.ScanServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.scanning.mojom.ScanService_GetScanners_ParamsSpec.$.decode(message.payload);
@@ -659,6 +661,7 @@ ash.scanning.mojom.MultiPageScanControllerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.scanning.mojom.MultiPageScanController_ScanNextPage_ParamsSpec.$.decode(message.payload);

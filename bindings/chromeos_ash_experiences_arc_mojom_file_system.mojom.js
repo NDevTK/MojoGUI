@@ -648,6 +648,7 @@ arc.mojom.FileSystemHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.FileSystemHost_GetFileName_ParamsSpec.$.decode(message.payload);
@@ -1360,6 +1361,7 @@ arc.mojom.FileSystemInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 6: {
           const params = arc.mojom.FileSystemInstance_AddWatcher_ParamsSpec.$.decode(message.payload);

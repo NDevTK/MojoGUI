@@ -148,6 +148,7 @@ arc.mojom.ScreenCaptureHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.ScreenCaptureHost_RequestPermission_ParamsSpec.$.decode(message.payload);
@@ -288,6 +289,7 @@ arc.mojom.ScreenCaptureSessionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.ScreenCaptureSession_SetOutputBufferDeprecated_ParamsSpec.$.decode(message.payload);
@@ -398,6 +400,7 @@ arc.mojom.ScreenCaptureInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.ScreenCaptureInstance_Init_ParamsSpec.$.decode(message.payload);
@@ -491,6 +494,7 @@ arc.mojom.ScreenCaptureSessionNotifierReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.ScreenCaptureSessionNotifier_ForceUpdate_ParamsSpec.$.decode(message.payload);

@@ -630,6 +630,7 @@ arc.mojom.RfcommListeningSocketClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.RfcommListeningSocketClient_OnAccepted_ParamsSpec.$.decode(message.payload);
@@ -733,6 +734,7 @@ arc.mojom.RfcommConnectingSocketClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.RfcommConnectingSocketClient_OnConnected_ParamsSpec.$.decode(message.payload);
@@ -826,6 +828,7 @@ arc.mojom.BluetoothListenSocketClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.BluetoothListenSocketClient_OnAccepted_ParamsSpec.$.decode(message.payload);
@@ -929,6 +932,7 @@ arc.mojom.BluetoothConnectSocketClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.BluetoothConnectSocketClient_OnConnected_ParamsSpec.$.decode(message.payload);
@@ -1834,6 +1838,7 @@ arc.mojom.BluetoothHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.BluetoothHost_EnableAdapter_ParamsSpec.$.decode(message.payload);
@@ -2615,6 +2620,7 @@ arc.mojom.BluetoothInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 18: {
           const params = arc.mojom.BluetoothInstance_Init_ParamsSpec.$.decode(message.payload);

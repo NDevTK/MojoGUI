@@ -169,6 +169,7 @@ mahi.mojom.ContentExtractionServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$.decode(message.payload);
@@ -290,6 +291,7 @@ mahi.mojom.ContentExtractionServiceFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$.decode(message.payload);

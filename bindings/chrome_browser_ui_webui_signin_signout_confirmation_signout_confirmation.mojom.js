@@ -117,6 +117,7 @@ signout_confirmation.mojom.PageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$.decode(message.payload);
@@ -267,6 +268,7 @@ signout_confirmation.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$.decode(message.payload);
@@ -375,6 +377,7 @@ signout_confirmation.mojom.PageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$.decode(message.payload);

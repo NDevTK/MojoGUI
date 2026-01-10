@@ -142,6 +142,7 @@ media.mojom.VideoFrameHandleReleaserReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec.$.decode(message.payload);
@@ -343,6 +344,7 @@ media.mojom.VideoDecoderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoDecoder_GetSupportedConfigs_ParamsSpec.$.decode(message.payload);
@@ -513,6 +515,7 @@ media.mojom.VideoDecoderClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec.$.decode(message.payload);

@@ -687,6 +687,7 @@ blink.mojom.WebBluetoothServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WebBluetoothService_GetAvailability_ParamsSpec.$.decode(message.payload);
@@ -950,6 +951,7 @@ blink.mojom.WebBluetoothServerClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec.$.decode(message.payload);
@@ -1038,6 +1040,7 @@ blink.mojom.WebBluetoothCharacteristicClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec.$.decode(message.payload);
@@ -1126,6 +1129,7 @@ blink.mojom.WebBluetoothAdvertisementClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WebBluetoothAdvertisementClient_AdvertisingEvent_ParamsSpec.$.decode(message.payload);

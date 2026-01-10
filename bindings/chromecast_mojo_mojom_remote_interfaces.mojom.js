@@ -101,6 +101,7 @@ chromecast.mojom.RemoteInterfacesReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec.$.decode(message.payload);

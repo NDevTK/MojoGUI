@@ -98,6 +98,7 @@ composebox.mojom.PageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = composebox.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
@@ -266,6 +267,7 @@ composebox.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = composebox.mojom.PageHandler_FocusChanged_ParamsSpec.$.decode(message.payload);
@@ -363,6 +365,7 @@ composebox.mojom.PageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});

@@ -551,6 +551,7 @@ mojom.user_education_internals.UserEducationInternalsPageHandlerReceiver = class
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = mojom.user_education_internals.UserEducationInternalsPageHandler_GetTutorials_ParamsSpec.$.decode(message.payload);

@@ -119,6 +119,7 @@ history_sync_optin.mojom.PageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec.$.decode(message.payload);
@@ -252,6 +253,7 @@ history_sync_optin.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = history_sync_optin.mojom.PageHandler_Accept_ParamsSpec.$.decode(message.payload);
@@ -371,6 +373,7 @@ history_sync_optin.mojom.PageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec.$.decode(message.payload);

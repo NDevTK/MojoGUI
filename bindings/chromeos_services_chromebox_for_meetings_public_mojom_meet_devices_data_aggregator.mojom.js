@@ -114,6 +114,7 @@ ash.cfm.mojom.DataWatchDogReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec.$.decode(message.payload);
@@ -245,6 +246,7 @@ ash.cfm.mojom.DataSourceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.cfm.mojom.DataSource_Fetch_ParamsSpec.$.decode(message.payload);
@@ -407,6 +409,7 @@ ash.cfm.mojom.DataAggregatorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec.$.decode(message.payload);

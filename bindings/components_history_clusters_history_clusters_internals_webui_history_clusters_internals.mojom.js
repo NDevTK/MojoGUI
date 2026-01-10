@@ -92,6 +92,7 @@ history_clusters_internals.mojom.PageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
@@ -200,6 +201,7 @@ history_clusters_internals.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec.$.decode(message.payload);
@@ -299,6 +301,7 @@ history_clusters_internals.mojom.PageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.decode(message.payload);

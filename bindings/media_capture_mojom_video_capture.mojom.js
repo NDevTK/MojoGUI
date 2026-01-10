@@ -209,6 +209,7 @@ media.mojom.VideoCaptureObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoCaptureObserver_OnStateChanged_ParamsSpec.$.decode(message.payload);
@@ -472,6 +473,7 @@ media.mojom.VideoCaptureHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.VideoCaptureHost_Start_ParamsSpec.$.decode(message.payload);

@@ -148,6 +148,7 @@ metrics_reporter.mojom.PageMetricsHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec.$.decode(message.payload);
@@ -279,6 +280,7 @@ metrics_reporter.mojom.PageMetricsReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec.$.decode(message.payload);

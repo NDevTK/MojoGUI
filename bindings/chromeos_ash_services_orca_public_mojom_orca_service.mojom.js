@@ -524,6 +524,7 @@ ash.orca.mojom.EditorClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec.$.decode(message.payload);
@@ -717,6 +718,7 @@ ash.orca.mojom.EditorClientConnectorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec.$.decode(message.payload);
@@ -805,6 +807,7 @@ ash.orca.mojom.EditorEventSinkReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec.$.decode(message.payload);
@@ -1017,6 +1020,7 @@ ash.orca.mojom.SystemActuatorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.orca.mojom.SystemActuator_InsertText_ParamsSpec.$.decode(message.payload);
@@ -1151,6 +1155,7 @@ ash.orca.mojom.TextQueryProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.orca.mojom.TextQueryProvider_Process_ParamsSpec.$.decode(message.payload);
@@ -1249,6 +1254,7 @@ ash.orca.mojom.OrcaServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.orca.mojom.OrcaService_BindEditor_ParamsSpec.$.decode(message.payload);

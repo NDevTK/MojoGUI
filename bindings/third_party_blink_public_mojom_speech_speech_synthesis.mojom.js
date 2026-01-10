@@ -141,6 +141,7 @@ blink.mojom.SpeechSynthesisVoiceListObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SpeechSynthesisVoiceListObserver_OnSetVoiceList_ParamsSpec.$.decode(message.payload);
@@ -323,6 +324,7 @@ blink.mojom.SpeechSynthesisClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SpeechSynthesisClient_OnStartedSpeaking_ParamsSpec.$.decode(message.payload);
@@ -503,6 +505,7 @@ blink.mojom.SpeechSynthesisReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SpeechSynthesis_AddVoiceListObserver_ParamsSpec.$.decode(message.payload);

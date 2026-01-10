@@ -394,6 +394,7 @@ viz.mojom.DisplayPrivateReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.DisplayPrivate_SetDisplayVisible_ParamsSpec.$.decode(message.payload);
@@ -685,6 +686,7 @@ viz.mojom.DisplayClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.DisplayClient_OnDisplayReceivedCALayerParams_ParamsSpec.$.decode(message.payload);

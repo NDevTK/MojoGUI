@@ -213,6 +213,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = compose.mojom.ComposeSessionUntrustedPageHandlerFactory_CreateComposeSessionUntrustedPageHandler_ParamsSpec.$.decode(message.payload);
@@ -583,6 +584,7 @@ compose.mojom.ComposeSessionUntrustedPageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = compose.mojom.ComposeSessionUntrustedPageHandler_LogCancelEdit_ParamsSpec.$.decode(message.payload);
@@ -832,6 +834,7 @@ compose.mojom.ComposeClientUntrustedPageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = compose.mojom.ComposeClientUntrustedPageHandler_ShowUI_ParamsSpec.$.decode(message.payload);
@@ -951,6 +954,7 @@ compose.mojom.ComposeUntrustedDialogReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = compose.mojom.ComposeUntrustedDialog_ResponseReceived_ParamsSpec.$.decode(message.payload);

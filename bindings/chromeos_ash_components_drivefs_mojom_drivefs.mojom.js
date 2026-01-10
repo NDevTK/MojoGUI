@@ -714,6 +714,7 @@ drivefs.mojom.DriveFsBootstrapReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = drivefs.mojom.DriveFsBootstrap_Init_ParamsSpec.$.decode(message.payload);
@@ -1535,6 +1536,7 @@ drivefs.mojom.DriveFsReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = drivefs.mojom.DriveFs_GetMetadata_ParamsSpec.$.decode(message.payload);
@@ -2294,6 +2296,7 @@ drivefs.mojom.DriveFsDelegateReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = drivefs.mojom.DriveFsDelegate_GetAccessToken_ParamsSpec.$.decode(message.payload);
@@ -2513,6 +2516,7 @@ drivefs.mojom.SearchQueryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = drivefs.mojom.SearchQuery_GetNextPage_ParamsSpec.$.decode(message.payload);
@@ -2655,6 +2659,7 @@ drivefs.mojom.HttpDelegateReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = drivefs.mojom.HttpDelegate_GetRequestBody_ParamsSpec.$.decode(message.payload);

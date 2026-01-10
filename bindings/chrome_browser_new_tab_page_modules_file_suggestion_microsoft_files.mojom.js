@@ -121,6 +121,7 @@ file_suggestion.mojom.MicrosoftFilesPageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = file_suggestion.mojom.MicrosoftFilesPageHandler_GetFiles_ParamsSpec.$.decode(message.payload);

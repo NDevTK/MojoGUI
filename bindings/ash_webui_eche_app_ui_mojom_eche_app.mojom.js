@@ -234,6 +234,7 @@ ash.eche_app.mojom.SignalingMessageExchangerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.eche_app.mojom.SignalingMessageExchanger_SendSignalingMessage_ParamsSpec.$.decode(message.payload);
@@ -332,6 +333,7 @@ ash.eche_app.mojom.SignalingMessageObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.eche_app.mojom.SignalingMessageObserver_OnReceivedSignalingMessage_ParamsSpec.$.decode(message.payload);
@@ -441,6 +443,7 @@ ash.eche_app.mojom.SystemInfoProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.eche_app.mojom.SystemInfoProvider_GetSystemInfo_ParamsSpec.$.decode(message.payload);
@@ -573,6 +576,7 @@ ash.eche_app.mojom.SystemInfoObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.eche_app.mojom.SystemInfoObserver_OnScreenBacklightStateChanged_ParamsSpec.$.decode(message.payload);
@@ -708,6 +712,7 @@ ash.eche_app.mojom.AccessibilityProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.eche_app.mojom.AccessibilityProvider_HandleAccessibilityEventReceived_ParamsSpec.$.decode(message.payload);
@@ -872,6 +877,7 @@ ash.eche_app.mojom.AccessibilityObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.eche_app.mojom.AccessibilityObserver_EnableAccessibilityTreeStreaming_ParamsSpec.$.decode(message.payload);
@@ -992,6 +998,7 @@ ash.eche_app.mojom.UidGeneratorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.eche_app.mojom.UidGenerator_GetUid_ParamsSpec.$.decode(message.payload);
@@ -1104,6 +1111,7 @@ ash.eche_app.mojom.NotificationGeneratorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.eche_app.mojom.NotificationGenerator_ShowNotification_ParamsSpec.$.decode(message.payload);
@@ -1228,6 +1236,7 @@ ash.eche_app.mojom.DisplayStreamHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.eche_app.mojom.DisplayStreamHandler_StartStreaming_ParamsSpec.$.decode(message.payload);
@@ -1326,6 +1335,7 @@ ash.eche_app.mojom.StreamActionObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.eche_app.mojom.StreamActionObserver_OnStreamAction_ParamsSpec.$.decode(message.payload);
@@ -1414,6 +1424,7 @@ ash.eche_app.mojom.StreamOrientationObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.eche_app.mojom.StreamOrientationObserver_OnStreamOrientationChanged_ParamsSpec.$.decode(message.payload);
@@ -1502,6 +1513,7 @@ ash.eche_app.mojom.ConnectionStatusObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.eche_app.mojom.ConnectionStatusObserver_OnConnectionStatusChanged_ParamsSpec.$.decode(message.payload);
@@ -1605,6 +1617,7 @@ ash.eche_app.mojom.KeyboardLayoutHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.eche_app.mojom.KeyboardLayoutHandler_RequestCurrentKeyboardLayout_ParamsSpec.$.decode(message.payload);
@@ -1701,6 +1714,7 @@ ash.eche_app.mojom.KeyboardLayoutObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.eche_app.mojom.KeyboardLayoutObserver_OnKeyboardLayoutChanged_ParamsSpec.$.decode(message.payload);

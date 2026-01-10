@@ -243,6 +243,7 @@ ash.os_feedback_ui.mojom.HelpContentProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.os_feedback_ui.mojom.HelpContentProvider_GetHelpContents_ParamsSpec.$.decode(message.payload);
@@ -541,6 +542,7 @@ ash.os_feedback_ui.mojom.FeedbackServiceProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.os_feedback_ui.mojom.FeedbackServiceProvider_GetFeedbackContext_ParamsSpec.$.decode(message.payload);

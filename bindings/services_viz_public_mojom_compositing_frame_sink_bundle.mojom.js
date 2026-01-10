@@ -181,6 +181,7 @@ viz.mojom.FrameSinkBundleReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.FrameSinkBundle_SetNeedsBeginFrame_ParamsSpec.$.decode(message.payload);
@@ -315,6 +316,7 @@ viz.mojom.FrameSinkBundleClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.FrameSinkBundleClient_FlushNotifications_ParamsSpec.$.decode(message.payload);

@@ -100,6 +100,7 @@ heap_profiling.mojom.SnapshotControllerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec.$.decode(message.payload);

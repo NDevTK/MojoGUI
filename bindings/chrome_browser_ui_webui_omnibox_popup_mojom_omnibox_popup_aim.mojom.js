@@ -98,6 +98,7 @@ omnibox_popup_aim.mojom.PageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = omnibox_popup_aim.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
@@ -201,6 +202,7 @@ omnibox_popup_aim.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec.$.decode(message.payload);
@@ -347,6 +349,7 @@ omnibox_popup_aim.mojom.PageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = omnibox_popup_aim.mojom.Page_OnPopupShown_ParamsSpec.$.decode(message.payload);

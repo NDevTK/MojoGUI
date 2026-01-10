@@ -212,6 +212,7 @@ viz.mojom.LayerContextReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.LayerContext_SetVisible_ParamsSpec.$.decode(message.payload);
@@ -327,6 +328,7 @@ viz.mojom.LayerContextClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$.decode(message.payload);

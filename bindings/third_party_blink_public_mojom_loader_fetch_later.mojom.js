@@ -109,6 +109,7 @@ blink.mojom.FetchLaterLoaderFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FetchLaterLoaderFactory_CreateLoader_ParamsSpec.$.decode(message.payload);
@@ -216,6 +217,7 @@ blink.mojom.FetchLaterLoaderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FetchLaterLoader_SendNow_ParamsSpec.$.decode(message.payload);

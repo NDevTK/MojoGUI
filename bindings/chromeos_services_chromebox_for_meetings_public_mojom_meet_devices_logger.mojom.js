@@ -136,6 +136,7 @@ chromeos.cfm.mojom.LoggerStateObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cfm.mojom.LoggerStateObserver_OnNotifyState_ParamsSpec.$.decode(message.payload);
@@ -247,6 +248,7 @@ chromeos.cfm.mojom.MeetDevicesLoggerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.cfm.mojom.MeetDevicesLogger_Enqueue_ParamsSpec.$.decode(message.payload);

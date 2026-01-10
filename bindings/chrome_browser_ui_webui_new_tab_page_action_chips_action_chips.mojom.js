@@ -121,6 +121,7 @@ action_chips.mojom.ActionChipsHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec.$.decode(message.payload);
@@ -209,6 +210,7 @@ action_chips.mojom.PageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec.$.decode(message.payload);
@@ -298,6 +300,7 @@ action_chips.mojom.ActionChipsHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec.$.decode(message.payload);

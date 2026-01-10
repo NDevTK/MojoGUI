@@ -403,6 +403,7 @@ autofill.mojom.AutofillAgentReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = autofill.mojom.AutofillAgent_TriggerFormExtraction_ParamsSpec.$.decode(message.payload);
@@ -821,6 +822,7 @@ autofill.mojom.PasswordAutofillAgentReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = autofill.mojom.PasswordAutofillAgent_ApplyFillDataOnParsingCompletion_ParamsSpec.$.decode(message.payload);
@@ -1060,6 +1062,7 @@ autofill.mojom.PasswordGenerationAgentReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = autofill.mojom.PasswordGenerationAgent_GeneratedPasswordAccepted_ParamsSpec.$.decode(message.payload);

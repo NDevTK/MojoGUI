@@ -458,6 +458,7 @@ device.mojom.HidManagerClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$.decode(message.payload);
@@ -625,6 +626,7 @@ device.mojom.HidManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$.decode(message.payload);
@@ -822,6 +824,7 @@ device.mojom.HidConnectionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.HidConnection_Read_ParamsSpec.$.decode(message.payload);
@@ -950,6 +953,7 @@ device.mojom.HidConnectionClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$.decode(message.payload);
@@ -1022,6 +1026,7 @@ device.mojom.HidConnectionWatcherReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});

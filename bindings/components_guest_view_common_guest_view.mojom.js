@@ -72,6 +72,7 @@ guest_view.mojom.ViewHandleReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});
@@ -180,6 +181,7 @@ guest_view.mojom.GuestViewHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$.decode(message.payload);

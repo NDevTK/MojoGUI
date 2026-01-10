@@ -211,6 +211,7 @@ media.mojom.AudioDecoderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AudioDecoder_GetSupportedConfigs_ParamsSpec.$.decode(message.payload);
@@ -364,6 +365,7 @@ media.mojom.AudioDecoderClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AudioDecoderClient_OnBufferDecoded_ParamsSpec.$.decode(message.payload);

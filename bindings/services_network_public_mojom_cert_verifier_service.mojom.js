@@ -120,6 +120,7 @@ cert_verifier.mojom.URLLoaderFactoryConnectorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = cert_verifier.mojom.URLLoaderFactoryConnector_CreateURLLoaderFactory_ParamsSpec.$.decode(message.payload);
@@ -268,6 +269,7 @@ cert_verifier.mojom.CertVerifierServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = cert_verifier.mojom.CertVerifierService_EnableNetworkAccess_ParamsSpec.$.decode(message.payload);
@@ -376,6 +378,7 @@ cert_verifier.mojom.CertVerifierServiceClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = cert_verifier.mojom.CertVerifierServiceClient_OnCertVerifierChanged_ParamsSpec.$.decode(message.payload);
@@ -465,6 +468,7 @@ cert_verifier.mojom.CertVerifierRequestReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = cert_verifier.mojom.CertVerifierRequest_Complete_ParamsSpec.$.decode(message.payload);

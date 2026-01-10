@@ -136,6 +136,7 @@ blink.mojom.FileSystemAccessDirectoryEntriesListenerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FileSystemAccessDirectoryEntriesListener_DidReadDirectory_ParamsSpec.$.decode(message.payload);
@@ -490,6 +491,7 @@ blink.mojom.FileSystemAccessDirectoryHandleReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.FileSystemAccessDirectoryHandle_GetPermissionStatus_ParamsSpec.$.decode(message.payload);

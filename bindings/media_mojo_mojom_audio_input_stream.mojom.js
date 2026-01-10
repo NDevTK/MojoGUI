@@ -118,6 +118,7 @@ media.mojom.AudioInputStreamReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AudioInputStream_Record_ParamsSpec.$.decode(message.payload);
@@ -227,6 +228,7 @@ media.mojom.AudioInputStreamClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AudioInputStreamClient_OnError_ParamsSpec.$.decode(message.payload);
@@ -319,6 +321,7 @@ media.mojom.AudioInputStreamObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.AudioInputStreamObserver_DidStartRecording_ParamsSpec.$.decode(message.payload);

@@ -376,6 +376,7 @@ blink.mojom.SynchronousCompositorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SynchronousCompositor_DemandDrawHwAsync_ParamsSpec.$.decode(message.payload);
@@ -595,6 +596,7 @@ blink.mojom.SynchronousCompositorHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SynchronousCompositorHost_LayerTreeFrameSinkCreated_ParamsSpec.$.decode(message.payload);
@@ -718,6 +720,7 @@ blink.mojom.SynchronousCompositorControlHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.SynchronousCompositorControlHost_ReturnFrame_ParamsSpec.$.decode(message.payload);

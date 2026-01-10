@@ -336,6 +336,7 @@ tab_search.mojom.PageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = tab_search.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
@@ -972,6 +973,7 @@ tab_search.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = tab_search.mojom.PageHandler_CloseTab_ParamsSpec.$.decode(message.payload);
@@ -1436,6 +1438,7 @@ tab_search.mojom.PageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = tab_search.mojom.Page_TabOrganizationSessionUpdated_ParamsSpec.$.decode(message.payload);

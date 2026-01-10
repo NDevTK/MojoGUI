@@ -243,6 +243,7 @@ cros.mojom.KioskVisionObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.KioskVisionObserver_OnFrameProcessed_ParamsSpec.$.decode(message.payload);
@@ -349,6 +350,7 @@ cros.mojom.CameraHalDispatcherReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 5: {
           const params = cros.mojom.CameraHalDispatcher_RegisterClientWithToken_ParamsSpec.$.decode(message.payload);
@@ -510,6 +512,7 @@ cros.mojom.CrosCameraServiceObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.CrosCameraServiceObserver_CameraDeviceActivityChange_ParamsSpec.$.decode(message.payload);
@@ -769,6 +772,7 @@ cros.mojom.CrosCameraServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.CrosCameraService_GetCameraModule_ParamsSpec.$.decode(message.payload);

@@ -177,6 +177,7 @@ media_session.mojom.AudioFocusObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media_session.mojom.AudioFocusObserver_OnFocusGained_ParamsSpec.$.decode(message.payload);
@@ -312,6 +313,7 @@ media_session.mojom.AudioFocusRequestClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media_session.mojom.AudioFocusRequestClient_RequestAudioFocus_ParamsSpec.$.decode(message.payload);
@@ -628,6 +630,7 @@ media_session.mojom.AudioFocusManagerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media_session.mojom.AudioFocusManager_RequestAudioFocus_ParamsSpec.$.decode(message.payload);
@@ -807,6 +810,7 @@ media_session.mojom.AudioFocusManagerDebugReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media_session.mojom.AudioFocusManagerDebug_GetDebugInfoForRequest_ParamsSpec.$.decode(message.payload);

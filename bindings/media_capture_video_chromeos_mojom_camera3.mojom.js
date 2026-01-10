@@ -457,6 +457,7 @@ cros.mojom.Camera3CallbackOpsReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.Camera3CallbackOps_ProcessCaptureResult_ParamsSpec.$.decode(message.payload);
@@ -805,6 +806,7 @@ cros.mojom.Camera3DeviceOpsReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.Camera3DeviceOps_Initialize_ParamsSpec.$.decode(message.payload);

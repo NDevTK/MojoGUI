@@ -425,6 +425,7 @@ arc.mojom.NotificationsHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 7: {
           const params = arc.mojom.NotificationsHost_OnDoNotDisturbStatusUpdated_ParamsSpec.$.decode(message.payload);
@@ -785,6 +786,7 @@ arc.mojom.NotificationsInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 5: {
           const params = arc.mojom.NotificationsInstance_Init_ParamsSpec.$.decode(message.payload);

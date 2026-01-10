@@ -115,6 +115,7 @@ media.mojom.FlingingRendererClientExtensionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$.decode(message.payload);
@@ -247,6 +248,7 @@ media.mojom.MediaFoundationRendererExtensionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec.$.decode(message.payload);
@@ -341,6 +343,7 @@ media.mojom.MediaFoundationRendererObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});
@@ -424,6 +427,7 @@ media.mojom.MediaFoundationRendererNotifierReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$.decode(message.payload);

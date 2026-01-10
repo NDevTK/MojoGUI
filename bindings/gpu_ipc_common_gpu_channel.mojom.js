@@ -827,6 +827,7 @@ gpu.mojom.GpuChannelReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = gpu.mojom.GpuChannel_CrashForTesting_ParamsSpec.$.decode(message.payload);
@@ -1152,6 +1153,7 @@ gpu.mojom.CommandBufferReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = gpu.mojom.CommandBuffer_SetGetBuffer_ParamsSpec.$.decode(message.payload);
@@ -1336,6 +1338,7 @@ gpu.mojom.CommandBufferClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec.$.decode(message.payload);
@@ -1482,6 +1485,7 @@ gpu.mojom.DCOMPTextureReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = gpu.mojom.DCOMPTexture_StartListening_ParamsSpec.$.decode(message.payload);
@@ -1602,6 +1606,7 @@ gpu.mojom.DCOMPTextureClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = gpu.mojom.DCOMPTextureClient_OnSharedImageMailboxBound_ParamsSpec.$.decode(message.payload);
@@ -1695,6 +1700,7 @@ gpu.mojom.OverlayStateObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = gpu.mojom.OverlayStateObserver_OnStateChanged_ParamsSpec.$.decode(message.payload);

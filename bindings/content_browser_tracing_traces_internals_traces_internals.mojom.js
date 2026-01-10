@@ -204,6 +204,7 @@ traces_internals.mojom.TracesInternalsHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = traces_internals.mojom.TracesInternalsHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
@@ -703,6 +704,7 @@ traces_internals.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = traces_internals.mojom.PageHandler_StartTraceSession_ParamsSpec.$.decode(message.payload);
@@ -1001,6 +1003,7 @@ traces_internals.mojom.PageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = traces_internals.mojom.Page_OnTraceComplete_ParamsSpec.$.decode(message.payload);

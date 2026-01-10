@@ -491,6 +491,7 @@ payments.mojom.PaymentRequestClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = payments.mojom.PaymentRequestClient_OnPaymentMethodChange_ParamsSpec.$.decode(message.payload);
@@ -768,6 +769,7 @@ payments.mojom.PaymentRequestReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = payments.mojom.PaymentRequest_Init_ParamsSpec.$.decode(message.payload);

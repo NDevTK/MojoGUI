@@ -97,6 +97,7 @@ content.mojom.TestInterfaceForDeferReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.TestInterfaceForDefer_Ping_ParamsSpec.$.decode(message.payload);
@@ -175,6 +176,7 @@ content.mojom.TestInterfaceForGrantReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});
@@ -242,6 +244,7 @@ content.mojom.TestInterfaceForCancelReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});
@@ -309,6 +312,7 @@ content.mojom.TestInterfaceForUnexpectedReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
       }
     }});
@@ -391,6 +395,7 @@ content.mojom.MojoContextProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.MojoContextProvider_GrantAll_ParamsSpec.$.decode(message.payload);

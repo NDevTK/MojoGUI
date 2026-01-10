@@ -245,6 +245,7 @@ fuzz.mojom.FuzzDummyInterfaceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = fuzz.mojom.FuzzDummyInterface_Ping_ParamsSpec.$.decode(message.payload);
@@ -449,6 +450,7 @@ fuzz.mojom.FuzzInterfaceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = fuzz.mojom.FuzzInterface_FuzzBasic_ParamsSpec.$.decode(message.payload);

@@ -110,6 +110,7 @@ glic.mojom.FrePageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.FrePageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
@@ -326,6 +327,7 @@ glic.mojom.FrePageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = glic.mojom.FrePageHandler_AcceptFre_ParamsSpec.$.decode(message.payload);

@@ -136,6 +136,7 @@ autofill_ml_internals.mojom.PageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec.$.decode(message.payload);
@@ -224,6 +225,7 @@ autofill_ml_internals.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec.$.decode(message.payload);

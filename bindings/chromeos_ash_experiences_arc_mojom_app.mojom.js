@@ -692,6 +692,7 @@ arc.mojom.AppHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 2: {
           const params = arc.mojom.AppHost_OnAppAddedDeprecated_ParamsSpec.$.decode(message.payload);
@@ -1440,6 +1441,7 @@ arc.mojom.AppInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 21: {
           const params = arc.mojom.AppInstance_Init_ParamsSpec.$.decode(message.payload);

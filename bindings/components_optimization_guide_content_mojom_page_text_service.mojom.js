@@ -119,6 +119,7 @@ optimization_guide.mojom.PageTextConsumerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec.$.decode(message.payload);
@@ -213,6 +214,7 @@ optimization_guide.mojom.PageTextServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec.$.decode(message.payload);

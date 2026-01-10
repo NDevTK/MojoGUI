@@ -119,6 +119,7 @@ auction_worklet.mojom.LoadSellerWorkletClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = auction_worklet.mojom.LoadSellerWorkletClient_SellerWorkletLoaded_ParamsSpec.$.decode(message.payload);
@@ -266,6 +267,7 @@ auction_worklet.mojom.AuctionWorkletServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = auction_worklet.mojom.AuctionWorkletService_SetTrustedSignalsCache_ParamsSpec.$.decode(message.payload);

@@ -165,6 +165,7 @@ attribution_reporting.mojom.DataHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec.$.decode(message.payload);

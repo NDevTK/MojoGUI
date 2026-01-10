@@ -257,6 +257,7 @@ arc.mojom.InputConnectionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.InputConnection_CommitText_ParamsSpec.$.decode(message.payload);
@@ -418,6 +419,7 @@ arc.mojom.InputMethodManagerHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.InputMethodManagerHost_OnActiveImeChanged_ParamsSpec.$.decode(message.payload);
@@ -629,6 +631,7 @@ arc.mojom.InputMethodManagerInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.InputMethodManagerInstance_Init_ParamsSpec.$.decode(message.payload);

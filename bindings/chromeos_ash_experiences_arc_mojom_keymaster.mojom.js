@@ -357,6 +357,7 @@ arc.mojom.KeymasterHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.KeymasterHost_GetServer_ParamsSpec.$.decode(message.payload);
@@ -456,6 +457,7 @@ arc.mojom.KeymasterInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.KeymasterInstance_Init_ParamsSpec.$.decode(message.payload);
@@ -836,6 +838,7 @@ arc.mojom.KeymasterServerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.KeymasterServer_SetSystemVersion_ParamsSpec.$.decode(message.payload);

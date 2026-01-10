@@ -105,6 +105,7 @@ blink.mojom.ColorChooserFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ColorChooserFactory_OpenColorChooser_ParamsSpec.$.decode(message.payload);
@@ -193,6 +194,7 @@ blink.mojom.ColorChooserReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec.$.decode(message.payload);
@@ -281,6 +283,7 @@ blink.mojom.ColorChooserClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec.$.decode(message.payload);
@@ -375,6 +378,7 @@ blink.mojom.EyeDropperChooserReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.EyeDropperChooser_Choose_ParamsSpec.$.decode(message.payload);

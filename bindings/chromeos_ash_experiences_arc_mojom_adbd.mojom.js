@@ -102,6 +102,7 @@ arc.mojom.AdbdMonitorHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.AdbdMonitorHost_AdbdStarted_ParamsSpec.$.decode(message.payload);
@@ -200,6 +201,7 @@ arc.mojom.AdbdMonitorInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.AdbdMonitorInstance_Init_ParamsSpec.$.decode(message.payload);

@@ -1876,6 +1876,7 @@ blink.mojom.LocalFrameHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.LocalFrameHost_EnterFullscreen_ParamsSpec.$.decode(message.payload);
@@ -2434,6 +2435,7 @@ blink.mojom.NonAssociatedLocalFrameHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.NonAssociatedLocalFrameHost_MaybeStartOutermostMainFrameNavigation_ParamsSpec.$.decode(message.payload);
@@ -3519,6 +3521,7 @@ blink.mojom.LocalFrameReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.LocalFrame_GetTextSurroundingSelection_ParamsSpec.$.decode(message.payload);
@@ -4161,6 +4164,7 @@ blink.mojom.LocalMainFrameReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.LocalMainFrame_AnimateDoubleTapZoom_ParamsSpec.$.decode(message.payload);
@@ -4589,6 +4593,7 @@ blink.mojom.LocalMainFrameHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.LocalMainFrameHost_ScaleFactorChanged_ParamsSpec.$.decode(message.payload);

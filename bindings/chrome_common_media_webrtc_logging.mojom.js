@@ -113,6 +113,7 @@ chrome.mojom.WebRtcLoggingClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec.$.decode(message.payload);
@@ -221,6 +222,7 @@ chrome.mojom.WebRtcLoggingAgentReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec.$.decode(message.payload);

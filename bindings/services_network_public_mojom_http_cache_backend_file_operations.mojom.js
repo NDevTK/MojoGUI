@@ -144,6 +144,7 @@ network.mojom.FileEnumeratorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.FileEnumerator_GetNext_ParamsSpec.$.decode(message.payload);
@@ -419,6 +420,7 @@ network.mojom.HttpCacheBackendFileOperationsReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.HttpCacheBackendFileOperations_CreateDirectory_ParamsSpec.$.decode(message.payload);
@@ -595,6 +597,7 @@ network.mojom.HttpCacheBackendFileOperationsFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.HttpCacheBackendFileOperationsFactory_Create_ParamsSpec.$.decode(message.payload);

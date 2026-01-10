@@ -93,6 +93,7 @@ guest_contents.mojom.GuestContentsHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec.$.decode(message.payload);

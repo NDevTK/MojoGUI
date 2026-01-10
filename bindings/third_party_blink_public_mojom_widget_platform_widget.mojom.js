@@ -120,6 +120,7 @@ blink.mojom.WidgetCompositorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec.$.decode(message.payload);
@@ -336,6 +337,7 @@ blink.mojom.WidgetHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.WidgetHost_SetCursor_ParamsSpec.$.decode(message.payload);
@@ -580,6 +582,7 @@ blink.mojom.WidgetReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.Widget_ForceRedraw_ParamsSpec.$.decode(message.payload);
@@ -750,6 +753,7 @@ blink.mojom.RenderInputRouterClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec.$.decode(message.payload);

@@ -85,6 +85,7 @@ audio.mojom.DeviceListenerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = audio.mojom.DeviceListener_DevicesChanged_ParamsSpec.$.decode(message.payload);
@@ -173,6 +174,7 @@ audio.mojom.DeviceNotifierReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec.$.decode(message.payload);

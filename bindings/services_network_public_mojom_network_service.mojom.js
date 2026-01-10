@@ -217,6 +217,7 @@ network.mojom.GssapiLibraryLoadObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.GssapiLibraryLoadObserver_OnBeforeGssapiLibraryLoad_ParamsSpec.$.decode(message.payload);
@@ -1001,6 +1002,7 @@ network.mojom.NetworkServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.NetworkService_SetParams_ParamsSpec.$.decode(message.payload);
@@ -1400,6 +1402,7 @@ network.mojom.DurableMessageCollectorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.DurableMessageCollector_Configure_ParamsSpec.$.decode(message.payload);

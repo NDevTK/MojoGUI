@@ -119,6 +119,7 @@ content.mojom.ChildMemoryConsumerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec.$.decode(message.payload);
@@ -214,6 +215,7 @@ content.mojom.BrowserMemoryConsumerRegistryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec.$.decode(message.payload);

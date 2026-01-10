@@ -90,6 +90,7 @@ chromecast.mojom.AssistantMessagePipeReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec.$.decode(message.payload);
@@ -178,6 +179,7 @@ chromecast.mojom.AssistantMessageClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec.$.decode(message.payload);
@@ -268,6 +270,7 @@ chromecast.mojom.AssistantMessageServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec.$.decode(message.payload);

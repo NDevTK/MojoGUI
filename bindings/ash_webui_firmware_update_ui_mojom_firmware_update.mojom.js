@@ -180,6 +180,7 @@ ash.firmware_update.mojom.UpdateObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.firmware_update.mojom.UpdateObserver_OnUpdateListChanged_ParamsSpec.$.decode(message.payload);
@@ -268,6 +269,7 @@ ash.firmware_update.mojom.DeviceRequestObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.firmware_update.mojom.DeviceRequestObserver_OnDeviceRequest_ParamsSpec.$.decode(message.payload);
@@ -356,6 +358,7 @@ ash.firmware_update.mojom.UpdateProgressObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.firmware_update.mojom.UpdateProgressObserver_OnStatusChanged_ParamsSpec.$.decode(message.payload);
@@ -487,6 +490,7 @@ ash.firmware_update.mojom.UpdateProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.firmware_update.mojom.UpdateProvider_ObservePeripheralUpdates_ParamsSpec.$.decode(message.payload);
@@ -630,6 +634,7 @@ ash.firmware_update.mojom.InstallControllerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.firmware_update.mojom.InstallController_BeginUpdate_ParamsSpec.$.decode(message.payload);
@@ -727,6 +732,7 @@ ash.firmware_update.mojom.SystemUtilsReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.firmware_update.mojom.SystemUtils_Restart_ParamsSpec.$.decode(message.payload);

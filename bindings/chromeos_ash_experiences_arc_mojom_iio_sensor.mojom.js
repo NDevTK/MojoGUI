@@ -89,6 +89,7 @@ arc.mojom.IioSensorHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec.$.decode(message.payload);
@@ -198,6 +199,7 @@ arc.mojom.IioSensorInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.IioSensorInstance_Init_ParamsSpec.$.decode(message.payload);

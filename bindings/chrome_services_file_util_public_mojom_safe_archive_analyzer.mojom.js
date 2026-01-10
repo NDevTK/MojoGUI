@@ -236,6 +236,7 @@ chrome.mojom.SafeArchiveAnalyzerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec.$.decode(message.payload);
@@ -390,6 +391,7 @@ chrome.mojom.TemporaryFileGetterReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec.$.decode(message.payload);

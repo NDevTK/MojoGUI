@@ -212,6 +212,7 @@ crosapi.mojom.SearchResultsPublisherReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec.$.decode(message.payload);
@@ -306,6 +307,7 @@ crosapi.mojom.SearchControllerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.SearchController_Search_ParamsSpec.$.decode(message.payload);
@@ -400,6 +402,7 @@ crosapi.mojom.SearchResultConsumerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec.$.decode(message.payload);

@@ -107,6 +107,7 @@ chrome.mojom.ZipListenerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.ZipListener_OnProgress_ParamsSpec.$.decode(message.payload);
@@ -203,6 +204,7 @@ chrome.mojom.ZipFileCreatorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec.$.decode(message.payload);

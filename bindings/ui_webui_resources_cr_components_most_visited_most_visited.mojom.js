@@ -149,6 +149,7 @@ most_visited.mojom.MostVisitedPageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
@@ -502,6 +503,7 @@ most_visited.mojom.MostVisitedPageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec.$.decode(message.payload);
@@ -698,6 +700,7 @@ most_visited.mojom.MostVisitedPageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec.$.decode(message.payload);

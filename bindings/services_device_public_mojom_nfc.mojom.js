@@ -302,6 +302,7 @@ device.mojom.NFCReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.NFC_SetClient_ParamsSpec.$.decode(message.payload);
@@ -456,6 +457,7 @@ device.mojom.NFCClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.NFCClient_OnWatch_ParamsSpec.$.decode(message.payload);
@@ -566,6 +568,7 @@ device.mojom.RawNFCClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = device.mojom.RawNFCClient_OnWatch_ParamsSpec.$.decode(message.payload);

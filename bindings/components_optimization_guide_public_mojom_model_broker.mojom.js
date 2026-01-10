@@ -171,6 +171,7 @@ optimization_guide.mojom.ModelSolutionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$.decode(message.payload);
@@ -286,6 +287,7 @@ optimization_guide.mojom.ModelSubscriberReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = optimization_guide.mojom.ModelSubscriber_Unavailable_ParamsSpec.$.decode(message.payload);
@@ -380,6 +382,7 @@ optimization_guide.mojom.ModelBrokerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = optimization_guide.mojom.ModelBroker_Subscribe_ParamsSpec.$.decode(message.payload);

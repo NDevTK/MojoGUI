@@ -128,6 +128,7 @@ audio.mojom.DebugRecordingFileProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = audio.mojom.DebugRecordingFileProvider_CreateWavFile_ParamsSpec.$.decode(message.payload);
@@ -233,6 +234,7 @@ audio.mojom.DebugRecordingReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = audio.mojom.DebugRecording_Enable_ParamsSpec.$.decode(message.payload);

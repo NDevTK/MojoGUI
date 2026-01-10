@@ -88,6 +88,7 @@ ash.mojom.sample_swa.ChildUntrustedPageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec.$.decode(message.payload);
@@ -182,6 +183,7 @@ ash.mojom.sample_swa.ParentTrustedPageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec.$.decode(message.payload);

@@ -220,6 +220,7 @@ ash.media_app_ui.mojom.UntrustedServiceFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.media_app_ui.mojom.UntrustedServiceFactory_CreateOcrUntrustedService_ParamsSpec.$.decode(message.payload);
@@ -368,6 +369,7 @@ ash.media_app_ui.mojom.OcrUntrustedServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.media_app_ui.mojom.OcrUntrustedService_PageMetadataUpdated_ParamsSpec.$.decode(message.payload);
@@ -504,6 +506,7 @@ ash.media_app_ui.mojom.OcrUntrustedPageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.media_app_ui.mojom.OcrUntrustedPage_RequestBitmap_ParamsSpec.$.decode(message.payload);
@@ -655,6 +658,7 @@ ash.media_app_ui.mojom.MahiUntrustedServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.media_app_ui.mojom.MahiUntrustedService_OnPdfLoaded_ParamsSpec.$.decode(message.payload);
@@ -779,6 +783,7 @@ ash.media_app_ui.mojom.MahiUntrustedPageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.media_app_ui.mojom.MahiUntrustedPage_HidePdfContextMenu_ParamsSpec.$.decode(message.payload);
@@ -1002,6 +1007,7 @@ ash.media_app_ui.mojom.MantisUntrustedServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.media_app_ui.mojom.MantisUntrustedService_SegmentImage_ParamsSpec.$.decode(message.payload);
@@ -1151,6 +1157,7 @@ ash.media_app_ui.mojom.MantisUntrustedPageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.media_app_ui.mojom.MantisUntrustedPage_ReportMantisProgress_ParamsSpec.$.decode(message.payload);

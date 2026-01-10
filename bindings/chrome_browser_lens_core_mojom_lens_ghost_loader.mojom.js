@@ -86,6 +86,7 @@ lens.mojom.LensGhostLoaderPageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec.$.decode(message.payload);
@@ -173,6 +174,7 @@ lens.mojom.LensGhostLoaderPageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec.$.decode(message.payload);

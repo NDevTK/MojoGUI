@@ -347,6 +347,7 @@ chrome.mojom.ProfileImportObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.ProfileImportObserver_OnImportStart_ParamsSpec.$.decode(message.payload);
@@ -539,6 +540,7 @@ chrome.mojom.ProfileImportReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.ProfileImport_StartImport_ParamsSpec.$.decode(message.payload);

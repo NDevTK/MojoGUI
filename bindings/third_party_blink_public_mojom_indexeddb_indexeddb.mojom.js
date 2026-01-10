@@ -630,6 +630,7 @@ blink.mojom.IDBFactoryClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.IDBFactoryClient_Error_ParamsSpec.$.decode(message.payload);
@@ -788,6 +789,7 @@ blink.mojom.IDBDatabaseCallbacksReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.IDBDatabaseCallbacks_ForcedClose_ParamsSpec.$.decode(message.payload);
@@ -958,6 +960,7 @@ blink.mojom.IDBCursorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.IDBCursor_Advance_ParamsSpec.$.decode(message.payload);
@@ -1173,6 +1176,7 @@ blink.mojom.IDBTransactionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.IDBTransaction_CreateObjectStore_ParamsSpec.$.decode(message.payload);
@@ -1309,6 +1313,7 @@ blink.mojom.IDBDatabaseGetAllResultSinkReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.IDBDatabaseGetAllResultSink_ReceiveResults_ParamsSpec.$.decode(message.payload);
@@ -1720,6 +1725,7 @@ blink.mojom.IDBDatabaseReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.IDBDatabase_RenameObjectStore_ParamsSpec.$.decode(message.payload);
@@ -1971,6 +1977,7 @@ blink.mojom.IDBFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.IDBFactory_GetDatabaseInfo_ParamsSpec.$.decode(message.payload);

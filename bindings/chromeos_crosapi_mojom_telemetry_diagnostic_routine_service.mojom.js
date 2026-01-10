@@ -619,6 +619,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineControlReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.TelemetryDiagnosticRoutineControl_GetState_ParamsSpec.$.decode(message.payload);
@@ -723,6 +724,7 @@ crosapi.mojom.TelemetryDiagnosticRoutineObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.TelemetryDiagnosticRoutineObserver_OnRoutineStateChange_ParamsSpec.$.decode(message.payload);
@@ -835,6 +837,7 @@ crosapi.mojom.TelemetryDiagnosticRoutinesServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.TelemetryDiagnosticRoutinesService_CreateRoutine_ParamsSpec.$.decode(message.payload);

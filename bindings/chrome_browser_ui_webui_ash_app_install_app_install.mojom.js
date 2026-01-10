@@ -178,6 +178,7 @@ ash.app_install.mojom.AppInfoActionsReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec.$.decode(message.payload);
@@ -276,6 +277,7 @@ ash.app_install.mojom.ConnectionErrorActionsReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec.$.decode(message.payload);
@@ -364,6 +366,7 @@ ash.app_install.mojom.PageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
@@ -472,6 +475,7 @@ ash.app_install.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec.$.decode(message.payload);

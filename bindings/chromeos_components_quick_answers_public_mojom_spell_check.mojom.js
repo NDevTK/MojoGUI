@@ -96,6 +96,7 @@ quick_answers.mojom.SpellCheckServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec.$.decode(message.payload);
@@ -196,6 +197,7 @@ quick_answers.mojom.SpellCheckDictionaryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec.$.decode(message.payload);

@@ -88,6 +88,7 @@ ash.mojom.demo_mode.UntrustedPageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);
@@ -191,6 +192,7 @@ ash.mojom.demo_mode.UntrustedPageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec.$.decode(message.payload);

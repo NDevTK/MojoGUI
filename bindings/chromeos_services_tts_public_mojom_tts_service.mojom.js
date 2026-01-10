@@ -149,6 +149,7 @@ chromeos.tts.mojom.TtsServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.tts.mojom.TtsService_BindGoogleTtsStream_ParamsSpec.$.decode(message.payload);
@@ -361,6 +362,7 @@ chromeos.tts.mojom.GoogleTtsStreamReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.tts.mojom.GoogleTtsStream_InstallVoice_ParamsSpec.$.decode(message.payload);
@@ -581,6 +583,7 @@ chromeos.tts.mojom.PlaybackTtsStreamReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.tts.mojom.PlaybackTtsStream_Play_ParamsSpec.$.decode(message.payload);
@@ -745,6 +748,7 @@ chromeos.tts.mojom.TtsEventObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromeos.tts.mojom.TtsEventObserver_OnStart_ParamsSpec.$.decode(message.payload);

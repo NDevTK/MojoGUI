@@ -85,6 +85,7 @@ android_webview.mojom.RenderMessageFilterReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec.$.decode(message.payload);

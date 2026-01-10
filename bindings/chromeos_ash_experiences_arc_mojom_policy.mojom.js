@@ -180,6 +180,7 @@ arc.mojom.PolicyHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.PolicyHost_GetPolicies_ParamsSpec.$.decode(message.payload);
@@ -337,6 +338,7 @@ arc.mojom.PolicyInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 2: {
           const params = arc.mojom.PolicyInstance_Init_ParamsSpec.$.decode(message.payload);

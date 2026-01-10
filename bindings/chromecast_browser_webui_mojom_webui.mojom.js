@@ -96,6 +96,7 @@ chromecast.mojom.MessageCallbackReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$.decode(message.payload);
@@ -202,6 +203,7 @@ chromecast.mojom.WebUiReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$.decode(message.payload);
@@ -301,6 +303,7 @@ chromecast.mojom.ResourcesReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$.decode(message.payload);
@@ -414,6 +417,7 @@ chromecast.mojom.WebUiClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$.decode(message.payload);

@@ -122,6 +122,7 @@ chrome.mojom.RemovableStorageWriterReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.RemovableStorageWriter_Write_ParamsSpec.$.decode(message.payload);
@@ -231,6 +232,7 @@ chrome.mojom.RemovableStorageWriterClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.RemovableStorageWriterClient_Progress_ParamsSpec.$.decode(message.payload);

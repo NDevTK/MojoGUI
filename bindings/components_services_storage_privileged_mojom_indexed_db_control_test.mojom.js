@@ -128,6 +128,7 @@ storage.mojom.MockFailureInjectorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.MockFailureInjector_FailOperation_ParamsSpec.$.decode(message.payload);
@@ -387,6 +388,7 @@ storage.mojom.IndexedDBControlTestReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.IndexedDBControlTest_GetBaseDataPathForTesting_ParamsSpec.$.decode(message.payload);

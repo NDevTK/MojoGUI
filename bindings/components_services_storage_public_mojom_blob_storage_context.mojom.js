@@ -156,6 +156,7 @@ storage.mojom.BlobDataItemReaderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.BlobDataItemReader_Read_ParamsSpec.$.decode(message.payload);
@@ -322,6 +323,7 @@ storage.mojom.BlobStorageContextReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = storage.mojom.BlobStorageContext_RegisterFromDataItem_ParamsSpec.$.decode(message.payload);

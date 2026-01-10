@@ -290,6 +290,7 @@ system_media_controls.mojom.SystemMediaControlsReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = system_media_controls.mojom.SystemMediaControls_SetIsNextEnabled_ParamsSpec.$.decode(message.payload);
@@ -553,6 +554,7 @@ system_media_controls.mojom.SystemMediaControlsObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = system_media_controls.mojom.SystemMediaControlsObserver_OnNext_ParamsSpec.$.decode(message.payload);

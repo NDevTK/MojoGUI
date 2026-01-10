@@ -164,6 +164,7 @@ blink.mojom.EmbeddedWorkerInstanceClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec.$.decode(message.payload);
@@ -400,6 +401,7 @@ blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec.$.decode(message.payload);

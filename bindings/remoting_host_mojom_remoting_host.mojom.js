@@ -153,6 +153,7 @@ remoting.mojom.RemotingHostControlReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec.$.decode(message.payload);
@@ -269,6 +270,7 @@ remoting.mojom.DesktopSessionConnectionEventsReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec.$.decode(message.payload);
@@ -459,6 +461,7 @@ remoting.mojom.HostStatusObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec.$.decode(message.payload);

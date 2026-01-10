@@ -228,6 +228,7 @@ safe_browsing.mojom.SafeBrowsingReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = safe_browsing.mojom.SafeBrowsing_CreateCheckerAndCheck_ParamsSpec.$.decode(message.payload);
@@ -332,6 +333,7 @@ safe_browsing.mojom.ThreatReporterReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = safe_browsing.mojom.ThreatReporter_GetThreatDOMDetails_ParamsSpec.$.decode(message.payload);
@@ -434,6 +436,7 @@ safe_browsing.mojom.PhishingDetectorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = safe_browsing.mojom.PhishingDetector_StartPhishingDetection_ParamsSpec.$.decode(message.payload);
@@ -599,6 +602,7 @@ safe_browsing.mojom.PhishingModelSetterReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = safe_browsing.mojom.PhishingModelSetter_SetImageEmbeddingAndPhishingFlatBufferModel_ParamsSpec.$.decode(message.payload);
@@ -712,6 +716,7 @@ safe_browsing.mojom.PhishingModelSetterTestObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = safe_browsing.mojom.PhishingModelSetterTestObserver_PhishingModelUpdated_ParamsSpec.$.decode(message.payload);
@@ -807,6 +812,7 @@ safe_browsing.mojom.PhishingImageEmbedderDetectorReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = safe_browsing.mojom.PhishingImageEmbedderDetector_StartImageEmbedding_ParamsSpec.$.decode(message.payload);
@@ -920,6 +926,7 @@ safe_browsing.mojom.ExtensionWebRequestReporterReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = safe_browsing.mojom.ExtensionWebRequestReporter_SendWebRequestData_ParamsSpec.$.decode(message.payload);

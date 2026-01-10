@@ -91,6 +91,7 @@ metrics.mojom.SingleSampleMetricsProviderReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec.$.decode(message.payload);
@@ -179,6 +180,7 @@ metrics.mojom.SingleSampleMetricReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec.$.decode(message.payload);

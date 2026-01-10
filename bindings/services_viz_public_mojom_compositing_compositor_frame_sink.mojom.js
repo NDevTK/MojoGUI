@@ -231,6 +231,7 @@ viz.mojom.CompositorFrameSinkReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.CompositorFrameSink_SetParams_ParamsSpec.$.decode(message.payload);
@@ -431,6 +432,7 @@ viz.mojom.CompositorFrameSinkClientReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = viz.mojom.CompositorFrameSinkClient_DidReceiveCompositorFrameAck_ParamsSpec.$.decode(message.payload);

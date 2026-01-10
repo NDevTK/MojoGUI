@@ -144,6 +144,7 @@ service_manager.mojom.ServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = service_manager.mojom.Service_OnStart_ParamsSpec.$.decode(message.payload);

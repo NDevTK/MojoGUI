@@ -194,6 +194,7 @@ cros.mojom.CameraModuleCallbacksReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.CameraModuleCallbacks_CameraDeviceStatusChange_ParamsSpec.$.decode(message.payload);
@@ -379,6 +380,7 @@ cros.mojom.VendorTagOpsReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.VendorTagOps_GetTagCount_ParamsSpec.$.decode(message.payload);
@@ -677,6 +679,7 @@ cros.mojom.CameraModuleReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = cros.mojom.CameraModule_OpenDevice_ParamsSpec.$.decode(message.payload);

@@ -125,6 +125,7 @@ sharing.mojom.IncomingMessagesListenerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$.decode(message.payload);
@@ -217,6 +218,7 @@ sharing.mojom.ReceiveMessagesSessionReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec.$.decode(message.payload);
@@ -339,6 +341,7 @@ sharing.mojom.WebRtcSignalingMessengerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$.decode(message.payload);

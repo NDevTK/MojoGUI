@@ -125,6 +125,7 @@ chrome.mojom.PluginHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.PluginHost_OpenPDF_ParamsSpec.$.decode(message.payload);
@@ -214,6 +215,7 @@ chrome.mojom.PluginAuthHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.PluginAuthHost_BlockedUnauthorizedPlugin_ParamsSpec.$.decode(message.payload);
@@ -310,6 +312,7 @@ chrome.mojom.PluginInfoHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = chrome.mojom.PluginInfoHost_GetPluginInfo_ParamsSpec.$.decode(message.payload);

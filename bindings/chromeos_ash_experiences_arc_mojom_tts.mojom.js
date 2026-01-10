@@ -144,6 +144,7 @@ arc.mojom.TtsHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec.$.decode(message.payload);
@@ -288,6 +289,7 @@ arc.mojom.TtsInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 3: {
           const params = arc.mojom.TtsInstance_Init_ParamsSpec.$.decode(message.payload);

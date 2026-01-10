@@ -173,6 +173,7 @@ network.mojom.TCPBoundSocketReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.TCPBoundSocket_Listen_ParamsSpec.$.decode(message.payload);
@@ -380,6 +381,7 @@ network.mojom.TCPConnectedSocketReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.TCPConnectedSocket_UpgradeToTLS_ParamsSpec.$.decode(message.payload);
@@ -534,6 +536,7 @@ network.mojom.SocketObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.SocketObserver_OnReadError_ParamsSpec.$.decode(message.payload);
@@ -637,6 +640,7 @@ network.mojom.TCPServerSocketReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = network.mojom.TCPServerSocket_Accept_ParamsSpec.$.decode(message.payload);

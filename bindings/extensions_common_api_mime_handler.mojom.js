@@ -132,6 +132,7 @@ extensions.mime_handler.MimeHandlerServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec.$.decode(message.payload);
@@ -236,6 +237,7 @@ extensions.mime_handler.BeforeUnloadControlReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec.$.decode(message.payload);

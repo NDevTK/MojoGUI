@@ -103,6 +103,7 @@ drivefs.mojom.NativeMessagingPortReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec.$.decode(message.payload);
@@ -191,6 +192,7 @@ drivefs.mojom.NativeMessagingHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec.$.decode(message.payload);

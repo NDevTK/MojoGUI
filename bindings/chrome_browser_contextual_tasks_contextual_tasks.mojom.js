@@ -397,6 +397,7 @@ contextual_tasks.mojom.PageHandlerReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec.$.decode(message.payload);
@@ -794,6 +795,7 @@ contextual_tasks.mojom.PageReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = contextual_tasks.mojom.Page_SetThreadTitle_ParamsSpec.$.decode(message.payload);
@@ -948,6 +950,7 @@ contextual_tasks.mojom.PageHandlerFactoryReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = contextual_tasks.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.decode(message.payload);

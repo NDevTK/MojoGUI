@@ -510,6 +510,7 @@ crosapi.mojom.PrintServerObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.PrintServerObserver_OnPrintServersChanged_ParamsSpec.$.decode(message.payload);
@@ -623,6 +624,7 @@ crosapi.mojom.PrintJobObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.PrintJobObserver_OnPrintJobUpdateDeprecated_ParamsSpec.$.decode(message.payload);
@@ -716,6 +718,7 @@ crosapi.mojom.LocalPrintersObserverReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.LocalPrintersObserver_OnLocalPrintersUpdated_ParamsSpec.$.decode(message.payload);
@@ -1153,6 +1156,7 @@ crosapi.mojom.LocalPrinterReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = crosapi.mojom.LocalPrinter_GetPrinters_ParamsSpec.$.decode(message.payload);

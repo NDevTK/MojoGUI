@@ -2313,6 +2313,7 @@ arc.mojom.OemCryptoServiceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.OemCryptoService_InitializeDeprecated_ParamsSpec.$.decode(message.payload);
@@ -3243,6 +3244,7 @@ arc.mojom.OemCryptoHostReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 0: {
           const params = arc.mojom.OemCryptoHost_Connect_ParamsSpec.$.decode(message.payload);
@@ -3336,6 +3338,7 @@ arc.mojom.OemCryptoInstanceReceiver = class {
     this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
     this.endpoint.start({ onMessageReceived: (message) => {
       const header = message.header;
+      if (!header) return;
       switch (header.ordinal) {
         case 1: {
           const params = arc.mojom.OemCryptoInstance_Init_ParamsSpec.$.decode(message.payload);
