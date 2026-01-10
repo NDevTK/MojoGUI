@@ -26,7 +26,7 @@
                 OriginalProto.maybeHandleMessage = function (message) {
                     // Safely access the Global polyfill, not the closure one
                     const PCM = mojo.internal.interfaceSupport.PipeControlMessage;
-                    if (PCM && message.header.type === PCM.RUN_OR_CLOSE_PIPE_MESSAGE_ID) {
+                    if (PCM && message && message.header && message.header.type === PCM.RUN_OR_CLOSE_PIPE_MESSAGE_ID) {
                         // If it IS a control message, try to handle it (if the internal method exists)
                         // But usually we can just return false for simple interception scenarios to avoid more crashes
                         // Calling original might crash if it calls other things.
